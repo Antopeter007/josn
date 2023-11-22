@@ -1,0 +1,21 @@
+<div class="p-col-12 lcButton" *ngIf="!nudges.length">
+  <div class="p-col-8 buttonRightShift">
+    <div [class]="setDivStyle()">
+      <ng-container *ngFor= "let button of buttonItemList">
+        <!-- {{buttonItemList | json}} -->
+           <button role="button"  *ngIf = "button.render"
+             pButton
+             class="{{button.styleClass}}"
+             type="button"
+             label="{{button.buttonName | translate}}"
+             (click)="navigateButtonUrl(button.routerLink,button.queryParams)"
+             tabindex="0"
+           ></button>
+           <div *ngIf = "button.render &&  button.buttonType === 'threeDots'">
+           <a style= "margin-left: 1.4em"><em class="pi pi-ellipsis-v threeDots" tabindex="0"></em></a>
+          </div>
+        </ng-container>
+    </div>
+  </div>
+</div>
+

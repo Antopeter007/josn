@@ -1,0 +1,81 @@
+@import '../../../variables.scss';
+
+@mixin ux_login_styling($formFieldBorderBottom) {
+
+    fcc-common-login .ui-dropdown-panel {
+       border: 1px $borderSolid $GREY-07;
+    }
+    fcc-common-login .logo-img a:focus, .supportLink a:focus {
+        outline: 0.125em $borderSolid $primaryColor !important;
+      }
+    
+    fcc-common-login  .ui-float-label .ui-widget {
+        border: $borderNone;
+        border-bottom: 0.0625em $borderSolid $formFieldBorderBottom;
+        font-weight: normal;
+        border-radius: 0em;
+        background-color: transparent !important;
+      }
+
+      fcc-common-login .ui-dropdown {
+       border: $borderNone;
+   
+      }
+}
+
+@mixin Styling_of_logoutPageStyling($corpFontSize,$prodFontSize,$genericTextFontSize,$generictextWeight,$feedbacktextSize,
+$starIcontext,$starWeight,$charLeftSize) {
+
+    fcc-common-ux-logout .generic-text-bold .corpName {
+     font-size: $corpFontSize !important;
+    }    
+    fcc-common-ux-logout .generic-text-bold .prodName {
+     font-size: $prodFontSize !important;
+    }
+    fcc-common-ux-logout .generic-text {
+     font-size: $genericTextFontSize !important;
+    }
+    fcc-common-ux-logout .generic-text .timedOutMsg {
+     font-weight: $generictextWeight !important;
+    }
+    fcc-common-ux-logout #feedback-request {
+     font-size: $feedbacktextSize !important;
+    }
+    fcc-common-ux-logout .rating .ui-rating a .ui-rating-icon {
+     font-size: $starIcontext !important;
+     font-weight: $starWeight !important;
+    }
+    fcc-common-ux-logout #char-left {
+     font-size: $charLeftSize !important;
+    }
+}
+
+.FCC{
+// Default Variables
+$primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$formFieldBorderBottom:$CHARCOAL-F50;
+$SubHeaderColor:$CHARCOAL-A10;
+$MainHeadingFontSize:20px;
+$label-belowColor:$CHARCOAL-F50;
+$remembermeLabelColor: $CHARCOAL-F100;
+$corpFontSize: $font-size-1_4;
+$prodFontSize: $font-size-1_2;
+$genericTextFontSize: $font-size-1_6;
+$generictextWeight:$fontWeight-bold;
+$feedbacktextSize: $font-size-1_2;
+$starIcontext: $font-size-2_5;
+$starWeight: $fontWeight-lighter;
+$charLeftSize: $font-size-0_75;
+
+
+
+@include Styling_of_logoutPageStyling($corpFontSize,$prodFontSize,$genericTextFontSize,$generictextWeight,$feedbacktextSize,
+$starIcontext,$starWeight,$charLeftSize);
+
+
+    @include ux_login_styling($formFieldBorderBottom);
+}

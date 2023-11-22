@@ -1,0 +1,31 @@
+<div class="modal">
+    <ion-header-bar class="bar bar-header bar-dark">
+        <button class="button button-clear button-secondary" ng-click="vm.clearCurrencyModalValue()">{{"CLEAR" | translate}}</button>
+        <button class="button button-calm button-secondary" ng-click="vm.applyCurrency()">{{"APPLY" | translate}}</button>
+        <button class="button button-clear ion-android-close" ng-click="vm.closeCurrencyModal()"></button>
+    </ion-header-bar>
+    <ion-side-menus>
+        <ion-side-menu-content>
+            <ion-content>
+                <form>
+                    <div ng-show="vm.menuOption === 'currency'">
+                        <ion-radio name="currency" ng-model="vm.filterForm.account_ccy" ng-repeat="currency in vm.currencyModalData.currencies" ng-value="currency.ISOCODE">{{currency.ISOCODE}}</ion-radio>
+                    </div>
+                </form>
+            </ion-content>
+        </ion-side-menu-content>
+
+        <ion-side-menu expose-aside-when="(min-width:10px)" width="100" class="modal-menu" is-enabled="false" side="left">
+            <ion-content class="modal-menu">
+                <ion-list>
+                    <ion-item ng-repeat="menu in vm.currencyModalData.menus" class="modal-menu-item" ng-class="{'active': 'true'}">
+                        {{menu | uppercase | translate}}
+                    </ion-item>
+                 
+                </ion-list>
+
+            </ion-content>
+        </ion-side-menu>
+
+    </ion-side-menus>
+</div>

@@ -1,0 +1,53 @@
+@import './../../../../../styles/variables.scss';
+
+.pitrash {
+    display: none !important;
+}
+
+.fileAttachmentTable a:focus {
+  outline-color: $VIOLET-F100 !important;
+  outline-width: 0.25em !important;
+}
+
+.fileAttachmentTable em {
+  color: $GREY-08 !important;
+}
+
+.fieldvalue {
+  margin-top: -0.5em;
+}
+
+.viewModeMargin {
+  margin-top: 1.5em;
+}
+
+.Amt .fcc-field-message {
+  margin-top: -2em;
+}
+
+.Amt {
+  padding-right: 0.7em !important;
+}
+
+.Amt > div {
+  padding-left: 0em;
+  margin-left: -1.3em;
+  padding-right: 0em;
+}
+
+.currencyView .fieldvalue {
+  margin-top: 1em;
+}
+
+.messageStyle {
+  width: 63% !important;
+}
+
+.textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0em !important;
+}
+
+[dir="rtl"] .textarea.characterCountDivfield .characterCountValueField {
+  text-align: left;
+  padding-left: 0em !important;
+}

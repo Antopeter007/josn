@@ -1,0 +1,244 @@
+@import './../../../../../styles/variables.scss';
+
+.with-background {
+  padding-left: .5em !important;
+  background-image:
+    url('/content/FCCUI/assets/images/gradient-card-pattern@1x.png'),linear-gradient(to bottom, $VIOLET-F100, $FUCHSIA-F100);
+  width: 15.25em;
+  height: 5.7em;
+}
+
+.without-background {
+  padding-left: .5em !important;
+  background-image: url('/content/FCCUI/assets/images/white-card-pattern@1x.png');
+  width: 15.25em;
+  height: 5.7em;
+}
+
+.balance-view {
+ color: $BlueViolet;
+ font-weight:normal;
+}
+
+.currencyTypeActive {
+  color: $WHITE !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  width: auto !important;
+  font-family: 'Roboto-Thin' !important;
+}
+
+.currencyTypeInactive {
+  color: $DarkGrey-6 !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  width: auto !important;
+  font-family: 'Roboto-Thin' !important;
+}
+
+.amt{
+  color: $DarkBlue1 !important;
+  float: left !important;
+  display: inline !important;
+  width: 9em !important;
+  overflow: hidden !important;
+}
+
+.headerTitle{
+  font-family: Roboto;
+  font-size: 2em;
+}
+
+::ng-deep .mat-tab-label {
+  border: 0.1em solid !important;
+  border-top-left-radius: 0.4em !important;
+  border-top-right-radius: 0.4em !important;
+  margin-left: 0.2em !important;
+  margin-right: 0.2em !important;
+  height: auto;
+ }
+
+ :host ::ng-deep .mat-ink-bar {
+  background: $primaryColor !important;
+}
+
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  color: $WHITE !important;
+  opacity: $mat-tab-label-opacity !important;
+  background: $primaryColor !important;
+}
+
+::ng-deep.mat-tab-label:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label:not(.mat-tab-disabled) {
+  color: $DarkGrey-6 !important;
+  opacity: $mat-tab-label-opacity !important;
+}
+
+::ng-deep.widgetFilter{
+ color: $BLACK;
+}
+
+:host ::ng-deep .mat-tab-label-container{
+  margin-top: 2em !important;
+}
+
+:host ::ng-deep .mat-tab-label:focus {
+  border: $mat-tab-label-content-border !important;
+}
+
+:host ::ng-deep .mat-tab-body-content{
+  overflow: hidden !important;
+}
+
+.rtlWithout-Background {
+  @extend .without-background;
+  margin-left: 0.7em !important;
+  margin-right: 0.2em !important;
+}
+
+.rtlWith-Background {
+  @extend .with-background;
+  margin-left: 0.7em !important;
+  margin-right: 0.2em !important;
+}
+
+.rtlSpan {
+  float : left !important;
+  margin-right: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 0.25em;
+}
+
+.ltlSpan {
+  float : right !important;
+  margin-left: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 0.25em;
+}
+
+.rtlSpan .filterClass{
+  padding-right: 0.9em;
+}
+
+.ltlSpan .filterClass{
+  padding-left: 0.9em;
+  padding-right: 0.9em;
+}
+
+:host ::ng-deep .with-background .mat-button-toggle-label-content {
+  color: $WHITE !important;
+  line-height: 2.5em !important;
+  float: right !important;
+}
+
+:host ::ng-deep .without-background .mat-button-toggle-label-content{
+  color: $BLACK !important;
+  line-height: 2.5em !important;
+  float: right !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content span{
+  position: initial !important;
+}
+
+
+:host ::ng-deep .mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle{
+  border-left: solid 0.06em  !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+
+.rtlCurrencyType {
+  float: right !important;
+  padding-left: 0.3em !important;
+}
+
+.rtlCurrency-type {
+  @extend .currency-type;
+  float: right !important;
+  padding-left: 0.3em !important;
+}
+
+.amountSpan {
+  width: auto !important;
+  margin-left: 0.2em !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+}
+
+:host ::ng-deep .without-background .mat-button-toggle-label-content .amountSpan{
+  color : $primaryColor !important;
+}
+
+:host ::ng-deep .mat-tab-label .mat-tab-label-content {
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+
+  label {
+    font-weight: 300;
+    font-size: $font-size-12_1;
+  }
+  div {
+    font-weight: 300;
+
+    .currency-type {
+      font-size: $font-size-12_1 !important;
+      font-weight: bold !important;
+    }
+
+    b {
+      font-weight: bold !important;
+      font-size: $font-size-12_1 !important;
+    }
+  }
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle .mat-button-toggle-label-content {
+  font-size: 1em !important;
+}
+
+:host ::ng-deep .example-icon {
+  em {
+    margin-top: 0.5em;
+  }
+}
+
+:host ::ng-deep .mat-form-field-flex {
+  background: $WHITE !important;
+  width: 6em !important;
+  height: 0 !important;
+  padding: 0 0.5em !important;
+}
+
+.ltlSpan .graphClass{
+margin-left: 0.9em;
+cursor: pointer;
+padding: 0.3em;
+}
+.rtlSpan .graphClass{
+  padding-right: 0.9em;
+  cursor: pointer;
+}
+.toolbarclass {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+:host ::ng-deep .FCC .headerTitle {
+  padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .headerTitle {
+  padding-bottom: 0em !important;
+}
+
+.pi-trash {
+  font-size: 0.75em !important;
+}
+.filterText{
+  color: $BLACK;
+}

@@ -1,0 +1,79 @@
+@import './../../../../styles/variables.scss';
+::ng-deep.mat-tab-link,  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 0em !important;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    color: $infoLabelColor !important;
+  }
+  :host ::ng-deep .mat-tab-label-active {
+    color: $VIOLET-F100 !important;
+    opacity: 1 !important;
+}
+
+  :host ::ng-deep .tabGroup .mat-tab-group {
+    margin: 0 0 0 1em;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-group[dir="rtl"] {
+    margin: 0 1em 0 0;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-labels  {
+    height: 1.8em;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-label {
+    height: 1.8em !important;
+    margin: 0em !important;
+    border-radius: unset !important;
+    border: 1px solid $VIOLET-03 !important;
+    color: $VIOLET-03 !important;
+    opacity: 1 !important;
+  }
+
+  :host ::ng-deep .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+    display: none !important;
+  }
+  .widget-container {
+    padding-top: 3em;
+    margin-right: 0em;
+    .widget-header {
+      margin-top: 2em;
+      color: $primaryColor !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        margin: 0 0.5em;
+        color: $WHITE;
+        background-color: $VIOLET-F100;
+      }
+    }
+  }
+  :host ::ng-deep .widget-padding {
+    padding: 1 em !important;
+    background-color: #fafafa;
+  }
+  .widget-body {
+    padding-top: 0 !important;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-label .mat-tab-label-content {
+    font-weight: 500;
+    font-size: $font-size-14;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-label-active {
+    color: $WHITE !important;
+    opacity: 1 !important;
+  }
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    //color: $VIOLET-F100 !important;
+    opacity: $mat-tab-label-opacity !important;
+  }
+  :host ::ng-deep .mat-tab-group.mat-primary .mat-tab-label.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    border: 0.125em solid $VIOLET-03 !important;
+  }
+
+  :host ::ng-deep .mat-tab-body-content {
+    height: 100%;
+    overflow: hidden !important;
+}
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" strict="true">
+
+	<Appenders>
+		<RollingFile name="turbine" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/fcc-turbine_%d{yyyy-MM-dd-HHmmss}.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10485760"/>
+				<TimeBasedTriggeringPolicy interval="3600"/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="torque" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/fcc-torque.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="scheduler" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/fcc-scheduler.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>		
+		</RollingFile>
+		<RollingFile name="gtpaudit" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/fcc-audit.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<Console name="console">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+		</Console>
+		<RollingFile name="interfacemessage" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/fcc-interfacemessage.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %t -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="loaniq" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/loaniq.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="axis2" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/axis2.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="instanceId" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/instanceId.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="passwordMigration" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/passwordMigration.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="ehCache" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/ehCache.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>	
+		</RollingFile>
+		<RollingFile name="dwe" filePattern="${sys:applicationRoot}/logs/%d{yyyy-MM-dd}/dwe.log">
+			<PatternLayout pattern="[%d{E MMM dd HH:mm:ss z}] -- %-5p -- %c - %m%n"/>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB"/>
+			</Policies>	
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="turbine" />
+			<AppenderRef ref="console" />
+		</Root>
+		<Logger name="org.apache.torque" level="INFO" additivity="false">
+			<AppenderRef ref="torque" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="velocity" level="ERROR" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="scheduler" level="INFO" additivity="false">
+			<AppenderRef ref="scheduler" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="gtpaudit" level="ERROR" additivity="false">
+			<AppenderRef ref="gtpaudit" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="interfacemessage" level="INFO" additivity="false">
+			<AppenderRef ref="interfacemessage" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="httpclient" level="FATAL" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="httpclient.wire" level="FATAL" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.loan.services.LoanIQService" level="INFO" additivity="false">
+			<AppenderRef ref="loaniq"/>
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.loan.services.DummyLoanIQService" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.loaniq.daemon.impl.LoanIQEventsDaemon" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.services.instanceid.DBInstanceIdentificationService" level="INFO">
+			<AppenderRef ref="instanceId" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="org.apache.axis2" level="INFO">
+			<AppenderRef ref="axis2"/>
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="org.apache.axiom" level="INFO">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.opics" level="DEBUG" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="com.misys.portal.services.db.PasswordMigrationService" level="DEBUG">
+			<AppenderRef ref="passwordMigration" />
+		</Logger>
+		<Logger name="net.sf.ehcache" level="INFO" additivity="false">
+			<AppenderRef ref="ehCache" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="dwe" level="INFO" additivity="false">
+			<AppenderRef ref="dwe" />
+			<AppenderRef ref="console" />
+		</Logger>
+		<Logger name="businesslogic" level="INFO" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+	</Loggers>
+</Configuration>

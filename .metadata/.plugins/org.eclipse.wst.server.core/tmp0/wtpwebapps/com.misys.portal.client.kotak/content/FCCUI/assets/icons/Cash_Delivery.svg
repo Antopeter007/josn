@@ -1,0 +1,17 @@
+<svg id="Netbanking_Icons-19" data-name="Netbanking Icons-19" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect id="Rectangle_140" data-name="Rectangle 140" width="48" height="48" fill="none"/>
+  <rect id="Rectangle_141" data-name="Rectangle 141" width="48" height="48" fill="none"/>
+  <path id="Path_847" data-name="Path 847" d="M55.4,45.078c-.173.266-3.059,0-3.376-.125A4.731,4.731,0,0,1,50.79,43.9c-1.517-1.466-3.68-1.792-5.7-1.818-2.589-.029-5.213-.115-7.808-.029a8.048,8.048,0,0,0-6.4,3.392c-.96,1.3-1.683,2.064-1.6,3.782l.179,3.318.365,6.646c.016.272.032.547.045.819L43.19,60.1c1.05,0,4.189-.1,3.149.019-8.406.96-1.77.829,1.379.451.432-.054,2.63-1.21,3.056-1.3.752-.16,1.693-.032,2.454-.15a13.162,13.162,0,0,1,2.163.042c.026,0,.182-13.027.2-14.4Z" transform="translate(-19.91 -28.569)" fill="#eaf2f5" stroke="#cbd8dc" stroke-width="1"/>
+  <rect id="Rectangle_142" data-name="Rectangle 142" width="14.458" height="24.576" rx="2" transform="translate(4.1 24.215) rotate(-60.76)" fill="#dfeaed" stroke="#cbd8dc" stroke-width="1"/>
+  <ellipse id="Ellipse_28" data-name="Ellipse 28" cx="4.541" cy="4.138" rx="4.541" ry="4.138" transform="translate(17.311 28.508) rotate(-60.76)" fill="#cbd8dc"/>
+  <rect id="Rectangle_143" data-name="Rectangle 143" width="14.458" height="24.576" rx="2" transform="matrix(0.196, -0.981, 0.981, 0.196, 3.892, 28.865)" fill="#dfeaed" stroke="#cbd8dc" stroke-width="1"/>
+  <ellipse id="Ellipse_29" data-name="Ellipse 29" cx="4.541" cy="4.138" rx="4.541" ry="4.138" transform="matrix(0.196, -0.981, 0.981, 0.196, 17.781, 28.878)" fill="#cbd8dc"/>
+  <path id="Path_849" data-name="Path 849" d="M105.544,44.82H115.2a1.034,1.034,0,0,1,1.034,1.034V63.246a1.034,1.034,0,0,1-1.034,1.03h-9.654a1.034,1.034,0,0,1-1.034-1.03V45.854A1.034,1.034,0,0,1,105.544,44.82Z" transform="translate(-71.067 -30.478)" fill="#df0f1b"/>
+  <path id="Path_850" data-name="Path 850" d="M117.621,87.862a2.448,2.448,0,1,0-1.733-.716,2.451,2.451,0,0,0,1.733.716Z" transform="translate(-78.316 -56.413)" fill="#fff"/>
+  <g id="Group_67408" data-name="Group 67408" transform="translate(3.891 18.771)">
+    <rect id="Rectangle_144" data-name="Rectangle 144" width="14.458" height="24.576" rx="2" transform="translate(0 14.458) rotate(-90)" fill="#dfeaed" stroke="#cbd8dc" stroke-width="1"/>
+    <ellipse id="Ellipse_30" data-name="Ellipse 30" cx="4.138" cy="4.541" rx="4.138" ry="4.541" transform="translate(13.622 2.672)" fill="#cbd8dc"/>
+    <path id="Path_851" data-name="Path 851" d="M28.409,69.761h-1.28a1.757,1.757,0,0,0-.32-.806h0l-.051-.064h1.664a.435.435,0,1,0,0-.87H22.985a.435.435,0,1,0,0,.87h1.45a3.2,3.2,0,0,1,.96.138,1.357,1.357,0,0,1,.694.448h0a.848.848,0,0,1,.141.285H22.985a.435.435,0,1,0,0,.87h3.181a1.949,1.949,0,0,1-.32.506,1.654,1.654,0,0,1-.816.506,4.013,4.013,0,0,1-1.1.128h-.272a.413.413,0,0,0-.323.7l3.3,4.141a.435.435,0,1,0,.682-.541L24.56,72.615a4.393,4.393,0,0,0,.733-.122,2.56,2.56,0,0,0,1.242-.794,2.73,2.73,0,0,0,.554-1.069h1.331a.435.435,0,1,0,0-.87Z" transform="translate(-19.225 -65.025)" fill="#cbd8dc"/>
+  </g>
+  <path id="Path_848" data-name="Path 848" d="M58.13,49.32l-6.861,6.118c-.515.461.566,1.475.9,1.734,1.766,1.376,4.141.147,5.6-1.12.784-.682,1.514-1.421,2.24-2.15.64-.621,1.149-1.28,2.118-1.146a5.008,5.008,0,0,0,1.245.144,1.324,1.324,0,0,0,1.194-1.123" transform="translate(-34.77 -33.538)" fill="#eaf2f5" stroke="#cbd8dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+</svg>

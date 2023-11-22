@@ -1,0 +1,100 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      class="fcc-radio-button {{ control.params.styleClass }}"
+    >
+      <ng-container *ngIf="control.params.showLabel">
+        <label class="infodisplaylabel" tabindex="0">
+          {{ control.params.label }}
+          <a class="infoLabel" *ngIf="control.params.infoIcon">
+            {{ control.params.infolabel | translate }}</a
+          > </label
+        ><br />
+        <ng-template #noLabel>
+          <label class="fcc-radio-button-display" tabindex="0">
+            {{ control.params.label
+            }}<a *ngIf="control.params.required"
+              ><em class="fa fa-asterisk fa-sm"></em></a></label
+          ><br />
+        </ng-template>
+      </ng-container>
+      <div class="ui-fluid p-grid">
+        <mat-radio-group
+          formControlName="{{ control.key }}"
+          class="p-col-12"
+          dir="{{ dir }}"
+        >
+          <ng-container *ngFor="let opt of control.options">
+            <mat-radio-button
+              value="{{ opt.value }}"
+              class="p-col-6 padding_zero"
+              (change)="onMatRadioEventRaised($event, control.key, control)"
+              (focus)="onEventRaised($event, control.key)"
+              [disabled]="opt.readonly"
+              [required]="control.params.required"
+              name="{{ control.value }}"
+              id="{{ opt.id }}"
+              [checked]="opt.checked"
+            >
+              {{ opt.label }}
+            </mat-radio-button>
+            <ng-container *ngIf="opt.value === control.value">
+              <a class="infoIconMultiSelect" *ngIf="control.params.infoIcon">
+                <span
+                  class="material-icons"
+                  (mouseenter)="op.show($event)"
+                  (mouseleave)="op.hide()"
+                  >info</span
+                >
+                <p-overlayPanel
+                  #op
+                  class="previosInfoOLPanel"
+                  [dismissable]="true"
+                  appendTo="body"
+                >
+                  <div
+                    *ngIf="
+                      control.params.previousValue !== '' &&
+                        control.params.previousValue !== undefined &&
+                        control.params.previousValue !== null;
+                      else previousValueNotentered
+                    "
+                  >
+                    <p class="previous-info">
+                      {{ "previousInfo" | translate }}
+                    </p>
+                    {{ control.params.previousValue }}
+                  </div>
+                  <ng-template #previousValueNotentered>
+                    <p class="previous-info">
+                      {{ "previousInfo" | translate }}
+                    </p>
+                    {{ "NOT_ENTERED" | translate }}
+                  </ng-template>
+                </p-overlayPanel>
+              </a>
+            </ng-container>
+          </ng-container>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div *ngIf="mode === 'edit' && control.params.warning">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }} "
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

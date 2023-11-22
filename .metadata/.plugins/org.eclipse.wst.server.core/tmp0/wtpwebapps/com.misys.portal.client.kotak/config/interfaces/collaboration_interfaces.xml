@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Misys Trade Portal Interfaces Schema Copyright (c) 2000-2010 Misys (http://www.misys.com) 
+	All Rights Reserved. -->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<interface name="collaborationsave">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties><property name="script">(04 != event.tnx_stat_code &amp;&amp; (02 == event.tnx_stat_code || 01 == event.tnx_stat_code))</property></properties>
+					<component name="productsavetasksmailformatter">
+						<component name="sendmail"/>
+					</component>
+			</component>
+			<component name="xmltaskscounterpartyfilter">
+				<component name="counterpartyproductinitiator">
+					<component name="collaborationSaveIntoDBserializer" />
+				</component>
+				<component name="filter">
+					<properties>
+						<property name="script">03 == event.tnx_stat_code</property>
+					</properties>
+					<component name="freezetasksprocessor" />
+				</component>
+			</component>
+		</component>
+		<!-- interface.collaborationsave = environmentreader (productsavetasksmailformatter 
+			(sendmail)\, xmltaskscounterpartyfilter (counterpartyproductinitiator (collaborationxmloutprocessor 
+			(fileoutwriter)))\, initialtodolistoutprocessor (fileoutwriter)\, controlledproductfilter(freezetasksprocessor)) -->
+	</interface>
+
+	<interface name="tasksave">
+		<component name="environmentreader">
+			<component name="taskmailformatter">
+				<component name="sendmail" />
+			</component>
+			<component name="counterpartytaskfilter">
+				<component name="taskxmloutprocessor">
+					<component name="filewriter" />
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="commentsave"
+		description="Interface invoked in the main GTP when a comment is added">
+		<component name="environmentreader">
+			<component name="commentmailformatter">
+				<component name="sendmail" />
+			</component>
+			<component name="counterpartycommentfilter">
+				<component name="commentxmloutprocessor">
+					<component name="filewriter" />
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<!-- <interface name="commentsave" description="Interface invoked in the 
+		'counterparty' GTP when a comment is added"> <component name="environmentreader"> 
+		<component name="commentmailformatter"> <component name="sendmail"/> </component> 
+		<component name="commentxmloutprocessor"> <component name="filewriter"/> 
+		</component> </component> </interface> -->
+
+	<interface name="taskperformed"
+		description="Interface invoked in the main GTP when a task is performed">
+		<component name="environmentreader">
+			<component name="taskperformedmailformatter">
+				<component name="sendmail" />
+			</component>
+			<component name="counterpartytaskfilter">
+				<component name="taskxmloutprocessor">
+					<component name="filewriter" />
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<!-- <interface name="taskperformed" description="Interface invoked in the 
+		'counterparty' GTP when a task is performed"> <component name="environmentreader"> 
+		<component name="taskperformedmailformatter"> <component name="sendmail"/> 
+		</component> <component name="taskxmloutprocessor"> <component name="filewriter"/> 
+		</component> </component> </interface> -->
+
+	<interface name="xmlcompanyout">
+		<component name="environmentreader">
+			<component name="xmlcompanyoutprocessor">
+				<component name="filewriter" />
+			</component>
+		</component>
+	</interface>
+
+	<interface name="xmluserout">
+		<component name="environmentreader">
+			<component name="xmluseroutprocessor">
+				<component name="filewriter" />
+			</component>
+		</component>
+	</interface>
+
+	<interface name="counterpartynotification">
+		<component name="environmentreader">
+			<component name="counterpartynotificationfilter">
+				<component name="counterpartyproductinitiator">
+					<component name="databaseserializer" />
+				</component>
+			</component>
+		</component>
+		<!-- interface.counterpartynotification = environmentreader (counterpartynotificationfilter 
+			(counterpartyproductinitiator (xmloutprocessor (fileoutwriter)))) -->
+	</interface>
+
+	<bundle name="SaveLCInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLCAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLCFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUDGARInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUDEPUInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUSTBYInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>		
+	<bundle name="SaveIUDEPUInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDGARInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUSTBYInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface>counterpartynotification</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUTemplate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDGARTemplate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDEPUTemplate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUSTBYTemplate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDGARAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDEPUAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUSTBYAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDEPUFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDGARFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUSTBYFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUDGARFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUDEPUFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveProvisionalIUSTBYFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>		
+	<bundle name="SaveIUDGARRelease" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUDEPURelease" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIUSTBYRelease" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>		
+	<bundle name="SaveRUDEPUFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveRUDGARFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveRUSTBYFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+		<bundle name="FreeFormatExistingRU" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveELFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveELTransfer" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveELAssignee" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBGInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBGAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBGFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBGRelease" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBRFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSGInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSGUpdate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTFInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTFUpdate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveFTInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveECInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveECUpdate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveICFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSIInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSIAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSIFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSRFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSRTransfer" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSRAssignee" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLIInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLIUpdate">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveECAmendment">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveELInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveELUpdate">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="UploadSaveELFromMT700">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTDInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTDUpdate">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTDWithdrawal">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIRFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveFXStandingInstruction">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveFXFreeFormat">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBPInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveBPServiceInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveDDAInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveDDAUpdate">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveRemittanceInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SavePOInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SavePOAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SavePOFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveINInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveINAmendment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveINFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveINPresentation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSOResponse" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveSOFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIPFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveINFreeFormat" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIPInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveFTTradeInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLIInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLIUpdate" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveFTPIInitiation" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLNInitiation">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveLNAmendment">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<bundle name="SaveCRInitiation" description="Collaboration for CR initiation">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveCNInitiation" description="Collaboration for CN initiation">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveTask" description="Collaboration">
+		<interface>tasksave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveComment" description="Collaboration">
+		<interface>commentsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="TaskPerformed" description="Collaboration">
+		<interface>taskperformed</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveIPCollectionsForISO" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveIPCollectionsForSMP" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveIPFinanceRepayment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveINFinanceRepayment" description="Collaboration">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<!-- <bundle name="OpenSaveBeneficiaryCSF" description="Collaboration"><interface>xmlcompanyout</interface><interface>xmluserout</interface></bundle> 
+		<bundle name="OpenAssociationCounterpartyToCustomerBSF" description="This 
+		bundle allows to removing the counterparty company on the remote MTP instance 
+		when an existing counterparty is tied to an existing company or when the 
+		association involving a counterparty is deleted"> <interface>xmlcompanyout</interface> 
+		</bundle> -->
+</interfaces>

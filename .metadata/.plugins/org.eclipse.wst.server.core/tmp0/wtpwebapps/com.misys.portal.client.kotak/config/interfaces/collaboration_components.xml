@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<component name="xmltaskscounterpartyfilter">
+		<description>Filter products with tasks assigned to Counterparty</description>
+		<classname>com.misys.portal.collaboration.interfaces.CounterpartyProductFilter</classname>
+	</component>
+
+	<component name="counterpartyproductinitiator">
+		<description>Counterparty product initiator</description>
+		<classname>com.misys.portal.collaboration.interfaces.CounterpartyProductInitiator</classname>
+	</component>
+	
+	<component name="counterpartytaskfilter">
+		<description>Task filter</description>
+		<classname>com.misys.portal.collaboration.interfaces.CounterpartyTaskFilter</classname>
+	</component>
+	
+	<component name="counterpartycommentfilter">
+		<description>Comment filter</description>
+		<classname>com.misys.portal.collaboration.interfaces.CounterpartyCommentFilter</classname>
+	</component>
+	
+	<component name="taskxmloutprocessor">
+		<description>Task XML Outgoing</description>
+		<classname>com.misys.portal.collaboration.interfaces.xml.outgoing.TaskOutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory">${collaboration_xml_output_directory}</property>
+		</properties>
+	</component>
+
+	<component name="commentxmloutprocessor">
+		<description>Comment XML Outgoing</description>
+		<classname>com.misys.portal.collaboration.interfaces.xml.outgoing.CommentOutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory">${collaboration_xml_output_directory}</property>
+		</properties>
+	</component>
+	
+	<component name="collaborationSaveIntoDBserializer">
+		<description>Product Serializer</description>
+		<classname>com.misys.portal.collaboration.interfaces.SaveIntoDBSerializer</classname>
+	</component>
+	
+	<component name="productsavetasksmailformatter">
+		<description>Task Mail Formatter upon first product save</description>
+		<classname>com.misys.portal.collaboration.interfaces.mail.outgoing.ProductSaveTasksMailFormatter</classname>
+		<properties>
+			<property name="titlekey">NEW_TASK_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey">NEW_TASK_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${collaboration_from_address}</property>
+			<property name="message.from.personal" description="Sender name">${collaboration_from_personal}</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>
+		</properties>
+	</component>
+
+	<component name="taskmailformatter">
+		<description>Task Mail Formatter</description>
+		<classname>com.misys.portal.collaboration.interfaces.mail.outgoing.TaskMailFormatter</classname>
+		<properties>
+			<property name="titlekey">NEW_TASK_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey">NEW_TASK_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${collaboration_from_address}</property>
+			<property name="message.from.personal" description="Sender name">${collaboration_from_personal}</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>
+		</properties>
+	</component>
+
+	<component name="commentmailformatter">
+		<description>Comment Mail Formatter</description>
+		<classname>com.misys.portal.collaboration.interfaces.mail.outgoing.CommentMailFormatter</classname>
+		<properties>
+			<property name="titlekey">NEW_COMMENT_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey">NEW_COMMENT_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${collaboration_from_address}</property>
+			<property name="message.from.personal" description="Sender name">${collaboration_from_personal}</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>
+		</properties>
+	</component>
+
+	<component name="taskperformedmailformatter">
+		<description>Task Mail Formatter when the status of the task is updated</description>
+		<classname>com.misys.portal.collaboration.interfaces.mail.outgoing.TaskPerformedMailFormatter</classname>
+		<properties>
+			<property name="titlekey">TASK_PERFORMED_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey">TASK_PEFORMED_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${collaboration_from_address}</property>
+			<property name="message.from.personal" description="Sender name">${collaboration_from_personal}</property>
+		</properties>
+	</component>
+
+	<component name="xmlcompanyoutprocessor">
+		<description>XML Company Outgoing</description>
+		<classname>com.misys.portal.interfaces.components.CompanyOutgoingProcessor</classname>
+		<properties>
+			<property name="directory">${collaboration_xml_company_output_directory}</property>
+		</properties>
+	</component>
+	
+	<component name="xmlcompanyoutprocessor">
+		<description>XML User Outgoing</description>
+		<classname>com.misys.portal.interfaces.components.UserOutgoingProcessor</classname>
+		<properties>
+			<property name="directory">${collaboration_xml_user_output_directory}</property>
+		</properties>
+	</component>
+
+	<component name="initialtodolistoutprocessor">
+		<description>XML Todo list Outgoing</description>
+		<classname>com.misys.portal.collaboration.interfaces.xml.outgoing.TodoListOutgoingProcessor</classname>
+		<properties>
+			<property name="directory">${collaboration_xml_output_directory}</property>
+		</properties>
+	</component>
+
+	<component name="counterpartynotificationfilter">
+		<description>Filter products that are to be notified to the counterparty after the bank's validation</description>
+		<classname>com.misys.portal.collaboration.interfaces.CounterpartyNotificationFilter</classname>
+		<properties>
+			<property name="transaction.type">01, 03</property>
+		</properties>
+	</component>
+	
+	<component name="collaborationxmloutprocessor">
+		<description>Collaboration XML Outgoing</description>
+		<classname>com.misys.portal.interfaces.components.OutgoingProcessor</classname>
+		<properties>
+			<property name="directory">${collaboration_xml_output_directory}</property>
+		</properties>
+	</component>
+
+	<component name="freezetasksprocessor">
+		<description>Freeze tasks</description>
+		<classname>com.misys.portal.collaboration.interfaces.FreezeTasksProcessor</classname>
+	</component>		
+
+</components>

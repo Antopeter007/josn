@@ -1,0 +1,55 @@
+@import '../../../variables.scss';
+
+
+@mixin Styling_of_dropDown($primaryColor,$borderStylingLeft, $transparentBgColor, ) {
+    // Active option styling--
+    .mat-option.mat-active {
+        background-color: $transparentBgColor !important;
+        color: $primaryColor !important;
+        border-left: $borderStylingLeft !important;
+        font-weight: 500 !important;
+    }
+    // while hover on options
+    .mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+        border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+        border-right: none !important;
+        background-color: rgba(105, 78, 214, 0.04) !important;
+    }
+}
+
+@mixin primeNgFilterWithDropDown($filterDropDownBgColor, $borderFilterWithDropDown, $borderBottomColorInputBoxFilter) {
+    // Primg ng dropDown with filter...
+    .no-margin-multiselect {
+        background-color: $filterDropDownBgColor !important;
+        border-radius: 4px 4px 0em 0em;
+        margin-top: -1em;
+        padding-top: 1em;
+        margin-bottom: 1.34375em;
+    }
+    // Filter input box color .
+    .ui-inputtext:enabled:focus:not(.ui-state-error) {
+        outline: 0 none;
+        box-shadow: none !important;
+        border: none !important;
+        border-color: $primaryColor !important;
+        border-bottom: $borderBottomColorInputBoxFilter !important;
+    }
+    .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
+        color: $primaryColor !important;
+    }
+}
+
+.FCC {
+    // primary color
+    $primaryColor: $primaryColor;
+    $transparentBgColor: transparent;
+    $borderStylingLeft: 0.4em solid $primaryColor;
+
+    @include Styling_of_dropDown($primaryColor,$borderStylingLeft, $transparentBgColor);
+
+    // primeng variables- for styling
+    $filterDropDownBgColor: $formFieldbackground;
+    $borderFilterWithDropDown: none; // set ex (1px solid $primaryColor) it will come in square box;
+    $borderBottomColorInputBoxFilter: 0.08em solid $primaryColor;
+    @include primeNgFilterWithDropDown($filterDropDownBgColor, $borderFilterWithDropDown, $borderBottomColorInputBoxFilter)
+}

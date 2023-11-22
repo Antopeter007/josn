@@ -1,0 +1,24 @@
+<p-table [value]="currencies" [paginator]="true" [rows]="10" sortField="isocode" [globalFilterFields]="['isocode','currencyName']" #curTable>
+    <ng-template pTemplate="header">
+        <tr>
+          <th id = "colheader" *ngFor="let col of cols" [ngStyle]="{'width': col.width, 'text-align': 'center'}">
+              {{col.header}}
+          </th>
+      </tr>
+      <tr>
+          <th id = "colfield" *ngFor="let col of cols" [ngSwitch]="col.field" [ngStyle]="{'width': col.width, 'background-color': '#F0F7FF', 'border-color': '#c8c8c8'}">
+                <input *ngSwitchCase="'isocode'" pInputText placeholder="{{'SEARCH_ISOCODE_LABEL'| translate}}" type="text" class="ccy-dialog" (input)="curTable.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'currencyName'" pInputText placeholder="{{'SEARCH_CURRENCY_LABEL'| translate}}" type="text" class="ccy-dialog" (input)="curTable.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-currency>
+        <tr style="font-size: 0.88em">
+            <td *ngFor="let col of cols" (click)="selectCurrency(currency.isocode)" [ngStyle]="{'width': col.width, 'cursor': 'pointer', 'text-align': 'center'}" [ngSwitch]="col.field">
+              <div *ngSwitchCase="'isocode'">{{currency[col.field]}}</div>
+              <div *ngSwitchCase="'flag'"><img src="{{currency[col.field]}}" class="cursor" alt="flag"></div>
+              <div *ngSwitchCase="'currencyName'" class="{{commonService.getUserLanguage() === 'ar' ? 'alignment-right' : 'alignment-left'}}">{{currency[col.field]}}</div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

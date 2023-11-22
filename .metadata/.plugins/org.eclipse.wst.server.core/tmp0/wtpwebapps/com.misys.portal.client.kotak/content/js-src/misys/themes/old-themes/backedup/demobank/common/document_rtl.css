@@ -1,0 +1,96 @@
+/**
+ Refer to /themes/base/common/dijit_override_rtl.css
+**/
+
+/*
+	
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Basic document styles in Demobank (RTL version)
+  		
+	description:
+	  	This file contains typesetting rules, browser-default overrrides, print styles and other 
+	  	commonly used classes. It should be small, don't add anything unless its going to be used 
+		all over the place.
+
+		------------------------------ TYPOGRAPHY --------------------------------
+
+		We set the font size to 100%% of the default browser font size, which is 16px by default.
+		
+		This gives us the following font-sizes in EM
+		
+		  1.75em   -- 22px
+		  1em      -- 16px  // Default
+		  0.875em  -- 14px
+		  0.8125em -- 13px
+		  0.75em   -- 12px  // Font-size used in forms, pages, portlets etc.
+		  0.625em  -- 10px  // Smallest
+		
+		Portlets are given a font-size of 0.75em, so font-sizes inside portlets are proportional to
+		this (12px). i.e.
+		
+		 Inside portlets
+		 
+		 1.833em  -- 22px // Large form headers
+		 1.333em  -- 16px
+		 1.25em   -- 15px 
+		 1.0833em -- 13px // h2 headers inside forms
+		 1em	  -- 12px // Default
+		 0.916em  -- 11px // Product menu items
+		 0.833em  -- 10px
+ 
+		------------------------------ MARGINS AND PADDING --------------------------------
+		
+		Since the default font size is 16px, 12px inside portlets, try to choose padding
+		and margin values of multiples/divisors of 3px or 4px, to keep things roughly 
+		proportional, i.e. no irregular padding like 7px (unless necessary)
+
+*/
+
+a:link {
+	font-weight: bold;
+	color: #666;
+}
+
+a:visited {
+	font-weight: bold;
+	color: #666;
+}
+
+a:hover {
+	font-weight: bold;
+	color: #069;
+}
+
+.header a:link,
+.header a:visited {
+	color: white;
+}
+
+.homepage a:link {
+	color: #069;
+}
+
+.homepage a:visited {
+	color: #069;
+}
+
+.homepage a:hover {
+	color: #666;
+}
+
+ul {
+	background-position: 0 5px;
+}
+
+.notice {
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+	width:auto;
+}

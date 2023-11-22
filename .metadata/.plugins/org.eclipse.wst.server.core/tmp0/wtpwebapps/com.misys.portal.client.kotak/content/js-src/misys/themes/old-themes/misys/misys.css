@@ -1,0 +1,167 @@
+/**
+ * @base-theme tundra
+ */
+@import "../../../dojo/resources/dojo.css";
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dojox/layout/resources/FloatingPane.css");
+@import url("../../../dojox/layout/resources/ResizeHandle.css");
+@import url("../../../dojox/layout/resources/ToggleSplitter.css");
+@import url("../../../dojox/grid/resources/Grid.css");
+@import url("../../../dojox/grid/resources/tundraGrid.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/Tree.css");
+@import url("../../../dijit/themes/tundra/layout/ContentPane.css");
+@import url("../../../dijit/themes/tundra/layout/TabContainer.css");
+@import url("../../../dijit/themes/tundra/layout/BorderContainer.css");
+@import url("../../../dijit/themes/tundra/form/Common.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/form/Checkbox.css");
+@import url("../../../dijit/themes/tundra/form/RadioButton.css");
+@import url("../../../dijit/themes/tundra/ProgressBar.css");
+@import url("../../../dijit/themes/tundra/TitlePane.css");
+@import url("../../../dijit/themes/tundra/Calendar.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+@import url("../../../dijit/themes/tundra/Editor.css");
+@import url("../../../dijit/icons/editorIcons.css");
+@import url("../../../dojox/editor/plugins/resources/editorPlugins.css");
+@import url("../../../dojox/grid/enhanced/resources/tundra/EnhancedGrid.css");
+@import url("../../../dojox/grid/enhanced/resources/EnhancedGrid_rtl.css");
+
+@import url("misys-layout.css");
+@import url("misys-styles.css");
+@import url("misys-portlets.css");
+@import url("misys-forms.css");
+@import url("misys-help.css");
+@import url("external.css");
+
+/**
+ CSS for the homepage
+**/
+
+.misys .breadcrumb{
+	width: 215px;
+}
+
+.misys #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	font-size:0.8em;
+	margin: 5px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+/** News paragraph **/
+.misys .para{
+	margin-left:5px;
+	margin-top:5px;
+}
+
+.misys .para .icon {
+ float:left;
+ width:55px;
+}
+
+.misys .para-quote {
+	font-style: italic;
+}
+
+/** User tools **/
+/** TODO add a class to these, remove lang specific id **/
+.misys #UserTools_fr, .misys #UserTools_en {
+	display: none;
+}
+
+/** Trade Applications **/
+.misys #TradeApplicationsPortlet {
+	border: none;
+	margin-bottom:15px;
+}
+
+.misys #TradeApplicationsPortlet .portlet-section-header {
+	background: #9E8F6C none;
+}
+
+.misys #TradeApplicationsPortlet .portlet-section-header .portlet-title {
+	color: #FFFFFF;
+}
+
+.misys #TradeApplicationsPortlet .portlet-section-body {
+	background: #F3F3F3 none;
+}
+
+.misys #TradeApplicationsPortlet .portlet-section-body li,
+.misys #TradeApplicationsDefault .portlet-section-body li {
+	margin: 0.5em 0 0.5em 0.5em;
+	font-weight: bold;
+}
+
+.misys #TradeApplicationsPortlet .portlet-section-body a,
+.misys #TradeApplicationsPortlet .portlet-section-body a:VISITED,
+.misys #TradeApplicationsPortlet .portlet-section-body a:HOVER {
+	text-decoration: none;
+		color:#000000;
+}
+
+/** All Events */
+.misys #AllEventsPortlet {
+	border: none;
+}
+
+.misys a:link, .misys a:visited, .misys a:hover {
+	text-decoration: underline;
+}
+
+.misys #AllEventsPortlet .portlet-section-header {
+	background: #9E8F6C none;
+}
+
+.misys #AllEventsPortlet .portlet-title {
+	color: #FFFFFF;
+}
+
+.misys #AllEventsPortlet .portlet-section-body {
+	background-color: #F3F3F3;
+	padding: 2px 1px 1px 4px;
+	font-size:0.9em;
+}
+
+.misys #AllEventsPortlet ul {
+	margin-left: 30px;
+}
+
+.misys #AllEventsPortlet li{
+	list-style-type: circle;
+}
+
+.misys #AllEventsPortlet li.greentick-bullet {
+	list-style-image: url('/content/images/pic_greentick.gif');
+}
+
+.misys #AllEventsPortlet li.redtick-bullet {
+	list-style-image: url('/content/images/pic_redcross.gif');
+}
+
+.misys #AllEventsPortlet li.questionmark-bullet {
+	list-style-image: url('/content/images/pic_questionmark.gif');
+}
+
+.dj_ie6 .misys .portlet-title-addons,
+.dj_ie7 .misys .portlet-title-addons {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}
+
+.dj_ie6 .misys .portlet-menu,
+.dj_ie7 .misys .portlet-menu {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}

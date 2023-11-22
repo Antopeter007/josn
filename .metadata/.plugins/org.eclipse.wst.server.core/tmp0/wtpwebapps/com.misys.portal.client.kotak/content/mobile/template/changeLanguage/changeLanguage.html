@@ -1,0 +1,19 @@
+<ion-view>
+	<div class="bar bar-stable bar-subheader">
+        <h2 class="title">{{"CHANGE_LANGUAGE" | translate}}</h2>
+    </div>
+    <ion-content class="has-subheader">
+        <div class="list">
+            <div class="spacer" style="width: 100%; height: 46px;"></div>
+            <ion-radio ng-repeat="lang in vm.availableLanguages" ng-init="vm.selectedLanguage=vm.initValue" ng-model="vm.selectedLanguage" ng-value="lang.id" name="language">
+                {{lang.value}}
+            </ion-radio>
+        </div>
+        <div class="row row-full">
+            <div class="col col-full">
+                <button type="submit" class="button button-block button-positive misys-changelanguage-button" ng-click="vm.changeLanguage(vm.selectedLanguage)">{{'SUBMIT' | translate}}</button>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

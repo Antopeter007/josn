@@ -1,0 +1,1947 @@
+{
+	"screen": "TradeFundTransferScreen",
+	"isAccordionView": "true",
+	"ftTradeGeneralDetails": {
+		"ftType": {
+			"name": "ftType",
+			"type": "text",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false,
+			"hidden": true
+		},
+		
+		"createFrom": {
+			"name": "createFrom",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"applicableScreens": [
+				{
+					"tnxTypeCode": "03",
+					"mode": "edit",
+					"rendered": false
+				}
+			],
+			"previewScreen": false
+		},
+		"createFromOptions": {
+			"name": "createFromOptions",
+			"source": "codeData",
+			"options": {
+				"value": [
+					"template"
+				]
+			},
+			"type": "select-button",
+			"styleClass": "createform toggle-chip",
+			"layoutClass": "p-grid p-col-12 p-md-12 p-lg-12 p-sm-12",
+			"applicableScreens": [
+				{
+					"tnxTypeCode": "03",
+					"mode": "edit",
+					"rendered": false
+				}
+			],
+			"previewScreen": false
+		},
+		"referenceSelected": {
+      "name": "referenceSelected",
+      "type": "text",
+      "layoutClass": "p-grid p-col-4 p-md-5 p-lg-4 p-sm-5",
+      "styleClass": [
+        "referenceSelectedStyle"
+      ],
+      "rendered": false,
+      "previewScreen": false,
+      "clubbedHeaderText": "referenceSelected",
+      "clubbedList": [
+        "fetchedRefValue"
+      ]
+    },
+    "fetchedRefValue": {
+      "name": "fetchedRefValue",
+      "type": "input-text",
+      "layoutClass": "p-grid p-col-3 p-md-5 p-lg-4 p-sm-5",
+      "styleClass": [
+        "fetchedRefValueStyle"
+      ],
+      "previewScreen": false,
+      "maxlength": 16,
+      "rendered": false,
+      "clubbed": true
+    },
+    "removeLabel": {
+      "itemId": "removeLabel",
+      "name": "removeLabel",
+      "type": "text",
+      "layoutClass": "p-grid p-col-3 p-md-3 p-lg-3 p-sm-3",
+      "styleClass": [
+        "removeLabelStyle"
+      ],
+      "rendered": false,
+      "previewScreen": false
+    },
+    "parentReference": {
+	 "name": "parentReference",
+	 "type": "input-text",
+	 "layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+	 "styleClass": [
+	   "margin-side"
+	 ],
+	 "maxlength": 16,
+	 "rendered": false,
+	 "applicableScreens": [
+	   {
+	    "tnxTypeCode": "03",
+	    "mode": "edit",
+	    "rendered": false
+	   }
+	  ]
+	  },
+		"templateSelection": {
+			"name": "templateSelection",
+			"type": "text",
+			"layoutClass": "p-grid p-col-3 p-md-6 p-lg-3 p-sm-6",
+			"styleClass": [
+				"templateSelectionStyle"
+			],
+			"rendered": false,
+			"previewScreen": false,
+			"clubbedHeaderText": "templateSelection",
+			"clubbedList": [
+				"fetchedTemplate"
+			]
+		},
+		"fetchedTemplate": {
+			"name": "fetchedTemplate",
+			"type": "input-text",
+			"layoutClass": "p-grid p-col-4 p-md-6 p-lg-4 p-sm-6",
+			"styleClass": [
+				"templateSelectionValueStyle"
+			],
+			"maxlength": 20,
+			"rendered": false,
+			"previewScreen": false,
+			"clubbed": true
+		},
+		"removeLabelTemplate": {
+			"itemId": "removeLabelTemplate",
+			"name": "removeLabelTemplate",
+			"type": "text",
+			"layoutClass": "p-grid p-col-3 p-md-3 p-lg-3 p-sm-3",
+			"styleClass": [
+				"removeLabelTemplateStyle"
+			],
+			"rendered": false,
+			"previewScreen": false
+		},
+		
+		"space1": {
+			"noofspacers": "1",
+			"prefix": "one",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		
+		"transferType": {
+			"name": "transferType",
+			"type": "text",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"transferTypeOptions": {
+			"name": "transferTypeOptions",
+			"source": "codeData",
+			"options": {
+				"value": [
+					"TTPT"
+				]
+			},
+			"defaultValue": "TTPT",
+			"type": "select-button",
+			"styleClass": "request toggle-chip",
+			"layoutClass": "p-grid p-col-12 p-md-12 p-lg-12 p-sm-12"
+		},
+		"templateName": {
+			"name": "templateName",
+			"type": "input-text",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": "margin-side",
+			"maxlength": 20,
+			"rendered": false,
+			"required": false
+		},
+		"templateDescription": {
+			"name": "templateDescription",
+			"type": "narrative-textarea",
+			"swift": false,
+			"fieldSize": 65,
+			"maxRowCount": 4,
+			"enteredCharCount": 0,
+			"rowCount": 0,
+			"rows": 1,
+			"cols": 65,
+			"allowedCharCount": 200,
+			"maxlength": 200,
+			"layoutClass": "p-col-9 p-md-9 p-lg-9 p-sm-12",
+			"styleClass": "indented-text-area-field-65",
+			"rendered": false
+		},
+		"remittanceType": {
+			"name": "remittanceType",
+			"type": "input-dropdown",
+			"options": {
+				"value": [
+					"AIR",
+					"DIR",
+					"OTT"
+				]
+			},
+			"defaultValue": "",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": [
+				"orderingAct"
+			],
+			"required": true,
+			"previewScreen": true
+		},
+		"space15": {
+			"noofspacers": "1",
+			"prefix": "fifteen",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"purposeCode": {
+			"name": "purposeCode",
+			"type": "input-text",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": [
+				"margin-all-side"
+			],
+			"required": true,
+			"readonly": true,
+			"previewScreen": true
+		},
+		"purposeCodeIcons": {
+			"name": "purposeCodeIcons",
+			"type": "icon",
+			"iconName": "search",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "customIconStyle",
+			"readonly": false,
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"purposeCodeDeleteIcons": {
+			"name": "purposeCodeDeleteIcons",
+			"type": "icon",
+			"iconName": "clear",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "customIconStyle",
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"remittancePurpose": {
+			"name": "remittancePurpose",
+			"type": "narrative-textarea",
+			"rendered": true,
+			"rows": 4,
+			"cols": 35,
+			"fieldSize": 50,
+			"maxRowCount": 27,
+			"rowCount": 0,
+			"swift": false,
+			"enteredCharCount": 0,
+			"allowedCharCount": 120,
+			"maxlength": 120,
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"indented-text-area-field-65"
+			],
+			"directive": true,
+			"phraseEnabled": false,
+			"readonly": false,
+			"required": true,
+			"previewScreen": true
+		},
+		"gstinNumber": {
+			"name": "gstinNumber",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 20,
+			"required": false,
+			"previewScreen": true
+		},
+		"regulatoryReporting": {
+			"name": "regulatoryReporting",
+			"type": "narrative-textarea",
+			"rendered": true,
+			"rows": 3,
+			"cols": 35,
+			"fieldSize": 50,
+			"maxRowCount": 27,
+			"rowCount": 0,
+			"swift": false,
+			"enteredCharCount": 0,
+			"allowedCharCount": 105,
+			"maxlength": 105,
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 padding_zero",
+			"styleClass": [
+				"indented-text-area-field-65"
+			],
+			"directive": true,
+			"phraseEnabled": false,
+			"readonly": false,
+			"previewScreen": true
+		},
+		"capitalGoods": {
+			"name": "capitalGoods",
+			"type": "input-dropdown",
+			"source": "codeData",
+			"options": {
+				"value": [
+					"Y",
+					"N"
+				]
+			},
+			"defaultValue": "",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": [
+				"margin-all-side"
+			],
+			"required": false,
+			"previewScreen": true
+		},
+		"transDocNum": {
+			"name": "transDocNum",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 20,
+			"required": false,
+			"previewScreen": true
+		},
+		"countryProviding": {
+			"name": "countryProviding",
+			"type": "input-dropdown-filter",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper filter_dropdown_msg",
+			"styleClass": [
+				"applicant_bene_entity_class"
+			],
+			"required": true,
+			"previewValueAttr": "shortName"
+		},
+		"transMode": {
+			"name": "modeofTransmission",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"transmissionModeOptions": {
+			"name": "transmissionModeFund",
+			"source": "codeData",
+			"options": {
+				"value": [
+					"01"
+				],
+				"icon": "fa fa-check-circle fa-2x",
+				"matIcon": "check_circle"
+			},
+			"defaultValue": "01",
+			"type": "select-button",
+			"styleClass": [
+				"transmission"
+			],
+			"layoutClass": "p-grid p-col-12 p-md-12 p-lg-12 p-sm-12"
+		},
+		"space9": {
+			"noofspacers": "1",
+			"prefix": "nine",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+
+		"references": {
+			"name": "reference",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"transfereeReference": {
+			"name": "transfereeReference",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			 "applicableValidation": [
+      {
+        "characterValidation": "Swift_X",
+        "messageKey": "invalidSwiftRegex"
+	    }
+	  ],
+			"maxlength": 34,
+			"required": false
+		},
+		"customerReference": {
+			"name": "customerReference",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"required": true,
+			"maxlength": 16
+		},
+		"subProductCode": {
+			"name": "subProductCode",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": "subProductCode",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"transferer": {
+			"prefix": "transferer",
+			"sectionType": "applicantModel",
+			"hideFields": [
+				"fullAddress"
+			],
+			"applicableScreens": [
+				{
+					"option": "TEMPLATE",
+					"requiredFields": []
+				}
+			],
+			"requiredFields": [
+				"entity",
+				"name",
+				"address1"
+			],
+			"fieldsNotApplicable": [
+				"country",
+				"address4"
+			]
+		},
+		"space2": {
+			"noofspacers": "1",
+			"prefix": "two",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"orderingAct": {
+			"name": "orderingAct",
+			"type": "input-dropdown",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-col-8 p-md-8 p-lg-8 p-sm-8 leftwrapper",
+			"styleClass": [
+				"orderingAct"
+			],
+			"rendered": false,
+			"required": false
+		},
+		"orderingAccount": {
+			"name": "orderingAccount",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": "orderingAccount",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"orderingCurrency": {
+			"name": "orderingCurrency",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": "orderingCurrency",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"beneficiary": {
+			"prefix": "beneficiary",
+			"sectionType": "beneficiaryModel",
+			"hideFields": [
+				"fullAddress"
+			],
+			"requiredFields": [
+				"entity",
+				"address1",
+				"country"
+			],
+			"fieldsNotApplicable": [
+				"name",
+				"address4"
+			]
+		},
+		"space10": {
+			"noofspacers": "2",
+			"prefix": "ten",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"beneficiaryAct": {
+			"name": "beneficiaryAct",
+			"type": "input-text",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-grid p-col-8 p-md-8 p-lg-8 p-sm-8 leftwrapper",
+			"styleClass": [
+				"beneficiaryAct"
+			],
+			"applicableValidation": [
+		      {
+		        "characterValidation": "Swift_X",
+		        "messageKey": "invalidSwiftRegex"
+		      }
+	      ],
+			"required": true
+		},
+		"additionalBeneficiaryAct": {
+			"name": "additionalBeneficiaryAct",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"beneficiaryAccount": {
+			"name": "beneficiaryAccount",
+			"type": "input-text",
+			"layoutClass": "p-col-8 p-md-8 p-lg-8 p-sm-8 leftwrapper",
+			"styleClass": "beneficiaryAccount",
+			"hidden": true,
+			"previewScreen": false,
+			"dynamicCriteria": {
+				"dependControl": "transferTypeOptions",
+				"dependSection": "ftTradeGeneralDetails",
+				"requiredValue": "TTPT",
+				"presentSection": "ftTradeGeneralDetails"
+			}
+		},
+		"beneficiaryCurrency": {
+			"name": "beneficiaryCurrency",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": "beneficiaryCurrency",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"space13": {
+			"noofspacers": "1",
+			"prefix": "thirteen",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"chargeType": {
+			"name": "chargeType",
+			"type": "text",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": true,
+			"groupChildren": [
+				"chargeOptions"
+			],
+			"dynamicCriteria": {
+				"dependControl": "transferTypeOptions",
+				"dependSection": "ftTradeGeneralDetails",
+				"requiredValue": "TTPT",
+				"presentSection": "ftTradeGeneralDetails"
+			}
+		},
+		"chargeOptions": {
+			"name": "chargeOptions",
+			"source": "codeData",
+			"options": [
+				{
+					"value": "01",
+					"valueStyleClass": "p-col-6 p-lg-6 p-md-6 p-sm-6 leftwrapper padding_zero"
+				},
+				{
+					"value": "02",
+					"valueStyleClass": "p-col-6 p-lg-6 p-md-6 p-sm-6 rightwrapper padding_zero"
+				},
+				{
+					"value": "03",
+					"valueStyleClass": "p-col-6 p-lg-6 p-md-6 p-sm-6 rightwrapper padding_zero"
+				}
+			],
+			"defautValue": "01",
+			"type": "input-radio",
+			"styleClass": [
+				"issuance_radio p-grid"
+			],
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"rendered": false,
+			"grouphead": "chargeType"
+		},
+		"ftTransferDetail": {
+			"name": "ftTransferDetail",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": true,
+			"groupChildren": [
+				"currency",
+				"executionDate",
+				"paymentDetalsTransferee"
+			]
+		},
+		"space3": {
+			"noofspacers": "1",
+			"prefix": "three",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"transfereeAct": {
+			"name": "transfereeAct",
+			"type": "input-dropdown",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-grid p-col-8 p-md-8 p-lg-8 p-sm-8 leftwrapper",
+			"styleClass": [
+				"transfereeAct"
+			],
+			"rendered": false,
+			"required": true
+		},
+		"transfereeAccount": {
+			"name": "transfereeAccount",
+			"type": "input-text",
+			"layoutClass": "p-col-8 p-md-8 p-lg-8 p-sm-8 leftwrapper",
+			"styleClass": "orderingAccount",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"transfereeCurrency": {
+			"name": "transfereeCurrency",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 rightwrapper",
+			"styleClass": "orderingCurrency",
+			"hidden": true,
+			"previewScreen": false
+		},
+		"space4": {
+			"noofspacers": "1",
+			"prefix": "four",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"chargeCurrency": {
+			"name": "currency",
+			"type": "input-dropdown-filter",
+			"options": {},
+			"layoutClass": "p-col-5 p-md-5 p-lg-5 p-sm-12 chargeAmt",
+			"styleClass": [
+				"no-margin-multiselect"
+			],
+			"required": true,
+			"clubbedHeaderText": "amount",
+			"clubbedList": [
+				"currency",
+				"amount"
+			],
+			"clubbed": true,
+			"previewValueAttr": "shortName",
+			"grouphead": "ftTransferDetail"
+		},
+		"Values": {
+			"name": "values",
+			"type": "input-dropdown",
+			"options": {},
+			"layoutClass": "p-col-5 p-md-5 p-lg-5 p-sm-12 chargeAmt",
+			"styleClass": [
+				"no-margin-multiselect"
+			],
+			"required": true,
+			"clubbedHeaderText": "amount",
+			"clubbedList": [
+				"currency",
+				"amount"
+			],
+			"clubbed": true,
+			"previewValueAttr": "shortName",
+			"grouphead": "ftTransferDetail"
+		},
+		"chargeAmount": {
+			"name": "amount",
+			"type": "input-text",
+			"layoutClass": "p-col-5 p-md-5 p-lg-5 p-sm-12 leftwrapper",
+			"styleClass": [
+				"amt"
+			],
+			"required": true,
+			"clubbed": true,
+			"grouphead": "ftTransferDetail"
+		},
+		"space5": {
+			"noofspacers": "1",
+			"prefix": "five",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"transfereeDescription": {
+			"name": "transfereeDescription",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 35
+		},
+		"executionDate": {
+			"name": "executionDate",
+			"type": "input-date",
+			"grouphead": "ftTransferDetail",
+			"layoutClass": "p-col-12 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"readonly": true,
+			"required": true
+		},
+		"forwardContract": {
+			"name": "forwardContract",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-lg-6 p-md-6 p-sm-6 rightwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 34,
+			"rendered": false,
+			"dynamicCriteria": {
+				"dependControl": "forwardContract",
+				"dependSection": "ftTradeGeneralDetails",
+				"hideIfEmpty": true,
+				"presentSection": "ftTradeGeneralDetails"
+			}
+		},
+		"forwardContractText": {
+			"name": "forwardContractText",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-lg-6 p-md-6 p-sm-6 rightwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 34,
+			"required": true,
+			"rendered": true
+		},
+		"space7": {
+			"noofspacers": "1",
+			"prefix": "seven",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"paymentDetalsTransferee": {
+			"name": "paymentDetalsTransferee",
+			"type": "narrative-textarea",
+			"rendered": true,
+			"rows": 4,
+			"cols": 35,
+			"fieldSize": 35,
+			"maxRowCount": 4,
+			"rowCount": 0,
+			"swift": false,
+			"enteredCharCount": 0,
+			"allowedCharCount": 140,
+			"maxlength": 140,
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"indented-text-area-field-65"
+			],
+			"applicableValidation": [
+	      {
+	        "characterValidation": "Swift_X",
+	        "messageKey": "invalidSwiftRegex"
+	      }
+      ],
+			"directive": true,
+			"phraseEnabled": true,
+			"grouphead": "ftTransferDetail"
+		},
+		"space8": {
+			"noofspacers": "2",
+			"prefix": "eight",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"bankIssuanceType": {
+			"name": "bankDetailsType",
+			"options": [],
+			"type": "select-button",
+			"styleClass": [
+				"bank-select"
+			],
+			"previewScreen": false,
+			"layoutClass": "p-col-12"
+		},
+		"bankNameHeader": {
+			"name": "bankNameHeader",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"bankNameList": {
+			"name": "bankNameList",
+			"type": "input-dropdown",
+			"options": [],
+			"layoutClass": "p-grid p-col-5 p-md-5 p-lg-5 p-sm-5 leftwrapper",
+			"styleClass": [
+				"issueBankName"
+			],
+			"required": true,
+			"groupHeaderText": "issuingBank",
+			"groupChildren": [
+				"bankNameList",
+				"issuerReferenceList"
+			],
+			"sectionToValidate": [
+        "ftTradeGeneralDetails"
+      ]
+		},
+		"issuerReferenceHeader": {
+			"name": "issuerReferenceHeader",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"issuerReferenceList": {
+			"name": "issuerReferenceList",
+			"options": [],
+			"type": "input-dropdown",
+			"showValue": true,
+			"styleClass": [
+				"issuerRef",
+				"margin-all-side"
+			],
+			"layoutClass": "p-grid p-col-5 p-md-5 p-lg-5 p-sm-5 leftwrapper",
+			"required": true,
+			"grouphead": "bankNameList"
+		},
+		"bankTimezoneMessage": {
+	      "itemId": "bankTimezoneMessage",
+	      "name": "bankTimezoneMessage",
+	      "type": "text",
+	      "layoutClass": "p-col-12",
+	      "styleClass": [
+	        "noteForBankMessage"
+	      ],
+	      "rendered": false,
+	      "previewScreen": false
+	  },
+		"accountWithBank": {
+			"name": "accountWithBank",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"applicableValidation": [
+	      {
+	        "characterValidation": "Swift_X",
+	        "messageKey": "invalidSwiftRegex"
+	      }
+      ],
+			"previewScreen": false
+		},
+		"advisingswiftCode": {
+			"name": "advisingswiftCode",
+			"type": "input-text",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": [
+				"margin-all-side"
+			],
+			"required": false,
+			"rendered": true,
+			"grouphead": "advisingBankHeader"
+		},
+		"advisingBankIcons": {
+			"name": "advisingBankIcons",
+			"type": "icon",
+			"iconName": "search",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "iconStyle",
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"advisingBank": {
+			"prefix": "advisingBank",
+			"sectionType": "applicantModel",
+			"hideFields": [
+				"header",
+				"entity",
+				"fullAddress",
+				"country",
+				"address4"
+			],
+			"requiredFields": [
+				"name",
+				"address1"
+			],
+			"rendered": true,
+			"subSectionGroup": [
+				"advisingswiftCode",
+				"prefix"
+			]
+		},
+		"payThroughBank": {
+			"name": "payThroughBank",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+      "applicableValidation": [
+      {
+        "characterValidation": "Swift_X",
+        "messageKey": "invalidSwiftRegex"
+	    }
+	  ],
+			"previewScreen": false
+		},
+		"advThroughswiftCode": {
+			"name": "advThroughswiftCode",
+			"type": "input-text",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": [
+				"margin-all-side"
+			],
+			"required": false,
+			"rendered": true,
+			"grouphead": "adviceThroughHeader"
+		},
+		"advThroughBankIcons": {
+			"name": "advThroughBankIcons",
+			"type": "icon",
+			"iconName": "search",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "iconStyle",
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"adviceThrough": {
+			"prefix": "adviceThrough",
+			"sectionType": "applicantModel",
+			"hideFields": [
+				"header",
+				"entity",
+				"fullAddress",
+				"country",
+				"address4"
+			],
+			"rendered": true,
+			"subSectionGroup": [
+				"advThroughswiftCode",
+				"prefix"
+			]
+		},
+		"bankInstructions": {
+			"name": "bankInstructions",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false,
+			"groupChildren": [
+				"feeAct"
+			]
+		},
+		"feeAct": {
+      "name": "feeAct",
+      "type": "input-dropdown-filter",
+      "accountLookup":true,
+      "options": [],
+      "defaultValue": "",
+      "layoutClass": "p-col-5 p-md-5 p-lg-5 p-sm-12 rightwrapper",
+      "styleClass": "feeAct applicant_bene_entity_class",
+      "filterBy": "label,value.label,value.info,value.description",
+      "infoClass": "p-col-2",
+      "labelClass": "p-col-5",
+      "valueClass": "p-col-5",
+      "grouphead": "bankInstructions"
+    },
+		"feeActText": {
+			"name": "feeActText",
+			"type": "input-text",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper",
+			"styleClass": [
+				"margin-all-side"
+			],
+			"required": true,
+			"readonly": true,
+			"previewScreen": true,
+		 "applicableScreens":[
+            {
+               "tnxTypeCode":"01",
+               "option":"TEMPLATE",
+               "required":false
+            }
+         ]
+		},
+		"feeActIcons": {
+			"name": "feeActIcons",
+			"type": "icon",
+			"iconName": "search",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "iconStyle",
+         "parentStyleClass":"parentIconStyle",
+         "previewScreen":false
+      },
+      "ftLinkedTransactionCheck":{
+         "name":"ftLinkedTransactionCheck",
+         "defaultValue":"N",
+         "type":"checkbox",
+         "layoutClass":"p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+         "styleClass":"margin-all-side radio-label",
+         "rendered":true,
+         "previewScreen":false
+      },
+      "inwardPortalReference":{
+         "name":"inwardPortalReference",
+         "type":"input-text",
+         "layoutClass":"p-md-6 p-lg-6 p-sm-12 rightwrapper",
+         "styleClass":[
+            "margin-all-side"
+         ],
+         "required":false,
+         "readonly":true,
+         "previewScreen":true
+      },
+      "inwardPortalReferenceIcons":{
+         "name":"inwardPortalReferenceIcons",
+         "type":"icon",
+         "iconName":"search",
+         "rendered":true,
+         "layoutClass":"layoutIcon",
+         "styleClass":"customIconStyle",
+         "readonly":false,
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"inwardPortalReferenceDeleteIcons": {
+			"name": "inwardPortalReferenceDeleteIcons",
+			"type": "icon",
+			"iconName": "clear",
+			"rendered": true,
+			"layoutClass": "layoutIcon",
+			"styleClass": "customIconStyle",
+			"parentStyleClass": "parentIconStyle",
+			"previewScreen": false
+		},
+		"user":{
+         "name":"user",
+         "type":"input-text",
+         "layoutClass":"p-md-6 p-lg-6 p-sm-12 rightwrapper",
+         "styleClass":[
+            "margin-all-side"
+         ],
+         "required":false,
+         "readonly":false,
+         "previewScreen":true
+      },
+		"otherInst": {
+			"name": "otherInst",
+			"type": "narrative-textarea",
+			"rendered": false,
+			"rows": 5,
+			"cols": 65,
+			"fieldSize": 50,
+			"maxRowCount": 27,
+			"rowCount": 0,
+			"swift": false,
+			"enteredCharCount": 0,
+			"allowedCharCount": 222,
+			"maxlength": 222,
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"indented-text-area-field-65"
+			],
+			"directive": true,
+			"phraseEnabled": true
+		},
+		"ftDuplicateMessage": {
+			"name": "ftDuplicateMessage",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"id": "ftTradeGeneralDetailsComponent",
+		"helpId": "GD"
+	},
+	"ftTradeLicenseDetails": {
+		"applicableSections": [
+			{
+				"tnxTypeCode": "01",
+				"option": "TEMPLATE",
+				"showTemplate": false,
+				"productCode": "FT"
+			}
+		],
+		"space1": {
+			"noofspacers": "2",
+			"prefix": "one",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"linkLicenseButton": {
+			"itemId": "linkLicense",
+			"name": "linkLicense",
+			"type": "rounded-button",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"browseButton"
+			],
+			"previewScreen": false
+		},
+		"linkedLicenses": {
+			"name": "linkedLicenses",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"license": {
+			"name": "license",
+			"type": "edit-table",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"fileUploadTable"
+			],
+			"subControlsDetails": [
+				{
+					"REF_ID": {
+						"name": "REF_ID",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "REF_ID",
+						"renderd": false
+					}
+				},
+				{
+					"BO_REF_ID": {
+						"name": "BO_REF_ID",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BO_REF_ID",
+						"renderd": false
+					}
+				},
+				{
+					"LS_NUMBER": {
+						"name": "LS_NUMBER",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "LS_NUMBER",
+						"renderd": false
+					}
+				},
+				{
+					"currency": {
+						"name": "currency",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "currency",
+						"renderd": false
+					}
+				},
+				{
+					"amount": {
+						"name": "amount",
+						"type": "text",
+						"editStatus": true,
+						"styleClass": "amount",
+						"renderd": false
+					}
+				}
+			],
+			"data": [],
+			"columns": [],
+			"options": [],
+			"previewScreen": true,
+			"OverDrawStatus": false,
+			"tnsAmountStatus": false,
+			"message1": "",
+			"message2": "",
+			"rendered": false
+		},
+		"licenseUploadError": {
+			"name": "licenseUploadError",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": "licenseUploadError",
+			"rendered": false
+		},
+		"id": "FtTradeLicenseDetailsComponent",
+		"helpId": "LD"
+	},
+	"ftTradeFileUploadDetails": {
+		"applicableSections": [
+			{
+				"tnxTypeCode": "01",
+				"option": "TEMPLATE",
+				"showTemplate": false,
+				"productCode": "FT"
+			}
+		],
+		"space11": {
+			"noofspacers": "2",
+			"prefix": "eleven",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"fileMaxLimits": {
+			"name": "fileMaxLimits",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"fileMaxLimits"
+			],
+			"previewScreen": false
+		},
+		"fileExtnText": {
+			"name": "fileExtnText",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"fileExtnText"
+			],
+			"previewScreen": false
+		},
+		"fileDragDrop": {
+			"name": "fileUploadDragDrop",
+			"type": "fileUpload-dragdrop",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"DragDropArea"
+			],
+			"previewScreen": false
+		},
+		"browseButton": {
+			"name": "browseButton",
+			"type": "rounded-button",
+			"styleClass": [
+				"browseButton"
+			],
+			"layoutClass": "p-col-2 p-md-2 p-lg-2 p-sm-12 margin-left-radio",
+			"btndisable": true,
+			"previewScreen": false
+		},
+		"fileUploadTable": {
+			"name": "fileUploadTable",
+			"columns": [],
+			"label": "hideControl",
+			"defaultValue": "specialPayment",
+			"type": "input-table",
+			"rendered": true,
+			"data": [],
+			"styleClass": [
+				"fileUploadTable"
+			],
+			"layoutClass": "p-col-12"
+		},
+		"attachments": {
+			"name": "attachments",
+			"rendered": false,
+			"type": "json-obj",
+			"previewScreen": false
+		},
+		"attachmentMandatory": {
+			"name": "attachmentMandatory",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"required": true,
+			"hidden": true
+		},
+		"ftNotes": {
+			"name": "ftNotes",
+			"rendered": true,
+			"type": "text",
+			"previewScreen": false
+		},
+		"space12": {
+			"noofspacers": "1",
+			"prefix": "twelve",
+			"sectionType": "spacerModel",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero"
+		},
+		"id": "ftTradeFileUploadDetailsComponent",
+		"helpId": "AT"
+	},
+	"ftTrracsBoeGridDetails": {
+		"boeNumberDropdown": {
+			"name": "boeNumberDropdown",
+			"type": "input-dropdown-filter",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper filter_dropdown_msg",
+			"styleClass": [
+				"applicant_bene_entity_class"
+			],
+			"required": false,
+			"previewValueAttr": "shortName"
+		},
+		"ftFetchTrracsBoeButton": {
+			"name": "ftFetchTrracsBoeButton",
+			"type": "rounded-button",
+			"styleClass": [
+				"browseButton"
+			],
+			"layoutClass": "p-col-2 p-md-2 p-lg-2 p-sm-12",
+			"rendered": false,
+			"previewScreen": false
+		},
+		"ftValidationError": {
+			"name": "ftValidationError",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": "licenseUploadError",
+			"rendered": false
+		},
+		"ftTrracsBoeGrid": {
+			"name": "ftTrracsBoeGrid",
+			"type": "edit-table",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"fileUploadTable"
+			],
+			"subControlsDetails": [
+				{
+					"BOENUMBER": {
+						"name": "BOENUMBER",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BOENUMBER",
+						"renderd": false
+					}
+				},
+				{
+					"BOECURRENCY": {
+						"name": "BOECURRENCY",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BOECURRENCY",
+						"renderd": false
+					}
+				},
+				{
+					"BOEDATE": {
+						"name": "BOEDATE",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BOEDATE",
+						"renderd": false
+					}
+				},
+				{
+					"INVOICEAMOUNT": {
+						"name": "INVOICEAMOUNT",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "INVOICEAMOUNT",
+						"renderd": false
+					}
+				},
+				{
+					"OSAMOUNT": {
+						"name": "OSAMOUNT",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "OSAMOUNT",
+						"renderd": false
+					}
+				},
+				{
+					"BOEENDORSEDAMOUNT": {
+						"name": "BOEENDORSEDAMOUNT",
+						"type": "text",
+						"editStatus": true,
+						"styleClass": "BOEENDORSEDAMOUNT",
+						"renderd": false
+					}
+				},
+				{
+					"BOECLOSUREINDICATOR": {
+						"name": "BOECLOSUREINDICATOR",
+						"type": "dropdown",
+						"editStatus": true,
+						"styleClass": "documentType",
+						"renderd": false,
+						"required": false,
+						"disabled": false,
+						"options": [
+							{
+								"label": "Yes",
+								"value": "1"
+							},
+							{
+								"label": "No",
+								"value": "2"
+							}
+						]
+					}
+				},
+				{
+					"DISCHARGEPORT": {
+						"name": "DISCHARGEPORT",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "DISCHARGEPORT",
+						"renderd": false
+					}
+				}
+			],
+			"data": [],
+			"columns": [],
+			"options": [],
+			"previewScreen": true,
+			"OverDrawStatus": false,
+			"tnsAmountStatus": false,
+			"message1": "",
+			"message2": "",
+			"rendered": true
+		},
+		"ftTrracsBoeGridError": {
+			"name": "ftTrracsBoeGridError",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": "licenseUploadError",
+			"rendered": false
+		},
+		"ftTrracsBoeGridData": {
+			"name": "ftTrracsBoeGridData",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"ftFormattedTrracsBoeGridData": {
+			"name": "ftFormattedTrracsBoeGridData",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"rendered": false,
+		"previewScreen": false,
+		"id": "ftTrracsBoeDetailsComponent"
+	},
+	"ftTradeShippingDetails": {
+		"invoiceNumber": {
+			"name": "invoiceNumber",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 100,
+			"required": false,
+			"previewScreen": true
+		},
+		"commodity": {
+			"name": "commodity",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 50,
+			"required": false,
+			"previewScreen": true
+		},
+		"hsCode": {
+			"name": "hsCode",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 12,
+			"required":false,
+			"previewScreen": true
+		},
+		"portLoading": {
+			"name": "portLoading",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 50,
+			"required": false,
+			"previewScreen": true
+		},
+		"portDischarge": {
+			"name": "portDischarge",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 50,
+			"required": false,
+			"previewScreen": true
+		},
+		"boeDetails": {
+			"name": "boeDetails",
+			"type": "narrative-textarea",
+			"rendered": true,
+			"fieldSize": 5,
+			"previewScreen": true,
+			"rows": 5,
+			"cols": 50,
+			"enteredCharCount": 0,
+			"allowedCharCount": 100,
+			"maxlength": 100,
+			"rowCount": 0,
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "amend-text-area-field-50",
+			"required": false,
+			"disableNextLineCharCount": true,
+			"phraseEnabled": false
+		},
+		"countryOrigin": {
+			"name": "countryOrigin",
+			"type": "input-dropdown-filter",
+			"options": [],
+			"defaultValue": "",
+			"layoutClass": "p-md-6 p-lg-6 p-sm-12 leftwrapper filter_dropdown_msg",
+			"styleClass": [
+				"applicant_bene_entity_class"
+			],
+			"required": false,
+			"previewValueAttr": "shortName"
+		},
+		"adBankCode": {
+			"name": "adBankCode",
+			"type": "input-text",
+			"layoutClass": "p-col-6 p-md-6 p-lg-6 p-sm-12 leftwrapper padding_zero",
+			"styleClass": [
+				"margin-side"
+			],
+			"maxlength": 10,
+			"required": false,
+			"previewScreen": true
+		},
+		"id": "ftTradeShippingDetailsComponent"
+	},
+	"ftTradeDeclerationDetails": {
+		"selectDeclerationMessage": {
+			"itemId": "selectDeclerationMessage",
+			"name": "selectDeclerationMessage",
+			"type": "text",
+			"layoutClass": "p-grid p-col-3 select-msg-width",
+			"styleClass": [
+				"hintForBackToBack"
+			],
+			"rendered": true,
+			"previewScreen": false
+		},
+		"declaration_air": {
+			"name": "declaration_air",
+			"myCustomLabel":[{"label":"* We confirm that the current transaction does / will not involve entities / places mentioned in OFAC / UN sanctioned list.","style":"" ,"contentYSpace":10},{"label":"* We undertake that we shall make the physical import within 3 months from the date of remittance (3 years in the case of Capital goods) and documentary evidence of import will be furnished within 15 days from the date of physical import","style":""},{"label":"* DECLARATION - CUM - UNDERTAKING (FEMA declaration)","style":""},{"label":"[ UnderSection 10(5) of The Foreign Exchange Management Act,1999]","style":""},{"label":"- We hereby declare that the transaction, the details of which are specifically mentioned in the Schedule hereunder does not involve, and is not designed for the purpose of any contravention of the provisions of the aforesaid Act or of any rule, regulation, notification, direction or order made thereunder.","style":"","x":10},{"label":"- We also hereby agree and undertake to give such information/documents as will reasonably satisfy you about this transaction in terms of above declaration.","style":"","x":10},{"label":"- We also understand that if we refuse to comply with any such requirement or make only unsatisfactory compliance therewith, the Bank shall refuse in writing to undertake the transaction and shall if it has reasons to believe that any contravention/evasion is contemplated by us report the matter to Reserve Bank of India","style":"","x":10},{"label":"- We further declare that the undersigned has the authority to give this declaration and undertaking on behalf of the company.","style":"","x":10},{"label":"SCHEDULE :- All foreign exchange transactions as may be entrusted by us to the Bank from time to time","style":""}],
+			"isCustomLabel":true,
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "radio-label isCustomLabel",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_dir": {
+			"name": "declaration_dir",
+			"myCustomLabel":[ {"label":"* We confirm that the current transaction does / will not involve entities / places mentioned in OFAC / UN sanctioned list.", "style":"","contentYSpace":10 }, { "label":"* DECLARATION - CUM - UNDERTAKING (FEMA declaration )", "style":"" }, { "label":"[ Under Section 10(5) of The Foreign Exchange Management Act,1999]", "style":"" }, { "label":"- We hereby declare that the transaction, the details of which are specifically mentioned in the Schedule hereunder does not involve, and is not designed for the purpose of any contravention of the provisions of the aforesaid Act or of any rule, regulation, notification, direction or order made thereunder.", "style":"","x":10 }, { "label":"- We also hereby agree and undertake to give such information/documents as will reasonably satisfy you about this transaction in terms of above declaration.", "style":"","x":10 }, { "label":"- We also understand that if we refuse to comply with any such requirement or make only unsatisfactory compliance therewith, the Bank shall refuse in writing to undertake the transaction and shall if it has reasons to believe that any contravention/evasion is contemplated by us report the matter to Reserve Bank of India.", "style":"","x":10 }, { "label":"- We further declare that the undersigned has the authority to give this declaration and undertaking on behalf of the company.", "style":"","x":10 }, { "label":"SCHEDULE :- All foreign exchange transactions as may be entrusted by us to the Bank from time to time", "style":"" } ],
+			"isCustomLabel":true,
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_ott": {
+			"name": "declaration_ott",
+			"myCustomLabel":[ { "label":"* We confirm that the current transaction does / will not involve entities / places mentioned in OFAC / UN sanctioned list.", "style":"","contentYSpace":10 }, { "label":"* DECLARATION \u2013 CUM \u2013 UNDERTAKING (FEMA declaration )", "style":"" }, { "label":"[ Under Section 10(5) of The Foreign Exchange Management Act,1999]", "style":"" }, { "label":"- We hereby declare that the transaction, the details of which are specifically mentioned in the Schedule hereunder does not involve, and is not designed for the purpose of any contravention of the provisions of the aforesaid Act or of any rule, regulation, notification, direction or order made thereunder.", "style":"","x":10  }, { "label":"- We also hereby agree and undertake to give such information/documents as will reasonably satisfy you about this transaction in terms of above declaration.", "style":"","x":10  }, { "label":"- We also understand that if we refuse to comply with any such requirement or make only unsatisfactory compliance therewith, the Bank shall refuse in writing to undertake the transaction and shall if it has reasons to believe that any contravention/evasion is contemplated by us report the matter to Reserve Bank of India.", "style":"","x":10  }, { "label":"- We further declare that the undersigned has the authority to give this declaration and undertaking on behalf of the company.", "style":"","x":10 }, { "label":"SCHEDULE :- All foreign exchange transactions as may be entrusted by us to the Bank from time to time", "style":"" } ],
+			"isCustomLabel":true,
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_air_2": {
+			"name": "declaration_air_2",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_air_6": {
+			"name": "declaration_air_6",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_air_1": {
+			"name": "declaration_air_1",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		
+		"declaration_air_4": {
+			"name": "declaration_air_4",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_dir_1": {
+			"name": "declaration_dir_1",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		
+		"declaration_dir_3": {
+			"name": "declaration_dir_3",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_dir_4": {
+			"name": "declaration_dir_4",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_dirOptional": {
+			"name": "declaration_dirOptional",
+			"type": "text",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"previewScreen": false
+		},	
+		"declaration_dir_2": {
+			"name": "declaration_dir_2",
+			"defaultValue": "N",
+			"myCustomLabel":[ {"label":"Reasons for the delayed import payment (applicable if payment is being made beyond 180 days from the date of shipment) - Letter Attached", "style":"" }],
+			"isCustomLabel":true,
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_ott_2": {
+			"name": "declaration_ott_2",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_airOptional": {
+			"name": "declaration_airOptional",
+			"type": "text",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"previewScreen": false
+		},
+		"declaration_air_3": {
+			"name": "declaration_air_3",
+			"defaultValue": "N",
+			"myCustomLabel":[ {"label":"I / we hereby declare that I/we will furnish a Chartered Accountant certificate confirming that the software / data / drawing / design has been received, where Imports made in non-physical form, i.e., software or data through internet / data com channels and drawings and designs through e-mail / fax.", "style":"" }],
+			"isCustomLabel":true,
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_air_5": {
+			"name": "declaration_air_5",
+			"defaultValue": "N",
+			"myCustomLabel":[ {"label":"Diamonds are not conflicting in nature and we will submit Kimberly certificate along with BOE.", "style":"" }],
+			"isCustomLabel":true,
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_ott_3": {
+			"name": "declaration_ott_3",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_ott_4": {
+			"name": "declaration_ott_4",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_ottOptional": {
+			"name": "declaration_ottOptional",
+			"type": "text",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"previewScreen": false
+		},
+		"declaration_ott_1": {
+			"name": "declaration_ott_1",
+			"defaultValue": "N",
+			"myCustomLabel":[ {"label":"We state that the above mentioned remittance is towards import of goods and is not chargeable to tax in India and therefore we have not furnished Form 15CA and Form 15CB as the same is not required to be furnished in case of import of goods as per section 195(6) of the Income Tax Act, 1961 read with rule 37BB of the Income Tax Rules, 1962 amended vide Notification 93 of 2015 dated 16th December, 2015.", "style":"" }],
+			"isCustomLabel":true,
+			"type": "checkbox",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"isStyleEnabled":true,
+			"rendered": true,
+			"required": true,
+			"previewScreen": true
+		},
+		"declaration_Optional": {
+			"name": "declaration_Optional",
+			"type": "text",
+			"layoutClass": "p-col-12 padding_zero",
+			"styleClass": "radio-label",
+			"clubbed": false,
+			"rendered": true,
+			"previewScreen": false
+		},
+		"ftDuplicateHeader": {
+			"name": "ftDuplicateHeader",
+			"type": "text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"subheader-title"
+			],
+			"previewScreen": false
+		},
+		"ftDuplicateCheck": {
+			"name": "ftDuplicateCheck",
+			"defaultValue": "N",
+			"type": "checkbox",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "margin-all-side radio-label",
+			"rendered": true,
+			"required": true,
+			"previewScreen": false
+		},
+		"id": "ftTradeDeclarationDetailsComponent"
+	},
+	"ftTradePrincipalAccountDetails": {
+		"principalAccountGridButton": {
+			"name": "principalAccountGridButton",
+			"type": "rounded-button",
+			"styleClass": [
+				"browseButton"
+			],
+			"layoutClass": "p-col-2 p-md-2 p-lg-2 p-sm-12",
+			"previewScreen": false
+		},
+		"principalAccountGrid": {
+			"name": "principalAccountGrid",
+			"type": "edit-table",
+			"layoutClass": "p-col-12",
+			"styleClass": [
+				"fileUploadTable"
+			],
+			"subControlsDetails": [
+				{
+					"ORDERINGACCOUNTNO": {
+						"name": "ORDERINGACCOUNTNO",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BO_REF_ID",
+						"renderd": false
+					}
+				},
+				{
+					"ORDERINGACCOUNTCURCODE": {
+						"name": "ORDERINGACCOUNTCURCODE",
+						"type": "text",
+						"editStatus": false,
+						"styleClass": "BO_REF_ID",
+						"renderd": false
+					}
+				},
+				{
+					"ORDERINGACCOUNTDEBITAMT": {
+						"name": "ORDERINGACCOUNTDEBITAMT",
+						"type": "text",
+						"editStatus": true,
+						"styleClass": "BO_REF_ID",
+						"renderd": false
+					}
+				}
+			],
+			"data": [],
+			"columns": [],
+			"options": [],
+			"previewScreen": true,
+			"OverDrawStatus": false,
+			"tnsAmountStatus": false,
+			"message1": "",
+			"message2": "",
+			"rendered": true
+		},
+		"principalAccountGridError": {
+			"name": "principalAccountGridError",
+			"type": "text",
+			"layoutClass": "p-col-12",
+			"styleClass": "licenseUploadError",
+			"rendered": false
+		},
+		"principalAccountGridData": {
+			"name": "principalAccountGridData",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		"formattedPrincipalAccount": {
+			"name": "formattedPrincipalAccount",
+			"type": "input-text",
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": "linkedLicenses",
+			"hidden": true
+		},
+		 "formattedPrincipalAccount1":{
+         "name":"formattedPrincipalAccount1",
+         "type":"input-text",
+         "layoutClass":"p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+         "styleClass":"linkedLicenses",
+         "hidden":true
+      },
+		"otherAccountInst": {
+			"name": "otherAccountInst",
+			"type": "narrative-textarea",
+			"rendered": true,
+			"rows": 5,
+			"cols": 65,
+			"fieldSize": 50,
+			"maxRowCount": 27,
+			"rowCount": 0,
+			"swift": false,
+			"enteredCharCount": 0,
+			"allowedCharCount": 222,
+			"maxlength": 222,
+			"layoutClass": "p-col-12 p-md-12 p-lg-12 p-sm-12 padding_zero",
+			"styleClass": [
+				"indented-text-area-field-65"
+			],
+			"directive": true,
+			"phraseEnabled": false
+		},
+		"id": "ftTradePrincipalAccountDetailsComponent"
+	}
+}

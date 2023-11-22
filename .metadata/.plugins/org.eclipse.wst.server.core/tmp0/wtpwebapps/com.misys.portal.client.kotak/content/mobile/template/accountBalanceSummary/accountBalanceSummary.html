@@ -1,0 +1,62 @@
+<ion-view>
+    <div class="bar bar-stable bar-subheader" dir="ltr">
+        <h2 class="title">
+	        <div ng-hide ="vm.accountBalanceItemsCount != 0">
+	        	{{"ACCOUNT_SUMMARY" | translate}}
+	        </div>
+	        <div>
+	        	{{vm.accountBalanceSum.label}} {{"SUMMARY" | translate}}
+	        </div>
+        </h2>
+        <button class="button button-clear" ng-click="vm.openCurrencyModal()"><em class="fa fa-univ-cur"></em></button>
+        </button>
+        <button ng-show="vm.entityname !=''" class="button button-clear filter-applied" ng-click="vm.openModal()"><em class="fa fa-filter fa-1x"></em>
+        </button>
+    </div>
+	<ion-content scroll="false" class="has-subheader">
+	 	<div class="list">
+			  <div align="center" class="item item-divider entity">
+			  <span  ng-show="vm.entityname !=''">
+    			{{vm.entityname}}
+    			</span>
+			  </div>
+			  <div class="item item-divider account-balance-total-balance-content">
+	  			  <div ng-repeat="item in vm.accountBalanceSum.value">
+	                    <div ng-if="item.localisation">
+	                        <div class="row row-item-label">{{item.localisation}}</div>
+	                        <div class="row">{{item.value}}</div>
+	                    </div>
+	              </div>
+	           </div>
+		</div>
+	</ion-content>
+    <ion-content class="has-sumHeader">
+   		<div class="ion-alert-circled message" ng-if="vm.accountBalanceItemsCount === 0" ng-show="vm.accountBalanceItems.length === 0">{{"NO_RECORDS" | translate}}</div>
+        <ion-list>
+            <ion-item class="misys-item" collection-repeat="accountBalanceItem in vm.accountBalanceItems" on-tap="vm.getStatements(accountBalanceItem, vm.entityname)">
+            <div class="card card-layout">
+            <div class="item item-text-wrap account-balance-items">
+            	 <div ng-repeat="item in accountBalanceItem" ng-if="item.account_no || item.description">
+                     <div class="row row-item-label">{{item.label | translate}}</div>
+                     <div class="row">{{item.value}}</div>
+            	 </div>
+             </div>
+             <div class="item item-text-wrap account-balance-items">
+             	<div ng-repeat="item in accountBalanceItem" ng-if="item.RunningStatementLedgerBalanceamt || item.RunningStatementAvailableBalanceamt">
+	             
+	                     <div class="row row-item-label">{{item.label | translate}}</div>
+	                     <div class="row">{{item.value}}</div>
+	             </div>
+             </div>
+             <div class="item item-text-wrap account-balance-items">
+	             <div ng-repeat="item in accountBalanceItem" ng-if="item.RunningStatementAvailableBalanceconvertedAmt || item.RunningStatementLedgerBalanceconvertedAmt">
+	                     <div class="row row-item-label">{{item.label | translate}}</div>
+	                     <div class="row">{{item.value}}</div>
+	             </div>
+             </div>
+             </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="vm.moreDataCanBeLoaded()" on-infinite="vm.addItems()"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

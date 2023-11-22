@@ -1,0 +1,40 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .table-header {
+  color: $VIOLET-F100 !important;
+  font-size: 1.125em !important;
+  font-weight: 500 !important;
+  background-color: $White-Lilac !important;
+  border-radius: 0.125em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+:host ::ng-deep .pad-all {
+  padding: 1em;
+}
+
+:host ::ng-deep .padding_zero{
+  padding: 0 !important;
+}
+
+:host ::ng-deep .padding_vertical_zero {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+:host ::ng-deep .displayChevron {
+  word-wrap: break-word;
+}
+
+::ng-deep {
+  table > thead > tr > th:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: inset $ui-tabenu-nav-itemLinkFocusBoxShadow;
+  }
+
+}
+:host ::ng-deep .rowDataStyle:focus{
+  outline: 0.125em solid $VIOLET-F100 !important;
+}

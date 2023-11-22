@@ -1,0 +1,90 @@
+<ng-container>
+  <div class="summaryWrapper p-grid">
+    <div class="fcc-form-header p-col-12">
+      <h3 class="">{{ module }} </h3>
+    </div>
+
+    <ng-container *ngFor="let detail of summaryRender ; let i = index">
+      <h3 [class.p-col-12]="detail.header.length > 1" [class.p-col-6]="detail.header.length == 0"
+        *ngIf="detail.header" class="summaryHeader">
+        {{detail.header}}</h3>
+
+     <h4 class="p-col-12" *ngIf="detail.tagName=='Applicant' && applicantStatus==true "  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='alternateapplicantdetails' && alternateapplicantdetailsStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='beneficiary' && beneficiaryStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='goodsandDoc' && goodsandDocStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+        <h4 class="p-col-12" *ngIf="detail.tagName=='otherDetails' && otherDetailsStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+
+      <h4 class="p-col-12" *ngIf="detail.tagName=='issuingBank' && issuingBankStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='advisingBank' && advisingBankStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='adviceThrough' && adviceThroughStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+      <h4 class="p-col-12" *ngIf="detail.tagName=='confirmationParty' && requestedConfirmationPartyStatus==true"  class="p-col-12">
+        <strong> {{detail.tagName | translate}} </strong>
+      </h4>
+
+      <div [class.p-col-12]="detail.header.length > 1" [class.p-col-6]="detail.header.length == 0" *ngIf="detail.value && detail.value">
+        <div class="summarylabel" *ngIf="detail.key != 'fileUploadTable'">{{ detail.label | translate }}</div>
+        <div class="summaryval" *ngIf="detail.key != 'fileUploadTable'">
+          <div *ngIf="detail.isDate==true">{{ detail.value | date  }}</div>
+          <div class="textarea" *ngIf="detail.isTextArea==true"><pre>{{ detail.value   }}</pre></div>
+          <div *ngIf="detail.isDate==false && detail.isTextArea==false " [innerHtml]="detail.value"></div>
+        </div>
+      </div>
+      <div *ngIf="detail.key == 'fileUploadTable'">
+            <p-table [columns]=detail.tableColumns [value]="detail.tableData">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th scope="col" id="column" *ngFor="let cols of detail.tableColumns">
+                            {{cols.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="{{detail.tableColumns}}" let-index="rowIndex">
+                    <tr>
+                        <td *ngFor="let cols of detail.tableColumns">
+                          <span innerHTML="{{rowData[cols.field]}}"></span>
+                        </td>
+                        <td>
+                          <a (click)="onClickDownload($event,index)">
+                          <em class="pi pi-download"></em>
+                          </a>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+      </div>
+    </ng-container>
+  </div>
+  <!-- <div class="p-grid" *ngIf="saveTemplateStatus">
+      <div class="p-col-12">
+         <div  class="savetemplate">  <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch> <span>Save as Template</span></div>
+      </div>
+  </div> -->
+</ng-container>
+<div class="p-grid">
+  <div class="p-col-12">
+      <div [ngStyle]="{'float': setDirection()}">
+        <div *ngIf="submitButton">
+          <button role="button"  pButton class="primaryButton submit" type="button" label={{submit}}
+            (click)="submitForm($event)"></button>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div>
+  <!-- Header Buttons for the preview screen -->
+  <fcc-common-actions [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+
+  <fcc-trade-event-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-trade-event-details>
+  <fcc-iu-initiate-general-details  *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-general-details>
+  <fcc-iu-common-applicant-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-common-applicant-details>
+  <fcc-iu-common-beneficiary-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-common-beneficiary-details>
+  <fcc-iu-undertaking-general-details *ngIf="tnxbgContent" [bgRecord]="this.tnxbgContent" (downloadBankTemplate)="downloadTemplateFile()" ></fcc-iu-undertaking-general-details>
+  <fcc-iu-common-amount-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-common-amount-details>
+  <fcc-iu-renewal-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-renewal-details>
+  <fcc-iu-initiate-reduction-increase *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-reduction-increase>
+  <fcc-iu-payment-details *ngIf="tnxbgContent" [bgRecord]="this.tnxbgContent"></fcc-iu-payment-details>
+  <fcc-iu-shipment-details  *ngIf="tnxbgContent" [bgRecord]="this.tnxbgContent"></fcc-iu-shipment-details>
+  <fcc-iu-initiate-contract-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-contract-details>
+  <fcc-iu-initiate-bank-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-bank-details>
+  <fcc-iu-initiate-bank-instructions *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-bank-instructions>
+  <fcc-iu-initiate-undertaking-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-undertaking-details>
+  <fcc-iu-common-license *ngIf="tnxbgContent" [bgRecord]="this.tnxbgContent"></fcc-iu-common-license>
+
+  <div *ngIf="displayLU">
+    <fcc-iu-cu-general-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-cu-general-details>
+    <fcc-iu-cu-beneficiary-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-cu-beneficiary-details>
+    <fcc-iu-initiate-cu-amount-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-cu-amount-details>
+    <fcc-iu-cu-renewal-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-cu-renewal-details>
+    <fcc-iu-cu-reduction-increase *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-cu-reduction-increase>
+    <fcc-iu-cu-payment-details *ngIf="tnxbgContent" [bgRecord]="this.tnxbgContent"></fcc-iu-cu-payment-details>
+    <fcc-iu-initiate-cu-undertaking-details *ngIf="tnxbgContent" [bgRecord]= "this.tnxbgContent"></fcc-iu-initiate-cu-undertaking-details>
+  </div>
+  <!-- Footer Buttons for the preview screen -->
+  <fcc-common-actions *ngIf="tnxbgContent" [isFooter]="true" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+</div>
+

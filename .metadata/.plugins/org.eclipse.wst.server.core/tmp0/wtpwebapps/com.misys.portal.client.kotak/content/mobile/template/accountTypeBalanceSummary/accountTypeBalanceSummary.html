@@ -1,0 +1,34 @@
+<ion-view>
+    <div class="bar bar-stable bar-subheader" dir="ltr">
+        <button class="button button-clear" ng-click="vm.openCurrencyModal()"><em class="fa fa-univ-cur"></em></button>
+         <h2 class="title">{{"ACCOUNT_TYPE_SUMMARY" | translate}}</h2>
+        <button ng-show="vm.filterModalData.entities !=''" class="button button-clear filter-applied" ng-click="vm.openModal()"><em class="fa fa-filter fa-1x"></em>
+        </button>
+    </div>
+	<ion-content class="has-subheader" scroll="false">
+    	<ion-item class="entity" ng-show="vm.filterModalData.entities !=''" align="center">{{"ENTITY" | translate}}:
+    		<span ng-if="vm.entityname != ''">
+    			{{vm.entityname}}
+    		</span>
+   		 </ion-item>
+    </ion-content>
+    <ion-content class="has-entitySubHeader">
+    <p class="message" ng-show="vm.accountTypebalanceItems == ''">&nbsp;<em class="ion-document"></em>&nbsp; {{"NO_RECORDS" | translate}}</p>
+        <ion-list>
+            <ion-item class="misys-item" on-tap="vm.getAccounts(accountTypebalanceItem,vm.entityname)" collection-repeat="accountTypebalanceItem in vm.accountTypebalanceItems">
+            	<div class="item item-divider" ng-if="accountTypebalanceItem.label">
+                       <div align="center" class="col col-100">{{accountTypebalanceItem.label}} {{"SUMMARY" | translate}} </div>
+                 </div>
+                 <div class="card card-layout">
+                <div ng-repeat="item in accountTypebalanceItem.value">
+                    <div ng-if="item.localisation">
+                        <div class="row row-item-value">{{item.localisation}}</div>
+                        <div class="row row-item-value">{{item.value}}</div>
+                    </div>
+                </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        
+    </ion-content>
+</ion-view>

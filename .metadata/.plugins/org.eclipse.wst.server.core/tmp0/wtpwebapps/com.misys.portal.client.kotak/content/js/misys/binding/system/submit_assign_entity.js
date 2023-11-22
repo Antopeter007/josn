@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.system.submit_assign_entity"]){dojo._hasResource["misys.binding.system.submit_assign_entity"]=true;dojo.provide("misys.binding.system.submit_assign_entity");dojo.require("misys.widget.Dialog");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dijit.form.FilteringSelect");dojo.require("dijit.form.Form");dojo.require("dijit.form.NumberTextBox");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.DateTextBox");dojo.require("misys.grid.DataGrid");dojo.require("misys.form.common");dojo.require("misys.validation.common");(function(d,dj,m){d.mixin(m._config,{fncSubmitMultipleEntityMigration:function(){var _1=[],_2="",_3=dj.byId("entityId");if(_3&&_3.get("value")+"S"==="S"){_3.state="Error";_3.focus();misys.dialog.show("ERROR",misys.getLocalization("entityNotSelectedError"));}else{if(_3){var _4=dj.byId("assignEntityGrid");if(_4&&_4.selection.getSelected().length===0){m.dialog.show("ERROR",m.getLocalization("noTransactionsSelectedError"));return;}_1.push(_4);var _5="/screen/AjaxScreen/action/AssignEntityMultipleSubmission?entity="+_3.get("value");m.dialog.show("CONFIRMATION",m.getLocalization("submitTransactionsConfirmation",[_4.selection.getSelected().length]),"",function(){m.grid.processRecords(_1,_5);});}}}});})(dojo,dijit,misys);}

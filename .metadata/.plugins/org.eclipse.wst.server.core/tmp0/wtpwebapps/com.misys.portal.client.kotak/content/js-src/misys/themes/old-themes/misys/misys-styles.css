@@ -1,0 +1,574 @@
+/* 
+ General page styles
+*/
+
+body.misys{
+	font-size:100%;
+	font-family: Arial, sans-serif;
+}
+
+.misys p{
+	padding:0;
+    margin:0;
+}
+
+.misys ul{
+	padding:0;
+	margin:0;
+}
+
+.misys li{
+	padding:0;
+	list-style-type:none;
+}
+
+.misys h1, .misys h2, .misys h3{
+	margin:0;
+	padding:0;
+	line-height: normal;
+}
+
+.misys a:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+.misys a:visited {
+	color: #616265;
+	text-decoration: none;
+}
+
+.misys a:hover {
+	color: #6B8F00;
+	text-decoration: none;
+}
+
+.misys a img{
+    text-decoration: none;
+}
+
+.misys button:hover{
+    cursor: pointer;
+}
+
+/** News **/
+.misys .paracontent p{
+	font-size:0.9em;
+}
+
+/** Page Header **/
+.misys .panel1 {
+	background-color: #CEC7B5;
+	padding:2px 0px 2px 0px;
+	height: 1.6em;
+}
+
+.misys .panel1,.misys .panel2 {
+	clear: both;
+	width: 100%;
+}
+
+.misys .panel2 {
+	/*background: #0079a7 url("images/header.png") repeat-x top; */
+	/*height: 3.1em; */
+}
+
+.misys .header a:link,.misys .header a:visited {
+	color: black !important;
+	text-decoration: none;
+}
+
+.misys .header a:hover {
+	color: #ffff00;
+}
+
+.misys .breadcrumb {
+	color: black;
+	float: left;
+	font-weight: bold;
+	font-size:0.75em;
+	padding: 4px 0px 0px 11px;
+	vertical-align: middle;
+	width: 160px;
+}
+
+.misys .message {
+	color: black;
+	float: left;
+	vertical-align: middle;
+	font-size:0.75em;
+	padding-top: 4px;
+}
+
+.misys .submenu {
+	color: #ffffff;
+	float: right;
+	font-weight: bold;
+	height: 1.5em;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+
+.misys .submenu img {
+	margin: 5px 0 0 5px;
+}
+
+.misys .logo {
+	float: left;
+	margin: 5px 15px 0 15px;
+	background-image: url("images/misys.png");
+	width: 164px;
+	height: 50px;
+	background-repeat:no-repeat;
+}
+
+/** Page Footer **/
+.misys .footer {
+	padding: 0.5em;
+	clear: both;
+	border-top: 1px solid #999999;
+	font-size:11px;
+	margin: 2em 0.5em;
+}
+
+.misys .footer #links {
+	float: left;
+}
+
+.misys .footer #copyrights {
+	float: right;
+}
+
+/** Notices **/
+.misys .notice {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	height: 25px;
+	font-weight: bold;
+	clear: both;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.misys .notice p {
+	vertical-align: middle;
+	margin:2px 0px 1px 1px;
+	height:32px;
+	font-size:0.8em;
+}
+
+.misys .notice img {
+	float: left;
+}
+
+/** Forms **/
+.misys .description {
+	display: none;
+}
+
+/** Favorites **/
+.misys #BookmarkPortlet {
+	border: none;
+	font-size:0.7em;
+}
+
+.misys #BookmarkPortlet .portlet-section-header {
+	background: #9E8F6C none;
+}
+
+.misys #BookmarkPortlet .portlet-title {
+	color: white;
+	font-size:1em;
+}
+
+.misys #BookmarkPortlet .portlet-section-body {
+	background-color: #F3F3F3;
+	padding: 2px 1px 1px 4px;
+}
+
+.misys #BookmarkPortlet li {
+	margin: 3px 0px 3px 0px;
+}
+
+.misys #nofavorites {
+	font-weight: bold;
+	margin: 5px;
+}
+
+.misys #addBookmark {
+	font-weight: bold;
+	font-style: italic;
+	margin: 5px;
+}
+
+.misys .deleteBookmarkLink{
+	margin:5px 0px 0px 5px;
+	display:none;
+}
+
+/** Product Menu **/
+.misys #MenuBuilder {
+	border: none;
+}
+
+.misys #MenuBuilder .portlet-section-header {
+	display: none;
+}
+
+.misys #MenuBuilder .portlet-section-body {
+	background-color:#F3F3F3;
+}
+
+.misys ul.product-menu {
+	padding-left:0.8em;
+	font-size:0.9em;
+}
+
+.misys ul.product-menu li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.misys ul.product-menu a.currentModule {
+	color: #DE7100;
+}
+
+.misys ul.product-menu ul {
+	margin: 0.5em 0em 1em 1em;
+}
+
+.misys ul.product-menu li li {
+	margin: 0em;
+}
+
+.misys ul.product-menu ul li a {
+	font-weight: normal;
+}
+
+.misys .product-menu-items a{
+	font-size:0.95em;
+}
+
+/** Product Summary **/
+.misys .product-summary{
+	padding:5px;
+}
+
+.misys .product-summary p{
+	margin:2px;
+	padding:2px;
+}
+
+/** Override Dijit Classes **/
+.misys .dijitTabListContainer-top{
+	background-color: #f2f2f2;
+}
+
+/** A field and its label **/
+.misys .field{
+ 	clear: left;
+    margin: 6px 0 6px 20%;
+}
+
+.misys .field .field {
+    margin: 0;
+    font-size:1em;
+}
+
+.misys .field .dijitButton .dijitButtonNode,
+.misys .textarea-button .dijitButton .dijitButtonNode,
+.misys table.attachments .dijitButtonNode,
+.misys #counterparty_details_act_no_nosend_row .dijitButtonNode,
+.misys .dijitDialog #sy_entity_row .dijitButtonNode{
+	border:none;
+	background:transparent;
+}
+
+#swapDetailsSection .dijitButtonNode
+{
+	background:url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x scroll left bottom #FFFFFF;
+	border:1px solid gray;
+}
+
+#swapDetailsSection .dijitArrowButton
+{
+	border-color:#9B9B9B;
+	border-style:solid;
+	border-width:0 0 0 1px;
+}
+
+
+/** A field label **/
+.misys label,
+.misys .label {
+    width: 175px;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+    margin-right:5px;
+}
+
+.misys .textarea label{
+	vertical-align:top;
+}
+
+/* 
+ Hide the close button in popup windows.
+ 
+ This is to force the user to click on our cancel button.
+*/
+.misys .dijitDialogTitleBar {
+	background: #9E8F6C none;
+	padding:3px 0px 3px 2px;
+	font-size:0.9em;
+	font-weight:normal;
+}
+
+.misys #alertDialog .dijitDialogCloseIcon{
+    display:none !important;
+}
+
+.misys .dijitDialog {
+	border: 3px ridge #7eabcd;
+}
+
+.misys .dijitDialogTitle {
+	color: white;
+}
+
+/** Classes used throughout **/
+.misys .clear {
+	clear: both;
+}
+
+.misys .hide{
+	display:none;
+}
+
+.misys .right{
+	float:right;
+}
+
+.misys .alignRight{
+	text-align:right;
+}
+
+.misys .align-right{
+	text-align:right;
+}
+
+.misys .left{
+	float:left
+}
+
+.misys .alignLeft{
+	text-align:left
+}
+
+.misys .align-left{
+	text-align:left
+}
+
+.misys .alignCenter{
+	text-align:center;
+}
+
+.misys .align-center{
+	text-align:center;
+}
+
+.misys .legend{
+	font-size:0.9em;
+}
+
+/** Grids **/
+.misys .grid{
+	visibility:hidden;
+	font-size:0.75em;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .demobank .group {
+	height: 300px;
+}
+.dj_ie7 .demobank .group {
+	height: 300px;
+}
+.dj_ie8 .demobank .group {
+	height: 300px;
+}
+/** End Fix */
+
+.misys .listSearchButton{
+	margin-bottom: 0.5em;
+}
+
+.misys .grid .dojoxGridHeader .dojoxGridCell{
+	background: none #CEC7B5;
+}
+
+.misys .dojoxGridRowOver .dojoxGridCell{
+	background-color:#616265;
+}
+
+/** Calendar **/
+.misys .dijitCalendarContainer{
+	font-size:1em !important;
+}
+
+.misys #TradeCalendarPortlet {
+	border: none;
+}
+
+.misys #TradeCalendarPortlet .portlet-section-header {
+	display: none;
+}
+
+.misys #TradeCalendarPortlet .dijitCalendarHoveredDate {
+	background-color:#FBE5D8 !important;	
+}
+
+.misys #TradeCalendarPortlet .dijitCalendarMonthLabel {
+	color: white;	
+}
+
+.misys #TradeCalendarPortlet .dijitCalendarMonthContainer th {
+	background: #9E8F6C none;	
+}
+
+
+.misys #TradeCalendarPortlet .dijitCalendarDateTemplate,
+.misys #default .dijitCalendarDateTemplate {
+	font-weight: bold;
+	text-align: center;
+	padding: 0.3em 0.15em 0.05em 0.15em;
+	letter-spacing: 1px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys #TradeCalendarPortlet .dijitCalendarSelectedYear,
+.misys #TradeCalendarPortlet .dijitCalendarSelectedDate,
+.misys #default .dijitCalendarSelectedYear,
+.misys #default .dijitCalendarSelectedDate{
+	background-color: #6B8F00 !important;
+	color: white !important;
+}
+
+.misys .calevent-iss-date {
+	background-image: url("images/cal_99ccff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-exp-date {
+	background-image: url("images/cal_ffcc99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-last-ship-date {
+	background-image: url("images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-last-match-date {
+	background-image: url("images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-appl-date {
+	background-image: url("images/cal_ffcccc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-maturity-date {
+	background-image: url("images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-tenor-maturity-date {
+	background-image: url("images/cal_ff99ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-creation-date {
+	background-image: url("images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-remittance-date {
+	background-image: url("images/cal_3366ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-amd-date {
+	background: #387c44 !important;
+	background-image: url("images/cal_387c44.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-renewal-date {
+	background-image: url("images/cal_6698ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-tenor-effective-date {
+	background-image: url("images/cal_fa96f4.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-customer-event {
+	background-image: url("images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-renewal-renew-on {
+	background-image: url("images/cal_bb77ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.misys .calevent-tenor-start-date {
+	background-image: url("images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+
+/** Content div, containing form control or content **/
+.misys .content {
+    text-align: left;
+    font-family: "Courier New";
+    font-weight: bold;
+    display: inline;
+}

@@ -1,0 +1,240 @@
+@import './../../../../../../../styles/variables.scss';
+
+.shipmentForm, .shipmentTo {
+  margin-top: 2em;
+  width: 98%;
+}
+
+.placeOfLoading {
+  width: 99% !important;
+}
+
+:host ::ng-deep .pi-chevron-down:before {
+  display: block;
+}
+
+:host ::ng-deep .tolplus {
+  color: $BLACK;
+  font-size: 14px;
+}
+
+:host ::ng-deep .mat-radio-checked .mat-radio-label {
+  font-weight: bold;
+}
+
+:host ::ng-deep .tolminus {
+  color: $BLACK;
+  font-size: 14px;
+}
+
+:host ::ng-deep .lastShipmentDate .infoIcon {
+  right: 4em;
+}
+
+/*  */
+
+:host ::ng-deep .lastShipmentDate input {
+  width: 100%;
+}
+
+:host ::ng-deep .lastShipmentDate .ui-button:enabled:focus {
+  box-shadow: none;
+}
+
+:host
+  ::ng-deep
+  .ui-calendar.ui-calendar-w-btn
+  .ui-datepicker-trigger.ui-button {
+  color: $WHITE;
+}
+
+:host ::ng-deep .ui-button-icon-only .ui-button-icon-left {
+  background-color: $BLACK;
+}
+
+:host ::ng-deep .lastShipmentDate img {
+  vertical-align: middle;
+}
+
+:host ::ng-deep .lastShipmentDate input {
+  vertical-align: middle;
+  margin-right: 1px;
+}
+
+:host ::ng-deep .common_radio .p-grid {
+  width: 100%;
+}
+
+:host ::ng-deep .lastShipmentDate {
+  position: relative;
+  display: flex;
+}
+
+:host ::ng-deep .lastShipmentDate p-calendar {
+  width: 100%;
+}
+
+:host ::ng-deep .lastShipmentDate .ui-calendar {
+  position: relative !important;
+  display: -webkit-box !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+:host ::ng-deep .lastShipmentDate .ui-calendar .ui-datepicker.ui-widget {
+  background-color: $WHITE !important;
+}
+
+:host ::ng-deep .indented-header {
+  color: $GREY-05;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+:host ::ng-deep textarea {
+  resize: none !important;
+  overflow: hidden !important;
+  
+}
+
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  border-bottom: none !important ;
+}
+
+:host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+  background-image: linear-gradient(to right, rgb(0, 0, 0, 0.42), rgb(0, 0, 0, 0.42)) !important;
+}
+
+/* CALENDAR CSS TEST */
+
+:host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+:host ::ng-deep .ui-datepicker table td > span.ui-state-active,
+:host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+:host
+  ::ng-deep
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > span.ui-state-active {
+  background-color: rgb(81, 81, 201);
+  color: $WHITE;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  .ui-datepicker-header
+  .ui-datepicker-next:hover,
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  .ui-datepicker-header
+  .ui-datepicker-prev:hover {
+  color: $VIOLET-F100;
+}
+
+:host ::ng-deep .ui-datepicker table td.ui-datepicker-today {
+  color: $VIOLET-06;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+:host ::ng-deep .ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  top: 0.313em;
+  color: $BLACK;
+  font-size: 0.8em;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  table
+  td
+  a:not(.ui-state-active):not(.ui-state-highlight):hover {
+  font-weight: normal;
+}
+
+:host ::ng-deep .indented-text-area-field-65 {
+  margin: 0 !important;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-calendar .ui-calendar-button:hover {
+  background: $WHITE-05;
+}
+
+:host ::ng-deep .ui-datepicker {
+  background-color: $WHITE !important;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker
+  .ui-datepicker-header
+  .ui-datepicker-title
+  select {
+  border: none;
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: transparent;
+  border-color: $BLACK-02;
+}
+
+:host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+:host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+  color: $WHITE;
+  background-color: $VIOLET-F100;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+  color: $GRAY-HEX-20;
+  background-color: $CHARCOAL-c2;
+  border: 1px solid $GREY-02;
+}
+
+:host ::ng-deep .ui-datepicker .ui-widget {
+  width: auto;
+}
+
+:host ::ng-deep .fcc-radio-button-display label {
+  display: none;
+}
+
+:host ::ng-deep p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+:host ::ng-deep p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+:host ::ng-deep .infoDropDownIcon {
+  color: $GRAY-TROLLEYGREY-01;
+  top: 0.5em;
+  position: $POSITION-ABSOLUTE;
+  right: .5em;
+}
+:host ::ng-deep .form-header.partialshipment {
+  margin-bottom: -0.5em;
+}
+:host ::ng-deep .form-header.transhipment {
+  margin-bottom: -0.5em;
+}
+
+:host ::ng-deep .warningStyle {
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep .purchaseTermsValue {
+  margin-bottom: -1em !important;
+}
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  background: none;
+}
+/* END */

@@ -1,0 +1,19 @@
+<div *ngIf="operation === 'PREVIEW' && !showSpinner" [ngClass]="dir === 'rtl' ? 'p-col-12 p-md-9 p-lg-12 view-rtol' : 'p-col-12'">
+  <div dir={{dir}} class="p-grid pageTitleBar">
+    <div class="p-col-9"><span><bdi>{{ displayCode | translate}}</bdi>: {{referenceId}}</span></div>
+    <div class="p-col-3">
+      <em tabindex="0" (keyup)="OnEnterKey($event)" class="fa fa-file-pdf-o pdfIcon" aria-hidden="true" title="{{'pdfDownload'| translate}}"
+        (click)="downloadPDF()"></em>
+    </div>
+  </div>
+  <fcc-product-component [inputParams]="params" [secondInputParams]="paramsForSecondCard" class="transactionTab"></fcc-product-component>
+</div>
+
+<div *ngIf="showSpinner" class="spinnerStyle spinner">
+  <p-progressSpinner
+    [style]="{ width: '4em', height: '4em' }"
+    strokeWidth="5"
+    fill="transparent"
+    animationDuration=".5s"
+  ></p-progressSpinner>
+</div>

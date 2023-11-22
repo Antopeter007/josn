@@ -1,0 +1,51 @@
+/* 
+
+Portlets
+
+Classes for the portlets (follows guidelines set in JSR 168)
+
+See: http://www.jcp.org/en/jsr/detail?id=168
+*/
+
+.demobank .portlet {
+	margin: 5px 0px 5px 0px;
+	padding:0;
+	border: 1px solid #0079A7;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+.demobank .portlet-section-header {
+	background: transparent url("images/header_33px.png");
+	height: 16px;
+	padding: 2px 1px 1px 4px;
+	margin-bottom: 2px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-radius-topleft: 4px;
+	-webkit-border-radius-topright: 4px;
+}
+
+.demobank .portlet-section-header .portlet-title {
+	color: #ffffff;
+	float: left;
+	width: 100%;
+	font-size:0.9em;
+}
+
+.demobank .portlet-section-header .portlet-menu {
+	float: right;
+}
+
+.demobank .portlet-font {
+	font-family: Arial, sans-serif;
+}
+
+.demobank .portlet-title-addons {
+	float: right;
+}
+
+.demobank .portlet-section-body {
+	padding-top: 1px;
+}

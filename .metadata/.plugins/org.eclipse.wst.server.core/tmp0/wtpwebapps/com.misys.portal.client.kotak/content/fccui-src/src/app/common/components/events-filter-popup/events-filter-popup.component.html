@@ -1,0 +1,58 @@
+<!-- <ng-container>
+    <div><br/></div>
+    <div><mat-label>Type</mat-label></div>
+    <div><br/></div>
+    <div>    
+        <mat-form-field>
+            <input matInput placeholder="From"/>   
+        </mat-form-field>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><mat-label>Date range</mat-label></div>
+    <div><br/></div>
+    <div>
+        <mat-form-field appearance="fill"  class="dateRangePicker">
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>         
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><mat-label>Amount range</mat-label></div>
+    <div><br/></div>
+    <div>    
+        <mat-form-field>
+            <input matInput placeholder="From"/>   
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="To"/>   
+        </mat-form-field>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><mat-label>Currency</mat-label></div>
+    <div><br/></div>
+    <div>
+        <fcc-input-multiselect [control]="multiSelectControl"></fcc-input-multiselect>
+    </div>    
+</ng-container> -->
+
+<ng-container
+  *ngIf="form"
+  fccFormResolver
+  [module]="module"
+  [formGroup]="form"
+  [mode]="mode"
+></ng-container>
+
+  
+  
+  

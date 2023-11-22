@@ -1,0 +1,68 @@
+<p-panel *ngIf= "commonDataService.getPreviewOption() !== 'SUMMARY' && this.commonService.isShowLicence()" id="license" header="{{'HEADER_LICENSES' | translate}}" [toggleable]="true" [collapsed]="false">
+  <div *ngIf="!viewMode && !unsignedMode; else view_content">
+  <form [formGroup]="License">
+  <div *ngIf="licenselist.length !== 0" >
+  <table id="licenseTable" class="custom-class">
+    <thead>
+      <th scope="col">{{ 'REFERENCEID' | translate}}</th>
+      <th scope="col">{{ 'BACK_OFFICE_REFERENCE' | translate}}</th>
+      <th scope="col">{{ 'LICENSE_NUMBER' | translate}}</th>
+      <th scope="col">{{ 'LS_ALLOCATED_AMT' | translate}}</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fileObj of licenselist; index as i">
+        <td>{{ fileObj.lsRefId }}</td>
+        <td>{{ fileObj.boRefId }}</td>
+        <td>{{ fileObj.lsNumber }}</td>
+         <td *ngIf = "mode ==='initiateAmend'">
+            <input id="bgCurCode" class="input-three-digit read-only-field" pInputText type="hidden" formControlName="bgCurCode" readonly>
+            <input id="{{'lsAllocatedAmt'+i}}" formControlName="{{'lsAllocatedAmt'+i}}" name = "{{'lsAllocatedAmt'+i}}" (change) = setAllocatedAmtValue(fileObj.lsRefId)
+             (blur) = "this.commonService.transformAmtAndSetValidators(this.License.get('lsAllocatedAmt'+i), this.License.get('bgCurCode'), 'bgCurCode');">
+            <fcc-common-error-message [control]="License.get('lsAllocatedAmt'+i)" ></fcc-common-error-message></td>
+          <td *ngIf = "mode !=='initiateAmend'">
+           <input id="bgCurCode" class="input-three-digit read-only-field" pInputText type="hidden" formControlName="bgCurCode" readonly>
+           <input id="{{'lsAllocatedAmt'+i}}" formControlName="{{'lsAllocatedAmt'+i}}" [value]="''" (change) = setAllocatedAmtValue(fileObj.lsRefId)
+            (blur) = "this.commonService.transformAmtAndSetValidators(this.License.get('lsAllocatedAmt'+i), this.License.get('bgCurCode'), 'bgCurCode');">
+           <fcc-common-error-message [control]="License.get('lsAllocatedAmt'+i)" ></fcc-common-error-message></td>
+       <td><img *ngIf="!(commonData.disableTnx)" src="{{imagePath}}delete.png" id="deleteLicense" alt="Delete" type="remove" (click)="deleteRow(fileObj.lsRefId)"></td>
+      </tr>
+    </tbody>
+   </table>
+   </div>
+  <div>
+   <button id="showLicenseSection" [disabled]="this.commonData.disableTnx" pButton type="button" class="secondary-button-larger" (click) = "showLicenseSection()" label="{{ 'LINK_LS_ITEMS' | translate}}"></button>
+  </div>
+  </form>
+</div>
+<p-confirmDialog id="licenseErrorDialog" class="lf-confirm-dialog" key='licenseErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-confirmDialog id="licenseConfirmDialog" class="lf-confirm-dialog" key='licenseConfirmDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<ng-template #view_content>
+  <div *ngIf="this.commonService.isShowLicence() && !(bgRecord['linkedLicenses'] && bgRecord['linkedLicenses']['license']
+  && bgRecord['linkedLicenses']['license'] != null && bgRecord['linkedLicenses']['license'] != ''); else view_license_content">
+    <p >{{ 'NO_LINKED_LS_ITEMS' | translate }}</p>
+  </div>
+      <ng-template #view_license_content>
+      <p-table *ngIf="bgRecord['linkedLicenses'] && bgRecord['linkedLicenses']['license'] && bgRecord['linkedLicenses']['license'] != null && bgRecord['linkedLicenses']['license'] != ''" id="viewLicense" [value] = "bgRecord['linkedLicenses']['license']">
+        <ng-template pTemplate="header">
+          <tr>
+                <th id="refId">{{ "REFERENCEID" | translate }} </th>
+                <th id="boRefId">{{ 'BACK_OFFICE_REFERENCE' | translate}}</th>
+                <th id="lsNum">{{ 'LICENSE_NUMBER' | translate}} </th>
+                <th id="lsAmt">{{ 'LS_ALLOCATED_AMT' | translate}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-license>
+            <tr>
+                <td>{{license.lsRefId}}</td>
+                <td>{{license.boRefId}}</td>
+                <td>{{license.lsNumber}}</td>
+                <td>{{this.commonService.transformAmt(license.lsAllocatedAmt, this.licenseCurrCode)}}</td>
+            </tr>
+            <tr></tr>
+        </ng-template>
+    </p-table>
+    </ng-template>
+</ng-template>
+</p-panel>
+

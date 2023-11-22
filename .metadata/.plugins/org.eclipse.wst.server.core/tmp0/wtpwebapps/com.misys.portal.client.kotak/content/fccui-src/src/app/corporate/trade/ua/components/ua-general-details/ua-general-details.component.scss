@@ -1,0 +1,8 @@
+@import './../../../../../../styles/variables.scss';
+
+.pitrash {
+    display: none !important;
+}
+:host ::ng-deep .textarea.characterCountDivfield{
+    margin-bottom: 2em !important;
+  }

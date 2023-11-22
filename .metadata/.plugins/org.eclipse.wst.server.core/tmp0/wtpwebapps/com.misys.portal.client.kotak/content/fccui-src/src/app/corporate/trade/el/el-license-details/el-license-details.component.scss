@@ -1,0 +1,129 @@
+@import './../../../../../styles/variables.scss';
+
+:host {
+
+  ::ng-deep {
+    .p-cell-editing {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .ui-table .ui-table-thead > tr {
+      border-bottom: 0.065em solid $uiTableBorderBottom !important;
+      background-color: $uiTableBackgroundColor;
+    }
+    .ui-table .ui-table-thead > tr > th {
+      padding: 0px 0.857em;
+      padding-top: 1.875em;
+      padding-bottom: 0.3125em;
+      border: 0px solid $uiTableBorderBorder;
+      font-weight: bold;
+      background-color: transparent;
+      color: $uiTableColor;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+      background-color: transparent;
+    }
+
+    .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+      color: $uiTableSortableIconColor;
+    }
+
+
+    .ui-table .ui-table-caption {
+      padding: 0.2em;
+      background-color: $uiTableCaptionBackgroundColor;
+    }
+
+    .ui-table .ui-table-tbody .ui-state-highlight {
+      background: $uiTableBackground !important;
+    }
+
+    .ui-table .ui-table-tbody > tr {
+      border-bottom: 0.065em solid $uiTableBorderBottom;
+    }
+
+    .ui-table .ui-table-tbody > tr > td {
+      background-color: $uiTableTbodyBackgroundColor;
+      border: none;
+      line-height: 1em;
+      word-break: break-word;
+      text-align: left;
+      font-size: 0.875em;
+      padding-right: 2em;
+      height: 3em;
+    }
+    .ui-table {
+      border: none !important;
+    }
+
+    .ui-table .ui-table-tbody > tr > th {
+      text-transform: capitalize;
+    }
+
+    .ui-table{
+      border: 1px solid $uiTableBorderBorder;
+    }
+
+  }
+}
+
+
+.tableTrash{
+  cursor: pointer;
+}
+
+.browseButton{
+    border-radius: 1.125em !important;
+    padding: 0 1em !important;
+    min-width: 4em !important;
+    line-height: 2.25em !important;
+    font-size: 0.875em !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    border: 0.0625em solid $secondaryColor !important;
+    border-color: $secondaryColor  !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: $browseButtonBackgroundColor !important;
+    margin-top: 3em !important;
+  }
+
+  .overDrawWrapper{
+    font-size: 1em !important;
+    font-weight: normal !important;
+    color: $overDrawWrapperColor !important;
+    margin: 0em !important;
+    padding-top: 0.1em !important;
+  }
+
+  .tnsAmount {
+    font-size: 1em !important;
+    font-weight: normal !important;
+    margin: 0em !important;
+    padding-top: 1em !important;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    color: $GREY;
+    font-style: italic;
+  }
+
+  td.amount  {
+    border-bottom: 1.5px solid $GREY !important;
+  }
+
+  th.Amount , td.amount
+  {
+  text-align: right !important;
+  }
+  th.Amount input, td.amount input
+  {
+  text-align: right !important;
+  }

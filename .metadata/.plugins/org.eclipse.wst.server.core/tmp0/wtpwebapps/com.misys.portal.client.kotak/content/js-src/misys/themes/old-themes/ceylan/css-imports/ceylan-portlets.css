@@ -1,0 +1,60 @@
+/* 
+
+Portlets
+
+Classes for the portlets (follows guidelines set in JSR 168)
+
+See: http://www.jcp.org/en/jsr/detail?id=168
+*/
+
+.ceylan .portlet {
+	margin: 5px 0px 5px 0px;
+	padding:0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size:0.8em;
+	/*background: url("../images/one_column_widget_bg.gif") no-repeat scroll transparent;*/
+}
+
+.ceylan .portlet-section-header {
+	/*backg round: transparent url("../images/header_33px.png");*/
+	height: 28px;
+	padding: 2px 1px 1px 4px;
+	-moz-bo rder-radius-topleft: 4px;
+	-moz-bor der-radius-topright: 4px;
+	-webkit-bor der-radius-topleft: 4px;
+	-webkit-bor der-radius-topright: 4px;
+}
+
+.ceylan .homepage .portlet-section-header {
+	background-color: #7AA1FF;
+}
+
+.portlet-section-header .portlet-title {
+	color: #ffffff;
+	float: left;
+	width: 100%;
+	font-size:0.9em;
+}
+
+.ceylan .portlet-font {
+	font-family: Arial, sans-serif;
+}
+
+
+.ceylan .portlet-title-addons {
+	float: right;
+}
+
+.ceylan .portlet-section-body {
+	/*padding-top: 1px;*/
+	padding-bottom: 1px;
+	background: url("../images/portlet_bottom.png") repeat-x scroll left bottom transparent;
+	min-height:100px;
+	}
+	/* IE6 hack */
+	* html .ceylan .portlet-section-body {
+		height:100px;
+	}
+	
+ 

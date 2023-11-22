@@ -1,0 +1,22 @@
+<ng-container>
+    <div class="deal-overview p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+        <p-card class="{{classCheck}}">
+            <p-header [ngClass]="(checkCustomize == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+                <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+            </p-header>
+            <div class="p-grid">
+              <div *ngIf="showSpinner" class="p-col-12 spinnerStyle">
+                <p-progressSpinner
+                  [style]="{ width: '4em', height: '4em' }"
+                  strokeWidth="5"
+                  fill="transparent"
+                  animationDuration=".5s"
+                ></p-progressSpinner>
+              </div>
+              <div class="p-col-12" *ngIf="!showSpinner && renderSection">
+                <fcc-div-banner [inputParams]="dealDetails"></fcc-div-banner>
+              </div>
+            </div>
+        </p-card>
+    </div>
+</ng-container>

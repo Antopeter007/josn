@@ -1,0 +1,46 @@
+/* 
+
+Portlets
+
+Classes for the portlets (follows guidelines set in JSR 168)
+
+See: http://www.jcp.org/en/jsr/detail?id=168
+*/
+
+.misys .portlet {
+	margin: 5px 0px 5px 0px;
+	padding:0;
+	/*border: 1px solid #0079A7; */
+	border-top: 2px solid;
+	font-size:0.8em;
+}
+
+.misys .portlet-section-header {
+	/*background: transparent url("images/header_33px.png");*/
+	height: 16px;
+	padding: 2px 1px 8px 4px;
+	margin-bottom: 2px;
+}
+
+.misys .portlet-section-header .portlet-title {
+	color: #000000;
+	float: left;
+	width: 100%;
+	font-size:0.9em;
+}
+
+.misys .portlet-section-header .portlet-menu {
+	float: right;
+}
+
+.misys .portlet-font {
+	font-family: Arial, sans-serif;
+}
+
+.misys .portlet-title-addons {
+	float: right;
+}
+
+.misys .portlet-section-body {
+	padding-top: 1px;
+}

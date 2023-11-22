@@ -1,0 +1,9 @@
+<p-panel *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" header="{{'KEY_HEADER_UNDERTAKING_INCREASE_DECREASE' | translate}}" [toggleable]="true" [collapsed] ="collapsible">
+    <div [formGroup]="redIncForm">
+        <fcc-iu-common-reduction-increase *ngIf="bgRecord" [undertakingType]="'bg'" [bgRecord]="bgRecord" [sectionForm]="redIncForm"></fcc-iu-common-reduction-increase>
+    </div>
+</p-panel>
+
+
+
+

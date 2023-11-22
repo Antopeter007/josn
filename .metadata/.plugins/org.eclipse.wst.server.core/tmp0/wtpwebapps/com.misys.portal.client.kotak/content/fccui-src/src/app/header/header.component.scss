@@ -1,0 +1,1042 @@
+@import "./../../styles/variables.scss";
+
+.ng-header {
+  padding-top: 0.4em;
+  height: auto;
+  min-height: 60px;
+  background-color: $WHITE;
+  box-shadow: 0 2px 4px 0 rgba(177, 177, 177, 0.5);
+  border-bottom: none;
+}
+.material-icons{
+  color:$primaryColor;
+}
+
+.ng-header a {
+  float: left;
+  color: #707070 !important;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px !important;
+  line-height: 0px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header-top {
+  padding-left: 1em;
+}
+
+#headerLogout {
+  display: inline-flex;
+  line-height: 18px;
+  border-radius: 20px;
+}
+
+#headerLogout em {
+  font-size: 1.4em;
+  line-height: 18px;
+}
+
+.ng-header a.logo-img:hover {
+  background-color: transparent;
+}
+.ng-header a:hover {
+  background-color: $iconHoverColor;
+  cursor: pointer;
+  color: #694ed6 ;
+}
+
+.header-right {
+  float: right;
+}
+
+.rightStyle {
+  position: relative;
+  padding-left: 9em;
+}
+
+.header-right em {
+  float: left;
+  text-align: center;
+  /* font-size: 18px; */
+  border-radius: 50%;
+}
+
+#userProfile {
+  opacity: 1;
+  width: 2em;
+  height: 2em;
+  padding-top: 0.5em;
+  padding-left: 0em;
+  padding-right: 1.3em;
+}
+
+#userProfileArabic {
+  margin-top: -0.078125em;
+}
+
+#userProfile span {
+  background: -webkit-linear-gradient(
+    #694ed6,
+    $primaryColor 70%,
+    #e95247 90%,
+    #e42d1a
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+ #userProfileArabic span {
+  background: -webkit-linear-gradient(
+    #694ed6,
+    $primaryColor 70%,
+    #e95247 90%,
+    #e42d1a
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  position: unset !important;
+}
+
+@media screen and (max-width: 500px) {
+  .ng-header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+
+.logo-img {
+  padding: 7px !important;
+  padding-top: 0px !important;
+}
+
+.logo-img img {
+  max-width: 100px;
+  max-height: 40px;
+}
+
+.profile-box {
+  width: 300px;
+  box-shadow: #414141;
+  margin: -8px -14px -8px -14px;
+  padding: 20px;
+  background-color: #eee;
+}
+#avatar {
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+  // background-image: url("http://i.stack.imgur.com/Dj7eP.jpg");
+
+  background-image: none;
+
+  /* make a square container */
+  width: 3.75em;
+  height: 3.75em;
+
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+
+  /* center the image vertically and horizontally */
+  background-position: top center;
+
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+}
+
+.hideforLanding{
+  display:none;
+}
+
+.showforLanding{
+  display:block;
+}
+
+.userProfileImage {
+  /* make a square container */
+  width: 3.75em;
+  height: 3.75em;
+
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+
+  /* center the image vertically and horizontally */
+  background-position: top center;
+
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+}
+.m-r-15 {
+  padding-left: 20px;
+  padding-top: 17px;
+}
+.user-info1 {
+  line-height: 1em;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  word-wrap: break-word;
+  margin: 0 0 16px;
+}
+.user-info2 {
+  line-height: 1em;
+  color: #414141;
+  font-size: 12px;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+.user-info3 {
+  line-height: 1em;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  word-wrap: break-word;
+  margin: 0 0 16px;
+}
+.user-info4 {
+  line-height: 1em;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  word-wrap: break-word;
+  margin: 0 0 16px;
+}
+.item-info {
+  font-size: 1.2em;
+  margin-left: 1.4em;
+}
+
+.landingCheck .item-info {
+  margin-left: 1.1em;
+}
+
+/* check box css */
+:host ::ng-deep .ui-chkbox .ui-chkbox-box {
+  width: 16px;
+  height: 16px;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+  font-size: 15px;
+}
+/* end css check box */
+
+li {
+  list-style-type: none;
+  line-height: 3em;
+}
+.item-list {
+  border-bottom: 1px solid #eee;
+}
+
+.item-list em {
+  font-size: 16px;
+}
+
+:host ::ng-deep .ui-button.ui-button-rounded {
+  height: 36px;
+  border-radius: 18px;
+  background-color: #6948d9;
+  box-shadow: none;
+  float: right;
+}
+
+:host ::ng-deep .ui-button:enabled:active {
+  background-color: #6948d9;
+  color: $WHITE;
+  border-color: #6948d9;
+}
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: #6948d9;
+  color: $WHITE;
+  border-color: #6948d9;
+}
+:host ::ng-deep .ui-button.ui-button-text-only .ui-button-text {
+  color: $WHITE;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+:host ::ng-deep .ui-button {
+  margin: 0;
+  color: $WHITE;
+  background-color: #6948d9;
+  border: 1px solid #6948d9;
+  font-size: 14px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 25px;
+}
+:host ::ng-deep .ui-button.ui-button-rounded {
+  height: 36px;
+  border-radius: 18px;
+  background-color: #6948d9;
+  box-shadow: none;
+  float: right;
+}
+
+.pref-list1 {
+  width: 300px;
+  margin: 0px -14px;
+  padding: 0px 20px;
+}
+
+.pref-list2 {
+  width: 300px;
+  margin: 0px -14px;
+  padding: 0px 20px;
+}
+
+.pref-list2 button {
+  width: 100%;
+}
+
+.view-profile {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.view-profile a {
+  float: none !important;
+  color: #6948d9 !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.view-profile a:hover {
+  background-color: transparent !important;
+  opacity: 1 !important;
+  text-decoration: underline;
+}
+
+a {
+  color: #6948d9;
+  text-decoration: none;
+}
+
+.item-list {
+  margin-top: 20px;
+}
+
+:host ::ng-deep .ui-overlaypanel {
+  background-color: $WHITE;
+  color: #333333;
+  padding: 0;
+  border: 1px solid #c8c8c8;
+  z-index: 9999 !important;
+  top: 42px !important;
+}
+
+:host ::ng-deep .ui-overlaypanel:before {
+  display: none;
+}
+
+:host ::ng-deep .ui-overlaypanel:after {
+  display: none;
+}
+
+:host ::ng-deep .dashboardOL .ui-overlaypanel {
+  width: 400px;
+}
+
+.log-out {
+  font-size: 0.9em;
+  color: $secondaryColor;
+  font-weight: 400;
+}
+.sign-out {
+  color: $secondaryColor;
+}
+
+:host ::ng-deep .ui-slidemenu {
+  border: none !important;
+}
+
+:host ::ng-deep .sideNavClass .ui-slidemenu .ui-menuitem-link {
+  padding: 1.1015em 0.857em;
+}
+
+:host ::ng-deep .ui-submenu-icon {
+  display: none;
+}
+
+:host ::ng-deep .ui-slidemenu-backward {
+  display: none !important;
+}
+
+:host ::ng-deep .sideNavClass .ui-menuitem-link .ui-menuitem-text {
+  color: #414141 !important;
+  font-weight: 500;
+}
+
+:host ::ng-deep .sideNavBreadCrumb .ui-breadcrumb {
+  padding: 1.7em 1em;
+}
+
+:host
+  ::ng-deep
+  .sideNavBreadCrumb
+  .ui-breadcrumb
+  .ui-menuitem-link
+  .ui-menuitem-text {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+:host ::ng-deep .sideNavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron {
+  margin: 0 0.2em 0 0.2em;
+  color: #414141;
+  font-size: 0.8em;
+}
+
+:host ::ng-deep .ui-submenu .ui-submenu-list {
+  border: 1px solid $WHITE;
+  background-color: $WHITE;
+}
+
+:host ::ng-deep .ui-slidemenu.ui-widget.ui-widget-content {
+  width: 250px;
+}
+
+.close-icon {
+  width: 100%;
+  height: 52px;
+}
+
+.close-icon a {
+  color: #694ed6;
+}
+
+.close-icon a:hover {
+  color: #694ed6;
+  background-color: #ffffff;
+}
+
+.close-icon a:active {
+  transition: opacity 0.2s cubic-bezier(0.35, 0, 0.25, 1),
+    background-color 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+}
+
+.corp-avatar {
+  background: $GRADIENT_01;
+  padding: 7px 12px;
+  border-radius: 50%;
+  color: $WHITE;
+  font-weight: 900;
+}
+
+.corp-av {
+  font-size: large;
+  text-align: center;
+  line-height: 2em;
+  padding-top: 14px;
+}
+
+:host ::ng-deep .ui-slidemenu .ui-menuitem-link .ui-menuitem-icon {
+  color: #d0d0d0;
+}
+
+:host ::ng-deep .ui-slidemenu .ui-menuitem-link:hover .ui-menuitem-icon {
+  color: #414141;
+}
+
+.breadCrumbTop {
+  margin-left: 2em;
+  // padding-right: 1.2em !important;
+}
+
+.breadCrumbTopRight {
+  margin-left: -1.5em;
+  // padding-right: 1.2em !important;
+}
+
+.NavBreadCrumb {
+  padding-left: -0.8em;
+  height: 15px;
+  margin-left: -2.9em!important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb .ui-menuitem-link .ui-menuitem-text {
+  vertical-align: unset !important;
+}
+
+.separator {
+  margin: 5px 1.6em 0em 0em !important;
+  color: #848484;
+  font-size: 0.8em;
+  display: inline-block !important;
+  vertical-align: middle ;
+}
+.separatorRight {
+  margin: 5px 0.6em 0em 0em !important;
+  color: #848484;
+  font-size: 0.8em;
+  display: inline-block !important;
+  vertical-align: middle ;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron{
+color: #848484;
+font-size: 0.8em;
+display: inline-block !important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron{
+  margin: 0px 0.2em 0px 0.2em !important
+}
+
+:host ::ng-deep .ui-menubar .ui-menubar-root-list {
+  padding-left: 1em;
+}
+
+:host ::ng-deep .ui-breadcrumb {
+  border: none;
+  padding: 0.6em 0em;
+  margin-top: -0.3em !important; // Reduced this as it is not aligned with the home icon when viewed using tomcat port.
+}
+
+:host ::ng-deep .ui-breadcrumb ul li a {
+  color: #414141 !important;
+  font-size: 16px !important;
+}
+
+:host
+  ::ng-deep
+  .ui-slidemenu
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link {
+  border-left: 0.788em solid #694ed6;
+  background-color: transparent;
+}
+
+:host
+  ::ng-deep
+  .ui-slidemenu
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link
+  > .ui-menuitem-text {
+  color: #694ed6 !important;
+}
+
+:host
+  ::ng-deep
+  .ui-slidemenu
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link
+  .ui-menuitem-icon {
+  color: rgba(105, 78, 214, 0.5) !important;
+}
+
+:host ::ng-deep .ui-dropdown {
+  border: 1px solid #a6a6a6 !important;
+  width: 100%;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  color: $WHITE;
+  background-color: #6948d9;
+}
+
+:host ::ng-deep .ui-slidemenu .ui-menuitem-link:hover {
+  border-left: 0.788em solid rgba(105, 78, 214, 0.2);
+  background-color: rgba(105, 78, 214, 0.04);
+}
+
+:host
+  ::ng-deep
+  .ui-slidemenu
+  .ui-menuitem.ui-menuitem-active:hover
+  > .ui-menuitem-link {
+  border-left: 0.788em solid #694ed6;
+  background-color: rgba(105, 78, 214, 0.04);
+}
+
+.corp-name {
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  padding: 1em 0 2em 0;
+  font-weight: 900;
+}
+
+:host ::ng-deep .ng-menu .ui-menubar {
+  padding: 0;
+  border: 1px solid $menuBorder;
+  background-color: $menuBackground;
+  border-radius: 0px;
+  min-height: 41px;
+}
+
+:host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list .ui-menuitem {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+}
+
+:host ::ng-deep .ng-menu .ui-menuitem-link .ui-menuitem-text {
+  color: $MenuColor !important;
+  font-weight: 500;
+}
+
+:host
+  ::ng-deep
+  .ng-menu
+  .ui-submenu
+  .ui-submenu-list
+  .ui-menuitem-link
+  .ui-menuitem-text {
+  color: $GREY-05 !important;
+  font-weight: 500;
+}
+
+:host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list {
+  right: 0em;
+  border: 0px solid #584493;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 1px;
+  padding: 3px 5px;
+  background-color: $WHITE;
+  color: $GREY-05;
+  max-height: 550px;
+  overflow: auto;
+  min-width: 14.5em;
+}
+
+@media screen and (max-width: 680px) {
+  :host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list {
+    max-height: 242px;
+  }
+}
+
+:host
+  ::ng-deep
+  .ng-menu
+  .ui-menubar
+  .ui-submenu-list
+  .ui-menuitem
+  .ui-menuitem-link {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+:host
+  ::ng-deep
+  .ng-menu.dirLtrStyle
+  .ui-menubar
+  .ui-submenu-list
+  .ui-menuitem
+  .ui-menuitem-link:hover {
+  border-left: 5px solid $VIOLET-F50;
+  background-color: #f9f8fe;
+}
+
+:host
+  ::ng-deep
+  .ng-menu.dirRtlStyle
+  .ui-menubar
+  .ui-submenu-list
+  .ui-menuitem
+  .ui-menuitem-link:hover {
+  border-right: 5px solid $VIOLET-F50;
+  background-color: #f9f8fe;
+}
+
+:host
+  ::ng-deep
+  .ng-menu.dirLtrStyle
+  .ui-menubar
+  .ui-submenu-list
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link {
+  border-left: 5px solid $activeMenuLeftBorder ;
+  background-color: #f5f5f5;
+}
+
+:host
+  ::ng-deep
+  .ng-menu.dirRtlStyle
+  .ui-menubar
+  .ui-submenu-list
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link {
+  border-right: 5px solid $VIOLET-F100;
+  background-color: #f5f5f5;
+}
+
+:host
+  ::ng-deep
+  .ng-menu
+  .ui-menubar
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link
+  .ui-menuitem-icon {
+  color: $WHITE;
+}
+
+:host
+  ::ng-deep
+  .ui-menubar
+  .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link {
+  background-color: $VIOLET-F100-dark;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-link:hover {
+  background-color: $VIOLET-F100-dark;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-link .ui-menuitem-icon {
+  color: $WHITE;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-active {
+  color: $WHITE;
+}
+
+:host ::ng-deep .ui-slidemenu .ui-menuitem-link {
+  border-left: 0.788em solid transparent;
+}
+
+:host
+  ::ng-deep
+  .ui-menubar
+  .ui-menubar-root-list
+  > .ui-menuitem
+  > .ui-menuitem-link:hover,
+:host
+  ::ng-deep
+  .ui-menubar
+  .ui-menubar-root-list
+  > .ui-menuitem.ui-menuitem-active
+  > .ui-menuitem-link {
+  background-color: $menuHoverBackground;
+}
+
+.textDisable {
+  color: darkgrey;
+}
+
+// :host ::ng-deep .ui-breadcrumb ul li  > a:focus {
+//   border: .125em solid #694ed6 !important;
+// }
+
+:host ::ng-deep .ui-slidemenu .ui-menuitem > a:focus{
+  border: .125em solid #694ed6 !important;
+}
+
+:host::ng-deep .ui-menubar .ui-menubar-root-list>.ui-menuitem > a:focus {
+  outline: .125em solid $menuitemFocus !important;
+  box-shadow: none;
+}
+
+:host ::ng-deep .ng-menu .ui-menubar .ui-submenu-list .ui-menuitem > a:focus {
+  border: .125em solid $menuitemFocus !important;
+  box-shadow: none;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.first-skip-link {
+  left: 50%;
+  position: absolute;
+  transform: translateY(-150%);
+}
+
+.skip-link {
+  height: 30px;
+  left: 50%;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-120%);
+  transition: transform 0.3s;
+}
+
+.skip-link:focus {
+  transform: translateY(0%);
+}
+
+// Dropdown css for ltr and rtl Direction------------------------
+:host
+  ::ng-deep .layoutOption .ltr .ui-dropdown label.ui-dropdown-label {
+  border-bottom: none;
+}
+
+:host ::ng-deep .rtl .ui-dropdown-panel.ui-dropdown-item {
+  font-weight: normal;
+  border: 0 none;
+  cursor: pointer;
+  margin: 1px 0;
+  padding: .125em .25em;
+  text-align: right;
+}
+:host ::ng-deep .rtl .ui-dropdown label.ui-dropdown-label
+{
+text-align:right;
+}
+
+:host ::ng-deep .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group
+{
+text-align:right;
+}
+
+:host ::ng-deep .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: #694ed6 !important;
+  border-right: 0.4em solid #694ed6 !important;
+  font-weight: 500 !important;
+}
+:host ::ng-deep .rtl .ui-dropdown .ui-dropdown-trigger {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  cursor: pointer;
+  width: 1.5em;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 0;
+  padding: 0 .25em;
+}
+:host ::ng-deep  .rtl .ui-dropdown .ui-dropdown-label {
+  padding-right: 1em;
+}
+// Dropdown css for left right direction  end----------------
+
+.button-link {
+  background-color: white;
+  border: none;
+  padding-right: 0.2em;
+}
+
+.landing-card-icons {
+  height: 2em;
+  width: 4em;
+  padding-top: 0.25em;
+}
+
+.item-info-card {
+  font-size: 1.2em;
+  margin-left: 0.85em;
+}
+
+:host ::ng-deep .ui-button.ui-button-text-only .ui-button-text::before {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  font-family: 'primeicons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  content: "\e971";
+}
+:host ::ng-deep .ui-button.ui-button-text-icon-left .ui-button-text {
+  padding: 0.429em 1em 0.429em 1em;
+}
+
+
+:host ::ng-deep .helpbutton ::before {
+  content: "" !important;
+}
+
+:host ::ng-deep .helpSection .ui-overlaypanel{
+  width: 56.25em;
+}
+
+.labelStyleEng {
+  text-align: left;
+}
+.labelStyleArabic {
+  text-align: right;
+  right: 0em;
+}
+
+:host ::ng-deep .languageGlobe .ui-overlaypanel {
+  width: 200px;
+}
+
+#languagePanelGrid {
+  margin-top: 0.7em;
+}
+
+.languageList img {
+  height: 13px;
+  width: 26px;
+  margin-right: 0.3em;
+}
+
+.languageCodeSelected {
+  color: $VIOLET-PRIMARY-COLOR !important;
+  border-left: 0.4em solid $VIOLET-PRIMARY-COLOR !important;
+  font-weight: 500 !important;
+  padding: 0.3em;
+}
+
+.languageCodeSelected:hover, .languageCodeSelected:focus {
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+.languageCodeNotSelected {
+  padding: 0.3em;
+  border-left: 0.4em solid transparent !important;
+}
+
+.languageCodeNotSelected:hover, .languageCodeNotSelected:focus {
+  border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.globe,.headset {
+  margin-top: -1.5px;
+}
+
+.globe span,.headset span, .pendingTask span {
+  position: relative !important;
+  font-size: 21px;
+  color: $CHARCOAL-F75 !important;
+  text-decoration: none !important;
+}
+
+.globe:hover span {
+  color: #694ed6 ;
+}
+
+.headset:hover span {
+  color: $VIOLET-PRIMARY-COLOR !important;
+}
+
+.pendingTask:hover span {
+  color: $VIOLET-PRIMARY-COLOR !important;
+}
+
+.pendingTask {
+  padding: 0.45em 0.7em !important;
+}
+
+.downloadCentre {
+  padding: 0.45em 0.7em !important;
+}
+
+:host ::ng-deep a:hover{
+  svg path {
+    fill: $VIOLET-PRIMARY-COLOR !important;
+  }
+}
+
+.lastLoginContainer {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em;
+  font-size: 0.75em;
+  font-family: 'Roboto-Regular';
+  color: #493694;
+  margin-left: 2.2em;
+  float: left;
+  padding: 0em;
+}
+
+.lastLoginContainer[dir="rtl"] {
+  margin-left: 0em;
+  margin-right: 2.2em;
+  float: right;
+}
+
+
+@media screen and  (max-width: 1180px) and (min-width: 1024px) {
+  :host ::ng-deep .ui-menubar .ui-menubar-root-list {
+    width: 88% !important;
+ }
+
+}
+
+.pi-forward:before{
+  content:  "\002F";
+  font-size: 1.2em !important;
+}
+.pi-forward{
+  content:  "\002F";
+  font-size: 1.2em !important;
+  margin-top: -0.2em;
+  margin-right: 5px !important;
+  margin-left: -16px !important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron.pi.pi-chevron-right:before{
+  position: fixed;
+  content: "/";
+  font-size: 1.8em !important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron.pi.pi-chevron-right{
+  margin-top: -2.4em !important;
+  padding-left: 0.3em;
+  padding-right: 1em;
+}
+
+:host ::ng-deep  a.breadCrumb div.NavBreadCrumb .ui-breadcrumb ul li:first-child a.ui-menuitem-link span.ui-menuitem-text{
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li:not(:first-child) a.ui-menuitem-link span.ui-menuitem-text {
+  font-weight: normal !important;
+  cursor: pointer !important;
+}
+:host ::ng-deep a.breadCrumb div.NavBreadCrumb :hover {
+  background: none !important;
+  cursor: pointer !important;
+  color: #694ed6!important;
+}
+:host ::ng-deep a.breadCrumb:hover {
+  background: none !important;
+  cursor: pointer !important;
+  color: #694ed6!important;
+}
+:host ::ng-deep .ui-breadcrumb ul li .ui-menuitem-link:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+:host ::ng-deep a.breadCrumb .NavBreadCrumb .ui-breadcrumb ul li a:focus {
+ outline: none;
+ box-shadow: none !important;
+}
+
+:host ::ng-deep .NavBreadCrumb .ui-breadcrumb ul li a.ui-menuitem-link span:focus {
+  border: none !important;
+}
+
+:host ::ng-deep .focus a.breadCrumb .NavBreadCrumb .ui-breadcrumb ul li a:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep a.breadCrumb .NavBreadCrumb .ui-breadcrumb ul li  > a:focus {
+    border:.125em solid #694ed6!important
+}
+@media screen and  (min-width: 768px) and (max-width: 1024px){
+ :host ::ng-deep .skip-link {
+    height: 35px;
+  }
+}
+@media screen and (min-width: 820px) and (max-width: 1180px) {
+  :host ::ng-deep .skip-link {
+    height: 35px;
+
+  }
+}

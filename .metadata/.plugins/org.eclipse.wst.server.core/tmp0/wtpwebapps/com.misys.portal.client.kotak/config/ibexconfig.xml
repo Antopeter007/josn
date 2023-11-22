@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ibexconfig>
+	<!--
+		Configuration file for Ibex (http://www.xmlpdf.com/) 
+		Used in IBEXFOPProcessorService.
+		 
+		This file should be available in the root of the classpath for 
+		Ibex to pick.
+		
+		Otherwise, a different location can be set by launching the JVM 
+		with: -Dibexconfig=/usr/ibex/ibexconfig.xml
+		
+		The font definitions below must match Unicode fonts available in 
+		the system if we want to display double byte languages, such as 
+		Arabic or Chinese.
+
+		Notice that there are no known fonts that provide a complete 
+		Unicode character set.
+
+		A few options for Sans-serif in Windows:
+		####################################################################
+		Arial Unicode MS (Version 0.84 or later)
+		Latin, Greek, Cyrillic, Hebrew, Arabic, Devanagari, Thai, CJK
+		(Not include with Windows, included with Office 2000 and later)
+		http://www.microsoft.com/typography/fonts/font.aspx?FMID=185
+		
+		Tahoma (version 2.30 and later)
+		Latin, Greek, Cyrillic, Hebrew, Arabic, Thai 
+		http://www.microsoft.com/typography/fonts/font.aspx?FMID=157
+		
+		Microsoft Sans Serif (Version 1.41 and later)
+		Latin, Greek, Cyrillic, Hebrew, Arabic, Thai
+		http://www.microsoft.com/typography/fonts/font.aspx?FMID=1130
+		
+		Segoe UI (Versio 1.0 or later)
+		Latin, Greek, Cyrillic, Arabic 
+		http://www.microsoft.com/typography/fonts/font.aspx?FMID=1310
+		####################################################################
+		
+		Monospace - The only option in Windows for monospace with a reasonable 
+		coverage for different scripts is Courier New:
+		####################################################################
+		Courier New (Version 0.84 or later)
+		Latin, Greek, Cyrillic, Hebrew, Arabic, Thai
+		http://www.microsoft.com/typography/fonts/font.aspx?FMID=193
+		####################################################################
+		
+		Notice that we can have different fonts per language. The fonts for 
+		PDF are defined in the core_xx.properties file.
+		In the core_en.properties file we can find:
+		PDF_LABEL_FONT = Helvetica
+		PDF_DATA_FONT = Courier
+		
+		IMPORTANT: In this file font names must be lowercase!
+
+	-->
+	
+	<!-- Sans serif font -->
+	<font bold="false" file="c:/windows/fonts/arialuni.ttf" italic="false" name="helvetica"/>
+	<font bold="true" file="c:/windows/fonts/arialuni.ttf" italic="false" name="helvetica"/>
+	<font bold="false" file="c:/windows/fonts/arialuni.ttf" italic="true" name="helvetica"/>
+	<font bold="true" file="c:/windows/fonts/arialuni.ttf" italic="true" name="helvetica"/>
+
+	<!-- Monospace font -->
+	<font bold="false" file="c:/windows/fonts/cour.ttf" italic="false" name="courier"/>
+	<font bold="true" file="c:/windows/fonts/courbd.ttf" italic="false" name="courier"/>
+	<font bold="false" file="c:/windows/fonts/couri.ttf" italic="true" name="courier"/>
+	<font bold="true" file="c:/windows/fonts/courbi.ttf" italic="true" name="courier"/>
+
+</ibexconfig>

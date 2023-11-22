@@ -1,0 +1,87 @@
+<ng-container [formGroup]="form">
+  <div dir="{{ dir }}">
+    <div
+      *ngIf="control.params.cancelDisplay"
+      class="{{ control.params.parentStyleClass }}"
+    >
+    <button role="button" 
+        mat-flat-button
+        dense
+        type="button"
+        class="{{ control.params.styleClass }}"
+        id="{{ control.key }}"
+        (click)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        [disabled]="control.params.btndisable"
+      >
+        {{ control.params.label }}
+      </button>
+    </div>
+    <div
+      *ngIf="control.params.resetDisplay"
+      class="{{ control.params.parentStyleClass }}"
+    >
+    <button role="button" 
+        mat-flat-button
+        dense
+        type="button"
+        class="{{ control.params.styleClass }}"
+        id="{{ control.key }}"
+        (click)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        [disabled]="control.params.btndisable"
+      >
+        {{ control.params.label }}
+      </button>
+    </div>
+    <div
+      *ngIf="control.params.submitDisplay"
+      class="{{ control.params.parentStyleClass }}"
+    >
+    <button role="button" 
+        mat-flat-button
+        dense
+        type="button"
+        class="{{ control.params.styleClass }}"
+        id="{{ control.key }}"
+        (click)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        [disabled]="control.params.btndisable"
+      >
+        {{ control.params.label }}
+      </button>
+    </div>
+    <div *ngIf="control.params.previousDisplay">
+      <button role="button" 
+        mat-flat-button
+        dense
+        type="button"
+        class="{{ control.params.styleClass }}"
+        id="{{ control.key }}"
+        (click)="onEventRaised($event, control.key)"
+        (blur)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        (focus)="onEventRaised($event, control.key)"
+        [disabled]="control.params.btndisable"
+      >
+        {{ control.params.label }}
+      </button>
+    </div>
+    <div *ngIf="control.params.nextDisplay || control.params.saveDisplay">
+      <button role="button" 
+        mat-flat-button
+        dense
+        type="button"
+        class="{{ control.params.styleClass }}"
+        id="{{ control.key }}"
+        (click)="onEventRaised($event, control.key)"
+        (blur)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        (focus)="onEventRaised($event, control.key)"
+        [disabled]="control.params.btndisable"
+      >
+        {{ control.params.label }}
+      </button>
+    </div>
+  </div>
+</ng-container>

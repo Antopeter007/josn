@@ -1,0 +1,127 @@
+<div class="p-grid">
+  <div class="p-col-2 multipleTabHeading" *ngIf="multipleTabEnable" id="multipleTabEnableHeaderId">
+    <label class="multipleTabEnableHeaderId">
+    {{ tabName | translate }}
+   </label>
+  </div>
+  <div *ngIf="showSpinner" class="p-col-12 spinnerStyle">
+    <p-progressSpinner
+      [style]="{ width: '4em', height: '4em' }"
+      strokeWidth="5"
+      fill="transparent"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+  <div class="p-col-3 preferenceSelect" *ngIf="allowPreferenceSave && !showSpinner && showFilterSection && !widgetFilter && !enableFilterPopup">
+    <mat-form-field appearance="standard">
+      <mat-label>{{ 'preference' | translate}}</mat-label>
+      <mat-select id="preference" [value]="selectedPreference"(selectionChange)="onMatSelectEventRaised($event)"
+       tabindex="0">
+       <mat-select-trigger>
+        {{selectedPreference === 'Standard' ? (selectedPreference | translate) : selectedPreference}}
+      </mat-select-trigger>
+      <mat-option (mouseover)="onMouseOver(opt)" (mouseout)="onMouseOut(opt)" [value]="opt" *ngFor="let opt of preferenceArray" [ngStyle]="{ 'text-align': dir === 'rtl' ? 'right' : 'left' }" tabindex="0">
+        <span class="text" title="{{opt}}">{{opt}}</span>
+        <span class="hidden" id="{{opt}}"  >
+          <mat-icon *ngIf="opt!='Standard'"(click)="onClickDelete(opt)" (keyup.enter)="onClickDelete(opt)" title="{{ 'delete' | translate }}"
+          class = "deleteIconPref">delete </mat-icon>
+          <mat-icon (click)="onClickModifyDefaultPreference(opt)" (keyup.enter)="onClickModifyDefaultPreference(opt)"
+          class = "restoreIconPref" title="{{ 'restore' | translate }}">restore</mat-icon>
+        </span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+  <div class="p-col-12 accord-start" *ngIf="!showSpinner && showFilterSection && !widgetFilter && !enableFilterPopup">
+    <p-accordion [activeIndex]="indexAcc"  (onOpen)="getFormValue($event, false)"(onClose)="getFormValue($event, true)">
+      <p-accordionTab [(selected)]="activeState" class="acc-header {{dirChevronStyle}}">
+        <p-header class="filterHeaderStyle">
+            <div class="p-col-2 filterHeading" id="accordionHeaderId" attr.aria-label="{{ 'advanceFilter' | translate }}" attr.text="{{ 'advanceFilter' | translate }}">
+              <label for="accordionHeaderId"> <!-- removed tabindex="0" here since its parent component is already under tab index. -->
+                {{'advanceFilter' | translate}}
+              </label>
+            </div>
+            <!-- <button role="button" *ngIf="formValues && formValues.length>0  " mat-button (click)="clearAll($event)" class="clearFilter">{{'clear' | translate}}</button> -->
+            <div dir={{dir}} class="p-col-10 accHeadParent">
+            <div class="accHeadContent" *ngIf="formValues.length !==0 && !inputParams.filterChipsRequired" >
+              <div *ngFor="let item of formValues">
+                <div (click)="doNothing($event)" class="p-col-1 filterContent" tabindex="0" *ngIf="item.value">
+                  <span class="filterLabel">
+                    {{item.name | translate}}:
+                  </span>
+                  <span class="filterType" [attr.title]="item.value">
+                    {{item.value}}
+                  </span>
+                </div>
+              </div>
+              <!-- clear advance filter button -->
+                <span role="button" *ngIf="formValues && formValues.length>0"
+                  attr.aria-label="{{'clearAll' | translate}}"
+                  matTooltip="{{'clearAll' | translate}}"
+                  matTooltipPosition="below"  (keydown.enter)="clearAll();onClearAdvncedFilterData($event)" (click)="clearAll();onClearAdvncedFilterData($event)" class="adv-clear-all clearFilter" id="advClearAll" tabindex="0">
+                  {{'clearall' | translate}}
+                </span>
+            </div>
+          </div>
+        </p-header>
+        <fcc-common-filtersection [ngClass]="activeState ? 'showAccordion' : 'hideAccordion'"*ngIf="displayableJson" [inputJson]="displayableJson" [dateParam]="dateParam" class="p-col-12"></fcc-common-filtersection>
+          <div class="p-col-12 create-btn-block" style="text-align: right;" [ngClass]="activeState ? 'showAccordion' : 'hideAccordion'" >
+              <span *ngFor="let item of buttons" class="create-btn-block loop-button">
+                <span *ngIf="!item.hidden && disableSave(item)" >
+                <button role="button"  pButton [type]="item.type" id={{item.name}} [ngClass]="item.isActive ? 'primaryButton' : 'secondaryButton'" (click)="handleClick(item ,$event)" [label]="item.localizationkey" tabindex="0"></button>
+              </span>
+            </span>
+        </div>
+
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+  <div class="p-col-12" *ngIf="!showSpinner && widgetFilter">
+    <div>
+      <div class="filterValues" *ngIf="showWidgetFilter" hidden>{{getFormValue(event, true)}}</div>
+      <div class="accHeadContent filterset" *ngIf="formValues.length !==0">
+        <div *ngFor="let item of formValues" class="p-col-1 filterContent">
+          <div (click)="doNothing($event)">
+            <span class="filterLabel">
+              {{item.name | translate}}:
+            </span>
+            <span class="filterType">
+              <span *ngIf="checkItemtoBeTranslated(item.value)">
+                {{item.value | translate}}
+              </span>
+              <span *ngIf="checkItemNottoBeTranslated">
+                {{item.value}}
+              </span>
+            </span>
+          </div>
+        </div>
+        <button role="button"  mat-button (click)="clearFilterData($event)" class="clearFilter">{{'clear' | translate}}</button>
+      </div>
+    </div>
+    <div *ngIf="widgetFilter">
+      <span  dir={{dir}} *ngIf="showFilterText" class="filterText ">{{'filter' | translate}}</span>
+      <em *ngIf="showFilterIcon" title="{{'filter' | translate}}"
+        dir={{dir}} class="pi pi-filter widgetFilter" (click)="filterData($event)" (keyup.enter)="filterData($event)" tabindex="0"></em>
+    </div>
+  </div>
+<div class="p-col-12 ptable tableWrapper" *ngIf="!showSpinner">
+  <span *ngIf="(drilldownEnabled || inputParams.drillDownEnabled) && !isParentList" (click)="switchToParentWidget()" (keyup.enter)="switchToParentWidget()" class="material-icons back-btn" tabindex="0" matTooltip="{{'back' | translate}}">arrow_back</span>
+ <fcc-table class="candyStriped" *ngIf="changed"  [inputParams] = "inputParams" [filterChips]="formValues" (childDeleteEvent) = "getChildDeleteEvent($event)"  (childDeleteAllEvent) = "getChildDeleteAllEvent($event)" [compService]= "componentService" (viewMoreClicked)="viewMoreClicked($event)" (viewAllClicked)="viewListingPage($event)"  (lazyEvent) = "getLazyEvent($event)" (download)="exportCSV($event)" (rowUnSelectEvent) = "getRowUnSelectEvent($event)" (refreshTableData)="refreshDataTableList();" (refreshList)="refreshTransactionList();" (selectAllCheckboxEvent)="onHeaderCheckboxEvent($event)" (rowSelectEvent) = "getRowSelectEvent($event)"
+              [enableMasking]="eyeEnable" [viewInCurrency]="viewInCurrency" [displayTotalAmtBalance]="displayTotalAmtBal" [defaultDaysCount]="defaultDaysCount" (resetTableFilters) = "resetTableFiltersOnSwtich($event)" (switchListDef) = "switchListDef($event)" (advancedFilterEvent)="filterData($event)" (updateColumns) = "updateColumns($event)" (widgetRefreshList) = "widgetRefreshList($event)"></fcc-table>
+</div>
+<div class="p-col-3" *ngIf="!showSpinner && addPhraseButtonEnable">
+  <button role="button"  mat-button (click)="onClickCreateNewPhrase($event)" class="secondaryButton addPhraseButton">{{'addNewPhraseButton' | translate}}</button>
+</div>
+<div></div>
+<div *ngIf="!showSpinner && createPhraseEnable">
+  <fcc-new-phrase (phraseCancel)="onClickCancelNewPhrase($event)"  (phraseSave)="onClickSaveNewPhrase($event)" ></fcc-new-phrase>
+</div>
+<div class="p-col-3" *ngIf="!showSpinner && addBankButtonEnable">
+  <button role="button"  mat-button (click)="onClickCreateNewBank($event)" class="secondaryButton addPhraseButton">{{'addNewBankButton' | translate}}</button>
+</div>
+<div></div>
+<div class="newBank" *ngIf="!showSpinner && createBankEnable">
+  <fcc-new-bank (bankCancel)="onClickCancelNewBank($event)"  (bankSave)="onClickSaveNewBank($event)" ></fcc-new-bank>
+</div>
+</div>

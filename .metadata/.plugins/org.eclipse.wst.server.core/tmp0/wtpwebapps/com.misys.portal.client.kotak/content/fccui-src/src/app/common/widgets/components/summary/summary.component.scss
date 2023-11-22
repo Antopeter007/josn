@@ -1,0 +1,46 @@
+@import './../../../../../styles/variables.scss';
+
+.item-label {
+    font-size: $font-size-11;
+    color: $ASH-BLACK;
+    display: inline-block;
+}
+
+.summary-container {
+    padding: 0 0 1em 0!important;
+}
+
+.item-value {
+    font-size: $font-size-14;
+    color: $BLACK-02;
+    display: block;
+    padding-top: 0.2em;
+}
+
+.linked-account {
+    width: 5em;
+    border-radius: 1em;
+    background: $GREY-09;
+    font-size: $font-size-10;
+    color: $GREY-100;
+    height: 1.33em;
+    padding: 0.3em 0.875em 0.35em;
+    margin-left: 0.5em;
+    vertical-align: text-top;
+}
+
+.mat-card-title {
+    margin: 1em !important;
+}
+
+mat-card-content {
+    margin: 2em;
+}
+
+.card-content {
+    margin-bottom: 2em;
+}
+
+em:focus {
+    outline: 3px solid orange;
+}

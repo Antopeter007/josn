@@ -1,0 +1,115 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.dropdownFilterClass }}">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="ui-float-label  {{ control.params.styleClass }}"
+    >
+      <ng-container *ngIf="control.params.showLabel">
+        <div>
+          <label class="infodisplaylabel" for="{{ control.key }}" tabindex="0">
+            {{ control.params.label }}
+          </label>
+        </div>
+        <ng-template #noLabel>
+          <label class="dropdownlabel" for="{{ control.key }}" tabindex="0">
+            {{ control.params.label
+            }}<a *ngIf="control.params.required"
+              ><em class="fa fa-asterisk fa-sm"></em
+            ></a>
+          </label>
+        </ng-template>
+      </ng-container>
+      <!-- <p-dropdown [options]=control.params.options formControlName="{{control.key}}" [filter]="control.params.filter" [readonly]="control.params.readonly"
+     id="{{control.key}}" [autoDisplayFirst]="control.params.autoDisplayFirst" (onChange)="onChangeEventRaised($event,control.key)" (click)="onEventRaised($event,control.key)"
+     (onClick)="onCustomEventRaised($event,control.key,control)" (onChange)="onEventRaised($event,control.key)" dropdownIcon="pi pi-caret-down" [required]="control.params.required"
+     formControlName={{control.key}} styleClass="fcc-dropdown"></p-dropdown> -->
+      <a class="infoDropDownIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <div [ngClass]="getClass()">
+      <mat-form-field class="input-mat-width" appearance="fill">
+        <mat-label
+          >{{ control.params.label
+          }}<a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          ></mat-label
+        >
+        <mat-select
+          disableOptionCentering
+          formControlName="{{ control.key }}"
+          panelClass="dropdown-panel"
+          [disabled]="control.params.disabled"
+          [required]="control.params.required"
+          id="{{ control.key }}"
+          (selectionChange)="
+            onMatSelectEventRaised($event, control.key, control)
+          "
+          (onClick)="onEventRaised($event, control.key)"
+          (onChange)="onEventRaised($event, control.key)"
+          (click)="onEventRaised($event, control.key)"
+          (keyup)="onEventRaised($event, control.key)"
+        >
+          <mat-option
+            *ngFor="let opt of control.params.options"
+            [value]="opt.value"
+            [ngStyle]="{ 'text-align': dir === 'rtl' ? 'right' : 'left' }"
+          >
+            {{ opt.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="enableHyperLink" class="view-link">
+        <app-hyperlink [controlData]="hyperLinkControl"></app-hyperlink>
+      </div>
+    </div>
+    </div>
+    <div *ngIf="control.params.warning">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value.shortName }}
+      </div>
+    </div>
+  </div>
+</ng-container>

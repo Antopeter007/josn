@@ -1,0 +1,43 @@
+@import '../../../variables.scss';
+
+@mixin common_class_mixin($primaryColor,$formFieldbackground ) {
+    .mat-form-field.mat-focused .mat-form-field-label{
+        color:$primaryColor !important;
+    }
+    .mat-form-field.mat-focused .mat-form-field-ripple{
+        background-color: $primaryColor !important;
+    }
+    .mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple {
+        background-color: $primaryColor !important;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex{
+        background: $formFieldbackground !important;
+    }
+    
+}
+
+@mixin Styling_of_Inupt_box($mat-form-field-flex-border) {
+    .mat-form-field-flex{
+        display: inline-flex !important;
+        align-items: baseline !important;
+        box-sizing: border-box !important;
+        width: 100%;
+        border: $mat-form-field-flex-border !important;
+    }
+}
+
+.finastra {
+
+    // primary clors
+    $primaryColor: $GOLD-Y50;
+
+    // Forms
+    $formFieldbackground:$GOLD-Y25;
+
+    // Styling of Input Box Related Properties
+    $mat-form-field-flex-border: none; // add this insted of none it will change the Input box border UI (1px solid $primaryColor).
+
+    // InputBox_class_mixin use to change text color, background-color, hover border color, 
+    @include common_class_mixin($primaryColor,$formFieldbackground);
+    @include Styling_of_Inupt_box($mat-form-field-flex-border);
+}

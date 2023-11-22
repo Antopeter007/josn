@@ -1,0 +1,90 @@
+<ng-container>
+    <!-- <div class="p-lg-12"> -->
+      <mat-card class="{{classCheck}}">
+        <mat-card-title [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+          <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+        </mat-card-title>
+        <div [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+            <mat-toolbar class="toolbarclass">
+                <span class="headerTitle" tabindex="0">{{widgetTitle}}</span>
+                <img *ngIf = "showEye && !eyeEnable" id="eyeIcon" class = "iconImage" tabindex="0" (keypress)="checkEyeEnable()" (click)="checkEyeEnable()"  title="Hide Details" src='{{contextPath}}/content/FCCUI/assets/icons/eye_icon.svg' alt="eyeIcon">
+                <img *ngIf = "showEye && eyeEnable && renderGraph == false" id="eyeSlashIcon" class = "iconImage" tabindex="0" (keypress)="checkEyeEnable()" (click)="checkEyeEnable()"  title="Show Details" src='{{contextPath}}/content/FCCUI/assets/icons/eye_slash_icon.svg' alt="eyeSlashIcon">
+                <span [ngClass]="dir === 'rtl' ? 'rtlSpan' : 'ltlSpan'">
+                    <mat-form-field appearance="fill" *ngIf = "renderGraph == false">
+                        <mat-label>{{ 'eqCcy' | translate }}</mat-label>
+                        <mat-select aria-label="currency" disableOptionCentering (selectionChange)="onCurrencyChange($event)" [value]="viewInCurrency">
+                            <ng-container *ngFor="let currency of currencyList">
+                                <mat-option [value]="currency === viewInCurrency ? viewInCurrency : currency">{{currency}}</mat-option>
+                            </ng-container>
+                        </mat-select>
+                    </mat-form-field>
+                    <span  class="graphClass" tabindex="0" (keyup.enter)="toggleDisplay(!renderGraph)">
+                        <a *ngIf ="renderGraph == false" (click)="toggleDisplay(!renderGraph)">
+                            <img src="{{grphImage}}"  alt="{{'graph' | translate}}" />
+                          </a>
+                          <a *ngIf ="renderGraph == true" (click)="toggleDisplay(!renderGraph)">
+                            <img src="{{listImage}}"  alt="{{'list' | translate}}" />
+                          </a>
+                        </span>
+                    <span tabindex="0" (keyup.enter)="callfilterData($event)" class="filterClass">
+                    <a *ngIf="inputParams.customFilter && renderGraph == false" href="javascript:void(0)"  (click)="callfilterData($event)" tabindex="0">
+                        <span *ngIf="showFilterText" class="filterText">{{'filter' | translate}}</span>
+                    <em *ngIf="showFilterIcon" title="{{'filter' | translate}}" class="pi pi-filter widgetFilter"></em>
+                    </a>
+                    </span>
+                    <span tabindex="0" *ngIf = "renderGraph == false">
+                        <button role="button"  *ngIf="showDownloadBtn" mat-icon-button class="example-icon filter-icon" aria-label="filter">
+                            <em class="fa fa-download" aria-hidden="true"></em>
+                        </button>
+                    </span>
+                </span>
+            </mat-toolbar>
+
+        </div>
+        <br>
+        <div *ngIf ="renderGraph == true" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+            <app-account-summary-graph></app-account-summary-graph>
+        </div>
+        <div *ngIf ="renderGraph == false" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+            <mat-button-toggle-group class="uxg-filtering-toggle-group" >
+                <mat-button-toggle *ngFor="let vals of categoriesList" class="p-col-12" [ngClass]="setClass(vals)"  (change)="onSelectCategory(vals)" tabindex="0">
+                    <mat-label>
+                        <div><strong>{{vals.category | translate}}</strong></div>
+                        <!-- <div><span class="currencyType">{{viewInCurrency}}</span>
+                            <span class="amountSpan">{{vals.amount}}</span></div> -->
+                        <div>
+                            <span [ngClass]="dir === 'rtl' ? 'rtlCurrencyType' : 'currencyType'">{{viewInCurrency}}</span>
+                            <span  *ngIf="eyeEnable" title="{{vals.amount | amountMask}}" class='amountSpan'>{{vals.amount | amountMask}}</span>
+                            <span  *ngIf="!eyeEnable" title="{{vals.amount}}" class='amountSpan'>{{vals.amount | currencyAbbreviation}}</span>
+                        </div>
+                    </mat-label>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <br />
+        <div *ngIf ="renderGraph == false" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+            <mat-tab-group  (selectedTabChange)="onSelection($event)" tabindex="0">
+                <mat-tab  *ngFor="let acctTypeTabs of categoryAccountTypes" [label]="acctTypeTabs.accountTypeDisplayName" tabindex="0">
+                    <ng-template mat-tab-label>
+                        <label>
+                            {{acctTypeTabs.accountTypeName}}
+                        </label>
+                        <div>
+                            <span [ngClass]="dir === 'rtl' ? 'rtlCurrency-type' : 'currency-type'">{{viewInCurrency}} - </span><strong *ngIf="!eyeEnable" [matTooltip]="acctTypeTabs.accountTypeBalance">{{acctTypeTabs.accountTypeDisplayName}}</strong><strong *ngIf="eyeEnable" [matTooltip]="acctTypeTabs.accountTypeBalance">{{acctTypeTabs.accountTypeDisplayName | amountMask}}</strong>
+                        </div>
+                    </ng-template>
+                    <div>
+                        <fcc-common-transactions-listdef #transactionListdef *ngIf="invokeList" [inputParams]="inputParams" [equivalentCurrency]="viewInCurrency"
+                            [enableMasking]="eyeEnable" (retrieveFilterParams)="retrieveFilterParams($event)" (showViewAllListingPage)="onClickViewAll()" (filterChipResetEvent) = "getFilterChipResetEvent($event)">
+                        </fcc-common-transactions-listdef>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <app-nudges [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'" [nudges] = "nudges" *ngIf = "widgetConfigData.enableNudges === 'true'">
+        </app-nudges>
+       </mat-card>
+       <!-- </div> -->
+</ng-container>
+
+

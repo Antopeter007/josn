@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+				xmlns:utils="xalan://com.misys.portal.common.tools.Utils"
+				exclude-result-prefixes="utils">
+				<xsl:template name="product-additional-fields">
+
+		<xsl:if test="remittance_type">
+			<additional_field name="remittance_type" type="string" scope="master" description="remittance type">
+						<xsl:value-of select="remittance_type"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="remittance_purpose_code">
+			<additional_field name="remittance_purpose_code" type="string" scope="master" description="remittance purpose code">
+						<xsl:value-of select="remittance_purpose_code"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="remittance_purpose_description">
+			<additional_field name="remittance_purpose_description" type="string" scope="master" description="remittance purpose description">
+						<xsl:value-of select="remittance_purpose_description"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="gstn_number">
+			<additional_field name="gstn_number" type="string" scope="master" description="GSTIN Number">
+						<xsl:value-of select="gstn_number"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="principal_account_grid_data">
+			<additional_field name="principal_account_grid_data" type="string" scope="master" description="Principal Account Grid Data">
+						<xsl:value-of select="principal_account_grid_data"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_invoice_number">
+			<additional_field name="shipping_invoice_number" type="string" scope="master" description="shipping invoice number">
+						<xsl:value-of select="shipping_invoice_number"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="shipping_commodity">
+			<additional_field name="shipping_commodity" type="string" scope="master" description="shipping commodity">
+						<xsl:value-of select="shipping_commodity"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_hs_code">
+			<additional_field name="shipping_hs_code" type="string" scope="master" description="shipping hs code">
+						<xsl:value-of select="shipping_hs_code"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_port_loading">
+			<additional_field name="shipping_port_loading" type="string" scope="master" description="shipping port of loading">
+						<xsl:value-of select="shipping_port_loading"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_port_discharge">
+			<additional_field name="shipping_port_discharge" type="string" scope="master" description="shipping port of discharge">
+						<xsl:value-of select="shipping_port_discharge"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_ad_code">
+			<additional_field name="shipping_ad_code" type="string" scope="master" description="shipping ad code">
+						<xsl:value-of select="shipping_ad_code"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_1">
+			<additional_field name="declaration_air_1" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_1"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_2">
+			<additional_field name="declaration_air_2" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_2"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air">
+			<additional_field name="declaration_air" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_3">
+			<additional_field name="declaration_air_3" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_3"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_4">
+			<additional_field name="declaration_air_4" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_4"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_5">
+			<additional_field name="declaration_air_5" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_5"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_air_6">
+			<additional_field name="declaration_air_6" type="string" scope="master" description="declaration air">
+						<xsl:value-of select="declaration_air_6"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_dir_1">
+			<additional_field name="declaration_dir_1" type="string" scope="master" description="declaration dir">
+						<xsl:value-of select="declaration_dir_1"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_dir_2">
+			<additional_field name="declaration_dir_2" type="string" scope="master" description="declaration dir">
+						<xsl:value-of select="declaration_dir_2"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_dir">
+			<additional_field name="declaration_dir" type="string" scope="master" description="declaration dir">
+						<xsl:value-of select="declaration_dir"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_dir_3">
+			<additional_field name="declaration_dir_3" type="string" scope="master" description="declaration dir">
+						<xsl:value-of select="declaration_dir_3"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_dir_4">
+			<additional_field name="declaration_dir_4" type="string" scope="master" description="declaration dir">
+						<xsl:value-of select="declaration_dir_4"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_ott_1">
+			<additional_field name="declaration_ott_1" type="string" scope="master" description="declaration ott">
+						<xsl:value-of select="declaration_ott_1"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_ott_2">
+			<additional_field name="declaration_ott_2" type="string" scope="master" description="declaration ott">
+						<xsl:value-of select="declaration_ott_2"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_ott">
+			<additional_field name="declaration_ott" type="string" scope="master" description="declaration ott">
+						<xsl:value-of select="declaration_ott"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_ott_3">
+			<additional_field name="declaration_ott_3" type="string" scope="master" description="declaration ott">
+						<xsl:value-of select="declaration_ott_3"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="declaration_ott_4">
+			<additional_field name="declaration_ott_4" type="string" scope="master" description="declaration ott">
+						<xsl:value-of select="declaration_ott_4"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_boe_details">
+			<additional_field name="shipping_boe_details" type="string" scope="master" description="shipping boe details">
+						<xsl:value-of select="shipping_boe_details"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="shipping_origin_country">
+			<additional_field name="shipping_origin_country" type="string" scope="master" description="Shipping Country Of Origin">
+						<xsl:value-of select="shipping_origin_country"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="counterparty_custom_country">
+			<additional_field name="counterparty_custom_country" type="string" scope="master" description="Beneficiary Country">
+						<xsl:value-of select="counterparty_custom_country"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="formatted_ordering_account">
+			<additional_field name="formatted_ordering_account" type="string" scope="master" description="formatted principal account">
+						<xsl:value-of select="formatted_ordering_account"/>
+			</additional_field>
+		</xsl:if>
+			<xsl:if test="ordering_account_no">
+			<additional_field name="ordering_account_no" type="string" scope="master" description="formatted principal account for one Account">
+						<xsl:value-of select="ordering_account_no"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="ft_duplicate_message">
+			<additional_field name="ft_duplicate_message" type="string" scope="master" description="Duplicate Message" >
+						<xsl:value-of select="ft_duplicate_message"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="additional_beneficiary_act">
+			<additional_field name="additional_beneficiary_act" type="string" scope="master" description="Additional Beneficiary Account">
+						<xsl:value-of select="additional_beneficiary_act"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="attach_mandatory">
+			<additional_field name="attach_mandatory" type="string" scope="master" description="Additional attachment mandatory">
+						<xsl:value-of select="attach_mandatory"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="inv_date">
+			<additional_field name="inv_date" type="date" scope="master" description="Invoice date">
+						<xsl:value-of select="inv_date"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="invoice_number">
+			<additional_field name="invoice_number" type="string" scope="master" description="Invoice Number">
+						<xsl:value-of select="invoice_number"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="boe_grid_data">
+			<additional_field name="boe_grid_data" type="string" scope="master" description="BOE Grid Data">
+						<xsl:value-of select="boe_grid_data"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="ft_boe_number">
+			<additional_field name="ft_boe_number" type="string" scope="master" description="BOE Number">
+						<xsl:value-of select="ft_boe_number"/>
+			</additional_field>
+		</xsl:if>
+		
+		
+		<xsl:if test="capital_goods">
+			<additional_field name="capital_goods" type="string" scope="master" description="capital goods">
+						<xsl:value-of select="capital_goods"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="trans_document_num">
+			<additional_field name="trans_document_num" type="string" scope="master" description="trans document num">
+						<xsl:value-of select="trans_document_num"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="country_providing">
+			<additional_field name="country_providing" type="string" scope="master" description="country providing">
+						<xsl:value-of select="country_providing"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="regulatory_reporting">
+			<additional_field name="regulatory_reporting" type="string" scope="master" description="country providing">
+						<xsl:value-of select="regulatory_reporting"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="ft_trracs_grid_mandatory">
+			<additional_field name="ft_trracs_grid_mandatory" type="string" scope="master" description="BOE Grid mandatory">
+						<xsl:value-of select="ft_trracs_grid_mandatory"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="ftlinked_transactioncheck">
+			<additional_field name="ftlinked_transactioncheck" type="string" scope="master" description="BOE Grid mandatory">
+						<xsl:value-of select="ftlinked_transactioncheck"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="ft_linked_transactioncheck">
+			<additional_field name="ft_linked_transactioncheck" type="string" scope="master" description="FT LinkedTransaction Checkbox">
+						<xsl:value-of select="ft_linked_transactioncheck"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="inward_portal_reference">
+			<additional_field name="inward_portal_reference" type="string" scope="master" description="FT InwardPortal Reference">
+						<xsl:value-of select="inward_portal_reference"/>
+			</additional_field>
+		</xsl:if>
+		<xsl:if test="user">
+			<additional_field name="user" type="string" scope="master" description="FT user">
+						<xsl:value-of select="user"/>
+			</additional_field>
+		</xsl:if>
+		
+		<xsl:if test="values">
+			<additional_field name="values" type="string" scope="master" description="FT user">
+						<xsl:value-of select="values"/>
+			</additional_field>
+		</xsl:if>
+		
+	</xsl:template>		
+
+</xsl:stylesheet>

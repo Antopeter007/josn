@@ -1,0 +1,5 @@
+<p-panel header="{{'HEADER_UNDERTAKING_PAYMENT_DETAILS' | translate}}" [toggleable]="true" [collapsed]="collapsible">
+  <div [formGroup] = "paymentDetailsForm">
+     <fcc-iu-common-payment-details *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [sectionForm]="paymentDetailsForm" [undertakingType]="'bg'"></fcc-iu-common-payment-details>
+  </div>
+</p-panel>

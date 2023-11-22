@@ -1,0 +1,5 @@
+/** Import the base welcome theme **/
+@import "../base/welcome_rtl.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";

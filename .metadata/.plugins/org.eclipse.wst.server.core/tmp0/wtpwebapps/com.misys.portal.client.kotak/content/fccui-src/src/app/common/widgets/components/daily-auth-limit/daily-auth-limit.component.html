@@ -1,0 +1,60 @@
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard" id="iPad-specific-auth-limit">
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+      </p-header>
+      <h1 class="headerTitle">
+        {{ 'dailyAuthLimit' | translate }}
+      </h1>
+    
+      <div *ngIf="totalAmt !== undefined && totalAmt !== null && totalAmt !== '' && NoTotalAmt !== -1">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <p-chart type="doughnut" [data]="chartDataDoughnut" [options]="limitDoughnutChartOptions" height="250" ></p-chart>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12" [ngClass]="langDir === 'rtl' ? 'amtDetailsRtl' : 'amtDetailsLtr'">
+            <div class="p-grid">
+              <div class="p-col-12 availableAmtTitle">
+                {{ 'dailyAvailableAmt' | translate }} <em class="fa fa-circle availableAmtCol" aria-hidden="true"></em>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 availableAmt">{{availableAmtNumber}}<span class="availableAmtDeci">{{availableAmtDecimal}}</span></div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 utilisedAmtTitle">
+                {{ 'dailyUtilisedAmt' | translate }} <em class="fa fa-circle utilisedAmtCol" aria-hidden="true"></em>
+              </div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 utilisedAmt">{{utilisedAmtNumber}}<span class="utilisedAmtDeci">{{utilisedAmtDecimal}}</span></div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 totalAmtTitle">{{ 'dailyTotalAmt' | translate }}</div>
+            </div>
+            <div class="p-grid">
+              <div class="p-col-12 totalAmt">{{totalAmtNumber}}<span class="totalAmtDeci">{{totalAmtDecimal}}</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 finishMsg">{{ 'finishMsg' | translate }} <span class="nowrap">( {{currentDate}} )</span> {{ 'in' | translate }} {{baseCurrencyUserLimitCurrency}}</div>
+        </div>
+      </div>
+      <div *ngIf="NoTotalAmt === -1">
+        <div class="p-grid p-align-center vertical-container">
+          <div class="p-col-12">
+            <span class="authMsg1">{{ 'noDailyAuthLimitMsg1' | translate }}</span>
+            <br>
+            <span class="authMsg2">{{ 'noDailyAuthLimitMsg2' | translate }}</span>
+          </div>
+        </div>
+      </div>
+      <app-nudges [nudges] = "nudges">
+      </app-nudges>
+    </p-card>
+  </div>
+</ng-container>

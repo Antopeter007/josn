@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "assets": [
+      "./src/assets/",
+      "./src/styles/",
+      "./src/styles.scss"
+    ],
+    "deleteDestPath": false,
+    "allowedNonPeerDependencies": ["."],
+  "dest": "./dist/tradeui-lib/",
+  "keepLifecycleScripts": false,
+  "lib": {
+    "entryFile": "./public_api.ts"
+  }
+}

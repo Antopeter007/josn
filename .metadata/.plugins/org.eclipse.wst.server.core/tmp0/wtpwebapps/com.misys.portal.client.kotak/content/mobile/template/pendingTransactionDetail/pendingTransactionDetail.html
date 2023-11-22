@@ -1,0 +1,41 @@
+<ion-view>
+    <div class="bar bar-stable bar-subheader">
+        <h2 class="title">{{vm.transactionDetails.ref_id}}</h2>
+    </div>
+    <ion-content class="has-subheader has-bottom">
+        <div class="card list">
+            <div ng-repeat="section in vm.tnxSectionArray">
+                <div class="item item-divider">{{section.label}}</div>
+                <div class="item pending-detail-item" ng-repeat="object in section.object" ng-if="object.label">
+                	 <div class="row row-item-label">{{object.label}}</div>
+                     <div class="row">{{object.value}}</div>
+                </div>
+                <div class="item pending-detail-item" ng-repeat="object in section.object" ng-if="object.mobileTextareaContent">
+                	<pre>
+	                	 <div class="row row-item-label" ng-if="object.label !== ''">{{object.label}}</div>
+	                     <div class="row">{{object.value}}</div>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+   
+  <div class="tabs">
+	   <div class="col col-10"></div>
+	   <div class="col col-30">
+	        <a class="tab-item button button-assertive misys-small-button" ng-click="vm.submitTransaction('return')">
+	            <strong>{{'RETURN' | translate}}</strong>
+	        </a>
+	   </div>
+	   
+	   <div class="col col-20"></div>
+	   
+	   <div class="col col-30">
+	        <a class="tab-item button button-positive misys-small-button" ng-click="vm.submitTransaction('submit')">
+	            <strong>{{'SUBMIT' | translate}}</strong>
+	        </a>
+	   </div>
+	   <div class="col col-10"></div>
+  </div>
+</ion-view>
+<div ui-view="" name="mainContent"></div>

@@ -1,0 +1,2 @@
+<strong style="font-weight: 500;" [ngClass]="dir === 'rtl' ? 'margin-right' : 'margin-left'">{{'selectTransaction' | translate}} </strong><p-dropdown [options]="dropdownOptions" optionLabel="viewValue" [(ngModel)]="selectedOption" (onChange)="onChangeDropdownField($event)"></p-dropdown>
+<fcc-product-component [secondInputParams]="paramsForSecondCard"></fcc-product-component>

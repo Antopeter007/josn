@@ -1,0 +1,215 @@
+@import './../../../../styles/variables.scss';
+
+:host ::ng-deep .ltr .ui-listbox{
+    background: #ffffff;
+    border: none !important;
+    border-right: solid 0.0625em #979797 !important;
+    box-sizing: border-box;
+    width: 0.0625em;
+  }
+  :host ::ng-deep .rtl .ui-listbox{
+    background: #ffffff;
+    border: none !important;
+    border-left: solid 0.0625em #979797 !important;
+    box-sizing: border-box;
+    width: 0.0625em;
+  }
+
+  :host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item .titleTag{
+  height: 0.6875em;
+  width: 2.625em;
+  color: #999999;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  line-height: 0.6875em;
+  }
+
+  :host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item .valueTag{
+    height: 1.125em;
+    width: 6.4375em;
+    color: #414141;
+    font-weight: bold;
+    font-size: 0.9375em;
+    letter-spacing: 0;
+    line-height: 1.125em;
+  }
+
+  :host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item .labelTag{
+    height: 0.6875em;
+    width: 3.75em;
+    color: #999999;
+    font-size: 0.8em;
+    letter-spacing: 0;
+    line-height: 0.6875em;
+  }
+
+
+  :host ::ng-deep .ltr .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight {
+    color: #694ED6;
+    background-color: transparent;
+    border-left: 0.4em solid #694ED6;
+}
+
+:host ::ng-deep .ltr .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .reviewList .iconListStyle {
+  background-image: url("/content/FCCUI/assets/icons/pendingActionFuchsia.svg");
+
+}
+
+:host ::ng-deep .ltr .ui-listbox .ui-listbox-list .ui-listbox-item {
+  border-left: 0.4em solid transparent;
+}
+
+:host ::ng-deep .ltr .ui-listbox .ui-listbox-list .ui-listbox-item  .reviewList .iconListStyle {
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-image: url("/content/FCCUI/assets/icons/pendingActionGrey.svg");
+  width: 1.5em;
+  height: 1.5em;
+
+}
+
+:host ::ng-deep .rtl .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight {
+  color: #694ED6;
+  background-color: transparent;
+  border-right: 0.4em solid #694ED6;
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .labelTag{
+  height: 0.6875em;
+  width: 3.75em ;
+  color: #694ED6;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  line-height: 0.6875em
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .valueTag{
+  height: 1.3125em;
+  width: 3.5625em;
+  color: #694ED6;
+  font-size: 1.125em;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 1.3125em;
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .x{
+  color: #694ED6;
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .titleTag{
+  height: 0.6875em;
+  width: 1.8125em;
+  color: #694ED6;
+  font-size: 0.8em;
+  letter-spacing: 0;
+  line-height: 0.6875em;
+}
+
+:host ::ng-deep .ui-listbox .ui-listbox-list .ui-listbox-item {
+  margin: 0;
+  // padding: 0.9em 0.857em;
+  border: 0 none;
+  color: #333333;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.p-col-2 {
+  width: 22%;
+}
+:host ::ng-deep .mat-expansion-panel-body{
+  padding-left: 1.5em !important;
+}
+
+.secondaryButton {
+  border: 0.1em solid $FUCHSIA-PRIMARY-COLOR !important;
+  margin-left: 1.5em !important;
+}
+
+.secondaryButton:hover {
+  background-color: #efcce7 !important;
+}
+
+.reviewList {
+  position: relative;
+}
+
+.iconListStyle {
+  position: absolute;
+  right: 0em;
+  top: 0em;
+}
+
+.iconListStyleRtl {
+  position: absolute;
+  left: 0em;
+  top: 0em;
+  width: 1.3em;
+  height: 1.4em;
+}
+
+.compare-button {
+  background-color: transparent !important;
+  border: 1px solid #C137A2 !important;
+  color: #C137A2 !important;
+  line-height: 2.25em !important;
+  border-radius: 1.125em !important;
+  min-width: 4em !important;
+  font-size: 0.875em !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  width: auto;
+}
+
+.compare-button:hover {
+  background-color: #d9d3f5 !important;
+  box-shadow: none !important;
+}
+
+.respond-button:focus {
+  background-color: #efcce7 !important;
+}
+
+.pdfIcon{
+  font-size: 1.5em;
+  cursor: pointer;
+  float: right;
+  color: $DoveGray;
+  margin: 0.2em 1em 0em 1em;
+}
+
+[dir="rtl"].pdfIcon{
+  font-size: 1.5em;
+  cursor: pointer;
+  float: left;
+  margin: 0.2em 0em 0em 1.4em;
+}
+
+.pdfIcon:hover{
+  color: $VIOLET-F100;
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+.widthAccordion {
+  position: relative !important;
+  left: 4em !important;
+ }
+}
+@media screen and (min-width: 1024px) and (max-width: 1100px) {
+  .widthAccordion {
+    position: relative !important;
+    left: 2em !important;
+   }
+  }
+
+.pdfMarginBottom{
+  margin-bottom: 1%;
+}

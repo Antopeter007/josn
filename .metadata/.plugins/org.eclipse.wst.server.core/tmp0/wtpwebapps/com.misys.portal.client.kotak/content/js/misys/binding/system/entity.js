@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.system.entity"]){dojo._hasResource["misys.binding.system.entity"]=true;dojo.provide("misys.binding.system.entity");dojo.require("dijit.form.FilteringSelect");dojo.require("dijit.layout.TabContainer");dojo.require("misys.form.MultiSelect");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");(function(d,dj,m){var _1="entity_list",_2="avail_list";d.mixin(m,{bind:function(){m.setValidation("bei",m.validateBEIFormat);m.setValidation("abbv_name",m.validateCharacters);m.connect("add","onClick",function(){m.addMultiSelectItems(dijit.byId("entity_list"),dijit.byId("avail_list"));});m.connect("remove","onClick",function(){m.addMultiSelectItems(dijit.byId("avail_list"),dijit.byId("entity_list"));});}});m._config=m._config||{};d.mixin(m._config,{xmlTransform:function(_3){var _4=[dj.byId("entity_list"),dj.byId("avail_list")],_5=_3.indexOf("<"+_1+">"),_6=_3.indexOf("<"+_2+">"),_7=(_5!==-1)?_3.substring(_5+_1.length+2,_3.indexOf("</"+_1+">")).split(","):[],_8=(_6!==-1)?_3.substring(_6+_2.length+2,_3.indexOf("</"+_2+">")).split(","):[],_9=[],_a=[];return _3;}});})(dojo,dijit,misys);dojo.require("misys.client.binding.system.entity_client");}

@@ -1,0 +1,18 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.parentStyleClass }}" dir="{{ dir }}">
+    <div
+      tabindex="0"
+      class="{{ control.params.labelStyleClass }}"
+      id="{{ control.key }}"
+    >
+      {{ control.params.label }}
+    </div>
+    <div
+      tabindex="0"
+      class="{{ control.params.valueStyleClass }}"
+      id="{{ control.key }}"
+    >
+      {{ control.value }}
+    </div>
+  </div>
+</ng-container>

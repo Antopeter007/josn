@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employeeslist>
+    <employees>
+        <experiencelist>
+            <experience>
+                <CTC>4.5</CTC>
+                <EXCompany>BSIT</EXCompany>
+                <name>Bala</name>
+            </experience>
+        </experiencelist>
+        <name>Anto Peter</name>
+        <salary>80000.0</salary>
+    </employees>
+</employeeslist>

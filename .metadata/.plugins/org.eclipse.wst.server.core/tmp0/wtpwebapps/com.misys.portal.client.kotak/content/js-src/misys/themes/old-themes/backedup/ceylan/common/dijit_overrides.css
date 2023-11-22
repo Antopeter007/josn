@@ -1,0 +1,90 @@
+/**
+ Refer to /themes/base/common/dijit_override.css
+**/
+
+/** --------------------------------- DataGrid, EnhanceGrid Rules ------------------------- **/
+
+.ceylan .dojoxGridRowOver .dojoxGridCell {
+	background-color: white; 
+	color:#000;
+}
+
+.ceylan .dojoxGridCellOver {
+	border: 1px dotted #D5CDB5;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver {
+	cursor: pointer;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver {
+	border-top-color: #ccc;
+	border-bottom-color: #ccc;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell {
+	background-color: #60a1ea; 
+	color:#fff;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijit {
+	color: #000;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijitDisabled {
+	color: gray;
+}
+
+/** ---------------------------------------- Calendar Rules -------------------------------- **/
+
+#TradeCalendarPortlet .dijitCalendarHoveredDate {
+	background-color:#FBE5D8;	
+}
+
+#TradeCalendarPortlet .dijitCalendarSelectedYear,
+#TradeCalendarPortlet .dijitCalendarSelectedDate,
+#default .dijitCalendarSelectedYear,
+#default .dijitCalendarSelectedDate{
+	background-color: #E86D1F;
+	color: white;
+}
+
+
+/** ------------------------------------------- Dialog Rules -------------------------------- **/
+
+.ceylan .dijitDialogTitle {
+	color: white;
+}
+
+.ceylan .dijitDialogTitleBar {
+	background:#7AA1FF;
+}
+
+.ceylan .dijitTitlePaneTitle {
+	background: none;
+	background-color: #EB6E1F;
+}
+
+.ceylan .dijitDialog {
+	border: 3px ridge #7eabcd;
+}
+
+/** ----------------------------- Collaboration / FloatingPane Rules ------------------------- **/
+
+.ceylan .dojoxFloatingPaneFg {
+	border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.ceylan .dojoxFloatingPaneTitle {
+	background-color: #7AA1FF;
+	background-image: none;
+	color: white;
+}
+
+.ceylan .dijitCalendarCurrentMonth {
+	border:1px solid white;
+}

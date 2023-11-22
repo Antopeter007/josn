@@ -1,0 +1,89 @@
+/* 
+ General page styles
+*/
+.ceylan .panel3 {
+   	background-color: #1B3E93;
+    clear: both;
+    height: 2.2em;
+    width: 100%;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.ceylan ul.topnav {
+	list-style: none;
+	/*padding: 0 20px;*/
+	margin: 0;
+	float: left;
+	/*width: 920px;*/
+	font-size: 0.8em;
+	height:36px;
+}
+
+.ceylan ul.topnav > li {
+	float: left;
+	margin: 0;
+	padding: 0 7px 0 7px;
+	position: relative;
+	border-right:1px solid #405DA4;
+
+}
+
+.ceylan ul.topnav > li > a{
+	display: block;
+	float: left;
+	padding: 8px 5px;
+	color: #fff;
+	text-decoration: none;
+}
+.ceylan ul.topnav > li:hover{
+	background-color:#C1F0F6;
+}
+.ceylan ul.topnav li#topMenuEntry0 {
+	padding:0px;	
+}
+.ceylan ul.topnav li#topMenuEntry0 a{
+	background-image:url(../images/topnav_home_button.gif);
+    padding: 0px;
+    width: 37px;
+	height:35px;
+}
+
+
+.ceylan ul.topnav li span { /*--Drop down trigger styles--*/
+	width: 15px;
+	height: 35px;
+	float: left;
+	background: url(../images/subnav_btn.gif) no-repeat left top;
+}
+
+.ceylan ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+
+.ceylan ul.topnav li ul.subnav {
+	margin: 0; padding: 0;
+	width: 170px;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+	float: left;
+	list-style: none;
+	background-color:#4F94CD;
+	border: 1px solid #111;
+	z-index:10000;
+}
+
+.ceylan ul.topnav li ul.subnav li{
+	margin: 0; padding: 0;
+    border-bottom: 1px solid #33A1DE;
+    border-top: 1px solid #C1F0F6;
+	clear: both;
+	width: 170px;
+}
+
+.ceylan ul.topnav li ul.subnav li a {
+	float: left;
+	width: 145px;
+	background: #4F94CD url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+	padding-left: 20px;
+}
+.ceylan ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+	background: #242660 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+}

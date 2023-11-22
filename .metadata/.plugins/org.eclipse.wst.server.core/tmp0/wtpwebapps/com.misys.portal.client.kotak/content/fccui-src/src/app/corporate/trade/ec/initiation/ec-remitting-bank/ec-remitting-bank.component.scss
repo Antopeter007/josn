@@ -1,0 +1,38 @@
+@import './../ec-bank-details/ec-bank-details.component.scss';
+
+
+.subheader-title {
+  margin-bottom: 0em;
+}
+
+.infoDropDownIcon {
+  color: #808080 !important;
+  position: absolute !important;
+  top: 3.5em !important;
+  right: -0.1em !important;
+  margin-top: -2em;
+}
+
+[dir=rtl] .infoDropDownIcon {
+  color: #808080 !important;
+  position: absolute !important;
+  top: 3.5em !important;
+  right: 22.8em !important;
+  margin-top: -2em;
+}
+
+.infoDropDownIcon[_ngcontent-bvs-c362] {
+  color: #808080 !important;
+  position: absolute !important;
+  top: 3em !important;
+  right: -0.1em !important;
+  margin-top: -2em;
+}
+
+.infoIcon {
+  color: #808080;
+  position: absolute;
+  top: 0.9em;
+  right: -0.1em;
+  z-index: 10;
+}

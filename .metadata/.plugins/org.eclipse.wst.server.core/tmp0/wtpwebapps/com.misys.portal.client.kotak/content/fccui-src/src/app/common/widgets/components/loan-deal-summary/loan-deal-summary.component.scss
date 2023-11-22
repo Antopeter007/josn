@@ -1,0 +1,22 @@
+.headerDiv {
+  padding-bottom: 0em;
+}
+
+.headerTitle {
+  font-size: 0.875em !important;
+  padding-bottom: 0em;
+}
+
+:host ::ng-deep .successTick em {
+  color: #ccc1ef !important;
+  line-height: 0.5em;
+}
+
+:host ::ng-deep .row-eq-height:hover .ui-card,
+:host ::ng-deep .row-eq-height:focus .ui-card {
+  background-color: #f5f5fa !important;
+}
+
+:host ::ng-deep .selectedCard .ui-card {
+  background-color: #ececf9 !important;
+}

@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.AsyncMessage"]){dojo._hasResource["misys.binding.AsyncMessage"]=true;dojo.provide("misys.binding.AsyncMessage");dojo.require("dijit.form.Button");(function(d,m){function _1(_2){var _3=dijit.byId("asyncSaveDialog");var _4=dojo.byId("asyncSaveDialogButtons");var _5=dijit.byId("OkAsyncButton").domNode;var _6=dojo.byId("asyncSaveDialogContent");var _7=dijit.byId("asyncSaveDialog").domNode;var _8=dojo.byId("asyncSaveDialogMsg");dojo.style(_4,"display","block");dojo.style(_6,"display","block");dojo.style(_5,"display","inline-block");dojo.style(_7,"display","inline-block");dojo.style(_8,"display","inline-block");_3.set("title",misys.getLocalization("asyncMessage"));_8.innerHTML=_2.asyncMessage;misys.dialog.connect(_3,"onKeyPress",function(_9){if(_9.keyCode==dojo.keys.ESCAPE){dojo.stopEvent(_9);}});misys.dialog.connect(dijit.byId("OkAsyncButton"),"onMouseUp",function(){misys.dialog.disconnect(_3);_3.hide();},_3.id);misys.dialog.connect(_3,"onHide",function(){misys.dialog.disconnect(_3);});_3.show();};d.mixin(m,{checkAsyncMessage:function(_a){misys.xhrGet({url:misys.getServletURL("/screen/AjaxScreen/action/PingAction"),sync:true,handleAs:"json",load:function(_b,_c){if(_b.asyncMessage){_1(_b);}else{_a++;setTimeout("misys.checkAsyncMessage("+_a+")",m._config.asyncMessageFreq||5000);}},error:function(_d){}});}});})(dojo,misys);}

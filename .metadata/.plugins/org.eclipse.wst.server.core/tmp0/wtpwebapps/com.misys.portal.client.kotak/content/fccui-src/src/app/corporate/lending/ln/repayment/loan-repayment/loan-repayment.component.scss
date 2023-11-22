@@ -1,0 +1,56 @@
+@import './../../../../../../styles/variables.scss';
+
+:host::ng-deep .mainSubHeader {
+  font-size: 1.14em;
+  color: #4a4a4a;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+:host::ng-deep .currencyView {
+  width: 2.5em;
+  margin-top: 1.2em;
+}
+
+:host::ng-deep .widthForCur{
+  width: 38% !important;
+}
+
+:host ::ng-deep .warningStyle {
+  font-style: italic;
+  color: $GREY-01;
+  font-weight: 500;
+  bottom: 1em;
+  position: relative;
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}
+
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #A65494;
+  }
+  26% {
+      stroke: #7262B4;
+  }
+  51% {
+      stroke: #6AA6B4;
+  }
+  76% {
+      stroke: #C6AE74;
+  }
+}
+
+:host ::ng-deep .indicativeFXRateNoteStyle {
+  font-style: italic;
+  padding-bottom: 1.5em;
+}
+
+:host ::ng-deep .indicativeFXRateNoteStyle .form-header {
+  color: $GREY-01;
+}

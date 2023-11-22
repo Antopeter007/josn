@@ -1,0 +1,20 @@
+<div [formGroup] = "commentDetailsForm" class="{{commonService.getUserLanguage() === 'ar' ? 'comment-section-right' : 'comment-section-left'}}">
+    <div id="taskCommentFields" class="comment-block">
+        <ol *ngFor="let comment of task.comments; index as i">
+        <div *ngIf = "comment.description != null" class="comment-list" id="publicTasksCommentList">
+            <li id="commentId{{i}}">{{comment.description}}
+              <div id="commentInfo{{i}}" class="task-info">{{getCommentInfo(comment)}}</div>
+            </li>
+        </div>
+        </ol>
+    </div>
+    <div id ="commentRow" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label id="commentLabel" for = "comment">{{ 'COMMENT' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <textarea id="comment" fccCommonTextArea [controlName]="commentDetailsForm.get('comment')" [rows]="5" [cols]="40" formControlName="comment" pInputTextarea [class.fieldError]="validationService.isFieldInvalid(commentDetailsForm.get('comment'))"></textarea>
+        <fcc-common-error-message [control]="commentDetailsForm.get('comment')"></fcc-common-error-message>
+    </div>
+    <div id="commentActions" class="menu {{commonService.getUserLanguage() === 'ar' ? 'menu-right' : 'inherit'}}">
+        <button id="commentSaveButton" pButton type="button" label="{{ 'USER_ACTION_OK' | translate}}"  (click)="saveComment()" class="primary-button"></button>
+        <button id="commentExitButton" pButton type="button" label="{{ 'USER_ACTION_EXIT' | translate}}"  (click)="exitComment()" class="primary-button"></button>
+    </div>
+</div>

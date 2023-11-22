@@ -1,0 +1,97 @@
+<div class="p-grid entirePage">
+  <div class="p-col-12 landingContent">
+    <div class="p-grid">
+      <div class="{{dirLogo}}">
+        <a [href]="homeUrl" target="_blank">
+          <img src="{{logoFilePath}}" alt="{{'C102_Home_*_*' | translate }}"/>
+        </a>
+      </div>
+    </div>
+    <div class="p-grid">
+    <div class="{{dirWelcomeMsg}}">
+        <span class="h-text-1">{{'welcometo' | translate}}</span><br>
+        <span class="h-text-2">{{'corporatechannels' | translate}}</span>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12 p-md-12 p-lg-8 pd-l-0">
+        <div class="p-grid">
+          <div class="p-col-6 p-md-3 p-lg-3">
+            <div class="landingdashboard">
+              <mat-card title="{{'globalDashboard' | translate}}" role="button" class="uxg-card-product pointer-class" (click)="layoutChange('globalDashboard')" (keypress)="layoutChange('globalDashboard')" tabindex="0" aria-labelledby="{{'navigateTo' | translate}}{{'globalDashboard' | translate}}">
+                <div class="landingbackground" *ngFor= "let icon of landingIconUrl">
+                  <div *ngIf = "icon.product ==='dashboard'">
+                    <img class="landing-card-icons" src="{{icon.iconUrl}}" alt="{{'navigateTo' | translate}}{{'globalDashboard' | translate}}"/>
+                  </div>
+                </div>
+              </mat-card>
+              <div class="landing-label">
+                <label id="dashboard">{{'dashboard' | translate}}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-col-6 p-md-3 p-lg-3" *ngFor="let landing of products">
+            <div class="landingdashboard">
+              <mat-card title="{{landing.product | translate}}" role="button" class="uxg-card-product pointer-class" (click)="genericRouteHandler(landing)" (keypress)="genericRouteHandler(landing)" tabindex="0">
+                <img class="landing-card-icons" src="{{contextPath + landing.iconUrl}}" alt="{{'navigateTo' | translate}}{{landing.product | translate}}" />
+                <div class="landing-content-hidden">{{landing.product | translate}}</div>
+              </mat-card>
+              <div class="landing-label">
+                <span>{{landing.product | translate}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-col-12 p-md-12 p-lg-4 pd-r-0">
+        <div class="p-col-12">
+          <div>
+            <span class="news-label">{{'whatsNew' | translate}}</span>
+          </div>
+        </div>
+        <div *ngIf="noVideos">
+          <p-carousel dir="ltr" [value]="landingContainerVideoUrl" styleClass="custom-carousel" [numVisible]="numVisible" [numScroll]="numScroll">
+                <ng-template let-videourl pTemplate="item">
+                  <div class="p-col-12">
+                    <div class="landing-container1" tabindex="0"  title="{{videourl.altText | translate}}">
+                      <iframe class="container1Iframe" width="200" height="124" [src]="videourl.urlLink"
+                        style="border:none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen title="{{videourl.altText | translate}}"></iframe>
+                  </div>
+                </div>
+                </ng-template>
+          </p-carousel>
+        </div>
+        <div class="p-col-12 focus" *ngFor="let landingData of landingContainerUrl">
+          <a [href]="landingData.urlPath" target="_blank">
+            <div class="landing-container2">
+              <p>
+                <img class="landing-title-icons" src="{{landingData.imagePath}}" id="landing-icons-mark"  alt="{{landingData.altText | translate}}" />
+                <span class="landing-title-texts landing-title">{{landingData.title | translate}}</span>
+              </p>
+              <div>
+                <p class="landing-title-desc">{{landingData.description | translate}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+    <div class="p-grid landingcheckBox">
+      <div class="{{dirLandingCheck}}">
+        <div>
+          <p-checkbox id="checklabel" type="checkbox" [(ngModel)]="isChecked" (onChange)="checkValue($event)"
+            label="{{'landingPrefLabel' | translate}}" inputId="checkBoxDesc"></p-checkbox>
+        </div>
+        <div class="checkdiv">
+          <label for="checkBoxDesc">{{'landingPrefDesc' | translate}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer id="landingFooter" [ngStyle]="{'background-image' : 'url(' + landingFooterBG + ')'}">
+
+</footer>

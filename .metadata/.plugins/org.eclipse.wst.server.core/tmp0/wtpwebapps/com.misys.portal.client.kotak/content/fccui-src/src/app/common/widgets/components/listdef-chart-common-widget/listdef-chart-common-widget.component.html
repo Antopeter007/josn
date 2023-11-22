@@ -1,0 +1,170 @@
+
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+   <p-card class="{{classCheck}}">
+     <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+       <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+     </p-header>
+   <h1 class="headerTitle" *ngIf = "!enableValidationFilter">
+     {{ approvedTransactionsTitle | translate }}
+   </h1>
+   <div class= "show-display-align" *ngIf = "dataAvailable && enableValidationFilter">
+    <h1 class="headerTitle p-col-2 margin-header" >
+      {{ approvedTransactionsTitle | translate }}
+    </h1>
+    <h2 class="headerTitle pb-0 secondaryTitle " *ngIf = "recordAvailable && defaultValidationFilterList && defaultValidationFilterList.length > 1 && widgets.widgetName !== 'tradePaymentWidget'">{{'level' | translate}}: </h2>
+      <mat-button-toggle-group #validationGroup="matButtonToggleGroup" *ngIf = "recordAvailable && defaultValidationFilterList && defaultValidationFilterList.length > 1" name="validationFilter"
+      aria-label="Validation Filter" [value]="selectedValidationVal" class="alignHeader" (change)="onValidationChange(validationGroup.value)">
+        <mat-button-toggle *ngIf= "widgets.widgetName !== 'tradePaymentWidget'" value="All" attr.aria-label="{{'allList' | translate}}" (click)="onClickValidator('All')">{{'allList' | translate}} ({{totalCount}})</mat-button-toggle>
+        <mat-button-toggle value="{{tnx.primaryFilterCode}}" attr.aria-label="{{tnx.primaryFilterCode | translate}}" (click)="onClickValidator(tnx.primaryFilterCode)"
+        *ngFor="let tnx of defaultValidationFilterList" value="tnx.primaryFilterCode"> {{tnx.primaryFilterCode | translate}} ({{validationFilterMap.get(tnx.primaryFilterCode).length}})</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  <div *ngIf="dataAvailable" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <div class="p-col-12" style="display:flex">
+      <div class="p-col-8">
+        <mat-button-toggle-group  #tnxGroup="matButtonToggleGroup" (change)="onPrimaryFilterChange(tnxGroup.value)"
+        class="uxg-filtering-toggle-group p-col-8 wrapData" name="primaryFilter" aria-label="Primary Filter" [value]="selectedPrimaryFilter"
+        *ngIf = "defaultPrimaryFilterList && defaultPrimaryFilterList.length > 1">
+          <mat-button-toggle value="All" (click)="onClickTnx($event, 'All')"  [ngClass]="{'buttonMargin': dir==='rtl'}" attr.aria-label="{{'allList' | translate}}" class="rounded-button">{{'allList' | translate}} ({{countForAllEvent}})</mat-button-toggle>
+          <mat-button-toggle  value="{{tnx.primaryFilterCode}}" class="rounded-button"
+          (click)="onClickTnx($event, tnx.primaryFilterCode)" attr.aria-label="{{tnx.primaryFilterCode | translate}}"
+          *ngFor="let tnx of defaultPrimaryFilterList" value="tnx.primaryFilterCode"> {{tnx.primaryFilterCode}} ({{tnx.count}})</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div dir="{{ dir }}"
+      class="fcc-input widget-dropdown p-col-4 pb-0 alignHeader">
+        <p-multiSelect *ngIf="filterOption && filterOption.length > 1"
+         #ProductFilter class="colFilter" [(ngModel)]="selectedProduct"
+        [options]="filterOption"
+        defaultLabel="{{ 'product' | translate}}"
+        styleClass="fcc-multiselect" [tooltipPosition]="'bottom'"
+        ariaFilterLabel = "{{ 'productFilter' | translate }}"
+        (onPanelShow) = "onPanelShowHandler()"
+        (onPanelHide) = "onClickProduct()"
+        ></p-multiSelect>
+      </div>
+    </div>
+      <div class="p-grid marginGrid" >
+         <div [ngClass]="getChartClass()" [hidden] = "hideChart">
+          <!--<img class="iconImage" tabindex="0"
+          (keyup)="onRemoveChart($event)" (click)="onRemoveChart($event)"
+          title="{{'removeChart' | translate}}" src='/assets/icons/delete_small.svg'
+          alt="{{'removeChart' | translate}}">-->
+         <p-chart type="polarArea" [data]="chartData" [options]="chartdataoptions"  (onDataSelect)="selectData($event)" height="500" ></p-chart>
+       </div>
+      <div [ngClass]="cssTable" *ngIf="defaultSelection">
+         <div class="productHeader">
+            {{ selectedLegend }}
+         </div>
+         <p-table class="plainTable" width="100%"
+         [columns]="cols"
+         [value]="retultdataArray"
+         [scrollable]="scrollable"
+         scrollWidth="100%"
+         scrollHeight="100vh"
+         [lazy]="true"
+         [responsive]="true"
+         >
+           <ng-template pTemplate="header" let-columns>
+               <tr>
+                   <th scope="col" *ngFor="let colmn of columns" [ngStyle]="{'text-align': (colmn.field==='tnxAmt' || colmn.field==='liabAmt')?
+                   cssTextAlingnRight : cssTextAlingnLeft,
+                   'width': colmn.width}"
+                   tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" id="">
+                       {{colmn.header}}
+                   </th>
+                   <th [ngStyle]="{'text-align':cssTextAlingnRight,'width': '40%'}" id="">{{'action' | translate}}</th>
+               </tr>
+           </ng-template>
+           <ng-template pTemplate="body" let-rowData let-columns="columns"  let-i="rowIndex">
+             <tr tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" [pSelectableRow]="rowData">
+                 <td *ngFor="let col of columns"
+                 [ngStyle]="{'text-align': (col.field==='tnxAmt' || col.field==='liabAmt')? cssTextAlingnRight : cssTextAlingnLeft,
+                 'width': col.width}">
+                     <span  *ngIf="col.field !== ''" class="ui-column-title">{{col.header}}</span>
+                     {{rowData[col.field]}}
+                 </td>
+                <td [ngStyle]="{'text-align': setDirections('colDirection', 'right')}">
+                 <div class="ellipisis iconwrapper">
+                  <span *ngIf="getColumnAction(rowData.action,'APPROVE') || getColumnAction(rowData.action,'RETURN')"
+                  [ngStyle]="{'width': '20%'}">
+                    <img alt="{{'authorize' | translate}} {{rowData.refId}}" title="{{'authorize' | translate}} " class="iconImage"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"
+                      (click)="onClickView($event,rowData,'approve')" (keyup.enter)="onClickView($event,rowData,'approve')"
+                      src='{{contextPath}}/content/FCCUI/assets/icons/authorize.svg' />
+                  </span>
+                  <span *ngIf="getColumnAction(rowData.action,'PAYMENT') && checkLegend('maturityloans')" [ngStyle]="{'width': '20%'}">
+                    <img class="iconImage"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="onClickLoanPayment($event,rowData)"
+                      (keyup.enter)="onClickLoanPayment($event,rowData)" title="{{'payment' | translate}}"
+                      src='{{contextPath}}/content/FCCUI/assets/icons/Repayment.svg' alt="{{'payment' | translate}} {{rowData.refId}}">
+                  </span>
+                  <span *ngIf="getColumnAction(rowData.action,'ROLLOVER') && checkLegend('rollover')" [ngStyle]="{'width': '20%'}">
+                    <img class="iconImage"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="onClickRollover($event,rowData)"
+                      (keyup.enter)="onClickRollover($event,rowData)" title="{{'rollover' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Rollover.svg'
+                      alt="{{'rollover' | translate}} {{rowData.refId}}">
+                  </span>
+                  <span
+                    *ngIf="getColumnAction(rowData.action,'VIEW') && ((checkLegend('rollover') || checkLegend('maturityloans')) && checkWidgetName('upcomingEventsLoan'))"
+                    [ngStyle]="{'width': '20%'}">
+                    <img class="iconImage"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="onClickViews($event,rowData)"
+                      (keyup.enter)="onClickViews($event,rowData)" title="{{'view' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                      alt="{{'view' | translate}} {{rowData.refId}}">
+                  </span>
+                 </div>
+                </td>
+             </tr>
+           </ng-template>
+         </p-table>
+
+       </div>
+       <fcc-common-transactions-listdef [ngClass]="cssTable" *ngIf="recordAvailable && !defaultSelection"
+       [inputParams] = "inputParams" [resultDataArray]="retultdataArray">
+        </fcc-common-transactions-listdef>
+   </div>
+ </div>
+ <div *ngIf="dataAvailable!= undefined" class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+   <div  *ngIf="!dataAvailable" class="p-col-8 finishMsg"><span class="nowrap"></span> {{approvalDays}} </div>
+ </div>
+
+<div *ngIf="widgetConfig != undefined && widgetConfig.viewAllTnxUrl != undefined" class="p-grid msgDiv">
+  <div class="p-col-6 finishMsg">
+    <span class="nowrap"></span>
+    <span *ngIf="retultdataArray && !defaultSelection"> {{star | translate}}{{showMessage| translate}} {{retultdataArray.length}} {{of}} {{totalfilteredCount}} {{recordsDisplayed}}</span>
+    <span *ngIf="retultdataArray && defaultSelection"> {{star | translate}}{{showMessage| translate}} {{retultdataArray.length}} {{of}} {{totalCount}} {{recordsDisplayed}}</span>
+  </div>
+  <div class="p-col-6" *ngIf="viewAllTnxPermission ">
+    <p class="view-all-links pointer-class" [ngStyle]="{'text-align': (dir==='rtl')?
+    'left' : 'right'}">
+      <span  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()"
+        (keyup.enter)="onClickViewAllTransactions()">
+        {{ 'viewAllTransactions' | translate }}
+      </span>
+    </p>
+  </div>
+</div>
+<app-nudges [nudges] = "nudges">
+</app-nudges>
+  </p-card>
+ </div>
+</ng-container>
+
+
+
+
+<!-- <p-table class="plainTable" [columns]="cols" [value]="retultdataArray" [responsive]="true">
+ <ng-template pTemplate="header" let-columns>
+     <tr>
+         <th  *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+             {{col.header}}
+         </th>
+     </tr>
+ </ng-template>
+ <ng-template pTemplate="body" let-rowData let-columns="columns"  let-i="rowIndex">
+   <tr>
+       <td *ngFor="let col of columns" [ngStyle]="{'width': col.width}"  >
+           <span  *ngIf="col.field !== ''" class="ui-column-title">{{col.header}}</span>
+           {{rowData[col.field]}}
+       </td>
+   </tr>
+ </ng-template>
+</p-table> -->

@@ -1,0 +1,90 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      class="fcc-input-checkbox {{ control.params.layoutClass }} "
+    >
+      <ng-container *ngIf="control.params.showLabel">
+        <label class="infodisplaylabel" tabindex="0">
+          {{ control.params.label }}
+          <a class="infoLabel" *ngIf="control.params.infoIcon">
+            {{ control.params.infolabel | translate }}</a
+          >
+        </label>
+        <ng-template #noLabel>
+          <label class="fcc-input-checkbox-display" tabindex="0">
+            {{ control.params.label }}</label
+          >
+        </ng-template>
+      </ng-container>
+      <div class="ui-fluid p-grid">
+        <!-- <ng-container *ngFor="let opt of control.options; let i = index">
+        <p-checkbox name="{{control.value}}" class="{{opt.layout_Class}}"
+        [formControl]="control" id="{{control.key}}"  (click)="onCustomEventRaised($event,control.key,control)"
+         label="{{opt.label}}" value="{{opt.value}}" [disabled]="opt.readonly"
+         labelStyleClass="fcc-chkbox-label" styleClass="fcc-chkbox {{control.params.layout_Class}}"
+        ></p-checkbox>
+        <ng-container *ngFor="let indexVal of control.params.resultArray;">
+            <ng-container *ngIf = "opt.value === indexVal">
+              <a class = "infoIconMultiSelect" *ngIf = "control.params.infoIcon">
+                <span class="material-icons" (mouseenter)="op.show($event)" (mouseleave) = "op.hide()">info</span>
+                <p-overlayPanel #op class="previosInfoOLPanel" [dismissable]="true" appendTo="body">
+                  <p class = "previous-info">{{'previousInfo' | translate}}</p>{{control.params.previousValue}}
+                </p-overlayPanel>
+              </a>
+            </ng-container>
+      </ng-container>
+      </ng-container> -->
+        <ng-container *ngFor="let opt of control.options; let i = index">
+          <mat-checkbox
+            (change)="onMatCheckEventRaised($event, control.key, control)"
+            id="{{ opt.value }}"
+            [checked]="control.options[i].checked"
+            class="p-col-6"
+            [disabled]="control.options[i].readonly"
+          >
+            {{ control.options[i].label | translate }}</mat-checkbox
+          >
+          <ng-container *ngFor="let indexVal of control.params.resultArray">
+            <ng-container *ngIf="opt.value === indexVal">
+              <a class="infoIconMultiSelect" *ngIf="control.params.infoIcon">
+                <span
+                  class="material-icons"
+                  (mouseenter)="op.show($event)"
+                  (mouseleave)="op.hide()"
+                  >info</span
+                >
+                <p-overlayPanel
+                  #op
+                  class="previosInfoOLPanel"
+                  [dismissable]="true"
+                  appendTo="body"
+                >
+                  <div
+                    *ngIf="
+                      control.params.previousValue !== '' &&
+                        control.params.previousValue !== undefined &&
+                        control.params.previousValue !== null;
+                      else previousValueNotentered
+                    "
+                  >
+                    <p class="previous-info">
+                      {{ "previousInfo" | translate }}
+                    </p>
+                    {{ control.params.previousValue }}
+                  </div>
+                  <ng-template #previousValueNotentered>
+                    <p class="previous-info">
+                      {{ "previousInfo" | translate }}
+                    </p>
+                    {{ "NOT_ENTERED" | translate }}
+                  </ng-template>
+                </p-overlayPanel>
+              </a>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

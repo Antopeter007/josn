@@ -1,0 +1,10 @@
+@import '../../../../../src/styles/global/common.scss';
+
+a {
+  color: black !important;
+}
+
+body a:hover {
+  color: black !important;
+  font-size: small !important;
+}

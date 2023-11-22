@@ -1,0 +1,363 @@
+@import '../../../../styles/variables.scss';
+
+.entirePage {
+  min-height: 100%;
+}
+
+.p-grid {
+  margin: 0px;
+}
+
+.landingContent {
+  min-height: 100%;
+  padding-bottom: 180px;
+}
+
+.logo-img {
+  padding: 53.9px 0em 1.5em 36px;
+}
+
+.logo-img a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.logo-img-right {
+  padding: 53.9px 2.25em 1.5em 0em;
+}
+
+.logo-img-right a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.logo-img img {
+  height: 66.18px;
+  width: 134.82px;
+}
+
+.logo-img-right img {
+  height: 66.18px;
+  width: 134.82px;
+}
+
+.welcome-msg {
+  padding: 0.5em 0em 1.5em 57px;
+}
+
+.welcome-msg-right {
+  padding: 0.5em 3.5625em 1.5em 0em;
+}
+
+.landingcheckBox {
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+.landingcheck {
+  padding: 1em 0em 0em 57px;
+}
+
+.landingcheck-right {
+  padding: 1em 3.5625em 0em 0em;
+}
+
+.h-text-1 {
+  color: $MainHeadingColor;
+  font-size: 30px;
+  font-weight: 300;
+  height: 35px;
+  width: 173.7px;
+  line-height: 2em;
+}
+
+.h-text-2 {
+  color: $MainHeadingColor;
+  font-size: 30px;
+  font-weight: 500;
+  height: 35px;
+  width: 322.1px;
+}
+
+.landing-layout {
+  padding: 0em 0em 1em 36px;
+}
+
+.pd-l-0 {
+  padding-left: 48px;
+  padding-right: 0px;
+}
+
+.pd-r-0 {
+  padding-left: 100px;
+  border-left: 1px solid #e2e2e2;
+}
+
+@media screen and (max-width: 991px) {
+  .pd-r-0 {
+    padding-left: 48px;
+    border-left: 0px solid #ebebeb;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .pd-r-0 {
+    padding-left: 14px;
+    border-left: 1px solid #e2e2e2;
+  }
+}
+.landingdashboard {
+  margin-bottom: 40px;
+}
+
+:host ::ng-deep .landingdashboard .ui-card {
+  height: 90px;
+  width: 120px;
+  /* background-image: url("../../../../assets/images/landing-footer.png"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+:host ::ng-deep .landingdashboard .ui-corner-all {
+  border-radius: 0px;
+}
+
+.landing-content {
+  color: #414141;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+}
+.landing-content-hidden {
+  opacity: 0;
+  font-size: 1px;
+}
+
+:host ::ng-deep p-card:focus .ui-card {
+  outline: .125em solid #694ed6 !important;
+}
+
+.landing-label {
+  height: 15px;
+  width: 120px;
+  font-size: 0.78125em;
+  padding: 1em 0em;
+  text-align: center;
+  color: #414141;
+  font-weight: 500;
+  line-height: 15px;
+  word-break: break-all;
+}
+
+.news-label {
+  height: 18px;
+  width: 141px;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.line-division {
+  box-sizing: border-box;
+  height: 345px;
+  width: 0px;
+  border: 1px solid #707070;
+  opacity: 0.2;
+  background-color: #707070;
+}
+
+.landing-container1 {
+  overflow: auto;
+  margin-top: 0.5em;
+  margin-bottom: 1.25em;
+  display: block;
+}
+
+.container1Iframe {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.landing-container2 {
+  margin-top: 36px;
+}
+
+p {
+  line-height: 1;
+  margin: 0em !important;
+}
+label {
+  font-size: small;
+}
+
+p i, p img {
+  vertical-align: middle;
+}
+
+#landing-icons-mark {
+  height: 1.3125em;
+  width: 1.25em;
+  padding-top: 0.25em;
+}
+
+.landing-card-icons {
+  height: 3em;
+  width: 6em;
+  padding-top: 0.25em;
+}
+
+.landing-title {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 4px;
+  padding-bottom: 5px;
+}
+
+.landing-title a {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.landing-title a:hover {
+  text-decoration: underline;
+}
+
+.landing-title-desc {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  padding-left: 35px;
+  padding-right: 2.1875em;
+}
+
+.landing-title-texts {
+  padding-left: 15px;
+  padding-right: 0.9375em;
+}
+
+.landingdashboard a:hover {
+  text-decoration: none;
+}
+
+.landingdashboard a:focus {
+  outline-color: transparent;
+}
+
+#checklabel {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.checkdiv {
+  margin-left: 27px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.checkdiv p {
+  font-size: 12px;
+}
+
+.focus a:focus .landing-container2{
+  outline: .125em solid #694ed6 !important;
+}
+
+#landingFooter {
+  position: relative;
+  margin-top: -180px;
+  clear: both;
+  // $landingbackground: url('/assets/images/landingpageBg.png');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 52% 100%;
+  height: 180px;
+}
+
+:host
+  ::ng-deep
+  .ui-carousel
+  .ui-carousel-viewport
+  .ui-carousel-items
+  .ui-carousel-item:hover {
+  transform: scale(0.97, 0.97);
+  box-shadow: 0.125em 0.125em 0.625em 0em #eaeaea,
+    -0.125em -0.125em 0.625em 0em #eaeaea;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dropdown {
+  display: none;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-mobiledropdown {
+  display: none;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-header {
+  padding: 0em;
+  height: 0em;
+  background-color: transparent;
+  border: 0em solid #c8c8c8;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-button.pi-arrow-circle-right {
+  position: absolute;
+  top: 42%;
+  z-index: 999;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-button.pi-arrow-circle-left {
+  position: absolute;
+  top: 42%;
+  z-index: 999;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+:host
+::ng-deep
+.ui-carousel
+.ui-carousel-viewport
+.ui-carousel-items
+.ui-carousel-item {
+margin: 0.4em;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-viewport {
+  border: 0em solid #c8c8c8;
+}
+:host ::ng-deep .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {
+  border:none;
+  border-right: 0.0625em solid #e2e2e2;
+}
+:host ::ng-deep .ui-carousel .ui-carousel-content {
+  width: 24em;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item.ui-state-highlight .ui-carousel-dot-icon {
+  background-color: #c139a3;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-next:not(.ui-state-disabled):hover {
+color: #c139a3 ;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-prev:not(.ui-state-disabled):hover {
+  color: #c139a3 ;
+  }
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item .ui-carousel-dot-icon {
+    width: 0.4375em;
+    height: 0.4375em;
+  }
+
+:host ::ng-deep .ui-carousel-items-container  .ui-carousel-item{
+  padding-right: 0.5em;
+  text-align: justify;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-carousel-item{
+  display: flex !important;
+  flex-direction: column !important;
+}

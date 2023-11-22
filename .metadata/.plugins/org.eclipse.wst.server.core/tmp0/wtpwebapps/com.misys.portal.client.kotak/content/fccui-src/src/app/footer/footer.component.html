@@ -1,0 +1,49 @@
+
+<footer id="footerMain" [ngClass]="{'pointerEnable': checkCustomise, 'pointerDisable': !checkCustomise, 'sticky-footer-main': isFooterSticky}">
+  <div class="p-grid"  [ngClass]="{'sticky-footer-background': isFooterSticky}">
+    <div class="p-col-12 p-sm-12 p-md-12 p-lg-2 footer-logo focus">
+      <a [href]="homeUrl" target="_blank" class="logo-img" id="footerLogo" tabindex="0">
+        <img src="{{logoFilePath}}" alt="{{'C102_Home_*_*' | translate }}" />
+      </a>
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-12 p-lg-10 footer-content">
+      <div class="p-grid p-justify-end"  [ngClass]="{'sticky-footer-background': isFooterSticky}">
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-2 urlContent focus" *ngIf="homeUrl !== '' || homeUrl !== null">
+          <a [href]="homeUrl" target="_blank" tabindex="0">
+            {{'FOOTER_FINASTRA_COM' | translate}}
+          </a>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-1 urlContent focus" *ngIf="aboutUs !== '' || aboutUs !== null">
+          <a [href]="aboutUs" target="_blank" tabindex="0">
+            {{'FOOTER_ABOUT_US' | translate}}
+          </a>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-2 urlContent focus" *ngIf="privacyPolicy !== '' || privacyPolicy !== null">
+          <a [href]="privacyPolicy" target="_blank" tabindex="0">
+            {{'FOOTER_PRIVACY_POLICY' | translate}}
+          </a>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-3 urlContent focus" *ngIf="termsConditions !== '' || termsConditions !== null">
+          <a [href]="termsConditions" target="_blank" tabindex="0">
+            {{'FOOTER_TERMS_CONDITIONS' | translate}}
+          </a>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-2 urlContent focus" *ngIf="cookiePolicy !== '' || cookiePolicy !== null">
+          <a [href]="cookiePolicy" target="_blank" tabindex="0">
+            {{'FOOTER_COOKIE_POLICY' | translate}}
+          </a>
+        </div>
+        <div class="p-col-12 p-sm-12 p-md-6 p-lg-2 urlContent focus" *ngIf="contactUs !== '' || contactUs !== null">
+          <a [href]="contactUs" target="_blank" tabindex="0">
+            {{'FOOTER_CONTACT_US' | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid" [ngClass]="{'sticky-footer-background': isFooterSticky}">
+    <div class="p-col-12 footer-bottom" [ngClass]="{'footer-bottom-margin': isFooterSticky}">
+      <div> &#9400; {{ currentYear }} {{'FOOTER_COPYRIGHT_BEGIN' | translate}} {{'FOOTER_COPYRIGHT_END' | translate}}</div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,15 @@
+@import './../../narrative-details/narrative-details.component.scss';
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    padding-left: 0 !important;
+}
+@media screen and  (max-width: 820px) and (min-width: 768px) {
+    :host ::ng-deep .phraseIcon1 {
+      right: 10.5em !important;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) and  (max-width: 1180px) and  (min-width: 820px)  {
+  :host ::ng-deep .phraseIcon1 {
+    right: 0.5em !important;
+  }
+}

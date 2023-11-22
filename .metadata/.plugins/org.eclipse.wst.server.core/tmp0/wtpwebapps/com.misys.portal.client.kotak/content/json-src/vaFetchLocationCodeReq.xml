@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_LOC_CODE</action_type>
+    <crn>10004441</crn>
+    <company_code>GREENSTAR</company_code>
+    <product_code>KARNATAKA</product_code>
+    <region_code>BANGALORE</region_code>
+</Request>

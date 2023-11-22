@@ -1,0 +1,13 @@
+{
+ "head": {
+ "requestId": "abcdb41a31d711ea8cba005056bslfedc2d",
+ "ts": "2020-07-25 10:55:23",
+ "crn": "D00001234"
+ },
+ "preSearchReq": {
+ "entity": "payerName",
+"search": "Joh",
+"order": "",
+"limit": 0
+ }
+}

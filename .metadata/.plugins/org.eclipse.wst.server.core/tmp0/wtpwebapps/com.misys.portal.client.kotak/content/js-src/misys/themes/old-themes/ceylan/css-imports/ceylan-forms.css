@@ -1,0 +1,872 @@
+/*
+ Styles for pages containing forms
+*/
+
+@media print {
+	.ceylan .noprint
+	{
+		display: none;
+	}
+	.ceylan .menu
+	{
+		display: none;
+	}
+}
+
+
+/** Root Portlet **/
+.ceylan #default #GTPRootPortlet.portlet {
+	border: none;
+}
+
+.ceylan #default #GTPRootPortlet .portlet-title{
+	font-size:1.5em;
+}
+
+.ceylan #default #GTPRootPortlet .portlet-section-header {
+	background: none;
+	background-color: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.ceylan #offsetsign01_0_row label {
+	text-align: left;
+}
+
+.ceylan #offsetsign01_1_row label {
+	text-align: left;
+}
+
+.ceylan #offsetsign02_0_row label {
+	text-align: left;
+}
+
+.ceylan #offsetsign02_1_row label {
+	text-align: left;
+}
+
+.ceylan #default #GTPRootPortlet .portlet-section-header h2 {
+	color: #117BAA;
+}
+
+.ceylan .menu {
+	margin: 10px 0 10px auto;
+    text-align: right;
+}
+
+.ceylan .menu .floating{
+	margin: 0px;
+	float:right;
+    text-align: right;
+}
+
+.ceylan .menu button{
+	font-weight:bold;
+}
+
+.ceylan .menu .dijitButton {
+	display:inline;
+}
+
+.ceylan #xhrDialog{
+	font-size:0.8em;
+}
+
+.ceylan #xhrDialog .menu{
+	padding-right:10px;
+}
+
+/*.ceylan #xhrDialog .grid{
+	visibility:visible;
+}*/
+
+/** Center all validating forms **/
+.ceylan .form{
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/** Top-level fieldset **/
+.ceylan .toplevel-header{
+	margin: 5px auto 15px auto;
+	padding: 0 0 0.5em 0;
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.ceylan .multipleItemDialog .toplevel-header{
+	margin-bottom:0px;
+}
+
+.ceylan .toplevel-header h2{
+    font-weight: bold;
+    /*background: transparent url("../images/header_33px.png") repeat-x top;*/ 
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+/** A second-level, indented fieldset **/
+.ceylan .indented-header,
+.ceylan #event-summary .attachments-container .toplevel-header{
+	border: none;
+	clear:both;
+}
+
+.ceylan .indented-header h3,
+.ceylan #event-summary .attachments-container .toplevel-header h2{
+	background-image:none;
+    background-color: #F0F0F0;
+    color: #000000;
+    padding-left:0.2em;
+    margin: 15px 20px 5px; 
+} 
+
+/** Required field symbol **/
+.ceylan .required-field-symbol{
+	color: #eb6e1f;
+}
+
+/** Standard Field sizes **/
+.ceylan .x-small{width:4em;}
+.ceylan .small{width:10em;}
+.ceylan .medium{width:20em;}
+.ceylan .large{width:25em;}
+.ceylan .x-large{width:30em;}
+
+/** Field layout for a group of options **/
+.ceylan .multioption-group-label{
+	text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 10px;
+	padding-bottom: 10px;
+	height: auto;
+}
+
+.ceylan .multioption-group-label .field {
+	margin: 3px 0 3px 0;
+}
+
+.ceylan .multioption-group-label label {
+	text-align: left;
+	white-space: nowrap;
+	width: auto;
+	font-weight: normal !important;
+}
+
+/** A checkbox or a radio button label**/
+.ceylan .checkbox label,
+.ceylan .radio label{
+	margin-left: 180px;
+}
+
+.ceylan .checkbox label{
+	text-align:left;
+	width: 200px;
+}
+
+/** Textarea **/
+.ceylan textarea{
+	width:auto;
+}
+
+.ceylan .textareacontent {
+	padding-left:1.6em;
+    margin: 15px 20px 5px 0px; 
+}
+
+/** Tabs **/
+
+/** Default height **/
+.ceylan .tabcontainer{
+	width: 100%;
+	height: 215px;
+}
+
+/** An updated tab **/
+.ceylan .tabChangeStyle{
+    font-weight:bold;
+}
+
+.ceylan .tabLabel img{
+	padding:0px 0px 5px 2px;
+}
+
+/** Buttons **/
+.ceylan h2 button, .ceylan h3 button{
+    border: 0;
+    background-image: none;
+    background-color:transparent;
+    color: blue;
+    margin: 0;
+    padding: 0;
+    float:right;
+    width:16px;
+    height:18px;
+}
+
+.dj_ie6 h2 button, .dj_ie7 h2 button {
+	 margin-top:-15px;
+}
+
+/** A button on a textarea**/
+.ceylan .textarea-button{
+	float:right;
+}
+
+.ceylan #chargeDialog label{
+	width: 110px;
+}
+
+/** An empty list **/
+.ceylan .empty-list-notice {
+	padding: 0 0 0 0.2em;
+	margin: 0 0 0 0.2em;
+	font-weight: bold;
+}
+
+/** Attachments Table **/
+.ceylan .attachments .dijitDownArrowButton .dijitArrowButtonInner {
+	display:none;
+}
+
+/** Collaboration Window **/
+/** TODO Refactor into CSS for the custom widget **/
+.ceylan #collaborationWindowContainer {
+    visibility:hidden;
+}
+
+.ceylan #collaborationWindow {
+    height:auto;
+    right:200px;
+    top:7px;
+    z-index:99;
+}
+
+.ceylan .tasksBox{
+	border: 1px dotted #0079A7;
+}
+
+.ceylan .tasksBoxTitle{
+	margin:5px 5px 10px 5px;
+	font-size:1.1em;
+}
+
+.ceylan .tasksBox li{
+	font-size:0.9em;
+}
+
+.ceylan .pinButton{
+	width:18px;
+    height:15px; 
+    overflow:hidden;
+    cursor:pointer;
+    float:right;
+}
+
+.ceylan #collaborationWindowContent {
+	height:0px;
+}
+
+.ceylan #collaborationWindow ol{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+.ceylan #collaborationWindow ol label{
+    display:inline;
+}
+
+.ceylan #collaborationWindow ol li{
+    display:block;
+    clear:both;
+}
+
+.ceylan .dojoxFloatingPaneFg {
+    border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.ceylan #collaborationWindow .dojoxFloatingPaneTitle {
+    background-color:#EB6E1F;
+    background-image:none;
+    color: white;
+}
+
+.ceylan .dojoxFloatingPane .dijitArrowNode {
+    cursor: pointer;
+    background-image: url("../../../dijit/themes/tundra/../images/spriteArrows.png");
+    background-repeat: no-repeat;
+    height: 7px;
+    width: 7px;
+}
+
+.dj_ie6 .ceylan .dojoxFloatingPane .dijitArrowNode {
+    background-image: url("../../../dijit/themes/tundra/../images/spriteArrows.gif");
+}
+
+.ceylan .dojoxFloatingPane .dijitOpen .dijitArrowNode {
+    background-position: 0px 0px;
+}
+
+.ceylan .dojoxFloatingPane .dijitClosed .dijitArrowNode {
+    background-position: -14px 0px;
+}
+
+.ceylan .dojoxFloatingPane .dijitArrowNodeInner {
+    display:none;
+}
+
+.ceylan .dijit_a11y .dojoxFloatingPane .dijitArrowNodeInner {
+    display:inline !important;
+    cursor: pointer;
+    padding-bottom:.2em;
+}
+
+.ceylan .dijit_a11y .dojoxFloatingPane .dijitArrowNode {
+    display:none;
+}
+
+.ceylan #dojoxGlobalResizeHelper{
+	display:none;
+}
+
+/** Table of Contents **/
+.ceylan #toc{
+	 display:block;
+     position: fixed;
+     top: 78px;
+     right: 32px;
+     border-style: solid;
+     border-width: 2px;
+     background-color: #EB6E1F;
+     border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+     z-index:99;
+}
+
+.ceylan #toc a{
+	font-weight:normal;
+	color: white;
+}
+
+.ceylan #toc p{
+    padding:3px;
+    margin:1px;
+}
+
+.ceylan #toccontent{
+    line-height: 110%;
+    margin-bottom:5px;
+}
+
+.ceylan #toccontent ul{
+	list-style-type:none;
+}
+
+.ceylan #toccontent a {
+  margin-left: 16px;
+  margin-top: 5px;
+}
+
+/** Popup overlay styles **/
+.ceylan #xhrDialog .dijitDialogPaneContent #edit{
+	border: 0px solid #ffff00;
+}
+
+.ceylan #xhrDialog p{
+	margin:1%;
+}
+
+/** Override Dijit classes **/
+.ceylan .dijitButtonNode {
+	background-color: transparent;
+}
+
+.ceylan .dijitInputField                    
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.ceylan .dijitMenuItem{
+	font-size:0.8em !important;
+}
+
+.ceylan .dijitArrowButton{
+	line-height:17px;
+}
+
+.ceylan .dijitTextArea {
+    font-family: "Courier New";
+    font-size:1em;
+}
+
+/** Attachments table **/
+.ceylan table.attachments{
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	margin:1em auto;
+	border-collapse:collapse;
+	width:80%;
+}
+
+.ceylan .small-tblheader, .ceylan .button-tblheader{
+	width:20px;
+}
+
+.ceylan .attachments caption{
+	font-size:.94em;
+	letter-spacing:.1em;
+	margin:1em 0 1em 0;
+	padding:0;
+	caption-side:top;
+	text-align:center;
+}
+
+.ceylan .attachments td {
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+	text-align:center;
+}
+
+.ceylan .attachments th {
+	font-weight:normal;
+	text-align:left;
+	border-bottom: 1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+}
+
+.ceylan .attachments thead th {
+	background:#f4f9fe;
+	text-align:center;
+	font-weight:bold;
+}	
+	
+.ceylan .attachments tfoot th {
+	text-align:center;
+}
+
+.ceylan .attachments tfoot th strong {
+	margin:.5em .5em .5em 0;
+}
+
+/** Calendar **/
+.ceylan .dijitCalendarContainer{
+	font-size:0.8em !important;
+}
+
+/** Calendar in the side bar **/
+.ceylan #MenuBuilder .dijitCalendarContainer{
+	font-size:1em !important;
+	margin-bottom:5px;
+}
+
+/** View mode **/
+.ceylan #reporting_popup,
+.ceylan #reporting_popup .portlet-section-body{
+	padding:5px 5px 0px 5px;
+}
+
+.ceylan #reporting_popup .toplevel-header .toplevel-header{
+	margin:0px 5px 0px 5px;
+}
+
+.ceylan .disclaimer {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	font-weight: bold;
+	clear: both;
+	font-size:0.9em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.ceylan .collapse-label label
+{
+    margin:0;
+    padding:0;
+    width:0;
+}
+
+.ceylan .collapse-label .field{
+	margin-left:0;
+}
+
+.ceylan .multi-select {
+	width: 550px;
+}
+
+
+.ceylan .collapsible-header
+{
+
+padding-left:5px;
+padding-right:5px;
+font-weight:bold;
+height:20px;
+margin:5px 20px 0px 13%;
+width:auto;
+
+}
+
+.ceylan .collapsible-left-margin
+{
+	margin-left: 175px;	
+}
+
+.ceylan .collapsible-header .collapsible-header-inner
+{
+float:left;
+display:block;
+background-color:#EEEEEE;
+background-image:none;
+width:100%;
+height:15px;
+}
+
+.ceylan .collapsible-header .collapsible-header-inner .legend
+{
+font-size:0.9em;
+}
+
+.ceylan .collapsible-header .collapsible-header-inner .image
+{
+	float:right;
+	margin-top:-15px;
+	*margin-top:-15px;
+}
+
+
+.ceylan div.multiple-date-selection label
+{
+	display:inline;
+	margin:0px;
+	width:0px;
+}
+
+.ceylan div.multiple-date-selection  div.field  div.field
+{
+	margin:0px;
+    display:inline;
+}
+
+.ceylan div.multiple-date-selection div.field  div.field label
+{
+	margin:0px;
+    width:auto;
+}
+
+.ceylan div.multiple-date-selection > div > label
+{
+	width:175px;
+    display:inline-block;
+} 
+
+.ceylan div.multiple-date-selection div.label
+{
+	display:inline;
+	text-align:right;
+	margin:0px;
+}
+
+.ceylan div.multiple-date-selection span.title
+{
+	display:inline;
+	text-align:right;
+width:175px;
+margin-right:5px;
+}
+
+
+
+.ceylan div#validationErrorinnerDiv ul li
+{
+list-style-type:disc;
+}
+
+.ceylan #ok_leg_formula_row label
+{
+width:auto;
+margin-left:25px;
+}
+
+/** Cross References **/
+.ceylan .field ul{
+	margin-left:175px;
+	font-family: "Courier New";
+	font-weight:bold;
+}
+
+/** LC Specific **/
+.ceylan #widget_tenor_days{
+	margin-left:50px;
+}
+
+/** File Upload **/
+#fileUploadDialog .field label{
+	width:80px;
+}
+
+/** IE Specific **/
+.dj_ie6 .ceylan #toc {
+ display:none !important;
+}
+
+/** Temp rule, remove once entity popup no long inside HTML <body> fragment **/
+.ceylan #entity_popup{
+	font-size:1.2em;
+}
+.ceylan #entity_popup .grid{
+	font-size:0.8em;
+}
+
+/** History view **/
+.ceylan #history-master .field{
+	margin-left:0;
+}
+
+.ceylan #history-master .field{
+	margin-left:0;
+}
+
+.ceylan #ProductOverview .label{
+	width:120px;
+}
+
+.ceylan #customers-section{
+	padding-left:1.6em;
+}
+
+.ceylan #view .field .field,
+.ceylan #event-summary .field .field{
+	display:inline;
+	margin-left:0;
+}
+
+
+
+.ceylan #view .field .field .label,
+.ceylan #event-summary .field .field .label{
+	display:none;
+}
+
+.ceylan #view .field #pstv_tol_pct_row .label{
+	display:inline-block;
+	text-align: left;
+}
+
+
+.ceylan #view .field div#neg_tol_pct_row.field span.label{
+	display:inline-block;
+	text-align: left;
+}
+
+.ceylan #view .field div#neg_tol_pct_row.field
+{
+	display:block;
+	margin-left: 180px;
+}
+
+
+
+.ceylan .field .checkbox{
+	padding-right:10px;
+}
+
+.ceylan #cash_flow_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+}
+
+.ceylan #asset_schedule_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+}
+
+.ceylan #bg_document{
+	margin:20px;
+}
+
+.ceylan .inline-group div.field {
+	display: inline;
+}
+
+.ceylan .inline-group .field label {
+	margin: 0px 0px 0px 0.5em;
+}
+
+.ceylan .comment-list li {
+	list-style-image: url('../images/comment.png');
+}
+
+.ceylan #customerReferenceDialog {
+	width: 550px;
+}
+
+.ceylan #criterium_pre_defined_value_section label{
+	margin-left:10px;
+}
+
+.ceylan #criterium_pre_defined_value_section .label{
+	 width:300px;
+}
+
+.ceylan .ctr-acc-tblheader{
+	width:40%;
+}
+
+.ceylan .sp-acct-tblheader{
+	width:30%;
+}
+
+.ceylan .sp-amt-tblheader{
+	width:25%;
+}
+
+.ceylan .table-buttons{
+	width:20%
+}
+
+.ceylan  .multipleItemDialog{
+	 width:475px;
+}
+
+.dj_ie6 .ceylan div#free_format_text_row label {
+	display: block;
+}
+
+.dj_ie7 .ceylan div#free_format_text_row label {
+	display: block;
+}
+
+
+.ceylan #beneficiary_name_row {
+	display: inline;
+}
+
+.ceylan button#beneficiary_img {
+	border: 0 none;
+	margin-left: 10px;
+	background-color: white;
+}
+
+.dj_webkit .ceylan .gridActions img:hover,
+.dj_gecko .ceylan .gridActions img:hover,
+.dj_ie8 .ceylan .gridActions img:hover {
+	cursor:pointer;
+}
+
+/*Summit developments*/
+
+#cashflows, #schedules
+{
+	overflow:auto;
+	position:relative;
+	width:100%;
+	height:400px;
+	}
+	
+.ceylan .inline-group div.field {
+	display: inline;
+}
+
+.ceylan .inline-group .field label {
+	margin: 0px 0px 0px 2em;
+	width: auto;
+}
+
+.ceylan #cash_flow_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.ceylan #asset_schedule_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.ceylan div.fees-container
+{
+	margin:10px;
+	margin-left:21%;
+	margin-right:30px;
+	padding-left:5px;
+	
+}
+
+.ceylan .widePopup
+{
+	width:80%;
+}
+
+.ceylan .barriers-container,.ceylan .double-barriers-container
+{
+	margin:10px 30px 10px 21%;
+}
+
+#barriers .dijitButtonNode
+{
+	background:url("../../../dijit/themes/tundra/../images/buttonEnabled.png") repeat-x scroll left bottom #FFFFFF;
+	border:1px solid gray;
+}
+
+.ceylan #securities, .ceylan  #prices, .ceylan  #stocks
+{
+	margin-left : 20px;
+}
+
+.ceylan #formulaDialogContainer
+{
+display: none;
+}
+
+.ceylan #collaborationWindow div.dijitTitlePaneTitle
+{
+	color: white;
+}
+
+.ceylan #collaborationWindow.dijitTitlePane {
+	float: right;
+	width: 300px;
+	margin-right: -180px;
+	position: absolute;
+	margin-top: 20px;
+}
+
+/* Disable resizing of textareas in FF4/Chrome */
+.ceylan textarea {
+  resize: none; 
+}
+
+.ceylan label.recursive_event_label {
+	text-align:left; 
+	padding-left: 5%;
+	width: 80px;
+}
+.ceylan label.dialogLabelCheckBtn {
+	text-align: left;
+	margin-left: 20px;
+	width: 250px;
+}
+
+/*Center titles of table headers*/ 
+.ceylan div.dojoxGridHeader table th.dojoxGridCell 
+{
+text-align:center;	
+}

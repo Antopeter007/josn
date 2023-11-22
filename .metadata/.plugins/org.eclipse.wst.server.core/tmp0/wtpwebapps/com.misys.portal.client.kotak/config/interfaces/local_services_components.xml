@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+
+	<!-- Generic and Common components -->
+	<component name="environmentreader">
+		<description>Trigger event from Interfaces Environment</description>
+		<classname>com.misys.portal.interfaces.components.EnvironmentReader</classname>
+	</component>
+	
+	<component name="incominginitiator">
+		<description>Parse an xml record and register xml nodes into Interfaces Environment</description>
+		<classname>com.misys.portal.interfaces.incoming.IncomingInitiator</classname>
+		<properties>
+			<property name="validation">false</property>
+			<property name="stylesheet">/core/xsl/incoming/incoming.xsl</property>
+			<property name="xml.handler">com.misys.portal.interfaces.incoming.BasicElementHandler</property>
+			<property name="xml.handler.elements" description="list of fields to look for value">product_code tnx_id</property>
+			<property name="language">en</property>
+			<property name="transformer.parameters" description="list of parameters to be passed to transformer">banks</property>
+		</properties>
+		<published>
+			<property name="product_code"/>
+			<property name="tnx_id"/>
+		</published>		
+	</component>
+	
+	<component name="documentparser">
+		<description>Attempt to build a BulkObject from an xml record</description>
+		<classname>com.misys.portal.interfaces.incoming.DocumentParser</classname>
+		<properties>
+			<property name="language">en</property>
+		</properties>
+		<prerequisites>
+			<property name="product_code" description="may be nil for static data"/>
+		</prerequisites>		
+	</component>
+	
+	<component name="dmsreferencemanager">
+		<description>Store DMS Id of Attachment to the object</description>
+		<classname>com.misys.portal.interfaces.incoming.DMSReferenceManager</classname>
+		<properties>
+			<property name="language">en</property>
+		</properties>
+	</component>
+	
+	<component name="useridsanddttmmanager">
+		<description>Manage user id and dttm</description>
+		<classname>com.misys.portal.interfaces.incoming.UserIDandDTTMManager</classname>
+		<prerequisites>
+			<property name="tnx_id"/>
+		</prerequisites>
+	</component>
+	
+	<component name="databaseserializer">
+		<description>Store BulkObject into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.DatabaseSerializer</classname>
+		<properties>
+			<property name="language">en</property>
+		</properties>
+	</component>
+	
+	<!-- Product Loader components -->
+	<component name="wsproductinitiator">
+		<description>Web service product initiator: add dtd location</description>
+		<classname>com.misys.portal.ws.server.interfaces.WSProductInitiator</classname>
+		<properties>
+			<property name="attachments.location" description="attachments location">$attachments_location</property>
+		</properties>
+	</component>
+	
+	<component name="templatemergerprocessor">
+		<description>Template Merger processor : merge Product with existing Template</description>
+		<classname>com.misys.portal.ws.server.interfaces.TemplateMergerProcessor</classname>
+	</component>
+	
+	<component name="clientprocessor">
+		<description>Client processor : (re)set Technical Values</description>
+		<classname>com.misys.portal.ws.server.interfaces.ClientIncomingProcessor</classname>
+	</component>
+	
+	<component name="antiviruscheck">
+		<description>Perform antivirus check on ERP file attachments </description>
+		<classname>com.misys.portal.interfaces.components.AntivirusHandler</classname>
+		<properties>
+			<property name="language">en</property>
+		</properties>
+	</component>
+
+	<!-- GTP_OUTPUT storage components -->
+	<component name="localservicesoutputprocessor">
+		<description>Web Service OutPut Processor : get the gtp_output keys from product </description>
+		<classname>com.misys.portal.interfaces.components.ProductOutputProcessor</classname>
+		<properties>
+			<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+			<property name="subtype" description="Output sub-type code">01</property>
+		</properties>
+	</component>
+	
+	<component name="xmlprocessor">
+		<description>Generate XML String from Product</description>
+		<classname>com.misys.portal.interfaces.components.OutgoingProcessor</classname>
+		<properties>
+			<property name="company" description="Company">03</property>
+		</properties>
+	</component>
+
+	<component name="outputxmlwriter">
+		<description>Write tnx_record into GTP_OUTPUT</description>
+		<classname>com.misys.portal.interfaces.components.OutputWriter</classname>
+		<properties>
+			<property name="filename.name" description="File name">filename</property>
+			<property name="blobbuffersize" description="Blob buffer size">10000</property>
+			<property name="instance" description="Instance"></property>
+			<property name="type" description="Type">04</property>
+		</properties>
+	</component>
+	
+	<!-- GTP_OUTPUT retrieval components -->
+	<component name="tnxreader">
+		<description>Database Reader : Select older Web Service Record from GTP_OUTPUT : not extracted, type xml only (subtype 01)</description>
+		<classname>com.misys.portal.interfaces.components.JDBCReader</classname>
+		<properties>
+			<!-- Query for ORACLE  -->
+			<property name="jdbc.query" description="jdbc query"><![CDATA[  select  GTP_OUTPUT_KEYS.OUTPUT_ID \, GTP_OUTPUT_KEYS.FILE_NAME \, GTP_OUTPUT_KEYS.KEY_1\,  GTP_OUTPUT_CONTENT.CONTENT from GTP_OUTPUT_CONTENT\, GTP_OUTPUT_KEYS where GTP_OUTPUT_KEYS.COMPANY_ID = $companyId and GTP_OUTPUT_CONTENT.OUTPUT_ID = GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_KEYS.TYPE_CODE='04' and GTP_OUTPUT_KEYS.SUB_TYPE_CODE='01' and ROWNUM <= 1 and GTP_OUTPUT_KEYS.OUTPUT_ID not in (select GTP_OUTPUT_EXTRACTION.OUTPUT_ID from GTP_OUTPUT_EXTRACTION\, GTP_OUTPUT_KEYS where GTP_OUTPUT_EXTRACTION.OUTPUT_ID=GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_EXTRACTION.EXTRACTOR='wsretrievetnx') order by GTP_OUTPUT_KEYS.CREATION_DTTM asc ]]></property>
+			<!-- Query for SQL SERVER  -->
+			<!-- <property name="jdbc.query" description="jdbc query"><![CDATA[  select  top 1 GTP_OUTPUT_KEYS.OUTPUT_ID \, GTP_OUTPUT_KEYS.FILE_NAME \, GTP_OUTPUT_KEYS.KEY_1\,  GTP_OUTPUT_CONTENT.CONTENT from GTP_OUTPUT_CONTENT\, GTP_OUTPUT_KEYS where GTP_OUTPUT_KEYS.COMPANY_ID = $companyId and GTP_OUTPUT_CONTENT.OUTPUT_ID = GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_KEYS.TYPE_CODE='04' and GTP_OUTPUT_KEYS.SUB_TYPE_CODE='01' and GTP_OUTPUT_KEYS.OUTPUT_ID not in (select GTP_OUTPUT_EXTRACTION.OUTPUT_ID from GTP_OUTPUT_EXTRACTION\, GTP_OUTPUT_KEYS where GTP_OUTPUT_EXTRACTION.OUTPUT_ID=GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_EXTRACTION.EXTRACTOR='wsretrievetnx') order by GTP_OUTPUT_KEYS.CREATION_DTTM asc ]]></property> -->
+			<property name="hasParameters" description="Has parameters">true</property>
+			<property name="parameter.isDynamic" description="Parameters are dynamic">true</property>
+			<property name="parameter.parameter_1" description="Parameter 1">companyId</property>
+			<!-- may add parameter_2 = type_code (source GTP, Loader, WS) and parameter_3 = key_3 (tnx_stat_code) -->
+		</properties>
+	</component>
+	
+	<component name="tnxserializer">
+		<description>Output Serializer : Build XML record from jbdc resultSetSerializer</description>
+		<classname>com.misys.portal.interfaces.components.OutputSerializer</classname>
+		<properties>
+			<property name="extractor" description="Extractor">wsretrievetnx</property>
+		</properties>
+	</component>
+
+	<component name="lsenvironmentwriter">
+		<description>Trigger event from Interfaces Environment</description>
+		<classname>com.misys.portal.interfaces.components.EnvironmentWriter</classname>
+		<properties>
+			<property name="property.isDynamic" description="Property is dynamic">false</property>
+			<property name="property.name" description="Property name">result</property>
+			<property name="class.isDynamic" description="Class is dynamic">false</property>
+			<property name="class.name" description="Class name">java.lang.String</property>
+		</properties>
+	</component>
+	<component name="reportextractor">
+		<description>Extract the report and store it in gtp_output_content table.</description>
+		<classname>com.misys.portal.interfaces.components.report.ReportExtractor</classname>
+		<prerequisites>
+			<property name="reportid" description="Report id from the gtp_report table"/>
+			<property name="timeInMillis" description="current time stamp in milliseconds, which would be send as a acknowledgement to customer/requestor"/>
+			<property name="outputFormat" description="out format in which report to be generated. Default is XML format"/>
+		</prerequisites>
+	</component>
+
+	<component name="stpvalidation">
+		<description>Validate the incoming transaction product before Submit if STP is enabled</description>
+		<classname>com.misys.portal.interfaces.incoming.STPValidator</classname>
+		<prerequisites>
+			<property name="product_code" description="may be nil for static data"/>
+		</prerequisites>		
+	</component>
+
+	<component name="attachmenttypehandler">
+		<description>Update the upload type in case of Beneficiary Upload</description>
+		<classname>com.misys.portal.interfaces.incoming.AttachmentTypeHandler</classname>
+		<prerequisites>
+			<property name="product_code" description="may be nil for static data"/>
+		</prerequisites>		
+	</component>
+	
+	<component name="setobeneconvertor">
+		<description>Creates beneficiary file from SE file</description>
+		<classname>com.misys.portal.interfaces.components.SeBeneConvertor</classname>
+	</component>
+	
+	<component name="transformNarrative">
+		<description>Transform Narratives to XML format</description>
+		<classname>com.misys.portal.interfaces.components.TransformNarrative</classname>
+		<properties>
+			<property name="prductCodeList" description="List of product codes">LC,SI,EL,SR</property>
+			<property name="narrativeNameList" description="List of narrative field names to be transformed">narrative_description_goods, narrative_documents_required, narrative_additional_instructions, narrative_special_beneficiary, narrative_special_recvbank</property>
+		</properties>
+	</component>
+	
+</components>

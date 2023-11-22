@@ -1,0 +1,85 @@
+<p-panel header="{{ 'MESSAGE_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+  <div class="fieldset-content" id="messageDetails">
+    <!-- Claim Date-->
+    <div id="claimPresentDate_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['claimPresentDate']])">
+      <label id="claimPresentDate_label" for ="claimPresentDate" >{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}&nbsp;</label>
+      <label id="claimPresentDate" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['claimPresentDate']}}</label>
+    </div>
+
+    <!--Claim Reference-->
+    <div id="claimReference_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['claimReference']])">
+      <label id="claimReference_label" for ="claimReference" >{{ 'CLAIM_REFERENCE_LABEL' | translate }}&nbsp;</label>
+      <label id="claimReference" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['claimReference']}}</label>
+    </div>
+
+    <!--Claim Amount-->
+    <div id="claimAmt_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['claimAmt']])">
+      <label id="claimAmt_label" for ="claimAmt" >{{ 'CLAIM_AMOUNT_LABEL' | translate }}&nbsp;</label>
+      <label id="claimAmt" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['claimCurCode']}}&nbsp;{{tnxRecord['claimAmt']}}</label>
+    </div>
+
+    <!--Sub Tnx Type-->
+    <div id="subTnxTypeCode_view_row" *ngIf="commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']])">
+      <label id="subTnxTypeCode_label" *ngIf="tnxRecord['subTnxTypeCode']==='20' || tnxRecord['subTnxTypeCode']==='21' || tnxRecord['subTnxTypeCode']==='63'_label" for ="subTnxTypeCode" id="sub_tnx_type_code_label">{{ 'KEY_CLAIM_DISPOSAL_INSTRUCTIONS' | translate }}&nbsp;</label>
+      <label id="subTnxTypeCode_label" *ngIf="tnxRecord['subTnxTypeCode'] !=='20' && tnxRecord['subTnxTypeCode'] !=='21' && tnxRecord['subTnxTypeCode'] !=='63'_label" for ="subTnxTypeCode" id="sub_tnx_type_code_label">{{ 'MESSAGE_TYPE_LABEL' | translate }}&nbsp;</label>
+      <label id="subTnxTypeCode" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getTnxSubTypeCode(tnxRecord['subTnxTypeCode']) | translate}}</label>
+    </div>
+
+    <!--Extended Date-->
+    <div id="extendedDate_view_row" *ngIf="commonService.isFieldsValuesExists([tnxRecord['extendedDate']]) &&
+    (commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) && tnxRecord['subTnxTypeCode'] === '20')">
+      <label id="extendedDate_label" for ="extendedDate" id="extendedDate">{{ 'KEY_EXTENDED_DATE' | translate}}&nbsp;</label>
+      <label id="extendedDate" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{ tnxRecord['extendedDate'] }}</label>
+    </div>
+
+    <!--Tnx Amount-->
+    <div id="tnxAmt_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' || tnxRecord['subTnxTypeCode'] === '21' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['tnxAmt']]) &&
+    commonService.isFieldsValuesExists([tnxRecord['purpose']]) && (tnxRecord['purpose'] === '01')">
+      <label id="tnxAmt_label" for ="tnxAmt" id="tnxAmtLabel">{{ 'SETTLEMENT_AMT_LABEL' | translate }}&nbsp;</label>
+      <label id="tnxAmt" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['tnxCurCode']}}&nbsp;{{tnxRecord['tnxAmt']}}</label>
+    </div>
+
+    <!--Counter Tnx Amount-->
+    <div id="cuTnxAmt_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' || tnxRecord['subTnxTypeCode'] === '21' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['cuTnxAmt']]) &&
+    commonService.isFieldsValuesExists([tnxRecord['purpose']]) && (tnxRecord['purpose'] !== '01')">
+      <label id="cuTnxAmt_label" for ="tnxAmt" id="tnxAmtLabel">{{ 'SETTLEMENT_AMT_LABEL' | translate }}&nbsp;</label>
+      <label id="cuTnxAmt" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['cuCurCode']}}&nbsp;{{tnxRecord['cuTnxAmt']}}</label>
+    </div>
+
+    <!--Principal account-->
+    <div id="bgPrincipalActNo_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' || tnxRecord['subTnxTypeCode'] === '21' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['bgPrincipalActNo']])">
+      <label id="bgPrincipalActNo_label" for ="bgPrincipalActNo" id="principal_act_no_label">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+      <label id="bgPrincipalActNo" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['bgPrincipalActNo']}}</label>
+    </div>
+
+    <!--Fee account-->
+    <div id="bgFeeActNo_view_row" *ngIf="(commonService.isFieldsValuesExists([tnxRecord['subTnxTypeCode']]) &&
+    (tnxRecord['subTnxTypeCode'] === '25' || tnxRecord['subTnxTypeCode'] === '21' ||
+    tnxRecord['subTnxTypeCode'] === '62' || tnxRecord['subTnxTypeCode'] === '63')) && commonService.isFieldsValuesExists([tnxRecord['bgFeeActNo']])">
+      <label id="bgFeeActNo_label" for  ="bgFeeActNo" id="fee_act_no_label">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+      <label id="bgFeeActNo" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{tnxRecord['bgFeeActNo']}}</label>
+    </div>
+
+    <!-- Free format message-->
+    <div id="bgFreeFormatText_view_row" *ngIf="commonService.isFieldsValuesExists([tnxRecord['bgFreeFormatText']]) && this.commonDataService.getProductCode() === 'BG'">
+      <label id="bgFreeFormatText_label" for  ="bgFreeFormatText">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+      <label id="bgFreeFormatText" class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{tnxRecord['bgFreeFormatText']}}</label>
+    </div>
+    <div id="freeFormatText_view_row" *ngIf="commonService.isFieldsValuesExists([tnxRecord['freeFormatText']]) && this.commonDataService.getProductCode() === 'BR'">
+      <label id="freeFormatText_label" for  ="freeFormatText">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+      <label id="freeFormatText" class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{tnxRecord['freeFormatText']}}</label>
+    </div>
+  </div>
+</p-panel>

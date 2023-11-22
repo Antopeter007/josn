@@ -1,0 +1,434 @@
+.error-container {
+	margin: 5px 0;
+}
+
+.error-container:last-child {
+	margin: 5px 0 0;
+}
+
+.error {
+	padding: 10px 16px;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 11px;
+	text-transform: uppercase;
+	color: #555;
+	vertical-align: middle;
+}
+
+.error i {
+	font-size: 24px;
+	color: #B83E2C;
+	vertical-align: middle;
+}
+
+.last-error-container>.error {
+	padding: 10px 16px 0;
+}
+
+.has-errors {
+	border-bottom: 3px solid #B83E2C;
+}
+
+.no-errors {
+	border-bottom: 3px solid green;
+}
+.divbars {
+	padding-top:0px;
+	padding-bottom: 0px;
+}
+.mobile-header {
+	height: 80px;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 18px;
+}
+
+.mobile-login-bg {
+	background: #387ef5;
+}
+
+.input-login {
+	padding-right: 20px;
+}
+
+.button-block {
+	height: 40px;
+}
+
+.button-mobile {
+	background: rgb(236, 96, 13);
+}
+
+.row-center {
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.mobile-header-login-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url('../images/Finastralogo.png');
+	width:100%;
+	height:100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.row-full {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.col-full {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mobile-subheader {
+	background: rgb(109, 159, 239);
+}
+
+.item-radio input[type="radio"] {
+	display: none;
+}
+
+.terms-block {
+	margin: -10px;
+	padding: 3px;
+}
+
+.button.misys-big-button{
+	margin-top: -1%;
+	width: 95%;
+}
+
+.button.misys-login-button, .button.misys-changelanguage-button{
+	width:100%;
+}
+
+.tab-item.button.button-positive.misys-small-button, .tab-item.button.button-assertive.misys-small-button{
+	margin-top: 1%;
+	height: 40px;
+	border-radius:5px;
+	min-height:30px;
+	width:100%;
+}
+
+.tab-item{
+	opacity:1;
+}
+
+.tabs {
+	background:none;
+	background-color:#FFFFFF;
+	border-color:#FFFFFF;
+	padding-bottom: 48px !important;
+	/* height:54px; */
+}
+
+.navigation-icon-right {
+	float: right;
+	bottom: 4px;
+}
+
+.navigation-icon-left {
+	float: left; 			/* home page */
+	bottom: 4px;
+}
+
+.buttons-container-margin {
+	margin: 0.75%;			   /* home page */
+}
+
+.left {
+	left: 0;
+}
+
+.right {
+	right: 0;
+}
+
+.border-space {
+	padding: 3%;
+}
+
+.rates-table-border,
+.rates-table-header,
+.rates-table-data {
+	border: 1px solid black;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 80%;
+	margin: 10%;
+}
+
+.rates-table-header,
+.rates-table-data {
+	padding: 5px;
+	text-align: center;
+}
+
+.text-alignment-center {
+	text-align: center;
+}
+
+ion-content.modal-menu,
+ion-content.modal-menu .list {
+    background-color: #646569;
+}
+
+ion-content.modal-menu .scroll-content,
+ion-content.modal-menu .list .scroll-content {
+    background-color: #646569 !important;
+}
+
+ion-content.modal-menu .item,
+ion-content.modal-menu .list .item {
+    background-color: #646569;
+    border: none !important;
+    color: white;
+}
+
+.modal .active {
+    border-color: #ccc !important;
+    background-color: #D9D9D9 !important;
+}
+
+.confirmation-icon {
+	color: #387ef5;
+}
+
+.margin-subheader {
+	margin-top:0%;
+}
+
+.margin-left-content {
+	margin-left:5%;				/* USED IN RETURN PENDING TRANSACTION */
+}
+
+.margin-right-content {
+	margin-right:5%; 			/* USED IN RETURN PENDING TRANSACTION */
+}
+.modal .item{
+	border-style:none;
+	font-size:15px;	
+}
+
+.home-scroll-content {
+	margin-bottom: 15%;
+}
+
+.border-textarea {
+	border-style: solid;
+	border-width: 2px;
+    border-color: #387ef5;
+}
+
+.text-content-font {
+	font-size: 16px;
+	font-weight: 600;
+	text-align:center;
+}
+
+.title-image {
+	background-image: url('../images/Finastralogo.png');
+	width:100%;
+	height:100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.message {
+    text-align: center;
+    word-spacing: 3px;
+    padding-top: 1%;
+}
+
+.dir-right {
+	direction: rtl;
+}
+
+.dir-left {
+	direction: ltr;
+}
+.row-item-label {
+	font-size:14px;
+}
+
+.row-item-value {
+	font-size:14px;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+.misys-item{
+	padding-bottom:0px;
+	padding-top:0px;
+	border-width:0px;
+}
+
+.pending-detail-item {
+	padding-left : 25px;
+	padding-top : 0px;
+	padding-bottom : 0px;
+	
+}
+
+.card-layout {
+	box-shadow: 0 3px 9px rgba(0,0,0,.3);
+	border-radius:5px;
+	margin: 20px 0px;
+}
+
+
+.has-entitySubHeader{
+	top: 120px;
+}
+
+.has-sumHeader{
+	top: 225px;
+}
+
+.account-balance-total-balance-content {
+	padding-top: 0%;
+    padding-bottom: 0%;
+    background-color: rgba(111, 116, 121, 0.33);
+}
+
+.account-balance-items {
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.entity {
+	padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.has-statement-header{
+	top:186px;
+}
+.bar-statement-subheader {
+  top: 88px;
+  display: block;
+  height: 44px;
+}
+
+.bar-flex-direction-column {
+	flex-direction: column !important;
+}
+
+.logout{
+	margin-top:40%;
+	margin-bottom:40%;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+.return{
+	margin-top:40%;
+	margin-bottom:20%;
+	margin-left:2%;
+	margin-right:2%;
+}
+.logout h3{
+	font-size: 16px;
+	text-align: center;
+}
+
+.filter-applied {
+	color: #0c60ee !important;
+}
+
+.item-divider .user-detail .text-alignment-center {
+	border: none!important;
+	word-wrap:break-word;
+	display:inline;
+	overflow:visible;	
+}
+.customer-content { 
+	padding-bottom: 2%;
+	padding-top: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.misys-badge {
+	border-radius:6px;
+}
+
+@media screen and (orientation:portrait) {
+.has-bottom {
+	height: 82%;
+	width: 100.5%;
+	}
+	
+.return-comments-header {
+	font-size: 20px;
+	padding-bottom: 1%;			/* return comments header */
+	padding-top:1%;
+	background-color: #387ef5;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	margin-left:-0.2%;
+	margin-right:-0.25%;
+	text-align: center;
+	color: #FFFFFF;
+	align:center;
+	}
+	
+}
+
+@media screen and (orientation:landscape) {
+.has-bottom {
+	height: 70%;
+	width: 100.5%;
+	}
+
+.return-comments-header {
+	font-size: 20px;
+	padding-bottom: 1%;			/* return comments header */
+	padding-top:1%;
+	background-color: #387ef5;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	margin-left:-0.2%;
+	margin-right:-0.1%;
+	text-align: center;
+	color: #FFFFFF;
+	align:center;
+	}
+}
+
+.item-menu{
+    border-color: #387ef5;
+    background-color: #387ef5;
+    padding:2px;
+}
+
+.text-color-white {
+	color: #FFFFFF; 
+}
+.fa-univ-cur:before{
+	content: url('../images/universal-currency-ionic.png') !important;
+}
+
+.bar-menu{
+	padding: 2px;
+}
+
+.misys-menu-small-button{ 
+  min-height: 16px;
+  display: inline-block;
+  padding: 3px 8px;
+  margin-right: 35%;
+  margin-left: 35%;
+  min-width: 10px;
+  border-radius: 6px;
+  line-height: 16px;
+ }
+ 

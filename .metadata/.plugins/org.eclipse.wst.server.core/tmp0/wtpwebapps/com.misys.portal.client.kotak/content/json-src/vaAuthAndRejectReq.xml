@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+<sourceappcode>JARVIS</sourceappcode>
+<RqUID>2</RqUID>
+<action_type>VAM_AUTHZ_REJ</action_type>
+<crn>7850116</crn>
+<mode>AUTH</mode>
+<rec_id_list>47923</rec_id_list>
+</Request>

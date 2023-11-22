@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Functions for Grid _base.js</title>
+        <style type="text/css">
+         @import "/cf/content/js-src/dojo/resources/dojo.css";
+         @import "/cf/content/js-src/dijit/themes/claro/claro.css";
+        </style>
+        <script type="text/javascript" src="../../../dojo/dojo.js" 
+                djConfig="isDebug: true, parseOnLoad: true, locale:'en-us'"></script>
+        <script type="text/javascript">
+        dojo.requireLocalization("misys", "common", "en-us");
+        dojo.require("dojo.parser");
+        dojo.require("doh.runner");
+        dojo.require("misys.grid._base");
+		
+		// Other requires here, should at least include misys._base     
+
+        dojo.mixin(misys, {_config: { context: "/", servlet: "/portal", client: "misys"}});
+
+		// Get the context and servlet and set it on the misys object
+        var str = window.location.href.substr(window.location.href.indexOf("?")+1).split(/#/);
+		var ary  = str[0].split(/&/);
+        if(window.location.href.indexOf("?") > -1){
+         for(var i=0; i<ary.length; i++){
+        	 var split = ary[i].split("="),
+				 key = split[0],
+				 value = split[1];
+			 switch(key){
+				case "context":
+					misys._config.context = value;
+					break;
+				case "servlet":
+					misys._config.servlet = value;
+					break;
+			 }
+		 }
+	    }
+
+        dojo.ready(function(){
+
+        	doh.register("misys.tests.grid._base", [                                   
+			 function testSetStore() {
+				 doh.t(false);
+			 },
+			 
+			 function testSetStoreURL() {
+				 doh.t(false);
+			 },
+			 
+			 function testFilter() {
+				 
+			 }
+			 
+        	]);
+        	
+            doh.run();
+        });
+        </script>
+    </head>
+    <body class="claro notready">
+    	<!-- If you need fields or widgets for your tests to run, put them here -->
+    </body>
+</html>

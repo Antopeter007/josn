@@ -1,0 +1,32 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .margin-side {
+  margin-top: .5em !important;
+}
+
+:host ::ng-deep .warningStyle {
+  color: $GREY-01;
+  font-weight: 300;
+  font-size: 0.85em;
+  bottom: 1em;
+  position: relative;
+}
+
+:host ::ng-deep .noteStyle {
+  color: $BLACK-01;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .noteMessageStyle {
+  color: $BLACK-01;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .applicant_bene_entity_class {
+  padding-top: 1.2em !important;
+  background-color: $VIOLET-F20 !important;
+  border-radius: 4px 4px 0em 0em !important;
+  word-break: break-all;
+}

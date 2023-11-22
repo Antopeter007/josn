@@ -1,0 +1,47 @@
+@import './../../../../../styles/variables.scss';
+
+/* Free format styling */
+.messageStyle {
+    width: 70%;
+}
+
+.pitrash {
+    display: none !important;
+}
+
+.fileAttachmentTable a:focus {
+    outline-color: $VIOLET-F100 !important;
+    outline-width: 0.25em !important;
+  }
+
+.fileAttachmentTable em {
+    color: $GREY-08 !important;
+ }
+
+ .viewModeMargin {
+    margin-top: 1.5em;
+ }
+
+.amt {
+    width: 16em;
+    left: -3em;
+}
+
+.fieldvalue {
+    margin-top: -0.5em;
+}
+
+.messageStyle {
+  width: 63% !important;
+}
+
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0em !important;
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep [dir="rtl"] .textarea.characterCountDivfield .characterCountValueField {
+  text-align: left;
+  padding-left: 0em !important;
+  padding-bottom: 1em !important;
+}

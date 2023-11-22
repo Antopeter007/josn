@@ -1,0 +1,389 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: finastra
+
+	summary:
+  		Common CSS rules loaded by all *secured* and *unsecured* pages
+	
+*/
+/*Lumen Theme*/
+
+:root {
+  --main-bg-color: #694ed6;
+  --sec-bg-color: #b140ab;
+}
+
+#layout{
+	background:none;
+}
+.footer {
+	background: none;
+	padding: 60px 30px;
+}
+.footerDiv2{
+	font-size: 11px;
+	text-align : left;
+}
+.build-version{
+	float:right;
+}
+
+.finastra #layout{
+	background-color : #FFFFFF;
+	background : none;
+}
+
+BODY.finastra {
+	color: #555;
+}
+.finastra #default #GTPRootPortlet .portlet-section-header h1 {
+	color:#555;
+}
+.finastra .footer{
+	background : none;
+}
+.finastra .panel1 { 
+	background-color: #694ed6;
+	padding: 5px;    
+    border-radius: 8px;
+    width:98%;
+    margin:0 auto;
+}
+
+.multi-select:focus > option:checked {
+	box-shadow: 0 0 10px 100px var(--main-bg-color) inset !important;
+}
+
+.finastra .dijitMenuBar .dijitMenuItemLabel {
+	background-color: #694ed6;
+	padding:0 10px !important;
+}
+
+.finastra .dijitMenuBar .dijitMenuItemLabel:hover {
+	background-color: #b140ab;
+	color:#fff;
+}
+
+.finastra .bookmarkMenu .dijitDropDownButton .dijitButtonNode {
+	background-color: #694ed6;
+}
+
+.finastra .dojoxGridHeader th.dojoxGridCell {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra #TradeCalendarPortlet .dijitCalendarSelectedYear,
+.finastra #TradeCalendarPortlet .dijitCalendarSelectedDate,
+.finastra #default .dijitCalendarSelectedYear,
+.finastra #default .dijitCalendarSelectedDate {
+	background-color: #694ed6;
+}
+
+.finastra #MenuBuilder .dijitCalendarContainer th,
+.finastra #TradeCalendarPortlet .dijitCalendarContainer th {
+	background: #694ed6;
+}
+
+.finastra .dojoxGridHeader th.dojoxGridCell  {
+	 background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .tree-product-menu-container .dijitTreeRow {
+	background-color : #694ed6;
+}
+
+.finastra .toplevel-header h2, .finastra .toplevel-header h3{
+	background: #694ed6;
+	color: #fff;
+}
+
+.finastra .attachments thead th {
+	background: #694ed6;
+}	
+
+.finastra .valueaddedservice .dojoxGridCell {
+	background: none repeat scroll 0 0 #694ed6 !important;
+}
+
+.finastra .entityReferencesTableCellHeader {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .userAccountsTableCellHeader {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .userAccountsTableCellSelectAll {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .valueaddedservice thead th {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .userEntityTableCellHeader{
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .factoringTableCellHeader{
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .multiSubmissionListHeader {
+	background: none repeat scroll 0 0 #694ed6;
+}
+
+.finastra .bookmarkMenu .dijitDropDownButtonActive .dijitButtonNode{
+    background-color: #694ed6;
+}
+
+.finastra .bookmarkMenu .dijitDropDownButton .dijitButtonNode{
+    background-color: #694ed6;
+}
+
+.finastra .dijitDialogTitleBar {
+	background: #694ed6;
+}
+
+.finastra .dijitMenuBar {
+	background: #694ed6;
+}
+
+
+.finastra .dijitMenuSeparatorTop {
+    border-bottom: 1px solid #694ed6;
+}
+
+.finastra .portalMenu {
+	border: 1px solid #694ed6;
+}
+
+.finastra #layout,.finastra .footer{
+	background : none;
+}
+
+/* Left Menu */
+.finastra .tree-product-menu-container .dijitTreeRow {
+	background-color : #694ed6;
+	color:#fff;
+	border-bottom: 1.01px solid #B9DEF4;
+}
+
+/* .finastra .tree-product-menu-container .dijitTreeRowHover {
+	background-color: #01338c;
+	border-bottom: 1px solid #B9DEF4;
+} */
+.finastra .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected {
+	/* border-bottom: 3px solid #01338c; */
+}
+
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer {
+	background: none repeat scroll 0 0 #E7E9EF;
+}
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow{
+	background: none repeat scroll 0 0 #E7E9EF;
+	color:#333333;
+}
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected {
+	background-color : #b140ab;
+	border-left : 0px !important;
+    color: white;
+}
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow .dijitTreeRowSelected .dijitTreeRowHover {
+	background-color : #b140ab;
+}
+
+/* .finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover {
+    background-color : #01338c;
+    color: #FFFFFF;
+} */
+
+.finastra .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoOpened {
+	background:url("images/leftmenu-arrow-up.png") no-repeat 0px -3px;
+}
+
+.finastra .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoClosed {
+	background:url("images/leftmenu-arrow-down.png") no-repeat 0px 0px;
+}
+
+@media print {
+	body{
+	zoom: 50%;
+	}
+}
+.NoAsterik .required-field-symbol {
+	display:none!important;
+}
+
+.finastra .bookmarkMenu #bookmarkDropDownButton{
+	background-color: #694ed6;
+}
+
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover{
+	background-color: #b140ab;
+}
+
+.finastra .dijitTreeLabel .dijitTreeLabelFocused .dijitTreeLabelHover{
+	background-color: #b140ab;
+}
+
+
+/* Tables Styles */
+.finastra .dojoxGridHeader th.dojoxGridCell, .finastra #MenuBuilder .dijitCalendarContainer th, .finastra #TradeCalendarPortlet .dijitCalendarContainer th  {
+       color:#ffffff;
+      /*  background:#b140ab; */
+}
+.finastra #MenuBuilder .dijitCalendarMonthLabel {
+       color:#ffffff;
+}
+.finastra .dojoxGridCell {
+       border:0.5px solid #C1C3D1!important; 
+}
+.finastra .dojoxGridRow .dojoxGridCell {
+       background: #EBEBEB 
+}
+.finastra .dojoxGridRowOdd .dojoxGridCell {
+       background:  #fff;
+}
+.finastra #MenuBuilder .dijitCalendarDayLabelTemplate, .finastra #TradeCalendarPortlet .dijitCalendarDayLabelTemplate {
+       background: black!important;
+       color: #fff!important;
+}
+.finastra .dijitCalendarPreviousMonth, .finastra .dijitCalendarNextMonth {
+           background-color: #ccc;
+           color: #555;
+}
+.finastra #MenuBuilder .dijitCalendarMonthLabel, .finastra #TradeCalendarPortlet .dijitCalendarMonthLabel {
+        color: #ffffff;
+}
+
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow .dijitTreeRowSelected .dijitTreeRowHover,
+.finastra .dijitTreeLabel .dijitTreeLabelHover,
+.finastra .dijitTreeRow .dijitTreeRowSelected .dijitTreeRowHover{
+	background-color: #b140ab !important;
+}
+
+/* .finastra #GTPRootPortlet .portlet-section-header .portlet-title{
+	border-bottom:2px solid #b140ab;
+} */
+
+/* .finastra .menu .dijitButton .dijitButtonNode, 
+.finastra #TransactionSearchForm .dijitButton .dijitButtonNode,
+.finastra .dijitDialogPaneContent .dijitButton .dijitButtonNode,
+.finastra .panel3span .dijitButton .dijitButtonNode,
+.finastra #openUploadDialogBtn
+.finastra #languagesMenu .dijitDropDownButton .dijitButtonNode{
+	color: #fff;
+    border: 1px solid #b140ab;
+    background-color: #b140ab;
+    background-image: none;
+    padding: 6px;
+} */
+
+.finastra .dijitTreeLabel .dijitTreeLabelHover{
+	border:none;
+}
+
+.finastra .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected{
+	 border-bottom: 3px solid #FFFFFF;
+}
+
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected{
+	background-color: #b140ab;
+}
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected.dijitTreeRowHover {
+	
+	background-color: #b140ab;
+}
+
+.finastra .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover {
+    background-color: #b140ab;
+}
+
+.finastra .colRight{
+	margin-top: 1%;
+}
+
+.finastra .colLeftWrap{
+	width:98%;
+	margin:1% 0 0 1%;
+}
+
+/* .finastra .portlet .portlet-section-body {	
+    border: 1px solid #694ed6;
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+.finastra .portlet-section-header .portlet-title{
+	border-bottom:none;
+}
+
+.finastra .dijitButton .dijitButtonNode, .finastra .dijitDropDownButton .dijitButtonNode, .finastra .dijitComboButton .dijitButtonNode, .finastra .dijitToggleButton .dijitButtonNode{
+	border: 2px solid #694ed6;
+    color: #fff;
+    padding: 2px 4px 4px 4px;
+    background-color: #694ed6;
+   /*  background-image:none; */
+}
+
+.finastra .imgButton .dijitButtonNode{
+	background:none;
+	border:none;
+}
+
+.finastra .field .dijitButton{
+	margin:1%;
+}
+.finastra .dijitMenuBar .menuBarHighlight {
+	text-decoration:none;
+	background-color:#b140ab;
+	color:#fff;
+}
+
+/**Color Palette CSS**/
+.color_changer {
+	position: fixed;
+	right: 425px;
+	bottom: 360px;
+	z-index: 10000;
+	max-height: 0vh;
+	overflow: hidden;
+	transition: all 1s ease-out, background-color linear 1ms 1s;
+	border: 1px solid transparent;
+	padding: 5px;
+	margin-bottom: 0px;
+	border-radius: 4px;
+}
+
+.color_changer.expanded {
+	transition: all 1s ease-in, background-color linear 1ms;
+	max-height: 100vh;
+	border: 1px solid gray;
+	background-color: white;
+	color:#555;
+}
+
+.color_changer_row .color_tile {
+	width: 25px;
+	height: 25px;
+	border-radius: 4px;
+	float: left;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.finastra .dojoxFloatingPaneTitle {
+    background-color: #c137a2;
+}
+
+.finastra #helpDesk {
+    font-weight: bold;
+    color: #c137a2;
+}
+
+.finastra #toc {
+    background-color: #c137a2;
+}

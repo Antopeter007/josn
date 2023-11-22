@@ -1,0 +1,49 @@
+@import '../../../../../styles/variables.scss';
+.focus a:focus {
+    outline: .125em solid #694ed6 !important;
+}
+
+.fav-toggle {
+    margin: -0.3em 2.5em 0em 2.5em;
+}
+
+.widget-header {
+    display:flex;
+}
+:host ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar,:host ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: $VIOLET-F100 !important;
+}
+
+.approveButton {
+  background-color: $secondaryColor !important;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+
+.rejectButton {
+  color: $secondaryColor   !important;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+
+.viewTransaction {
+  color: #C139A3;
+  padding-top: 0.2em;
+}
+
+.viewTransaction a {
+  color: $secondaryColor !important;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  font-weight: 400;
+  display: block;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.viewTransaction a:hover {
+  color: $secondaryColor;
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <span class="ui-float-label  {{control.params.styleClass}}" >
+        <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><p-checkbox></p-checkbox></span>
+        <input role="textbox" pInputText class="fcc-ui-inputtext" id={{control.key}} [required]="control.params.required"
+        (click)="onEventRaised($event,control.key)"  (blur)="onEventRaised($event,control.key)" tabindex="0"
+          (focus)="onEventRaised($event,control.key)" formControlName={{control.key}}/>
+        </div>
+        <label for="float-input" tabindex="0">
+          {{ control.params.label }}<a *ngIf = "control.params.required"><em class='fa fa-asterisk fa-sm'></em></a></label>
+    </span>
+</div>
+</ng-container>

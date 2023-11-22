@@ -1,0 +1,42 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]>
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+          <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+      </p-header>
+        <div class="" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+          <div>
+            <span class="name-of-acc-holder">{{'Greetings'| translate }} {{userFirstName}},</span><br>
+          </div>
+          <div *ngIf="hasAccountAccess">
+            <div class="">
+              <div class="decimal-balance"> <span class="acc-balance-text">{{'overallbalance'| translate }}</span></div>
+            </div>
+            <div class="amount-number">
+              <p-dropdown class="{{dirDropDownStyle}} currencyDropdown" [options]="currency" scrollHeight="100px" (onChange)="calculateAmount()"
+                [(ngModel)]="toCurrency" filter="true" dropdownIcon="fa fa-angle-down" resetFilterOnHide="true">
+              </p-dropdown>
+              <span  *ngIf="amountInBaseCurrency?.length>12 ; else elseBlock" class="balance-view"  pTooltip="{{((decimalAmountInBaseCurrency!=undefined && decimalAmountInBaseCurrency!='') ? (amountInBaseCurrency +decimalAmountInBaseCurrency | number) : amountInBaseCurrency)}}" tooltipPosition="top" >{{(amountInBaseCurrency?.length>12)? (amountInBaseCurrency| slice:0:12 | number) +'. . .':(amountInBaseCurrency | number)}}</span>
+              <ng-template #elseBlock>
+                <span  class="balance-view">{{totalAmount}}</span>
+              </ng-template>
+              <span class="balance-view-dec">{{totalAmountDecimal}}</span>
+            </div>
+          </div>
+            <div *ngIf="!hasAccountAccess" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+              <div class="p-grid p-align-center vertical-container no-account">
+                <div class="p-col-12">
+                  {{ 'noAccountAccess' | translate }}
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="hasAccountAccess">
+              <p class="view-all-links" [ngClass]="langDir === 'rtl' ? 'arabicLtr' : 'arabicRtl'">
+                <span (click)="allAccounts()" (keyup.enter)="allAccounts()" tabindex="0">{{ 'viewAllAccounts' | translate }}</span>
+              </p>
+            </div>
+          </div>
+          <app-nudges [nudges] = "nudges">
+          </app-nudges>
+    </p-card>
+</div>

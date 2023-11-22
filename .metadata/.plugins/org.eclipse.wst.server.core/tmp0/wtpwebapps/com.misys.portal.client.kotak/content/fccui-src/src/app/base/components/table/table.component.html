@@ -1,0 +1,995 @@
+<!-- [lazy]="isLazyEnabled" (onLazyLoad)="loadTableData($event)" -->
+<p class="deletemessage" *ngIf="deleterowstatus">{{deleteSuccessMessage}}</p>
+
+<div class="p-grid ChipWrapper" *ngIf="filterChipsList.length > 0 && filterChipsRequired && showRemoveChips">
+  <div class="p-col-4 {{showRemoveChips ? 'Chipfilter' : 'livefilter' }}" *ngFor="let item of filterChipsList;let i = index"
+    [ngClass]="(item && item.value) ? 'showChip':'hideChip' ">
+    <a *ngIf="item.value" appFilterChips matTooltip="{{ item.actualValue | filterChip : true }}">{{item.name}} : {{item.value | filterChip}}
+      <i *ngIf="showRemoveChips" tabindex="0"  (keyup.enter)="RemoveChips(item)"(click)="RemoveChips(item)" class="fa fa-window-close" aria-hidden="true"></i> </a>
+</div>
+<a *ngIf="showRemoveChips" (click)="RemoveAllChips(item)" (keyup.enter)="RemoveAllChips(item)" tabindex="0" class="p-col-2 clearAll focus">{{clearAll}} </a>
+</div>
+
+<div class="options">
+  <div *ngIf="this.commonService.isDownloadInProgress" class="list-download">
+   <span class="dwnld-msg-info"><em class="material-icons dwnld-msg-info-icon" >info</em></span>
+    <span>{{'dwnldInProgress' | translate}}</span><span class="download-info">&nbsp;&nbsp;{{'dwnldInProgress2' | translate}}</span>
+  </div>
+  <h1 class="headerTitle" *ngIf="tableName" [class]="setDirections('className', '')" dir="dir" [ngStyle]="{'float': setDirections('direction', '')}">
+    {{ tableName }}
+  </h1>
+  <div [dir]="dir" class="inputToggleDiv" [ngStyle]="{'float': setDirections('colDirection', 'left')}" *ngIf="displayInputSwitch && displayInputSwitch.display">
+    <span class="toggleSpan" id="displayInputSwitchLabel">{{displayInputSwitch.label | translate}}</span>
+    <p-inputSwitch  class="inputSwitch"  (onChange)="handleSwitchChange($event)" ariaLabelledBy="displayInputSwitchLabel"></p-inputSwitch>
+      <label *ngIf="hideActionsShowCheckBox" class="warningStyle" tabindex="0">{{displayInputSwitch.infoLabel | translate}}</label>
+  </div>
+  <div [ngClass]="setDirections('className', '')" [dir]="dir" class="options-body" [ngStyle]="{'float': setDirections('direction', '')}">
+    <span [ngStyle]="{'float': setDirections('direction', '')}">
+      <span *ngIf="wildsearch" class="wildsearchwrapper">
+        <em (click)=globalSearchBar() class="pi pi-search" ></em>
+        <input type="text" id="searchBox" [attr.maxLength]="searchBoxLength" class="wildsearch" #wildsearchid  pInputText  placeholder="{{'globalfilter' | translate }}"
+        (input)="dt.filterGlobal(getConvertedvalue($event.target.value), 'contains');globalSearch($event.target.value)"
+        aria-label="Search content in table">
+      </span>
+      <!--<img class="iconImage" tabindex="0" *ngIf="viewFullTable"
+      (keyup)="onShowChart($event)" (click)="onShowChart($event)"
+      title="{{'expandAll' | translate}}" src='/assets/icons/eye_icon.svg'
+      alt="{{'expandAll' | translate}}">-->
+      <span class="focus flex-center showContentsAlign">
+        <button [disabled]="this.commonService.isDownloadInProgress" [ngClass]="this.commonService.isDownloadInProgress?'button-disable':''" role="button" mat-button class="downloadIcon" [dir]="dir" *ngIf="downloadIconEnabled" attr.aria-label="{{'listDownload' | translate}}"
+        [matMenuTriggerFor] = "menuDownload" id="tableDownload" tabindex="0">
+          <em title="{{listDownload}}" class="fa fa-download iconMargin"></em></button>
+          <button role="button" mat-button class="downloadIcon batchPrint" #buttonDisable (click)="downloadBatchPdf()" *ngIf="downloadBatchIconEnabled && checkboxData.length !== 0" attr.aria-label="{{'batchDownload' | translate}}"  id="tableDownload" tabindex="0">
+            <em title="{{batchDownload}}" class="fa fa-file-pdf-o iconMargin"></em></button>
+        <a role="button" class="filterIcon" id="columnFilter" href="javascript:void(0)" (click)="displayColumnFilter()" tabindex="0" *ngIf="hasFilterableColumn && colFilterIconEnabled" attr.aria-label="{{'columnFilter' | translate}}"><em title="{{'columnFilter' | translate}}" class="pi pi-filter"></em></a>
+      </span>
+      <span  [ngStyle]="{'float': setDirections('direction', '')}" *ngIf="allowColumnCustomization" class="focus col-customise" >
+        <div *ngIf="enableColCustomizationPopup === false;  else elseBlock">
+           <a role="button" href="javascript:void(0)" onclick="return false" attr.aria-label="{{'CUSTOMIZECOLUMNS' | translate}}" (click)="loadTableColumns($event);"matTooltip="{{'CUSTOMIZECOLUMNS' | translate}}" matTooltipPosition="below" tabindex="0">
+            <mat-icon>view_column</mat-icon>
+          </a>
+        </div>
+        <ng-template #elseBlock>
+          <a role="button" href="javascript:void(0)" onclick="return false" attr.aria-label="{{'CUSTOMIZECOLUMNS' | translate}}" (click)="openDialog($event)" matTooltip="{{'CUSTOMIZECOLUMNS' | translate}}" matTooltipPosition="below" tabindex="0">
+            <mat-icon>view_column</mat-icon>
+          </a>
+        </ng-template>
+      </span>
+    </span>
+  <div *ngIf="enableFilterPopup" [dir]="dir" class="filterPopup focus spacing">
+    <a role="button" href="javascript:void(0)" (click)="callAdvancedFilter($event)" tabindex="0" attr.aria-label="{{'columnFilter' | translate}}">{{'filter' | translate}}</a>
+  </div>
+  <div *ngIf="isDisplayTotalBalance" [ngClass]="setDirections('colDirection', 'left')" [dir]="dir" [ngStyle]="{'float': setDirections('colDirection', 'left')}" tabindex="0">
+    <span *ngIf= "showAccountType; else showTotal">{{ displayAccountType }} - </span>
+    <ng-template #showTotal>
+    <span>{{'totalBalanceAmt' | translate }}</span>
+    </ng-template>
+    <span class="balanceAmtStyle">
+      <span *ngIf="currencySymbolDisplayEnabled">{{ viewInCurrency }}&nbsp;{{ getCurrencySymbol(viewInCurrency) }}</span>
+      <span *ngIf="!currencySymbolDisplayEnabled">{{ viewInCurrency }}&nbsp;</span>
+      <span class="amountSpanStyle" title="{{ displayTotalAmtBalance }}">{{ displayTotalAmtBalance | currencyAbbreviation}}</span>
+    </span>
+  </div>
+</div>
+</div>
+<div class="tableAlign {{alignPagination}}" [ngClass]="{'height-auto': hideExtraSpace}" #ptt>
+  <p-table fixTableHeader isListingScreen="{{listingScreenName}}"
+  class="fcc-ui-table"
+  #tt
+  #dt
+  [lazy]="isLazyEnabled"
+  (onLazyLoad)="loadTableData($event)"
+  [emptyMessage]="'Loading'"
+  [columns]="columns"
+  [value]="data"
+  [paginator]="paginator ? paginator : false"
+  [globalFilterFields] = "globalFilterColList"
+  [rows]="rows ? rows : 20"
+  [totalRecords]="totalRecords" [loading]="loading"
+  [responsive]="responsive ? responsive : false"
+  [dataKey]="dataKey"
+  [selectionMode]="selectMode"
+  [showFirstLastIcon]="true"
+  [sortField]="sortField" [sortOrder]="sortOrder"
+  [resetPageOnSort]= "false"
+  [exportFilename]="fileName"
+  (onPage)="onPageChange($event)"
+  (onFilter)="paginate($event, tt);customFilter($event)"
+  [rowsPerPageOptions]="rppOptions"
+  (onRowSelect)="onRowSelect($event,tt)"
+  (onRowUnselect)="onRowUnSelect($event,tt)"
+  (onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event, tt)"
+  [(selection)]="selectedRow"
+  [scrollable]="getScrollableFlag()"
+  scrollHeight="flex"
+  >
+
+  <ng-template pTemplate="header" let-columns>
+    <ng-container *ngIf="!enhancedUXTable">
+      <tr>
+        <th scope="col" *ngIf="(permission && checkRowData() && (checkBoxRequired === 'Y')) || hideActionsShowCheckBox || approvalByTransaction" title="{{'selectAll' | translate}}" attr.text="{{ 'selectAll' | translate }}" attr.aria-label="{{'selectAll' | translate}}" role="checkbox" dir={{dir}}  class="checkboxWidth stickyHeader"><p-tableHeaderCheckbox [disabled]="disableHeaderCheckbox" ariaLabel="{{'selectAll' | translate}}" title="{{'selectAll' | translate}}"></p-tableHeaderCheckbox></th>
+        <th scope="col" *ngIf="toggleRequired && (checkBoxRequired === 'N') && radioButtonHeaderRequired" role="radio" class="radioColumnStyle" dir={{dir}}>&nbsp;</th>
+        <th scope="col" *ngIf="isFavAccount" id="" class="favIconWidth"></th>
+        <th scope="col" *ngIf="rowexpansion" class="rowExpandColumn" attr.aria-label="{{'columnFilter' | translate}}" attr.text="{{ 'columnFilter' | translate }}"><span style="display: none;">.</span></th>
+        <ng-container *ngFor="let col of columns; let index = index;">
+        <th scope="col" [dir]="dir" *ngIf="col.showAsDefault || (col.field === 'action' && !hideActionsShowCheckBox)" [class]="setClass()" [ngClass] = "{'stickyHeader': col.frozen && scrollable, 'freezeColBorder': index === listdefLastFreezedColumnIndex,
+        'stickyAction': col.field === 'action', 'freezeAction': col.field === 'action' && freezeAction(), 'actionColWidth': col.field === 'action' && adjustActionWidth, 'width-100': !checkRowData()}"
+        [ngStyle]="{'width': col.width, 'left': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'left')) : 'initial'
+        , 'right': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'right')) : 'initial'}" tabindex= "{{(checkCustomise === true) ? '-1' : '0' }}"
+        (focusin) = "displaySortIcon(col.field)" (mouseover) = "displaySortIcon(col.field)" (mouseout) = "hideSortIcon(col.field)">
+        <div class="header-div" [ngStyle]="{'text-align': setDirections('colDirection', col.align),'flex-direction':setDirections('colDivFlexDirection', col.align, col),
+         'float':setFloatDirection(col), 'justify-content': setDirections('colDivJustification', col.align)}" >
+          <span *ngIf="col.field ==='action'">{{ actionColumnName }}</span>
+          <span *ngIf="col.field !=='action'&& col.align === 'center'" class="custom-sort-wrapper" ></span>
+          <span *ngIf="col.field !=='action'" id="{{col.header}}"  [ngClass]="col.header" tabindex = "{{(columnSort || checkCustomise === true) ? '-1' : '0' }}"> {{col.header | translate}}</span>
+          <span title="{{'Sorting' | translate}}" role="button" aria-sort="col.orderType" *ngIf="col.field !=='action'" tabindex= "{{(checkCustomise === true) ? '-1' : '0' }}" class="custom-sort-holder" (keyup.enter)="sortColumn(col)">
+            <span id = "{{'customSort'+col.field}}" class="custom-sort" [ngClass] = "{'applied-sort': col.orderType !== ''}" >
+              <fcc-custom-sort *ngIf="columnSort && !col.isColumnSortDisabled" [order] = "col.orderType" [field]="col.field" (sort) = "sort($event)"></fcc-custom-sort>
+            </span>
+          </span>
+        </div>
+        </th>
+        </ng-container>
+      </tr>
+      <tr *ngIf="showColumnFilterSec" class="custom-filter-col">
+        <th *ngIf="permission || hideActionsShowCheckBox" id="permission" attr.aria-label="{{ 'select' | translate }}" attr.text="{{ 'select' | translate }}"><span style="display: none;">.</span></th>
+        <th scope="col" *ngIf="rowexpansion" attr.aria-label="{{ 'selectTransaction' | translate }}" attr.text="{{ 'selectTransaction' | translate }}"><span style="display: none;">.</span></th>
+        <th scope="col" *ngIf="isFavAccount"><span style="display: none;"></span></th>
+        <ng-container *ngFor="let col of columns; let index = index;">
+        <th scope="col" [dir]="dir" *ngIf="col.showAsDefault || (col.field === 'action' && !hideActionsShowCheckBox)" attr.aria-label="{{col.field}}+'.'" attr.text="{{col.field}}+'.'" [ngClass] = "{'stickyHeader': col.frozen && scrollable, 'freezeColBorder': index === listdefLastFreezedColumnIndex,
+        'stickyAction': col.field === 'action', 'freezeAction': col.field === 'action' && freezeAction(), 'actionColWidth': col.field === 'action' && adjustActionWidth}"
+        [ngStyle]="{'left': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'left')) : 'initial'
+        , 'right': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'right')) : 'initial'}">
+          <span style="display: none;">.</span>
+          <div *ngIf="col.field !=='action'">
+            <div *ngIf="col.columnFilterType ==='input-multiselect'">
+              <p-multiSelect appendTo="body" #filter class="colFilter" [(ngModel)]="col.selected" [options]="columnFilter[col.field]" [defaultLabel]="defaultLabel"
+                maxSelectedLabels = "1" (onChange)="clientFilter($event, tt, col.field)" [tooltip]="col.title" (keydown.Space)="getFilterValues($event, col.field, tt)"
+                (onClick)="getFilterValues($event, col.field, tt)" [tooltipPosition]="'bottom'" ariaFilterLabel = "{{ 'search' | translate }}">
+              </p-multiSelect><!-- Changed from (Keydown.enter) to (Keydown.Space) since enter is to select a item from list and space is to open the list-->
+            </div>
+          </div>
+        </th>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </ng-template>
+  <ng-template
+    pTemplate="body"
+    let-rowData
+    let-expanded="expanded"
+    let-i="rowIndex"
+    let-columns="columns">
+    <tr  tabindex ="{{(checkCustomise === true) ? '-1' : '0' }}" (click)="onRowSelect($event, tt,rowData)"
+    (keyup.enter)="onRowSelect($event, tt,rowData)" id="rowdata" [pSelectableRow]="rowData"
+     [ngClass]="{'disableRow': disableRow(rowData), 'highlightRow': rowData.highlight}"
+     class="listing-table-body" [pSelectableRowDisabled]="(!passBackEnabled || enableRowSelectForWidget) ? true : false" class="rowDataStyle {{selectionEnabled ? 'selectableCursor' : ''}}"
+    [ngStyle] = "rowExp === i ? expandCall(): collapse(i)"(mouseenter)="callHover(rowData)" (keypress)="checkForEnter($event, rowData)" >
+    <td [ngClass] = "permission === false ? 'hide-td':''"  dir={{dir}}
+    title="{{'select' | translate}}" attr.text="{{ 'select' | translate }}" attr.aria-label="{{'select' | translate}}" role="checkbox" class="checkboxWidth">
+      <p-tableCheckbox *ngIf="(permission && (checkBoxRequired === 'Y') && ((rowData.product_code == 'BK' && (rowData.prod_stat_code == 'Rejected' || rowData.prod_stat_code == 'Not Processed' || !rowData.prod_stat_code)) || (rowData.product_code !== 'BK'))) || hideActionsShowCheckBox || getApprovalByTransaction(rowData)"
+      #tableCheckBox [ngClass]="listdefActionIconsDisplay == true ? 'action-icons':'ellipisis'" ariaLabel="{{'selectRow' | translate}}"  title="{{'selectRow' | translate}}" [value]="rowData" [disabled]="isDisabled"></p-tableCheckbox></td>
+    <td class="radioButtonStyle" *ngIf="toggleRequired && (checkBoxRequired === 'N')"><p-tableRadioButton class="radioButton" [value]="rowData"></p-tableRadioButton></td>
+    <td *ngIf="enhancedUXTable" class="leftBorderDefault {{'N004_' + rowData['tnx_stat_code'] + '_leftBorder'}}"></td>
+    <td *ngIf="rowexpansion && (checkBoxRequired === 'Y')" class="chevronColumn">
+      <a href="#" [pRowToggler]="rowData" class="displayChevron" (click)="setIndex(i)" attr.aria-label="{{ 'expandRow' | translate }}">
+      <!-- <em [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></em> -->
+     </a>
+  </td>
+  <td *ngIf="(permission && (checkBoxRequired === 'Y') && (rowData.product_code == 'BK' && (rowData.prod_stat_code !== 'Rejected' && rowData.prod_stat_code !== 'Not Processed' && rowData.prod_stat_code)))"></td>
+  <td *ngIf="isFavAccount" class="favIconWidth">
+    <span (keyup.enter)="markAsFavorUnFav(rowData)" tabindex="0" class="star-layout">
+      <em *ngIf="rowData['useraccount@favourite'] === 'Y'" class="pi pi-star star-size"  matTooltip="{{'unmarkFav' | translate}}" matTooltipPosition="below" (click)="markAsFavorUnFav(rowData)"></em>
+      <em *ngIf="(rowData['useraccount@favourite'] === '' || rowData['useraccount@favourite'] === 'N')" class="pi pi-star-o star-size" matTooltip="{{'markFav' | translate}}" matTooltipPosition="below" (click)="markAsFavorUnFav(rowData)"></em>
+    </span>
+  </td>
+    <ng-container *ngFor="let col of columns; let index = index;">
+      <!-- below td is for enabling the popup for widgets thats why added condition in td-->
+      <td #title [dir]="dir" *ngIf="standardTable && col.showAsDefault && !(col.field === 'action' && !hideActionsShowCheckBox)" [ngClass]="{'alignToTop' : enhancedUXTable, 'stickyHeader': col.frozen && scrollable, 'freezeColBorder': index === listdefLastFreezedColumnIndex, 'rowClass': showPopup === true}"
+      [ngStyle]="{'text-align': setDirections('colDirection', col.align), 'left': col.frozen && scrollable ? (index == 0 ? 0 : calculateDynamicWidth(index, 'left')) : 'initial'
+      , 'right': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'right')) : 'initial','width': col.width,
+      'position': col.frozen && scrollable ? 'sticky' : 'initial'}"
+      class="p-col-1" [dialogData]="rowData" appShowDialog [rowIndex]="i" [noOfRows]="rows" [showPopup]="showPopup" [actionPopup]="actionPopup" [inputParams]="inputParams">
+      <!-- brings rest of the colum data apart from action item-->
+      <div *ngIf="checkAmountField(col.field) && !showColorCode(rowData,col)" [ngStyle]="{'direction': setDirections('colorDot', col.align)}" class="dot-wrapper">
+        <span class="amount">
+          <span class="digit">{{ getDigit(!rowData[col.field] ? '' : rowData[col.field]) }}</span>
+          <span class="decimal">{{ getDecimal(!rowData[col.field] ? '' : rowData[col.field]) }}</span>
+        </span>
+      </div>
+      <div #dis *ngIf="(col.field !== 'debtorAccount@id@other@id' && !checkAmountField(col.field))"[ngStyle]="{'direction': setDirections('colorDot', col.align)}" class="dot-wrapper">
+        <!--Displaying color codes(if applicable) against current column-->
+        <span *ngIf="showColorCode(rowData,col)" [ngStyle]="{'background-color': rowData['colorCode_' + col.field]}" class="dot" ></span>
+        <!--Actual column data-->
+        <ng-container *ngTemplateOutlet="rowInnerData; context:{rowDataValue: rowData,expandedValue: expanded,rowIndexValue:i,columnsValue:col  }"></ng-container>
+        <!--Displaying additional remarks(if applicable) in a tooltip in current column-->
+        <span class="remark" *ngIf="col.remarkApplicabilityList && col.remarkValueColumn && showAdditionalRemarks(rowData, col)">
+          <img tabindex="0" src='{{contextPath}}/content/FCCUI/assets/icons/Comment.svg' alt="{{'remarks' | translate}}" matTooltipClass="myTooltip" [matTooltip]="remarks"  >
+        </span>
+      </div>
+      <div *ngIf="(col.field === 'debtorAccount@id@other@id')"[ngStyle]="{'direction': setDirections('colorDot', col.align)}" class="dot-wrapper">
+        <!--Displaying color codes(if applicable) against current column-->
+        <span *ngIf="showColorCode(rowData,col)" [ngStyle]="{'background-color': rowData['colorCode_' + col.field]}" class="dot"></span>
+        <!--Actual column data-->
+        <span *ngIf = "!isPaymentListing()">
+          {{(rowData['debtorAccount@name'] !== null && rowData['debtorAccount@name'] !== undefined ? rowData['debtorAccount@name'] + '-' : "") + rowData['debtorAccount@id@other@id']  + ' (' + rowData['debtorAccount@currency'] + ')'}}
+        </span>
+        <span *ngIf = "isPaymentListing()">
+          {{(rowData['debtorAccount@id@other@id'] === null || rowData['debtorAccount@id@other@id'] === 'null') ? '-' : rowData['debtorAccount@id@other@id']}}
+        </span>
+        <!--Displaying additional remarks(if applicable) in a tooltip in current column-->
+        <span class="remark" *ngIf="col.remarkApplicabilityList && col.remarkValueColumn && showAdditionalRemarks(rowData, col)">
+          <img tabindex="0" src='{{contextPath}}/content/FCCUI/assets/icons/Comment.svg' alt="{{'remarks' | translate}}" matTooltipClass="myTooltip" [matTooltip]="remarks"  >
+        </span>
+      </div>
+    </td>
+      <td #title [dir]="dir" *ngIf="!standardTable && col.showAsDefault && !(col.field === 'action' && !hideActionsShowCheckBox)" [ngClass]="{'alignToTop' : enhancedUXTable, 'stickyHeader': col.frozen && scrollable, 'freezeColBorder': index === listdefLastFreezedColumnIndex}"
+      [ngStyle]="{'text-align': setDirections('colDirection', col.align), 'left': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'left')) : 'initial'
+      , 'right': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'right')) : 'initial','width': col.width}"
+      class="p-col-1" [dialogData]="rowData" appShowDialog [rowIndex]="i" [noOfRows]="rows" [showPopup]="showPopup" [actionPopup]="actionPopup" [inputParams]="inputParams">
+      <div *ngIf="showColorCode(rowData,col)" [ngStyle]="{'direction': setDirections('colorDot', col.align)}" class="dot-wrapper">
+        <!--Displaying color codes(if applicable) against current column-->
+        <span *ngIf="showColorCode(rowData,col)" [ngStyle]="{'background-color': rowData['colorCode_' + col.field]}" class="dot" ></span>
+        <!--Actual column data-->
+        <ng-container *ngTemplateOutlet="rowInnerData; context:{ rowDataValue: rowData,expandedValue: expanded,rowIndexValue:i,columnsValue:col }"></ng-container>
+      </div>
+      <span *ngIf="!showColorCode(rowData,col) && (col.field === 'file_upload_status')"  [ngStyle]="{'direction': setDirections('colorDot', col.align)}">
+        {{rowData[col.field] | translate}}
+      </span>
+      <span *ngIf="!showColorCode(rowData,col) && checkAmountField(col.field)" [ngStyle]="{'direction': setDirections('colorDot', col.align)}">
+        <span class="digit">{{ getDigit(!rowData[col.field] ? '' : rowData[col.field]) }}</span>
+        <span class="decimal">{{ getDecimal(!rowData[col.field] ? '' : rowData[col.field]) }}</span>
+      </span>
+      <span *ngIf="!showColorCode(rowData,col) && !checkAmountField(col.field) && (col.field !== 'debtorAccount@id@other@id' && col.field !== 'file_upload_status')" [ngStyle]="{'direction': setDirections('colorDot', col.align)}">
+        <ng-container *ngTemplateOutlet="rowInnerData; context:{ rowDataValue: rowData,expandedValue: expanded,rowIndexValue:i,columnsValue:col }"></ng-container>
+      </span>
+      <span *ngIf="!showColorCode(rowData,col) && (col.field === 'debtorAccount@id@other@id')"  [ngStyle]="{'direction': setDirections('colorDot', col.align)}">
+        <span *ngIf = "!isPaymentListing()">
+          {{(rowData['debtorAccount@name'] !== null && rowData['debtorAccount@name'] !== undefined ? rowData['debtorAccount@name'] + '-' : "") + rowData['debtorAccount@id@other@id']  + ' (' + rowData['debtorAccount@currency'] + ')'}}
+        </span>
+        <span *ngIf = "isPaymentListing()">
+          {{(rowData['debtorAccount@id@other@id'] === null || rowData['debtorAccount@id@other@id'] === 'null') ? '-' : rowData['debtorAccount@id@other@id']}}
+        </span>
+      </span>
+      </td>
+      <!-- on action column popup should not come thats why made it a different td-->
+      <td [dir]="dir" *ngIf="(col.field === 'action' && !hideActionsShowCheckBox)" [ngClass]="{'alignToTop' : enhancedUXTable, 'stickyHeader': col.frozen && scrollable, 'freezeColBorder': index === listdefLastFreezedColumnIndex,
+      'stickyAction': col.field === 'action', 'freezeAction': col.field === 'action' && freezeAction(), 'stickyPosition': col.field === 'action' && i === currentActionIndex
+      , 'actionColWidth': col.field === 'action' && adjustActionWidth,
+      'enableField': col.field === 'action' && disableRow(rowData)}"
+      [ngStyle]="{'text-align': setDirections('colDirection', col.align), 'left': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'left')) : 'initial'
+      , 'right': col.frozen && scrollable ? (index == 0 ? getLeftRightOnCheckBox() : calculateDynamicWidth(index, 'right')) : 'initial','width': col.width}"
+      class="p-col-1" (keypress)="checkForEnterOnAction($event, rowData)">
+      <div #action [ngClass]="listdefActionIconsDisplay == true ? 'action-icons':'ellipisis'" *ngIf="col.field ==='action' && !actionsDisable && !displayDashboard && !hideActionsShowCheckBox && !actionconfig" >
+        <span *ngIf="showAwbTrackingIcon(rowData)" class="focus flex-center showContentsAlign">
+          <img id="{{rowData['ref_id'] }}" class="iconImage" tabindex="0"
+            (keyup)="keyPressRoute($event,rowData,'AwbTracking')" (click)="getCourierPartnerWaybills($event,rowData)"
+            title="{{'wayBillTracking' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/delivery-truck.svg'
+            alt="&#x26DF; {{'wayBillTracking' | translate}} {{rowData['ref_id']}}">
+        </span>
+        <span *ngFor="let actions of rowData[col.field]?.split(',').slice(0,3)">
+            <span [ngSwitch]= "actions">
+              <span *ngSwitchCase="'EDIT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Edit')" (click)="onClickEdit($event,rowData)" title="{{'edit' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/edit_small.svg' alt="{{'EDIT' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span *ngSwitchCase="'LN_EDIT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Edit')" (click)="onClickLendingEdit($event,rowData)" title="{{'edit' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/edit_small.svg' alt="{{'EDIT' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span *ngSwitchCase="'BLFP_EDIT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Edit')" (click)="onClickLendingEdit($event,rowData)" title="{{'edit' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/edit_small.svg' alt="{{'EDIT' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'VIEW'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'View')" (click)="onClickView($event,rowData)" title="{{'view' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                alt="{{'VIEW' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span *ngSwitchCase ="'CFE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event, rowData,'createFromExisting')" (click)="onClickView($event,rowData)" title="{{'CFE' | translate}}" src ='{{contextPath}}/content/FCCUI/assets/icons/Create_from_existing.svg'
+                alt="{{'CREATE FROM EXISTING' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'BILL_VIEW'">
+                <img id="{{rowData['bill_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'BillView')" (click)="onClickBillView($event,rowData)" title="{{'VIEW' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                alt="{{'VIEW' | translate}} {{rowData['bill_id']}}">
+              </span>
+              <span  *ngSwitchCase="'LN_APPROVE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Approve')" (click)="onClickLendingApprove($event,rowData)"title="{{'authorize' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/authorize.svg'
+                alt="{{'authorize' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'APPROVE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Approve')" (click)="onClickApprove($event,rowData)"title="{{'authorize' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/authorize.svg'
+                alt="{{'authorize' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'DETAIL'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Detail')" (click)="onClickDetail($event,rowData)"  title="{{'Details' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Details.svg'
+                alt="{{'DETAILS' | translate}} {{'of' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'TERMINATE'">
+                <img id="{{rowData['id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Terminate')" (click)="onClickDetail($event,rowData)" title="{{'Terminate' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Terminate.svg'
+                alt="{{'TERMINATE' | translate}} {{'of' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'FUTURECANCEL'">
+                <img id="{{rowData['id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'futureCancel')" (click)="onClickCancel($event,rowData)" title="{{'futureCancel' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/futureCancel.svg'
+                alt="{{'FUTURECANCEL' | translate}} {{'of' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'USER_AUDIT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'userAudit')" (click)="onClickUserAudit($event,rowData)" title="{{'userAudit' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/UserAudit.svg'
+                alt="{{'userAudit' | translate}} {{'of' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'AMEND'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Amend')" (click)="onClickAmend($event,rowData)" title="{{'amend' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Amend_small.svg' alt="Amend">
+              </span>
+              <span  *ngSwitchCase="'AMEND_PENDING'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage disableIcon" tabindex="0" title="{{'AMEND_PENDING' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Amend_small.svg' alt="{{'AMEND_PENDING' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'AMEND_RELEASE'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'AmendRelease')" (click)="onClickAmendRelease($event,rowData)" title="{{'release' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/SI_Release_Icon.svg' alt="Amend Release">
+              </span>
+              <span  *ngSwitchCase="'ASSIGNMENT'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Assignment')" (click)="onClickAssignment($event,rowData)" title="{{'assignment' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Assignment.svg' alt="Assignment">
+              </span>
+              <span  *ngSwitchCase="'REMITTANCE_LETTER'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'RemittanceLetter')" (click)="onClickRemittanceLetter($event,rowData)" title="{{'generateRemittanceLetter' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Remittance Letter.svg' alt="Generate Remittance Letter">
+              </span>
+              <span  *ngSwitchCase="'TRANSFER'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Transfer')" (click)="onClickTransfer($event,rowData)" title="{{'transfer' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Transfer.svg' alt="Transfer">
+              </span>
+              <span  *ngSwitchCase="'DISCARD'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Discard')" (click)="onClickDiscard($event,rowData)" title="{{'Delete' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/delete_listing.svg'
+                alt="{{'DISCARD' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'CORRESPONDENCE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Correspondence')" (click)="onClickCorrespondence($event,rowData)" title="{{'correspondence' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Message_small.svg' alt="{{'correspondence' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'REQUESTSETTLEMENT'">
+                <img *ngIf="allowRequestSettlement(rowData)" id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'RequestSettlement')" (click)="onClickRequestSettlement($event,rowData)" title="{{'requestsettlement' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Request_Settlement.svg' alt="{{'requestsettlement' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'COPY'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Copy')" (click)="onClickCopy($event,rowData)" title="{{'copy' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Copy.svg' alt="{{'copy' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'FACILITYDETAIL'">
+                <img id="{{rowData['id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'FacilityDetail')" (click)="onClickFacilityDetail($event,rowData)" title="{{'Details' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Details.svg'
+                alt="{{textForDetail(rowData)}}">
+              </span>
+              <span  *ngSwitchCase="'DOC_EDIT'">
+                <img id="{{rowData['id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'DocumentEdit')" (click)="onClickDocumentEdit($event,rowData)" title="{{'Upload' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/upload.svg' alt="{{'Upload' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'DRAWDOWN'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}"
+                class = "iconImage"
+                tabindex="0" (keyup)="keyPressRoute($event,rowData,'Drawdown')"
+                (click)="onClickDrawdown($event,rowData)"
+                title="{{'drawdown' | translate}}"
+                src='{{contextPath}}/content/FCCUI/assets/icons/Drawdown.svg'
+                alt= "{{textForDrawdown(rowData)}}">
+              </span>
+              <span  *ngSwitchCase="'DELETE_REJECTED'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRouteOptions($event,rowData, 'RemoveOrDeleteRejectedTnx', 'delete')" (click)="onClickRemoveOrDeleteRejectedTnx($event,rowData, 'delete')" title="{{'DELETE_REJECTED' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/delete_listing.svg' alt="Delete">
+              </span>
+              <span  *ngSwitchCase="'REMOVE_REJECTED'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRouteOptions($event,rowData, 'RemoveOrDeleteRejectedTnx', 'remove')" (click)="onClickRemoveOrDeleteRejectedTnx($event,rowData, 'remove')" title="{{'clear' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/remove.svg' alt="Clear">
+              </span>
+              <span  *ngSwitchCase="'ROLLOVER'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Rollover')" (click)="onClickRollover($event,rowData)" title="{{'rollover' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Rollover.svg'
+                alt="{{'rollover' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'INCREASE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Increase')" (click)="onClickIncrease($event,rowData)" title="{{'increase' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Increase.svg'
+                alt="{{'increase' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'PAYMENT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'LoanPayment')" (click)="onClickLoanPayment($event,rowData)" title="{{'payment' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Repayment.svg' alt="{{'payment' | translate}}  {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'CN_ACCEPT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'AcceptCN')" (click)="onClickAcceptCN($event,rowData)" title="{{'AcceptCN' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Accept_CN.svg' alt="{{'AcceptCN' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'POA_ACCEPT'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'AcceptPOA')" (click)="onClickAcceptPOA($event,rowData)" title="{{'AcceptPOA' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Accept_POA.svg' alt="{{'AcceptPOA' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'RESPOND'">
+                <img *ngIf= "rowData['action_req_code'] === '12'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Discrepant')" (click)="onClickDiscrepant($event,rowData)"
+                title="{{'discrepancy' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Discrepancy.svg' alt="{{'discrepancy' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '26'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'RequestSettlement')" (click)="onClickRequestSettlement($event,rowData)"
+                title="{{'cleanresponse' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Request_Settlement.svg' alt="{{'cleanresponse' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '99'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Respond')" (click)="onClickRespond($event,rowData)"
+                title="{{'customerInstructions' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Action_Required.svg' alt="{{'customerInstructions' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '03'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Respond')" (click)="onClickRespond($event,rowData)"
+                title="{{'amendmentresponse' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Action_Required.svg' alt="{{'amendmentresponse' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '05'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Respond')" (click)="onClickRespond($event,rowData)"
+                title="{{'cancelresponse' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Action_Required.svg' alt="{{'cancelresponse' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '07'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Respond')" (click)="onClickRespond($event,rowData)"
+                title="{{'consentresponse' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Action_Required.svg' alt="{{'consentresponse' | translate}}">
+                <img *ngIf= "rowData['action_req_code'] === '15'" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'AcceptIP')" (click)="onClickAcceptIP($event,rowData)"
+                title="{{'AcceptIP' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Accept_IP.svg' alt="{{'AcceptIP' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'REPAY'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage Repay" #tooltip="matTooltip"
+                matTooltip="{{'repay' | translate}}" matTooltipPosition="below" tabindex="0" (keyup)="keyPressRoute($event,rowData,'repay')" (click)="onClickRepay($event,rowData)" src='{{contextPath}}/content/FCCUI/assets/icons/Repay.svg' alt="{{'repay' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'REPAY_PENDING'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage Repay disableIcon" #tooltip="matTooltip"
+                matTooltip="{{'REPAY_PENDING' | translate}}" matTooltipPosition="below" tabindex="0"  src='{{contextPath}}/content/FCCUI/assets/icons/Repay.svg' alt="{{'REPAY_PENDING' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'REPAY_DISABLED'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage Repay disableIcon" #tooltip="matTooltip"
+                matTooltip="{{'repay' | translate}}" matTooltipPosition="below" tabindex="0"  src='{{contextPath}}/content/FCCUI/assets/icons/Repay.svg' alt="{{'repay' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'SET_ENTITY'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" #tooltip="matTooltip"
+                matTooltip="{{'setEntity' | translate}}" matTooltipPosition="below" tabindex="0" (keyup.enter)="onClickSetEntity($event,rowData)" (click)="onClickSetEntity($event,rowData)" src='{{contextPath}}/content/FCCUI/assets/icons/SetEntity.svg'
+                alt="{{'setEntity' | translate}} {{'for' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'SET_REFERENCE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" #tooltip="matTooltip"
+                matTooltip="{{'setReference' | translate}}" matTooltipPosition="below" tabindex="0" (keyup.enter)="onClickSetReference($event,rowData)" (click)="onClickSetReference($event,rowData)" src='{{contextPath}}/content/FCCUI/assets/icons/SetEntity.svg'
+                alt="{{'setReference' | translate}} {{'for' | translate}} {{rowData['ref_id']}}">
+              </span>
+              <span  *ngSwitchCase="'CANCEL'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" #tooltip="matTooltip"
+                matTooltip="{{'cancel' | translate}}" matTooltipPosition="below" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Cancel')" (click)="onClickCancel($event,rowData)" src='{{contextPath}}/content/FCCUI/assets/icons/Cancel_small.svg' alt="{{'cancel' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'UPDATE'">
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" #tooltip="matTooltip"
+                matTooltip="{{'update' | translate}}" matTooltipPosition="below" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Update')" (click)="onClickUpdate($event,rowData)" src='{{contextPath}}/content/FCCUI/assets/icons/UpdateBeneficiary.svg' alt="{{'update' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'DELETE_BENEFICIARY'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" tabindex="0" (keyup)="keyPressRoute($event,rowData,'DeleteBeneficiary')" (click)="onClickDelete($event,rowData)" title="{{'Delete' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/DeleteBeneficiary.svg' alt="{{'delete' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'REJECT'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage" #tooltip="matTooltip"
+                matTooltip="{{'reject' | translate}}" matTooltipPosition="below" tabindex="0" (keyup)="keyPressRoute($event,rowData,'Reject')" (click)="onClickDelete($event,rowData)" title="{{'Reject' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Return_small.svg' alt="{{'reject' | translate}}">
+              </span>
+              <span  *ngSwitchCase="'DOWNLOAD'" >
+                <img id="{{rowData['ref_id'] + '_' + actions}}" class = "iconImage"
+                  tabindex="0" (keyup)="keyPressRoute($event,rowData,'AccountStatementDownload')" (click)="onClickAccountStatementDownload($event,rowData)" title="{{'download' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Download_action.svg' alt="{{'download' | translate}}">
+              </span>
+            </span>
+          </span>
+          <span *ngIf="rowData[col.field]?.split(',')?.length >3 && rowData[col.field]?.split(',')[3] !== '' && !(col.field === 'action' && inputParams?.isDashboardWidget)">
+            <button role="button"  mat-icon-button id="threeDots"
+            [matMenuTriggerFor] = "menuThreeDots"
+            [dir]="dir"
+            (click)="getMenus($event, rowData, i);setCurrentActionIndex(i);"
+            (keyup.enter)="getMenus($event, rowData, i);setCurrentActionIndex(i);"
+                 tabindex="0" >
+                 <em class="material-icons threeDots">more_vert</em>
+            </button>
+          </span>
+
+          <mat-menu #menuThreeDots="matMenu" class="threeDotsMenu" (closed)="matMenuClose(rowData)">
+            <ng-template matMenuContent >
+              <ul>
+                <li *ngFor= "let itemName of item">
+                  <span mat-menu-item (click)="keyPressRouteDots($event)"
+                  [ngClass]="(totalFavBeneCount >= totalFavBeneLimit) && (rowData['bankAccount@isFavoriteAccount'] !== 'true' || rowData['isFavoriteAccount'] !== 'true') && itemName.label === 'Add Favourite'? 'disable-menu' : ''"
+                  (keyup.enter)="keyPressRouteDots($event)">{{itemName.label}}</span>
+                </li>
+            </ul>
+            </ng-template>
+
+          </mat-menu>
+
+
+        </div>
+        <div *ngIf="col.field ==='action' && rowData[col.field] !== '' && rowData[col.field]?.length >0">
+        <div class="ellipisis iconwrapper" *ngIf="col.field ==='action' && !actionsDisable && !displayDashboard && actionconfig" >
+          <div class="alignActions" *ngIf="!col.showInThreeDotsOnly">
+            <span *ngFor="let action of rowDataActionList[i]?.slice(0,3)"
+            [matMenuTriggerFor] = "isDownloadAction ? matMenuStatDown:null"
+            #menuTrigger="matMenuTrigger"
+            [dir]="dir"
+            >
+              <img  id="actions" class = "iconImage" tabindex="0" (keyup)="keyPressRouteURL($event, rowData, action.actionName)"
+              #tooltip="matTooltip" [matTooltip]="getToolTipMsg(action.actionName,rowData)" matTooltipPosition="below"
+              (click)="onClickAction($event,rowData, action.actionName)"
+              (keyDown.enter)="onKeyEnter($event,rowData, action.actionName, menuTrigger)"
+              src='{{contextPath + action.imagePath}}' alt={{action.actionName}}>
+
+            </span>
+
+            <span >
+
+              <mat-menu #matMenuStatDown="matMenu">
+                <ng-template  matMenuContent >
+                 <ul *ngFor= "let statementDownloadOption of subActions">
+                 <li  (click)="onClickStatementDownloadMenu(statementDownloadOption, rowData)" id="{{ statementDownloadOption + '_download'}}"
+                 (keyup.enter)="onClickStatementDownloadMenu(statementDownloadOption, rowData)">
+                    <span mat-menu-item >{{statementDownloadOption}}</span>
+                 </li>
+               </ul>
+             </ng-template>
+             </mat-menu>
+            </span>
+
+            <span *ngIf="actionData?.length > 3">
+              <button role="button"  mat-icon-button
+                id="threeDots" [matMenuTriggerFor] = "menuThreeDots" [dir]="dir"
+                (keyup.enter)="getActionDetailsData($event, rowData, false, col.showInThreeDotsOnly);setCurrentActionIndex(i);"
+                (click)="getActionDetailsData($event, rowData, false, col.showInThreeDotsOnly);setCurrentActionIndex(i);" tabindex="0">
+                <em class="material-icons actionThreeDots">more_vert</em>
+                </button>
+            </span>
+          </div>
+          <span *ngIf="col.showInThreeDotsOnly">
+            <button role="button"  mat-icon-button
+              id="threeDots" [matMenuTriggerFor] = "menuThreeDots" [dir]="dir"
+              (keyup.enter)="getActionDetailsData($event, rowData, false, col.showInThreeDotsOnly);setCurrentActionIndex(i);"
+              (click)="getActionDetailsData($event, rowData, false, col.showInThreeDotsOnly);setCurrentActionIndex(i);" tabindex="0">
+              <em class="material-icons threeDots">more_vert</em>
+              </button>
+          </span>
+            <mat-menu #menuThreeDots="matMenu" class="threeDotsMenu">
+              <ul>
+                <li *ngFor= "let itemName of item">
+                  <span mat-menu-item tabindex="0" (click)="keyPressRouteDots($event)" [ngClass]="{'disableAction': getAddFavOption(itemName.name)}"
+                  (keyup.enter)="keyPressRouteDots($event)">{{itemName.label}}</span>
+                </li>
+            </ul>
+            </mat-menu>
+        </div>
+        </div>
+        <div *ngIf="col.field ==='action' && rowData[col.field] !== '' && rowData[col.field]?.length >0">
+              <!--this div is used to display buttons for widgtes whenever showbutton condition is true-->
+          <div *ngIf="col.field ==='action' && !actionsDisable && showButtons && !actionconfig" class="adjustButtonsMargin">
+            <ng-container *ngFor= "let button of buttonItemList">
+              <button role="button"  pButton class="{{button.buttonClass}}" *ngIf="button?.buttonName && button?.hideTooltip; else displayBtn" type="button" label="{{button.buttonName | translate}}"
+              tabindex="0"
+              (click)="beneAction($event,rowData, button)"></button>
+              <ng-template #displayBtn>
+                <button role="button"  pButton class="{{button.buttonClass}}" type="button" label="{{button.buttonName | translate}}"
+                matTooltip="{{button.buttonName | translate}}" matTooltipPosition="below" tabindex="0"
+                (click)="beneAction($event,rowData, button)"></button>
+              </ng-template>
+            </ng-container>
+            <ng-container *ngIf="buttonItemList.length >configForButton">
+              <button role="button"  mat-icon-button
+              id="threeDots" [matMenuTriggerFor] = "menuThreeDotsButton" [dir]="dir"
+              (keyup.enter)="getButtonDetails($event, rowData);setCurrentActionIndex(i);"
+              (click)="getButtonDetails($event, rowData);setCurrentActionIndex(i);" tabindex="0">
+              <em class="material-icons threeDotsAction">more_vert</em>
+             </button>
+            </ng-container>
+            <mat-menu #menuThreeDotsButton="matMenu" class="threeDotsMenu">
+              <ul>
+                <li *ngFor= "let itemName of threeDotButtonsList">
+                  <span mat-menu-item tabindex="0" >{{itemName.label}}</span>
+                </li>
+              </ul>
+            </mat-menu>
+          </div>
+          <div class="ellipisis iconwrapper" style="position: relative;" *ngIf="col.field ==='action' && !actionsDisable && displayDashboard && !actionconfig" >
+            <span>
+              <button role="button"  mat-icon-button
+                  id="threeDots" [matMenuTriggerFor] = "menuThreeDots" [dir]="dir"
+                  (keyup.enter)="getActionDetails($event, rowData, false, i);setCurrentActionIndex(i);"
+                  (click)="getActionDetails($event, rowData, false, i);setCurrentActionIndex(i);$event.stopPropagation();" tabindex="0">
+                  <em class="material-icons threeDots">more_vert</em>
+                </button>
+            </span>
+              <mat-menu #menuThreeDots="matMenu" class="threeDotsMenu">
+                <ul>
+                  <li *ngFor= "let itemName of item">
+                    <span mat-menu-item tabindex="0" (click)="keyPressRouteDots($event)"
+                    (keyup.enter)="keyPressRouteDots($event)">{{itemName.label}}</span>
+                  </li>
+              </ul>
+              </mat-menu>
+          </div>
+        </div>
+        <div class="ellipisis iconwrapper overdraw" *ngIf="col.field ==='LicenseDefinition@allow_overdraw'" >
+            <span *ngIf="rowData[col.field] ==='Y'">
+              <img id="allow_overdraw" class = "iconImage" tabindex="0" src='{{contextPath}}/content/FCCUI/assets/icons/TickMark.svg' alt="allow_overdraw">
+            </span>
+        </div>
+      </td>
+    </ng-container>
+    </tr>
+  </ng-template>
+  <!-- <ng-template [pTemplate]="setDirections('paginatorDirection', 'left')" let-state>
+    <div>
+      {{'showMessage' | translate}} {{state.totalRecords === 0 ? state.first : state.first + 1}} - {{state.page === (state.pageCount -1) ? state.totalRecords : (state.rows * (state.page +1))}} {{'of' | translate}} {{state.totalRecords}} {{'records' | translate}}
+    </div>
+  </ng-template> -->
+  <ng-template *ngIf="showPaginator" [pTemplate]="setDirections('paginatorDirection', 'right')" let-state>
+    <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSize($event)"
+      (setCurrentPageCallback) = "setCurrentPage($event)"></fcc-custom-paginator>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" let-i="rowIndex">
+    <tr [ngStyle] = "rowExp === i ? expandCallBottom(): ''" (mouseenter)="callHover(rowData)">
+      <td *ngIf="enhancedUXTable" class="leftBorderDefault {{'N004_' + rowData['tnx_stat_code'] + '_leftBorder'}}"></td>
+      <td [attr.colspan]="columns.length + 2" *ngIf="rowexpansion">
+        <div class="p-grid rowExpandStyle">
+          <div *ngFor="let col of rowExpansionData" class="p-col-2">
+            <div class="headerFont">{{ col.header | translate}}</div>
+            <div *ngIf="col.field === 'tnx_type_code'">{{"N002_"+rowData[col.field]  | translate}}</div>
+            <div *ngIf="col.field !== 'tnx_type_code'" class="dataFont" [innerHTML] = "rowData[col.field]"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr class="emptyMessage" *ngIf="data !== undefined && columns !== undefined" tabindex="0">
+      <td [attr.colspan]="columns.length">
+        <div class="paymentStatusWidgetNoRecord" *ngIf="!inputParams.activeTab && inputParams.noRecordsMsg; else noFavoriteRecords">
+          <div class="emptyMsgIcon"><em class="material-icons noRecordIconStyle">{{inputParams.noRecordsIcon}}</em> </div>
+          <div class="emptyMsg">{{inputParams.noRecordsMsg | translate}}</div>
+          <div class="emptyMsg" *ngIf="inputParams.noRecordsLink">
+            <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateURL(inputParams.noRecordsLink);$event.preventDefault();"
+              (click)="navigateURL(inputParams.noRecordsLink);$event.preventDefault();" href="javascript:void(0)">{{inputParams.noRecordsLinkMsg | translate}}</a>
+          </div>
+          <div class="emptyMsg" *ngIf="isMakerPersona()">
+            <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateURL(inputParams.noRecordsMakerLink);$event.preventDefault();"
+              (click)="navigateURL(inputParams.noRecordsMakerLink);$event.preventDefault();" href="javascript:void(0)">{{inputParams.noRecordsMakerLinkMsg | translate}}</a>
+          </div>
+          <div class="emptyMsg" *ngIf="!isMakerPersona() && isCheckerPersona()">
+            <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateURL(inputParams.noRecordsCheckerLink);$event.preventDefault();"
+              (click)="navigateURL(inputParams.noRecordsCheckerLink);$event.preventDefault();" href="javascript:void(0)">{{inputParams.noRecordsCheckerLinkMsg | translate}}</a>
+          </div>
+        </div>
+        <ng-template #noFavoriteRecords>
+          <div *ngIf="inputParams.activeTab == undefined && inputParams.listdefName == favBeneListDefName; else noRecordsForTopFound">
+            <p class="emptyMessage">{{'noFavorites' | translate}}</p>
+            <br><br><br>
+            <div class="hyperlink">
+              <p (click)="addfavBeneficiaries()"
+              (keyup.enter)="addfavBeneficiaries()">{{'addfavbene' | translate}}</p>
+              </div>
+          </div>
+        </ng-template>
+        <ng-template #noRecordsForTopFound>
+          <div *ngIf="inputParams.activeTab == undefined && inputParams.listdefName == topBeneListDefName; else noRecordsFound">
+            <p class="emptyMessage">{{ noTopBeneString | translate}}</p>
+            <br><br><br>
+            <div class="hyperlink">
+              <p (click)="addfavBeneficiaries()"
+              (keyup.enter)="addfavBeneficiaries()">{{'beneWidgetNoRecorsdMsgLink' | translate}}</p>
+              </div>
+          </div>
+        </ng-template>
+        <ng-template #noRecordsFound>
+         <div *ngIf="inputParams.activeTab == undefined && (inputParams.listdefName == accountStatementListDefName
+          || inputParams.listdefName == accountStatementExternal); else elseBlock ">
+             <p class="emptyMessage">{{'noTransactionFound' | translate}}</p>
+        </div>
+      </ng-template>
+        <ng-template #elseBlock>
+          <div *ngIf="inputParams.activeTab == undefined">
+            <p class="emptyMessage">{{'noRecordsFound' | translate}}</p>
+          </div>
+        </ng-template>
+        <div *ngIf="inputParams.activeTab !== undefined  && inputParams.activeTab.noRecordsMsg == null">
+        <p class="emptyMessage">{{'noRecordsFound' | translate}}</p>
+        </div>
+        <div class="emptyMessage unset-background" *ngIf="inputParams.activeTab !== undefined  && inputParams.activeTab.noRecordsMsg != null">
+            <div class="emptyMsg"><em class="material-icons">{{inputParams.activeTab.noRecordsIcon}}</em> </div>
+            <div class="emptyMsg">{{ getEmptyMsg() | translate}}</div>
+            <div class="emptyMsgLink" >
+              <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateEmptyURL(inputParams.activeTab.noRecordsLink);$event.preventDefault();"
+               (click)="navigateEmptyURL(inputParams.activeTab.noRecordsLink);$event.preventDefault();" href="javascript:void(0)">{{getEmptyLink() | translate}}</a>
+            </div>
+         </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<div *ngIf="inputParams.isViewMore === 'true'">
+  <div *ngIf="isViewMore && totalRecords > 5" class="p-col-12 bottom-rate focus btmline">
+    <a href="#" class="viewMoreStyle" (click)="viewMore(); isViewMore=false" onclick="return false;"  tabindex="0">
+      {{ 'VIEW_MORE' | translate }}
+    </a>
+  </div>
+  <div *ngIf="!isViewMore && totalRecords > 10"  class="p-col-12 bottom-rate focus btmline" >
+    <a href="#" class="viewMoreStyle" [routerLink]="[]" (click)="isViewAllClicked = true; viewAllClickedfn()" tabindex="0">
+    {{ 'VIEW_ALL' | translate }}
+    </a>
+  </div>
+  </div>
+  <p-dialog header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+    [modal]="true" [maximizable]="false" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>{{ 'popupConfirmationMessage' | translate }}</p>
+    <p-footer>
+        <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+        <p-button role="button"  (click)="displayDialog = false" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+    </p-footer>
+</p-dialog>
+<div *ngIf="defaultDaysCount" class="daysCount">
+  {{'ACTIVITY_COUNT' | translate}}  {{defaultDaysCount}} {{ 'DAYS_COUNT' | translate }}
+</div>
+<mat-menu #menuDownload="matMenu" class="downloadMatMenu downloadMatMainMenu">
+  <ul>
+    <li *ngFor= "let downloadOption of allowedDownloadOptions">
+      <button *ngIf="showSubMenu" role="button"  id="{{ downloadOption + '_download'}}" mat-menu-item tabindex="0" (menuOpened)="onClickDownloadOption(downloadOption)"
+      [matMenuTriggerFor]="menuDownloadSubMenu">{{ downloadOption }}</button>
+      <button *ngIf="!showSubMenu" role="button"  id="{{ downloadOption + '_download'}}" mat-menu-item tabindex="0" (menuOpened)="onClickDownloadOption(downloadOption)"
+       (click)="onClickDownloadOption(downloadOption)">{{ downloadOption }}</button>
+    </li>
+</ul>
+</mat-menu>
+
+<mat-menu #menuDownloadSubMenu="matMenu" class="downloadMatMenu downloadMatSubMenu">
+  <ul>
+    <li *ngFor= "let subDownloadOption of allowedSubOptionsDownload">
+      <span mat-menu-item tabindex="0" (click)="onClickSubMenuDownload(subDownloadOption)" id="{{ subDownloadOption + '_download'}}"
+      (keyup.enter)="onClickSubMenuDownload(subDownloadOption)">{{ subDownloadOption | translate}}</span>
+    </li>
+</ul>
+</mat-menu>
+
+<p-overlayPanel #op class="columnPanel" appendTo="body">
+  <div class="column-box columnHeader" [ngClass]="setDirections('className', '')" [dir]="dir">
+      <span>{{'CUSTOMIZE_COLUMNS' | translate}}</span>
+  </div>
+  <div class="staticText">
+    <app-widget-static-text *ngIf="isSelectColMinLimitReached" [textDetails]="staticTextSelectObj"></app-widget-static-text>
+    <app-widget-static-text *ngIf="isFrozenColMaxLimitReached" [textDetails]="staticTextFrozenObj"></app-widget-static-text>
+  </div>
+  <div class="column-box selectAll" [ngClass]="setDirections('className', '')" [dir]="dir">
+      <mat-checkbox (change)="onSelectAll()" #checkboxRef [checked]="isSelectAll" [indeterminate]="someSelected()" class="p-col-6">
+          {{ 'selectAll' | translate}}
+      </mat-checkbox>
+  </div>
+  <div cdkDropList [cdkDropListData]="columnList" class="column-list" (cdkDropListDropped)="drop($event)" [ngClass]="setDirections('className', '')" [dir]="dir">
+    <ng-container *ngFor="let col of columnList; let index = index;">
+      <div class="column-box" *ngIf="col.field !== 'action'" [ngClass]="{'freezeColCustomListBorder': index === overlayLastFreezedColumnIndex}" cdkDragLockAxis="y" cdkDrag>
+        <div class="p-col-6 columnLabel">
+          <mat-checkbox (ngModelChange)="onSelectColumn($event, index)" [(ngModel)]="col.showAsDefault" [disabled]="col.frozen">
+            {{ col.header }}
+          </mat-checkbox>
+        </div>
+        <div class="p-col-6 columnListIcon" [dir]="dir">
+          <span tabindex="0" (click)="onLockClick(index, 'unfreeze')" *ngIf="col.frozen" attr.aria-label="{{'lock' | translate}}">
+            <mat-icon>lock</mat-icon>
+          </span>
+          <span tabindex="0" (click)="onLockClick(index, 'freeze')" *ngIf="!col.frozen" attr.aria-label="{{'unlock' | translate}}">
+            <mat-icon>lock_open</mat-icon>
+          </span>
+          <span tabindex="0" class="drag-handler" attr.aria-label="{{'drag' | translate}}" cdkDragHandle>
+            <mat-icon
+              id="dragIcon"
+              class="material-icons" aria-hidden="true"
+              svgIcon="drag_indicator">
+            </mat-icon>
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="p-grid p-justify-end">
+    <div class="p-col-12 buttonLayout" [ngClass]="setDirections('className', '')" [dir]="dir">
+      <button role="button"
+        id="cancelBtn"
+        pButton
+        class="tertiaryButton"
+        type="button"
+        (click)="onCancel()"
+        label="{{'cancel' | translate}}" [dir]="dir"
+      ></button>
+      <button role="button"  *ngIf="inputParams?.isDashboardWidget"
+        pButton
+        class="primaryButton"
+        type="button"
+        (click)="onApply()"
+        label="{{'apply' | translate}}"
+        [disabled]="isSelectColMinLimitReached"
+      ></button>
+      <button role="button"  *ngIf="!inputParams?.isDashboardWidget"
+        id="applyAndSaveBtn"
+        pButton
+        class="primaryButton"
+        type="button"
+        (click)="onApply()"
+        label="{{'applyAndSave' | translate}}"
+        [disabled]="isSelectColMinLimitReached || !preferenceSelected"
+      ></button>
+    </div>
+  </div>
+</p-overlayPanel>
+
+<ng-template #rowInnerData
+let-rowData="rowDataValue"
+let-expanded="expandedValue"
+let-i="rowIndexValue"
+let-col="columnsValue">
+<ng-container *ngIf="!enhancedUXTable">
+  <div id="beneficiary_name" *ngIf="col.field === 'beneficiary_name' && isDashboardWidget; else showOriginal">
+    <span title="{{rowData[col.field]}}">{{rowData[col.field]?.substr(0,displayLength)}}</span>
+    <span *ngIf="rowData[col.field]?.length > displayLength">...</span>
+  </div>
+  <ng-template #showOriginal>
+    <span *ngIf="col.field === 'beneficiary_name'" title="{{rowData[col.field]}}">{{rowData[col.field]}}</span>
+  </ng-template>
+  <div *ngIf="!col.isCodeField && col.field !== 'action' && col.field !== 'beneficiary_name' ;else codeValueBlock"
+  [ngClass]="col.showFavIcon ==='y' ? 'flex-display' : ''">
+    <div *ngIf="col.field === 'account_type'">
+      <span>{{"N068_"+rowData[col.field]  | translate}}</span>
+    </div>
+    <div *ngIf="col.field === 'account_type_code'">
+      <span>{{"N068_"+rowData[col.field]  | translate}}</span>
+    </div>
+    <div *ngIf="col.field === 'RunningStatement@AvailableBalance@convertedAmt' && col.showAbbvAmt && ((col.maskable !== 'y') || (col.maskable === 'y' && maskEnable))">
+      <span title="{{rowData[col.field]}}">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <!-- <div *ngIf="col.field === 'RunningStatement@AvailableBalance@convertedAmt' && col.showAbbvAmt  && col.maskable === 'y' && maskEnable">
+      <span title="{{rowData[col.field]}}">
+        {{rowData[col.field]}}
+      </span>
+    </div> -->
+    <div *ngIf="col.field === 'RunningStatement@AvailableBalance@convertedAmt' && col.showAbbvAmt && col.maskable === 'y' && !maskEnable">
+      <span title="{{rowData[col.field]}}" style="position: relative">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <div *ngIf="col.field !== 'RunningStatement@AvailableBalance@convertedAmt' && col.field !== 'acct_name' && col.maskable === 'y' && maskEnable">
+      <span title="{{rowData[col.field]}}" style="position: relative">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <div *ngIf="col.field !== 'RunningStatement@AvailableBalance@convertedAmt' && col.field !== 'acct_name' && col.maskable === 'y' && !maskEnable">
+      <span title="{{rowData[col.field]}}" style="position: relative">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <div *ngIf="col.field === 'nextauthoriserPreviousUsers'">
+      <span title="{{rowData[col.field]}}" style="position: relative">
+        {{rowData[col.field] | translate}}
+      </span>
+    </div>
+      <div class="bene-fav-icon" *ngIf="favIconPermission && col.showFavIcon ==='y' && rowData['bankAccount@beneficiaryStatus'] === 'Approved'">
+        <span *ngIf="col.field === 'beneficiaryId'" (keyup.enter)="markRecordAsFavorUnFav(rowData);$event.stopPropagation()"
+         class="star-layout" tabindex="0">
+          <em *ngIf ="(totalFavBeneCount >= totalFavBeneLimit) && (rowData['bankAccount@isFavoriteAccount'] !== 'true' || rowData['isfavoriteaccount'] !== 'true')"  (click)="$event.stopPropagation()"
+          class="pi pi-star-o star-size disable-star" matTooltip="{{'disableBeneFav' | translate}}" matTooltipPosition="below"></em>
+          <em *ngIf="rowData['bankAccount@isFavoriteAccount'] === 'true' || rowData['isfavoriteaccount'] === 'true'"  class="pi pi-star star-size"  matTooltip="{{'unmarkBeneFav' | translate}}" matTooltipPosition="below"
+           (click)="markRecordAsFavorUnFav(rowData);$event.stopPropagation()"></em>
+          <em *ngIf="((rowData['bankAccount@isFavoriteAccount'] === '' || rowData['bankAccount@isFavoriteAccount'] === 'false') || (rowData['isFavoriteAccount'] === '' || rowData['isFavoriteAccount'] === 'false')) && (totalFavBeneCount < totalFavBeneLimit)"
+           class="pi pi-star-o star-size"   matTooltip="{{'markBeneFav' | translate}}" matTooltipPosition="below"
+          (click)="markRecordAsFavorUnFav(rowData);$event.stopPropagation()"></em>
+        </span>
+      </div>
+      <div *ngIf="col.separator !== null">
+      <div *ngIf="col.separator ==='ENTER'">
+        <span *ngFor="let fieldValue of col.clubbedFieldsList?.split(','),let in = index">
+          <span  *ngIf= "in <  (col.clubbedFieldsList?.split(',').length -1) && fieldValue !== 'controlSum'" >
+            {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}<br>
+          </span>
+          <span *ngIf= "in < (col.clubbedFieldsList?.split(',').length -1) && fieldValue === 'controlSum'" class="digit">{{ getDigit(rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]) }}</span>
+          <span *ngIf= "in < (col.clubbedFieldsList?.split(',').length -1) && fieldValue === 'controlSum'" class="decimal">{{ getDecimal(rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]) }}</span>
+          <span *ngIf= "in == (col.clubbedFieldsList?.split(',').length -1)" class="clubbed-field">
+            <p class="clubbed-field-margin" *ngIf= "col.field === 'controlSum'"><span class="is-batch-payment" *ngIf="rowData['isBatchPayment'] === 'true'">*</span>{{'batchCount'|translate}}: {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}</p>
+            <p class="clubbed-field-margin" *ngIf= "col.field === 'clientName'">{{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}</p>
+            <p class="clubbed-field-margin" *ngIf= "col.field !== 'controlSum' && col.field !== 'clientName'">{{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}</p>
+          </span>
+        </span>
+      </div>
+      <div *ngIf="col.separator ==='SPACE'" class="newStyle">
+        <span *ngFor="let fieldValue of col.clubbedFieldsList?.split(','),let in = index">
+          <span  *ngIf= "in <  (col.clubbedFieldsList?.split(',').length -1)" >
+            {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}
+          </span>
+          <span *ngIf= "in == (col.clubbedFieldsList?.split(',').length -1)" class="clubbed-field">
+            <span class="clubbed-field-margin" *ngIf= "col.field === 'packageTotalBatchcount' || col.field === 'clientTotalBatchCount'">
+              <button role="button"  mat-icon-button
+              id="infoIcon" [dir]="dir"tabindex="0">
+              <em class="material-icons infoIconStyle" matTooltip="{{'instruments'|translate}}: {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}">info</em>
+              </button>
+            </span>
+            <span class="clubbed-field-margin" *ngIf= "col.field !== 'packageTotalBatchcount' && col.field !== 'clientTotalBatchCount'">{{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}</span>
+          </span>
+        </span>
+      </div>
+
+      <div *ngIf="col.separator ==='CLUBBED-DATA'">
+        <span *ngFor="let fieldValue of col.clubbedFieldsList?.split(','),let in = index">
+          <span  *ngIf= "in == 0" >
+            <span *ngFor="let field of rowData[fieldValue]?.split('\n'),let z = index">
+              <p  *ngIf= "z == 0" >
+                {{field}}<br>
+              </p>
+              <p *ngIf= "z > 0" class="clubbed-field clubbed-field-margin">
+                {{field}}
+              </p>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div *ngIf="col.separator !=='ENTER' && col.separator !=='CLUBBED-DATA' && col.separator !=='SPACE'">
+        <span *ngFor="let fieldValue of col.clubbedFieldsList?.split(','),let in = index">
+            <span  *ngIf= "in <  (col.clubbedFieldsList?.split(',').length -1)" >
+              {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}{{col.separator}}
+            </span>
+            <span *ngIf= "in == (col.clubbedFieldsList?.split(',').length -1)" class="clubbed-field">
+              {{rowData[fieldValue] === '' ? sampleComment : rowData[fieldValue]}}
+            </span>
+          </span>
+      </div>
+    </div>
+    <div *ngIf="col.field === 'acct_name' && col.maskable === 'y' && maskEnable">
+      <span title="{{rowData[col.field]}}" style="line-height: normal;">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <div *ngIf="col.field === 'acct_name' && col.maskable === 'y' && !maskEnable">
+      <span title="{{rowData[col.field]}}" style="line-height: normal;">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+    <div *ngIf="col.field === 'acct_name' && col.maskable !== 'y'">
+      <span title="{{rowData[col.field]}}" style="line-height: normal;">
+        {{rowData[col.field]}}
+      </span>
+    </div>
+  <div *ngIf="col.field === 'cheque_number' || col.field === 'account@account_no' || col.field === 'tnx_account@account_no'
+    || col.field === 'UserAccount@EntityAccount@entity@abbv_name'">
+    <span *ngIf="rowData['ObjectDataString@no_of_cheques'] && rowData['ObjectDataString@no_of_cheques'] === '02'
+    || rowData['account@account_no'] || rowData['tnx_account@account_no'] || rowData['UserAccount@EntityAccount@entity@abbv_name']"
+    title="{{rowData[col.field] | valueAbbreviationCount: 5}}">
+      {{rowData[col.field] | valueAbbreviationCount}}
+    </span>
+    <span *ngIf="(!rowData['ObjectDataString@no_of_cheques'] || rowData['ObjectDataString@no_of_cheques'] !== '02')
+    && !rowData['account@account_no'] && !rowData['tnx_account@account_no'] && !rowData['UserAccount@EntityAccount@entity@abbv_name']">
+      {{rowData[col.field] | valueAbbreviationCount}}
+    </span>
+  </div>
+    <div
+    *ngIf="(col.maskable !== 'y') && (col.field !== 'LicenseDefinition@allow_overdraw')
+            && ((col.field === 'RunningStatement@AvailableBalance@convertedAmt' && !col.showAbbvAmt) || (col.field !== 'RunningStatement@AvailableBalance@convertedAmt')) && (col.field !== 'nextauthoriserPreviousUsers') && (col.field !== 'acct_name') && (col.field !== 'account_type') && (col.field !== 'account_type_code')
+            && (col.field !== 'cheque_number') && (col.field !== 'account@account_no') && (col.field !== 'tnx_account@account_no') && (col.field !== 'UserAccount@EntityAccount@entity@abbv_name') && col.separator === null"
+    [attr.title]="rowData[col.field] | translate">
+    <span>{{rowData[col.field] === '' ? sampleComment : rowData[col.field]}}</span>
+  </div>
+
+  </div>
+  <!-- In case of code field for non clubbed field, fetch the codeid from column metadata and display the localized value -->
+  <ng-template #codeValueBlock>
+    <div *ngIf="(col.field !== 'action' && col.field !== 'beneficiary_name' && !col.showDisplayValue)">
+    <span>{{ getEventName(rowData,col) | translate}}</span>
+    </div>
+    <div *ngIf="(col.showDisplayValue && col.showDisplayValue === 'y')">
+    <span>{{rowData[col.field]}}</span>
+    </div>
+
+  </ng-template>
+</ng-container>
+<ng-container *ngIf="enhancedUXTable">
+  <div>
+    <span>enhanced</span>
+  <div *ngIf="col.field !== 'product_code' && col.field !== 'tnx_type_code'" class="headerFont">{{col.header}}</div>
+  <div *ngIf="col.field === 'tnx_type_code'" class="headerFont eventHeader">{{col.header}}</div>
+  <div *ngIf="col.field === 'product_code'" class="productCodeDefault {{rowData['product_code']}} {{rowData['product_code'] + '_background'}}">{{rowData[col.field]}}</div>
+  <div *ngIf="col.field === 'tnx_type_code'" class="event {{'N002_' + rowData['tnx_type_code']}}">{{"N002_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'action_req_code'" class="event {{'N042_' + rowData['action_req_code']}}">{{"N042_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'sub_product_code'" class="event {{'N047_' + rowData['sub_product_code']}}">{{"N047_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'ft_type'" class="event {{'N029_' + rowData['ft_type']}}">{{"N029_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'lc_exp_date_type_code'" class="event {{'C085_' + rowData['lc_exp_date_type_code']}}">{{"C085_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'exp_date_type_code'" class="event {{'N025_' + rowData['exp_date_type_code']}}">{{"N025_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'product_type_code'" class="event {{'C010_' + rowData['product_type_code']}}">{{"C010_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'account_type'" class="event {{'N068_' + rowData['account_type']}}">{{"N068_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'nextauthoriserPreviousUsers'">{{rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'account_type_code'" class="event {{'N068_' + rowData['account_type_code']}}">{{"N068_"+rowData[col.field]  | translate}}</div>
+  <div *ngIf="col.field === 'RunningStatement@AvailableBalance@convertedAmt' && col.showAbbvAmt" title="{{rowData[col.field]}}">{{rowData[col.field]}}</div>
+  <div *ngIf="col.field === 'cheque_number' || col.field === 'account@account_no' || col.field === 'tnx_account@account_no' || col.field === 'UserAccount@EntityAccount@entity@abbv_name'" title="{{rowData[col.field] | valueAbbreviationCount: 5}}">{{rowData[col.field] | valueAbbreviationCount}}</div>
+  <div *ngIf="(col.field !== 'product_code') && (col.field !== 'tnx_type_code') && (col.field !== 'action') &&  (col.field !== 'ft_type') && (col.field !== 'LicenseDefinition@allow_overdraw') && (col.field !== 'action_req_code') && (col.field !== 'sub_product_code') && (col.field !== 'lc_exp_date_type_code')
+  && ((col.field === 'RunningStatement@AvailableBalance@convertedAmt' && !col.showAbbvAmt) || (col.field !== 'RunningStatement@AvailableBalance@convertedAmt')) && (col.field !== 'product_type_code') && (col.field !== 'exp_date_type_code') && (col.field !== 'account_type')  && (col.field !== 'account_type_code') && (col.field !== 'ObjectDataString@adv_send_mode')
+  && (col.field !== 'cheque_number') && (col.field !== 'nextauthoriserPreviousUsers')  && (col.field !== 'account@account_no') && (col.field !== 'tnx_account@account_no') && (col.field !== 'UserAccount@EntityAccount@entity@abbv_name')">{{rowData[col.field]}}</div>
+</div>
+</ng-container>
+</ng-template>
+
+  <div *ngIf="showTableBelowMessage">
+    <p class="displayMessage">{{ topBeneText | translate}}</p>
+  </div>
+
+<p-overlayPanel #actionPanel class="columnPanel" tabindex="0" appendTo="body" [style]="{'z-index': '999 !important', 'white-space': 'nowrap'}">
+  <div [dir]="dir" class="closeLayout" tabindex="0" (keyup.enter)="actionPanel.hide()" (click)="actionPanel.hide()" attr.aria-label="{{'close' | translate}}" title="{{'close' | translate}}">
+    <em class="pi pi-times auditClose" aria-hidden="true"></em>
+  </div>
+  <fcc-user-audit [dir]="dir" class="auditPanel" [tnxId]="tnxId" [maxRecords]="3" (dataLoaded)="onUserAuditDataLoad($event)" (viewMoreEvent)="onClickViewMoreAuditRecords()"></fcc-user-audit>
+</p-overlayPanel>
+
+<p-dialog [dir]="dir" header="{{'userAudit' | translate}}" dir="{{dir}}" [(visible)]="displayUserAuditDialog"
+    [modal]="true" [maximizable]="false" [baseZIndex]="10000" [resizable]="false">
+    <p class="auditDataLayout">{{'CHANNEL_REFERENCE' | translate}}: {{userAuditDialogObj.ref_id}}</p>
+    <p>{{'TRANSACTION_TYPE_CODE' | translate}}: {{userAuditDialogObj.tnx_type_code}}</p><br>
+    <fcc-user-audit [tnxId]="tnxId" displayType="horizontal"></fcc-user-audit>
+</p-dialog>

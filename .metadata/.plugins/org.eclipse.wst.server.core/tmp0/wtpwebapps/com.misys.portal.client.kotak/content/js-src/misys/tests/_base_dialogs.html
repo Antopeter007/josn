@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Dialog Functions for _base.js</title>
+        <!--
+        	For some reason, animations in the _base.html were interfering with the Dialog
+        	tests, but only when run in the same frame. So I've split off the dialog tests
+        	into this test suite.   
+        -->
+        <style type="text/css">
+         @import "../../dojo/resources/dojo.css";
+         @import "../../dijit/themes/claro/claro.css";
+        </style>
+        
+        <script src="../../dojo/dojo.js"  
+        	djConfig="isDebug: true, parseOnLoad: true, locale:'en-us'"></script>
+        	
+        <!-- functions to help test -->
+        <script src="../../dijit/tests/helpers.js"></script>	
+        
+        <script>
+         dojo.require("dojo.parser");
+         dojo.require("doh.runner");
+         dojo.require("dijit.dijit");
+         dojo.require("misys.widget.Dialog"),
+         dojo.require("dijit.form.TextBox");
+         dojo.require("dijit.form.Button");
+         dojo.requireLocalization("misys", "common", "en-us");
+         dojo.require("misys._base");
+         
+         dojo.mixin(misys, {_config: { context: "/", servlet: "/portal", client: "misys"}});
+         
+         // Get the context and servlet and set it on the misys object
+         var str = window.location.href.substr(window.location.href.indexOf("?")+1).split(/#/);
+		 var ary  = str[0].split(/&/);
+         if(window.location.href.indexOf("?") > -1){
+        	 for(var i=0; i<ary.length; i++){
+        		 var split = ary[i].split("="),
+					 key = split[0],
+					 value = split[1];	// replace() to prevent XSS attack
+				 switch(key){
+					case "context":
+						misys._config.context = value;
+						break;
+					case "servlet":
+						misys._config.servlet = value;
+						break;
+				}
+			}
+		}
+
+         dojo.ready(function(){
+        	 var alertDialogID = "alertDialog";
+        	 doh.register("Testing _base.js dialog functionality", [
+        	  {
+	    		  // summary:
+	    		  //		Test alert dialog show.
+	    		  //
+	    		  //		Sometimes hide animations overlap, so we add a small setTimeout
+	    		
+	    	      name : "test misys.dialog.show (Alert dialog, onShow callback)",
+	    	      timeout :20000,
+	    	      runTest : function(){
+	    	    	var d = new doh.Deferred;
+	    	    	setTimeout(function(){
+	    	    		// First test, so no need to call hide() (it would return no Deferred obj anyway)
+ 	    	    		doh.t(!dijit.byId(alertDialogID) || isHidden(dijit.byId(alertDialogID)));
+ 	    	    		misys.dialog.show('ALERT', 'Message', 'Title', null, function(){
+ 		    	    		doh.t(isVisible(dijit.byId(alertDialogID)));
+ 		    	    		doh.is("Alert", dijit.byId(alertDialogID).get('title'));
+ 		    	    		doh.t(dijit.byId(alertDialogID).get('content') != "");
+ 		    	    		doh.is(5, misys.dialog.connections.alertDialog.length);
+ 		    	    		doh.t(isVisible(dijit.byId("cancelButton")));
+ 		   	    			doh.t(isVisible(dijit.byId("okButton")));
+ 		   	    			doh.t(isHidden(dojo.byId("dialogProgressBar")));
+ 		    	    		d.callback(true);
+ 		    	    	});
+	    	    	}, 2000);
+
+	    	    	return d;
+	    	      },
+	    	      tearDown : function() {
+	    	    	  dijit.byId('okButton').onMouseUp();
+	    	      }
+    	  	   },
+    	  	   {
+ 	    		  // summary:
+ 	    		  //		Test alert dialog show
+ 	    		
+ 	    	      name : "test misys.dialog.show (Alert dialog, onHide callback)",
+ 	    	      timeout :20000,
+ 	    	      
+ 	    	      runTest : function(){
+ 	    	    	var d = new doh.Deferred;
+					setTimeout(function(){
+						misys.dialog.show('ALERT', 'Message', 'Title', function(){
+	 	    	    		console.log("hiding");
+	 	 	    	    	doh.t(isHidden(dijit.byId(alertDialogID)));
+	 	 	    	    	d.callback(true);
+						});
+	 	 	    	    
+	 	    	    	setTimeout(function(){
+	 	    	    		dijit.byId('okButton').onMouseUp();
+	 	    	    	}, 1000);
+					}, 5000);
+ 	    	    	
+ 	    	    	return d;
+ 	    	      }
+     	  	   },
+    	  	   {
+	    		  // summary:
+	    		  //		Test error dialog show
+	    		
+	    	      name : "test misys.dialog.show (Error dialog, onShow callback)",
+	    	      timeout :20000,
+	    	      runTest : function(){
+	    	    	var d = new doh.Deferred;
+	    	    	setTimeout(function(){
+		    	    	doh.t(isHidden(dijit.byId(alertDialogID)));
+		    	    	misys.dialog.show('error', 'Message', 'Title', null, function(){
+			    	    	doh.t(isVisible(dijit.byId(alertDialogID)));
+			    	    	doh.is("Error", dijit.byId(alertDialogID).get('title'));
+			    	    	doh.t(dijit.byId(alertDialogID).get('content') != "");
+			    	    	doh.is(4, misys.dialog.connections.alertDialog.length);
+			    	    	doh.t(isHidden(dijit.byId("cancelButton")));
+			   	    		doh.t(isVisible(dijit.byId("okButton")));
+			   	    		doh.t(isHidden(dojo.byId("dialogProgressBar")));
+			    	    	d.callback(true);
+			    	    });
+	    	    	}, 3000);
+	    	    	return d;
+	    	      },
+	    	      tearDown : function() {
+	    	    	  dijit.byId('okButton').onMouseUp();
+	    	      }
+   	  	       },
+   	  	  	   {
+ 	    		  // summary:
+ 	    		  //		Test error dialog show
+ 	    		
+ 	    	      name : "test misys.dialog.show (Confirmation dialog, onShow callback)",
+ 	    	      timeout :20000,
+ 	    	      runTest : function(){
+ 	    	    	var d = new doh.Deferred;
+					setTimeout(function(){
+	 	    	    	misys.dialog.show('CONFIRMATION', 'Message', 'Title', null, function(){
+	 		    	    	doh.t(isVisible(dijit.byId(alertDialogID)));
+	 		    	    	doh.is("Confirmation", dijit.byId(alertDialogID).get('title'));
+	 		    	    	doh.t(dijit.byId(alertDialogID).get('content') != "");
+	 		    	    	doh.is(5, misys.dialog.connections.alertDialog.length);
+	 		    	    	doh.t(isVisible(dijit.byId("cancelButton")));
+	 		   	    		doh.t(isVisible(dijit.byId("okButton")));
+	 		   	    		doh.t(isHidden(dojo.byId("dialogProgressBar")));
+	 		    	    	d.callback(true);
+	 		    	    });
+					}, 4000);
+ 	    	    	
+ 	    	    	return d;
+ 	    	      },
+	    	      tearDown : function() {
+	    	    	  dijit.byId('okButton').onMouseUp();
+	    	      }
+    	  	   },
+    	  	   {
+  	    		  // summary:
+  	    		  //		Test error dialog show
+  	    		
+  	    	      name : "test misys.dialog.show (Progress dialog, onShow callback)",
+  	    	      timeout :20000,
+  	    	      runTest : function(){
+  	    	    	var d = new doh.Deferred;
+ 					setTimeout(function(){
+ 	    	    	 misys.dialog.show('PROGRESS', 'Message', 'Title', null, function(){
+ 		    	    	doh.t(isVisible(dijit.byId(alertDialogID)));
+ 		    	    	doh.is("Processing", dijit.byId(alertDialogID).get('title'));
+ 		    	    	doh.t(dijit.byId(alertDialogID).get('content') != "");
+ 		    	    	doh.is(3, misys.dialog.connections.alertDialog.length);
+ 		    	    	doh.t(isHidden(dijit.byId("cancelButton")));
+ 		   	    		doh.t(isHidden(dijit.byId("okButton")));
+ 		   	    		doh.t(isVisible(dojo.byId("dialogProgressBar")));
+ 		    	    	d.callback(true);
+ 		    	    });
+ 				  }, 4000);
+  	    	    	
+  	    	      return d;
+  	    	     },
+	    	     tearDown : function() {
+	    	    	  dijit.byId('alertDialog').hide();
+	    	     }
+     	  	   },
+     	  	   {
+   	    		  // summary:
+   	    		  //		Test URL dialog show
+   	    		
+   	    	      name : "test misys.dialog.show (URL dialog, onShow callback)",
+   	    	      timeout :20000,
+   	    	      runTest : function(){
+   	    	    	var d = new doh.Deferred;
+	 	    	    doh.t(isHidden(dijit.byId('xhrDialog')));
+	 	    	   	setTimeout(function(){
+		 	    	    misys.dialog.show('URL', 'Message', 'URLTitle', null, function(){
+	 		    	    	doh.t(isVisible(dijit.byId('xhrDialog')));
+	 		    	    	doh.is("URLTitle", dijit.byId('xhrDialog').get('title'));
+	 		    	    	doh.t(dijit.byId('xhrDialog').get('content') != "");
+	 		    	    	doh.is(3, misys.dialog.connections.xhrDialog.length);
+	 		    	    	doh.t(isHidden(dijit.byId("cancelButton")));
+	 		   	    		doh.t(isHidden(dijit.byId("okButton")));
+	 		   	    		doh.t(isHidden(dojo.byId("dialogProgressBar")));
+	 		    	    	d.callback(true);
+	 		    		}, "http://localhost:8080" + misys.getContextualURL("content/js-src/misys/tests/resources/content.html"));
+	 	    	   	}, 4000);
+   	    	    	return d;
+   	    	      },
+   	    	      tearDown : function() {
+   	    	    	dijit.byId('xhrDialog').hide();
+   	    	      }
+     	  	    },
+   	    	    {
+     	    		  // summary:
+     	    		  //		Test error dialog show
+     	    		
+     	    	      name : "test misys.dialog.show (HTML dialog, onShow callback)",
+     	    	      timeout :20000,
+     	    	      runTest : function(){
+     	    	    	var d = new doh.Deferred;
+    					setTimeout(function(){
+   	 	    	    		misys.dialog.show('HTML', '<big>Message</big>', 'HTMLTitle', null, function(){
+   	 		    	    		doh.t(isVisible(dijit.byId('xhrDialog')));
+   	 		    	    		doh.is("HTMLTitle", dijit.byId('xhrDialog').get('title'));
+   	 		    	    		doh.t(dijit.byId('xhrDialog').get('content') === "<big>Message</big>");
+   	 		    	    		doh.is(5, misys.dialog.connections.xhrDialog.length);
+   	 		    	    		doh.t(isHidden(dijit.byId("cancelButton")));
+   	 		   	    			doh.t(isHidden(dijit.byId("okButton")));
+   	 		   	    			doh.t(isHidden(dojo.byId("dialogProgressBar")));
+   	 		    	    		d.callback(true);
+   	 		    	    	});
+    					}, 4000);
+
+     	    	    	return d;
+     	    	    },
+     	    	    tearDown : function(){
+     	    	    	dijit.byId('xhrDialog').hide();
+     	    	    }
+      	  	     },
+      	  	 	 {
+	           		  // summary:
+	           		  //		misys.dialog.connect
+	           		
+	           	      name : "test misys.dialog.connect (Connecting to a field in a dialog)",
+	           	      timeout :20000,
+	           	      runTest : function(){
+	           	    	setTimeout(function(){
+			    	    		doh.is(0, misys.dialog.connections.alertDialog.length);
+			           	    	misys.dialog.connect(
+			           	    			dijit.byId("testTextBox"), "onFocus", null, "alertDialog");
+			           	    	doh.is(1, misys.dialog.connections.alertDialog.length);
+	           	    	}, 2000);
+	           	      }
+           	     },
+           	  	 {
+	           		  // summary:
+	           		  //		misys.dialog.disconnect
+	           		
+	           	      name : "test misys.dialog.disconnect",
+	           	      timeout :20000,
+	           	      runTest : function(){
+	           	    	doh.is(5, misys.dialog.connections.xhrDialog.length);
+	           	    	misys.dialog.disconnect(dijit.byId('xhrDialog'));
+	           	    	doh.is(0, misys.dialog.connections.xhrDialog.length);
+	           	      }
+          	     }
+           ]);
+        	
+           doh.run();
+        });
+        </script>
+    </head>
+    <body class="claro notready">
+    		<div id="testTextBox" dojoType="dijit.form.TextBox"></div>
+    </body>
+</html>

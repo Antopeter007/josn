@@ -1,0 +1,176 @@
+@import './../../../../../../styles/variables.scss';
+.form-header {
+  font-size: 1.125em;
+  margin-top: 1.25em;
+  color: $formHeaderColor;
+  font-weight: 700;
+}
+
+.fileMaxLimits{
+  font-size: 0.75em !important;
+  margin-top: 0em !important;
+  color: $fileMaxLimitColor !important;
+  font-weight: 400 !important;
+  padding-top: 1em !important;
+}
+.browseButton{
+  color: $secondaryColor  !important;
+  border-radius: 1.125em !important;
+  padding: 0 1em !important;
+  min-width: 4em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border: 0.0625em solid $secondaryColor !important;
+  border-color: $secondaryColor  !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $browseButtonBackgroundColor !important;
+  margin-left: 0.5em !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.0625em solid $uiTableBorderBottom !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid $uiTableBorderBorder;
+  font-weight: bold;
+  background-color: transparent;
+  color: $uiTableColor;
+  line-height: 0.875em;
+  text-align: left;
+  font-size: 0.75em;
+}
+
+:host ::ng-deep .ui-paginator {
+  display: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: $uiTableBackground !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.0625em solid #d7d6d7 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: $uiTableTbodyBackgroundColor;
+  border-top: $uiTableTbodyBorderTop;
+  border-bottom: $uiTableTbodyBorderBottom;
+  border-left: $uiTableTbodyBorderLeft;
+  border-right: $uiTableTbodyBorderRight;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: left;
+  font-size: 0.875em;
+}
+tr:hover > td {
+  border-bottom: 0.0625em solid $secondaryColor !important ;
+  border-top: 0.0625em solid $secondaryColor !important ;
+}
+
+tr > td {
+  color: black;
+}
+
+.DragDropArea{
+  width: 22em !important;
+  font-size: 0.875em !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep .DragDropArea .ui-fileupload-content {
+    min-height: 10em;
+    border: 0.15625em dashed $dragDropAreaBorder;
+    border-radius: 1em;
+    display: block;
+    word-break: break-word;
+}
+
+:host ::ng-deep .DragDropArea .ui-fileupload .ui-fileupload-buttonbar {
+  display: none;
+}
+
+:host ::ng-deep .DragDropArea .ui-fileupload-content .ui-progressbar {
+   display: none;
+}
+
+:host ::ng-deep .DragDropArea .ui-fileupload-content .pi.pi-cloud-upload {
+  color: $secondaryColor;
+  font-size: 5em;
+}
+:host ::ng-deep .dialogStyle .ui-table .ui-table-tbody > tr > td {
+  background-color: $uiTableTbodyBackgroundColor;
+  border-top: 0em;
+  border-bottom: $uiTableTbodyBorderBottom;
+  border-left: $uiTableTbodyBorderLeft;
+  border-right: $uiTableTbodyBorderRight;
+  line-height: 1em;
+  word-break: break-word;
+  padding: 0em 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  text-align: left;
+  font-size: 0.875em;
+}
+.spinnerLeftStyle{
+  text-align: right !important;
+}
+
+.spinnerRightStyle{
+  text-align: left !important;
+}
+:host ::ng-deep .dialogStyleClass .ui-dialog .ui-dialog-titlebar{
+  border: 0.0625em solid  $primaryColor !important;
+  background-color:  $primaryColor !important;
+}
+
+:host ::ng-deep .dialogStyleClass .ui-dialog .ui-dialog-content{
+  padding: 0.5em !important;
+}
+
+:host ::ng-deep .dialogStyleClass .ui-dialog .ui-dialog-titlebar .ui-dialog-title{
+  color: $uiDialogColor !important;
+}
+
+:host ::ng-deep .dialogStyleClass .pi-times:before{
+  display: none !important;
+}
+
+:host ::ng-deep .input .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: none !important;
+  border-bottom: none !important;
+}
+.invalid-error-text {
+  color: $errorMessageColor;
+  font-size: 0.75em;
+  margin-left: 0em;
+}
+
+.fileUploadTable a:focus {
+  outline-color: $primaryColor !important;
+  outline-width: 0.25em !important;
+}
+
+.fileUploadTable em {
+  color: $fileuploadTableColor !important;
+}
+

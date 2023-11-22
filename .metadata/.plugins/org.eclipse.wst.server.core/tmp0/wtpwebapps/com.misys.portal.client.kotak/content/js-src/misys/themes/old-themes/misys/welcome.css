@@ -1,0 +1,106 @@
+@import "../../../dojo/resources/dojo.css";
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/form/Common.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+@import url("../../../dijit/themes/tundra/form/Checkbox.css");
+@import url("../../../dijit/themes/tundra/form/RadioButton.css");
+@import url("misys-layout.css");
+@import url("misys-styles.css");
+@import url("misys-portlets.css");
+
+/** Styles specific to the home page **/
+.misys .portlet-section-header{
+	display: none;
+}
+
+.misys #DefaultContent, .misys #TradeApplicationsDefault{
+	border: none;
+}
+
+.misys #DefaultContent{
+	margin-top:11px;
+}
+
+.misys #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	margin: 10px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+/** Login Form **/
+.misys #loginForm {
+ margin: 10% auto; 
+ width: 40%;
+}
+
+/** Login page **/
+.misys .toplevel-header{
+	width:80%;
+	padding: 0 0 0.5em 0;
+	margin: 5px auto 30px auto;
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+.misys .toplevel-header h2{
+    font-weight: bold;
+    background: transparent url("images/header_33px.png") repeat-x top;
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+.misys label,
+.misys .label{
+    width: 6em;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+}
+
+.misys #changePassword label,
+.misys #changePassword .label{
+	width:8em;
+}
+	
+
+.misys .dijitTextBox,
+.misys .dijitComboBox .dijitInputField                      
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.misys .small{
+	width:10em;
+}
+
+.misys #loginForm .field .dijitButton .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+	background: #fff url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left;
+}
+
+/** News paragraph **/
+.misys .para .icon {
+ float:left;
+ width:55px;
+}
+
+.misys .para-quote {
+	font-style: italic;
+}
+
+.misys .message{
+	margin-left:6px;
+}

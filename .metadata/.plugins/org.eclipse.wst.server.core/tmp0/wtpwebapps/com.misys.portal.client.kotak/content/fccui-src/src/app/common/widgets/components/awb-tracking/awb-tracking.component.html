@@ -1,0 +1,43 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@moveState]>
+  <p-card class="{{classCheck}}">
+    <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+    </p-header>
+    <h1 class="headerTitle">
+      {{ "awbLabel" | translate }}
+    </h1>
+    <div class="bodyAWB">
+      <a (click)="showDialog()" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <img (click)="showDialog()" (keyup.enter)= "showDialog()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" src="{{contextPath}}/content/FCCUI/assets/images/dhl_logo_homepage.jpg"  alt="{{'textualDescriptionOfAWBImage' | translate}}" />
+      </a>
+    </div>
+  </p-card>
+</div>
+<div *ngIf="display" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+  <p-dialog
+    class="dialogAWB"
+    header="{{ 'LBL_CONFIRM' | translate }}"
+    [(visible)]="display"
+    [modal]="true"
+    [responsive]="true"
+    [minY]="70"
+    [maximizable]="true"
+    [baseZIndex]="10000"
+  >
+    <p>{{ "awbMessage" | translate }}</p>
+    <p-footer>
+      <button role="button" 
+      type="button"
+      pButton
+      (click)="display = false"
+      label="{{'cancel' | translate}}"
+      class="secondaryButton listing sm-size-class"
+    ></button>
+      <a href="http://mrt2.ap.dhl.com/" target="_blank">
+        <button role="button"  type="button" pButton (click)="closeDialog()" class="primaryButton size-class" label="{{'proceed' | translate}}"></button
+      ></a>
+    </p-footer>
+  </p-dialog>
+  <app-nudges [nudges] = "nudges">
+  </app-nudges>
+</div>

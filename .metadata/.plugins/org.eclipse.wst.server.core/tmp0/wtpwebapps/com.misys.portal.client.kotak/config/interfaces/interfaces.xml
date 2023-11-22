@@ -1,0 +1,2168 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+	
+	
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd" 
+			xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<xi:include href="base_interfaces.xml"/>
+	<xi:include href="collaboration_interfaces.xml"/>
+	<xi:include href="openaccount_bundles.xml"/>		
+	<xi:include href="openaccount_interfaces.xml"/>		
+<!--	<xi:include href="loaniq_events_interfaces.xml"/> --> 
+	<xi:include href="opics_interfaces.xml"/>  
+	<xi:include href="mobi_interfaces.xml"/>
+	<xi:include href="mobi_interfaces_test.xml"/>
+	<xi:include href="retro_interfaces.xml"/>
+	<xi:include href="local_services_interfaces.xml"/>
+	<xi:include href="inquiry_interfaces.xml"/>
+	
+	<!-- TMA interfaces -->
+	<xi:include href="tsu_interfaces.xml"/>
+	
+	<!-- Uncomment this if the incoming interface are triggered in the webbapp-->
+	<xi:include href="incoming_interfaces.xml"/>	
+	
+	<!-- Essence Interfaces -->
+	<xi:include href="essence_interfaces.xml"/>
+		
+	<xi:include href="loan_interfaces.xml"/>
+	
+	<!-- Issued undertaking product - IU -->
+	<xi:include href="iu_bundles.xml"/>
+		
+	<!-- KTP interfaces -->
+	<xi:include href="ktp_interfaces.xml"/>
+	
+	<!-- GPP Interfaces -->
+	<xi:include href="payment_interfaces.xml"/>
+	
+	<!-- <properties>
+		<property name="errorlogger">interfaceserror</property>
+		<property name="interfacemessagelogger">interfacemessage</property>
+		<property name="smtp_host">${smtp.host}</property>
+		<property name="xml_output_directory">c:/dev/outgoing/V5</property>
+		<property name="xml_jms_output_directory">c:/dev/outgoing/TI/V5</property> 
+		<property name="output_directory">c:/dev/outgoing/V5Extraction</property>
+		<property name="xmlout.enable">true</property>
+		<property name="export.tnxdata2fbi.enable">false</property>
+		<property name="integration_output_directory">c:/dev/outgoing/integration/FBI</property>
+		<property name="provider_url">tcp://blrcswfbcc0001:61616</property>
+		<property name="fbi_users_queue_name">FBCC.TO.FBI</property>
+		<property name="fbi_tnx_queue_name">FBCC.TO.FBI</property>
+		<property name="fab_users_queue_name">FBCC.TO.FFC</property>
+		<property name="erp.enable">true</property>
+		<property name="xml_output_directory_V3">c:/dev/outgoing/V5toV3</property>
+		<property name="xml_output_directory_mobi">c:/dev/outgoing/mobi</property>
+		<property name="attachment_output_directory_loan">\\blrvswadev01\docs_upload</property>
+		 Location for Bulk outgoing xml to be picked up by Essence Queue 
+		<property name="xml_output_directory_bk_mobi">c:/dev/outgoing/bulk/mobi</property>
+		
+		<property name="export.finshare.user.enabled">false</property>
+		<property name="finshare_provider_url">tcp://blrcswfbcc0001:61616</property>
+		<property name="fbcc_to_finshare_queue_name">FBCC.TO.FFC.FINSHARE</property>
+		
+		<property name="xsd_location">/config/xsd</property>
+		<property name="xcl_location">/config/xcl</property>
+		<property name="sync_bo_erp">false</property>
+		Collaboration 
+		<property name="collaboration_xml_company_output_directory">c:/dev/outgoing/company</property>
+		<property name="collaboration_xml_user_output_directory">c:/dev/outgoing/user</property>
+		<property name="collaboration_xml_output_directory">c:/dev/outgoing/collaboration</property>
+		<property name="collaboration_from_address">${alert.email.from.address}</property>
+		<property name="collaboration_from_personal">${alert.email.from.personal}</property>
+
+		Common party details
+		<property name="provider_url_common_party">file:/D:/jms/Response</property>
+		<property name="common_party_queue_name">MPSenderQueue</property>
+		<property name="export.common_party_data.enable">false</property>
+		TSU variables
+		<property name="tsu_xml_output_directory">X:/swiftnet/tsu"</property>
+		<property name="tsu_message_tnx_stat_code">04</property>
+		<property name="tsu_xml_output_directory">c:/dev/outgoing/tsu/emission</property>
+
+		JMS Interfaces 
+		<property name="ti_attachment_location">c:/dev/TI/docs</property>
+		<property name="jms_error_directory">c:/dev/error/</property>
+		Properties for sending/receiving messages
+		<property name="batchsize">5</property>
+		<property name="retrycount">5</property>
+		<property name="attachments">database</property>
+		<property name="status_file_upload_attachment_directory">/prodlib/BIBT/StatusFileUpload/incoming/attachments</property>
+		<property name="file_upload_attachment_directory">${FILEUPLOAD_ATTACHMENT_DIRECTORY}</property>
+		Switch JMSOut interface 
+		<property name="xmljmsoutTI.enable">false</property>
+		Switch MHUB interfaces 
+		<property name="mhubxmlout.enable">true</property>
+		<property name="mhubenablexmlout.enable">false</property>
+		<property name="mhubloginpwdprintout.enable">false</property>
+		<property name="mhubpasswordresetprintout.enable">false</property>
+		Switch ESSENCE interfaces 
+		<property name="essencexmlout.enable">false</property>
+		<property name="essenceenablexmlout.enable">false</property>
+		
+		Transaction Next Authorisers Notification
+		<property name="sendmailnextauthoriser.enable">true</property>
+		<property name="childTnxSubmissionAlert">${enable.bulk.child.transaction.submission.alert.parameter}</property>
+
+		<property name="balanceAlert.enable">false</property>
+		
+		properties to configure JMS to TI/any trade BO
+		<property name="module.trade.initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+		<property name="module.trade.providerURL">iiop://blrvswasprtl07:2817</property>
+		<property name="module.trade.factory">jms/MTPQueueConnectionFactory</property>
+		<property name="module.trade.out.queue">TP.OUT</property>
+		<property name="module.trade.invoker">01</property>
+		<property name="module.trade.retry">true</property>
+		
+		The below mentioned property values need to be added based on the Bank requirement 
+		
+		<property name="AsyncQueueConnectionFactory"></property>
+		<property name="AsyncQueueConnectionFactorySecondary"></property>	
+		
+		 
+		Historical loan request can be sent or received through JMS or WebServicesusing below property.
+		if it is set to false, request and response is through JMS, else it is through WebServices.
+		<property name="webservice.enable">false</property>		
+		<property name="relationShip.manager.filter.enable">${relationShip.manager.filter.enable}</property>
+		
+		property to configure ack/nack for treasury incoming messages
+		<property name="treasury.ack.enable">false</property>
+		<property name="xmlinackSenderStylesheet">/treasury/xsl/fbcctokondorack.xsl</property>
+		<property name="provider_url_treasury">tcp://localhost:14616</property>
+		<property name="queue_name_treasury">dynamicQueues/ACK.2.K</property>
+		<property name="user_treasury">admin</property>
+		<property name="password_treasury">admin</property>
+	</properties> -->
+	
+	<!-- Bundles -->
+	<bundle name="milestonesjob01" description="milestonejob + alert type (01=email, 02=sms ...)">
+		<interface>milestonesemailparam</interface>
+	</bundle>	
+	<bundle name="reportemailjob"><interface>reportemail</interface></bundle>
+    <bundle name="deactivateuserjob"><interface>deactivateuser</interface></bundle>	
+	<!-- Client Side -->
+	<bundle name="SubmitBPInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitBPServiceInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitDDAInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitDDAUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitRemittanceInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitFTPIInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitSECSInitiation">
+		<interface asynchronous="true">xmlout</interface>		  
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitSECQSUnsigned">
+		<interface asynchronous="true">xmlout</interface>		  
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitSECSUnsigned">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<!-- SE-->
+	<bundle name="SubmitCoreReportingSE">
+ 	<interface asynchronous="true">xmlout</interface>
+ 	<interface asynchronous="true">xmljmsoutTI</interface>
+	<interface asynchronous="true">tnxdata2fbi</interface>
+ 	<interface failsafe="true" asynchronous="true">sendmailclient</interface>               
+ 	</bundle>
+ 	<!-- FBIScheduler -->
+	<bundle name="SubmitFBIData">
+ 	<interface asynchronous="true">fbixmlout</interface>           
+ 	</bundle>
+ 	<!-- FABScheduler -->
+	<bundle name="SubmitFABData">
+ 	<interface asynchronous="true">fabxmlout</interface>           
+ 	</bundle>
+	<!-- LC -->
+	<bundle name="SubmitLCInitiation">
+		<!--<interface>pdfstore</interface>-->
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		 <interface asynchronous="true">xmlout</interface>
+         <interface asynchronous="true">xmljmsoutTI</interface> 
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitLCAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>				
+	<bundle name="SubmitLCFreeFormat">
+ 		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>				
+	<bundle name="SubmitMultipleLCInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">lsproductwriter</interface>  <!-- Enable only when Local Services is running-->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+	</bundle>
+	<bundle name="SubmitMultipleLCAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleLCFreeFormat">
+		<interface>xmlout</interface>
+		<interface>xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">swiftout</interface>
+	</bundle>	
+	<bundle name="SaveUpdateCustomerRefLC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefRU">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefIU">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<bundle name="SubmitCNInitiation">
+		<interface>xmlout</interface>
+		<interface failsafe="true" asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="AsyncAlertSaveAction">
+		<interface asynchronous="true">xmljmsoutAudit</interface> 
+	</bundle>
+	<bundle name="SubmitCRInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="RejectCN">
+		<interface>creditNoteConnection</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitCNUploadInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface><!--  Enable only when Local Services is running -->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitCRUploadInitiation">
+		<interface>xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitMultipleCNInitiation">
+		<interface>xmlout</interface>
+		<!-- <interface>xmljmsoutTI</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ResubmitRejectedCN">
+		<interface>xmlout</interface>
+		<interface>xmljmsoutTI</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+
+	<bundle name="SaveLNFreeFormat">		
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>		
+	<!-- Loan Drawdown -->
+	<bundle name="SubmitLNInitiation">		
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface>collaborationsave</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+		<!-- Swingline -->	
+	<bundle name="SubmitLNSWINGInitiation">		
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface>collaborationsave</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>	
+			<!-- Loan Comprehensive Repricing --> 
+	<bundle name="SubmitRepricingLN.BK.01.97">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleFee.BK.01.B3">
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+
+	<!-- Loan Increase -->
+	<bundle name="SubmitLNAmendment">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface>collaborationsave</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<!-- Loan Payment -->
+	<bundle name="SubmitLNFreeFormat">
+		<!-- <interface failsafe="true" asynchronous="true">sendmailbankparam</interface> -->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface>collaborationsave</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+	</bundle>
+				<!-- Loan Comprehensive Repricing --> 
+	<bundle name="SubmitRepricingLN.BK.01.97">
+		<interface>collaborationsave</interface>
+<!-- 		<interface asynchronous="true">tnxdata2fbi</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="false" asynchronous="false">loanProcessorIntf</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	
+	<!-- License -->
+	<bundle name="SubmitLSInitiation">
+		<!--<interface>pdfstore</interface>-->
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+		<interface>swiftout</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedLSInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SubmitLSAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedLSAmendment">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitLSFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefLS">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<!-- ERP Download event for rejection -->
+	<bundle name="ReturnUnsignedLCInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedLCAmendment">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedLCMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedBGInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedBGAmendment">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedBGMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedBGRelease">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedSIInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedSIAmendment">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedSIMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedELAssignee">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedELTransfer">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedELMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedECInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedECMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedBRMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedSRTransfer">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedSRMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedINInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedINMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedIPInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedIPMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedTFInitiation">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="ReturnUnsignedTFMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>	
+	<bundle name="ReturnUnsignedFXMessageToBank">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<!-- SG -->
+	<bundle name="SubmitSGInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitSGUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleSGInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleSGUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SaveUpdateCustomerRefSG">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>		
+	</bundle>
+	
+	<!-- SE -->
+	<bundle name="SubmitSEInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<!-- <interface>collaborationsave</interface> -->
+	</bundle>
+	<bundle name="SubmitFileUploadSEInitiation">
+		<interface>xmlfileuploadout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<!-- <interface>collaborationsave</interface> -->
+	</bundle>	
+	
+	<bundle name="SubmitSEUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<!-- <interface>collaborationsave</interface> -->
+	</bundle>	
+	<bundle name="SubmitMultipleSEInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleSEUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitSEDocumentTrackingInitiation">
+		<interface failsafe="true" asynchronous="true">doctrackuploadtoloan</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SubmitSecureEmailInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<!-- LI -->
+	<bundle name="SubmitLIInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<!-- <interface asynchronous="true">xmljmsoutTI</interface> -->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<!-- <interface>collaborationsave</interface> -->
+	</bundle>	
+	<bundle name="SubmitLIUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<!-- <interface asynchronous="true">xmljmsoutTI</interface> -->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<!-- <interface>collaborationsave</interface> -->
+	</bundle>	
+	<bundle name="SubmitMultipleLIInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<!-- <interface asynchronous="true">xmljmsoutTI</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleLIUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<!-- <interface asynchronous="true">xmljmsoutTI</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SaveUpdateCustomerRefLI">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<!-- RU SWIFT 2019-20 -->
+	<bundle name="SubmitRUFreeFormat">
+		<interface asynchronous="false">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<!-- BR -->
+	<bundle name="SubmitBRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface  failsafe="true" asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleBRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefBR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<!-- TF -->
+	<bundle name="SubmitTFInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitTFUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleTFInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleTFUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SaveUpdateCustomerRefTF">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<!-- SI -->
+	<bundle name="SubmitSIInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitSIAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>	
+	<bundle name="SubmitSIRelease">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitSIFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleSIInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleSIAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleSIFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefSI">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<!-- EC -->
+	<bundle name="SubmitECInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+ 		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+ 		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitECUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitECAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleECInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleECUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleECAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefEC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- BG -->
+	<bundle name="SubmitBGInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitBGAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitBGRelease">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitBGFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleBGInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleBGAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleBGFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefBG">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+
+	<!-- EL -->
+	<bundle name="SubmitELFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleELFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitELTransfer">
+  		<interface asynchronous="true">xmlout</interface>
+  		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+  		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+ 	</bundle>
+	<bundle name="SubmitELAssignee">
+  		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+  		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+ 	</bundle>
+ 	<bundle name="SaveUpdateCustomerRefEL">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+ 	
+ 	<!-- SR -->
+	<bundle name="SubmitSRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface  failsafe="true" asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleSRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitSRTransfer">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitSRAssignee">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefSR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- IR -->
+	<bundle name="SubmitIRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleIRFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefIR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- IC -->
+	<bundle name="SubmitICFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitMultipleICFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefIC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+
+	<bundle name="SubmitFTInitiation">
+		<interface asynchronous="true">gppxmloutso</interface>
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">essencexmloutSO</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="true" asynchronous="true">beneficiarynotificationparam</interface>
+	</bundle>
+	<bundle name="SubmitFTInitiationDraft">
+		<interface asynchronous="true">gppxmloutso</interface>
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">essencexmloutSO</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="true" asynchronous="true">beneficiarynotificationparam</interface>
+		<interface>collaborationsave</interface>
+		<!--  <interface failsafe="true" asynchronous="true">xmloutSimulationCoreBanking</interface>  Enable for back office simulation Note\Warning: DO NOT ENABLE IN PRODUCTION ENVIRONMENT -->
+	</bundle>	
+	<bundle name="SubmitFTInitiationAutoForward">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">essencexmloutSO</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveFTTreasuryInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitFTTreasuryInitiationDraft">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclient</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="true" asynchronous="true">beneficiarynotificationparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleFTInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">essencexmloutSO</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitFTPIAutoForwardIntiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitPostDated">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitRecurring">
+		<interface asynchronous="true">gppxmloutso</interface>
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleMC">
+		<interface>xmlout</interface>	
+		<interface>xmljmsoutTI</interface>
+		<interface asynchronous="true">lsproductwriter</interface>  <!-- Enable only when Local Services is running-->
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitBatchMC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface>essencexmloutSO</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+<!-- <interface failsafe="false" asynchronous="false">loanProcessorIntf</interface> --> <!-- Enable when loan transactions are part of batch -->
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitProxyAuthorise">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+
+	<bundle name="SubmitBKInitiation">	   
+		<interface asynchronous="true">bulkxmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> 
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="true" asynchronous="true">beneficiarynotificationparam</interface>
+	</bundle>	
+	<bundle name="SubmitDraftBKAutoForward">
+		<interface asynchronous="true">bulkxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitUnsignedBKAutoForward">
+		<interface asynchronous="true">bulkxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleBKInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<!-- Bank Side -->
+	<bundle name="SaveCoreReporting">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SaveCoreReportingIR">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitCoreReportingIR">
+	    <interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveLSInitiation">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="UploadSaveCoreReportingForELFromMT700">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>	
+	<bundle name="UploadSubmitCoreReportingForELFromMT700">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="UploadSaveCoreReportingForELFromMT720">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="UploadSubmitCoreReportingForELFromMT720">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>	
+	<bundle name="SaveCoreReportingEL">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>	
+	
+	<bundle name="SubmitCoreReporting">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+		<interface asynchronous="true">bankfscmconnection</interface>
+		<!-- <interface>counterpartynotification</interface> -->
+	</bundle>
+	
+	<bundle name="ReleaseRejectCoreReporting">	
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+        <interface asynchronous="true">xmljmsoutTI</interface>
+		<interface failsafe="true" asynchronous="true">loanProcessorIntf</interface>	
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+		<!-- <interface>counterpartynotification</interface> -->
+	</bundle>
+	<bundle name="SubmitMultipleCoreReporting">
+		<interface>xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+		<!-- <interface>counterpartynotification</interface> -->
+	</bundle>
+	<!-- BR -->
+	<bundle name="SubmitCoreReportingBR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<!-- RU -->
+	<bundle name="SubmitCoreReportingRU">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleCoreReportingBR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<!-- EL -->
+	<bundle name="SubmitCoreReportingEL">
+		 <interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleCoreReportingEL">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<!-- ILC -->
+	<bundle name="SubmitMultipleCoreReportingIL">
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<!-- IC -->
+	<bundle name="SubmitCoreReportingIC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleCoreReportingIC">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<!-- SR -->
+	<bundle name="SubmitCoreReportingSR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleCoreReportingSR">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+	</bundle>
+
+	<bundle name="SubmitDetailsReporting">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">bankepfscmconnection</interface> 
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+		<interface asynchronous="true">bankfscmconnection</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SaveDetailsReporting">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitMultipleDetailsReporting">
+		<interface>xmlout</interface>
+	</bundle>
+	
+	<!-- XO -->
+	<bundle name="SubmitXOInitiation">
+		<interface>xmlout</interface>
+	</bundle>
+	
+	<!-- FA -->
+	<bundle name="SubmitFaInitiation.FA.01">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitFAAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="OpenSaveBeneficiaryCSF">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailCounterpartyCreatedParam</interface>
+	</bundle>
+	
+	<bundle name="SaveCounterPartyCustomerAssociationBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailCounterpartyAssociatedParam</interface>
+	</bundle>
+	
+	<bundle name="OpenApproveCounterPartyCustomerAssociationBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailCounterpartyAssociatedParam</interface>
+	</bundle>
+	
+	<bundle name="OpenDeleteBeneficiaryCSF">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	
+	<!-- FT -->
+	<bundle name="SubmitFTTradeInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitMultipleFTTradeInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SaveUpdateCustomerRefFTTrade">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- TD Client Side -->
+	<bundle name="SubmitTDInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitTDUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitTDWithdrawal">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleTDInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<bundle name="SubmitMultipleTDUpdate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>	
+	<bundle name="SubmitMultipleTDWithdrawal">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitHelpdeskInitiation">
+		<interface failsafe="true" asynchronous="true">contacthelpdesk</interface>
+	</bundle>
+	
+	<bundle name="SendEmailNotification">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendemailnotificationparam</interface>
+	</bundle>
+	
+	<bundle name="SendSMSNotification">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendesmsnotification</interface>
+	</bundle>
+	
+	<bundle name="SendSMSNotificationBatch">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendesmsnotificationbatch</interface>
+	</bundle>
+	
+	<bundle name="SendEmailNotificationBankAntivirus">
+		<interface failsafe="true" asynchronous="true">sendmailbankantivirus</interface>
+	</bundle>
+	
+	<bundle name="SubmitBKUploadInitiation">
+		<interface asynchronous="true">xmlbulkfileuploadout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="OpenSaveProfileBSF">
+       <interface asynchronous="true">staticdataxmlout</interface>
+       <interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle> 
+	<bundle name="OpenSaveProfileCSF">
+	       <interface asynchronous="true">staticdataxmlout</interface>
+	       <interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	
+	<bundle name="SubmitEAInitiation">
+		<interface asynchronous="true">xmloutV3</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="OpenSaveNewCustomerAccountBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubenablexmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface asynchronous="true">essenceenablexmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface failsafe="true" asynchronous="true">historicalloansrequestor</interface>
+		<!--  <interface failsafe="true" asynchronous="true">liquidityfeatureprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityaccountprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementlistprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementdetailprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityexecutiondetailprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityexecutionmovementprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityagreementscheduleprocessor</interface> -->
+	</bundle> 
+	<bundle name="OpenSaveCustomerAccountBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubenablexmlout</interface>
+		<interface asynchronous="true">essenceenablexmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailCounterpartyActivated</interface>
+		<interface failsafe="true" asynchronous="true">historicalloansrequestor</interface>
+		<!--  <interface failsafe="true" asynchronous="true">liquidityfeatureprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityaccountprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementlistprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementdetailprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityexecutiondetailprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityexecutionmovementprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityagreementscheduleprocessor</interface> -->
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+		
+	</bundle> 
+	<bundle name="OpenDeleteCustomerAccountBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubenablexmlout</interface>
+		<interface asynchronous="true">essenceenablexmlout</interface>
+	</bundle> 
+	<bundle name="OpenApproveCustomerAccountBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubenablexmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface asynchronous="true">essenceenablexmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface failsafe="true" asynchronous="true">sendmailCounterpartyActivated</interface>
+		<interface failsafe="true" asynchronous="true">historicalloansrequestor</interface>
+		<!--  <interface failsafe="true" asynchronous="true">liquidityfeatureprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityaccountprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementlistprocessor</interface>
+		<interface failsafe="true" asynchronous="false">liquidityagreementdetailprocessor</interface>	
+		<interface failsafe="true" asynchronous="false">liquidityexecutiondetailprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityexecutionmovementprocessor</interface>
+		<interface failsafe="true" asynchronous="true">liquidityagreementscheduleprocessor</interface>	 -->
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface> 	
+	</bundle>
+	<bundle name="executiontrigger">
+		<interface failsafe="true" asynchronous="false">liquidityexecutiondetailprocessor</interface>
+	    <interface failsafe="true" asynchronous="true">liquidityexecutionmovementprocessor</interface>			
+	</bundle>
+	<!-- <bundle name="invokeFfcRequester">
+		<interface failsafe="true" asynchronous="false">ffcservicerequester</interface>			
+	</bundle>  --> 
+	<bundle name="OpenSaveNewCustomerUserProfileBSFMC">
+	 	<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+	</bundle> 
+	<bundle name="OpenSaveExistingCustomerUserProfileBSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>	
+		<interface asynchronous="true">sendmailCounterpartyUserActivated</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface> <!-- fds 10-->
+	</bundle>
+	<bundle name="OpenDeleteCustomerUserProfileBSFMC"> 
+		<interface asynchronous="true">staticdataxmlout</interface> 
+		<interface asynchronous="true">userdata2finshare</interface>
+	</bundle> 
+	<bundle name="OpenApproveCustomerUserProfileBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface asynchronous="true">sendmailCounterpartyUserActivated</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>  <!-- fds 10  -->
+	</bundle> 
+	 <bundle name="OpenSaveNewBankUserProfileBSFMC">
+	 	<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenSaveExistingBankUserProfileBSFMC">	
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+		<interface asynchronous="true">staticdataxmlout</interface>	
+	</bundle> 
+	 <bundle name="OpenSaveExistingUserBSFMC">
+	 	<interface asynchronous="true">staticdataxmlout</interface>
+	 	<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>  <!-- fds 10   -->
+	</bundle>
+	<bundle name="OpenDeleteBankUserProfileBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenDeleteUserBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenApproveBankUserProfileBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface> <!-- fds 10  -->
+	</bundle>  
+	<bundle name="OpenSaveBankUserAuthenticationBSF">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle> 
+	 
+	<bundle name="OpenSaveCustomerUserAuthenticationBSFMC">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle> 
+	<bundle name="OpenApproveBankUserAuthenticationBSFMC">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenApproveCustomerUserAuthenticationBSFMC">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenSaveNewUserBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle> 
+	<bundle name="OpenApproveUserBSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">mhubloginpwdprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface> <!-- fds 10  -->
+	</bundle>
+	<bundle name="OpenSaveUserAuthenticationBSFMC">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenApproveUserAuthenticationBSFMC">
+		<interface asynchronous="true">mhubpasswordresetprintout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenSaveNewUserCSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+	</bundle>
+	<bundle name="OpenSaveUserCSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>  <!-- fds 10  -->
+	</bundle>
+	<bundle name="OpenDeleteUserCSFMC">
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+	</bundle>
+	<bundle name="OpenApproveUserCSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+		<interface asynchronous="true">staticdataxmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailuserparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+		<interface asynchronous="true">userdata2finshare</interface>
+	</bundle>
+	<bundle name="OpenSaveUserAuthenticationCSFMC">
+		<!--Enable this interface if required
+		 <interface asynchronous="true">mhubpasswordresetprintout</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenApproveUserAuthenticationCSFMC">
+		<!--Enable this interface if required
+		<interface asynchronous="true">mhubpasswordresetprintout</interface> -->
+		<interface failsafe="true" asynchronous="true">sendmailpassword</interface>
+	</bundle>
+	<bundle name="OpenSaveNewBeneficiaryUploadBSFMC">
+		<interface asynchronous="true">beneficiaryFileUploadout</interface>
+	</bundle>
+	<bundle name="OpenApproveBeneficiaryUploadBSFMC">
+		<interface asynchronous="true">beneficiaryFileUploadout</interface>
+	</bundle>
+	<bundle name="OpenSaveCustomerNewBeneficiaryUploadBSFMC">
+		<interface asynchronous="true">beneficiaryFileUploadout</interface>
+	</bundle>
+	<bundle name="OpenApproveCustomerBeneficiaryUploadBSFMC">
+		<interface asynchronous="true">beneficiaryFileUploadout</interface>
+	</bundle>
+	<bundle name="OpenSaveNewCounterpartyUploadCSF">
+		<interface asynchronous="true">counterpartyFileUploadout</interface>
+	</bundle>
+	<bundle name="OpenSaveNewBankAccountBSF">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveBankAccountBSF">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenDeleteBankAccountBSF">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveCustomerEntityBSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveExistingEntityBSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenDeleteEntityBSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveCustomerEntityCSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveExistingEntityCSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenDeleteEntityCSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenApproveCustEntityBSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenApproveCustEntityCSFMC">	
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveBankPermissionBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+
+	<bundle name="OpenSaveExistingBankUserProfileBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveRoleBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenApproveBankPermissionBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedBankUserProfileBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedCustomerAccountBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedCustomerUserProfileBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedRoleBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenApproveRoleBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedUserCSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedBankPermissionBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+	<bundle name="OpenSaveReturnedUserBankProfileBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+		<bundle name="OpenSaveReturnedUserBSFMC">
+		<interface failsafe="true" asynchronous="true">permissionchangefrombank</interface>
+	</bundle>
+			
+	<!-- MT940/950 -->
+	
+	<bundle name="OpenSaveExtStmtUploadCSFMC">
+		<interface asynchronous="true">swiftinfiletoGTPinterface</interface>
+	</bundle>
+	
+	<bundle name="OpenApproveExtStmtUploadCSFMC">
+		<interface asynchronous="true">swiftinfiletoGTPinterface</interface>
+	</bundle>
+	
+	
+	
+	<!-- Client Side -->
+	<bundle name="WSInsertLC">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertEL">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertSG">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertTF">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertBG">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertEC">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertIC">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertSI">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertSR">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertFT">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertIN">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertIP">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertCN">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertCR">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertSE">
+		<interface failsafe="true" asynchronous="false">wsxmlin</interface>
+	</bundle>
+	<bundle name="WSInsertBK">
+		<interface failsafe="true" asynchronous="true">xmlbulkfileuploadout</interface>
+	</bundle>
+	<bundle name="WSInsertBN">
+		<interface failsafe="true" asynchronous="true">beneficiaryFileUploadout</interface>
+	</bundle>
+	<bundle name="WSInsertCP">
+		<interface failsafe="true" asynchronous="true">counterpartyFileUploadout</interface>
+	</bundle>
+	<bundle name="retrieveTradeEvent">
+		<interface failsafe="true" asynchronous="false">wsretrievetnx</interface>
+	</bundle>
+	
+	<!-- Added for Resend Functionality from Middle Office -->
+	<bundle name="RunReSend">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">loanmanualretry</interface>
+	</bundle>
+	
+	<!-- TMA bundles-->
+	<bundle name="SubmitTMAMessage">
+		<interface asynchronous="true">xmlout</interface>
+	</bundle>
+	
+	<bundle name="generateXml">
+		<interface asynchronous="true">xmloutV3</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- FX -->
+	
+	<!-- FX Spot -->
+	<bundle name="SubmitAcceptFXSpotInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitAcceptFXSpotUpdate">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitRejectFXSpotInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitAcceptFXUpdate">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitFXStandingInstruction">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<!-- FX Forward -->
+	<bundle name="SubmitAcceptFXForwardInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitAcceptFXForwardUpdate">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitRejectFXForwardInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	
+	<!-- FX Window Forward -->
+	<bundle name="SubmitAcceptFXWindowForwardInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitAcceptFXWindowForwardUpdate">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="SubmitRejectFXWindowForwardInitiation">
+		<interface>xmlout</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+	</bundle>
+	<bundle name="OpenExistingFXUnsignedList">
+		<interface>xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+
+	<!-- Provisioning Web Service -->
+	<bundle name="AddBankGroupAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankGroupAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankGroupAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="AddBankAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="AddCustomerAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateCustomerAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteCustomerAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="AddCounterpartyAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateCounterpartyAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteCounterpartyAccountWS">
+		<interface>xmlin</interface>
+	</bundle>
+	
+	
+	<!-- Bundles for User Profile Provisioning begin here -->
+	
+	<!-- BEGIN  BankGroup User Profile CUD Operations -->
+	<bundle name="AddBankGroupUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankGroupUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankGroupUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END  BankGroup User Profile CUD Operations -->
+	
+	<!-- BEGIN  BankGroup's Customer User Profile CUD Operations -->
+	<bundle name="AddBankGroupCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankGroupCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankGroupCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END  BankGroup's Customer User Profile CUD Operations -->
+	
+	<!-- BEGIN  BankGroup's Bank User Profile CUD Operations -->
+	<bundle name="AddBankGroupBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankGroupBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankGroupBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END  BankGroup's Bank User Profile CUD Operations -->
+	
+	<!-- BEGIN  Bank User Profile CUD Operations -->
+	<bundle name="AddBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END  Bank User Profile CUD Operations -->
+	
+	<!-- BEGIN  Bank's Customer User Profile CUD Operations -->
+	<bundle name="AddBankCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateBankCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteBankCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END Bank's Customer User Profile CUD Operations -->
+	
+	<!-- BEGIN  Customer User Profile CUD Operations -->
+	<bundle name="AddCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="UpdateCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<bundle name="DeleteCustomerUserProfileWS">
+		<interface>xmlin</interface>
+	</bundle>
+	<!-- END  Customer User Profile CUD Operations -->
+	
+
+	<!-- Bundles for User Profile Provisioning end here -->
+	
+	<!-- Bundles for Company Inquiry start here -->
+	<bundle name="InquireBankGroupBankAccountWS">
+		<interface>companyinquiryservice</interface>
+	</bundle>
+	<bundle name="InquireBankGroupCustomerAccountWS">
+		<interface>companyinquiryservice</interface>
+	</bundle>
+	<bundle name="InquireBankCustomerAccountWS">
+		<interface>companyinquiryservice</interface>
+	</bundle>
+	<!-- Bundles for Company Inquiry end here -->
+
+	<!-- Bundles for User Profile Inquiry start here -->
+	<bundle name="InquireBankGroupOwnUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankGroupBankUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankGroupCustomerUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankOwnUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankCustomerUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<bundle name="InquireCustomerOwnUserWS">
+		<interface>userinquiry</interface>
+	</bundle>
+	<!-- Bundles for User Profile Inquiry end here -->
+	
+	<!-- Bundles for Entity Inquiry start here -->
+	<bundle name="InquireBankGroupCustomerEntityWS">
+		<interface>entityinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankCustomerEntityWS">
+		<interface>entityinquiry</interface>
+	</bundle>
+	<bundle name="InquireCustomerOwnEntityWS">
+		<interface>entityinquiry</interface>
+	</bundle>
+	<!-- Bundles for Entity Inquiry end here -->
+	
+	<!-- Bundles for Authorisation Inquiry start here -->
+	<bundle name="InquireBankGroupOwnAuthWS">
+		<interface>authorisationinquiry</interface>
+	</bundle>
+	<!-- MPS-44620 added the below bundle -->
+	<bundle name="InquireBankGroupCustomerAuthWS">
+		<interface>authorisationinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankOwnAuthWS">
+		<interface>authorisationinquiry</interface>
+	</bundle>
+	<bundle name="InquireBankCustomerAuthWS">
+		<interface>authorisationinquiry</interface>
+	</bundle>
+	<bundle name="InquireCustomerOwnAuthWS">
+		<interface>authorisationinquiry</interface>
+	</bundle>
+	<!-- Bundles for Authorisation Inquiry end here -->
+	<!-- Bundles for Authorisation Inquiry end here -->
+	
+	<bundle name="OpenSaveNewFacilityBSF">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenSaveFacilityBSF">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	<bundle name="OpenDeleteFacilityBSF">
+		<interface asynchronous="true">staticdataxmlout</interface>
+	</bundle>
+	
+	<bundle name="ReturnPendingTransactionMobile">
+		<interface asynchronous="true">lsproductwriter</interface> <!-- Enable only when Local Services is running-->
+	</bundle>
+	<bundle name="RunSubmissionMobile">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailclientparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface failsafe="true" asynchronous="true">beneficiarynotificationparam</interface>
+		<!--  <interface failsafe="true" asynchronous="true">xmloutSimulationCoreBanking</interface>  Enable for back office simulation Note\Warning: DO NOT ENABLE IN PRODUCTION ENVIRONMENT -->
+	</bundle>
+	<!-- Bundle for program counterparty association/addition -->
+	<bundle name="FSCMProgramCounterPartyAction">
+		<interface asynchronous="false">prgmctpystaticdataxmlout</interface>
+		<interface asynchronous="false">prgmctpystaticdataxmlouttoTI</interface>
+	</bundle>
+	<!-- Bundle for program counterparty deletion-->
+	<bundle name="DeleteAssociatedCounterPartyAction">
+		<interface asynchronous="false">prgmctpystaticdataxmlout</interface>
+		<interface asynchronous="false">prgmctpystaticdataxmlouttoTI</interface>
+	</bundle>
+	
+	<bundle name="SaveReportingFromExistingIU">
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="SubmitReportingFromExistingIU">
+	 	<interface asynchronous="true">xmlout</interface>
+	 	<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	 	<interface failsafe="true" asynchronous="true">sendmailclient</interface>        
+ 	</bundle>
+ 	
+ 	<bundle name="SendEmailNotificationOtp">
+        <interface failsafe="true" asynchronous="true">sendemailnotificationotp</interface>
+	</bundle>
+ 	<bundle name="UserNameEmailNotification">
+        <interface failsafe="true" asynchronous="true">usernameemailnotification</interface>
+	</bundle>
+	<bundle name="SendEmailForgotPasswordOtp">
+        <interface failsafe="true" asynchronous="true">sendemailforgotpasswordotp</interface>
+	</bundle>
+	<bundle name="sendEmailSubmitTransactionOtp">
+        <interface failsafe="true" asynchronous="true">sendemailsubmittransactionotp</interface>
+	</bundle>
+		
+	<bundle name="MaintainUpdateCustomerRefIU">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<bundle name="MaintainUpdateCustomerRefRU">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+	</bundle>
+	
+	<!-- RU submit Bundles (Start) -->
+	<bundle name="submitDGAR">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="submitSTBY">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="submitDEPU">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitRUDEPUFreeFormat">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitRUDGARFreeFormat">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitRUSTBYFreeFormat">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	
+	<bundle name="SubmitMultipleRUFreeFormat">
+		<interface asynchronous="false">xmlout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+	</bundle>
+	<!-- RU submit Bundles (End) -->
+	<xi:include href="client_interfaces.xml"/>	
+</interfaces>

@@ -1,0 +1,26 @@
+<ng-container>
+  <div class="p-grid">
+    <p-carousel #primeCarousel dir="ltr" [value]="cardParams" class="p-col-12 custom-carousel" [numVisible]="params.numVisible" [numScroll]="params.numScroll" [responsiveOptions]="responsiveOptions">
+    <ng-template  let-product pTemplate="item">
+          <p-card [ngClass]="product.selected ? 'p-lg-12 row-eq-height selectedCard' : 'p-lg-12 row-eq-height'" *ngIf="cardParams" (click)="cardSelected(product)" (keyup.enter)="cardSelected(product)"  dir={{langDir}} tabindex="0">
+            <div class="product-item">
+                <div class="product-item-content">
+                  <div class="p-justify-end selectedCardDisplay" *ngIf="product.selected" [ngStyle]="{'float': setDirections()}">
+                    <div class="p-col-12 successTick"><em class="fa fa-check-circle fa-2x"></em></div>
+                  </div>
+                    <div>
+                        <div class="cardHeader">{{product.name}}</div>
+                        <div class="subHeader">{{product.reference}}</div>
+                        <div class="entityStyle">{{product.description}}</div>
+                        <div class="cardContentStyle">
+                          <div class="cardTextStyle">{{product.text1 }}</div>
+                          <div class="cardTextStyle2">{{product.text2}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </p-card>
+      </ng-template>
+    </p-carousel>
+  </div>
+</ng-container>

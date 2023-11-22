@@ -1,0 +1,119 @@
+@import '../../../../../../styles/variables.scss';
+
+.margin-top-1{
+    color: $VIOLET-F100 !important;
+    font-size: 0.85em;
+    text-decoration: underline;
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+}
+
+.hyperLinkClass {
+    @extend .margin-top-1;
+    margin-left: 1em;
+    margin-top: -1.34375em;
+}
+
+.hyperLinkClass-rtl {
+    @extend .margin-top-1;
+    margin-right: 1em;
+    margin-top: -1.34375em;
+}
+
+.divAccessbility {
+    width: fit-content;
+    margin-bottom: 2em;
+}
+
+:host ::ng-deep {
+     .ui-widget {
+         padding-right: 0em !important;
+     }
+}
+
+
+:host ::ng-deep {
+    .secondaryButton.ui-button.ui-button-text-only .ui-button-text {
+    
+    padding: 0em !important;
+    line-height: 2.25em !important;
+    text-align: center;
+    }
+
+    [dir="rtl"] .secondaryButton.ui-button.ui-button-text-only .ui-button-text {
+        
+        padding: 0em !important;
+        line-height: 2.25em !important;
+        text-align: end !important;
+    }
+}
+
+
+:host ::ng-deep {
+    .primaryButton.ui-button.ui-button-text-only .ui-button-text {
+    padding: 0em !important;
+    line-height: 2.25em !important;
+    text-align: center;
+    }
+    [dir="rtl"] .primaryButton.ui-button.ui-button-text-only .ui-button-text {
+
+        padding: 0em !important;
+        line-height: 2.25em !important;
+        text-align: end !important;
+    }
+}
+
+:host ::ng-deep {
+    .ui-widget .primaryButton {
+        padding: 0em !important;
+    }
+}
+
+:host ::ng-deep {
+    .ui-widget .secondaryButton {
+        padding: 0em !important;
+    }
+}
+:host ::ng-deep {
+
+    .ui-dialog .ui-dialog-titlebar {
+        padding: 1em !important;
+        border: none;
+        border-radius: 0.3em 0.3em 0 0;
+    }
+
+    .ui-dialog .ui-dialog-footer {
+        padding: 1.571em 1em !important;
+        border-radius: 0 0 0.3em 0.3em;
+        .margin-left {
+            margin-left: 1em;
+        }
+    }
+
+    [dir="rtl"] .ui-dialog .ui-dialog-footer {
+        .margin-left {
+            margin-right: 1em !important;
+            margin-left: 0 !important;
+        }
+    }
+
+    .ui-dialog .ui-dialog-content {
+        padding: 2em 1em 1em 1em !important;
+        border-bottom: none;
+        p {
+            font-weight: 500;
+            font-size: 0.875em;
+            color: $GREY;
+        }
+    }
+
+    [dir="rtl"] .ui-dialog-titlebar-icons {
+        float: left !important;
+    }
+
+    [dir="rtl"] p-footer {
+        float: left !important;
+    }
+}
+

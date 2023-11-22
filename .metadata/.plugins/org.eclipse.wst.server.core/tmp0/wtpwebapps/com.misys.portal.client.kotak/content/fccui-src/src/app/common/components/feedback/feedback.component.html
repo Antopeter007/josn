@@ -1,0 +1,29 @@
+<div *ngIf="isFeedbackRequired" class="p-col-12">
+  <div class="positionStyle">
+    <p-card class="overlayCardClass">
+      <div class="p-grid p-justify-center">
+        <div>
+            <div class="p-col-12 msgStyle" id="feedback-request">{{ 'rateYourExperience' | translate }}</div>
+            <div class="p-col-12" [dir]="dir">
+              <p-rating [(ngModel)]="rating" [cancel]="false" name="rate" aria-labelledby="rating" [stars]="starRatingSize" ngDefaultControl></p-rating>
+            </div>
+            <label id="rating" class="ratingStyle">Star widget to rate experience out of {{starRatingSize}} stars</label>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="feedbackForm">
+              <div class="p-col-12">
+                <textarea pInputTextarea attr.aria-label="{{ 'shareAdditionalFeedback' | translate }}" id="feedback-text" placeholder="{{ 'shareAdditionalFeedback' | translate }}"
+                [maxlength]="feedbackCharLength" formControlName="feedback" [rows]="6" [cols]="65" (focus)="resetForm()" class="text-area-field-65"></textarea>
+                <div id="char-left">{{'Entered'| translate}}  {{charactersEntered}}  {{'of'| translate}}  {{feedbackCharLength}} {{ 'characters'| translate }}</div>
+              </div>
+              <div class="p-col-12">
+                <button role="button"  mat-stroked-button color="accent" matTooltip="{{'submitFeedback' | translate}}"
+                        matTooltipPosition="below" [disabled]="rating < 1">
+                  {{ 'submit' | translate }}
+                </button>
+              </div>
+            </form>
+         </div>
+      </div>
+    </p-card>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="p-grid">
+  <h1 tabindex="0" [class]="mainheaderStyle">
+    <span id="{{productFormKey}}"><bdi>{{ productFormKey }}</bdi>{{ productformrefId }}</span>
+    <span *ngIf="displayTime" class="savedInfo"><bdi>{{savedTime}} </bdi></span>
+    </h1>
+    <span *ngIf="showDescription" class="descriptionStyle"><bdi><br><br><br>{{ 'ftTptDescription' | translate }}</bdi></span>
+  <div
+  *ngIf="isViewDetailEnabled"
+    tabindex="0"
+    class="viewButton"
+    (click)="onClickView()"
+    (keydown.enter)="onClickView()"
+  >
+    {{ view }}
+  </div>
+  <div class="rightHeaderSection" [dir]="dir" *ngIf="data && data.hyperlinks && data.productsList">
+  <ng-container *ngIf="data.hyperlinks && data.hyperlinks.length">
+    <div class="hyperlink" *ngFor="let hyperlink of data.hyperlinks; let index = index;">
+      <p (click)="handleHyperlink(hyperlink)"
+      (keyup.enter)="handleHyperlink(hyperlink)" id="{{data.hyperlinks[index].hyperlinkName | translate}}" tabindex="0">{{data.hyperlinks[index].hyperlinkName | translate}}</p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="data.productsList && data.productsList.length">
+    <mat-tab-group #tabDetails id="tabDetails" (selectedTabChange)="checkTabChange(tabDetails,$event)" [(selectedIndex)]="activeIndex" animationDuration="0ms" [dir]="dir" class="tabGroup">
+      <mat-tab class="tabGroup" *ngFor="let tab of data.productsList; let j = index" tabindex="0">
+        <ng-template mat-tab-label>
+          <span id="{{tab.productTypeName | translate}}">{{tab.productTypeName | translate}}</span>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+  </div>
+</div>
+<div [class]="styleClassName" *ngIf="setSystemID && data.productsList.length>=1">{{ 'batchReference' | translate }} : {{ channelRefID }}</div>
+
+<div *ngIf="data.tabsListPresent" class="p-grid widget-container tabParentDiv">
+  <div class="p-col-12" *ngIf="data.productsList && data.productsList.length >= 1">
+    <ng-container *ngFor="let tabs of data.productsList; let i = index">
+      <ng-container *ngIf="tabs.tabProductTypes && tabs.tabProductTypes.length > 0 ">
+        <mat-tab-group class="innerTabGroup" [(selectedIndex)]="activeInnerIndex" (selectedTabChange)="onInnerTabChange($event, tabs.tabProductTypes)" animationDuration="0ms">
+        <ng-container *ngFor="let innerTabs of tabs.tabProductTypes">
+          <mat-tab class="innerTabGroup">
+            <ng-template mat-tab-label class="innerTabGroup">
+              <span id="{{innerTabs.productTypeName | translate}}">{{innerTabs.productTypeName | translate}}</span>
+            </ng-template>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,49 @@
+<div [ngClass]="menuToggleFlag === 'true' ? 'parentContainerToggle' : 'parentContainer'" dir={{dir}}>
+    <div class="headerContainer" dir={{dir}}>
+        <br>
+        <strong dir={{dir}} id="referenceHeader" class="set-entity-header">{{'setReference' | translate}}</strong> 
+        <button role="button"  mat-button (click)="onCloseMatDrawer($event)" [ngClass]="dir === 'rtl' ? 'icon-close-left' : 'icon-close'" attr.aria-label="{{'close' | translate}}" title="{{'close' | translate}}">
+            <mat-icon aria-hidden="false" tabindex="0" aria-label="Close" [ngClass]="dir === 'rtl' ? 'left-align' : 'right-align'">close</mat-icon>
+        </button>
+        <br>
+        
+        <div dir={{dir}} class="entity-sub-header">
+        <p>{{'change' | translate}} {{productCode | translate}} {{'reference' | translate}}</p>
+        </div>
+        
+        
+    </div>
+    <div class="bodyContainer" dir={{dir}}>
+        <div *ngFor="let field of fields" class="p-col-12 fieldClass">
+            <div class="p-col-12" style="padding-bottom: 0em; padding-top: 0.0625em;">
+                <mat-label class="labelHeaderNav">{{ field.label }}</mat-label>
+            </div>
+            <div class="p-col-12" style="padding-top: 0.3125em; padding-bottom: 0em;">
+                <mat-label class="labelValueNav">{{ field.value }}</mat-label>
+            </div>
+        </div>
+    </div>
+    <div class="footerContainer" dir={{dir}}>
+        <form [formGroup]="setReferenceForm" (ngSubmit)="onSubmit()" autocomplete="off">
+            <div dir="{{dir}}" class="p-col-10 ui-float-label margin-side setRefInput">
+                <mat-form-field floatLabel="false" class="input-mat-width">
+                    <mat-label>{{ 'reference' | translate }}</mat-label>
+                    <input role="textbox" matInput id="reference" formControlName="reference"
+                    (blur)="onBlurReference()" (click)="onClickReference()" (change)="onChangeReference($event.value)" [maxlength]="custRefLength"
+                    [required]="true" minlength="1" autocomplete="off"/>
+                </mat-form-field>
+            </div>
+            <div aria-live="polite">
+              <span *ngIf = "hasError" id="invalid-error-text" class="invalid-error-text">{{errorHeader | translate}}: {{errorMsg}}</span>
+             </div>
+            <br>
+            <div class="p-col-12 margi-top">
+                <div class="p-grid">
+                  <div class="p-col-12">
+                    <p-button role="button"  type="submit" label="{{'submit' | translate}}" class="p-col-12 submitBtn" styleClass="primaryButton"></p-button>
+                  </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

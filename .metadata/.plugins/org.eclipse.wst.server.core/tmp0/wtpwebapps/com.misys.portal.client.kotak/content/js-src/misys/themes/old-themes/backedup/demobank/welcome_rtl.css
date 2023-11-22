@@ -1,0 +1,146 @@
+/*
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank (Unsecured Pages, RTL version)
+
+	summary:
+  		CSS rules loaded by all *unsecured* pages
+  		
+	description:
+	  	Refer to themes/base/welcome_rtl.css
+
+*/
+
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dijit/themes/dijit_rtl.css";
+@import "../../../dijit/themes/claro/Common.css";
+@import "../../../dijit/themes/claro/form/Common.css";
+@import "../../../dijit/themes/claro/form/Common_rtl.css";
+@import "../../../dijit/themes/claro/form/Button.css";
+@import "../../../dijit/themes/claro/form/Button_rtl.css";
+@import "../../../dijit/themes/claro/form/Checkbox.css";
+@import "../../../dijit/themes/claro/form/RadioButton.css";
+@import "../../../dijit/themes/claro/Dialog.css";
+@import "../../../dijit/themes/claro/Dialog_rtl.css";
+@import "../base/welcome_rtl.css";
+
+/** Override with our own styles **/
+@import "common/document_rtl.css";
+@import "common/layout_rtl.css";
+@import "common/portlets_rtl.css";
+
+#Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.panel1 {
+	height: 18px;
+	padding: 6px 0 4px 0;
+}
+
+#loginForm .toplevel-header,
+#loginFormQA .toplevel-header {
+	border:0;	
+}
+
+#loginForm .toplevel-header h2,
+#loginFormQA .toplevel-header h2 {
+	background: transparent;	
+	color: #666;
+	border-bottom: 2px solid #004F9E;
+}
+
+#loginLanguages {
+	text-left;
+	clear:both;
+}
+
+.loginLanguagesCell {
+	margin-right : 5px; 
+}
+
+#changePasswordQA label,
+#changePasswordQA .label{
+	 width: 340px;
+	margin-right: 1px;
+}
+
+.loginFormSmall #changePasswordQA  label,
+.loginFormSmall #changePasswordQA .label {
+	width: 6em;
+	margin-right: 1px;
+}
+
+.demobank .dijitTextBox {
+	padding: 0 0.1em 0 0;
+}
+
+#password-reset {
+	margin-bottom: 6px;
+	font-size: 0.916em;
+	text-align: left;
+}
+
+#buttonsdiv {
+	text-align: left;
+}
+
+/**------------ Logout Page---------------------------**/
+.logoutHeade1 {
+	color: #30307E;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 5px;	
+}
+
+.logoutHeade2 {
+	color: #5E5E9B;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 7px;	
+}
+
+.logoutContent1{
+	clear: both;
+	margin: 10px;
+	margin-top: 40px;
+}
+
+.logoutContent2{
+	clear : both;
+	border: 1px solid #CCC;
+	box-shadow: 1px 1px 2px 0px #CCC;
+	margin-top: 15px;
+	width: 350px;
+	padding: 10px;
+}
+
+.logoutTable {
+	clear : both;
+}
+
+.goToHomePageButton{
+	float: left;
+	margin: 12px;
+}
+
+.logoutTable {
+	width : 1000px;
+	height:70px;
+}
+.logoutTable .tableHeadLogout td{
+	font-weight : bold;	
+	background-color: #EEE;
+}
+.logoutTable td{
+	border: 1px solid #CCC;
+	box-shadow: 1px 1px 2px 0px #CCC;
+	text-align: center;
+}
+

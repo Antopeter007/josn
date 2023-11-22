@@ -1,0 +1,107 @@
+<div>
+  <div class="p-col-2 multipleTabHeading" id="multipleTabEnableHeaderId">
+    <label>
+    {{ tabName | translate }}
+  </label>
+  <br>
+  </div>
+  <div class="p-col-12" style="display: flex">
+    <div class="p-col-4 " [dir]="dir">
+      <!-- <p-calendar [(ngModel)]="selectedDate" [inline]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"  (onSelect)="handleDateChange($event)"></p-calendar> -->
+      <!-- <p-calendar [ngClass]="langDir==='rtl'?'rtlcls':'ltrcls'" [(ngModel)]="value" [locale]="langLocale" [inline]="true" [utc]="true" (onMonthChange)="getSelectedMonthEvents($event)" (onYearChange)="getSelectedMonthEvents($event)"
+            (onSelect)="getSelectedDateEvents($event)" dateFormat="dd/MM/yyyy"  [monthNavigator]="true" [yearNavigator]="true" yearRange={{yearRange}}> -->
+        <!-- prime ng calendar has more features but in version 13. If we upgrade we should swicth to p-calendar -->
+        <mat-card class="fcc-mat-calendar-card margin-right-rtl">
+          <mat-calendar [(selected)]="selectedDate" [dateClass]="dateClass" [minDate]="minDate" [maxDate]="maxDate"
+          (selectedChange)="handleDateChangeFromCalendar($event)"></mat-calendar>
+        </mat-card>
+       <!-- <fcc-mat-calendar></fcc-mat-calendar>-->
+    </div>
+    <div class="p-col-8 " [dir]="dir">
+      <div class="p-col-8 p-col-12 selected-Date" [dir]="dir">
+        <button role="button"  class="mat-calendar-previous-button mat-focus-indicator mat-icon-button mat-button-base"
+          mat-icon-button=""
+          type="button"
+          aria-label="Previous month"
+          [disabled]="disableLeftNavigationArrow"
+          (click)="handleDateNavigation(-1,'left')">
+          <span class="mat-button-wrapper"></span><span class="mat-button-ripple mat-ripple mat-button-ripple-round"
+            matripple=""
+            ng-reflect-centered="true"
+            ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span>
+        </button>
+        <p class="p-col-12 date-display-class">{{displayValue}}</p>
+        <button role="button"  class="mat-calendar-next-button mat-focus-indicator mat-icon-button mat-button-base"
+          mat-icon-button=""
+          type="button"
+          aria-label="Next month"
+          (click)="handleDateNavigation(1,'right')">
+          <span class="mat-button-wrapper"></span><span class="mat-button-ripple mat-ripple mat-button-ripple-round"
+            matripple=""
+            ng-reflect-centered="true"
+            ng-reflect-trigger="[object HTMLButtonElement]"></span><span class="mat-button-focus-overlay"></span>
+        </button>
+      </div>
+      <div class="p-col-12" *ngIf="count >= 1">
+        <p>
+            <label class="p-col-6  left-header-text-class" [dir]="dir">{{ 'selectedDate' | translate}}</label>
+            <label class="p-col-6  right-header-text-class" [dir]="dir">{{currency}} {{selectedDateTransactionsSum}}</label>
+        </p>
+        <div class="p-col-12 transactionCount">
+          <label class="p-col-6 transactionCountData" [dir]="dir">{{count}} {{ 'transactions' | translate}}</label></div>
+        <mat-accordion multi="false">
+         <div *ngFor="let row of selectedDateList">
+          <mat-expansion-panel (opened)="getPackageDetails(row.product)">
+            <mat-expansion-panel-header>
+              <mat-panel-title><label>{{row.product}}</label></mat-panel-title>
+              <mat-panel-description><label class="right-text-class">{{row.currency}} {{row.amount}}</label></mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-list *ngFor="let selectedRow of selectedRowList">
+              <mat-list-item>
+                <label class="p-col-6 left-inner-text-class" [dir]="dir">{{selectedRow.client}}</label>
+                <label class="p-col-6 right-inner-text-class" [dir]="dir">{{selectedRow.currency}} {{selectedRow.amount}}</label>
+              </mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+          </div>
+        </mat-accordion>
+        <br>
+        <br>
+      </div>
+      <div class="p-col-12 noTransaction" *ngIf="count===0">
+        <label>{{ 'noTransactions' | translate}}</label>
+      </div>
+      <div *ngIf="(upcomingTransactionsList && upcomingTransactionsList.length > 0) else noUpcomingRecordsBlock">
+        <div class="p-col-12">
+          <p>
+            <label class="p-col-6 left-header-text-class" [dir]="dir">{{ 'upcomingTransactions' | translate}}</label>
+            <label class="p-col-6 right-header-text-class" [dir]="dir">{{currency}} {{upcomingTransactionsSum}}</label>
+          </p>
+        </div>
+        <div>
+          <mat-list *ngFor="let upcomingTransaction of upcomingTransactionsList">
+            <mat-list-item>
+              <div class="p-col-12">
+                <label class="p-col-6 left-text-class" [dir]="dir">{{upcomingTransaction.date}}</label>
+                <label class="p-col-6 right-text-class">{{upcomingTransaction.currency}} {{upcomingTransaction.amount}}</label>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+      <ng-template #noUpcomingRecordsBlock>
+        <div id="future-dated-div">
+          <div class="p-col-12">
+            <p>
+              <label class="p-col-6 left-header-text-class" [dir]="dir">{{ 'upcomingTransactions' | translate}}</label>
+            </p>
+          </div>
+          <div>
+            <label class="p-col-12 noTransaction">{{ 'noFuturePayments' | translate}}</label>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

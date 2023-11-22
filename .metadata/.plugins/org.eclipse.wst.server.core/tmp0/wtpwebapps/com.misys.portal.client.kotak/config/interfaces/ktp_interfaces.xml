@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2011 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<!-- Secure Emails (KTP reports) -->
+	<interface name="xmlinse" onerror="logger" description="Load a Secure Email Transaction from the environment">
+		<component name="environmentreader">
+			<transaction>
+				<component name="filepathprocessor">
+					<component name="incominginitiator">
+						<properties>
+							<property name="validation">false</property>
+						</properties>
+						<component name="documentparser">
+							<component name="useridsanddttmmanager">
+								<!-- component name="attachmentsmanager">
+									<properties>
+										<property name="mode">${attachments}</property>
+									</properties-->
+									<component name="genericdocumentgenerator">
+										<component name="incomingvalidator">
+											<component name="databaseserializer"/>
+										</component>
+									</component>
+								<!--/component-->
+							</component>
+						</component>
+					</component>
+				</component>
+			</transaction>
+		</component>		
+	</interface>
+
+</interfaces>

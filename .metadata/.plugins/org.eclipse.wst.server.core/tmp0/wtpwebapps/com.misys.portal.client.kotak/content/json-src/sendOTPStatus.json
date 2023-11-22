@@ -1,0 +1,11 @@
+{
+ "otp_id": "79899987",
+ "sms_data": {
+  "status_code": "0",
+  "status_desc": "SUC"
+ },
+ "email_data": {
+  "status_code": "0",
+  "status_desc": "SUC"
+ }
+}

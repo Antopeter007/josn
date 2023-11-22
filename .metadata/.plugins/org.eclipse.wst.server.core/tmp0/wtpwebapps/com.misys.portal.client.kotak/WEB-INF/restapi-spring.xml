@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-2.5.xsd
+		"
+	default-lazy-init="true" >
+	<mvc:annotation-driven/>
+	
+	<context:component-scan base-package="com.finastra.internal.api,com.misys.portal.webservices.apis,com.finastra.portal.webservices.apis,com.finastra.openapi, com.misys.portal.trade.webservices.apis, com.finastra.portal.webservices.apis,com.misys.portal.webservices.apis.pojo.request"/>
+	
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<bean id="loggingAspect" class="com.misys.portal.webservices.apis.aop.LoggingAspect" />
+	<bean id="apiParameterValidationAspect" class="com.misys.portal.webservices.apis.aop.ApiParameterValidationAspect" />
+	<bean id="openApiRundataAspect" class="com.misys.portal.webservices.apis.aop.OpenApiRundataAspect" />
+	<bean id="PermissionAspect" class="com.misys.portal.webservices.apis.aop.PermissionAndAuditAspect"/>
+	<bean id="internalApiAuditAspect" class="com.misys.portal.webservices.apis.aop.InternalApiAuditAspect"/>
+	<bean id="openApiUuidValidationAspect" class="com.misys.portal.webservices.apis.aop.OpenApiUuidValidationAspect"/>
+	<bean id="openApiEtagValidationAspect" class="com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect"/>
+	<bean id="PermissionGenricAPIAspect" class="com.misys.portal.webservices.apis.aop.PermissionAndAuditGenricAPIAspect"/>
+	<bean id="CSRFCheckAspect" class="com.misys.portal.webservices.apis.aop.CSRFCheckAspect" />
+	<bean id="APIIDAndTenantCheckAspect" class="com.misys.portal.webservices.apis.aop.APIIDAndTenantCheckAspect" />
+
+	<bean id="restAPIExceptionHandler" class="com.misys.portal.webservices.apis.exception.RestAPIExceptionHandler" />
+	<bean id="restAPISessionHandler" class="com.misys.portal.webservices.apis.actions.RestAPISessionHandler" />
+	<bean id="getUserDetails" class="com.misys.portal.webservices.apis.services.GetUserDetails" />
+	<bean id="requestParametersValidator" class="com.misys.portal.webservices.apis.services.RequestParametersValidator" />
+	<bean id="restExceptionBuilder" class="com.misys.portal.webservices.apis.exception.RestExceptionBuilder" />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>			
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource"/>
+	</bean>
+	
+	<bean id="messageSource" class="com.finastra.openapi.api.resource.message.CustomResourceBundleMessageSource">
+		<!-- Putting a dummy basename here but the real message will retrieve from core/client localization messages -->
+        <property name="basename" value="restmessage"/>
+    </bean>
+     <bean id="embedTokenRequest" class="com.misys.portal.webservices.apis.pojo.request.EmbedTokenRequest"/>
+     <bean id="SSOServiceImpl" class="com.misys.portal.webservices.apis.services.ClientSSOServiceImpl" primary="true" />
+     <bean id="MenuDetailsService" class="com.misys.portal.webservices.apis.client.services.ClientMenuDetailsService" primary="true" />
+	<mvc:annotation-driven validator="validator" />	
+	<!-- Enables swgger ui  -->
+	<!-- <mvc:resources mapping="/restportal/swagger-ui.html**" location="classpath:/META-INF/resources/"/>
+	<mvc:resources mapping="/restportal/webjars/**" location="classpath:/META-INF/resources/webjars/"/> -->
+	
+	<util:map id="amountFieldMap" key-type="java.lang.String" value-type="java.util.HashMap" map-class="java.util.HashMap">
+		<entry key="LC" value-ref="lcamountCurrencyMap"></entry>
+		<entry key="EL" value-ref="elcamountCurrencyMap"></entry>
+		<entry key="IC" value-ref="icamountCurrencyMap"></entry>
+		<entry key="EC" value-ref="ecamountCurrencyMap"></entry>
+		<entry key="SG" value-ref="sgamountCurrencyMap"></entry>
+		<entry key="TF" value-ref="tfamountCurrencyMap"></entry>
+		<entry key="SI" value-ref="siamountCurrencyMap"></entry>
+		<entry key="SR" value-ref="sramountCurrencyMap"></entry>
+		<entry key="LI" value-ref="liamountCurrencyMap"></entry>
+		<entry key="BR" value-ref="bramountCurrencyMap"></entry>
+		<entry key="BG" value-ref="bgamountCurrencyMap"></entry>
+		<entry key="LN" value-ref="lnamountCurrencyMap"></entry>
+		<entry key="BK" value-ref="bkamountCurrencyMap"></entry>
+	</util:map>
+	
+	<util:map id="transactionObjectMap" key-type="java.lang.String" value-type="java.lang.Object" map-class="java.util.HashMap">
+	   <entry key="FT" value-ref="fundTransfer"></entry>
+	   <entry key="LC" value-ref="importLetterOfCredit"></entry>
+	   <entry key="EC" value-ref="exportCollections"></entry>
+	   <entry key="TF" value-ref="financingRequest"></entry>
+	   <entry key="SE" value-ref="secureEmail"></entry>
+	   <entry key="SG" value-ref="shippingGuarantee"></entry>
+	   <entry key="SI" value-ref="issuedStandBy"></entry>
+	   <entry key="LI" value-ref="letterOfIndemnity"></entry>
+	   <entry key="LN" value-ref="loan"></entry>
+	   <entry key="BG" value-ref="IssuedUndertaking"></entry>
+	   <entry key="TD" value-ref="TermDeposit"></entry>
+	</util:map>
+	
+	<bean id = "fundTransfer" class="com.misys.portal.cash.product.ft.common.FundTransfer"></bean>
+	<bean id = "importLetterOfCredit" class="com.misys.portal.product.lc.common.LetterOfCredit"></bean>
+	<bean id = "exportCollections" class="com.misys.portal.product.ec.common.ExportCollection"></bean>
+	<bean id = "secureEmail" class="com.misys.portal.product.se.common.SecureEmail"></bean>
+	<bean id = "financingRequest" class="com.misys.portal.product.tf.common.FinancingRequest"></bean>
+	<bean id = "shippingGuarantee" class="com.misys.portal.product.sg.common.ShippingGuarantee"></bean>
+	<bean id = "issuedStandBy" class="com.misys.portal.product.lc.common.LetterOfCredit"></bean>
+	<bean id = "letterOfIndemnity" class="com.misys.portal.product.li.common.LetterOfIndemnity"></bean>
+	<bean id = "loan" class="com.misys.portal.product.ln.common.Loan"></bean>
+	<bean id = "IssuedUndertaking" class="com.misys.portal.product.iu.common.IssuedUndertaking"></bean>
+	<bean id = "TermDeposit" class="com.misys.portal.cash.product.td.common.TermDeposit"></bean>
+	
+	<util:map id="amountXMLMap" key-type="java.lang.String" value-type="java.util.HashMap" map-class="java.util.HashMap">
+		<entry key="LC" value-ref="lcamountCurrencyMap"></entry>
+		<entry key="EL" value-ref="elcamountCurrencyMap"></entry>
+		<entry key="IC" value-ref="icamountCurrencyMap"></entry>
+		<entry key="EC" value-ref="ecamountCurrencyMap"></entry>
+		<entry key="SG" value-ref="sgamountCurrencyMap"></entry>
+		<entry key="TF" value-ref="tfamountCurrencyMap"></entry>
+		<entry key="SI" value-ref="siamountCurrencyMap"></entry>
+		<entry key="SR" value-ref="sramountCurrencyMap"></entry>
+		<entry key="LI" value-ref="liamountCurrencyMap"></entry>
+		<entry key="BR" value-ref="bramountCurrencyMap"></entry>
+		<entry key="BG" value-ref="bgamountCurrencyMap"></entry>
+		<entry key="LN" value-ref="lnamountCurrencyMap"></entry>
+		<entry key="BK" value-ref="bkamountCurrencyMap"></entry>
+	</util:map>
+	
+	<util:map id="tfamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="fin_liab_amt" value="fin_cur_code"/>
+		 <entry key="fin_amt" value="fin_cur_code"/>
+		 <entry key="req_amt" value="req_cur_code"/> 
+		 <entry key="fin_outstanding_amt" value="fin_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,fin_cur_code"/>
+		 <entry key="additionalFields" value="bill_amt_cur_code#bill_amt,repayment_cur_code#repayment_amt,interest_cur_code#interest_amt"/>
+	</util:map>
+
+	<util:map id="lcamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="booking_amt" value="cur_code"/>
+		 <entry key="lc_available_amt" value="lc_cur_code"/>
+		 <entry key="lc_liab_amt" value="lc_cur_code"/>
+		 <entry key="lc_amt" value="lc_cur_code"/>
+		 <entry key="lc_outstanding_amt" value="lc_cur_code"/>
+		 <entry key="release_amt" value="lc_cur_code"/>
+		 <entry key="claim_amt" value="claim_cur_code"/>
+		 <entry key="debit_amt" value="lc_cur_code"/>
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,lc_cur_code"/>
+	</util:map>
+	
+	<util:map id="elcamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+	     <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+	     <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,lc_cur_code"/>
+	</util:map>
+	
+	<util:map id="icamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+	     <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+		 <entry key="ic_outstanding_amt" value="ic_cur_code"/>
+		 <entry key="ic_amt" value="ic_cur_code"/>
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="ic_liab_amt" value="ic_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,ic_cur_code"/>
+	</util:map>
+	
+	<util:map id="ecamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="ec_amt" value="ec_cur_code"/>
+		 <entry key="inc_amt" value="ec_cur_code"/>
+		 <entry key="dec_amt" value="ec_cur_code"/>
+		 <entry key="ec_outstanding_amt" value="ec_cur_code"/>
+		 <entry key="ec_liab_amt" value="ec_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,ec_cur_code"/>
+	</util:map>
+	
+	<util:map id="sgamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="sg_amt" value="sg_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,sg_cur_code"/>
+	</util:map>
+	
+	<util:map id="liamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="li_amt" value="li_cur_code"/>
+	</util:map>
+	
+	<util:map id="siamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="booking_amt" value="cur_code"/>
+		 <entry key="lc_available_amt" value="lc_cur_code"/>
+		 <entry key="lc_liab_amt" value="lc_cur_code"/>
+		 <entry key="lc_amt" value="lc_cur_code"/>
+		 <entry key="inc_amt" value="lc_cur_code"/>
+		 <entry key="dec_amt" value="lc_cur_code"/>
+		 <entry key="lc_outstanding_amt" value="lc_cur_code"/>
+		 <entry key="release_amt" value="lc_cur_code"/>
+		 <entry key="lc_os_amt" value="lc_cur_code"/>
+		 <entry key="claim_amt" value="claim_cur_code"/>
+		 <entry key="debit_amt" value="lc_cur_code"/>
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,lc_cur_code"/>
+	</util:map>
+	
+	<util:map id="sramountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+	     <entry key="utilized_amt" value="utilized_amt_cur_code"/>
+	     <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,lc_cur_code"/>
+		 <entry key="lc_liab_amt" value="lc_cur_code"/>
+		 <entry key="lc_available_amt" value="lc_cur_code"/>
+		 <entry key="lc_amt" value="lc_cur_code"/>
+	</util:map>
+	
+	<util:map id="bramountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+	     <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,lc_cur_code"/>
+		 <entry key="bg_liab_amt" value="bg_cur_code"/>
+		 <entry key="bg_available_amt" value="bg_cur_code"/>
+		 <entry key="bg_amt" value="bg_cur_code"/>
+		 <entry key="contract_amt" value="contract_cur_code"/>
+	</util:map>
+	
+	<util:map id="bgamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+	     <entry key="tnx_amt" value="tnx_cur_code"/>
+		 <entry key="charges" value="amt,cur_code#eqv_amt,eqv_cur_code"/>
+		 <entry key="linked_licenses" value="ls_os_amt,converted_os_amt,ls_amt,ls_allocated_amt,bg_cur_code"/>
+		 <entry key="bg_liab_amt" value="bg_cur_code"/>
+		 <entry key="bg_available_amt" value="bg_cur_code"/>
+		 <entry key="bg_amt" value="bg_cur_code"/>
+		 <entry key="contract_amt" value="contract_cur_code"/>
+		 <entry key="net_exposure_amt" value="net_exposure_cur_code"/>
+		 <entry key="cu_amt" value="cu_cur_code"/>
+		 <entry key="cu_net_exposure_amt" value="cu_net_exposure_cur_code"/>
+		 <entry key="cu_liab_amt" value="cu_cur_code"/>
+		 <entry key="cu_available_amt" value="cu_cur_code"/>
+		 <entry key="claim_amt" value="claim_cur_code"/>	
+		 <entry key="cu_tnx_amt" value="cu_cur_code"/>
+		 <entry key="variation" value="amount,cur_code"/>
+		 <entry key="additionalFields" value="bg_variation_cur_code#bg_variation_amount,bg_variation_cur_code#org_bg_amt,cu_variation_cur_code#cu_variation_amount"/> 
+	</util:map>
+
+	<util:map id="lnamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="ln_liab_amt" value="ln_cur_code"/>
+		 <entry key="ln_amt" value="ln_cur_code"/>
+		  <entry key="tnx_amt" value="tnx_cur_code"/>
+	</util:map>
+	
+	<util:map id="bkamountCurrencyMap" key-type="java.lang.String" value-type="java.lang.String" map-class="java.util.HashMap">
+		 <entry key="bk_total_amt" value="bk_cur_code"/>
+		 <entry key="bk_amt" value="bk_cur_code"/>
+		 <entry key="tnx_amt" value="tnx_cur_code"/>
+	</util:map>
+	
+	<util:map id="specialCharacterMap" key-type="java.lang.String" value-type="java.util.ArrayList" map-class="java.util.HashMap">
+		<entry key="EL" value-ref="ELFieldList"></entry>
+		<entry key="LC" value-ref="LCFieldList"></entry>
+		<entry key="IC" value-ref="ICFieldList"></entry>
+		<entry key="EC" value-ref="ECFieldList"></entry>
+		<entry key="SG" value-ref="SGFieldList"></entry>
+		<entry key="TF" value-ref="TFFieldList"></entry>
+		<entry key="FT" value-ref="FTFieldList"></entry> 
+		<entry key="IR" value-ref="IRFieldList"></entry>
+		<entry key="SI" value-ref="SIFieldList"></entry>
+		<entry key="SR" value-ref="SRFieldList"></entry> 
+		<entry key="LI" value-ref="LIFieldList"></entry>
+		<entry key="BR" value-ref="BRFieldList"></entry>
+		<entry key="BG" value-ref="BGFieldList"></entry>
+		<entry key="LN" value-ref="LNFieldList"></entry>
+		<entry key="TD" value-ref="TDFieldList"></entry>
+	</util:map>
+	
+	<util:list id="LIFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+		<value>deal_ref_id</value>
+        <value>product_code</value>
+        <value>parent_ref_id</value>
+        <value>tnx_amt</value>
+        <value>tnx_cur_code</value>
+        <value>li_type</value>
+        <value>cust_ref_id</value>
+        <value>entity</value>
+        <value>applicant_name</value>
+        <value>applicant_address_line_1</value>
+        <value>applicant_address_line_2</value>
+        <value>applicant_dom</value>
+        <value>bene_type_code</value>
+        <value>bene_type_other</value>
+        <value>beneficiary_name</value>
+        <value>beneficiary_address_line_1</value>
+        <value>beneficiary_address_line_2</value>
+        <value>beneficiary_dom</value>
+        <value>beneficiary_reference</value>
+        <value>issuing_bank_abbv_name</value>
+        <value>applicant_reference</value>
+        <value>issuing_bank_customer_reference</value>
+        <value>li_cur_code</value>
+        <value>li_amt</value>
+        <value>countersign_flag</value>
+        <value>shipping_by</value>
+        <value>trans_doc_type_code</value>
+        <value>trans_doc_type_other</value>
+        <value>bol_number</value>
+        <value>narrative_description_goods</value>
+        <value>principal_act_no</value>
+        <value>fee_act_no</value>
+	</util:list>
+	
+	<util:list id="ICFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+		<value>fwd_contract_no</value>
+		<value>drawer_name</value>
+	</util:list>
+	
+	<util:list id="IRFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+	</util:list>
+	
+	<util:list id="TDFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>remarks</value>
+	</util:list>
+	
+	<util:list id="SGFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+		<value>beneficiary_reference</value>
+		<value>cust_ref_id</value>
+		<value>bol_number</value>
+		<value>shipping_by</value>
+		<value>goods_desc</value>
+		<value>applicant_name</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>applicant_address_line_4</value>
+		<value>beneficiary_name</value>
+		<value>beneficiary_address_line_1</value>
+		<value>beneficiary_address_line_2</value>
+		<value>beneficiary_dom</value>
+		<value>beneficiary_address_line_4</value>
+	</util:list>
+	
+	<util:list id="ECFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+		<value>template_id</value> 
+ 		 <value>cust_ref_id</value> 
+		 <value>tenor_desc</value> 
+		 <value>tenor_type_details</value> 
+		 <value>drawer_name</value> 
+		 <value>drawer_address_line_1</value> 
+		 <value>drawer_address_line_2</value> 
+		 <value>drawer_address_line_4</value> 
+		 <value>drawer_dom</value> 
+		 <value>drawee_name</value> 
+		 <value>drawee_address_line_1</value> 
+		 <value>drawee_address_line_2</value> 
+		 <value>drawee_address_line_4</value> 
+		 <value>drawee_dom</value> 
+		 <value>drawee_country</value> 
+		 <value>drawee_reference</value> 
+		 <value>remitting_bank_name</value> 
+		 <value>remitting_bank_customer_reference</value> 
+		 <value>presenting_bank_name</value>
+		 <value>presenting_bank_address_line_1</value> 
+		 <value>presenting_bank_address_line_2</value> 
+		 <value>presenting_bank_dom</value> 
+		 <value>presenting_bank_address_line_4</value> 
+		 <value>presenting_bank_contact_name</value> 
+		 <value>collecting_bank_name</value> 
+		 <value>collecting_bank_address_line_1</value> 
+		 <value>collecting_bank_address_line_2</value> 
+		 <value>collecting_bank_dom</value> 
+		 <value>collecting_bank_address_line_4</value> 
+		 <value>shipping_by</value> 
+		 <value>ship_from</value> 
+		 <value>ship_to</value>
+		 <value>bol_number</value> 
+		 <value>needs_refer_to</value> 
+		 <value>narrative_additional_instructions</value> 
+		 <value>narrative_description_goods</value> 
+		 <value>inco_place</value>
+		 <value>fwd_contract_no</value>
+		 <value>amd_details</value> 
+	</util:list>
+	
+	<util:list id="LCFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>template_id</value>
+		<value>cust_ref_id</value>
+		<value>expiry_place</value>
+		<value>entity</value>
+		<value>applicant_name</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>applicant_address_line_4</value>
+		<value>alt_applicant_name</value>
+		<value>alt_applicant_address_line_1</value>
+		<value>alt_applicant_address_line_2</value>
+		<value>alt_applicant_dom</value>
+		<value>alt_applicant_address_line_4</value>
+		<value>beneficiary_name</value>
+		<value>beneficiary_address_line_1</value>
+		<value>beneficiary_address_line_2</value>
+		<value>beneficiary_dom</value>
+		<value>beneficiary_address_line_4</value>
+		<value>beneficiary_reference</value>
+		<value>applicable_rules_text</value>
+		<value>advising_bank_name</value> 
+		<value>advising_bank_address_line_1</value> 
+		<value>advising_bank_address_line_2</value> 
+		<value>advising_bank_dom</value>
+		<value>advising_bank_address_line_4</value>
+		<value>advising_bank_reference</value>				 
+		<value>advise_thru_bank_name</value> 
+		<value>advise_thru_bank_address_line_1</value> 
+		<value>advise_thru_bank_address_line_2</value> 
+		<value>advise_thru_bank_dom</value>
+		<value>advise_thru_bank_address_line_4</value>
+		<value>advise_thru_bank_reference</value>				
+		<value>requested_confirmation_party_name</value> 	 
+		<value>requested_confirmation_party_address_line_1</value> 
+		<value>requested_confirmation_party_address_line_2</value> 
+		<value>requested_confirmation_party_dom</value> 
+		<value>requested_confirmation_party_address_line_4</value>
+		<value>tenor_type_details</value>
+		<value>credit_available_with_bank_name</value>
+		<value>credit_available_with_bank_address_line_1</value>
+		<value>credit_available_with_bank_address_line_2</value>
+		<value>credit_available_with_bank_dom</value>
+		<value>credit_available_with_bank_address_line_4</value>
+		<value>credit_available_with_bank_reference</value>
+		<value>draft_term</value>
+		<value>ship_from</value>
+		<value>ship_loading</value>
+		<value>ship_discharge</value>
+		<value>ship_to</value>
+		<value>ship_name</value>
+		<value>inco_place</value>
+		<value>narrative_description_goods</value>
+		<value>narrative_documents_required</value>
+		<value>narrative_additional_instructions</value>
+		<value>narrative_special_beneficiary</value>
+		<value>narrative_period_presentation</value>
+		<value>narrative_shipment_period</value>
+		<value>narrative_additional_amount</value>
+		<value>free_format_text</value> 
+		<value>purchase_order</value> 
+		<value>amd_details</value> 
+		<value>adv_send_mode_text</value>
+	</util:list>
+
+	<util:list id="LNFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>cust_ref_id</value>
+		<value>entity</value>
+		<value>borrower_name</value>
+		<value>borrower_address_line_1</value>
+		<value>borrower_address_line_2</value>
+		<value>borrower_dom</value>
+	</util:list>
+	
+	<util:list id="SIFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>template_id</value>
+		<value>cust_ref_id</value>
+		<value>expiry_place</value>
+		<value>entity</value>
+		<value>applicant_name</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>applicant_address_line_4</value>
+		<value>alt_applicant_name</value>
+		<value>alt_applicant_address_line_1</value>
+		<value>alt_applicant_address_line_2</value>
+		<value>alt_applicant_dom</value>
+		<value>alt_applicant_address_line_4</value>
+		<value>beneficiary_name</value>
+		<value>beneficiary_address_line_1</value>
+		<value>beneficiary_address_line_2</value>
+		<value>beneficiary_dom</value>
+		<value>beneficiary_address_line_4</value>
+		<value>beneficiary_reference</value>
+		<value>applicable_rules_text</value>
+		<value>advising_bank_name</value> 
+		<value>advising_bank_address_line_1</value> 
+		<value>advising_bank_address_line_2</value> 
+		<value>advising_bank_dom</value>
+		<value>advising_bank_address_line_4</value>
+		<value>advising_bank_reference</value>				 
+		<value>advise_thru_bank_name</value> 
+		<value>advise_thru_bank_address_line_1</value> 
+		<value>advise_thru_bank_address_line_2</value> 
+		<value>advise_thru_bank_dom</value>
+		<value>advise_thru_bank_address_line_4</value>
+		<value>advise_thru_bank_reference</value>				
+		<value>requested_confirmation_party_name</value> 	 
+		<value>requested_confirmation_party_address_line_1</value> 
+		<value>requested_confirmation_party_address_line_2</value> 
+		<value>requested_confirmation_party_dom</value> 
+		<value>requested_confirmation_party_address_line_4</value>
+		<value>tenor_type_details</value>
+		<value>credit_available_with_bank_name</value>
+		<value>credit_available_with_bank_address_line_1</value>
+		<value>credit_available_with_bank_address_line_2</value>
+		<value>credit_available_with_bank_dom</value>
+		<value>credit_available_with_bank_address_line_4</value>
+		<value>credit_available_with_bank_reference</value>
+		<value>draft_term</value>
+		<value>ship_from</value>
+		<value>ship_loading</value>
+		<value>ship_discharge</value>
+		<value>ship_to</value>
+		<value>inco_place</value>
+		<value>narrative_description_goods</value>
+		<value>narrative_documents_required</value>
+		<value>narrative_additional_instructions</value>
+		<value>narrative_special_beneficiary</value>
+		<value>narrative_period_presentation</value>
+		<value>narrative_shipment_period</value>
+		<value>narrative_additional_amount</value>
+		<value>free_format_text</value>
+		<value>exp_event</value>
+		<value>lc_govern_country</value>
+		<value>lc_govern_text</value>
+		<value>narrative_transfer_conditions</value>
+		<value>delv_org_text</value>
+		<value>narrative_sender_to_receiver</value>
+		<value>fwd_contract_no</value>
+		<value>product_type_details</value>
+		<value>requested_confirmation_party_reference</value>
+		<value>standby_rule_other</value>
+		<value>narrative_delivery_to</value>
+		<value>amd_details</value>
+		<value>purchase_order</value> 
+		<value>adv_send_mode_text</value>
+		<value>lc_govern_country_subdiv</value> 
+	</util:list>
+	
+	<util:list id="TFFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>cust_ref_id</value>
+		<value>related_reference</value>
+		<value>description_of_goods</value>
+		<value>applicant_name</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>issuing_bank_name</value>
+		<value>applicant_reference</value>
+		<value>issuing_bank_customer_reference</value>
+		<value>goods_desc</value>
+		<value>free_format_text</value>
+		<value>ibReference</value>
+		<value>tnx_cur_code</value>
+		<value>sub_product_code_text</value>
+		
+	</util:list>
+	
+	<util:list id="FTFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>applicant_address_line_4</value>
+		<value>narrative_additional_instructions</value>
+		<value>applicant_name</value>
+		<value>counterparty_name</value>
+		<value>counterparty_reference</value>
+		<value>cust_ref_id</value>
+		<value>template_id</value>
+		<value>template_description</value>
+		<value>counterparty_address_line_1</value>
+		<value>counterparty_address_line_2</value>
+		<value>counterparty_dom</value>
+		<value>issuing_bank_customer_reference</value>
+		<value>account_with_bank_name</value>
+		<value>account_with_bank_address_line_1</value>
+		<value>account_with_bank_address_line_2</value>
+		<value>account_with_bank_dom</value>
+		<value>pay_through_bank_name</value>
+		<value>pay_through_bank_address_line_1</value>
+		<value>pay_through_bank_address_line_2</value>
+		<value>pay_through_bank_dom</value>
+	</util:list>
+	
+	<util:list id="ELFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		 <value>free_format_text</value>
+		 <value>narrative_payment_instructions</value>
+		 <value>narrative_special_beneficiary</value>
+		 <value>narrative_additional_instructions</value>
+		 <value>narrative_description_goods</value>
+		 <value>narrative_period_presentation</value>
+		 <value>narrative_special_recvbank</value>
+		 <value>narrative_documents_required</value>
+		 <value>narrative_sender_to_receiver</value>
+		 <value>expiry_place</value> 
+		 <value>drawer_address_line_1</value> 
+		 <value>drawer_address_line_2</value> 
+		 <value>inco_place</value> 
+		 <value>drawer_dom</value> 
+		 <value>drawee_dom</value> 
+		 <value>drawer_address_line_4</value> 
+		 <value>drawee_address_line_1</value> 
+		 <value>drawee_address_line_2</value> 
+		 <value>drawer_address_line_4</value> 
+		 <value>assignee_name</value> 
+		 <value>assignee_address_line_1</value> 
+		 <value>assignee_address_line_2</value> 
+		 <value>assignee_dom</value> 
+		 <value>assignee_address_line_4</value>
+		 <value>applicable_rules_text</value>
+		 <value>sec_beneficiary_name</value> 
+		 <value>sec_beneficiary_address_line_1</value> 
+		 <value>sec_beneficiary_address_line_2</value> 
+		 <value>sec_beneficiary_dom</value> 
+		 <value>sec_beneficiary_address_line_4</value> 
+		 <value>advise_thru_bank_name</value> 
+		 <value>advise_thru_bank_address_line_1</value> 
+		 <value>advise_thru_bank_address_line_2</value> 
+		 <value>advise_thru_bank_dom</value> 
+		 <value>advise_thru_bank_address_line_4</value> 
+		 <value>advise_thru_bank_reference</value> 
+		 <value>narrative_shipment_period</value> 
+		 <value>fwd_contract_no</value> 
+		 <value>sec_beneficiary_abbv_name</value> 
+		 <value>adv_send_mode_text</value>
+	</util:list>		
+	
+	<util:list id="SRFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		 <value>free_format_text</value>
+		 <value>narrative_payment_instructions</value>
+		 <value>narrative_special_beneficiary</value>
+		 <value>narrative_additional_instructions</value>
+		 <value>narrative_description_goods</value>
+		 <value>narrative_period_presentation</value>
+		 <value>narrative_special_recvbank</value>
+		 <value>narrative_documents_required</value>
+		 <value>narrative_sender_to_receiver</value>
+		 <value>narrative_period_presentation_nosend</value>
+		 <value>narrative_charges</value>
+		 <value>narrative_additional_amount</value>
+		 <value>narrative_delivery_to</value>
+		 <value>narrative_transfer_conditions</value>
+		 <value>narrative_shipment_period</value> 
+		 <value>drawer_dom</value>
+		 <value>drawer_address_line_1</value> 
+		 <value>drawer_address_line_2</value> 
+		 <value>drawer_address_line_4</value> 
+		 <value>drawee_dom</value>   
+		 <value>drawee_address_line_1</value> 
+		 <value>drawee_address_line_2</value> 
+		 <value>drawee_address_line_4</value>
+		 <value>drawee_details_bank_dom</value>
+		 <value>drawee_details_bank_name</value>
+		 <value>drawee_details_bank_reference</value>
+		 <value>drawee_details_bank_address_line_1</value>
+		 <value>drawee_details_bank_address_line_2</value>
+		 <value>drawee_details_bank_address_line_4</value>
+		 <value>assignee_name</value> 
+		 <value>assignee_address_line_1</value> 
+		 <value>assignee_address_line_2</value> 
+		 <value>assignee_dom</value> 
+		 <value>assignee_address_line_4</value>
+		 <value>sec_beneficiary_name</value> 
+		 <value>sec_beneficiary_abbv_name</value> 
+		 <value>sec_beneficiary_address_line_1</value> 
+		 <value>sec_beneficiary_address_line_2</value> 
+		 <value>sec_beneficiary_dom</value> 
+		 <value>sec_beneficiary_address_line_4</value> 
+		 <value>advise_thru_bank_name</value> 
+		 <value>advise_thru_bank_address_line_1</value> 
+		 <value>advise_thru_bank_address_line_2</value> 
+		 <value>advise_thru_bank_dom</value> 
+		 <value>advise_thru_bank_address_line_4</value> 
+		 <value>advise_thru_bank_reference</value> 
+		 <value>requested_confirmation_party_dom</value>
+		 <value>requested_confirmation_party_name</value>
+		 <value>requested_confirmation_party_reference</value>
+		 <value>requested_confirmation_party_address_line_1</value>
+		 <value>requested_confirmation_party_address_line_4</value>
+		 <value>requested_confirmation_party_address_line_2</value>
+		 <value>applicant_dom</value>
+		 <value>applicant_name</value>
+		 <value>applicant_reference</value>
+		 <value>applicant_address_line_1</value>
+		 <value>applicant_address_line_2</value>
+		 <value>applicant_address_line_4</value>
+		 <value>beneficiary_dom</value>
+		 <value>beneficiary_name</value>
+		 <value>beneficiary_abbv_name</value>		 
+		 <value>beneficiary_address_line_1</value>
+		 <value>beneficiary_address_line_2</value>
+		 <value>beneficiary_address_line_4</value>
+		 <value>beneficiary_reference</value>
+		 <value>credit_available_with_bank_dom</value>
+		 <value>credit_available_with_bank_name</value>
+		 <value>credit_available_with_bank_reference</value>
+		 <value>credit_available_with_bank_address_line_1</value>
+		 <value>credit_available_with_bank_address_line_2</value>
+		 <value>credit_available_with_bank_address_line_4</value>
+		 <value>issuing_bank_dom</value>
+		 <value>issuing_bank_name</value>
+		 <value>issuing_bank_reference</value>
+		 <value>issuing_bank_address_line_1</value>
+		 <value>issuing_bank_address_line_2</value>
+		 <value>issuing_bank_address_line_4</value>
+		 <value>applicable_rules_text</value>
+		 <value>ship_from</value>
+		 <value>ship_loading</value>
+		 <value>ship_discharge</value>
+		 <value>ship_to</value>
+		 <value>draft_term</value>
+		 <value>expiry_place</value> 
+		 <value>inco_place</value>
+		 <value>fwd_contract_no</value> 
+		 <value>exp_event</value>
+		 <value>lc_govern_text</value>
+		 <value>delv_org_text</value>
+		 <value>bo_comment</value>
+	</util:list>
+	
+	<util:list id="BRFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>free_format_text</value>
+	</util:list>
+	
+	<util:list id="BGFieldList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>template_id</value>
+		<value>cust_ref_id</value>
+		<value>additional_cust_ref</value>
+		<value>expiry_place</value>
+		<value>entity</value>
+		<value>applicant_name</value>
+		<value>applicant_address_line_1</value>
+		<value>applicant_address_line_2</value>
+		<value>applicant_dom</value>
+		<value>applicant_address_line_4</value>
+		<value>applicant_reference</value>
+		<value>alt_applicant_name</value>
+		<value>alt_applicant_address_line_1</value>
+		<value>alt_applicant_dom</value>
+		<value>alt_applicant_address_line_4</value>
+		<value>beneficiary_name</value>
+		<value>beneficiary_address_line_1</value>
+		<value>beneficiary_address_line_2</value>
+		<value>beneficiary_dom</value>
+		<value>beneficiary_address_line_4</value>
+		<value>beneficiary_reference</value>
+		<value>applicable_rules_text</value>
+		<value>advising_bank_name</value> 
+		<value>advising_bank_address_line_1</value> 
+		<value>advising_bank_address_line_2</value> 
+		<value>advising_bank_dom</value>
+		<value>advising_bank_address_line_4</value>
+		<value>advising_bank_reference</value>				 
+		<value>advise_thru_bank_name</value> 
+		<value>advise_thru_bank_address_line_1</value> 
+		<value>advise_thru_bank_address_line_2</value> 
+		<value>advise_thru_bank_dom</value>
+		<value>advise_thru_bank_address_line_4</value>
+		<value>advise_thru_bank_reference</value>				
+		<value>requested_confirmation_party_name</value> 	 
+		<value>requested_confirmation_party_address_line_1</value> 
+		<value>requested_confirmation_party_address_line_2</value> 
+		<value>requested_confirmation_party_dom</value> 
+		<value>requested_confirmation_party_address_line_4</value>
+		<value>tenor_type_details</value>
+		<value>credit_available_with_bank_name</value>
+		<value>credit_available_with_bank_address_line_1</value>
+		<value>credit_available_with_bank_address_line_2</value>
+		<value>credit_available_with_bank_dom</value>
+		<value>credit_available_with_bank_address_line_4</value>
+		<value>credit_available_with_bank_reference</value>
+		<value>draft_term</value>
+		<value>ship_from</value>
+		<value>ship_loading</value>
+		<value>ship_discharge</value>
+		<value>ship_to</value>
+		<value>inco_place</value>
+		<value>narrative_description_goods</value>
+		<value>narrative_documents_required</value>
+		<value>narrative_additional_instructions</value>
+		<value>narrative_special_beneficiary</value>
+		<value>narrative_period_presentation</value>
+		<value>narrative_shipment_period</value>
+		<value>narrative_additional_amount</value>
+		<value>narrative_text_undertaking</value>
+		<value>narrative_presentation_instructions</value>
+		<value>narrative_underlying_transaction_details</value>
+		<value>contract_narrative</value>
+		<value>free_format_text</value>
+		<value>bg_govern_text</value>
+		<value>claim_reference</value>
+		<value>amd_details</value>		
+		<value>delv_org_undertaking_text</value>
+		<value>delivery_to_other</value>
+        <value>adv_send_mode_text</value>
+        <value>bg_govern_country_subdiv</value>
+		<value>cu_govern_country_subdiv</value> 
+	</util:list>
+	
+	<util:map id="NestedFieldMap" key-type="java.lang.String" value-type="java.util.ArrayList" map-class="java.util.HashMap">
+		<entry key="EL" value-ref="ELNestedFieldvalueBankList"></entry>
+		<entry key="LC" value-ref="LCNestedFieldvalueBankList"></entry>
+		<entry key="EC" value-ref="ECNestedFieldvalueBankList"></entry>
+		<entry key="FT" value-ref="FTNestedFieldvalueBankList"></entry>
+		<entry key="SI" value-ref="SINestedFieldvalueList"></entry>
+	</util:map>
+	
+	<util:list id="SINestedFieldvalueList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>advise_thru_bank</value>
+		<value>advising_bank</value>
+		<value>drawee_details_bank</value>
+		<value>credit_available_with_bank</value>
+		<value>requested_confirmation_party</value>
+	</util:list>
+	
+	<util:list id="LCNestedFieldvalueBankList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>advise_thru_bank</value>
+		<value>advising_bank</value>
+		<value>drawee_details_bank</value>
+		<value>credit_available_with_bank</value>
+	</util:list>	
+	
+	<util:list id="ECNestedFieldvalueBankList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>remitting_bank</value>
+		<value>presenting_bank</value>
+		<value>collecting_bank</value>
+		
+	</util:list>
+	
+	<util:list id="ELNestedFieldvalueBankList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>advise_thru_bank</value>
+		<value>advising_bank</value>
+		<value>credit_available_with_bank</value>
+		<value>drawee_details_bank</value>
+		<value>issuing_bank</value>
+	</util:list>
+	
+	<util:list id="FTNestedFieldvalueBankList" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>pay_through_bank</value>
+		<value>account_with_bank</value>		
+	</util:list>	
+	
+	
+	<util:list id="BankValues" value-type="java.lang.String" list-class="java.util.ArrayList">
+		<value>name</value>
+		<value>address_line_1</value>
+		<value>address_line_2</value>
+		<value>dom</value>
+		<value>address_line_4</value>
+		<value>customer_reference</value>
+		<value>contact_name</value>
+		<value>reference</value>
+	</util:list>
+		
+	<!--     Include a swagger configuration --> 
+	<!-- <bean name="/fbccSwaggerConfig" class="com.misys.portal.webservices.apis.config.SwaggerConfig" lazy-init="true"/> -->
+	
+	<context:property-placeholder location="classpath*:/../../config/restapi.properties" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/oauth/authorize"/>
+			<bean class="com.finastra.openapi.security.oidc.OIDCAuthorizeEndpointInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/openapi/import-letter-of-credit/drafts"/>
+			<mvc:mapping path="/openapi/import-letter-of-credit/issuances"/>
+			<mvc:mapping path="/openapi/import-letter-of-credit/templates"/>
+			<mvc:mapping path="/import-letter-of-credit/message-to-bank"/>
+			<mvc:mapping path="/import-letter-of-credit/templates"/>
+			<mvc:mapping path="/import-letter-of-credit/message-to-bank/drafts"/>
+			<mvc:mapping path="/import-letter-of-credit/amendments/{id}"/>
+			<mvc:mapping path="/import-letter-of-credit/amendments/drafts/{id}"/>
+			<mvc:mapping path="/genericsave"/>
+			<mvc:mapping path="/accounts-group"/>
+			<mvc:mapping path="/corporate-entity"/>
+			<bean class="com.misys.portal.webservices.apis.interceptors.UUIDInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	 <import resource="client-restapi-spring.xml" />
+</beans>

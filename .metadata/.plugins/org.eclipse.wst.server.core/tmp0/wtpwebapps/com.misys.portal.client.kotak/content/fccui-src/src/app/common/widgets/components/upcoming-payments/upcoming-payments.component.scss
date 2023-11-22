@@ -1,0 +1,301 @@
+@import './../../../../../styles/variables.scss';
+
+:host ::ng-deep .multipleTabHeading {
+  color: $widgetHeaderColor;
+  font-size: 1.3em;
+  font-weight: 900;
+  margin-top: 1em;
+
+	label {
+		white-space: nowrap;
+	}
+}
+
+:host ::ng-deep .mat-expansion-panel-header-description {
+  flex-grow: 0.22 !important;
+  margin-top: 0.5em !important;
+  line-height: 1.125em;
+}
+
+ .date-display-class {
+  text-align: center;
+  font-size: 1.5em;
+  width: auto
+}
+
+ .left-header-text-class {
+  color: $FUCHSIA-F100;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+[dir="rtl"] :host ::ng-deep .left-header-text-class {
+  color: $FUCHSIA-F100;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: right !important;
+}
+
+ .right-header-text-class {
+  text-align: right;
+  padding-right: 1em !important;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+[dir="rtl"] :host ::ng-deep .right-header-text-class {
+  text-align: left !important;
+  padding-right: 1em !important;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.right-text-class {
+  text-align: right;
+  font-size: 1.2em !important;
+}
+
+[dir="rtl"] :host ::ng-deep .right-text-class {
+  text-align: left;
+  font-size: 1.2em !important;
+}
+
+[dir="rtl"] :host ::ng-deep .left-text-class {
+  text-align: right;
+  font-size: 1.2em !important;
+}
+
+
+
+// To change the font size and color of the dates in calendar.
+:host ::ng-deep .mat-calendar-body-cell-content {
+  border-style: none !important;
+  font-size: 1.5em !important;
+  color: $CHARCOAL-A30;
+}
+@media screen and  (max-width: 1180px) {
+  :host ::ng-deep .mat-calendar-body-cell-content {
+    font-size: 1em !important;
+  }
+}
+:host ::ng-deep .mat-icon-button{
+  color: $VIOLET-F100-dark !important;
+}
+
+// Highlight upcoming dates
+::ng-deep .mat-calendar-body > tr > .mat-calendar-body-cell.highlight-date-class > .mat-calendar-body-cell-content {
+  background: none;
+  border: 0.1em solid $Purple !important;
+  color: $Purple;
+  width: 65% !important;
+  height: 65% !important;
+}
+
+// To Changes the color of the current date text to white
+:host ::ng-deep .mat-calendar-body-today.mat-calendar-body-selected {
+  color: $WHITE !important;
+}
+
+// To Changes the color of the selected date text to white
+:host ::ng-deep .mat-calendar-body-cell-content .mat-calendar-body-selected {
+  color: $WHITE !important;
+}
+
+// To change the size of Month text in the header.
+:host ::ng-deep .mat-calendar-body-label {
+  font-size: 1.5em !important;
+}
+
+// To change the size of Date displayed in header.
+:host ::ng-deep .mat-calendar-body-label, .mat-calendar-period-button{
+  font-size: 1.5em !important;
+}
+
+// To reduce the size of the circles
+:host ::ng-deep .mat-calendar-body-cell-content {
+  width: 65% !important;
+  height: 65% !important;
+}
+
+// -------- END mat-calendar -------
+// ------- START p-calemdar ------------------
+// To remove the border for p-calendar for the month and year selection drop-down
+:host ::ng-deep .ui-datepicker .ui-datepicker-header .ui-datepicker-title select {
+  border: none !important;
+  margin-right: 2em !important;
+}
+// To remove the border for the p-calendar
+:host ::ng-deep .ui-datepicker {
+  border: 0em solid #a6a6a6 !important;
+  width: 30em !important;
+}
+
+// To increase the space between text and down arrow in drop down for p-calendar
+:host ::ng-deep .ui-widget, .ui-widget * {
+  box-sizing: border-box;
+  padding-right: 1em !important;
+}
+
+// To change the background color for the selected date in p-calendar
+.p-datepicker table td.p-datepicker-today > span {
+  background: $VIOLET-F100-dark !important;
+  color: #495057 !important;
+}
+
+// To change the selected date highlighted as a circle
+.p-datepicker table td > span {
+  border-radius: 50% !important;
+}
+// To change the arrow color in p-calendar
+.p-datepicker .p-datepicker-header .p-datepicker-prev, .p-datepicker .p-datepicker-header .p-datepicker-next {
+  color: $VIOLET-F100-dark !important;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-prev {
+  padding-left: 1.5em !important;
+}
+
+
+// ------- END p-calemdar ------------------
+
+.selected-Date {
+  display: flex;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  margin: auto;
+}
+
+[dir="rtl"] :host ::ng-deep .selected-Date {
+  display: flex;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  margin: auto;
+}
+
+.fcc-dateNavigator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12em;
+}
+
+.left-section{
+  margin-bottom: 1em;
+  width: 40%;
+  float: left;
+  padding-left: 4em;
+  padding-top: 5em;
+}
+
+[dir="rtl"] :host ::ng-deep  .left-section {
+  margin-bottom: 1em;
+  width: 40%;
+  float: left;
+  padding-left: 4em;
+  padding-top: 5em;
+}
+
+.right-section{
+  // margin-bottom: 1em;
+  width: 100%;
+  /* float: left; */
+  margin-bottom: 15em;
+
+}
+
+[dir="rtl"] :host ::ng-deep  .right-section {
+  // margin-bottom: 1em;
+  width: 100%;
+  /* float: left; */
+  margin-bottom: 15em;
+}
+
+.transactionCount{
+  color: $GREY-100 !important;
+  font-size: 1em;
+  padding-left: 0.6em;
+}
+
+[dir="rtl"] :host ::ng-deep  .transactionCountData{
+  color: $GREY-100 !important;
+  font-size: 1em;
+  padding-left: 0.6em;
+  text-align: right;
+}
+
+.noTransaction{
+  color: $GREY-100 !important;
+  // padding-left: 17em;
+  font-size: 1.2em;
+  text-align: center;
+
+}
+
+.right-inner-text-class {
+  text-align: right;
+  font-size: 0.85em !important;
+}
+
+ .left-inner-text-class {
+  font-size: 0.85em !important;
+}
+
+[dir="rtl"] :host ::ng-deep .left-text-class {
+  text-align: right !important;
+}
+
+[dir="rtl"] :host ::ng-deep  .right-inner-text-class {
+  text-align: left !important;
+  font-size: 0.85em !important;
+}
+
+[dir="rtl"] :host ::ng-deep  .left-inner-text-class {
+  font-size: 0.85em !important;
+  text-align: right !important;
+}
+
+
+
+// -- START mat expansion panel changes
+
+:host ::ng-deep .mat-expansion-panel-content{
+  background: $White-Lilac 0% 0% no-repeat padding-box !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title{
+  padding-left: 1em !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-header {
+  padding: 1em 0.5em;
+  align-items: normal;
+}
+
+
+//:host ::ng-deep .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+//  margin-bottom: 0 !important;
+//  background: transparent;
+//  height: 3.5em;
+//  padding-left: 1em;
+//}
+
+:host ::ng-deep .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+  margin-bottom: 0.1em !important;
+}
+
+:host ::ng-deep .mat-expansion-indicator::after {
+  color: $VIOLET-F100-dark !important;
+}
+// -- END mat expansion panel changes
+
+ .mat-icon-button.mat-button-disabled.mat-button-disabled {
+   color: $GREY-100 !important;
+ }
+ @media screen and  (max-width: 834px) and (min-width: 768px) {
+ .left-section{
+  width: 100% !important;
+ }
+}
+

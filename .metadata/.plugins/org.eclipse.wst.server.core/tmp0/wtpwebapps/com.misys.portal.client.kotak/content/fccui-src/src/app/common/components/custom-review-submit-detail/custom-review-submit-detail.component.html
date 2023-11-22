@@ -1,0 +1,96 @@
+<div class="parent-component">
+    <div *ngIf="isSuccess">
+      <div *ngIf="isWarning ;else onlySuccessNoWarning">
+        <div class="p-grid">
+          <div class="p-col-12 warningIcon"><em class="fa fa-exclamation-triangle"></em></div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 success">{{warning}}</div>
+        </div>
+      </div>
+
+      <ng-template #onlySuccessNoWarning>
+        <div class="p-grid">
+          <div class="p-col-12 success">{{translateSuccessMessage}}</div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 successTick"><em class="fa fa-check-circle fa-2x"></em></div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 successMessage">{{success}}</div>
+        </div>
+      </ng-template>
+    </div>
+
+
+    <div *ngIf="!isSuccess">
+      <div class="p-grid">
+        <div class="p-col-12 submitError"><em class="fa fa-times-circle"></em></div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 success">{{submitError}} </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 successMessage">{{submitMessage}} </div>
+      </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="isInformationBannerRequired">
+        <div>
+          <p-card class="overlayCardClass">
+            <div *ngIf="isViewIconRequired">
+              <div class="p-grid p-justify-end">
+                <div class="p-col-2 p-md-1 p-lg-1">
+                  <div class="p-col-2 p-md-1 p-lg-1">
+                    <img id="viewIcon" class = "iconImage" tabindex="0" (keyup)="keyPressDownload($event)" (click)="onClickView()" title="{{'view' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg' alt="View">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-grid subDetails">
+              <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+                <div [ngClass]="'productCodeDefault'">
+                  <div class={{circlebgclass}}>
+                    <span class="icon">{{productCode}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-12 p-lg-11 p-sm-12 p-col-align-center">
+                <div class="p-grid divRow">
+                  <ng-container *ngFor="let data of reviewDetail let i = index">
+                    <div *ngIf = "data.rendered" [ngClass]="classObject()" class="infoBanner">
+                        <div [ngClass]="(reviewDetail.length) > i+1 ? 'border-class' : ''">
+                          <span tabindex="0" class="headerFont">{{data.key | translate}}</span>
+                        </div>
+
+                      <div class="">
+                        <span tabindex="0" class="dataFont1" *ngIf="data.feildType === 'amount' || data.feildType === 'guaranteeAmt' || data.feildType === 'settlementAmt' || data.feildType === 'collectionAmt' ||  data.feildType === 'guaranteeAmtLi' || data.feildType === 'fcmAmount'">
+                          {{ currency }}
+                      </span>
+                      <span tabindex="0" class="dataFont1" *ngIf="data.feildType === 'beneAmount'">
+                        {{ beneCurrency }}
+                      </span>
+                          <span id={{data.id}} tabindex="0" class="dataFont1">{{data.value }}
+                      </span>
+                      </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          </p-card>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isInformationBannerRequired" class="nudges-line"></div>
+<div class="child-component"  *ngIf="isNudgesRequired">
+  <div>
+    <app-nudges [nudges]="nudges">
+    </app-nudges>
+  </div>
+</div>
+<div *ngIf="!isInformationBannerRequired" class="nudges-line"></div>
+<div class="feedback"  *ngIf="isFeedbackRequired">
+  <app-feedback>
+  </app-feedback>
+</div>

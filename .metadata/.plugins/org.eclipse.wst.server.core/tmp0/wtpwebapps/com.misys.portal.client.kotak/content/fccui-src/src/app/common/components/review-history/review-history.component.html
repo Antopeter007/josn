@@ -1,0 +1,44 @@
+<div class={{dir}}>
+    <div class="p-col-12">
+    <div class="p-grid">
+        <div class="p-col-3">
+            <p-listbox *ngIf = "productCodeList.indexOf(productCode) === -1" role="listbox" [options]="events" [(ngModel)]="selectedEvent" (keyup.enter)="emitReview(selectedEvent)" (click)="emitReview(selectedEvent)">
+                <ng-template let-event let-i="index" pTemplate="item">
+                    <div class="ui-helper-clearfix reviewList">
+                        <span class="labelTag">{{event.label}}</span>
+                        <div *ngIf="event.styleClass !==''"  [ngClass]="dir === 'rtl' ? 'iconListStyleRtl' : 'iconListStyle'"
+                        [ngStyle]="event.value === selectedEvent
+                            ? { 'background-image': 'url(' + pendingActionFuchsia + ')' }
+                            : { 'background-image': 'url(' + pendingActionGrey + ')' }
+                            ">
+
+                        </div>
+                        <br>
+                        <h3 class="valueTag">{{event.icon}}</h3><br>
+                        <span class="titleTag">{{event.title}}</span>
+                    </div>
+                </ng-template>
+            </p-listbox>
+            <fcc-list-box *ngIf = "productCodeList.indexOf(productCode) !== -1" [pageSizeOptions]="pageSizeOptions" 
+            [eventsListColumns] = "eventsListColumns" [eventsListFilterSectionJson] = "eventsListFilterSectionJson" 
+            (selectEvent) = "displayedSelectedEvent($event)" (eventsFilterParams) = "applyEventsFilter($event)"
+            [listBoxSortData] = "listBoxSortData" (sortEvent)="displaySelectedSortData($event)"
+            [eventDataEmit]="eventDataEmit" [productCode]="productCode"></fcc-list-box>
+        </div>
+        <div class="p-col-9 widthAccordion">
+            <div class="p-grid p-justify-end pdfMarginBottom">
+                <div *ngIf="amendCompareVisible">
+                <button role="button"  (click)="openAmendComparison()" pButton class="compare-button" type="button" label="{{'comparison' | translate}}" tabindex="0"></button>
+                </div>
+                <div>
+                  <button role="button"  *ngIf="response" tabindex="0" pButton class="secondaryButton respond-button" label={{respond}} id="respond" (click)="onClickRespondButton($event,selectedEvent)"></button>
+                  <em [dir]="dir" tabindex="0" class="fa fa-file-pdf-o pdfIcon" aria-hidden="true" title="{{'pdfDownload'| translate}}"
+                  (keyup)="OnEnterKey($event)" (click)="downloadPDF()"></em>
+                </div>
+            </div>
+          <app-review-transaction-details [eventRequiredForEnquiry]="true" [htmlwidgetDetails] = "widgetDetails">
+            </app-review-transaction-details>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+@import './../../../../../../../styles/variables.scss';
+
+
+:host {
+
+  ::ng-deep {
+    .p-cell-editing {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .ui-table .ui-table-thead > tr {
+      border-bottom: 0.065em solid #d7d6d7 !important;
+      background-color: ghostwhite;
+    }
+    .ui-table .ui-table-thead > tr > th {
+      padding: 0px 0.857em;
+      padding-top: 1.875em;
+      padding-bottom: 0.3125em;
+      border: 0px solid #c8c8c8;
+      font-weight: bold;
+      background-color: transparent;
+      color: #414141;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+      background-color: transparent;
+    }
+
+    .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+      color: #848484;
+    }
+
+
+    .ui-table .ui-table-caption {
+      padding: 0.2em;
+      background-color: white;
+    }
+
+    .ui-table .ui-table-tbody .ui-state-highlight {
+      background: #e0e0e0 !important;
+    }
+
+    .ui-table .ui-table-tbody > tr {
+      border-bottom: 0.065em solid #d7d6d7;
+    }
+
+    .ui-table .ui-table-tbody > tr > td {
+      background-color: #fff;
+      border: none;
+      line-height: 1em;
+      word-break: break-word;
+      text-align: left;
+      font-size: 0.875em;
+      padding-right: 2em;
+      height: 3em;
+    }
+    .ui-table {
+      border: none !important;
+    }
+
+    .ui-table .ui-table-tbody > tr > th {
+      text-transform: capitalize;
+    }
+
+    .ui-table{
+      border: 1px solid $GREY-07;
+    }
+
+  }
+}
+
+
+:host ::ng-deep .tableTrash{
+  cursor: pointer;
+}
+
+:host ::ng-deep .browseButton{
+    border-radius: 1.125em !important;
+    padding: 0 1em !important;
+    min-width: 4em !important;
+    line-height: 2.25em !important;
+    font-size: 0.875em !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    border: 0.0625em solid $FUCHSIA-F100 !important;
+    border-color: $FUCHSIA-F100  !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: $WHITE !important;
+    margin-top: 3em !important;
+  }
+
+  :host ::ng-deep .overDrawWrapper{
+    font-size: 1em !important;
+    font-weight: normal !important;
+    color: $RED-01 !important;
+    margin: 0em !important;
+    padding-top: 0.1em !important;
+  }
+
+  :host ::ng-deep td.amount  {
+    border-bottom: 1.5px solid $GREY !important;
+  }
+
+  :host ::ng-deep .tnsAmount {
+    font-size: 1em !important;
+    font-weight: normal !important;
+    margin: 0em !important;
+    padding-top: 1em !important;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    color: $GREY;
+    font-style: italic;
+  }
+
+  :host ::ng-deep th.Amount , td.amount
+  {
+    text-align: right !important;
+  }
+  :host ::ng-deep th.Amount input, td.amount input
+  {
+    text-align: right !important;
+  }

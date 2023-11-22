@@ -1,0 +1,49 @@
+@import '../../../../../../styles/variables.scss';
+::ng-deep .tooltip:not(.mat-calendar-body-selected):not(.mat-calendar-body-today) {
+    background: $CHARCOAL-F10;
+ }
+ 
+ ::ng-deep tr>td:first-of-type>.tooltip .tooltiptext {
+     left: 0;
+     margin-left: 0;
+ }
+ 
+ ::ng-deep tr>td:nth-of-type(7)>.tooltip .tooltiptext,
+ ::ng-deep tr:first-of-type>td:last-of-type>.tooltip .tooltiptext {
+     right: 0;
+     margin-left: 0;
+     left: auto;
+ }
+ 
+ ::ng-deep .tooltip .tooltiptext {
+     visibility: hidden;
+     width: 120px;
+     background-color: $CHARCOAL-F75;
+     color: $WHITE-10;
+     text-align: center;
+     border-radius: 0.375em;
+     padding: 0.5em 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 120%;
+     margin-left: -60px;
+     left: 50%;
+ }
+ 
+ ::ng-deep .tooltip:hover::after {
+     content: "";
+     position: absolute;
+     top: -25%;
+     left: 50%;
+     margin-left: -0.5em;
+     border-width: 0.5em;
+     border-style: solid;
+     border-color: $CHARCOAL-F75 transparent transparent transparent;
+ }
+ ::ng-deep .tooltip:hover .tooltiptext {
+     visibility: visible;
+ }
+
+ ::ng-deep p-calendar:focus{
+    outline: .225em solid #8dcdff;
+ }

@@ -1,0 +1,36 @@
+<ng-container [formGroup]="form">
+  <div  class="{{control.params.parentStyleClass}}">
+    <div *ngIf="control.params['rendered']">
+      <ng-container>
+      <mat-card class="mat-card-width">
+        <mat-card-header>
+          <mat-card-title *ngIf="!control.params['sectionHeader']" style="display: inline-block;">{{control.key | translate }}</mat-card-title>
+          <mat-card-title *ngIf="control.params['sectionHeader']" style="display: inline-block;">{{control.params['sectionHeader'] | translate }}</mat-card-title>
+          <span *ngIf="control.params['showViewLink']" style="display: inline-block;">
+            <a href="#" id="parentDetails" onclick="return false;" tabindex="0" [attr.title]="'viewParent' | translate"
+            (click)="onClickCardDetails($event, 'Summary')"><em class="pi pi-external-link pointer-class"></em></a>
+          </span>
+          <span *ngIf="control.params['showChildViewLink']" style="display: inline-block;">
+            <a href="#" id="parentDetails" onclick="return false;" tabindex="0" [attr.title]="'viewChild' | translate"
+            (click)="onClickCardDetails($event, 'Summary')"><em class="pi pi-external-link pointer-class"></em></a>
+          </span>
+          <div *ngIf="control.params['showRemoveLink']" (click)="onClickRemoveMatCard($event, control.key)"  (keyup.enter)="onClickRemoveMatCard($event, control.key)" 
+          id="matCardRemove">
+           <span tabindex="0"  style="display: inline-block;"  class="matCardRemove form-header">{{'removeLabel' | translate}}</span>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="p-grid p-col-12">
+            <div class="p-col-4" *ngFor="let opt of control.params['options']; let i = index">
+              <div class="mat-card-fields">
+                <div class="labelStyle">{{opt.header | translate}}</div>
+                <div class="valStyle">{{opt.value}}</div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+    </div>
+  </div>
+</ng-container>

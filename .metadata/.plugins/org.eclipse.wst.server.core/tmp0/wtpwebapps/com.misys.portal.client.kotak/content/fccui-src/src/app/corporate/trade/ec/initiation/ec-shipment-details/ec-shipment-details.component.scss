@@ -1,0 +1,23 @@
+.indented-text-area-field-65 {
+  width: 98%;
+}
+
+.indented-text-area-field-65 textarea {
+  resize: none;
+}
+
+.fcc-form-header, .fcc-form-header h3 {
+  margin-bottom: 1.5em;
+}
+
+.purchaseTermsValue {
+  margin-bottom: -1em !important;
+}
+
+:host ::ng-deep .p-col-12{
+  width : 98% !important;
+}
+:host ::ng-deep.indented-text-area-field-65 {
+  margin: 0 !important;
+  width: 100%;
+}

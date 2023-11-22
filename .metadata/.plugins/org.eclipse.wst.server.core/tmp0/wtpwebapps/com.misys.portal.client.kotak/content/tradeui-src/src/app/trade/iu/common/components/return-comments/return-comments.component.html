@@ -1,0 +1,25 @@
+<div *ngIf ="!viewMode ;else view_content">
+  <p-panel header="{{'HEADER_MC_COMMENTS_FOR_RETURN' | translate}}">
+    <div [formGroup]="commentsForm">
+      <div id= "comments-for-return">
+        <textarea fccCommonTextArea [controlName]="commentsForm.get('returnComments')" formControlName="returnComments" [rows]="5" [cols]="30"
+         pInputTextarea></textarea>
+         <fcc-common-error-message [control]="commentsForm.get('returnComments')"></fcc-common-error-message>
+      </div>
+    </div>
+  </p-panel>
+</div>
+
+<ng-template #view_content>
+  <div *ngIf="((commonService.isFieldsValuesExists([bgRecord['tnxStatCode']]) && (bgRecord['tnxStatCode'] === '02' || bgRecord['tnxStatCode'] === '06')) ||
+              (commonService.isFieldsValuesExists([bgRecord['subTnxStatCode']]) && (bgRecord['subTnxStatCode'] === '02' || bgRecord['subTnxStatCode'] === '03' || bgRecord['subTnxStatCode'] === '04' ||
+              bgRecord['subTnxStatCode'] === '18'))) &&
+              commonService.isFieldsValuesExists([bgRecord['returnComments']])">
+  <p-panel header="{{'HEADER_MC_COMMENTS_FOR_RETURN' | translate}}">
+  <div id='returnComments' *ngIf="bgRecord['returnComments'] && bgRecord['returnComments'] != null && bgRecord['returnComments'] !== ''">
+      {{bgRecord['returnComments']}}
+  </div>
+  </p-panel>
+  </div>
+</ng-template>
+

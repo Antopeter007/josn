@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<!--
+		Misys Trade Portal Interfaces Schema Copyright (c) 2000-2010 Misys
+		(http://www.misys.com) All Rights Reserved.
+	-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+<!-- IU -->
+	<bundle name="SubmitProvisionalIUDGARInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitProvisionalIUDEPUInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitProvisionalIUSTBYInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>			
+	<bundle name="SubmitIUDEPUInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUSTBYInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDGARInitiation">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitIUDGARAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDEPUAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUSTBYAmendment">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDGARRelease">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitIUSTBYRelease">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitIUDEPURelease">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface>
+	</bundle>
+	<bundle name="SubmitIUDEPUFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDGARFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUSTBYFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDGARTemplate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUDEPUTemplate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitIUSTBYTemplate">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitProvisionalIUDGARFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>
+	<bundle name="SubmitProvisionalIUDEPUFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+	<bundle name="SubmitProvisionalIUSTBYFreeFormat">
+		<interface asynchronous="true">xmlout</interface>
+		<interface asynchronous="true">swiftout</interface>
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<interface asynchronous="true">tnxdata2fbi</interface>
+		<interface failsafe="true" asynchronous="true">sendmailbankparam</interface>
+		<interface failsafe="true" asynchronous="true">sendmailnextauthoriserparam</interface>
+		<interface>collaborationsave</interface> 
+	</bundle>	
+</interfaces>

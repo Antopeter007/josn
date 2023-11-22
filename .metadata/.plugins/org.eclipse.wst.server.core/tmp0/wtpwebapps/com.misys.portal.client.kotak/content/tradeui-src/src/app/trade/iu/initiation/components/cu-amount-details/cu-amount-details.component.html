@@ -1,0 +1,12 @@
+<div *ngIf="commonDataService.displayLUSection() && commonDataService.getPreviewOption() !== 'SUMMARY'" class="indented-header">
+    <p-panel *ngIf = "!isBankInquiry" header="{{ 'HEADER_COUNTER_AMOUNT_CONFIRMATION_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+        <div [formGroup]="cuAmountDetailsSection">
+            <fcc-common-amount-details  *ngIf="bgRecord" (isTnxAmtCurCodeNull)="clearVariationAmtValidations($event);" (bgCurrencyCode)="setVariationCurrCode($event);" [showUndertakingType]="'cu'" [bgRecord]="bgRecord" [sectionForm]="cuAmountDetailsSection" (resetRenewalDetails)="resetRenewalSection($event)"></fcc-common-amount-details>
+        </div>
+    </p-panel>
+    <p-panel *ngIf = "isBankInquiry" header="{{ 'INQUIRY_HEADER_COUNTER_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+      <div [formGroup]="cuAmountDetailsSection">
+          <fcc-common-amount-details  *ngIf="bgRecord" (isTnxAmtCurCodeNull)="clearVariationAmtValidations($event);" (bgCurrencyCode)="setVariationCurrCode($event);" [showUndertakingType]="'cu'" [bgRecord]="bgRecord" [sectionForm]="cuAmountDetailsSection" (resetRenewalDetails)="resetRenewalSection($event)"></fcc-common-amount-details>
+      </div>
+  </p-panel>
+</div>

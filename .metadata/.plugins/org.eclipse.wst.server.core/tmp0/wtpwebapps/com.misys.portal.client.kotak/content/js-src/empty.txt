@@ -1,0 +1,1 @@
+This file is a place-holder to retain the empty folder in Git, since Git doesn't allows to maintain any empty folder. 

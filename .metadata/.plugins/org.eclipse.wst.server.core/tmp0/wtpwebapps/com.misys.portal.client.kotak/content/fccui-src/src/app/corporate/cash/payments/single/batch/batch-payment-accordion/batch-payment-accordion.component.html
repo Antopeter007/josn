@@ -1,0 +1,317 @@
+<ng-container>
+  <form *ngIf="panelForm" class="m-2 p-grid p-col-12" novalidate [formGroup]="panelForm">
+    <ng-container *ngFor="let control of this.data">
+      <div *ngIf="control.rendered == false? control.rendered  : true" [ngClass]="getLayoutClass(control.layoutClass, control.type)" dir="{{dir}}" >
+      <ng-container [ngSwitch]="control.type">
+        
+        <div *ngSwitchCase="'input-dropdown-filter'" class="p-col-12 {{control.accordionControl.params.dropdownFilterClass}}" >
+          <div dir="{{dir}}" class="ui-float-label  {{control.accordionControl.params.styleClass}}">
+            <p-dropdown [options]=control.accordionControl.params.options 
+              [filter]="control.accordionControl.params.filter" [readonly]="control.accordionControl.params.readonly"
+              id="{{control.name}}" [autoDisplayFirst]="control.accordionControl.params.autoDisplayFirst"
+              dropdownIcon="pi pi-caret-down" [required]="control.accordionControl.params.required"  [disabled]="control.accordionControl.params.disabled"
+              formControlName={{control.name}}
+              (onChange)="onEventRaised($event, control.name,control.index)"
+              (keyup)="onEventRaised($event, control.name,control.index)" styleClass="control.accordionControl.params.disabled ? currency-disable : fcc-dropdown" [filterBy]="control.accordionControl.params.filterBy">
+              <ng-template let-item pTemplate="item">
+                <div *ngIf="(item.value.name && item.value.name !== ''); else labelOnly" class="p-grid" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+                  <div class="{{control.accordionControl.params.labelClass}}">{{item.value.label}} </div>
+                  <div class="{{control.accordionControl.params.valueClass}}">{{item.value.name}}</div>
+                </div>
+                <ng-template #labelOnly>
+                  <div class="p-col-12">{{item.value.label}}</div>
+                </ng-template>
+              </ng-template>
+            </p-dropdown>
+            <label class="dropdownlabel" dir="{{dir}}" for="{{control.name}}">
+              {{ control.name | translate }}<a *ngIf = "control.accordionControl.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+            </label>
+          </div>
+        </div>
+        <div *ngSwitchCase="'input-auto-comp'" class="p-col-12 {{ control.dropdownFilterClass }}">
+          <div class="ui-float-label">
+            <mat-form-field class="input-mat-width" appearance="fill">
+              <mat-label
+                >{{ control.name | translate }}
+              </mat-label>
+              <input role="textbox"
+                type="text"
+                matInput
+                formControlName="{{ control.name }}"
+                [matAutocomplete]="auto"
+                [(ngModel)]="inputValue"
+                (blur)="checkValuePresent($event, control.accordionControl.options,control.index)"
+                (focus)="dofilterAutoComp($event, control.name, control)"
+                (keypress)="dofilterAutoComp($event, control.name, control)"
+                maxlength="{{ control.maxlength }}"
+                [required]="control.required"
+                
+              (change)="onEventRaised($event, control.name,control.index)"
+              />
+              <mat-icon matSuffix class="autoCompleteIcon">
+                {{ arrowIconSubject.getValue() }}
+              </mat-icon>
+              <span
+                *ngIf="control.accordionControl.value"
+                id="{{ control.name + 'Value' }}"
+                style="display: none"
+                >{{control.name ? control.accordionControl.value.name : control.accordionControl.value }}</span>
+              <mat-autocomplete
+                autoActiveFirstOption
+                #auto="matAutocomplete"
+                (closed)="arrowIconSubject.next('arrow_drop_down')"
+                (opened)="arrowIconSubject.next('arrow_drop_up')"
+                (optionSelected)="
+                  onOptionSelectEventRaised(
+                    $event,
+                    control.name,
+                    control.accordionControl.options,
+                    control,
+                    control.index
+                  )
+                "
+                [displayWith]="displayFn"
+                id="{{ control.name }}"
+              >
+                <mat-option
+                  *ngFor="let opt of filteredWrapperOptions | async"
+                  [value]="opt.value"
+                >
+                <div *ngIf="(opt.value.label !== opt.value.name); else labelOnly">
+                  <div class="p-grid" [ngStyle]="{ 'text-align': 'left' }">
+                    <div class="p-col-6">{{ opt.value.label }}</div>
+                    <div class="p-col-6">{{ opt.value.name }}</div>
+                  </div>
+                </div>
+                <ng-template #labelOnly>
+                  <div class="p-col-6">{{opt.value.label}}</div>
+                </ng-template>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <span
+            *ngIf="control && control.accordionControl.value && control.accordionControl.value.name"
+            id="adhoc_benf_fullName"
+              style="display: none"
+              >{{ control.accordionControl.value.name }}</span
+            >
+            <span
+            *ngIf="control && control.accordionControl.value && control.accordionControl.value.shortName"
+            id="adhoc_benf_abbvName"
+              style="display: none"
+              >{{ control.accordionControl.value.shortName }}</span
+            >
+          </div>
+        </div>
+        <div *ngSwitchCase="'text'" class="p-col-12" dir={{dir}}>
+          <div>
+            <div  tabindex="{{control.tabIndex ? control.tabIndex : -1 }}" class="form-header {{control.accordionControl.params.styleClass}} {{control.accordionControl.params.boxClass}}"
+              [ngClass] = "control.invalidValue ? 'labelStyleInRed' : ''">
+              <span class="{{control.accordionControl.params.parentStyleClass}}" [innerHTML] = "control.name"></span>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'input-text'" class="p-col-12 globalPadding {{control.accordionControl.params.parentStyleClass}}">
+          <div dir="{{dir}}" class="ui-float-label {{control.accordionControl.params.styleClass}}" >
+            <a class = "infoIcon" *ngIf = "control.accordionControl.params.infoIcon">
+              <span class="material-icons" (mouseenter)="op.show($event)" (mouseleave) = "op.hide()">info</span>
+              <p-overlayPanel #op class="previosInfoOLPanel" [dismissable]="true" appendTo="body">
+                <div *ngIf="(control.accordionControl.params !== '' && control.accordionControl.params !== undefined && control.accordionControl.params !== null); else previousValueNotentered">
+                  <p class = "previous-info">{{'previousInfo' | translate}}</p>{{control.accordionControl.params.previousValue}}
+                </div>
+                <ng-template #previousValueNotentered>
+                  <p class = "previous-info">{{'previousInfo' | translate}}</p>{{'NOT_ENTERED'| translate}}
+                </ng-template>
+              </p-overlayPanel>
+            </a>
+            <mat-form-field floatLabel="false" appearance="fill" class="input-mat-width" [ngClass]="{'mat-form-field-disabled': control.accordionControl.params.disabled}">
+              <mat-label *ngIf="!control.hideLabel">{{ control.name  | translate }}<a class = "infoLabel" *ngIf = "control.accordionControl.params.infoIcon && !control.accordionControl.params.groupLabel"> {{control.accordionControl.params.infolabel | translate}}</a></mat-label>
+              <input role="textbox" matInput id={{control.name}}  formControlName={{control.name}}
+              [readonly]="control.accordionControl.params.readonly"
+              (click)="onEventRaised($event, control.name,control.index)"
+              (blur)="onEventRaised($event, control.name,control.index)"
+              (keyup)="onEventRaised($event, control.name,control.index)"
+              [maxlength]= "control.accordionControl.params.maxlength"
+              [required]="control.accordionControl.params.required" [minlength] ="control.accordionControl.params.minlength" autocomplete="new-password"
+              type="{{control.accordionControl.params.enableMask==true?'password':'input-text'}}"/>
+            </mat-form-field>
+            <div *ngIf="control.accordionControl.params.addHyperlinkWithInput" class="imageIcon">
+              <a  *ngIf="!control.accordionControl.params.switchHyperlinkAndImg" href="#"  class="saveBeneStyle"  (click)="onEventRaised($event, control.name,control.index)" tabindex="0">{{ 'SAVE_BENEFICIARY' | translate }}</a>
+              <span *ngIf="control.accordionControl.params.switchHyperlinkAndImg">
+                <span *ngIf="control.accordionControl.params.switchImgPath; else switchImg">
+                  <img *ngIf="control.accordionControl.params.switchHyperlinkAndImg" id="" class = "iconImage" tabindex="0"   title="{{'view' | translate}}" src='{{contextPath}}{{control.accordionControl.params.successImgPath}}' alt="Saved">
+                </span>
+                <ng-template #switchImg>
+                  <img *ngIf="control.accordionControl.params.switchHyperlinkAndImg" id="" class = "iconImage" tabindex="0"   title="{{'view' | translate}}" src='{{contextPath}}{{control.accordionControl.params.failureImgPath}}' alt="Failed">
+                </ng-template>
+              </span>
+    
+          </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'input-switch'" dir={{dir}} class="p-col-12" >
+          <div class="fcc-radio-button fcc-input fcc-width65 {{control.accordionControl.params.styleClass}}">
+            <span class="ui-fluid">
+              <p-inputSwitch formControlName={{control.name}} [(ngModel)]= 'switchchecked'
+              (onChange)="onEventRaised($event,control.name, control.index)" tabindex="0"
+           (click)="onEventRaised($event,control.name, control.index)"></p-inputSwitch>
+           <label  for="{{control.name}}">{{ control.accordionControl.params.label }}</label>
+
+            </span>
+          </div>
+        </div>
+        <div *ngSwitchCase="'checkbox'" class="p-col-12">
+          <div  *ngIf= "control.name == 'confidentialCheckbox'"  dir={{dir}} class="fcc-input-checkbox {{control.accordionControl.params.layoutClass}} {{control.accordionControl.params.parentClass}} ">
+            <ng-container *ngIf = "control.accordionControl.params.showLabel" >
+              <label class="infodisplaylabel" tabindex="0">
+                {{ control.name }}
+              </label>
+              <ng-template #noLabel>
+                <label class = "fcc-input-checkbox-display" tabindex="0">
+                  {{ control.name }}</label>
+              </ng-template>
+            </ng-container>
+            <div class="ui-fluid p-grid gridStyle" tabindex="0">
+              <p-checkbox name="{{control.name}}" 
+              formControlName={{control.name}} [(ngModel)]= 'checkboxPaymentChecked' id="{{control.key}}"
+label="{{control.accordionControl.params.label}}" value="{{control.accordionControl.params.value}}"
+
+(click)="onEventRaised($event,control.name, control.index)"
+(onChange)="onEventRaised($event,control.name, control.index)" [required]="control.accordionControl.params.required"
+styleClass="fcc-chkbox {{control.accordionControl.params.layoutClass}}" ></p-checkbox>       
+</div>
+          </div>
+          <div  *ngIf= "control.name == 'addBeneficiaryCheckbox'"  dir={{dir}} class="fcc-input-checkbox {{control.accordionControl.params.layoutClass}} {{control.accordionControl.params.parentClass}} ">
+            <ng-container *ngIf = "control.accordionControl.params.showLabel" >
+              <label class="infodisplaylabel" tabindex="0">
+                {{ control.name }}
+              </label>
+              <ng-template #noLabel>
+                <label class = "fcc-input-checkbox-display" tabindex="0">
+                  {{ control.name }}</label>
+              </ng-template>
+            </ng-container>
+            <div class="ui-fluid p-grid gridStyle" tabindex="0">
+              <p-checkbox name="{{control.name}}" 
+              formControlName={{control.name}} [(ngModel)]= 'checkboxBeneChecked' id="{{control.key}}"
+label="{{control.accordionControl.params.label}}" value="{{control.accordionControl.params.value}}"
+(click)="onEventRaised($event,control.name, control.index)"
+(onChange)="onEventRaised($event,control.name, control.index)" [required]="control.accordionControl.params.required"
+styleClass="fcc-chkbox {{control.accordionControl.params.layoutClass}}" ></p-checkbox>       
+</div>
+          </div>
+
+        </div>
+        <div *ngSwitchCase="'icon'" class="p-col-12 {{control.accordionControl.params.parentStyleClass}}">
+          <div dir={{dir}} class="{{control.accordionControl.params.styleClass}}">
+          <span class="material-icons random1" tabindex="0" (click)="onEventRaised($event, control.name,control.index)"
+          (keyup)="onEventRaised($event, control.name,control.index)" [attr.title]="control.iconName">
+          {{control.iconName}}
+          </span>
+          </div>
+          </div>
+          <div *ngSwitchCase="'input-date'" class="p-col-12">
+            <div dir={{dir}} class="ui-float-label  {{control.accordionControl.params.styleClass}}">
+              <p-calendar #calendar *ngIf="control.accordionControl.params.selectionMode === 'range'" [showIcon]="true" inputId={{control.name}} [monthNavigator]="true" [yearNavigator]="true"
+              [yearRange]=getYearRange(control.accordionControl.params.yearRange) showButtonBar=false disabledDays={{control.accordionControl.params.disabledDays}}
+              [disabled]="control.accordionControl.params.readonly" disabledDates={{control.accordionControl.params.disabledDates}} showTime={{control.accordionControl.params.showTime}}
+              (onBlur)="onEventRaised($event, control.name,control.index)"
+              (click)="onEventRaised($event, control.name,control.index)"  
+              (onSelect)="calendar.overlayVisible = false"
+              [showOtherMonths] = "control.accordionControl.params.showOtherMonths" [locale]="control.accordionControl.params.langLocale" [dateFormat]="control.accordionControl.params.dateFormat"
+              formControlName={{control.name}}  [required]="control.accordionControl.params.required"
+              [minDate]=control.accordionControl.params.minDate [selectionMode]="control.accordionControl.params.selectionMode ? control.accordionControl.params.selectionMode : 'single'"></p-calendar>
+              <label *ngIf="control.accordionControl.params.selectionMode === 'range'" for="{{control.name}}">
+                {{ control.name }}<a *ngIf = "control.accordionControl.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+              </label>
+              <mat-form-field *ngIf="control.accordionControl.params.selectionMode !== 'range'" appearance="fill" class="input-mat-width">
+                <mat-label>{{control.name | translate}}<a class = "infoLabel" *ngIf = "control.infoIcon"> {{control.infolabel | translate}}</a></mat-label>
+                <input role="textbox" matInput [matDatepicker]="picker" formControlName={{control.name}} #pickerInput 
+                maxlength = {{control.accordionControl.params.maxlength}} 
+                [min]="control.accordionControl.params.minDate"
+                [max]="maxDate"
+                [required]="control.accordionControl.params.required"
+                [matDatepickerFilter]="holidayDateFilter"
+                 [disabled]="control.accordionControl.params.readonly"
+                (dateChange)="onMatDateEventRaised($event,control.name,control,pickerInput.value)"
+                (inputChange)="onMatDateEventRaised($event,control.name,control,pickerInput.value)"
+                [placeholder]="control.placeholder" (click)="picker.opened=true" id={{control.name}}>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div *ngSwitchCase="'input-dropdown'" class="p-col-12" >
+            <div dir={{dir}} class="ui-float-label  {{control.accordionControl.params.styleClass}}">
+              <ng-container *ngIf = "control.accordionControl.params.showLabel" >
+                <div>
+                  <label class="infodisplaylabel" for="{{control.name}}" tabindex="0">
+                    {{ control.accordionControl.params.label }}
+                    <a class = "infoLabel" *ngIf = "control.accordionControl.params.infoIcon"> {{control.accordionControl.params.infolabel | translate}}</a>
+                  </label>
+                </div>
+                 <ng-template #noLabel>
+                  <label class="dropdownlabel" for="{{control.name}}" tabindex="0">
+                    {{ control.accordionControl.params.label }}<a *ngIf = "control.accordionControl.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+                   </label>
+                 </ng-template>
+               </ng-container>
+           
+              <mat-form-field class="input-mat-width" appearance="fill">
+                <mat-label>{{ control.accordionControl.params.label }}</mat-label>
+                <mat-select disableOptionCentering formControlName={{control.name}} panelClass="dropdown-panel"
+                  [disabled]="control.accordionControl.params.disabled" [required]="control.accordionControl.params.required" id="{{control.name}}"
+                   (onClick)="onEventRaised($event,control.name, control.index)"
+                  (onChange)="onEventRaised($event,control.name, control.index)" (click)="onEventRaised($event,control.name, control.index)">
+                  <mat-option *ngFor="let opt of control.accordionControl.params.options" [value]="opt.value" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+                    {{opt.label}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </div>
+          <div *ngSwitchCase="'narrative-textarea'" class="p-col-12">
+            <div  class="ui-float-label {{control.accordionControl.params.styleClass}}" >
+              
+              <mat-form-field floatLabel="false" appearance="fill" class="input-mat-width">
+                <mat-label tabindex="-1">{{ control.name  | translate}}
+                </mat-label>
+                <textarea style="font-family: monospace" #fccCommonTextAreaId matInput fccCommonTextArea [controlName]= "control.name"
+                rows="{{control.accordionControl.params.rows}}" cols="{{control.accordionControl.params.cols}}"
+                class="fcc-ui-inputtextarea fcc-textarea-width" id="{{control.name}}"
+                formControlName={{control.name}}
+                maxlength="{{control.accordionControl.params.maxlength}}" [required]="control.accordionControl.params.required" [readonly]="control.accordionControl.params.readonly"></textarea>
+                </mat-form-field>
+                <div *ngIf="!control.accordionControl.swift">
+                  <fcc-common-narrative-character-count [enteredCharCount]="control.accordionControl.params.enteredCharCount"
+                          [allowedCharCount]="control.accordionControl.params.allowedCharCount" [fieldSize]="control.accordionControl.params.fieldSize">
+                  </fcc-common-narrative-character-count>
+                </div>
+            </div>
+          </div>
+        <div *ngSwitchCase="'rounded-button'" dir={{dir}}>
+          <div *ngIf= "control.name == 'savePayment'">
+          <button role="button"   mat-stroked-button dense class="{{control.accordionControl.params.styleClass}}" id="{{control.name}}"
+          (click)="onEventRaised($event, control.name,control.index)"
+           [disabled]="checkStatus( control.name,control.index) && disableButtn">{{control.name | translate}}</button>
+          </div>
+          <div *ngIf= "control.name == 'resetPayment'">
+           <button role="button"   mat-stroked-button dense class="{{control.accordionControl.params.styleClass}}" id="{{control.name}}"
+            (click)="onEventRaised($event, control.name,control.index)"  [disabled]="resetDisable"
+           >{{control.name | translate}}</button>
+          </div>
+        </div>
+      </ng-container>
+     
+      <div  *ngIf=" control.accordionControl && (control.accordionControl.dirty || control.accordionControl.touched)" dir={{dir}}>
+        <ng-container *ngFor="let error of control.accordionControl.getValidationMessages()">
+            <span class="fcc-field-message">
+              <p-message severity="error" text="{{error | translate}}"></p-message>
+            </span>
+        </ng-container>
+      </div>
+      </div>
+    </ng-container>
+  </form>
+</ng-container>
+

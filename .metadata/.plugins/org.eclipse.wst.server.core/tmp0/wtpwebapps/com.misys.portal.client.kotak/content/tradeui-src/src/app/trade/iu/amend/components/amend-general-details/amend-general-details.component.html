@@ -1,0 +1,286 @@
+  <p-panel header="{{'HEADER_GENERAL_DETAILS' | translate}}" [toggleable]="false" [collapsed] ="false">
+    <p-header> 
+      <span *ngIf="!viewMode">
+        <a class="fa fa-search fa-lg {{commonService.getUserLanguage() === 'ar' ? 'master-icon-left' : 'master-icon'}}" (click)= "showDailog(bgRecord['refId'])"></a>
+      </span>
+    </p-header>
+    <div *ngIf ="!unsignedMode  ;else unsigned_content">
+        <div [formGroup]="amendGeneraldetailsSection">
+        <div class="field" id =  "refIdRow" *ngIf="bgRecord['refId'] && bgRecord['refId'] != null &&   bgRecord['refId'] != ''">
+            <label for = "refId" >{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+            <input id = "refId" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName = "refId" readonly>
+          </div>
+          <!-- Amendment/Request date -->
+          <div class="field" id =  "amdDateRow"  >
+            <label for = "bgAmdDate">{{ 'AMEND_GENERALDETAILS_AMENDMENT_DATE' | translate }}&nbsp;</label>
+            <input id = "bgAmdDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="bgAmdDate" readonly>
+          </div>
+          <div class="field" id =  "custRefIdRow" *ngIf="bgRecord['custRefId'] && bgRecord['custRefId'] != null &&   bgRecord['custRefId'] != ''">
+            <label for = "custRefId" >{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['custRefId']}}</label>
+          </div>
+          <div class="field" id =  "additionalCustRefRow" *ngIf="bgRecord['additionalCustRef'] && bgRecord['additionalCustRef'] != null &&   bgRecord['additionalCustRef'] != ''">
+            <label for = "additionalCustRef" >{{ 'GENERALDETAILS_ADDITIONAL_CUST_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['additionalCustRef']}}</label>
+          </div>
+          <div class="field" id =  "boRefIdRow" *ngIf="bgRecord['boRefId'] && bgRecord['boRefId'] != null &&   bgRecord['boRefId'] != '';">
+            <label for = "boRefId" >{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['boRefId']}}</label>
+          </div>
+          <!-- Method of Transmission-->
+          <div class="field" *ngIf="bgRecord['advSendMode'] && bgRecord['advSendMode'] != null &&  bgRecord['advSendMode'] != ''">
+            <label for="advSendMode">{{'INSTRUCTIONS_METHOD_OF_TRANS' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTransmissionMethod(bgRecord['advSendMode'])}}</label>
+          </div>
+          <!-- Method of Transmission Other text-->
+          <div class="field" *ngIf="bgRecord['advSendModeText'] && bgRecord['advSendModeText'] != null &&  bgRecord['advSendModeText'] != ''">
+            <label for="advSendModeText">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['advSendModeText']}}</label>
+          </div>
+          <!-- Form of Undertaking-->
+          <div class="field" id =  "subProductCode" *ngIf="bgRecord['subProductCode'] && bgRecord['subProductCode'] != null &&   bgRecord['subProductCode'] != ''">
+            <label for = "subProductCode" >{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+          </div>
+          <!-- Purpose -->
+          <div class="field" id =  "purposeRow" *ngIf="bgRecord['purpose'] && bgRecord['purpose'] != null &&   bgRecord['purpose'] != ''">
+            <label for = "purpose" >{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-max' : 'label-left-max'}}">{{commonDataService.getAmendPurpose(bgRecord['purpose']) | translate}}</label>
+          </div>
+          <!-- Start/Effective Date -->
+          <div class="field" id =  "issDateTypeCodeRow" *ngIf="bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null &&   bgRecord['bgIssDateTypeCode'] != ''">
+            <label for = "bgIssDateTypeCode" >{{ 'AMEND_GENERALDETAILS_START_DATE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+          </div>
+          <div class="field" id="bgIssDateTypeDetailsRow" *ngIf="bgRecord['bgIssDateTypeDetails'] && bgRecord['bgIssDateTypeDetails'] != null &&  bgRecord['bgIssDateTypeDetails'] != ''">
+            <label for="bgIssDateTypeDetailsRow">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgIssDateTypeDetails']}}</label>
+          </div>
+          <div class="field" id =  "issDateRow" *ngIf="bgRecord['issDate'] && bgRecord['issDate'] != null &&   bgRecord['issDate'] != ''">
+              <label for = "issDate" >{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['issDate']}}</label>
+            </div>
+          <!-- Confirm Instructions -->
+          <div *ngIf="bgRecord['subProductCode'] === 'STBY'">
+            <div class="field" id = "bgConfInstructionsView" *ngIf="commonDataService.getOrgData()['bgConfInstructions'] === '01'">
+              <label for="bgConfInstructions">{{'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getConfirmationInstructions(bgRecord['bgConfInstructions']) | translate}}</label>
+            </div>
+              <div class="field" id = "bgConfInstructions" *ngIf="commonDataService.getOrgData()['bgConfInstructions'] !== '01'">
+                <label  class="label-radiobutton" for="bgConfInstructions">{{'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+                    <p-radioButton id="customRadioButton" value="01"  formControlName="bgConfInstructions" label="{{'AMOUNTDETAILS_CFM_INST_CONFIRM' | translate}}"  name="bgConfInstructions" (ngModelChange)="setConfInstValue(amendGeneraldetailsSection.get('bgConfInstructions').value);">
+                    </p-radioButton>
+
+                    <p-radioButton id="customRadioButton" value="02"  formControlName="bgConfInstructions" label="{{'AMOUNTDETAILS_CFM_INST_MAY_ADD' | translate}}" name="bgConfInstructions" (ngModelChange)="setConfInstValue(amendGeneraldetailsSection.get('bgConfInstructions').value);">
+                    </p-radioButton>
+
+                    <p-radioButton id="customRadioButton" value="03"  formControlName="bgConfInstructions" label="{{'AMOUNTDETAILS_CFM_INST_WITHOUT' | translate}}"  name="bgConfInstructions" (ngModelChange)="setConfInstValue(amendGeneraldetailsSection.get('bgConfInstructions').value);">
+                    </p-radioButton>
+                  <fcc-common-error-message [control]="amendGeneraldetailsSection.get('bgConfInstructions')"></fcc-common-error-message>
+              </div>
+          <!--Transfer indicator and Transfer narratives in case of already a transfer event-->
+          <div *ngIf="bgRecord['bgTransferIndicator'] && bgRecord['bgTransferIndicator'] != null && bgRecord['bgTransferIndicator'] != '' && bgRecord['bgTransferIndicator'] === 'Y'">
+            <div class="field" id="bgTransferIndicatorViewRow">
+              <label for="bgTransferIndicator" >&nbsp;</label>
+              <label id="bgTransferIndicatorLabel" class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}"><strong>{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate }}</strong></label>
+            </div>
+            <div class="field" id="narrativeTransferConditionsViewRow" *ngIf="bgRecord['narrativeTransferConditions'] && bgRecord['narrativeTransferConditions'] != null && bgRecord['narrativeTransferConditions'] != ''">
+              <label for="narrativeTransferConditions" id="narrativeTransferConditionsLabel">{{ 'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['narrativeTransferConditions']}}</label>
+            </div>
+          </div>
+          <!--Transfer indicator and Transfer narratives in case of not a transfer event-->
+          <div *ngIf="bgRecord['bgTransferIndicator'] === null || bgRecord['bgTransferIndicator'] === '' || bgRecord['bgTransferIndicator'] === 'N'">
+            <div class="field" class="bgTransferIndicatorEditRow">
+              <label class="label-checkbox">{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate}}&nbsp;</label>
+              <p-checkbox id = "bgTransferIndicator" formControlName="bgTransferIndicator"
+                binary="true" (onChange)="onCheckedTransferIndicator()"></p-checkbox>
+            </div>
+            <div *ngIf="amendGeneraldetailsSection.get('bgTransferIndicator').value">
+              <div class="field">
+                <label for="transfer_conditions">
+                  {{'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}
+                </label>
+                <textarea id = "narrativeTransferConditions" fccCommonTextArea [controlName]="amendGeneraldetailsSection.get('narrativeTransferConditions')" pInputTextarea
+                  [rows]="12" [cols]="65" formControlName="narrativeTransferConditions" class="textarea-fixed-height"
+                  [class.fieldError]="validationService.isFieldInvalid(amendGeneraldetailsSection.get('narrativeTransferConditions'))">
+                </textarea>
+              </div>
+              <fcc-common-narrative-character-count [enteredCharCount]="amendGeneraldetailsSection.get('narrativeTransferConditions').value ? amendGeneraldetailsSection.get('narrativeTransferConditions').value.length : 0"
+              [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+              <fcc-common-error-message [control]="amendGeneraldetailsSection.get('narrativeTransferConditions')"></fcc-common-error-message>
+            </div>
+          </div>
+          </div>
+          <div class="field" id="orgExpDateRow" *ngIf="orgData?.bgExpDate && orgData?.bgExpDate != null &&   orgData?.bgExpDate != ''">
+            <label for = "expDate" >{{ 'AMEND_GENERALDETAILS_ORIGINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData?.bgExpDate}}</label>
+          </div>
+          <!-- Amendment Number -->
+          <div class="field" id="amendmentNumberRow">
+              <label for = "amendmentNumber" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{amdNum}}</label>
+          </div>
+          <!-- Expiry Type -->
+          <div class="field" id="expDateTypeCodeRow">
+            <label for="bgExpDateTypeCode" class="label-radiobutton">{{'GENERALDETAILS_EXPIRY_TYPE' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+            <p-radioButton id="bgExpDateTypeCode" name="bgExpDateTypeCode" value="01" label="{{'GENERALDETAILS_END_DATE_NONE' | translate}}" formControlName="bgExpDateTypeCode"
+              (click)="updateLicenseListExpType();setVariationFrequencyValidator();">
+            </p-radioButton>
+
+            <p-radioButton id="bgExpDateTypeCode" name="bgExpDateTypeCode" value="02" label="{{'GENERALDETAILS_END_DATE_FIXED' | translate}}" formControlName="bgExpDateTypeCode"
+              (click)="updateLicenseListExpType();setVariationFrequencyValidator();">
+            </p-radioButton>
+
+            <p-radioButton id="bgExpDateTypeCode" name="bgExpDateTypeCode" value="03" label="{{'GENERALDETAILS_END_DATE_PROJECTED' | translate}}" formControlName="bgExpDateTypeCode"
+              (click)="updateLicenseListExpType();setVariationFrequencyValidator();">
+            </p-radioButton>
+            <fcc-common-error-message [control]="amendGeneraldetailsSection.get('bgExpDateTypeCode')" ></fcc-common-error-message>
+          </div>
+          <!-- Expiry Date -->
+          <div class="field"  id="expDateRow" *ngIf='expiryDateFLag'>
+          <label for="expDate">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+              <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="bgExpDate" dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}" name="expiryDateSelected" class="content"
+              (onSelect) = "commonService.setExpiryDate(amendGeneraldetailsSection.get('bgExpDate').value, 'bg'); commonService.calculateRegularExtFinalExpiryDate('bg');commonService.calculateRollingExtFinalExpiryDate('bg'); updateLicenseList(); setVariationFrequencyValidator();setExpiryDateForExt();" ></p-calendar>
+              <fcc-common-error-message [control]="amendGeneraldetailsSection.controls.bgExpDate" ></fcc-common-error-message>
+            </div>
+          <!-- Approximate Expiry Date -->
+          <div class="field" id="ApproxExpiryDateRow" *ngIf="approxExpiryDateFlag">
+          <label for="bgApproxExpiryDate">
+            <span *ngIf="isExpTypeOpen">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+            <span *ngIf="!isExpTypeOpen">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>&nbsp;
+          </label>
+            <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="bgApproxExpiryDate" onkeydown="return false" dateFormat="{{ this.dateFormat }}" name="approxExpiryDateSelected" class="content"
+              (onSelect)= "setValidatorExpDate('bgApproxExpiryDate')"></p-calendar>
+          <fcc-common-error-message [control]="amendGeneraldetailsSection.get('bgApproxExpiryDate')" ></fcc-common-error-message>
+          </div>
+          <!-- Expiry Event -->
+          <div  class="field" id="expEventRow" *ngIf="expiryEventFlag">
+              <label for="expEvent">{{'GENERALDETAILS_EXPIRY_EVENT' | translate }}<span *ngIf="!isExpTypeOpen" class="required-field-symbol">*</span>&nbsp;</label>
+              <textarea fccCommonTextArea [controlName]="amendGeneraldetailsSection.get('bgExpEvent')" pInputTextarea [rows]="12" [cols]="65"
+              formControlName="bgExpEvent" [class.fieldError]="validationService.isFieldInvalid(amendGeneraldetailsSection.get('bgExpEvent'))"></textarea>
+              <fcc-common-error-message [control]="amendGeneraldetailsSection.get('bgExpEvent')"></fcc-common-error-message>
+          </div>
+
+      <input type="hidden" formControlName="subProductCode" value="{{bgRecord['subProductCode']}}"/>
+      <input type="hidden" formControlName="refId" value="{{bgRecord['refId']}}"/>
+      <input type="hidden" formControlName="custRefId" value="{{bgRecord['custRefId']}}"/>
+      <input type="hidden" formControlName="additionalCustRef" value="{{bgRecord['additionalCustRef']}}"/>
+      <input type="hidden" formControlName="bgIssDateTypeCode" value="{{bgRecord['bgIssDateTypeCode']}}"/>
+      <input type="hidden" formControlName="purposeValue"/>
+      <input type="hidden" formControlName="bgAmdNo" />
+      <input type="hidden" formControlName="issDate" value="{{bgRecord['issDate']}}"/>
+      <input type="hidden" formControlName="curDate" name = "curDate"/>
+
+      </div>
+      <p-confirmDialog id="deleteConfirmDialog" class="lf-confirm-dialog" key='deleteAmendLicenseConfirmDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    </div>
+  </p-panel>
+    <!-- View Event and Amend General details section -->
+    <ng-template #unsigned_content>
+        <div class = "fieldset-content">
+        <div id =  "refIdRow" *ngIf="bgRecord['refId'] && bgRecord['refId'] != null &&   bgRecord['refId'] != ''">
+            <label for = "refId" >{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['refId']}}</label>
+          </div>
+          <div id =  "custRefIdRow" *ngIf="bgRecord['custRefId'] && bgRecord['custRefId'] != null &&   bgRecord['custRefId'] != ''">
+            <label for = "custRefId" >{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['custRefId']}}</label>
+          </div>
+          <div id =  "additionalCustRefRow" *ngIf="bgRecord['additionalCustRef'] && bgRecord['additionalCustRef'] != null &&   bgRecord['additionalCustRef'] != ''">
+            <label for = "additionalCustRef" >{{ 'GENERALDETAILS_ADDITIONAL_CUST_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['additionalCustRef']}}</label>
+          </div>
+          <div id =  "boRefIdRow" *ngIf="bgRecord['boRefId'] && bgRecord['boRefId'] != null &&   bgRecord['boRefId'] != ''">
+            <label for = "boRefId" >{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['boRefId']}}</label>
+          </div>
+          <!-- Method of Transmission-->
+          <div *ngIf="bgRecord['advSendMode'] && bgRecord['advSendMode'] != null &&  bgRecord['advSendMode'] != ''">
+            <label for="advSendMode">{{'INSTRUCTIONS_METHOD_OF_TRANS' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTransmissionMethod(bgRecord['advSendMode'])}}</label>
+
+          </div>
+          <!-- Method of Transmission Other text-->
+          <div *ngIf="bgRecord['advSendModeText'] && bgRecord['advSendModeText'] != null &&  bgRecord['advSendModeText'] != ''">
+            <label for="advSendModeText">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['advSendModeText']}}</label>
+          </div>
+          <!-- Form of Undertaking-->
+          <div id =  "subProductCode" *ngIf="bgRecord['subProductCode'] && bgRecord['subProductCode'] != null &&   bgRecord['subProductCode'] != ''">
+            <label for = "subProductCode" >{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+          </div>
+          <!-- Purpose -->
+          <div id =  "purpose_row" *ngIf="bgRecord['purpose'] && bgRecord['purpose'] != null &&   bgRecord['purpose'] != ''">
+            <label for = "purpose" >{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-max' : 'label-left-max'}}">{{commonDataService.getAmendPurpose(bgRecord['purpose']) | translate}}</label>
+
+          </div>
+          <!-- Start/Effective Date -->
+          <div id =  "issDateTypeCodeRow" *ngIf="bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null &&   bgRecord['bgIssDateTypeCode'] != ''">
+            <label for = "bgIssDateTypeCode" >{{ 'AMEND_GENERALDETAILS_START_DATE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+          </div>
+          <div id="bgIssDateTypeDetailsRow" *ngIf="bgRecord['bgIssDateTypeDetails'] && bgRecord['bgIssDateTypeDetails'] != null &&  bgRecord['bgIssDateTypeDetails'] != ''">
+            <label for="bgIssDateTypeDetailsRow">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgIssDateTypeDetails']}}</label>
+          </div>
+          <div id =  "issDateRow" *ngIf="bgRecord['issDate'] && bgRecord['issDate'] != null &&   bgRecord['issDate'] != ''">
+              <label for = "issDate" >{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['issDate']}}</label>
+            </div>
+          <!-- Amendment/Request date -->
+          <div id =  "amdDateRow" *ngIf="bgRecord['bgAmdDate'] && bgRecord['bgAmdDate'] != null &&   bgRecord['bgAmdDate'] != ''">
+            <label for = "bgAmdDate" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_DATE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgAmdDate']}}</label>
+          </div>
+          <!-- Confirmation instructions -->
+          <div id="bgConfInstructionsViewRow" *ngIf="bgRecord['bgConfInstructions'] && bgRecord['bgConfInstructions'] != null && bgRecord['bgConfInstructions'] != ''">
+            <label for="bgConfInstructions" id="bgConfInstructionsLabel">{{ 'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getConfirmationInstructions(bgRecord['bgConfInstructions']) | translate}}</label>
+          </div>
+          <!-- Transfer Indicator -->
+          <div id="bgTransferIndicatorViewRow" *ngIf="bgRecord['bgTransferIndicator'] && bgRecord['bgTransferIndicator'] != null && bgRecord['bgTransferIndicator'] != '' && bgRecord['bgTransferIndicator'] === 'Y'">
+            <label for="bgTransferIndicator" id="bgTransferIndicatorLabel">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}"><strong>{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate }}</strong></label>
+          </div>
+          <!-- Transfer Narratives -->
+          <div id="narrativeTransferConditionsViewRow" *ngIf="bgRecord['narrativeTransferConditions'] && bgRecord['narrativeTransferConditions'] != null && bgRecord['narrativeTransferConditions'] != ''">
+            <label for="narrativeTransferConditions" id="narrativeTransferConditionsLabel">{{ 'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['narrativeTransferConditions']}}</label>
+          </div>
+          <div id =  "orgExpDateRow" *ngIf="bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null &&   bgRecord['bgExpDate'] != ''">
+            <label for = "expDate" >{{ 'AMEND_GENERALDETAILS_ORIGINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData?.bgExpDate}}</label>
+          </div>
+           <!-- Amendment Number -->
+           <div id =  "amendmentNumberRow" *ngIf="bgRecord['bgAmdNo'] && bgRecord['bgAmdNo'] != null &&   bgRecord['bgAmdNo'] != ''">
+              <label for = "amendmentNumber" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgAmdNo']}}</label>
+          </div>
+          <!-- Expiry Type -->
+          <div id =  "expDateTypeCodeRow" *ngIf="bgRecord['bgExpDateTypeCode'] && bgRecord['bgExpDateTypeCode'] != null && bgRecord['bgExpDateTypeCode'] != ''">
+            <label for = "bgExpDateTypeCode" >{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getExpiryType(bgRecord['bgExpDateTypeCode']) | translate}}</label>
+          </div>
+          <!-- Expiry Date -->
+          <div id =  "expDateRow" *ngIf="bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null &&   bgRecord['bgExpDate'] != '' && !approxExpiryDateFlag">
+              <label for = "bgExpDate" >{{ 'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgExpDate']}}</label>
+          </div>
+          <!-- Approximate Expiry Date -->
+          <div id =  "expDateRow" *ngIf="bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null &&   bgRecord['bgExpDate'] != '' && approxExpiryDateFlag">
+            <label for = "expDate" >
+              <span *ngIf="isExpTypeOpen">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+              <span *ngIf="!isExpTypeOpen">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>&nbsp;
+            </label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgApproxExpiryDate']}}</label>
+          </div>
+          <!-- Expiry Event -->
+          <div id =  "expEventRow" *ngIf="bgRecord['bgExpEvent'] && bgRecord['bgExpEvent'] != null &&   bgRecord['bgExpEvent'] != ''">
+              <label for = "expEvent" >{{ 'GENERALDETAILS_EXPIRY_EVENT' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['bgExpEvent']}}</label>
+          </div>
+        </div>
+      </ng-template>

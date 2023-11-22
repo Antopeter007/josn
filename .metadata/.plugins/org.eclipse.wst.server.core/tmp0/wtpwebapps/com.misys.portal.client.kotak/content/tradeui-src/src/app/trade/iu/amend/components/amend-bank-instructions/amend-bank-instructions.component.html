@@ -1,0 +1,86 @@
+<p-panel header="{{ 'HEADER_INSTRUCTIONS' | translate }}"[toggleable]="true" [collapsed] ="true">
+    <div *ngIf="!unsignedMode ;else unsigned_content" [formGroup]="amendBankInstructionsSection">
+          <div id = "bgDelvOrgUndertakingRow" class = "field">
+            <label for="bgDelvOrgUndertaking">{{'INSTRUCTIONS_DELIVERY_OF_AMD_UNDERTAKING' | translate }}&nbsp;</label>
+            <p-dropdown id="bgDelvOrgUndertaking"  appendTo = "body" formControlName="bgDelvOrgUndertaking" placeholder="Select"
+            [options]="deliveryModeDropdown" (onChange)="changeOriginalUndertakingDel($event);" styleClass="fcc-width45" [showClear]="true"></p-dropdown>
+          </div>
+
+          <div id = "bgDelvOrgUndertakingTextRow" class = "field" *ngIf="amendBankInstructionsSection.get('bgDelvOrgUndertaking').value === '99' || amendBankInstructionsSection.get('bgDelvOrgUndertaking').value === '02'">
+              <label for="bgDelvOrgUndertakingText">
+                  <span [style.display]="amendBankInstructionsSection.get('bgDelvOrgUndertaking').value === '99' ? 'inherit' : 'none'" class="required-field-symbol">*</span>&nbsp;
+              </label>
+              <input formControlName="bgDelvOrgUndertakingText" type="text" pInputText>
+              <fcc-common-error-message [control]="amendBankInstructionsSection.get('bgDelvOrgUndertakingText')" ></fcc-common-error-message>
+          </div>
+
+          <div class="field">
+            <label for="bgPrincipalActNo" >{{'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <input formControlName="bgPrincipalActNo" maxlength="35" type="text" [readonly]="true" pInputText>
+              <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgPrincipalActNo')"></a>
+              <a *ngIf="hasPrincipalAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearPrincipalAcc($event);"></a>
+          </div>
+
+          <div class="field">
+            <label for="bgFeeActNo">{{'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <input formControlName="bgFeeActNo" maxlength="35" type="text" [readonly]="true" pInputText>
+              <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgFeeActNo')"></a>
+              <a *ngIf="hasFeeAccountValue()"class="fa fa-remove fa-lg text-danger" (click)="clearFeeAcc($event);"></a>
+          </div>
+
+          <div id = "bgDeliveryToRow" class = "field">
+            <label for="bgDeliveryTo">{{'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+            <p-dropdown id="bgDeliveryTo"  appendTo = "body" formControlName="bgDeliveryTo" [options]="deliveryToDropdown"
+            (ngModelChange)="changeDeliveryTo($event);" styleClass="fcc-width30" [showClear]="true" placeholder="Select"></p-dropdown>
+          </div>
+
+          <div id = "bgDeliveryToOtherRow" class = "field" *ngIf="this.deliveryToOtherApplicableCode.indexOf(this.amendBankInstructionsSection.get('bgDeliveryTo').value) > -1">
+              <label for="bgDeliveryToOther"></label>
+              <textarea fccCommonTextArea [controlName]="amendBankInstructionsSection.get('bgDeliveryToOther')" [rows]="6" [cols]="35" formControlName="bgDeliveryToOther" pInputTextarea></textarea>
+              <fcc-common-error-message [control]="amendBankInstructionsSection.get('bgDeliveryToOther')" ></fcc-common-error-message>
+          </div>
+
+          <div id = "bgFreeFormatTextRow" class = "field">
+              <label for="bgFreeFormatText">{{'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+              <textarea fccCommonTextArea [controlName]="amendBankInstructionsSection.get('bgFreeFormatText')" [rows]="6" [cols]="35" formControlName="bgFreeFormatText" pInputTextarea></textarea>
+              <a *ngIf="!(commonDataService.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgFreeFormatText')"></a>
+              <fcc-common-error-message [control]="amendBankInstructionsSection.get('bgFreeFormatText')" ></fcc-common-error-message>
+          </div>
+          <p-confirmDialog id="entityWarning" appendTo="body" class="lf-confirm-dialog" key='entityWarningDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+      <ng-template #unsigned_content>
+        <div *ngIf="bgRecord['bgDelvOrgUndertaking'] && bgRecord['bgDelvOrgUndertaking'] != null &&  bgRecord['bgDelvOrgUndertaking'] != ''">
+            <label for="bgDelvOrgUndertaking">{{'INSTRUCTIONS_DELIVERY_OF_AMD_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getOriginalUndertakingDel(bgRecord['bgDelvOrgUndertaking'])}}</label>
+        </div>
+        <div *ngIf="bgRecord['bgDelvOrgUndertakingText']  && (bgRecord['bgDelvOrgUndertaking'] ==='02' || bgRecord['bgDelvOrgUndertaking'] ==='99') && bgRecord['bgDelvOrgUndertakingText'] != null &&  bgRecord['bgDelvOrgUndertakingText'] != ''">
+            <label for="bgDelvOrgUndertakingText">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgDelvOrgUndertakingText']}}</label>
+        </div>
+
+        <div *ngIf="bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null &&  bgRecord['bgPrincipalActNo'] != ''">
+            <label for="bgPrincipalActNo">{{'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgPrincipalActNo']}}</label>
+        </div>
+
+        <div *ngIf="bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null &&  bgRecord['bgFeeActNo'] != ''">
+            <label for="bgPrincipalActNo">{{'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgFeeActNo']}}</label>
+        </div>
+
+        <div *ngIf="bgRecord['bgDeliveryTo'] && bgRecord['bgDeliveryTo'] != null &&  bgRecord['bgDeliveryTo'] != ''" class = "field">
+            <label for="bgDeliveryTo">{{'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getDeliveryTo(bgRecord['bgDeliveryTo'])}}</label>
+        </div>
+
+        <div *ngIf="bgRecord['bgDeliveryTo'] && bgRecord['bgDeliveryToOther'] && this.deliveryToOtherApplicableCode.indexOf(bgRecord['bgDeliveryTo']) > -1 && bgRecord['bgDeliveryToOther'] != null &&  bgRecord['bgDeliveryToOther'] != ''" class = "field">
+            <label for="bgDeliveryToOther">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['bgDeliveryToOther'] }}</label>
+        </div>
+
+        <div *ngIf="bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null &&  bgRecord['bgFreeFormatText'] != ''" class = "field">
+            <label for="bgFreeFormatText">{{'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['bgFreeFormatText']}}</label>
+        </div>
+    </ng-template>
+</p-panel>

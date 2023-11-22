@@ -1,0 +1,22 @@
+<textarea
+pInputTextarea
+    class="fcc-ui-inputtexarea"
+    id="textareaIdx"
+    aria-label="textarea"
+    [rows] = "rows"
+    [cols] = "cols"
+    tabindex="0"
+    [maxlength]="maxChars"
+    [(ngModel)]="textAreaValue"
+    autoResize = "autoResize"
+    (resize) = "resize($event)"
+    (blur) = "onBlur($event)"
+    (focus) = "onFocus($event)"
+    (change)="registerOnChange($event)"
+>
+</textarea>
+<br/>
+<br>
+<label class="nopadding clrlbl"> {{textAreaValue.length}}/{{maxChars}}</label>
+<br/>
+

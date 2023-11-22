@@ -1,0 +1,135 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.dropdownFilterClass }}">
+    <div *ngIf="mode === 'edit'" class="ui-float-label">
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <mat-form-field class="input-mat-width" appearance="fill">
+        <mat-label
+          >{{ control.params.label }}
+          <a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          >
+        </mat-label>
+        <input role="textbox"
+          type="text"
+          matInput
+          id="{{ control.key }}"
+          formControlName="{{ control.key }}"
+          [matAutocomplete]="auto"
+          [(ngModel)]="inputValue"
+          (focus)="dofilterAutoComp($event, control.key, control)"
+          (keypress)="dofilterAutoComp($event, control.key, control)"
+          maxlength="{{ control.params.maxlength }}"
+          [required]="control.params.required"
+          (change)="onCustomEventRaised($event, control.key, control);checkValuePresent($event, control.params.options, control)"
+        />
+        <mat-icon matSuffix class="autoCompleteIcon">
+          {{ arrowIconSubject.getValue() }}
+        </mat-icon>
+        <span
+          *ngIf="control.value"
+          id="{{ control.key + 'Value' }}"
+          style="display: none"
+          >{{ control.value.name ? control.value.name : control.value }}</span
+        >
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (closed)="arrowIconSubject.next('arrow_drop_down')"
+          (opened)="arrowIconSubject.next('arrow_drop_up')"
+          (optionSelected)="
+            onOptionSelectEventRaised(
+              $event,
+              control.key,
+              control.params.options,
+              control
+            )
+          "
+          [displayWith]="displayFn"
+          id="{{ control.key + 'autoComplete' }}"
+        >
+          <mat-option
+            *ngFor="let opt of filteredWrapperOptions | async"
+            [value]="opt.value"
+          >
+          <div *ngIf="(opt.value.label !== opt.value.name); else labelOnly">
+            <div class="p-grid" [ngStyle]="{ 'text-align': 'left' }">
+              <div class="p-col-6 optionStyle" [attr.title]="opt.value.label">{{ opt.value.label }}</div>
+              <div class="p-col-6 optionStyle" [attr.title]="opt.value.name">{{ opt.value.name }}</div>
+            </div>
+          </div>
+          <ng-template #labelOnly>
+            <div *ngIf="control.params.allowAllOptions; else labelValOnly">
+              <div class="p-grid" [ngStyle]="{ 'text-align': 'left' }">
+                <div class="p-col-6 optionStyle" [attr.title]="opt.value.label">{{ opt.value.label }}</div>
+                <div class="p-col-6 optionStyle" [attr.title]="opt.value.name">{{ opt.value.name }}</div>
+              </div>
+            </div>
+            <ng-template #labelValOnly>
+              <div class="p-col-6 optionStyle">{{opt.value.label}}</div>
+            </ng-template>
+          </ng-template>  
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <span
+        *ngIf="control && control.value && control.value.name"
+        id="adhoc_benf_fullName"
+        style="display: none"
+        >{{ control.value.name }}</span
+      >
+      <span
+        *ngIf="control && control.value && control.value.shortName"
+        id="adhoc_benf_abbvName"
+        style="display: none"
+        >{{ control.value.shortName }}</span
+      >
+    </div>
+    <div *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }} "
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value.shortName }}
+      </div>
+    </div>
+    <div class="shortDesc" *ngIf="control.params.shortDescription">
+      <span>{{control.params.shortDescription}}</span>
+    </div>
+  </div>
+</ng-container>

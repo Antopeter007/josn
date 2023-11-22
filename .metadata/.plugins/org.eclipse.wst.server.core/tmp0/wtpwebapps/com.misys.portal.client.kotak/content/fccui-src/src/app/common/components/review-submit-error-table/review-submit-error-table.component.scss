@@ -1,0 +1,96 @@
+@import './../../../../styles/variables.scss';
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+    padding-bottom: 0.3125em;
+    border: none;
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.9em;
+    background-color: unset !important;
+  }
+  
+  :host ::ng-deep .ui-paginator {
+    display: none;
+  }
+  
+  :host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+    background: $GRAY-HEX-88 !important;
+  }
+  
+  
+  
+  :host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+    outline: none !important;
+  }
+  
+  :host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+    background-color: $WHITE;
+    border: none;
+    line-height: 1em;
+    word-break: break-word;
+    padding-top: 1em;
+    padding-bottom: 1.1875em;
+    text-align: left;
+    font-size: 0.875em;
+  }
+  
+  
+  tr > td {
+    color: $BLACK;
+  }
+  
+  
+  :host ::ng-deep .ui-carousel-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.1em;
+    align-self: center;
+    width: 75%;
+  }
+  
+  :host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-prev{
+    border: none !important;
+  }
+  
+  :host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-next{
+    border: none !important;
+  }
+  
+  .approvestatusField{
+    color: $RED-100 !important;
+    width: 8em;
+  }
+
+  .approveStatus{
+    width: 8em;
+  }
+
+  .accountNumber{
+      width: 8em;
+  }
+
+  .description{
+    width: 15em;
+  }
+
+  :host ::ng-deep .ui-carousel-dots-container{
+    display: none !important;
+  }
+  
+  :host ::ng-deep .ui-carousel-next:hover span {
+    background-color: transparent;
+    color: $Purple;
+    border: none !important;
+  }
+  
+  :host ::ng-deep .ui-carousel-prev:hover span {
+    background-color: transparent;
+    color: $Purple;
+    border: none !important;
+  }
+  
+  :host ::ng-deep .ui-table table {
+    border-collapse: collapse;
+    width: 80%;
+    table-layout: fixed;
+  }

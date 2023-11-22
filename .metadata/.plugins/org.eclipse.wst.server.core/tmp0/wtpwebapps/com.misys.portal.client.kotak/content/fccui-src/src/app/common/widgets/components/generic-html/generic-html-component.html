@@ -1,0 +1,16 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation] >
+  <p-card *ngIf="resultContent" >
+    <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+      <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+    </p-header>
+    <div [innerHTML] = "resultContent"></div>
+  </p-card>
+</div>
+<div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation] >
+  <p-card *ngIf="externalContent" >
+    <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+      <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+    </p-header>
+    <div *ngIf="externalContent" [innerHTML] = "externalContent"></div>
+  </p-card>
+</div>

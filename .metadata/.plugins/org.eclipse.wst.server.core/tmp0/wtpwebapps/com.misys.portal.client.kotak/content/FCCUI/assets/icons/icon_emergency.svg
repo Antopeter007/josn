@@ -1,0 +1,9 @@
+<svg id="Emergency_2_px" data-name="Emergency_2 px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <path id="Path_22828" data-name="Path 22828" d="M0,0H20V20H0Z" fill="none"/>
+  <g id="Group_22498" data-name="Group 22498" transform="translate(1.667 1.667)">
+    <path id="Path_22829" data-name="Path 22829" d="M11.833,6.167a.787.787,0,0,0,.833-.833v-2.5a.833.833,0,0,0-1.667,0v2.5A.787.787,0,0,0,11.833,6.167Z" transform="translate(-3.5 -2)" fill="#ee1c25"/>
+    <path id="Path_22830" data-name="Path 22830" d="M19.917,5.35,18.25,7.017a.806.806,0,0,0,0,1.167h0a.806.806,0,0,0,1.167,0l1.667-1.667a.806.806,0,0,0,0-1.167h0A.806.806,0,0,0,19.917,5.35Z" transform="translate(-4.667 -2.517)" fill="#ee1c25"/>
+    <path id="Path_22831" data-name="Path 22831" d="M17.833,18.017H16V14.35A5.991,5.991,0,0,0,10.25,8.1,6.044,6.044,0,0,0,4.5,14.35v3.667H2.833a.833.833,0,1,0,0,1.667h15a.787.787,0,0,0,.833-.833A.835.835,0,0,0,17.833,18.017Zm-6.75,0H9.417V15.683a.833.833,0,1,1,1.667,0Z" transform="translate(-2 -3.017)" fill="#ee1c25"/>
+    <path id="Path_22832" data-name="Path 22832" d="M2.262,5.35h0a1,1,0,0,0,0,1.167L3.929,8.183a.806.806,0,0,0,1.167,0h0a.806.806,0,0,0,0-1.167L3.429,5.35A.8.8,0,0,0,2.262,5.35Z" transform="translate(-2.012 -2.517)" fill="#ee1c25"/>
+  </g>
+</svg>

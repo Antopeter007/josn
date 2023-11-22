@@ -1,0 +1,69 @@
+@import './../../../../../../styles/variables.scss';
+
+[dir=ltr] .dateStyle {
+    font-style: italic;
+    font-size: 1em;
+    color: $GRAY-DARKGRAY-01;
+    float: right;
+    margin-right: .75em;
+}
+[dir=rtl] .dateStyle {
+  font-style: italic;
+  font-size: 1em;
+  color: $GRAY-DARKGRAY-01;
+  float: left;
+  margin-left: .75em;
+}
+
+[dir=ltr] .dateStyleComparison{
+  font-style: italic;
+  font-size: 1em;
+  color: $GRAY-DARKGRAY-01;
+  float: right;
+  margin-right: .75em;
+  padding-right:1.2em;
+}
+
+[dir=rtl] .dateStyleComparison{
+font-style: italic;
+font-size: 1em;
+color: $GRAY-DARKGRAY-01;
+float: left;
+margin-left: .75em;
+padding-right:1.2em;
+}
+
+.billContentHeaderLayoutClass {
+  padding-bottom: 0em;
+}
+
+.billContentLayoutClass {
+  padding-top: 0em;
+}
+
+.billContentStyleClass {
+  color: $GREY-01;
+}
+.done .iconStyling{
+  border: 1px solid $GREEN-01;
+  border-radius: 1em;
+  background-color: $GREEN-01;
+}
+.priority_high .iconStyling{
+  border: 1px solid #e2e2e2;
+  border-radius: 1em;
+  background-color: #e2e2e2;
+}
+.done{
+  color: $WHITE;
+  margin-left: 5em;
+}
+.priority_high{
+  color: $CRIMSON-R100;
+  margin-left: 6em;
+}
+
+.asterisk{
+  color: red;
+  padding-left: 0.2em;
+}

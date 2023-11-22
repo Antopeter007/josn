@@ -1,0 +1,42 @@
+<div class="inquiryDiv">
+  <p-panel id="PendingTnxOverview" [toggleable]="true"
+  header="{{ 'MENU_COMPLETED_MC_TRANSACTIONS' | translate}}">
+    <p-table [value]="transactions" sortMode="single">
+      <ng-template pTemplate="header">
+        <tr>
+          <th id = "releasedttm" class="tablecol-width-10"  [pSortableColumn]="'releaseDttm'">{{ "RELEASE_DTTM" | translate}}
+            <p-sortIcon [field]="'releaseDttm'"></p-sortIcon></th>
+          <th id = "type" class="tablecol-width-17"  [pSortableColumn]="'type'">{{ "TYPE" | translate}}
+            <p-sortIcon [field]="'type'"></p-sortIcon></th>
+          <th id = "status" class="tablecol-width-23"  [pSortableColumn]="'status'">{{ "STATUS" | translate}}
+            <p-sortIcon [field]="'status'"></p-sortIcon></th>
+          <th id = "eventref" class="tablecol-width-19"  *ngIf = "showEventRef" [pSortableColumn]="'eventRef'">{{ "EVENT_REF" | translate}}
+            <p-sortIcon [field]="'eventRef'"></p-sortIcon></th>
+          <th id = "curcode" class="tablecol-width-7"  [pSortableColumn]="'curCode'">{{ "CURCODE" | translate}}
+            <p-sortIcon [field]="'curCode'"></p-sortIcon></th>
+          <th id = "amt" class="tablecol-width-16"  [pSortableColumn]="'amt'">{{ "AMOUNT" | translate}}
+            <p-sortIcon [field]="'amt'"></p-sortIcon></th>
+          <th id = "users" class="tablecol-width-8"  [pSortableColumn]="'tnxId'">{{ "USERS" | translate}}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rec>
+        <tr class="alignment-center">
+          <td class="release-cursor"><u><a (click) = "navigateToPreview(rec.tnxId, rec.tnxTypeCode, rec.subTnxTypeCode, rec.status)"><strong>{{rec.releaseDttm}}</strong></a></u></td>
+          <td>{{rec.type}}</td>
+          <td>{{rec.status}}</td>
+          <td *ngIf = "showEventRef">{{rec.eventRef}}</td>
+          <td>{{rec.curCode}}</td>
+          <td>{{rec.amt}}</td>
+          <td>
+            <div class="cursor">
+              <img src="{{imagePath}}users_button.png" class="inquiry-image-height cursor" (click) = "showDailog(rec.tnxId, rec.type)" alt="users">
+              <span *ngIf="rec.actionRqd !== null &&  rec.childId === null && !commonDataService.isBankUser" class="margin-left-inquiry-icons">
+                <img src="{{imagePath}}doc_action.png" class="inquiry-image-height cursor" (click) = "navigateToMsgToBank(rec.tnxId, rec.status)" alt="users">
+              </span>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>

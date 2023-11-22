@@ -1,0 +1,112 @@
+input.ng-dirty.ng-invalid {
+  color: red
+}
+.indented-header {
+border-color: #d7d2cb;
+margin-bottom: 21px;
+  background-color: #fffa;
+  border-radius: 3px;
+}
+.indented-header h3 {
+  background-image: none;
+  background-color: #C5E5F0;
+  color: #00236a;
+  padding: 2px 4px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  margin: 10px 0 4px;
+  font: 100% Arial;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: normal;
+}
+.fieldset-content {
+  padding: 6px 6px 12px 6px;
+}
+.fieldset-content .content {
+text-align: left;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.75em;
+  display: inline;
+}
+.fieldset-content .static-content {
+text-align: left;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.75em;
+  display: inline;
+  border-style: none;
+  outline: none;
+}
+.label {
+  width: 240px;
+  text-align: right;
+  line-height: 1.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+  font: 100% Arial;
+  font-size: 0.75em;
+  word-wrap: break-word;
+}
+
+.error{
+      color: rgba(184, 26, 26, 0.788);
+      font-size: 0.75em;
+}
+
+.fieldError{
+  border-color: rgba(184, 26, 26, 0.788);
+}
+
+/** ----------------------- Save, Submit, Template, Cancel, Help Menu ------------------------- **/
+.menu {
+  float: right;
+  margin: 12px 0px 12px auto;
+  width: 100%;
+  text-align: right; 
+}
+
+/* 
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+  }
+  
+  mat-sidenav {
+    width: 250px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover,
+  a:active {
+    color: lightgray;
+  }
+  
+  .navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .icon {
+    display: inline-block;
+    height: 30px;
+    margin: 0 auto;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 15%;
+  }
+  
+  .label {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    width: 85%;
+  } */
+

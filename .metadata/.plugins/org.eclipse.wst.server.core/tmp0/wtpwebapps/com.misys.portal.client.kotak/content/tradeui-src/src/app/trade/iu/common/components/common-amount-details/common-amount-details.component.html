@@ -1,0 +1,371 @@
+        <div *ngIf="!viewMode  ;else view_content">
+        <div [formGroup]="sectionForm" *ngIf="undertakingType === 'bg' || undertakingType === 'cu'">
+              <div class="field" *ngIf="undertakingType === 'bg'">
+                <label id="undertakingAmtLabel">{{'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                <input id="bgCurCode" class="input-three-digit" pInputText type="text" formControlName="bgCurCode" size="3" oninput="this.value = this.value.toUpperCase()"
+                 (change)="validateCurrency(sectionForm.get('bgCurCode'));validateBookingAmt(); updateLicenseList('input'); this.commonService.transformAmtAndSetValidators(this.sectionForm.get('bgAmt'), this.sectionForm.get('bgCurCode'), 'bgCurCode');"
+                 [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgCurCode'))" placeholder="{{ 'CCY' | translate}}">
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" (click)="updateLicenseList('dialog');"></a>
+                <input id="bgAmt" type="text" pInputText formControlName="bgAmt" name="bgAmt" pKeyFilter="num"  (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('bgAmt'),
+                this.sectionForm.get('bgCurCode'), 'bgCurCode'); validateTnxAmtWithLimitAmt();" (change)="clearVariationAmtValidations(); setIncDecBgAmt(); onChangeAvailableAmt(); validateBookingAmt()"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgAmt'))">
+                <fcc-common-error-message [control]="sectionForm.get('bgAmt')"></fcc-common-error-message>
+                <fcc-common-error-message [control]="sectionForm.get('bgCurCode')"></fcc-common-error-message>
+              </div>
+
+              <!-- Undertaking amount tolerance ONLY to be displayed for Local Undertaking -->
+              <div class="field" *ngIf="undertakingType === 'cu'">
+                <label>{{'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}<span *ngIf="commonData.isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+                <input id="cuCurCode" class="input-three-digit" pInputText type="text" formControlName="cuCurCode" size="3" oninput="this.value = this.value.toUpperCase()"
+                 (change)="validateCurrency(sectionForm.get('cuCurCode')); updateLicenseList('input');" (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('cuAmt'), this.sectionForm.get('cuCurCode'), 'cuCurCode');"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('cuCurCode'))" placeholder="{{ 'CCY' | translate}}">
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" (click)="updateLicenseList('dialog');"></a>
+                <input id="cuAmt" type="text" pInputText formControlName="cuAmt" name="cuAmt" pKeyFilter="num"  (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('cuAmt'),
+                this.sectionForm.get('cuCurCode'), 'cuCurCode');" (change)="clearVariationAmtValidations(); onChangeAvailableAmt()"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('cuAmt'))">
+                <fcc-common-error-message [control]="sectionForm.get('cuAmt')"></fcc-common-error-message>
+                <fcc-common-error-message [control]="sectionForm.get('cuCurCode')"></fcc-common-error-message>
+              </div>
+                <div>
+                    <div class="field">
+                    <label id="positiveToleranceLabel">{{'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_POS_TOL' | translate }}&nbsp;</label>
+                    <input class = "input-three-digit" id="{{undertakingType}}TolerancePositivePct" pInputText type="text" formControlName="{{undertakingType}}TolerancePositivePct" maxlength="2" pKeyFilter="pnum" (blur)="this.commonService.transformNumber(sectionForm.get(undertakingType+'TolerancePositivePct')); onChangeAvailableAmt()"
+                        [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'TolerancePositivePct'))">%
+                    <fcc-common-error-message [control]="sectionForm.get(undertakingType+'TolerancePositivePct')"></fcc-common-error-message>
+                  </div>
+                  <div class="field">
+                    <label id="negativeToleranceLabel">{{'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_NEG_TOL' | translate }}&nbsp;</label>
+                    <input class = "input-three-digit" id = "{{undertakingType}}ToleranceNegativePct" pInputText type="text" formControlName="{{undertakingType}}ToleranceNegativePct" maxlength="2" pKeyFilter="pnum" (blur)="this.commonService.transformNumber(sectionForm.get(undertakingType+'ToleranceNegativePct'))"
+                      [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'ToleranceNegativePct'))">%
+                      <fcc-common-error-message [control]="sectionForm.get(undertakingType+'ToleranceNegativePct')"></fcc-common-error-message>
+                    </div>
+                </div>
+              <!-- Undertaking amount tolerance ONLY to be displayed for Local Undertaking -->
+              <div *ngIf="swiftMode" class="field">
+                <span *ngIf="isSwiftVersion2023Enable; else other_label">
+                  <label>{{'SUPPLEMENT_AMOUNT_INFO' | translate }}&nbsp;</label>
+                </span>
+                <ng-template #other_label>
+                <span>
+                    <label>{{'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+                </span>
+                </ng-template>
+                <textarea class="textarea-fixed-height" id="{{undertakingType}}NarrativeAdditionalAmount" fccCommonTextArea [controlName]="sectionForm.get(undertakingType+'NarrativeAdditionalAmount')" pInputTextarea [rows]="12" [cols]="65" formControlName="{{undertakingType}}NarrativeAdditionalAmount"
+                (change) = "onChangeAvailableAmt()" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'NarrativeAdditionalAmount'))">
+                </textarea>
+                <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get(undertakingType+'NarrativeAdditionalAmount').value ? sectionForm.get(undertakingType+'NarrativeAdditionalAmount').value.length : 0" [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType+'NarrativeAdditionalAmount')"></fcc-common-error-message>
+              </div>
+              <div *ngIf="!swiftMode" class="field">
+                <span *ngIf="isSwiftVersion2023Enable; else other_label">
+                  <label>{{'SUPPLEMENT_AMOUNT_INFO' | translate }}&nbsp;</label>
+                </span>
+                <ng-template #other_label>
+                <span>
+                  <label id="additionalAmtInfoLabel">{{'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+                </span>
+                </ng-template>
+                <textarea id="{{undertakingType}}NarrativeAdditionalAmount" fccCommonTextArea [controlName]="sectionForm.get(undertakingType+'NarrativeAdditionalAmount')" pInputTextarea [rows]="12" [cols]="65" [nonSwiftValidation]="true" formControlName="{{undertakingType}}NarrativeAdditionalAmount"
+                (change) = "onChangeAvailableAmt()" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'NarrativeAdditionalAmount'))">
+                </textarea>
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType+'NarrativeAdditionalAmount')"></fcc-common-error-message>
+              </div>
+              <div *ngIf="this.commonData.getIsBankUser() && this.commonService.availableAmountEnabled && undertakingType === 'bg'" class="field">
+                <label id="availableAmtLabel">{{'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}<span *ngIf="isAmountRequired" class="required-field-symbol">*</span>&nbsp;</label>
+                <input id="bgAvailableCurCode" class="input-three-digit read-only-field" pInputText tabindex="-1" type="text" formControlName="bgCurCode" size="3" readonly>
+                <input id="bgAvailableAmt" type="text" pInputText formControlName="bgAvailableAmt" name="bgAvailableAmt" (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('bgAvailableAmt'),
+                this.sectionForm.get('bgCurCode'), 'bgCurCode'); onChangeAvailableAmt()"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgAvailableAmt'))">
+                <fcc-common-error-message [control]="sectionForm.get('bgAvailableAmt')"></fcc-common-error-message>
+              </div>
+              <div class="field" *ngIf="this.commonData.getIsBankUser() && undertakingType === 'bg' && (!(bgRecord['purpose'] === '02' || bgRecord['purpose'] === '03') || this.commonData.getliabilityAmtFlag()) && commonData.getProductCode() !== 'BR'">
+                <label>{{'UNDERTAKING_LIABILITY_AMOUNT' | translate }}<span *ngIf="isAmountRequired" class="required-field-symbol">*</span>&nbsp;</label>
+                <input id='bgLiabilityCurCode' class="input-three-digit read-only-field" pInputText tabindex="-1" type="text" formControlName="bgCurCode" size="3" readonly>
+                <input id="bgLiabAmt" type="text" pInputText formControlName="bgLiabAmt" name="bgLiabAmt" (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('bgLiabAmt'),
+                this.sectionForm.get('bgCurCode'), 'bgCurCode'); onChangeLiabilityAmt()"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgLiabAmt'))">
+                <fcc-common-error-message [control]="sectionForm.get('bgLiabAmt')"></fcc-common-error-message>
+              </div>
+              <div class="field" *ngIf="this.commonData.getIsBankUser() && this.commonService.availableAmountEnabled && undertakingType === 'cu'">
+                <label>{{'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}<span *ngIf="isAmountRequired" class="required-field-symbol">*</span>&nbsp;</label>
+                <input id="cuAvailableCurCode" class="input-three-digit read-only-field" pInputText tabindex="-1" type="text" formControlName="cuCurCode" size="3" readonly>
+                <input id="cuAvailableAmt" pInputText type="text" formControlName="cuAvailableAmt" name="cuAvailableAmt" (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('cuAvailableAmt'),
+                this.sectionForm.get(undertakingType+'CurCode'), undertakingType+'CurCode');onChangeAvailableAmt()"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AvailableAmt'))">
+                 <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'AvailableAmt')"></fcc-common-error-message>
+              </div>
+              <div class="field" *ngIf="this.commonData.getIsBankUser() && undertakingType === 'cu'">
+                <label>{{'UNDERTAKING_LIABILITY_AMOUNT' | translate }}<span *ngIf="isAmountRequired" class="required-field-symbol">*</span>&nbsp;</label>
+                <input id= "cuLiabilityCurCode" pInputText tabindex="-1" class="input-three-digit read-only-field" type="text" formControlName="cuCurCode" size="3" readonly>
+                <input id="cuLiabAmt" pInputText type="text" formControlName="cuLiabAmt" name="cuLiabAmt" (blur)="this.commonService.transformAmtAndSetValidators(this.sectionForm.get('cuLiabAmt'),
+                this.sectionForm.get('cuCurCode'), 'cuCurCode'); onChangeLiabilityAmt()"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('cuLiabAmt'))">
+                 <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'LiabAmt')"></fcc-common-error-message>
+              </div>
+
+              <div class="field" *ngIf="commonData.getProductCode() !== 'BR'">
+                 <label class="label-checkbox">{{'AMOUNTDETAILS_CONSORTIUM' | translate}}&nbsp;</label>
+                 <p-checkbox id="{{undertakingType}}Consortium" formControlName = "{{undertakingType}}Consortium" binary="true" (onChange) = "toggleConsortiumDetails()"></p-checkbox>
+              </div>
+
+              <div class="field" *ngIf="commonData.getProductCode() !== 'BR' && sectionForm.get(undertakingType+'Consortium').value">
+                  <label>{{'AMOUNTDETAILS_CONSORTIUM_DETAILS_LABEL' | translate }}&nbsp;</label>
+                  <textarea id="{{undertakingType}}ConsortiumDetails" fccCommonTextArea [controlName]="sectionForm.get(undertakingType + 'ConsortiumDetails')" pInputTextarea [rows]="4" [cols]="35" formControlName="{{undertakingType}}ConsortiumDetails"
+                    [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'ConsortiumDetails'))">
+                  </textarea>
+                <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get(undertakingType + 'ConsortiumDetails').value ? sectionForm.get(undertakingType + 'ConsortiumDetails').value.length : 0" [allowedCharCount]="140" [fieldSize]="'S'"></fcc-common-narrative-character-count>
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'ConsortiumDetails')"></fcc-common-error-message>
+              </div>
+
+              <div class="field" *ngIf="commonData.getProductCode() !== 'BR' && sectionForm.get(undertakingType+'Consortium').value">
+                <label>{{'AMOUNTDETAILS_NET_EXPOSUER_LABEL' | translate }}&nbsp;</label>
+                <input id="{{undertakingType}}NetExposureCurCode" pInputText class="input-three-digit" formControlName="{{undertakingType}}NetExposureCurCode" oninput="this.value = this.value.toUpperCase()"
+                 (change)="validateCurrency(sectionForm.get(undertakingType+ 'NetExposureCurCode')); this.commonService.transformAmtAndSetValidators(this.sectionForm.get(undertakingType+ 'NetExposureAmt'), this.sectionForm.get(undertakingType+ 'NetExposureCurCode'), undertakingType+'NetExposureCurCode');" size="3"
+                  maxlength="3" type="text"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'NetExposureCurCode'))" placeholder="{{ 'CCY' | translate}}">
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" (click)="selectCurrency(undertakingType+ 'NetExposureCurCode', undertakingType+'NetExposureAmt')"></a>
+                <input id="{{undertakingType}}NetExposureAmt" pInputText name="net_exposure" formControlName="{{undertakingType}}NetExposureAmt" type="text" pKeyFilter="num"
+                (blur) = "this.commonService.transformAmtAndSetValidators(sectionForm.get(undertakingType+'NetExposureAmt'), sectionForm.get(undertakingType+ 'NetExposureCurCode'), undertakingType+'NetExposureCurCode')"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'NetExposureAmt'))">
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'NetExposureAmt')"></fcc-common-error-message>
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'NetExposureCurCode')"></fcc-common-error-message>
+              </div>
+
+              <div *ngIf="!this.commonData.getIsBankUser() ;else bankCharges ">
+              <div class="field">
+                <label class="label-radiobutton" *ngIf="!this.commonData.getIsBankUser()">{{'CHRGDETAILS_BG_ISS_LABEL' | translate }}&nbsp;</label>
+                <p-radioButton id="{{undertakingType}}OpenChrgBorneByCode" value="01" label="{{'CHRGDETAILS_APPLICANT' | translate}}" formControlName="{{undertakingType}}OpenChrgBorneByCode"
+                    name="{{undertakingType}}open_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'OpenChrgBorneByCode', 'issuance', this.undertakingType);">
+                </p-radioButton>
+                <p-radioButton id="{{undertakingType}}OpenChrgBorneByCode" value="02" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}OpenChrgBorneByCode"
+                    name="{{undertakingType}}open_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'OpenChrgBorneByCode', 'issuance', this.undertakingType);">
+                </p-radioButton>
+                <div *ngIf="sectionForm.get(undertakingType + 'OpenChrgBorneByCode') && sectionForm.get(undertakingType + 'OpenChrgBorneByCode').value &&
+                sectionForm.get(undertakingType + 'OpenChrgBorneByCode').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+              </div>
+              <div class="field">
+                <label class="label-radiobutton">{{'CHRGDETAILS_BG_CORR_LABEL' | translate }}&nbsp;</label>
+                <p-radioButton id="{{undertakingType}}CorrChrgBorneByCode" label="{{'CHRGDETAILS_APPLICANT' | translate }}" formControlName="{{undertakingType}}CorrChrgBorneByCode" value="01"
+                    name="{{undertakingType}}corr_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'CorrChrgBorneByCode', 'correspondent', this.undertakingType);">
+                </p-radioButton>
+                <p-radioButton id="{{undertakingType}}CorrChrgBorneByCode" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}CorrChrgBorneByCode" value="02"
+                    name="{{undertakingType}}corr_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'CorrChrgBorneByCode', 'correspondent', this.undertakingType);">
+                </p-radioButton>
+                <div *ngIf="sectionForm.get(undertakingType + 'CorrChrgBorneByCode') && sectionForm.get(undertakingType + 'CorrChrgBorneByCode').value &&
+                sectionForm.get(undertakingType + 'CorrChrgBorneByCode').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+              </div>
+
+              <div class="field" *ngIf = "(undertakingType==='bg' && showConfirmingCharge && this.commonDataService.getSubProdCode() === 'STBY') || (undertakingType==='cu' && showLuConfirmingCharge && this.commonDataService.getCUSubProdCode() === 'STBY') ">
+                <label class="label-radiobutton">{{'CHRGDETAILS_CFM_LABEL' | translate }}&nbsp;</label>
+                <p-radioButton id="{{undertakingType}}ConfChrgBorneByCode" label="{{'CHRGDETAILS_APPLICANT' | translate }}" formControlName="{{undertakingType}}ConfChrgBorneByCode" value="01"
+                   name="{{undertakingType}}conf_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'ConfChrgBorneByCode', 'confirmation', this.undertakingType);">
+                </p-radioButton>
+                <p-radioButton id="{{undertakingType}}ConfChrgBorneByCode" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}ConfChrgBorneByCode" value="02"
+                   name="{{undertakingType}}conf_chrg_brn_by_code_selected" (onClick)="this.setValueFromField(this.undertakingType + 'ConfChrgBorneByCode', 'confirmation', this.undertakingType);">
+                </p-radioButton>
+                <div *ngIf="sectionForm.get(undertakingType + 'ConfChrgBorneByCode') && sectionForm.get(undertakingType + 'ConfChrgBorneByCode').value &&
+                sectionForm.get(undertakingType + 'ConfChrgBorneByCode').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+              </div>
+          </div>
+          <ng-template #bankCharges>
+              <div class="field">
+              <label id="issuanceChargesLabel"class="label-radiobutton">{{'CHRGDETAILS_BG_ISS_LABEL' | translate }}&nbsp;</label>
+              <p-radioButton id="{{undertakingType}}OpenChrgBorneByCode" label="{{'CHRGDETAILS_APPLICANT' | translate }}" formControlName="{{undertakingType}}OpenChrgBorneByCode" value="01"
+                name="{{undertakingType}}open_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'OpenChrgBorneByCode').value, 'issuance', undertakingType);">
+              </p-radioButton>
+              <p-radioButton id="{{undertakingType}}OpenChrgBorneByCode" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}OpenChrgBorneByCode" value="02"
+                name="{{undertakingType}}open_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'OpenChrgBorneByCode').value, 'issuance', undertakingType);">
+              </p-radioButton>
+              </div>
+              <div class="field">
+                <label id="correspondenceChargesLabel"class="label-radiobutton">{{'CHRGDETAILS_BG_CORR_LABEL' | translate }}&nbsp;</label>
+                  <p-radioButton id="{{undertakingType}}CorrChrgBorneByCode" label="{{'CHRGDETAILS_APPLICANT' | translate }}" formControlName="{{undertakingType}}CorrChrgBorneByCode" value="01"
+                      name="{{undertakingType}}corr_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'CorrChrgBorneByCode').value, 'correspondent', undertakingType);">
+                  </p-radioButton>
+                  <p-radioButton id="{{undertakingType}}CorrChrgBorneByCode" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}CorrChrgBorneByCode" value="02"
+                      name="{{undertakingType}}corr_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'CorrChrgBorneByCode').value, 'correspondent', undertakingType);">
+                  </p-radioButton>
+              </div>
+              <div class="field" *ngIf = "(undertakingType==='bg' && showConfirmingCharge && this.commonDataService.getSubProdCode() === 'STBY') || (undertakingType==='cu' && showLuConfirmingCharge && this.commonDataService.getCUSubProdCode() === 'STBY') ">
+                <label id="confirmationChargesLabel"class="label-radiobutton">{{'CHRGDETAILS_CFM_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                  <p-radioButton id="{{undertakingType}}ConfChrgBorneByCode" label="{{'CHRGDETAILS_APPLICANT' | translate }}" formControlName="{{undertakingType}}ConfChrgBorneByCode" value="01"
+                      name="{{undertakingType}}conf_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'ConfChrgBorneByCode').value, 'confirmation', undertakingType);">
+                  </p-radioButton>
+                  <p-radioButton id="{{undertakingType}}ConfChrgBorneByCode" label="{{'CHRGDETAILS_BENEFICIARY' | translate }}" formControlName="{{undertakingType}}ConfChrgBorneByCode" value="02"
+                      name="{{undertakingType}}conf_chrg_brn_by_code_selected" (onClick)="this.commonDataService.setCharges(sectionForm.get(undertakingType + 'ConfChrgBorneByCode').value, 'confirmation', undertakingType);">
+                  </p-radioButton>
+              </div>
+          </ng-template>
+          </div>
+      </div>
+
+ <!--View-->
+ <ng-template #view_content>
+  <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" >
+  <div *ngIf="undertakingType === 'bg'" id='bgAmountDetails'>
+
+      <div id="bg_amt_code_view_row" *ngIf ="bgRecord['bgAmt'] && bgRecord['bgAmt'] != null && bgRecord['bgAmt'] != ''">
+        <label for="bgAmt" id="bg_amt_label">{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgAmt']}}</label>
+      </div>
+
+      <div id="bg_tolerance_positive_pct_view_row" *ngIf ="bgRecord['bgTolerancePositivePct'] && bgRecord['bgTolerancePositivePct'] != null && bgRecord['bgTolerancePositivePct'] != ''">
+        <label for="bgTolerancePositivePct" id="bgTolerancePositivePct_label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_POS_TOL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgTolerancePositivePct']}}</label>
+      </div>
+
+      <div id="bg_tolerance_negative_pct_view_row" *ngIf ="bgRecord['bgToleranceNegativePct'] && bgRecord['bgToleranceNegativePct'] != null && bgRecord['bgToleranceNegativePct'] != ''">
+        <label for="bgToleranceNegativePct" id="bg_tolerance_negative_pct_label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_NEG_TOL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgToleranceNegativePct']}}</label>
+      </div>
+
+      <div id="bg_narrative_additional_amount_view_row" *ngIf ="bgRecord['bgNarrativeAdditionalAmount'] && bgRecord['bgNarrativeAdditionalAmount'] != null && bgRecord['bgNarrativeAdditionalAmount'] != ''">
+        <span *ngIf="isSwiftVersion2023Enable; else other_label">
+          <label for="bgNarrativeAdditionalAmount" id="narrative_additional_amount_label">{{ 'SUPPLEMENT_AMOUNT_INFO' | translate }}&nbsp;</label>
+        </span>
+        <ng-template #other_label>
+        <span>
+          <label for="bgNarrativeAdditionalAmount" id="narrative_additional_amount_label">{{ 'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+        </span>
+        </ng-template>
+        <label class="label-left-narrative">{{bgRecord['bgNarrativeAdditionalAmount']}}</label>
+      </div>
+
+      <div id="bg_available_amt_view_row" *ngIf ="bgRecord['bgAvailableAmt'] && this.commonService.availableAmountEnabled && bgRecord['bgAvailableAmt'] != null && bgRecord['bgAvailableAmt'] != ''">
+        <label for="bgAvailableAmt" id="bg_available_amt_label">{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgAvailableAmt']}}</label>
+      </div>
+
+      <div id="bg_liab_amt_view_row" *ngIf="!(bgRecord['productCode'] === 'BR' && commonData.isBankUser && bgRecord['tnxTypeCode'] === '01')
+      && bgRecord['bgLiabAmt'] && bgRecord['bgLiabAmt'] != null && bgRecord['bgLiabAmt'] != '' && bgRecord['purpose'] === '01'
+      && (this.commonData.getIsBankUser() || (!this.commonData.getIsBankUser() && this.commonService.isShowLiabilityAmountEnabled()))">
+        <label for="bg_liab_amt" id="bg_liab_amt_label">{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgLiabAmt']}}</label>
+      </div>
+        <div id="bg_consortium__row" *ngIf ="bgRecord['bgConsortium'] && bgRecord['bgConsortium'] != null && bgRecord['bgConsortium'] != '' && bgRecord['bgConsortium'] === 'Y'">
+          <label for="bgConsortium" id="bg_consortium_label">&nbsp;</label>
+          <label class="label-left"><strong>{{ 'AMOUNTDETAILS_CONSORTIUM' | translate }}</strong></label>
+        </div>
+
+      <div id="bg_consortium_details_view_row" *ngIf ="bgRecord['bgConsortiumDetails'] && bgRecord['bgConsortiumDetails'] != null && bgRecord['bgConsortiumDetails'] != ''">
+        <label for="bgConsortiumDetails" id="bg_consortium_details_label">{{ 'AMOUNTDETAILS_CONSORTIUM_DETAILS_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left-narrative">{{bgRecord['bgConsortiumDetails']}}</label>
+      </div>
+
+        <div id="bg_net_exposure_amt_view_row" *ngIf ="bgRecord['bgNetExposureAmt'] && bgRecord['bgNetExposureAmt'] != null && bgRecord['bgNetExposureAmt'] != ''">
+          <label for="bgNetExposureAmt" id="bg_net_exposure_amt_label">{{ 'AMOUNTDETAILS_NET_EXPOSUER_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgNetExposureCurCode']}}&nbsp;{{bgRecord['bgNetExposureAmt']}}</label>
+        </div>
+
+          <div id="bg_open_chrg_brn_by_code_view_row" *ngIf ="bgRecord['bgOpenChrgBorneByCode'] && bgRecord['bgOpenChrgBorneByCode'] != null && bgRecord['bgOpenChrgBorneByCode'] != ''">
+            <label for="bgOpenChrgBorneByCode" id="bg_open_chrg_brn_by_code_label">{{ 'CHRGDETAILS_BG_ISS_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['bgOpenChrgBorneByCode']) | translate}}</label>
+          </div>
+
+          <div id="bg_corr_chrg_brn_by_code_view_row" *ngIf ="bgRecord['bgCorrChrgBorneByCode'] && bgRecord['bgCorrChrgBorneByCode'] != null && bgRecord['bgCorrChrgBorneByCode'] != ''">
+            <label for="bgCorrChrgBorneByCode" id="bg_corr_chrg_brn_by_code_label">{{ 'CHRGDETAILS_BG_CORR_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['bgCorrChrgBorneByCode']) | translate}}</label>
+          </div>
+
+          <div id="bg_conf_chrg_brn_by_code_view_row" *ngIf ="bgRecord['bgConfChrgBorneByCode'] && bgRecord['bgConfChrgBorneByCode'] != null && bgRecord['bgConfChrgBorneByCode'] != ''">
+            <label for="bgConfChrgBorneByCode" id="bg_conf_chrg_brn_by_code_label">{{ 'CHRGDETAILS_CFM_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['bgConfChrgBorneByCode']) | translate}}</label>
+          </div>
+
+      </div>
+
+        <!-- MO IU Counter Inquiry -->
+        <div *ngIf="undertakingType === 'cu' && isBankInquiry" id='cuAmountDetails'>
+          <div id="cu_amt_code_view_row" *ngIf ="bgRecord['cuAmt'] && bgRecord['cuAmt'] != null && bgRecord['cuAmt'] != ''">
+            <label for="cuAmt" id="cu_amt_label">{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuAmt']}}</label>
+          </div>
+
+          <div id="cu_available_amt_view_row" *ngIf ="bgRecord['cuAvailableAmt'] && this.commonService.availableAmountEnabled && bgRecord['cuAvailableAmt'] != null && bgRecord['cuAvailableAmt'] != ''">
+            <label for="cuAvailableAmt" id="cu_available_amt_label">{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuAvailableAmt']}}</label>
+          </div>
+
+          <div id="cu_liab_amt_view_row" *ngIf ="bgRecord['cuLiabAmt'] && bgRecord['cuLiabAmt'] != null && bgRecord['cuLiabAmt'] != '' && bgRecord['purpose'] !== '01'">
+            <label for="cu_liab_amt" id="cu_liab_amt_label">{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuLiabAmt']}}</label>
+          </div>
+        </div>
+        <!-- MO IU Counter Inquiry ends-->
+        <!--LU View-->
+        <div *ngIf="undertakingType === 'cu' && !isBankInquiry" id='cuAmountDetails'>
+
+          <div id="cu_amt_code_view_row" *ngIf ="bgRecord['cuAmt'] && bgRecord['cuAmt'] != null && bgRecord['cuAmt'] != ''">
+            <label for="cuAmt" id="cu_amt_label">{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuAmt']}}</label>
+          </div>
+          <div id="cu_amt_tol_code_view_row" *ngIf ="bgRecord['cuAamt'] && bgRecord['lu_amt_tol'] && bgRecord['lu_amt_tol'] != null && bgRecord['lu_amt_tol'] != ''">
+            <label for="lu_amt_tol" id="lu_amt_tol_label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_TOL' | translate }}&nbsp;</label>&nbsp;
+          </div>
+
+          <div id="cu_tolerance_positive_pct_view_row" *ngIf ="bgRecord['cuTolerancePositivePct'] && bgRecord['cuTolerancePositivePct'] != null && bgRecord['cuTolerancePositivePct'] != ''">
+            <label for="cuTolerancePositivePct" id="cu_tolerance_positive_pct__label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_POS_TOL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuTolerancePositivePct']}}</label>
+          </div>
+
+          <div id="cu_tolerance_negative_pct_view_row" *ngIf ="bgRecord['cuToleranceNegativePct'] && bgRecord['cuToleranceNegativePct'] != null && bgRecord['cuToleranceNegativePct'] != ''">
+            <label for="cuToleranceNegativePct" id="cu_tolerance_negative_pct__label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_NEG_TOL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuToleranceNegativePct']}}</label>
+          </div>
+
+          <div id="cu_arrative_additional_amount_view_row" *ngIf ="bgRecord['cuNarrativeAdditionalAmount'] && bgRecord['cuNarrativeAdditionalAmount'] != null && bgRecord['cuNarrativeAdditionalAmounts'] != ''">
+            <span *ngIf="isSwiftVersion2023Enable; else other_label">
+              <label for="cuNarrativeAdditionalAmount" id="cu_arrative_additional_amount_label">{{ 'SUPPLEMENT_AMOUNT_INFO' | translate }}&nbsp;</label>
+            </span>
+            <ng-template #other_label>
+            <span>
+              <label for="cuNarrativeAdditionalAmount" id="cu_arrative_additional_amount_label">{{ 'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+            </span>
+            </ng-template>
+            <label class="label-left-narrative">{{bgRecord['cuNarrativeAdditionalAmount']}}</label>
+          </div>
+
+          <div id="cu_available_amt_view_row" *ngIf ="bgRecord['cuAvailableAmt'] && this.commonService.availableAmountEnabled && bgRecord['cuAvailableAmt'] != null && bgRecord['cuAvailableAmt'] != ''">
+            <label for="cuAvailableAmt" id="cu_available_amt_label">{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuAvailableAmt']}}</label>
+          </div>
+
+          <div id="cu_liab_amt_view_row" *ngIf="bgRecord['cuLiabAmt'] && bgRecord['cuLiabAmt'] != null
+          && bgRecord['cuLiabAmt'] != '' && bgRecord['purpose'] !== '01'
+          && (this.commonData.getIsBankUser() || (!this.commonData.getIsBankUser() && this.commonService.isShowLiabilityAmountEnabled()))">
+            <label for="cu_liab_amt" id="cu_liab_amt_label">{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuLiabAmt']}}</label>
+          </div>
+          <div id="cu_consortium_row" *ngIf ="bgRecord['cuConsortium'] && bgRecord['cuConsortium'] != null && bgRecord['cuConsortium'] != '' && bgRecord['cuConsortium'] === 'Y'">
+            <label for="cuConsortium" id="cuConsortium_label">&nbsp;</label>
+            <label class="label-left"><strong>{{ 'AMOUNTDETAILS_CONSORTIUM' | translate }}</strong></label>
+          </div>
+
+          <div id="cu_consortium_details_view_row" *ngIf ="bgRecord['cuConsortiumDetails'] && bgRecord['cuConsortiumDetails'] != null && bgRecord['cuConsortiumDetails'] != ''">
+            <label for="cuConsortiumDetails" id="cu_consortium_details_label">{{ 'AMOUNTDETAILS_CONSORTIUM_DETAILS_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['cuConsortiumDetails']}}</label>
+          </div>
+
+          <div id="cu_net_exposure_amt_view_row" *ngIf ="bgRecord['cuNetExposureAmt'] && bgRecord['cuNetExposureAmt'] != null && bgRecord['cuNetExposureAmt'] != ''">
+            <label for="cuNetExposureAmt" id="cu_net_exposure_amt_label">{{ 'AMOUNTDETAILS_NET_EXPOSUER_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuNetExposureCurCode']}}&nbsp;{{bgRecord['cuNetExposureAmt']}}</label>
+          </div>
+
+          <div id="cu_open_chrg_brn_by_code_view_row" *ngIf ="bgRecord['cuOpenChrgBorneByCode'] && bgRecord['cuOpenChrgBorneByCode'] != null && bgRecord['cuOpenChrgBorneByCode'] != ''">
+            <label for="cuOpenChrgBorneByCode" id="cu_open_chrg_brn_by_code_label">{{ 'CHRGDETAILS_BG_ISS_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['cuOpenChrgBorneByCode']) | translate}}</label>
+          </div>
+
+          <div id="cu_corr_chrg_Borne_by_code_view_row" *ngIf ="bgRecord['cuCorrChrgBorneByCode'] && bgRecord['cuCorrChrgBorneByCode'] != null && bgRecord['cuCorrChrgBorneByCode'] != ''">
+            <label for="cuCorrChrgBorneByCode" id="cu_corr_chrg_Borne_by_code_label">{{ 'CHRGDETAILS_BG_CORR_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['cuCorrChrgBorneByCode']) | translate}}</label>
+          </div>
+
+          <div id="cu_conf_chrg_brn_by_code_view_row" *ngIf ="bgRecord['cuConfChrgBorneByCode'] && bgRecord['cuConfChrgBorneByCode'] != null && bgRecord['cuConfChrgBorneByCode'] != ''">
+            <label for="cuConfChrgBorneByCode" id="cu_conf_chrg_brn_by_code_label">{{ 'CHRGDETAILS_CFM_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getCharges(bgRecord['cuConfChrgBorneByCode']) | translate}}</label>
+          </div>
+
+        </div>
+      </div>
+</ng-template>

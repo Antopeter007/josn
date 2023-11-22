@@ -1,0 +1,132 @@
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dojox/layout/resources/FloatingPane.css");
+@import url("../../../dojox/grid/resources/Grid.css");
+@import url("../../../dojox/grid/resources/tundraGrid.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/layout/ContentPane.css");
+@import url("../../../dijit/themes/tundra/layout/TabContainer.css");
+@import url("../../../dijit/themes/tundra/TitlePane.css");
+@import url("../../../dijit/themes/tundra/Calendar.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/form/Checkbox.css");
+@import url("../../../dijit/themes/tundra/tundra.css");
+@import url("../../../dojox/grid/enhanced/resources/tundra/EnhancedGrid.css");
+@import url("../../../dojox/grid/enhanced/resources/EnhancedGrid_rtl.css");
+
+@import url("demobank-layout.css");
+@import url("demobank-styles.css");
+@import url("demobank-portlets.css");
+
+/**
+ CSS for the homepage
+**/
+
+.demobank .breadcrumb{
+	width: 215px;
+}
+
+.demobank #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	font-size:0.8em;
+	margin: 5px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+/** News paragraph **/
+.demobank .para{
+	margin-left:5px;
+	margin-top:5px;
+}
+
+.demobank .para .icon {
+ float:left;
+ width:55px;
+}
+
+.demobank .para-quote {
+	font-style: italic;
+}
+
+/** User tools **/
+/** TODO add a class to these, remove lang specific id **/
+.demobank #UserTools_fr, .demobank #UserTools_en {
+	display: none;
+}
+
+/** Trade Applications **/
+.demobank #TradeApplicationsPortlet {
+	border: none;
+	margin-bottom:15px;
+}
+
+.demobank #TradeApplicationsPortlet .portlet-section-header {
+	display: none;
+}
+
+.demobank #TradeApplicationsPortlet .portlet-section-body li,
+.demobank #TradeApplicationsDefault .portlet-section-body li {
+	margin: 0.5em 0 0.5em 0.5em;
+	font-weight: bold;
+}
+
+/** All Events */
+.demobank #AllEventsPortlet {
+	border: none;
+}
+
+.demobank #AllEventsPortlet .portlet-section-header {
+	background: #D0D0D0 none;
+}
+
+.demobank #AllEventsPortlet .portlet-title {
+	color: #0079A7;
+}
+
+.demobank #AllEventsPortlet .portlet-section-body {
+	background-color: #f0f0f0;
+	padding: 2px 1px 1px 4px;
+	font-size:0.9em;
+}
+
+.demobank #AllEventsPortlet ul {
+	margin-left: 30px;
+}
+
+.demobank #AllEventsPortlet li{
+	list-style-type: circle;
+}
+
+.demobank #AllEventsPortlet li.greentick-bullet {
+	list-style-image: url('../../../../images/pic_greentick.gif');
+}
+
+.demobank #AllEventsPortlet li.redtick-bullet {
+	list-style-image: url('../../../../images/pic_redcross.gif');
+}
+
+.demobank #AllEventsPortlet li.questionmark-bullet {
+	list-style-image: url('../../../../images/pic_questionmark.gif');
+}
+
+.dj_ie6 .demobank .portlet-title-addons,
+.dj_ie7 .demobank .portlet-title-addons {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}
+
+.dj_ie6 .demobank .portlet-menu,
+.dj_ie7 .demobank .portlet-menu {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}

@@ -1,0 +1,354 @@
+/**
+ Refer to /themes/base/common/forms.css
+**/
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles for forms in Demobank
+  		
+	description:
+	  	Styles related to form and field layout should be assembled here. It contains rules
+	  	for the following
+	  	
+	  	1. Save/Submit etc. menus
+	  	2. Form field sizes
+	  	3. Field/Label positioning
+	  	4. Headers, indented headers
+	  	5. Field styling
+	  	6. Attachment tables
+	  	7. Table of Contents (TOC)
+	  	8. Form elements to hide as the page is loading
+	  	9. Form view mode styles
+	  	10. Dialogs
+	  	11. Collaboration Window
+
+*/
+
+/** ------------------------------------ Standard Field Sizes --------------------------------- **/
+
+#dttm_begin_row .medium,
+#dttm_end_row .medium {
+	width: 9em;
+}
+
+.legalType label,
+.legalType .label {
+	width: 0px;
+}
+
+.legalType .small {
+	width: 8em;
+}
+
+.legalType .medium {
+	width: 11em;
+}
+
+.demobank .s-medium{
+	width:15em;	
+}
+/** ---------------------------------- Field/Label Positioning -------------------------------- **/
+
+/** Demobank is a narrower layout, so we need a shorter label than the default **/
+.field {
+	margin: 0;
+}
+
+#ProductOverview .label{
+    width: 190px;
+}
+
+label, .label {
+    width: 240px;
+}
+
+.checkbox label, .radio label {
+    margin-left: 245px;
+}
+
+.dijitDialogPaneContent .checkbox label, .dijitDialogPaneContent .radio label {
+    margin-left: 33%;
+}
+
+.column-wrapper label,.column-wrapper .label {
+    width: 140px;
+}
+
+.InlineAmtField {
+	margin-left: 20px;
+    margin-top: -14px;
+}
+
+.InlineAmtFieldRequired{
+	margin-left: 20px;
+    margin-top: -14px;	
+}
+.InlineAmtFieldRequired label{
+	margin-left: 25px;
+    margin-right: 0;
+    margin-top: -40px;
+}
+
+.custom-msg {
+	font-weight:bold;
+	text-align:right;
+}
+
+.margin-msg {
+	font-weight:bold;
+	margin-left:25%;
+	padding-left:5px;
+}
+
+.textareaBig {
+	margin-left:26%;	
+}
+
+.textarea .content {
+	margin-left: inherit;
+}
+
+.groupContainer {
+	margin: 0 0 20px 0;	
+}
+
+.big-textarea-wrapper-label {
+	margin-left: auto;
+	text-align: right;
+}
+
+/** TODO Put in screens.css **/
+#fieldDivUserBank {
+	margin:0 10px;	
+}
+
+.dateFormatLabel {
+	display: inline;
+	font-style: italic;
+	padding-left: 0.5em;
+}
+
+.dj_ie6 #customerReferenceDialog #checkFieldLabel,
+.dj_ie7 #customerReferenceDialog #checkFieldLabel,
+.dj_ie6 #customerReferenceDialog #checkField,
+.dj_ie7 #customerReferenceDialog #checkField,
+.dj_ie6 #progressBarCash,
+.dj_ie7 #progressBarCash,
+.dj_ie6 #progressBarCash #countdownProgress,
+.dj_ie7 #progressBarCash #countdownProgress,
+.dj_ie6 .cssButton,
+.dj_ie7 .cssButton {
+    zoom: 1;
+	display:inline;
+}
+
+.demobank #view .field .content li {
+    margin-left: 5px;
+    display: inline;
+}
+
+.demobank #reporting_popup .field .content li {
+    margin-left: auto;
+}
+
+/** ----------------------------------- Headers & Sub-headers --------------------------------- **/
+
+.toplevel-header {
+    border: 1px solid #fff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.toplevel-header h2 {
+	background: #7692B7;
+	color: white;
+}
+
+.indented-header h3,
+#event-summary .attachments-container .toplevel-header h2 {
+	background-image:none;
+    background-color: #C5E5F0;
+    color: #00236a;
+} 
+
+.indented-header h3 {
+    margin: 10px 0 4px;
+}
+/** ------------------------------------------- Dialogs --------------------------------------- **/
+
+#popupDialog {
+	font-size: 0.8em; /** TODO Change **/
+}
+
+#popupDialog .menu {
+	padding-right: 10px; /** TODO Test **/
+}
+
+#AWBDialog {
+	width:600px;
+	background: #fff;
+	text-align: left;
+}
+
+#user-entity-dialog-template .multi-select {
+	width: 350px;
+}
+
+#user-entity-dialog-template {
+	width: 600px;
+}
+
+#user-entity-dialog-template #add-remove-buttons {
+	text-align: center;
+}
+
+/** --------------------------------------- Grids / Tables ------------------------------------ **/
+
+.switchGridDiv {
+	border-bottom: 1px solid #ccc;
+}
+
+.attachments {
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+}
+
+.attachments td {
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+}
+
+.attachments th {
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+}
+
+.attachments thead th {
+	background: #7692B7;
+	text-align: center;
+	font-weight: bold;
+	color:white;
+}	
+	
+.attachments tfoot th {
+	text-align: center;
+}
+
+/** --------------------------------------- TabContainers ------------------------------------- **/
+
+.tabcontainer {
+	height: 150px;  /** TEST **/
+}
+
+/** ---------------------------------- Collaboration Window ----------------------------------- **/
+
+#collaborationWindow {
+    right: 277px;
+    top: 175px;
+}
+
+/** --------------------------------- Table of Contents (TOC) --------------------------------- **/
+
+#toc {
+     right: 115px;
+     top: 245px;
+     background-color: #769DC0;
+     border: none;
+}
+
+/** --------------------------------------- Buttons -------------------------------------- **/
+
+#addButtonContainer{
+	 padding: 10px;	
+}
+
+.cssButton {
+	background-color: #d5ebff;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	color: #000;
+	font-size: 0.916em;
+	padding: 4px 8px;
+	text-decoration: none;
+	font-weight: normal;
+	-webkit-box-shadow: inset 0 1px 0 0 #fff;
+	-moz-box-shadow: inset 0 1px 0 0 #fff;
+	-o-box-shadow: inset 0 1px 0 0 #fff;
+	-ms-box-shadow: inset 0 1px 0 0 #fff;
+	box-shadow: inset 0 1px 0 0 #fff;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.dj_ie7 .cssButton{
+	zoom: 1;
+	display:inline;	
+}
+.cssButton:hover {
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.cssButton:visited {
+	font-weight: normal;
+}
+
+.usersButton:hover {
+	cursor: pointer;
+}
+
+/**--------------------------- Progress Bar Screen ----------------------**/
+.notready #loading-message {
+	display:block !important;
+	position:absolute;
+    left:165px;
+    top:0px;
+    width:90%;
+    height:100%;
+    margin:60px 0 0 70px;
+    padding:0;
+    z-index:999;
+	background-color: transparent;
+}
+
+.notready #reporting_popup #loading-message {
+	display: none !important;
+}
+
+/**------------------------------Cross Refrences -----------------------------**/
+.demobank .content .crossrefs{
+    margin-left: 250px;
+}
+
+.demobank #view .field li {
+    margin-left: 0%;
+}
+/**----------------------- Transaction Details---------------------**/
+/**TODO **/
+.demobank #transactionDetails{
+	position: static;
+	left: auto;
+}
+
+.fscmDisclaimerContent {
+	display: inline;
+    text-align: left;	
+}
+
+.fscmMultiChoiceField {
+	font-weight:bold;
+}
+
+.fscmTextAreaField{
+	width:542px;
+	height: 198px;
+}
+.bulk-general-details-column-wrapper label,
+.bulk-general-details-column-wrapper .label {
+    width: 160px;
+}

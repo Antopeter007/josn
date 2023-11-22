@@ -1,0 +1,112 @@
+  <div class = "toplevel-header">
+    <div class = "fieldset-content">
+      <form [formGroup] = "addCPBDetails">
+        <h2>{{ 'HEADER_MAIN_DETAILS' | translate }}</h2>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" *ngIf="noOfEntities">
+              <label>{{ 'PARTIESDETAILS_ENTITY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+              <input formControlName="entity" type="text" readonly [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('entity'))">
+              <a class="fa fa-search fa-lg" (click)="openEntityDialog()"></a>
+              <fcc-common-error-message [control]="addCPBDetails.get('entity')"></fcc-common-error-message>
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+              <label>{{'ABBVNAME_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+              <input type="text" formControlName="abbv_name" [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('abbv_name'))">&nbsp;
+              <fcc-common-error-message [control]="addCPBDetails.get('abbv_name')"></fcc-common-error-message>
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+              <label>{{'NAME_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+              <input type="text" formControlName="name" [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('name'))">&nbsp;
+              <fcc-common-error-message [control]="addCPBDetails.get('name')"></fcc-common-error-message>
+          </div>
+        <div>
+            <p-tabView>
+              <!-- Tab 1 details -->
+              <p-tabPanel>
+                <ng-template pTemplate="header">{{ 'JURISDICTION_TAB_POSTAL_ADDRESS' | translate}}</ng-template>
+                  <ng-template pTemplate="content">
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                        <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                        <input type="text" formControlName="street_name">
+                    </div>
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                        <label>&nbsp;</label><input type="text" formControlName="town_name">
+                    </div>
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                        <label>&nbsp;</label><input type="text" formControlName="country_sub_div">
+                    </div>
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                        <label>&nbsp;</label><input type="text" maxlength="16" formControlName="post_code">
+                    </div>
+                </ng-template>
+              </p-tabPanel>
+              <!-- Tab 2 details -->
+              <p-tabPanel>
+                <ng-template pTemplate="header">{{ 'JURISDICTION_TAB_SWIFT_ADDRESS' | translate}}<span class="required-field-symbol">*</span></ng-template>
+                <ng-template pTemplate="content">
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                      <label>{{'PARTIESDETAILS_ADDRESS' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                      <input type="text" formControlName="address_line_1" [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('address_line_1'))">&nbsp;
+                      <fcc-common-error-message [control]="addCPBDetails.get('address_line_1')"></fcc-common-error-message>
+                    </div>
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                      <label>&nbsp;</label><input type="text" formControlName="address_line_2">
+                    </div>
+                    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+                      <label>&nbsp;</label><input type="text" formControlName="dom">
+                    </div>
+                </ng-template>
+              </p-tabPanel>
+            </p-tabView>
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{ 'PARTIESDETAILS_CONTRY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+            <input class="input-three-digit" maxlength="2" formControlName="country" pInputText type="text" oninput="this.value = this.value.toUpperCase()"
+            (change)="countryValidationService.validateCountry(addCPBDetails.get('country'))" [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('country'))">
+            <a class="fa fa-search fa-lg" (click)="openCountryDialog()"></a>
+            <fcc-common-error-message [control]="addCPBDetails.get('country')"></fcc-common-error-message>
+          </div>
+        <h2>{{ 'HEADER_OTHER_DETAILS' | translate }}</h2>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_CONTACT_NAME' | translate }}&nbsp;</label>
+            <input type="text" formControlName="contact_name" id="contactName">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_PHONE' | translate }}&nbsp;</label>
+            <input type="text" formControlName="phone">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_FAX' | translate }}&nbsp;</label>
+            <input type="text" formControlName="fax">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_TELEX' | translate }}&nbsp;</label>
+            <input type="text" formControlName="telex">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" *ngIf="typeOfDialog === 'bank'">
+            <label>{{'PARTIESDETAILS_BIC_CODE' | translate }}&nbsp;</label>
+            <input type="text" maxlength="11" formControlName="iso_code">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" *ngIf="typeOfDialog === 'beneficiary'">
+            <label>{{'JURISDICTION_ADDRESS_BEI' | translate }}&nbsp;</label>
+            <input type="text" maxlength="11" formControlName="bei">
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_EMAIL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+            <input type="text" formControlName="email" [class.fieldError]="validationService.isFieldInvalid(addCPBDetails.get('email'))">&nbsp;
+            <fcc-common-error-message [control]="addCPBDetails.get('email')" ></fcc-common-error-message>
+          </div>
+          <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label>{{'JURISDICTION_WEB' | translate }}&nbsp;</label>
+            <input type="text" formControlName="web_address">&nbsp;
+          </div>
+          <p-confirmDialog [id]="confirmationBoxKey" class="lf-confirm-dialog" [key]="confirmationBoxKey" header="Confirmation" icon="pi pi-exclamation-triangle" appendTo="body"></p-confirmDialog>
+          <div id="confirmationBoxKey" class="menu">
+              <button pButton type="button" label="{{ 'USER_SAVE' | translate }}" class="primary-button" (click)="openAddCounterParyBankConfirmDialog('save')"></button>
+              &nbsp;
+              <button pButton type="button" label="{{ 'ACTION_USER_CANCEL' | translate }}" class="tertiary-button" (click)="openAddCounterParyBankConfirmDialog('cancel')"></button>
+              &nbsp;
+              <img *ngIf = "showHelp"  src="{{imagePath}}help.png" id=helpButtonId alt="help" class="help cursor" (click) = "openHelp()">
+          </div>
+      </form>
+    </div>
+  </div>

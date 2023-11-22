@@ -1,0 +1,13 @@
+<svg id="fixed-deposits" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect id="Rectangle_21292" data-name="Rectangle 21292" width="48" height="48" rx="1.5" fill="none"/>
+  <path id="Path_23760" data-name="Path 23760" d="M14.736,18.44h36.32a.723.723,0,0,1,.723.723V55.182a.72.72,0,0,1-.72.72H14.736a.723.723,0,0,1-.736-.72V19.163a.723.723,0,0,1,.736-.723Z" transform="translate(-9.52 -12.539)" fill="#ccd8dc"/>
+  <rect id="Rectangle_21293" data-name="Rectangle 21293" width="37.76" height="37.462" rx="3.58" transform="translate(5.744 4.634)" fill="#ebf3f6"/>
+  <rect id="Rectangle_21294" data-name="Rectangle 21294" width="32.093" height="31.84" rx="2.5" transform="translate(8.579 7.447)" fill="#dfeaed"/>
+  <circle id="Ellipse_2002" data-name="Ellipse 2002" cx="5.277" cy="5.277" r="5.277" transform="translate(13.91 18.566)" fill="none" stroke="#e0121b" stroke-width="4"/>
+  <path id="Path_23761" data-name="Path 23761" d="M57.84,70.43a1.92,1.92,0,1,1-1.92-1.92A1.92,1.92,0,0,1,57.84,70.43Z" transform="translate(-36.72 -46.587)" fill="#e0121b"/>
+  <rect id="Rectangle_21295" data-name="Rectangle 21295" width="2.224" height="1.917" transform="translate(18.077 16.307)" fill="#e0121b"/>
+  <rect id="Rectangle_21296" data-name="Rectangle 21296" width="2.224" height="1.917" transform="translate(18.077 29.434)" fill="#e0121b"/>
+  <rect id="Rectangle_21297" data-name="Rectangle 21297" width="2.224" height="2.224" transform="translate(24.464 22.73)" fill="#e0121b"/>
+  <rect id="Rectangle_21298" data-name="Rectangle 21298" width="2.224" height="2.224" transform="translate(11.69 22.73)" fill="#e0121b"/>
+  <rect id="Rectangle_21299" data-name="Rectangle 21299" width="5.117" height="10.867" transform="translate(32.426 18.566)" fill="none" stroke="#ccd8dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+</svg>

@@ -1,0 +1,41 @@
+
+@import '../../../variables.scss';
+
+@mixin multiselect ($uiMultiselect-Panel-Header-border,$uiMultiselect-Panel-Header-borderBottom,$uiMultiselect-Panel-Header-border-radius,
+$uiMultiselect-Panel-Header-Color,$advanced-filter-search) {
+    
+    .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-inputtext {
+  border: $uiMultiselect-Panel-Header-border;
+  border-bottom: $uiMultiselect-Panel-Header-borderBottom !important;
+  border-radius: $uiMultiselect-Panel-Header-border-radius;
+  color: $uiMultiselect-Panel-Header-Color;
+  
+}
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
+  color: $advanced-filter-search !important;
+}
+}
+
+.Bank-One {
+
+$primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$uiMultiselect-Panel-Header-border: none;
+$uiMultiselect-Panel-Header-borderBottom: 0.0625em solid $CHARCOAL-F50;
+$uiMultiselect-Panel-Header-border-radius: 0em;
+$uiMultiselect-Panel-Header-Color: $GREY-100;
+$advanced-filter-search:$primaryColor;
+
+
+    @include multiselect($uiMultiselect-Panel-Header-border,$uiMultiselect-Panel-Header-borderBottom,$uiMultiselect-Panel-Header-border-radius
+    ,$uiMultiselect-Panel-Header-Color,$advanced-filter-search);
+}

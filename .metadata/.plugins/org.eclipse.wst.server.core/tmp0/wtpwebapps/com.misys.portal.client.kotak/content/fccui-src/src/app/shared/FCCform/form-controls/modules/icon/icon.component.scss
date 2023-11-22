@@ -1,0 +1,11 @@
+@import './../../../../../../styles/variables.scss';
+
+::ng-deep .downloadMatMenu {
+
+    ul {
+      list-style-type: none;
+      li {
+          cursor: pointer;
+      }
+    }
+  }

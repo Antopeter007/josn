@@ -1,0 +1,50 @@
+<ng-container [formGroup]="form">
+    <div class="p-col-12">
+        <div
+          *ngIf="mode === 'edit'"
+          dir="{{ dir }}"
+          class="ui-float-label  {{ control.params.styleClass }}">
+            <mat-form-field class="input-mat-width" appearance="fill">
+                <mat-label>{{control.params.label|translate}}
+                </mat-label>
+                <mat-date-range-input [rangePicker]="picker" [min]="control.params.minDate"
+                [max]="control.params.maxDate">
+                    <input 
+                        id="startDate"
+                        minlength="10"
+                        autocomplete="off"
+                        matStartDate
+                        matInput 
+                        [value]="startDate"
+                        (keydown.enter)="onClickEnter($event)"
+                        (blur)="OnBlurDateRange($event, 'StartDate',control.params.key)"
+                        (dateChange)="OnDateRangeChange($event, 'StartDate', control.params.key)"
+                        placeholder="Start date">
+                    <input
+                        id="endDate"
+                        minlength="10"
+                        autocomplete="off"
+                        matEndDate 
+                        matInput
+                        [value]="endDate"
+                        (keydown.enter)="onClickEnter($event)"
+                        (blur)="OnBlurDateRange($event, 'EndDate',control.params.key)"
+                        (dateChange)="OnDateRangeChange($event, 'EndDate',control.params.key)"
+                        placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <mat-icon dir="{{ dir }}" *ngIf="control.params.displayInfoIcon"
+                pTooltip="{{toolTipMsg}}"
+                tooltipPosition="top"
+                [escape]="false"
+                tabindex="0"
+                aria-hidden="false"
+                tooltipStyleClass="date-range-tooltip"
+                aria-label="Icon that displays a tooltip for date format" class="material-icons-outlined info-icon">info_outline
+            </mat-icon>
+        </div>    
+    </div>
+</ng-container>
+  

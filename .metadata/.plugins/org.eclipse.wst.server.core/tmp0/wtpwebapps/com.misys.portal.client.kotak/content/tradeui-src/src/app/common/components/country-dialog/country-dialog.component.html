@@ -1,0 +1,33 @@
+<p-table #dt [columns]="cols" [value]="listOfCountries" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+            <col *ngFor="let col of columns" [style.width]="col.width" class="alignment-center">
+        </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th id = "colheader" *ngFor="let col of columns">
+                {{col.header | translate}}
+            </th>
+        </tr>
+        <tr>
+          <th id = "colfield" *ngFor="let col of columns" [ngSwitch]="col.field" [ngStyle]="{'width': col.width, 'background-color': '#F0F7FF', 'border-color': '#c8c8c8'}">
+              <input *ngSwitchCase="'VALUE'" pInputText placeholder="{{'SEARCH_ISOCODE_LABEL'| translate}}" type="text"
+                  [(ngModel)]="isoLabel" class="country-dialog" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              <input *ngSwitchCase="'DESCRIPTION'" pInputText placeholder="{{'SEARCH_COUNTRY_LABEL'| translate}}" type="text"
+                  [(ngModel)]="countryLabel" class="country-dialog" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+          </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+              <div *ngSwitchCase="'VALUE'" class="alignment-center"><a (click)= "ref.close(rowData[col.field])">{{rowData[col.field]}}</a></div>
+              <div *ngSwitchCase="'FLAG'" class="alignment-center"><img src="{{rowData[col.field]}}" class="cursor" alt="flag"></div>
+              <div *ngSwitchCase="'DESCRIPTION'" class="{{commonService.getUserLanguage() === 'ar' ? 'alignment-right' : 'alignment-left'}}">{{rowData[col.field]}}</div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+

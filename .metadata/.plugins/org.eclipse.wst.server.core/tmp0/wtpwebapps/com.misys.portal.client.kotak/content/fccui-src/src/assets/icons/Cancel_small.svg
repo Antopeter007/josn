@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-Artboard_1">
+      <rect width="18" height="18"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="18" height="18" fill="#fff"/>
+    <g id="Group_3" data-name="Group 3" transform="translate(-0.256)">
+      <g id="Group_2" data-name="Group 2" transform="translate(0.952 1.043)">
+        <g id="Amend" transform="translate(0.059 0.093)">
+          <g id="Group_1" data-name="Group 1">
+            <path id="Path_1" data-name="Path 1" d="M16.55,8.289A8.145,8.145,0,0,1,14.1,14.133a8.038,8.038,0,0,1-5.655,2.323H8.3A8.206,8.206,0,1,1,8.3.044,8.324,8.324,0,0,1,13.245,1.7l1.544,1.244L13.77,3.968,12.733,3.1A6.809,6.809,0,0,0,1.543,7.4a6.682,6.682,0,0,0,1.343,5.042,6.843,6.843,0,0,0,9.581,1.264,6.656,6.656,0,0,0,2.67-5.419.707.707,0,0,1,1.413,0Z" transform="translate(-0.059 -0.044)" fill="#707070"/>
+          </g>
+          <path id="Path_2" data-name="Path 2" d="M8.388,3.6,6.353,5.631,4.319,3.6,3.212,4.7,5.246,6.739,3.212,8.773,4.319,9.88,6.353,7.846,8.388,9.88,9.495,8.773,7.461,6.739,9.495,4.7Z" transform="translate(1.734 1.977)" fill="#707070"/>
+        </g>
+        <rect id="Rectangle_1" data-name="Rectangle 1" width="4.532" height="1.281" rx="0.64" transform="translate(14.166 -0.043) rotate(71.834)" fill="#707070"/>
+        <rect id="Rectangle_2" data-name="Rectangle 2" width="4.532" height="1.281" rx="0.64" transform="translate(10.938 2.91) rotate(4.621)" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

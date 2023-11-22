@@ -1,0 +1,39 @@
+<div *ngIf="displayMsgs"><p-messages [value]="msgs"></p-messages></div>
+  <div id =  "abbv_name_row" class = "field">
+    <label for =  "abbv_name" id =  "abbv_name_label">{{ 'ABBVNAME_LABEL' | translate }}&nbsp;</label>
+    <input id = "abbv_name" type = "text" [(ngModel)]="abbvName"/>
+  </div>
+  <div id =  "name_row" class = "field">
+    <label for =  "name" id =  "name_label">{{ 'NAME_LABEL' | translate }}&nbsp;</label>
+    <input id = "name" type = "text"  [(ngModel)]="name"/>
+  </div>
+  <div id =  "search_button_row" class="field">
+      <label for =  "search_button" >&nbsp;</label>
+      <button pButton type="button" label="{{ 'USER_ACTION_SEARCH' | translate}}"  (click)="getFilteredListOfBank()" class="primary-button"></button>
+  </div>
+  <p-table #bankTable [value]="filteredListOfBank" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id = "abvname" pSortableColumn="ABBVNAME">{{ "ABBVNAME" | translate }}<p-sortIcon field="ABBVNAME"></p-sortIcon></th>
+            <th id = "entity">{{ "ENTITY" | translate }} </th>
+            <th id = "ename">{{ "NAME" | translate }} </th>
+            <th id = "addressline">{{ "ADDRESSLINE1" | translate }} </th>
+            <th id = "address-line">{{ "ADDRESSLINE2" | translate }} </th>
+            <th id = "domicile">{{ "DOMICILE" | translate }} </th>
+            <th id= "country">{{ "COUNTRY" | translate }} </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bank>
+        <tr>
+          <td class="word-wrap cursor"><a (click)= "ref.close(bank)">{{bank.ABBVNAME}}</a></td>
+            <td class="word-wrap">{{bank.ENTITY}}</td>
+            <td class="word-wrap">{{bank.NAME}}</td>
+            <td class="word-wrap">{{bank.ADDRESSLINE1}}</td>
+            <td class="word-wrap">{{bank.ADDRESSLINE2}}</td>
+            <td class="word-wrap">{{bank.DOMICILE}}</td>
+            <td>{{bank.COUNTRY}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<br>
+<button pButton type="button" label="{{ 'TABLE_ADD_NEW_BANK' | translate}}"  (click)="openAddBankDialog()" class="primary-button-larger"></button>

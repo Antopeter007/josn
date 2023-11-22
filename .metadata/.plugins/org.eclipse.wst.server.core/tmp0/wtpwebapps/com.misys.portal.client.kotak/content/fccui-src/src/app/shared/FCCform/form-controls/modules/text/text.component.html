@@ -1,0 +1,63 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12" dir="{{ dir }}">
+    <div *ngIf="mode === 'edit' && (hostComponentData && ((hostComponentData.onlyamendToggleValue && control.params.amendedFlag) || (!hostComponentData.onlyamendToggleValue)))">
+      <div *ngIf = "control.params.matIcon" class = "{{control.params.matIcon}}">
+      <mat-icon class="iconStyling">{{control.params.matIcon}}</mat-icon>
+      </div>
+      <p
+        class="newstitle"
+        *ngIf="control.params.titleLabel"
+        (click)="onEventRaised($event, control.params.itemId, control.key)"
+      >
+        {{ control.params.titleLabel }}
+      </p>
+      <h4
+        tabindex="{{ control.params.tabIndex ? control.params.tabIndex : -1 }}"
+        class="form-header {{ control.params.styleClass }} {{
+          control.params.boxClass
+        }}"
+        (focus)="onEventRaised($event, control.params.itemId, control.key)"
+        (scroll)="onEventRaised($event, control.key)"
+        (click)="onEventRaised($event, control.params.itemId, control.key)"
+        (keyup.enter)="onEventRaised($event, control.params.itemId, control.key)"
+        [ngClass]="control.params.invalidValue ? 'labelStyleInRed' : ''"
+      >
+        <span *ngIf="control.params.styleClass !== 'fileUploadError'"
+        class="{{ control.params.parentStyleClass }}"
+        [innerHTML]="control.params.label"></span>
+        <a *ngIf= "control.params.required === true"><span class = "asterisk">*</span></a>
+        <span aria-live="polite" *ngIf="control.params.styleClass === 'fileUploadError' && control.params.label"
+        class="{{ control.params.parentStyleClass }}">{{errorHeader | translate}}: {{ control.params.label }}</span>
+        <button role="button" 
+          type="button"
+          *ngIf="control.params.invalidValue"
+          (click)="
+            navigateAway(
+              $event,
+              control.params.origSectionName,
+              control.params.origFieldName,
+              control.params.clubbedInvalidField
+            )
+          "
+          title="{{ 'goAndEdit' | translate }}"
+          mat-icon-button
+          [attr.aria-label]="'Link'"
+        >
+          <mat-icon class="iconSize" aria-hidden="false" aria-label="Link icon"
+            >link</mat-icon
+          ></button
+        ><a class="infoLabel" *ngIf="control.params.infoIcon && (!hostComponentData.onlyamendToggleValue)">
+          {{ control.params.infolabel | translate }}</a
+        >
+        </h4>
+      <div *ngIf="control.params.swift" class="narrative-counter-class">
+        <fcc-common-narrative-character-count
+          [enteredCharCount]="control.params.enteredCharCount"
+          [allowedCharCount]="control.params.allowedCharCount"
+          [fieldSize]="control.params.fieldSize"
+        >
+        </fcc-common-narrative-character-count>
+      </div>
+    </div>
+  </div>
+</ng-container>

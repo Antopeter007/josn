@@ -1,0 +1,146 @@
+<div *ngIf ="!viewMode ;else viewContent">
+  <form [formGroup]="facilityDetailsSection">
+    <p-panel header="{{ 'HEADER_FACILITY_LIMIT_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+      <div class="indented-header">
+      <h3 class="sub-header">{{'HEADER_FACILITY_DETAILS' | translate }}</h3>
+      </div>
+      <div *ngIf = "!this.commonData.getIsBankUser()">
+        <div  class="field">
+          <label for = "facilityId" >{{ 'FACILITY_REFERENCE' | translate }}<span *ngIf=this.commonService.isfacilitySelectionValidation() class="required-field-symbol">*</span>&nbsp;</label>
+          <p-dropdown id = "facilityId"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="facilityIdDropDown"
+            [showClear]="facilityDetailsSection.get('facilityId').value != null && facilityDetailsSection.get('facilityId').value !== ''"
+            (onChange)=" clearFacilityValues(); updateFacilityDate($event.value); populateLimitDropdown($event.value)" formControlName="facilityId">
+            </p-dropdown>
+            <input pInputText type="hidden" id="facilityHidden" formControlName="facilityHidden" readonly>
+            <fcc-common-error-message [control]="facilityDetailsSection.get('facilityId')"></fcc-common-error-message>
+        </div>
+      </div>
+        <div *ngIf = "this.commonData.getIsBankUser()">
+          <div class="field">
+            <label for = "facilityId" >{{ 'FACILITY_REFERENCE' | translate }}<span *ngIf=this.commonService.isfacilitySelectionValidation() class="required-field-symbol">*</span>&nbsp;</label>
+            <p-dropdown id = "facilityId"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="facilityIdDropDown"
+            [showClear]="facilityDetailsSection.get('facilityId').value != null && facilityDetailsSection.get('facilityId').value !== ''"
+            (onChange)=" clearFacilityValues(); updateFacilityDate($event.value); populateLimitDropdown($event.value)" formControlName="facilityId" [disabled] = "true">
+            </p-dropdown>
+            <fcc-common-error-message [control]="facilityDetailsSection.get('facilityId')"></fcc-common-error-message>
+          </div>
+        </div>
+      <div  class="field">
+        <label for = "facilityDate" >{{ 'FACILITY_REVIEW_DATE' | translate }}&nbsp;</label>
+        <p-calendar id="facilityDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+        [showIcon]="true" dataType="string" formControlName="facilityDate" onkeydown="return false"  [disabled] = "true"
+        dateFormat="{{ this.dateFormat }}" [showButtonBar]="true"
+        [styleClass]="validationService.isFieldInvalid(facilityDetailsSection.get('facilityDate')) ? 'calendarFieldError' : 'inherit'">
+      </p-calendar>
+        <fcc-common-error-message [control]="facilityDetailsSection.get('facilityDate')"></fcc-common-error-message>
+      </div>
+      <div class="indented-header">
+      <h3 class="sub-header">{{'HEADER_LIMIT_DETAILS' | translate }}</h3>
+      </div>
+      <div *ngIf = "!this.commonData.getIsBankUser()">
+        <div  class="field">
+          <label for = "limitId" >{{ 'LIMIT_REFERENCE' | translate }}&nbsp;</label>
+          <p-dropdown id = "limitId"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="limitIdDropDown"
+          [showClear]="facilityDetailsSection.get('limitId').value != null && facilityDetailsSection.get('limitId').value !== ''"
+          (onChange)="clearLimitValues(); populateLimitFields($event.value); populateBookingAmount()" formControlName="limitId">
+          </p-dropdown>
+          <input pInputText type="hidden" id="limitHidden" formControlName="limitHidden" readonly>
+          <fcc-common-error-message [control]="facilityDetailsSection.get('limitId')"></fcc-common-error-message>
+        </div>
+        </div>
+        <div *ngIf = "this.commonData.getIsBankUser()">
+          <div class="field">
+            <label for = "limitId" >{{ 'LIMIT_REFERENCE' | translate }}&nbsp;</label>
+            <p-dropdown id = "limitId"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="limitIdDropDown"
+          [showClear]="facilityDetailsSection.get('limitId').value != null && facilityDetailsSection.get('limitId').value !== ''"
+          (onChange)="clearLimitValues(); populateLimitFields($event.value); populateBookingAmount()" formControlName="limitId" [disabled] = "true">
+          </p-dropdown>
+          </div>
+        </div>
+       <div  class="field">
+        <label for = "limitReviewDate" >{{ 'LIMIT_REVIEW_DATE' | translate }}&nbsp;</label>
+        <p-calendar id="limitReviewDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+        [showIcon]="true" dataType="string" formControlName="limitReviewDate" onkeydown="return false"  [disabled] = "true"
+        dateFormat="{{ this.dateFormat }}" [showButtonBar]="true"
+        [styleClass]="validationService.isFieldInvalid(facilityDetailsSection.get('limitReviewDate')) ? 'calendarFieldError' : 'inherit'">
+      </p-calendar>
+        <fcc-common-error-message [control]="facilityDetailsSection.get('limitReviewDate')"></fcc-common-error-message>
+      </div>
+
+      <div class = "field">
+      <label for = "facilityOutstandingAmountLabel" >{{ 'FACILITY_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+      <input type="text" name="facilityOutstandingCurCode" formControlName="facilityOutstandingCurCode" class="input-three-digit"  [(ngModel)]="facilityOutCurCode" readonly pInputText>&nbsp;&nbsp;
+      <input name="facilityOutstandingAmount" formControlName="facilityOutstandingAmount" [(ngModel)]="facilityOutAmount" readonly pInputText>
+    </div>
+
+    <div class = "field">
+      <label for = "limitAmountLabel" >{{ 'LIMIT_AMOUNT' | translate }}&nbsp;</label>
+      <input type="text" name="limitCurCode" formControlName="limitCurCode" class="input-three-digit"  [(ngModel)]="limCurCode" class="input-three-digit" readonly pInputText>&nbsp;&nbsp;
+      <input name="limitAmount" formControlName="limitAmount"  [(ngModel)]="limAmount" readonly pInputText>
+    </div>
+
+    <div class = "field">
+      <label for = "limitOutstandingAmountLabel" >{{ 'LIMIT_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+      <input type="text" name="limitOutstandingCurCode" formControlName="limitOutstandingCurCode" class="input-three-digit"  [(ngModel)]="limOutCurCode" readonly pInputText>&nbsp;&nbsp;
+      <input name="limitOutstandingAmount" formControlName="limitOutstandingAmount"  [(ngModel)]="limOutAmt" readonly pInputText>
+    </div>
+
+    <div class = "field">
+      <label for = "bookingAmountLabel" >{{ 'BOOKING_AMOUNT' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+      <input type="text" name="bookingCurCode" class="input-three-digit" formControlName="bookingCurCode"  [(ngModel)]="bookCurCode"  pInputText>&nbsp;&nbsp;
+      <input name="bookingAmount" formControlName="bookingAmount"  [(ngModel)]="bookingAmt" (blur)="setValidationBookingAmt();"
+      [class.fieldError]="validationService.isFieldInvalid(facilityDetailsSection.get('bookingAmount'))" pInputText>
+       <fcc-common-error-message [control]="facilityDetailsSection.get('bookingAmount')"></fcc-common-error-message>
+    </div>
+
+    </p-panel>
+  </form>
+</div>
+<ng-template #viewContent>
+  <p-panel header="{{ 'HEADER_FACILITY_LIMIT_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+    <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" id="facilityDetailsSection">
+
+      <div id =  "facilityRefViewRow" *ngIf="bgRecord['limit_details'] && bgRecord['limit_details']['facilityReference']" >
+        <label id="facilityIdLabel" for = "facilityId">{{ 'FACILITY_REFERENCE' | translate }}&nbsp;</label>
+        <label id="facilityId" class="label-left">{{bgRecord['limit_details']['facilityReference']}}</label>
+        </div>
+
+        <div id =  "facilityDateViewRow" *ngIf="bgRecord['limit_details']" >
+          <label id="facilityDateLabel" for = "facilityDate">{{ 'FACILITY_REVIEW_DATE' | translate }}&nbsp;</label>
+          <label id="facilityDate" class="label-left"> {{ facilityDate }} </label>
+          </div>
+
+      <div class="indented-header">
+        <h3 class="sub-header">{{'HEADER_LIMIT_DETAILS' | translate }}</h3>
+        </div>
+        <div id =  "limitRefViewRow" *ngIf="bgRecord['limit_details'] && bgRecord['limit_details']['limitReference']" >
+          <label id="limitIdLabel" for = "limitId">{{ 'LIMIT_REFERENCE' | translate }}&nbsp;</label>
+          <label id="limitId" class="label-left">{{bgRecord['limit_details']['limitReference']}}</label>
+          </div>
+          <div id =  "limitDateViewRow" *ngIf="bgRecord['limit_details']" >
+            <label id="limitReviewDateLabel" for = "limitReviewDate">{{ 'LIMIT_REVIEW_DATE' | translate }}&nbsp;</label>
+            <label id="limitReviewDate" class="label-left"> {{ limitDate }} </label>
+            </div>
+
+            <div *ngIf ="this.commonDataService.getMode() === 'UNSIGNED'">
+              <div id =  "facilityOutViewRow" *ngIf="bgRecord && bgRecord['facilityOutstandingAmount']" >
+                <label id="facilityOutLabel" for = "facilityOut">{{ 'FACILITY_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+                <label id="facilityOut" class="label-left">{{bgRecord['facilityOutstandingCurCode']}}&nbsp;{{bgRecord['facilityOutstandingAmount']}}</label>
+                </div>
+                <div id =  "limAmtViewRow" *ngIf="bgRecord && bgRecord['limitAmount']" >
+                  <label id="limAmtLabel" for = "limAmt">{{ 'LIMIT_AMOUNT' | translate }}&nbsp;</label>
+                  <label id="limAmt" class="label-left">{{bgRecord['facilityOutstandingCurCode']}}&nbsp;{{bgRecord['limitAmount']}}</label>
+                  </div>
+                  <div id =  "limOutOutViewRow" *ngIf="bgRecord && bgRecord['limitOutstandingAmount']" >
+                    <label id="limOutLabel" for = "limOut">{{ 'LIMIT_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+                    <label id="limOut" class="label-left">{{bgRecord['facilityOutstandingCurCode']}}&nbsp;{{bgRecord['limitOutstandingAmount']}}</label>
+                    </div>
+            </div>
+        <div id =  "bookingAmtViewRow" *ngIf="bgRecord['limit_details'] && bgRecord['limit_details']['bookingAmount']" >
+          <label id="bookingAmtLabel" for = "bookingAmt">{{ 'BOOKING_AMOUNT' | translate }}&nbsp;</label>
+          <label id="bookingAmt" class="label-left">{{bgRecord['limit_details']['bookingCurCode']}}&nbsp;{{bgRecord['limit_details']['bookingAmount']}}</label>
+          </div>
+
+    </div>
+  </p-panel>
+</ng-template>

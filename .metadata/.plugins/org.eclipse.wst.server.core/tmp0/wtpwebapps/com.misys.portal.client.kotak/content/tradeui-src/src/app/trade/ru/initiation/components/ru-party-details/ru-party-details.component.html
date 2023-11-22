@@ -1,0 +1,32 @@
+<div class="indented-header">
+    <div *ngIf ="!viewMode  ;else view_content">
+
+    </div>
+    <ng-template #view_content>
+      <div *ngIf="commonDataService.getOption() === 'HISTORY' ;else view_panel">
+        <h3>{{ 'HEADER_BENEFICIARY_DETAILS' | translate }}</h3>
+        <ng-container *ngTemplateOutlet="view_beneficiary"></ng-container>
+        <h3>{{'HEADER_APPLICANT_DETAILS' | translate }}</h3>
+        <fcc-trade-party-details [bankType]="'applicant'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true"></fcc-trade-party-details>
+      </div>
+      <ng-template #view_panel>
+        <p-panel header="{{ 'HEADER_BENEFICIARY_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+          <ng-container *ngTemplateOutlet="view_beneficiary"></ng-container>
+        </p-panel>
+        <p-panel header="{{ 'HEADER_APPLICANT_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+          <fcc-trade-party-details [bankType]="'applicant'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true"></fcc-trade-party-details>
+        </p-panel>
+      </ng-template>
+
+      <ng-template #view_beneficiary>
+        <div id =  "entity_view_row" *ngIf ="bgRecord['entity'] !== null && bgRecord['entity'] != '' && showEntity">
+          <label for = "entity" id = "entity_label">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['entity']}}</label>
+        </div>
+        <!-- Beneficiary details -->
+        <fcc-trade-party-details [bankType]="'beneficiary'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true"></fcc-trade-party-details>
+        <!-- Contact details -->
+        <fcc-trade-party-details [bankType]="'contact'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true"></fcc-trade-party-details>
+      </ng-template>
+    </ng-template>
+</div>

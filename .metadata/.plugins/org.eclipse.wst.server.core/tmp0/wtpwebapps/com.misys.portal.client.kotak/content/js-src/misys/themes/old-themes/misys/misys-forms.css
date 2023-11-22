@@ -1,0 +1,698 @@
+/*
+ Styles for pages containing forms
+*/
+
+/** Root Portlet **/
+.misys #default #GTPRootPortlet.portlet {
+	border: none;
+}
+
+.misys #default #GTPRootPortlet .portlet-title{
+	font-size:1.5em;
+}
+
+.misys #default #GTPRootPortlet .portlet-section-header {
+	background: #9E8F6C none;
+	/*margin-top: 1em;*/
+	margin-bottom: 1em;
+}
+
+.misys #default #GTPRootPortlet .portlet-section-header h2 {
+	color: #FFFFFF;
+}
+
+/** Loading message and progress bars **/ 
+.misys #edit
+{
+    visibility:hidden;
+} 
+
+.misys .loading-message{
+    position:absolute;
+    left:165px;
+    top:0px;
+    width:90%;
+    height:100%;
+    margin:10px 0 0 5px;
+    padding:0;
+    z-index:999;
+    background-color:#fff;
+}
+
+.misys .loading-message p{
+     font-weight:bold;
+     font-style:italic;
+     margin-left:5px;
+     font-size:1.4em;
+}
+
+.misys #loadingProgressBar{
+	width:250px;
+	height:15px;
+	margin-left:5px;
+	border:1px solid #999;
+	background:#cad2de url("../../../dijit/themes/tundra/images/progressBarAnim.gif") repeat-x center center;
+}
+
+.misys #dialogProgressBar{
+	width:250px;
+}
+
+.misys .menu {
+	margin: 10px 0 10px auto;
+    text-align: right;
+}
+
+.misys .menu .floating{
+	margin: 0px;
+	float:right;
+    text-align: right;
+}
+
+.misys .menu button{
+	font-weight:bold;
+}
+
+.misys .menu .dijitButton {
+	display:inline;
+}
+
+.misys #xhrDialog{
+	font-size:0.8em;
+}
+
+.misys #xhrDialog .menu{
+	padding-right:10px;
+}
+
+.misys #xhrDialog .grid{
+	visibility:visible;
+}
+
+/** Center all validating forms **/
+.misys .form{
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/** Top-level fieldset **/
+.misys .toplevel-header{
+	margin: 5px auto 30px auto;
+	padding: 0 0 0.5em 0;
+}
+
+.misys .toplevel-header h2{
+    font-weight: bold;
+    background: none #9E8F6C;
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+/** A second-level, indented fieldset **/
+.misys .indented-fieldset,
+.misys #event-summary .attachments-container .toplevel-header{
+	border: none;
+	clear:both;
+}
+
+.misys .indented-fieldset h3,
+.misys #event-summary .attachments-container .toplevel-header h2{
+	background-image:none;
+    background-color: #CEC7B5;
+    color: #000000;
+    padding-left:0.2em;
+    margin: 15px 20px 5px; 
+} 
+
+/** Required field symbol **/
+.misys .required-field-symbol{
+	color: #DE7100;
+}
+
+/** Standard Field sizes **/
+.misys .x-small{width:4em;}
+.misys .small{width:10em;}
+.misys .medium{width:20em;}
+.misys .large{width:25em;}
+.misys .x-large{width:30em;}
+
+/** Field layout for a group of options **/
+.misys .multioption-group-label{
+	text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 10px;
+	padding-bottom: 10px;
+	height: auto;
+	font-weight: bold;
+}
+
+.misys .multioption-group-label .field {
+	margin: 3px 0 3px 0;
+}
+
+.misys .multioption-group-label label {
+	text-align: left;
+	white-space: nowrap;
+	width: auto;
+	font-weight: normal !important;
+}
+
+/** A checkbox or a radio button label**/
+.misys .checkbox label,
+.misys .radio label{
+	margin-left: 180px;
+}
+
+.misys .checkbox label{
+	text-align:left;
+	width: 200px;
+}
+
+/** Textarea **/
+.misys textarea{
+	width:auto;
+}
+
+.misys .textareacontent {
+	padding-left:1.6em;
+    margin: 15px 20px 5px 0px; 
+}
+
+/** Tabs **/
+
+/** Default height **/
+.misys .tabcontainer{
+	width: 100%;
+	height: 200px;
+}
+
+/** An updated tab **/
+.misys .tabChangeStyle{
+    font-weight:bold;
+}
+
+.misys .tabcontainer .dijitTab{
+	background-color: #9E8F6C;
+	color: #FFFFFF;
+}
+
+.misys .tabcontainer .dijitTabChecked{
+	background-color: #9E8F6C;
+	color: #FFFFFF;
+}
+
+/** Buttons **/
+.misys h2 button, .misys h3 button{
+    border: 0;
+    background-image: none;
+    background-color:transparent;
+    color: blue;
+    margin: 0;
+    padding: 0;
+    float:right;
+}
+
+/** A button on a textarea**/
+.misys .textarea-button{
+	float:right;
+}
+
+/** Buttons on a popup dialog **/
+.misys .dialogButtons{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin:5px;
+}
+
+.misys .dijitDialog .field,
+.misys #TransactionSearchForm .field{
+	margin-left:0;
+}
+
+.misys #chargeDialog label{
+	width: 110px;
+}
+
+/** An empty list **/
+.misys .empty-list-notice {
+	padding: 0 0 0 0.2em;
+	margin: 0 0 0 0.2em;
+	font-weight: bold;
+}
+
+/** Attachments Table **/
+.misys .attachments .dijitDownArrowButton .dijitArrowButtonInner {
+	display:none;
+}
+
+/** Collaboration Window **/
+/** TODO Refactor into CSS for the custom widget **/
+.misys #collaborationWindow {
+	visibility:hidden;
+    width:200px;
+    height:auto;
+    right:200px;
+    top:7px;
+    z-index:99;
+}
+
+.misys .tasksBox{
+	border: 1px dotted #0079A7;
+}
+
+.misys .pinButton{
+	width:18px;
+    height:15px; 
+    overflow:hidden;
+    cursor:pointer;
+    float:right;
+}
+
+.misys #collaborationWindowContent {
+	height:0px;
+}
+
+.misys #collaborationWindow ol{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+.misys #collaborationWindow ol label{
+    display:inline;
+}
+
+.misys #collaborationWindow ol li{
+    display:block;
+    clear:both;
+}
+
+.misys .dojoxFloatingPaneFg {
+    border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.misys #collaborationWindow .dojoxFloatingPaneTitle {
+    background-color:#6B8F00;
+    background-image:none;
+    color: white;
+}
+
+.misys .dojoxFloatingPane .dijitArrowNode {
+    cursor: pointer;
+    background-image: url("../../../dijit/themes/tundra/images/spriteArrows.png");
+    background-repeat: no-repeat;
+    height: 7px;
+    width: 7px;
+}
+
+.dj_ie6 .misys .dojoxFloatingPane .dijitArrowNode {
+    background-image: url("../../../dijit/themes/tundra/images/spriteArrows.gif");
+}
+
+.misys .dojoxFloatingPane .dijitOpen .dijitArrowNode {
+    background-position: 0px 0px;
+}
+
+.misys .dojoxFloatingPane .dijitClosed .dijitArrowNode {
+    background-position: -14px 0px;
+}
+
+.misys .dojoxFloatingPane .dijitArrowNodeInner {
+    display:none;
+}
+
+.misys .dijit_a11y .dojoxFloatingPane .dijitArrowNodeInner {
+    display:inline !important;
+    cursor: pointer;
+    padding-bottom:.2em;
+}
+
+.misys .dijit_a11y .dojoxFloatingPane .dijitArrowNode {
+    display:none;
+}
+
+.misys #dojoxGlobalResizeHelper{
+	display:none;
+}
+
+/** Table of Contents **/
+.misys #toc{
+	 display:none;
+     position: fixed;
+     top: 78px;
+     right: 32px;
+     border-style: solid;
+     border-width: 2px;
+     background-color: #6B8F00;
+     border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+     z-index:99;
+}
+
+.misys #toc a{
+	font-weight:normal;
+	color: white;
+}
+
+.misys #toc p{
+    padding:3px;
+    margin:1px;
+}
+
+.misys #toccontent{
+    line-height: 110%;
+    margin-bottom:5px;
+}
+.misys #toccontent a {
+  display: list-item;
+  margin-left: 16px;
+  margin-top: 5px;
+}
+
+/** Popup overlay styles **/
+.misys #xhrDialog .dijitDialogPaneContent #edit{
+	border: 0px solid #ffff00;
+}
+
+.misys #xhrDialog p{
+	margin:1%;
+}
+
+/*.misys #xhrDialog .field{
+    margin-left:10%;
+}*/
+
+.misys .dijitDialog .field .dijitButton .dijitButtonNode,
+.misys #TransactionSearchForm .field .dijitButton .dijitButtonNode
+{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+	background: #fff url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left;
+}
+
+/** Override Dijit classes **/
+.misys .dijitButtonNode {
+	background-color: transparent;
+}
+
+.misys .dijitInputField                    
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.misys .dijitMenuItem{
+	font-size:0.8em !important;
+}
+
+.misys .dijitArrowButton{
+	line-height:17px;
+}
+
+.misys .dijitTextArea {
+    font-family: "Courier New";
+    font-size:1em;
+}
+
+.misys .dijitDialog{
+	font-size:0.8em;
+}
+
+/** Attachments table **/
+.misys table.attachments{
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	margin:1em auto;
+	border-collapse:collapse;
+	width:80%;
+}
+
+.misys .small-tblheader, .misys .button-tblheader{
+	width:20px;
+}
+
+.misys .attachments caption{
+	font-size:.94em;
+	letter-spacing:.1em;
+	margin:1em 0 1em 0;
+	padding:0;
+	caption-side:top;
+	text-align:center;
+}
+
+.misys .attachments td {
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+	text-align:center;
+}
+
+.misys .attachments th {
+	font-weight:normal;
+	text-align:left;
+	border-bottom: 1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+}
+
+.misys .attachments thead th {
+	background:#f4f9fe;
+	text-align:center;
+	font-weight:bold;
+}	
+	
+.misys .attachments tfoot th {
+	text-align:center;
+}
+
+.misys .attachments tfoot th strong {
+	margin:.5em .5em .5em 0;
+}
+
+/** Calendar **/
+.misys .dijitCalendarContainer{
+	font-size:0.8em !important;
+}
+
+/** Calendar in the side bar **/
+.misys #MenuBuilder .dijitCalendarContainer{
+	font-size:1em !important;
+	margin-bottom:5px;
+}
+
+/** View mode **/
+.misys #reporting_popup,
+.misys #reporting_popup .portlet-section-body{
+	padding:5px 5px 0px 5px;
+}
+
+.misys #reporting_popup .toplevel-header .toplevel-header{
+	margin:0px 5px 0px 5px;
+}
+
+.misys .disclaimer {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	font-weight: bold;
+	clear: both;
+	font-size:0.9em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.misys .collapse-label label
+{
+    margin:0;
+    padding:0;
+    width:0;
+}
+
+.misys .collapse-label .field{
+	margin-left:0;
+}
+
+.misys .multi-select {
+	width:60%;
+}
+
+.misys .collapsible-header
+{
+padding-left:5px;
+padding-right:5px;
+font-weight:bold;
+height:20px;
+margin:5px 20px 0px 20%;
+width:auto;
+}
+
+.misys .collapsible-header .collapsible-header-inner
+{
+float:left;
+display:block;
+background-color:#EEEEEE;
+background-image:none;
+width:100%;
+height:15px;
+}
+
+.misys .collapsible-header .collapsible-header-inner .legend
+{
+font-size:0.9em;
+}
+
+.misys .collapsible-header .collapsible-header-inner .image
+{
+	float:right;
+	margin-top:-15px;
+	*margin-top:-15px;
+}
+mellon div.multiple-date-selection label
+{
+	display:inline;
+	margin:0px;
+	width:0px;
+}
+
+.misys div.multiple-date-selection  div.field  div.field
+{
+	margin:0px;
+    display:inline;
+}
+
+.misys div.multiple-date-selection div.field  div.field label
+{
+	margin:0px;
+    width:auto;
+}
+
+.misys div.multiple-date-selection > div > label
+{
+	width:175px;
+    display:inline-block;
+}
+
+.misys div.multiple-date-selection div.label
+{
+	display:inline;
+	text-align:right;
+	margin:0px;
+}
+
+.misys div.multiple-date-selection span.title
+{
+	display:inline;
+	text-align:right;
+width:175px;
+margin-right:5px;
+}
+
+.misys div#validationErrorinnerDiv ul li
+{
+list-style-type:disc;
+}
+
+.misys #ok_leg_formula_row label
+{
+width:auto;
+margin-left:25px;
+}
+
+/** Cross References **/
+.misys .field ul{
+	margin-left:175px;
+	font-family: "Courier New";
+	font-weight:bold;
+}
+
+/** LC Specific **/
+.misys #widget_tenor_days{
+	margin-left:50px;
+}
+
+/** File Upload **/
+#fileUploadDialog .field label{
+	width:80px;
+}
+
+/** IE Specific **/
+.dj_ie6 .misys #toc {
+ display:none !important;
+}
+
+/** Temp rule, remove once entity popup no long inside HTML <body> fragment **/
+.misys #entity_popup{
+	font-size:1.2em;
+}
+.misys #entity_popup .grid{
+	font-size:0.8em;
+}
+
+/** History view **/
+.misys #history-master .field{
+	margin-left:0;
+}
+
+.misys #history-master .field{
+	margin-left:0;
+}
+
+.misys #ProductOverview .label{
+	width:120px;
+}
+
+.misys #customers-section{
+	padding-left:1.6em;
+}
+
+.misys #view .field .field{
+	display:inline;
+}
+
+.misys #view .field .field .label{
+	display:none;
+}
+
+.misys .field .checkbox{
+	padding-right:10px;
+}
+
+.misys #cash_flow_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.misys #asset_schedule_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.misys div.fees-container
+{
+	margin:10px;
+	margin-left:21%;
+	margin-right:30px;
+	padding-left:5px;
+	
+}
+
+.misys .inline-group div.field {
+	display: inline;
+}
+
+.misys .inline-group .field label {
+	margin: 0px 0px 0px 2em;
+	width: auto;
+}
+

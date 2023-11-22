@@ -1,0 +1,1 @@
+({"misysEditorPluginsProductFieldChoice":"إضافة حقل","productField":"حقل"})

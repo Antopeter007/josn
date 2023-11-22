@@ -1,0 +1,47 @@
+<div class="inquiryDiv">
+  <p-panel id="PendingTnxOverview" [toggleable]="true"
+    header="{{ 'MENU_PENDING_MC_TRANSACTIONS' | translate}}">
+    <p-table [value]="pendingTransactions" sortMode="single">
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="tablecol-width-8" id="tnxId">{{ "" | translate}}</th>
+          <th class="tablecol-width-23"  id="fullType" [pSortableColumn]="'fullType'">{{ "TYPE" | translate}}
+            <p-sortIcon [field]="'fullType'"></p-sortIcon></th>
+          <th class="tablecol-width-18"  id="status" [pSortableColumn]="'status'">{{ "STATUS" | translate}}
+            <p-sortIcon [field]="'status'"></p-sortIcon></th>
+          <th class="tablecol-width-20" id="boTnxId" [pSortableColumn]="'boTnxId'">{{ "EVENT_REF" | translate}}
+            <p-sortIcon [field]="'boTnxId'"></p-sortIcon></th>
+          <th class="tablecol-width-7"  id="tnxCurCode" [pSortableColumn]="'tnxCurCode'">{{ "CURCODE" | translate}}
+            <p-sortIcon [field]="'tnxCurCode'"></p-sortIcon></th>
+          <th class="tablecol-width-14"  id="tnxAmt" [pSortableColumn]="'tnxAmt'">{{ "AMOUNT" | translate}}
+            <p-sortIcon [field]="'tnxAmt'"></p-sortIcon></th>
+          <th class="tablecol-width-10"  id="inpDttm" [pSortableColumn]="'inpDttm'">{{ "INP_DTTM" | translate}}
+            <p-sortIcon [field]="'inpDttm'"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rec>
+        <tr class="alignment-center">
+          <td>
+            <div *ngIf ="rec.tnx_stat_code === 'Incomplete' || rec.tnx_stat_code === 'Uncontrolled' ; else preview_icon">
+              <div>
+                <img src="{{imagePath}}edit.png" class="inquiry-image-height cursor" alt="preview" (click) = "navigateToEditScreen(rec.tnx_id, rec.tnx_type_code)">
+              <span *ngIf ="rec.tnx_stat_code === 'Uncontrolled'" class="margin-left-inquiry-icons">
+                  <img src="{{imagePath}}lock.png" class="inquiry-image-height cursor" alt="preview" (click) = "navigateToUnsignedScreen(rec.tnx_id, rec.tnx_type_code)">
+              </span>
+              </div>
+            </div>
+            <ng-template #preview_icon>
+              <img src="{{imagePath}}preview_large.png" class="inquiry-image-height cursor" alt="preview" (click) = "navigateToPreview(rec.tnx_id, rec.tnx_type_code, rec.sub_tnx_type_code)">
+            </ng-template>
+          </td>
+          <td>{{this.commonService.decodeHtml(rec.full_type)}}</td>
+          <td>{{this.commonService.decodeHtml(rec.status)}}</td>
+          <td>{{rec.bo_tnx_id}}</td>
+          <td>{{rec.tnx_cur_code}}</td>
+          <td>{{rec.tnx_amt}}</td>
+          <td>{{this.commonService.decodeHtml(rec.inp_dttm)}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>

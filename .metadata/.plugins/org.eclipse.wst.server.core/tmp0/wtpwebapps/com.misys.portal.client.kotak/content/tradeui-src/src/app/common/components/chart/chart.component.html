@@ -1,0 +1,10 @@
+<h1 class = "chartTitle">{{'AVAILABLE_AMOUNT_CHART_HEADER' | translate}}
+    <img src="{{imagePath}}maximize.png" (click)="showMaximizedChart()" style="cursor: pointer;float: right;position: relative" alt="Maximize">
+</h1>
+<div *ngIf="allSameCcy.length === 1; else viewDisclaimer" style="margin-top: 30px; margin-bottom: 30px">
+  <p-chart type="line" height="330px" width="100%" [data]="lineData" [options]="lineOptions"></p-chart>
+</div>
+<ng-template #viewDisclaimer>
+  <h4>{{ "GRAPH_NOT_RENDER_DISCLAIMER" | translate}}</h4>
+</ng-template>
+

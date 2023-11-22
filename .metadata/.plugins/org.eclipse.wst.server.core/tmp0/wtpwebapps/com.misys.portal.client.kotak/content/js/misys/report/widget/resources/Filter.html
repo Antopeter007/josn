@@ -1,0 +1,129 @@
+<table>
+
+	<!-- Filter row  -->
+	<tr>
+		<td width="400">
+			<div>
+				<table width="400" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td class="FORMH2">
+							<strong>
+								<!-- <xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_FILTER')"/>-->
+								Filter
+							</strong>
+						</td>
+						<td class="FORMH2" align="right">
+							<a href="javascript:void(0)">
+								<!-- <xsl:attribute name="onclick">fncDeleteFilter('fakeform0', '<xsl:value-of select="$structure_name"/>', <xsl:value-of select="$suffix"/>);</xsl:attribute>-->
+								<img border="0" src="/content/images/delete.png" style="cursor:pointer">
+									<xsl:attribute name="alt"><xsl:value-of select="localization:getGTPString($language, 'ACTION_USER_DELETE')"/></xsl:attribute>
+								</img>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<table width="100%" border="0">
+								<tr>
+									<td width="3%"/>
+									<td width="97%">
+										<div>
+											<!-- <input type="hidden">
+												<xsl:attribute name="name"><xsl:value-of select="$structure_name"/>_details_position_<xsl:value-of select="$suffix"/></xsl:attribute>
+												<xsl:attribute name="value"><xsl:value-of select="$suffix"/></xsl:attribute>
+											</input>-->
+											<!-- Criteria section -->
+											<!-- Disclaimer -->
+											<div>
+												<!-- <xsl:attribute name="id"><xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria_disclaimer</xsl:attribute>
+                         <xsl:choose>
+                           <xsl:when test="security:isBank($rundata) and $isTemplate!='true'">
+                             <xsl:if test="count(criteria[column/@name != 'Charge@created_in_session']) != 0">
+                               <xsl:attribute name="style">display:none</xsl:attribute>
+                             </xsl:if>
+                           </xsl:when>
+                           <xsl:otherwise>
+                             <xsl:if test="count(criteria[column/@name != 'tnx_stat_code' and column/@name != 'Charge@created_in_session']) != 0">
+                               <xsl:attribute name="style">display:none</xsl:attribute>
+                             </xsl:if>
+                           </xsl:otherwise>
+                         </xsl:choose>-->
+												<strong>
+													<xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_NO_CRITERIA')"/>
+												</strong>
+											</div>
+											<table border="0" width="100%" cellpadding="0" cellspacing="1">
+												<!-- <xsl:attribute name="id"><xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria_master_table</xsl:attribute>
+												<xsl:if test="count(criteria) = 0">
+													<xsl:attribute name="style">position:absolute;visibility:hidden;</xsl:attribute>
+												</xsl:if>-->
+												<tbody>
+													<!-- <xsl:attribute name="id"><xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria_table</xsl:attribute>-->
+													<!-- Columns Header  -->
+													<tr>
+														<!-- <xsl:attribute name="id"><xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria_table_header_1</xsl:attribute>-->
+                             <!-- <xsl:choose>
+                               <xsl:when test="security:isBank($rundata) and $isTemplate!='true'">
+                                 <xsl:if test="count(criteria[column/@name != 'Charge@created_in_session']) = 0">
+                                   <xsl:attribute name="style">visibility:hidden;</xsl:attribute>
+                                 </xsl:if>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                 <xsl:if test="count(criteria[column/@name != 'tnx_stat_code' and column/@name != 'Charge@created_in_session']) = 0">
+                                   <xsl:attribute name="style">visibility:hidden;</xsl:attribute>
+                                 </xsl:if>
+                               </xsl:otherwise>
+                             </xsl:choose>-->
+														<th id = "column" class="FORMH2" align="center" width="30%">
+															<xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_FILTER_TABLE_COLUMN')"/>
+														</th>
+														<th id = "operator" class="FORMH2" align="center" width="30%">
+															<xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_FILTER_TABLE_OPERATOR')"/>
+														</th>
+														<th id = "value" class="FORMH2" align="center" width="30%">
+															<xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_FILTER_TABLE_VALUE')"/>
+														</th>
+														<th id = "formh2" class="FORMH2" width="10%">&nbsp;</th>
+													</tr>
+													<!-- Details  -->
+                           <!-- <xsl:choose>
+                             <xsl:when test="security:isBank($rundata) and $isTemplate!='true'">
+                               <xsl:for-each select="criteria[column/@name != 'Charge@created_in_session']">
+                                 <xsl:call-template name="CRITERIA">
+                                   <xsl:with-param name="structure_name">
+                                     <xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria</xsl:with-param>
+                                   <xsl:with-param name="mode">existing</xsl:with-param>
+                                 </xsl:call-template>
+                               </xsl:for-each>
+                             </xsl:when>
+                             <xsl:otherwise>
+                               <xsl:for-each select="criteria[column/@name != 'tnx_stat_code' and column/@name != 'Charge@created_in_session']">
+                                 <xsl:call-template name="CRITERIA">
+                                   <xsl:with-param name="structure_name">
+                                     <xsl:value-of select="$structure_name"/>_<xsl:value-of select="$suffix"/>_criteria</xsl:with-param>
+                                   <xsl:with-param name="mode">existing</xsl:with-param>
+                                 </xsl:call-template>
+                               </xsl:for-each>
+                             </xsl:otherwise>
+                           </xsl:choose>-->
+												</tbody>
+											</table>
+											<br>
+											<a href="javascript:void(0)">
+												<xsl:value-of select="localization:getGTPString($language, 'XSL_REPORT_ADD_CRITERIA')"/>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+</table>

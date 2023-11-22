@@ -1,0 +1,703 @@
+@import './../../../../../../../styles/variables.scss';
+
+/* common css in application and general detals */
+:host ::ng-deep .pi-chevron-down:before {
+  display: block;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  margin-left: 0px;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: none;
+  border-bottom: 1px solid #a6a6a6;
+}
+
+:host ::ng-deep .infoIconStyle {
+  left: -1em !important;
+}
+
+:host ::ng-deep .amendLabelStyle .infodisplaylabel {
+  margin-left: -0.5em;
+}
+
+:host ::ng-deep .amendNarrativeStyle textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+}
+
+:host ::ng-deep .mat-checkbox-disabled .mat-checkbox-checkmark {
+  background-color: #c137a2;
+}
+:host ::ng-deep .mat-checkbox {
+  padding-left: 0em;
+}
+
+
+:host ::ng-deep .amendNarrativeStyle textarea:focus ~ label,
+:host ::ng-deep .amendNarrativeStyle textarea.ui-state-filled ~ label {
+  top: -1.5em;
+}
+
+:host ::ng-deep .subheader-title{
+  margin-left: 0em !important;
+  margin-top: 1.2em !important;
+}
+
+:host ::ng-deep .margin-all-side {
+  margin: 15px 20px 0px 0px;
+}
+
+/*end  */
+
+:host ::ng-deep .rounded-btn-class {
+  margin-left: 15px;
+}
+
+:host ::ng-deep p-radiobutton.rightwrapper {
+  padding-left: 2em !important;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+  color: #333333;
+  background-color: #fafafa;
+  border: 1px solid #a6a6a6;
+}
+
+:host ::ng-deep .margin-side {
+  margin: 0px 20px 0px 0px;
+}
+
+:host ::ng-deep .applicant_bene_entity_class{
+  margin: 0px 15px 0px -8px;
+}
+
+:host ::ng-deep .widthHeight {
+  width: 100%;
+  height: 35.8px;
+}
+
+:host ::ng-deep .maxwidthHeight {
+  width: 100%;
+  height: 3.7em;
+}
+
+:host ::ng-deep .ui-button-text-icon-left .ui-button-icon-left {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  height: 1em;
+  color: green;
+}
+
+:host ::ng-deep .activeClass {
+  background-color: #e5e5f8 !important;
+  color: #333333 !important;
+  border-color: #694ed6 !important;
+}
+
+:host ::ng-deep .ui-button.ui-button-text-icon-left .ui-button-text {
+  padding: 0.429em 1em 0.429em 1em;
+}
+
+/* Expiry Date CSS Start */
+// .expiryDateStyle {
+//   position: relative;
+//   display: -webkit-box;
+//   display: flex;
+//   margin-top: 0em;
+//   margin-bottom: 0.5em;
+//   margin-right: 1.25em;
+//   width: 100%;
+// }
+
+:host ::ng-deep .expiryDateStyle .ui-inputtext:enabled:hover {
+  border-color: #6f6f6f;
+}
+
+:host ::ng-deep .expiryDateStyle p-calendar {
+  width: 100%;
+}
+
+:host ::ng-deep .placeOfExpiry{
+  width: 100%;
+}
+
+:host ::ng-deep .expiryDateStyle .ui-calendar {
+  position: relative !important;
+  display: -webkit-box !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+:host ::ng-deep .expiryDateStyle .ui-calendar .ui-datepicker.ui-widget {
+  background-color: #fff !important;
+}
+
+:host ::ng-deep .ui-datepicker {
+  background-color: #fff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker
+  .ui-datepicker-header
+  .ui-datepicker-title
+  select {
+  border: none;
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: transparent;
+  border-color: #212121;
+}
+
+:host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+:host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+  color: #ffffff;
+  background-color: #694ed6;
+}
+
+:host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+:host
+  ::ng-deep
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > span.ui-state-active {
+  background-color: #694ed6;
+}
+
+:host ::ng-deep .ui-button:enabled:focus {
+  box-shadow: none;
+}
+
+:host
+  ::ng-deep
+  .ui-calendar.ui-calendar-w-btn
+  .ui-datepicker-trigger.ui-button {
+  color: white;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  table
+  td
+  a:not(.ui-state-active):not(.ui-state-highlight):hover {
+  font-weight: normal;
+}
+
+/* Expiry Date CSS End */
+
+:host ::ng-deep .fcc-radio-button .p-grid {
+  width: 100%;
+}
+
+:host ::ng-deep .ui-inputtext {
+  background: transparent !important;
+}
+
+:host ::ng-deep .ui-dropdown-items-wrapper {
+  overflow-x: hidden !important;
+}
+
+/* selected button css start */
+
+:host ::ng-deep .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
+:host ::ng-deep .ui-fluid .ui-buttonset.ui-buttonset-4 .ui-button {
+  width: auto;
+  min-width: 7em;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button,
+:host ::ng-deep .createform .ui-selectbutton .ui-button {
+  border-radius: 1.2em !important;
+  margin-right: 0.8em;
+}
+
+:host ::ng-deep .transmission .ui-selectbutton .ui-button {
+  margin-right: 3em;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-fluid
+  .ui-buttonset.ui-buttonset-3
+  .ui-button {
+  width: 25%;
+}
+:host ::ng-deep .transmission .ui-button.ui-button-text-only .ui-button-text {
+  padding: 1.2em 2em !important;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button.ui-state-default
+  .ui-button-icon-left {
+  color: transparent;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button.ui-state-active
+  .ui-button-icon-left {
+  color: $GREEN-01 !important;
+}
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover
+  .ui-button-icon-left {
+  color: transparent;
+}
+
+/* selected button css end */
+
+:host ::ng-deep .ui-datepicker .ui-button.ui-state-default.ui-button-secondary {
+  width: auto;
+}
+
+:host ::ng-deep .fcc-input-checkbox-display label {
+  display: none;
+}
+
+:host ::ng-deep p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+:host ::ng-deep p-checkbox.leftwrapper {
+  padding-left: 0em !important;
+}
+
+:host ::ng-deep .fcc-radio-button-display label {
+  display: none;
+}
+
+:host ::ng-deep .nextSectionDiv,
+:host ::ng-deep .prevSectionDiv {
+  bottom: 2em;
+}
+:host ::ng-deep .removeLabelStyle{
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.40em 0 0 -10em;
+  max-width: 5em;
+  z-index: 2;
+  text-align: left;
+  position: relative;
+
+}
+
+:host ::ng-deep [dir=rtl] .removeLabelStyle{
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.40em -15em 0 0;
+  max-width: 5em;
+  z-index: 2;
+  text-align: left;
+  position: absolute;
+
+}
+
+:host ::ng-deep [dir=rtl].fetchedRefValueStyle {
+  max-width: 10em;
+  pointer-events: none;
+  right: -15em;
+}
+
+:host ::ng-deep [dir=rtl] .referenceSelectedStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 1em;
+  margin-top: 0.4em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: right;
+  right: 0.2em;
+}
+
+:host ::ng-deep .fetchedRefValueStyle {
+  max-width: 10em;
+  pointer-events: none;
+}
+
+:host ::ng-deep #fetchedRefValue {
+  max-width: 15em;
+  border: none;
+  font-size: 0.75em !important;
+  position: relative;
+  right: 4em;
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+}
+
+:host ::ng-deep .referenceSelectedStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 1em;
+  margin-top: 0.40em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+:host ::ng-deep .arabicReferenceSelected {
+  color: $GREY-100 !important;
+  margin-top: 0;
+  position: relative;
+  right: 8em;
+  z-index: 0;
+}
+:host ::ng-deep .arabicFetchedRefValue {
+  position: relative;
+  right: 7em;
+  z-index: 1;
+  pointer-events: none;
+}
+:host ::ng-deep .arabicRemoveLabel {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0;
+  left: 1em;
+  position: relative;
+  z-index: 2;
+}
+:host ::ng-deep .templateSelectionStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 0.60em;
+  margin-top: 0.40em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+:host ::ng-deep .arabicTemplateSelection {
+  right: 1em;
+  position: relative;
+  color: $GREY-100 !important;
+  margin-top: 0;
+  z-index: 0;
+}
+:host ::ng-deep .arabicFetchedTemplate {
+  left: 12em;
+  z-index: 1;
+  pointer-events: none;
+}
+:host ::ng-deep .arabicRemoveLabelTemplate {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0;
+  left: 11em;
+  position: relative;
+  z-index: 2;
+}
+:host ::ng-deep .arabicSRNumber {
+  right: 13em;
+  position: relative;
+  color: $GREY-100 !important;
+  margin-top: 0;
+  z-index: 0;
+}
+:host ::ng-deep .arabicSRNumberValue {
+  right: 12em;
+  z-index: 1;
+  pointer-events: none;
+}
+:host ::ng-deep .arabicRemoveLabelSR {
+  right: -5em;
+}
+:host ::ng-deep #fetchedTemplate {
+  max-width: 13em;
+  border: none;
+  font-size: 0.65em !important;
+  pointer-events: none;
+  position: relative;
+  right: 1em;
+  left: 1em;
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+  display: inline;
+}
+:host ::ng-deep .removeLabelTemplateStyle {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.40em 0 0 -10em;
+  max-width: 5em;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  right: 0.5em;
+  left: 18em;
+}
+:host ::ng-deep .srNumberStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 22em;
+  margin-top: 0.50em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+
+:host ::ng-deep #srNumberValue {
+  max-width: 13em;
+  border: none;
+  font-size: 0.75em !important;
+  position: relative;
+  left: 0em;
+  z-index: 1;
+  pointer-events: none;
+  text-align: left;
+}
+:host ::ng-deep .srNumberValueStyle{
+  left: 6em;
+  bottom: 1.4em;
+  width: 9em;
+}
+:host ::ng-deep .srNumberValueStyle .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+:host ::ng-deep .templateSelectionValueStyle .mat-form-field-appearance-fill .mat-form-field-flex,
+:host ::ng-deep .fetchedRefValueStyle .mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: transparent;
+  padding-left: 3em;
+}
+:host ::ng-deep .srNumberValueStyle .mat-form-field-wrapper .mat-form-field-underline,
+:host ::ng-deep .templateSelectionValueStyle .mat-form-field-wrapper .mat-form-field-underline,
+:host ::ng-deep .fetchedRefValueStyle .mat-form-field-wrapper .mat-form-field-underline{
+  width: 0;
+}
+:host ::ng-deep .removeLabelSRStyle {
+  cursor: pointer;
+  font-size: 0.75em;
+  z-index: 2;
+  position: relative;
+  margin-left: -7.5em;
+  margin-top: 2em;
+  color: $FUCHSIA-F100;
+  letter-spacing: 0.05em;
+}
+
+:host ::ng-deep .selectBackToBackLC {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.8em;
+  margin: 0 0 0 1em;
+  max-width: 15em;
+  text-align: left;
+  position: absolute;
+}
+:host ::ng-deep .browseButton{
+  border-radius: 1.125em !important;
+  padding: 0 1em !important;
+  min-width: 4em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border: 0.0625em solid $FUCHSIA-F100 !important;
+  border-color: $FUCHSIA-F100  !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $WHITE !important;
+  margin-left: 0.5em !important;
+}
+:host ::ng-deep .hintForBackToBack {
+  color: $primaryColor;
+  font-size: 0.9em;
+  text-align: left;
+  position: absolute;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  padding-left:2.5em !important;
+}
+:host ::ng-deep .noteForBackToBack
+{
+  color: $primaryColor;
+  font-size: 0.9em;
+  text-align: left;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+:host ::ng-deep .otherApplicableRulesStyle {
+  position: relative;
+  height: 100%;
+}
+
+:host ::ng-deep .otherApplicableRulesStyle .ui-float-label {
+  position: absolute;
+  width: 97%;
+  bottom: 0.4em;
+}
+
+:host ::ng-deep .viewModeMargin {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  min-width: 100%;
+  resize: none;
+}
+
+:host ::ng-deep textarea.mat-input-element {
+  resize: none;
+}
+
+
+:host ::ng-deep #backToBackLC{
+  color: $FUCHSIA-F100;
+}
+
+:host ::ng-deep .select-msg-width {
+  width: 41.6667% !important;
+}
+
+:host ::ng-deep .filter_dropdown_msg .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -0.5em !important;
+}
+
+:host ::ng-deep .filter_dropdown_msg {
+  padding: 0em 0.2em 0.2em 0.5em !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  margin: 0em !important;
+  width: 28.5rem !important;
+  word-break: break-all !important;
+}
+
+:host ::ng-deep .governingLaw {
+  width: 90% !important;
+}
+
+:host ::ng-deep .transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  width: 100%;
+}
+
+:host ::ng-deep .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  width: 21%;
+  min-width: fit-content;
+  max-width: 275px;
+}
+
+:host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+  right: auto;
+  left: -15%;
+}
+
+:host ::ng-deep .viewSpecimenHyperLink {
+  color: $FUCHSIA-F100;
+  font-size: .7em;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  margin-left: 1em;
+}
+
+:host ::ng-deep .viewSpecimenHyperLink:hover {
+  text-decoration: underline;
+}
+:host ::ng-deep #fetchedBankTemplate {
+  max-width: 13em;
+  border: none;
+  font-size: 0.65em !important;
+  pointer-events: none;
+  position: relative;
+  right: 1em;
+  left: 1em;  
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+  display: inline;
+}
+
+@media screen and  (min-width: 768px) and (max-width: 820px){
+  :host ::ng-deep .mat-radio-group {
+    display: grid !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+      flex-wrap: nowrap;
+  }
+}
+@media screen and  (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+    left: -1% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+  :host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+      flex-wrap: nowrap;
+  }
+}
+@media screen and  (min-width: 1024px) and (max-width: 1180px) {
+  :host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+    left: -7% !important;
+  }
+  :host ::ng-deep .templateSelectionValueStyle .mat-form-field-appearance-fill .mat-form-field-flex,
+  :host ::ng-deep .fetchedRefValueStyle .mat-form-field-appearance-fill .mat-form-field-flex{
+  padding-left: 3em !important;
+}
+}
+@media screen and  (min-width: 768px) and (max-width: 834px) {
+  :host ::ng-deep .removeLabelStyle{
+    position: relative !important;
+    margin: 0.4em 0 0 -2em !important;
+  }
+  :host ::ng-deep .fetchedRefValueStyle {
+    left: 5em !important;
+  }
+  :host ::ng-deep .browse-button-margin{
+    margin-left: 9em !important;
+  }
+  :host ::ng-deep .mat-card-width {
+    width:40em !important;
+  }
+  :host ::ng-deep .removeLabelSRStyle {
+    margin-left: 8.5em !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  :host ::ng-deep .p-sm-6 {
+    width: 40.6667% !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1180px) {
+  :host ::ng-deep .p-sm-5 {
+    width: 40.6667% !important;
+  }
+}
+
+@media screen and  (min-width: 1024px) and (max-width: 1180px){
+  :host ::ng-deep.select-msg-width {
+    width: 60% !important;
+  }
+}

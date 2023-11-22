@@ -1,0 +1,55 @@
+:host ::ng-deep  input.mat-input-element {
+  text-align: center;
+  font-size: 1.1250em;
+}
+:host ::ng-deep .fill .mat-button-wrapper {
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .outline .mat-button-wrapper {
+  justify-content: center;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+:host ::ng-deep .fill .mat-form-field-infix {
+  top: -0.4em;
+}
+
+:host ::ng-deep .outline .mat-form-field-infix {
+  top: -0.1em;
+}
+
+:host ::ng-deep .fill .mat-form-field-flex {
+  padding: 0.22em 0.75em 0.22em 0.75em;
+}
+
+:host ::ng-deep .mat-button.mat-icon-button{
+  width: 2em !important;
+  height: 2em !important;
+}
+
+button.mat-button .mat-icon {
+  right: initial !important;
+}
+
+.linkHeight{
+  line-height: 2em;
+}
+
+:host ::ng-deep .mat-hint {
+  margin-left: -1em !important;
+}
+
+.errMsg {
+  color: red !important;
+  font-weight: 300;
+  font-size: 0.85em;
+  bottom: 1em;
+  position: relative;
+}

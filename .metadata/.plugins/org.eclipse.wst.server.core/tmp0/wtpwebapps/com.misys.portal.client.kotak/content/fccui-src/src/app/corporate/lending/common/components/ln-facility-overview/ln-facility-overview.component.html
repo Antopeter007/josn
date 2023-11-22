@@ -1,0 +1,66 @@
+<div class="pt50">
+  <mat-drawer-container class="entity-container" autosize [hasBackdrop]="true" (backdropClick)="onCloseMatDrawer();">
+   <ng-component *ngIf="sideNavTF">
+    <mat-drawer #drawer class="entity-sidenav" mode="over" position="{{entityNavPosition}}" (close)="onCloseMatDrawer()">
+        <strong dir={{dir}} class="set-entity-header" style="font-size: 1.25em; font-weight: 500; margin-left: 0.8em;">
+          {{'setEntity' | translate}}</strong>
+
+        <button role="button"  mat-button (click)="onCloseMatDrawer()" [ngClass]="dir === 'rtl' ? 'icon-close-left' : 'icon-close'">
+          <mat-icon aria-hidden="false" aria-label="Close" dir={{dir}}>close</mat-icon>
+        </button>
+
+        <app-instruction-inquiry-sidenav></app-instruction-inquiry-sidenav>
+    </mat-drawer>
+    </ng-component>
+  </mat-drawer-container>
+
+  <div [ngClass]="menuToggleFlag === 'true' && 'verMenuCssClass'" >
+    <div  [ngStyle]="{'text-align': setButtonBlockDirection(),'padding': '15px'}" >
+      <button role="button"  *ngIf="initalDrawDownTF" pButton type="button"  class="primaryButton" (click)="navigateButtonUrl()">
+          {{ 'MENU_LN_STANDARD_FROM_DEAL' | translate}}
+      </button>
+      <button role="button"  *ngIf="initiateFeePayment" pButton type="button"  class="primaryButton btSpace" (click)="navigateFeePayment()">
+        {{ 'feePaymentHeader' | translate}}
+      </button>
+      <button role="button"   class="primaryButton btSpace" (click)="navigateSearch()" tooltipPosition="bottom" #docSearchbutton
+        pTooltip="{{'customerInstructionText' | translate}}" tabindex="0" >
+        <em class="facility-search-icon">
+        <img
+        src='{{contextPath}}/content/FCCUI/assets/images/search-icon-document.svg'
+        tabindex="0"
+        alt="Search" />
+        </em>
+    </button>
+    </div>
+    <div class="p-grid wrapper">
+      <div class="p-col-12" *ngIf="renderSection" >
+        <p-card>
+          <fcc-div-banner [inputParams]="facilityDetail"></fcc-div-banner>
+        </p-card>
+      </div>
+    </div>
+  </div>
+  <div class="p-lg-12 p-md-12 p-sm-12 facility-screen-class" style="padding: 15px " *ngIf="facDetailTF">
+      <p-tabView class = "tabStyle {{dir}}">
+        <p-tabPanel header="{{'LNFacilityLoans' | translate}}"  [selected]="true"  >
+          <fcc-facility-loan-listing [inputParams]="inputParams"></fcc-facility-loan-listing>
+        </p-tabPanel>
+        <p-tabPanel header="{{'LNFacilityFee' | translate}}" class="facility-fee-tab"  [selected]="false">
+          <fcc-facility-fee-listing [inputParams]="inputParams" *ngIf="showFacilityFeeScreenDelay"></fcc-facility-fee-listing >
+          <fcc-facility-fee-cycle-detail [inputParams]="inputParams" *ngIf="displayFacilityFeeCycle"></fcc-facility-fee-cycle-detail >
+        </p-tabPanel>
+        <p-tabPanel header="{{'LNFacilitylimits' | translate}}"  [selected]="false">
+          <fcc-ln-facility-limits [inputParams]="inputParams"></fcc-ln-facility-limits>
+        </p-tabPanel>
+
+      </p-tabView>
+  </div>
+  <div *ngIf="!facDetailTF" class="spinnerStyle p-lg-12 p-md-12 p-sm-12 facility-screen-class" style="margin: auto;width: 10em; height: 10em;">
+    <p-progressSpinner
+      [style]="{ width: '5em', height: '5em' }"
+      strokeWidth="5"
+      fill="transparent"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+</div>

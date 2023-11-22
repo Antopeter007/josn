@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request
+    xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_FILES_APPROVAL</action_type>
+    <crn>69914730</crn>
+    <from_date>07-SEP-18</from_date>
+    <to_date>29-DEC-21</to_date>
+    <file_id>17180</file_id>
+</Request>

@@ -1,0 +1,17 @@
+<ng-container [formGroup]="form">
+    <div class="p-col-12" dir={{dir}}>
+        <div  *ngIf="mode === 'edit' && ( (hostComponentData.onlyamendToggleValue && control.params.amendedFlag) || (!hostComponentData.onlyamendToggleValue) )">
+          <div  tabindex="{{control.params.tabIndex ? control.params.tabIndex : -1 }}" class="form-header {{control.params.styleClass}} {{control.params.boxClass}}"  (focus)="onEventRaised($event,control.params.itemId)"
+          (scroll)="onEventRaised($event,control.key)" (click)="onEventRaised($event,control.params.itemId)" [ngClass] = "control.params.invalidValue ? 'labelStyleInRed' : ''">
+               <span class="{{control.params.parentStyleClass}}" [innerHTML] = "control.params.label"></span>
+               <a class = "infoLabel" *ngIf = "control.params.infoIcon && (!hostComponentData.onlyamendToggleValue)"> {{control.params.infolabel | translate}}</a>
+               <div class="{{control.params.styleClass}}" id="{{control.key}}">{{control.value}}</div>
+          </div>
+        <div *ngIf="control.params.swift" class="narrative-counter-class">
+            <fcc-common-narrative-character-count [enteredCharCount]="control.params.enteredCharCount"
+                    [allowedCharCount]="control.params.allowedCharCount" [fieldSize]="control.params.fieldSize">
+            </fcc-common-narrative-character-count>
+        </div>
+    </div>
+</div>    
+</ng-container>   

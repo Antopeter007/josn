@@ -1,0 +1,85 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 globalPadding {{ control.params.parentStyleClass }}">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="ui-float-label {{ control.params.styleClass }}"
+    >
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <mat-form-field
+        floatLabel="false"
+        appearance="{{ control.params.appearance }}"
+        class="input-mat-width"
+      >
+        <mat-label
+          >{{ control.params.label
+          }}<a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          ></mat-label
+        >
+        <input role="textbox"
+          matInput
+          id="{{ control.key }}"
+          formControlName="{{ control.key }}"
+          (click)="onEventRaised($event, control.key)"
+          (blur)="onEventRaised($event, control.key)"
+          [readonly]="control.params.readonly"
+          (focus)="onEventRaised($event, control.key)"
+          (change)="onCustomEventRaised($event, control.key, control)"
+          (keyup)="onEventRaised($event, control.key)"
+          [required]="control.params.required"
+          maxlength="{{ control.params.maxlength }}"
+          minlength="{{ control.params.minlength }}"
+          autocomplete="off"
+        />
+      </mat-form-field>
+    </div>
+    <div
+      class="{{ control.viewParams.viewLayoutClass }} viewmode "
+      *ngIf="mode === 'view'"
+    >
+      <label for="{{ control.key }}" class="form-header" tabindex="-2">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

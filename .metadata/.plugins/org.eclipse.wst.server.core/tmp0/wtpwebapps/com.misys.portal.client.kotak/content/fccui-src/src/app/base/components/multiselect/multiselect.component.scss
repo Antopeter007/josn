@@ -1,0 +1,9 @@
+:host ::ng-deep  .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item.ui-state-highlight {
+    color: #ffffff;
+    background-color:#694ed6;
+}
+
+:host ::ng-deep  .ui-chkbox .ui-chkbox-box.ui-state-active {
+    background: #efcce7;
+    border: none !important;
+}

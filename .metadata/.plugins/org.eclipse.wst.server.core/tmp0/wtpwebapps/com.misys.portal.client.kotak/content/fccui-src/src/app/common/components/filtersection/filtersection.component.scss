@@ -1,0 +1,412 @@
+@import '../../../../styles/variables.scss';
+
+/* Selectbutton css */
+.select-label{
+  display: block;
+  font-weight: bold;
+}
+
+.fcc-form-header{
+  display: none;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active {
+  border: $ui-selectbutton-filterSection-active-Border !important;
+}
+
+:host ::ng-deep p-multiselect > div.ui-multiselect.ui-state-focus {
+  border-bottom: 0.08em solid #694ed6 !important
+}
+
+:host ::ng-deep .request .ui-selectbutton{
+  padding-top: 1em;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  background-color: $ui-selectbutton-filterSection-BackgroundColor !important;
+  border: $ui-selectbutton-filterSection-Border;
+  color: $ui-selectbutton-filterSection-Color !important;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active {
+  background-color: $ui-selectbutton-filterSection-active-BackgroundColor !important;
+  border: $ui-selectbutton-filterSection-active-Border;
+  color: $ui-selectbutton-filterSection-active-Color !important;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  background-color: $ui-selectbutton-filterSection-button-BackgroundColor;
+  border: $ui-selectbutton-filterSection-button-Border !important;
+  color: $ui-selectbutton-filterSection-button-Color;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active.ui-state-focus {
+  background-color: $ui-selectbutton-filterSection-active-focus-BackgroundColor !important;
+  box-shadow: 0 0 0.125em 0.125em #c137a2 !important;
+  z-index: 1;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-focus {
+  background-color: $ui-selectbutton-filterSection-focus-BackgroundColor !important;
+  box-shadow: 0 0 0.125em 0.125em #c137a2 !important;
+  z-index: 1;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  font-size: 0.94em;
+  font-weight: bold;
+}
+
+/* multiselect CSS */
+:host ::ng-deep .triggerIcon .pi-chevron-down:before {
+  content: "\e906" !important;
+}
+
+:host ::ng-deep .ui-multiselect-panel .ui-multiselect-empty-message{
+  display: none !important;
+}
+
+:host ::ng-deep .ui-multiselect-panel {
+  max-width: -webkit-fill-available;
+}
+
+:host ::ng-deep .ui-corner-right {
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  border: none !important;
+  border-left: none !important;
+}
+
+/* Input Text Css */
+.inputStyle{
+padding-left: 1em;
+}
+
+
+/* Date CSS */
+
+.calendarStyle {
+padding-left: 1em;
+}
+:host ::ng-deep .dateStyle {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 0.5em;
+  margin-right: 1.25em;
+  padding-top: 0.7em !important;
+}
+
+:host ::ng-deep .dateStyle.ui-float-label {
+  padding-top: 0em !important;
+  margin-top: 1.2em !important;
+}
+
+:host ::ng-deep .triggerIcon.ui-float-label {
+  padding-top: 0em !important;
+  margin-top: 0.8em !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar-button:hover {
+  border-bottom: 0.065em solid #9f9f9f;
+  border-bottom-right-radius: 0em;
+}
+:host ::ng-deep .dateStyle .ui-inputtext:enabled:hover {
+  border-color: #6f6f6f;
+}
+
+:host ::ng-deep .dateStyle p-calendar {
+  width: 100%;
+  padding-top: 0.5em !important;
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  line-height: 1.9375em !important;
+  padding-right: 0.1em !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar {
+  position: relative !important;
+  display: -webkit-box !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+:host ::ng-deep .dateStyle label {
+  color: #333333;
+  font-size: 14px !important;
+  top: 35% !important;
+  padding-top: inherit;
+}
+
+[dir=rtl] :host ::ng-deep .dateStyle label {
+  color: #333333;
+  font-size: 14px !important;
+  top: 35% !important;
+  padding-top: inherit;
+  left: auto !important;
+}
+
+:host ::ng-deep .dateStyle.ui-float-label>input:focus ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>input.ui-state-filled ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-focus ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-filled ~ label {
+  top: -.75em !important;
+  font-size: 12px !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar .ui-datepicker.ui-widget {
+  background-color: #fff !important;
+  width: auto !important;
+  top: 0em !important;
+}
+
+:host ::ng-deep .ui-datepicker {
+  background-color: #fff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker
+  .ui-datepicker-header
+  .ui-datepicker-title
+  select {
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: transparent;
+  border-color: #212121;
+}
+
+:host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+:host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+  color: #ffffff;
+  background-color: $calenderActiveTabColor;
+}
+
+:host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+:host
+  ::ng-deep
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > span.ui-state-active {
+  background-color: $calenderActiveTabColor;
+}
+
+:host ::ng-deep .ui-button:enabled:focus {
+  box-shadow: none;
+}
+
+:host
+  ::ng-deep
+  .ui-calendar.ui-calendar-w-btn
+  .ui-datepicker-trigger.ui-button {
+  color: white;
+  height: auto;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  table
+  td
+  a:not(.ui-state-active):not(.ui-state-highlight):hover {
+  font-weight: normal;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+  color: #333333;
+  background-color: #fafafa;
+  border: 0.0625em solid #a6a6a6;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary:hover {
+  border-radius: 0em !important;
+  color: #333333;
+}
+
+:host ::ng-deep .ui-datepicker-buttonbar .ui-button-secondary {
+  width: 100% !important;
+}
+
+/*Date CSS End */
+
+:host ::ng-deep .ui-selectbutton {
+  padding-top: 0em !important;
+}
+
+:host ::ng-deep .triggerIcon .mat-form-field-wrapper,
+:host ::ng-deep .textFieldStyle .mat-form-field-wrapper {
+  width: auto;
+  left: 0em;
+}
+
+.triggerIcon {
+  padding-top: 0.7em !important;
+}
+
+
+:host ::ng-deep .ui-multiselect .ui-multiselect-label {
+    padding: 0.75em;
+    padding-right: 2em;
+    color: #333333;
+}
+
+
+:host ::ng-deep .ui-float-label {
+  display: block;
+  position: relative;
+  padding-top: .7em !important;
+  margin-top: 0.6em;
+}
+:host ::ng-deep .textFieldStyle .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #333333;
+  top: 1em;
+}
+
+:host ::ng-deep .textFieldStyle .mat-form-field-label-wrapper {
+   overflow: visible;
+}
+
+:host ::ng-deep .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+  width: 80% !important;
+}
+
+.filterButton {
+  margin-top: 1em !important;
+  background-color: $secondaryColor !important;
+  text-align: center !important;
+  font-weight: 500 !important;
+  border-color: $secondaryColor !important;
+  position: relative;
+  top: 10em;
+
+}
+:host ::ng-deep mat-form-field {
+  .mat-form-field-flex {
+    /* height: 1em; */
+    background: none;
+    margin-top: 0.4em;
+  }
+
+  .mat-select-arrow-wrapper {
+    // top: 6px;
+    position: relative;
+  }
+
+  .mat-form-field-infix {
+    border: none;
+    padding-bottom: 1em;
+  }
+}
+:host ::ng-deep #mat-form-field-label-23 {
+  color: $GRAY-HEX-20 !important;
+  font: 0.749875em Roboto, sans-sarif !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: $CHARCOAL-F50 !important;
+}
+
+:host ::ng-deep .mat-form-field-label {
+  color: $GRAY-HEX-20 !important;
+  font-weight: normal !important;
+}
+
+:host ::ng-deep .mat-select-value-text {
+  font-weight: normal !important;
+  font-size: 0.9em !important;
+}
+
+
+:host ::ng-deep .ui-calendar .ui-datepicker {
+  min-width: 19.5em!important;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  padding-right: 0.857em !important;
+}
+
+:host ::ng-deep .ui-datepicker.ui-widget {
+  padding: 0.857em;
+  background-color: $WHITE;
+  color: $GRAY-HEX-20;
+  border: 1px solid $GREY-02;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar .ui-datepicker.ui-widget.ui-widget-content {
+  transform: translateY(3em)!important;
+  left: 0em;
+}
+
+:host ::ng-deep .ui-datepicker-next .pi-chevron-right {
+  margin-top: -0.5em !important;
+  font-size: 1.25em !important;
+}
+
+:host ::ng-deep .ui-datepicker-next .pi-chevron-right:before {
+  content: "\e901" !important;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+  color: $GRAY-HEX-20 !important;
+  background-color: $WHITE-13 !important;
+  border: 1px solid $WHITE-13 !important;
+  padding: 0 !important;
+  margin: 0em 0.5em !important;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary:hover {
+  background-color: $GREY-07 !important;
+  color: $GRAY-HEX-20 !important;
+  border-color: $GREY-07!important;
+}
+
+:host ::ng-deep .ui-button-secondary.ui-corner-all {
+  border-radius: 3px !important;
+}
+
+:host ::ng-deep .ui-datepicker table td > a, 
+:host ::ng-deep .ui-datepicker table td > span {
+  padding: 0em !important;
+}
+
+:host ::ng-deep .ui-datepicker table td {
+  padding: 0.5em !important;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-title {
+  position: relative;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-month {
+  position: absolute;
+  left: 2em;
+  border-radius: 0;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-year {
+  position: absolute;
+  right: 3em;
+  border-radius: 0;
+  z-index: 9999;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-month:focus > option:checked,
+:host ::ng-deep .ui-datepicker .ui-datepicker-month:focus > option:hover {
+  color: $WHITE;
+  box-shadow: 0 0 10px 100px $calenderActiveTabColor inset !important;
+}
+
+:host ::ng-deep .ui-datepicker .ui-datepicker-year:focus > option:checked,
+:host ::ng-deep .ui-datepicker .ui-datepicker-year:focus > option:hover {
+  color: $WHITE;
+  box-shadow: 0 0 10px 100px $calenderActiveTabColor inset !important;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 1024px) {
+  .filterButton {
+    top: 8em !important;
+  }
+}

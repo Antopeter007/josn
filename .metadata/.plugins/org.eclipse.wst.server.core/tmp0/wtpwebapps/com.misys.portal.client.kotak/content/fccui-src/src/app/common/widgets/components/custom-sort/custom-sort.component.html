@@ -1,0 +1,9 @@
+<span>
+    <img  id = "ascId" *ngIf = "order === ASC" class = "iconImage" (keyup.enter)="sortColumn()" (click)="sortColumn()" src='{{contextPath}}/content/FCCUI/assets/icons/up-down.svg' alt="Sort">
+</span>
+<span>
+    <img  id = "descId" *ngIf = "order === DESC" class = "iconImage reverse" (keyup.enter)="sortColumn()" (click)="sortColumn()" src='{{contextPath}}/content/FCCUI/assets/icons/up-down.svg' alt="Sort">
+</span>
+<span>
+    <img  id = "unsortedId" *ngIf = "order === UNSORTED" class = "iconImage" (keyup.enter)="sortColumn()" (click)="sortColumn()" src='{{contextPath}}/content/FCCUI/assets/icons/sort-empty.svg' alt="Sort">
+</span>

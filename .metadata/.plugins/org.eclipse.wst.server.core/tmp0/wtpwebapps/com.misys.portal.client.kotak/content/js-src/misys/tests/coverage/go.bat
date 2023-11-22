@@ -1,0 +1,1 @@
+jscoverage --encoding=UTF-8  --no-instrument=dojo --no-instrument=dijit --no-instrument=dojox --no-instrument=misys/nls --no-instrument=misys/tests --no-instrument=util C:\dev\HEAD\workspace\com.misys.portal.webapp\doc_root\content\js-src C:\dev\HEAD\workspace\com.misys.portal.webapp\doc_root\content\js-src-instrumented

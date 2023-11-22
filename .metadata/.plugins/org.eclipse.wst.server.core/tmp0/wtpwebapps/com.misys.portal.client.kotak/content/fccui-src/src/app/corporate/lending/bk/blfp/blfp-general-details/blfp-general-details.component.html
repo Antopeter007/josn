@@ -1,0 +1,8 @@
+<ng-container>
+  <div *ngIf="showSpinner" class="spinnerStyle">
+    <p-progressSpinner [style]="{ width: '4em', height: '4em' }" strokeWidth="5" fill="transparent"
+      animationDuration=".5s"></p-progressSpinner>
+  </div>
+  <div *ngIf="!showSpinner && form" fccFormResolver [module]="module" [formGroup]="form" [mode]="mode">
+  </div>
+</ng-container>

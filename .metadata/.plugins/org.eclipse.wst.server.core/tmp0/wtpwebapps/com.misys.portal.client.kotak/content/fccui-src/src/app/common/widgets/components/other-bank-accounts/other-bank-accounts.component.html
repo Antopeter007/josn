@@ -1,0 +1,31 @@
+
+  <div class="p-lg-12"  *ngIf="!hideShowCard" [@enterAnimation]>
+        <p-card class="{{classCheck}}" >
+                <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+                        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+                    </p-header>
+                <div [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+                    <span>{{'othersBankAccounts' | translate}}</span> <span class="o-bank-acc-header">USD <i class="fa fa-angle-down"
+                        aria-hidden="true"></i></span>
+                <div class="o-bank-acc-top">
+                    <p-table [value]="accounts">
+                        <ng-template pTemplate="body" style="background-color: white; border:none;" let-accounts>
+                            <tr>
+                                <td style="background-color: white; border:none; text-align:left; ">{{accounts.ccy}}
+                                </td>
+                                <td style="background-color: white; border:none; text-align:center; "><span
+                                        class="o-baccount-currency">USD</span>{{accounts.flag}}</td>
+                                <td style="background-color: white; border:none;  text-align:right;">
+                                    {{accounts.rate}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+                </div>
+
+            </p-card>
+  </div>
+
+
+
+

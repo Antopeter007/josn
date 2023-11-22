@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Functions for common.js</title>
+        <style type="text/css">
+         @import "../../dojo/resources/dojo.css";
+         @import "../../misys/themes/demobank/demobank.css";
+        </style>
+        
+        <script src="../../dojo/dojo.js"  
+        	djConfig="isDebug: true, parseOnLoad: false, locale:'en-us'"></script>
+        
+        <script src="../../dijit/tests/helpers.js"></script>	
+        
+        <script>
+        dojo.require("dojo.parser");
+        dojo.require("doh.runner");
+        dojo.require("dijit.dijit");
+        dojo.require("dijit.form.TextBox");
+        dojo.require("dijit.form.ValidationTextBox");
+        dojo.require("dijit.form.Form");
+        dojo.require("dijit.form.DateTextBox");
+        dojo.require("misys.form.DateTermField");
+        dojo.require("misys.form.PercentNumberTextBox");
+        dojo.require("misys.form.SpreadTextBox");
+        dojo.require("dijit.form.FilteringSelect");
+        dojo.require("misys.form._FilteringTermSelect");
+        dojo.require("dijit.form.RadioButton");
+        dojo.require("dijit.form.CheckBox");
+        dojo.require("dijit.Editor");
+        dojo.require("dijit.form.TimeTextBox");
+        dojo.require("dijit.form.NumberTextBox");
+        dojo.require("misys.form.CurrencyTextBox");
+        dojo.require("misys.form.SimpleTextarea");
+        dojo.require("dijit.form.SimpleTextarea");
+        dojo.require("dijit.form.MultiSelect");
+        dojo.require("dijit.layout.TabContainer");
+        dojo.require("dojox.grid.DataGrid");
+        dojo.require("dojox.data.CsvStore");
+        dojo.require("dojox.xml.DomParser");
+
+        dojo.requireLocalization("misys", "common", "en-us");
+        misys._config = (misys._config) || {};
+        dojo.mixin(misys._config, { context: "/", servlet: "/portal", client: "misys"});
+         
+         // Get the context and servlet and set it on the misys object
+         var str = window.location.href.substr(window.location.href.indexOf("?")+1).split(/#/);
+		 var ary  = str[0].split(/&/);
+         if(window.location.href.indexOf("?") > -1){
+        	 for(var i=0; i<ary.length; i++){
+        		 var split = ary[i].split("="),
+					 key = split[0],
+					 value = split[1];	// replace() to prevent XSS attack
+				 switch(key){
+					case "context":
+						misys._config.context = value;
+						break;
+					case "servlet":
+						misys._config.servlet = value;
+						break;
+				}
+			}
+		}
+        
+        dojo.require("misys._base");
+        dojo.require("misys.common");
+
+        submittedValues = function(values) {
+        	console.log(values);
+        };
+        
+        dojo.ready(function(){
+        	
+        	dojo.query(".parseOnLoad").forEach(function(container){
+        		dojo.parser.parse(container);
+       	 	});
+        	
+        	// Prepare the grid
+	        var store4 = new dojox.data.CsvStore({
+	            url: 'resources/movies.csv'
+	        });
+	
+	        // set the layout structure:
+	        var layout4 = [{
+	            field: 'Title',
+	            name: 'Title of Movie',
+	            width: '200px'
+	        },
+	        {
+	            field: 'Year',
+	            name: 'Year',
+	            width: '50px'
+	        },
+	        {
+	            field: 'Producer',
+	            name: 'Producer',
+	            width: 'auto'
+	        }];
+	
+	        // create a new grid:
+	        var grid4 = new dojox.grid.DataGrid({
+	            query: {
+	                Title: '*'
+	            },
+	            store: store4,
+	            clientSort: true,
+	            rowSelector: '20px',
+	            structure: layout4,
+	            id: "testGrid",
+	            "class": "grid"
+	        },
+	        document.createElement('div'));
+	
+	        // append the new grid to the div "gridContainer4":
+	        dojo.byId("gridContainer").appendChild(grid4.domNode);
+	
+	        // Call startup, in order to render the grid:
+	        grid4.startup();
+	        
+	        var result = 
+	    		 "<test><hidden1>hidden1</hidden1><hidden2>hidden2</hidden2><emptyhidden>" + 
+	    		 "</emptyhidden><template_id></template_id><validationTextBoxTest>validationTextBoxTest</validationTextBoxTest>"  + 
+	    	 	"<emptyValidationTextBoxTest></emptyValidationTextBoxTest><datetest>05/05/2011</datetest>" + 
+	    	 	"<emptyDatetest></emptyDatetest><mdatetest_date>" + 
+	    	 	"</mdatetest_date><mdatetest_code></mdatetest_code>"+ 
+	    	 	"<emptyMdatetest_date></emptyMdatetest_date>" + 
+	    	 	"<emptyMdatetest_code></emptyMdatetest_code>" + 
+	    	 	"<percenttest>10</percenttest><emptyPercenttest></emptyPercenttest><spreadtest>1100" + 
+	    	 	"</spreadtest><emptySpreadtest></emptySpreadtest><filteringtest>x</filteringtest>" + 
+	    	 	"<emptyFilteringtest></emptyFilteringtest><radioTest>02</radioTest>" + 
+	    	 	"<checkTest>Y</checkTest>" + "<checkTest2>N</checkTest2><editorTest><![CDATA[&lt;b&gt;" + 
+	    	 	"Test&lt;/b&gt;&lt;br /&gt;   				&lt;span&gt;test2&lt;/span&gt;" + 
+	    	 	"]]></editorTest><emptyEditorTest></emptyEditorTest>"+ 
+	    	 	"<timetest>01/01/1970 15:00:00</timetest><emptyTimetest></emptyTimetest>" + 
+	    	 	"<numbertest>10</numbertest><emptyNumbertest></emptyNumbertest>" + 
+	    	 	"<currencytest>10</currencytest><emptyCurrencytest></emptyCurrencytest>" + 
+	    	 	"<msimpletextarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit"+
+	    	 	"	   		    Phasellus commodo tristique justo     </msimpletextarea>" + 
+	    	 	"<emptyMsimpletextarea></emptyMsimpletextarea>" + 
+	    	 	"<simpletextarea>Simples</simpletextarea><multipleselecttest></multipleselecttest></test>";
+	        
+
+        	doh.register("misys.tests.common", [
+			 function testGetXMLNodeValue() {
+				var testXML1 = dojox.xml.DomParser.parse("<root><child><child><span>value</span></child></child></root>");
+				doh.is("<span>value</span>", misys.getDomNode(testXML1, "span"));
+			 },
+			 function testTrim() {
+				var testData = dijit.byId('msimpletextarea').get('value');
+				doh.is(104, testData.length);
+				doh.is(98, misys.trim(testData).length);
+			 },
+			 function testCreateTOC() {
+				misys.createTOC();
+     	        // Set to lowercase and remove CRLF, to get rid of IE crap
+     	        var tocResult = misys.trim(dojo.byId('toccontent').innerHTML.toLowerCase());
+     	        doh.assertEqual('<ul><li><a href="javascript:void(0)" dojoattrid="0">test</a></li><li><a href="javascript:void(0)" dojoattrid="1">test2</a></li></ul>', tocResult);
+			 },
+			 {
+			     name : "misys.toggleTOC",
+			     timeout :20000,
+			     runTest : function(){
+					var d = new doh.Deferred;
+					doh.t(isHidden(dojo.byId("toccontent")));
+					misys.toggleTOC(function(){
+						doh.t(isVisible(dojo.byId("toccontent")));
+						misys.toggleTOC(function(){
+							setTimeout(function(){
+								doh.t(isHidden(dojo.byId("toccontent")));
+								d.callback(true);
+							}, 500);
+						});
+					});
+					return d;
+			     }
+			 },
+			 {
+			     name : "misys.showTooltip",
+			     timeout :20000,
+			     runTest : function(){
+			    	 var d = new doh.Deferred;
+					 doh.t(isHidden(dojo.query('.dijitTooltipContainer')[0]));
+					 misys.showTooltip('TEST', dijit.byId('checkTest2').domNode, ["above"], 2000);
+					 doh.t(isVisible(dojo.query('.dijitTooltipContainer')[0]));
+					 setTimeout(function(){
+						 doh.t(isHidden(dojo.query('.dijitTooltipContainer')[0]));
+						 d.callback(true);
+					 }, 3000);
+					 return d;
+			     }
+			 },
+			 {
+			     name : "Test formToXML ",
+			     timeout :20000,
+			     runTest : function(){
+			    	 doh.is(result, misys.trim(misys.formToXML({selector: "#testform", xmlRoot: "test"})));
+			     }
+			 },
+			 {
+			     name : "Test toggle transaction",
+			     timeout :20000,
+			     runTest : function(){
+			    	 var d = new doh.Deferred;
+					 doh.t(isHidden(dojo.byId("transactionDetails")));
+					 doh.t(isVisible(dojo.byId("editTransactionDetails")));
+					 doh.t(isHidden(dojo.byId("hideTransactionDetails")));
+					 misys.toggleTransaction(true, false, function(){
+						 doh.t(isVisible(dojo.byId("transactionDetails")));
+						 doh.t(isHidden(dojo.byId("editTransactionDetails")));
+						 doh.t(isVisible(dojo.byId("hideTransactionDetails")));
+						 misys.toggleTransaction(false, false, function(){
+							 doh.t(isHidden(dojo.byId("transactionDetails")));
+							 doh.t(isVisible(dojo.byId("editTransactionDetails")));
+							 doh.t(isHidden(dojo.byId("hideTransactionDetails")));
+							 d.callback(true);
+						 });
+					 });
+					 return d;
+			     }
+			 },
+			 {
+				 name: "Test form onLoad events",
+				 timeout: 20000,
+				 setUp: function() {
+					RESIZE = false;
+					READ_TOPIC = false;
+				 },
+				 tearDown: function() {
+					 delete(RESIZE);
+					 delete(READ_TOPIC);
+				 },
+				 runTest: function(){
+					 var d = new doh.Deferred;
+					 
+					 // p1 events
+					 dojo.connect(dijit.byId('testGrid'), "postresize", function(){
+						 RESIZE = true;
+					 });
+					 doh.f(RESIZE);
+					 doh.t(isHidden(dojo.byId("transactionDetails")));
+					 doh.t(isVisible(dojo.byId("editTransactionDetails")));
+					 doh.t(isHidden(dojo.byId("hideTransactionDetails")));
+					 
+					 misys.onLoad();
+					 dojo.subscribe("callbacksReady", function(){
+						 dijit.byId("TransactionSearchForm").onSubmit();
+						 dijit.byId("listenerField").handleTopicEvent = function(){
+							READ_TOPIC = true; 
+						 };
+						 
+						 // p1 event results
+						 setTimeout(function(){
+							 doh.t(RESIZE);
+							 doh.is(dijit.byId("filename").get("value"), "inquiry.csv");
+							 d.callback(true);
+						 }, dijit.defaultDuration + 500);
+						 
+						 
+						 // p2 event results
+						 //dojo.publish("testTopic");
+						 // TODO Add proper object to test publish/subscribe
+						 //doh.t(READ_TOPIC);
+
+					 });
+
+					 return d;
+				 }
+			 },
+			 {
+				name: "Test toggleFields (required fields)",
+				timeout:20000,
+				setUp: function(){
+					misys.toggleFields(false, 
+							[], ["toggleFieldsValidationTextBox"]);
+					dijit.byId("toggleFieldsTest").set("value", "N");
+				},
+				runTest: function(){
+					doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+					doh.t(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+					doh.t(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+					doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+					
+					misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+										[], ["toggleFieldsValidationTextBox"]);
+					// Nothing happened
+					doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+					doh.t(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+					doh.t(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+					doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+					
+					dijit.byId("toggleFieldsTest").set("value", "Y");
+					misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+							[], ["toggleFieldsValidationTextBox"]);
+					// Field now required
+					doh.t(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+					doh.f(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+					doh.f(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+					doh.isNot(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+				}
+			 }, 
+			 {
+					name: "Test toggleFields (non-required fields)",
+					timeout:20000,
+					setUp: function(){
+						misys.toggleFields(false, 
+								[], ["toggleFieldsValidationTextBox"]);
+						dijit.byId("toggleFieldsTest").set("value", "N");
+					},
+					runTest: function(){
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+						doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+						
+						misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+											["toggleFieldsValidationTextBox"]);
+						// Nothing happened
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+						doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+						
+						dijit.byId("toggleFieldsTest").set("value", "Y");
+						misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+								["toggleFieldsValidationTextBox"]);
+						// Field now required
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+						doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+					}
+				},
+				{
+					name: "Test toggleFields (required fields, keepValues)",
+					timeout:20000,
+					setUp: function(){
+						misys.toggleFields(true, 
+								[], ["toggleFieldsValidationTextBox"]);
+						dijit.byId("toggleFieldsTest").set("value", "Y");
+						dijit.byId("toggleFieldsValidationTextBox").set("value", "TEST");
+					},
+					runTest: function(){
+						dijit.byId("toggleFieldsTest").set("value", "N");
+						misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+											[], ["toggleFieldsValidationTextBox"], true);
+						// Nothing happened
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+						doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+						doh.is("TEST", dijit.byId("toggleFieldsValidationTextBox").get("value"));
+						
+						dijit.byId("toggleFieldsTest").set("value", "Y");
+						misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+								[], ["toggleFieldsValidationTextBox"], true);
+						// Field now required
+						doh.t(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+						doh.f(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+						doh.isNot(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+						doh.is("TEST", dijit.byId("toggleFieldsValidationTextBox").get("value"));
+					}
+				 },
+				 {
+						name: "Test toggleFields (required fields, keepValues, keepFieldEnabled)",
+						timeout:20000,
+						setUp: function(){
+							misys.toggleFields(true, 
+									[], ["toggleFieldsValidationTextBox"]);
+							dijit.byId("toggleFieldsTest").set("value", "Y");
+							dijit.byId("toggleFieldsValidationTextBox").set("value", "TEST");
+						},
+						runTest: function(){
+							dijit.byId("toggleFieldsTest").set("value", "N");
+							misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+												[], ["toggleFieldsValidationTextBox"], true, true);
+							// Nothing happened
+							doh.f(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+							doh.f(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+							doh.f(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+							doh.is(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+							doh.is("TEST", dijit.byId("toggleFieldsValidationTextBox").get("value"));
+							
+							dijit.byId("toggleFieldsTest").set("value", "Y");
+							misys.toggleFields((dijit.byId("toggleFieldsTest").get("value") === "Y"), 
+									[], ["toggleFieldsValidationTextBox"], true, true);
+							// Field now required
+							doh.t(dijit.byId("toggleFieldsValidationTextBox").get("required"));
+							doh.f(dijit.byId("toggleFieldsValidationTextBox").get("readOnly"));
+							doh.f(dijit.byId("toggleFieldsValidationTextBox").get("disabled"));
+							doh.isNot(-1, dojo.byId("toggleFieldLabel").innerHTML.indexOf("*"));
+							doh.is("TEST", dijit.byId("toggleFieldsValidationTextBox").get("value"));
+						}
+				 },
+				{
+					 name : "Testing button event binding (clear)",
+					 timeout : 20000,
+					 setUp : function() {
+						 
+					 },
+					 runTest : function(){
+						 // TODO 
+						 doh.t(false);
+					 }
+				},
+				{
+					 name : "Testing tabcontainer binding",
+					 timeout : 10000,
+					 setUp : function() {
+						 
+					 },
+					 runTest : function(){
+						 // TODO 
+						 doh.t(false);
+					 }
+				}
+        	]);
+        	
+            doh.run();
+        });
+        </script>
+    </head>
+    <body class="tundra demobank">
+    <div class="parseOnLoad">
+    	<h1>Starting form</h1>
+    	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="company_id" value="100"><br>
+    	<div dojoType="dijit.form.Form" name="testform" id="testform" method="POST" action="" class="validate"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="hidden1" id="hidden1_id" value="hidden1"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="hidden2" id="hidden2" value="hidden2"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="emptyhidden" id="emptyhidden"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="hiddenNoName"><br>
+    		<label for="template_id">templateID</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="template_id" id="template_id" maxLength="29" class="medium swift" value=""></div><br>
+    		<label for="validationTextBoxTest">validationTextBoxTest</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="validationTextBoxTest" id="validationTextBoxTest" maxLength="29" class="medium swift" value="validationTextBoxTest" required="true"></div><br>
+    		<label for="emptyValidationTextBoxTest">empty validationTextBoxTest</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="emptyValidationTextBoxTest" id="emptyValidationTextBoxTest" class="medium swift"></div><br>
+    		<label for="nosendValidationTextBoxTest">validationTextBoxTest that won't be sent</label><div trim="true" dojoType="dijit.form.ValidationTextBox" id="nosendValidationTextBoxTest" class="medium swift" value="nosend value"></div><br>
+    		<label for="datetest">datetest</label><div trim="true" dojoType="dijit.form.DateTextBox" displayedValue="5/5/2011" name="datetest" id="datetest" maxLength="10" class="small" required="true"></div><br><br>
+    		<label for="emptyDatetest">emptyDatetest</label><div trim="true" dojoType="dijit.form.DateTextBox" name="emptyDatetest" id="emptyDatetest" maxLength="10" class="small"></div><br><br>
+    		<label for="noSendDatetest">don't send Datetest</label><div trim="true" dojoType="dijit.form.DateTextBox" id="noSendDatetest" maxLength="10" class="small"></div><br><br>
+    		<label for="mdatetest">mdatetest</label>
+    		<div trim="true" dojoType="misys.form.DateTermField" displayedValue="5/4/2011" id="mdatetest" maxLength="10" class="small" required="true">
+    			<select>
+    				<option value="term1">term1</option>
+    				<option value="term2">term2</option>
+    			</select>
+    			<select>
+    				<option value="static1">static1</option>
+    			</select>
+    		</div><br>
+    		<label for="emptyMdatetest">empty mdatetest</label>
+    		<div trim="true" dojoType="misys.form.DateTermField" id="emptyMdatetest" maxLength="10" class="small" required="true">
+	    		<select>
+	    			<option value="emptyTerm1">emptyTerm1</option>
+	    			<option value="emptyTerm2">emptyTerm2</option>
+	    		</select>
+	    		<select>
+	    			<option value="emptyStatic1">emptyStatic1</option>
+	    		</select>
+    		</div><br>
+    		<div style="width: 350px; height: 300px">
+		     <div dojoType="dijit.layout.TabContainer" style="width: 100%; height: 100%;">
+		        <div dojoType="dijit.layout.ContentPane" title="First Tab" selected="true">
+    				<label for="percenttest">percenttest</label><div trim="true" dojoType="misys.form.PercentNumberTextBox" value="10" name="percenttest" id="percenttest" maxLength="10" class="small" required="true"></div><br>
+    				<label for="emptyPercenttest">empty percenttest</label><div trim="true" dojoType="misys.form.PercentNumberTextBox" name="emptyPercenttest" id="emptyPercenttest" maxLength="10" class="small" required="true"></div><br>
+    				<label for="spreadtest">spreadtest</label><div trim="true" dojoType="misys.form.SpreadTextBox" name="spreadtest" value="11" id="spreadtest" maxLength="10" class="small" required="true"></div><br>
+    			</div>
+    			<div dojoType="dijit.layout.ContentPane" title="Second Tab">
+		    		<label for="emptySpreadtest">empty spreadtest</label><div trim="true" dojoType="misys.form.SpreadTextBox" name="emptySpreadtest" id="emptySpreadtest" maxLength="10" class="small"></div><br>
+		    		<label for="filteringtest">filteringtest</label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="filteringtest" id="filteringtest" class="medium nofocusonerror" required="false" value="x">
+		    			<option></option>
+		    			<option value="x">x</option>
+		    			<option value="y">y</option>
+		    			<option value="z">z</option>
+		    		</select><br>
+    			</div>
+    		 </div>
+    		</div>
+    
+    		<label for="emptyFilteringtest">empty filteringtest</label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="emptyFilteringtest" id="emptyFilteringtest" class="medium nofocusonerror" required="false">
+    			<option></option>
+    		</select><br>
+    	    <label for="radioTest_1"><input dojoType="dijit.form.RadioButton" type="radio" name="radioTest" id="radioTest_1" value="01">01</label><br>
+    	    <label for="radioTest_2"><input dojoType="dijit.form.RadioButton" type="radio" name="radioTest" id="radioTest_2" value="02" checked>02</label><br>
+    	    <label for="checkTest"><input dojoType="dijit.form.CheckBox" type="checkbox" name="checkTest" id="checkTest" checked>checked</label><br>
+    	    <label for="checkTest2"><input dojoType="dijit.form.CheckBox" type="checkbox" name="checkTest2" id="checkTest2">unchecked</label><br>
+    	    <label for="editorTest">editorTest</label><div dojoType="dijit.Editor" id="editorTest" name="editorTest" style="width:60%;">
+   				<strong>Test</strong><br>
+   				<span>test2</span>
+	   		</div><br>
+	   		<label for="emptyEditorTest">empty editorTest</label><div dojoType="dijit.Editor" id="emptyEditorTest" name="emptyEditorTest" style="width:60%;"></div><br>
+	   		<label for="timetest">timetest</label><input type="text" name="timetest" id="timetest" value="T15:00:00" dojoType="dijit.form.TimeTextBox" required="true"><br>
+	   		<label for="emptyTimetest">empty timetest</label><input type="text" name="emptyTimetest" id="emptyTimetest" dojoType="dijit.form.TimeTextBox"><br>
+	   		<label for="numbertest">numbertest</label><input type="text" name="numbertest" id="numbertest" value="10" dojoType="dijit.form.NumberTextBox" required="true"><br>
+	   		<label for="emptyNumbertest">empty numbertest</label><input type="text" name="emptyNumbertest" id="emptyNumbertest" dojoType="dijit.form.NumberTextBox"><br>
+	   		<label for="currencytest">currencytest</label><input type="text" name="currencytest" id="currencytest" constraints="{fractional:true}" currency="USD" value="10" dojoType="misys.form.CurrencyTextBox" required="true"><br>
+	   		<label for="emptyCurrencytest">empty currencytest</label><input type="text" name="emptyCurrencytest" id="emptyCurrencytest" dojoType="misys.form.CurrencyTextBox"><br>
+	   		<label for="msimpletextarea">msimpletextarea</label><textarea dojoType="misys.form.SimpleTextarea" class="swift" name="msimpletextarea" id="msimpletextarea" rows="6" cols="65" maxSize="6">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+	   		    Phasellus commodo tristique justo     </textarea><br>
+	   		<label for="emptyMsimpletextarea">empty msimpletextarea</label><textarea dojoType="misys.form.SimpleTextarea" name="emptyMsimpletextarea" id="emptyMsimpletextarea" rows="6" cols="65" maxSize="6"></textarea><br>
+	   		<label for="simpletextarea">simpletextarea</label><textarea dojoType="dijit.form.SimpleTextarea" name="simpletextarea" id="simpletextarea" rows="6" cols="65" maxSize="6">Simples</textarea><br>
+	   		<label for="multipleselecttest_nosend">multipleselecttest_nosend</label>
+	   		<select autocomplete="true" dojoType="dijit.form.MultiSelect" id="multipleselecttest_nosend" class="medium multi-select" required="false" value="" multiple="true" size="10">
+	   			<option value="value1">value2</option>
+	   			<option value="value2">value2</option>
+	   			<option value="value3">value3</option>
+	   		</select>
+	   		<label for="multipleselecttest">multipleselecttest</label>
+	   		<select autocomplete="true" dojoType="dijit.form.MultiSelect" id="multipleselecttest" name="multipleselecttest" class="medium multi-select" required="false" value="" multiple="true" size="10">
+	   		</select>
+		</div>
+		<h2>Ending form</h2>
+		
+		<h2>TOC Items follow</h2>
+		<div class="toplevel-fieldset">
+          <h3 id="toc-item1" class="toc-item"><span class="title">test</span></h3>
+        </div>
+		<div class="toplevel-fieldset">
+          <h3 id="toc-item2" class="toc-item"><span class="title">test2</span></h3>
+        </div>
+        <div id="toc">
+        	<p>
+        		<a id="toggleTocLink" href="javascript:void(0)">Show Form Summary</a>&nbsp;|&nbsp;<a href="#">Top</a>
+        	</p>
+        	<div style="display:none;" id="toccontent"></div>
+        </div>
+        
+        <br>
+        <select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="toggleFieldsTest" id="toggleFieldsTest" class="medium nofocusonerror" required="false" value="N">
+    		<option value="N">N</option>
+    		<option value="Y">Y</option>
+    	</select>
+    	<div id="toggleFieldsValidationTextBox_row" class="field required">
+    	<label for="toggleFieldsValidationTextBox" id="toggleFieldLabel">toggleFieldsValidationTextBox</label>
+    	<div trim="true" dojoType="dijit.form.ValidationTextBox" name="toggleFieldsValidationTextBox" id="toggleFieldsValidationTextBox" maxLength="29" class="medium swift" value="toggleFieldsValidationTextBox" required="false" disabled="true" readOnly="true"></div><br>
+    	</div>
+		
+		<p><span><span>NodeAsXMLTest</span></span></p>
+		
+
+		<a href="" id="editTransactionDetails">Edit Transaction Details</a>
+		<a href="" id="hideTransactionDetails" style="display:none">Hide Transaction Details</a>
+		<div id="transactionDetails" class="hidden">
+			<label for="hiddenValidationTextbox">hiddenValidationTextbox</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="hiddenValidationTextbox" id="hiddenValidationTextbox" maxLength="29" class="medium swift" value="hiddenValidationTextbox" required="true"></div><br>
+			<div style="width: 350px; height: 300px">
+		     <div dojoType="dijit.layout.TabContainer" style="width: 100%; height: 100%;">
+		        <div dojoType="dijit.layout.ContentPane" title="First Tab" selected="true">
+		           <label for="hiddentextarea">hiddentextarea</label><textarea dojoType="dijit.form.SimpleTextarea" name="hiddentextarea" id="hiddentextarea" rows="6" cols="65" maxSize="6">hiddentextarea</textarea><br>
+		        </div>
+		        <div dojoType="dijit.layout.ContentPane" title="Second Tab">
+		            <label for="hiddenValidationTextbox2">hiddenValidationTextbox2</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="hiddenValidationTextbox2" id="hiddenValidationTextbox2" maxLength="29" class="medium swift" value="hiddenValidationTextbox" required="true"></div><br>
+		        </div>
+		        <div dojoType="dijit.layout.ContentPane" title="Third Tab">
+		            Lorem ipsum and all around - last...
+		        </div>
+		     </div>
+			</div>
+		</div>
+		<br><br><br>
+	</div>
+	
+
+	<div id="gridContainer" style="width: 500px; height: 200px"></div>
+	
+
+	<div dojoType="dijit.form.Form" name="TransactionSearchForm" id="TransactionSearchForm" method="POST" class="form" action="common.html">
+		<div class="widgetContainer">
+			<label for='ref_id'>System ID:&nbsp;</label>
+			<input trim='true' style='width: 12em' class='medium' id='ref_id' name='ref_id' dojoType='dijit.form.TextBox' maxlength='12' value='' size='12'>
+			<label for='export_list'>Output Format:</label>
+			<select dojoType='dijit.form.FilteringSelect' autocomplete='true' id='export_list' class='medium' name='export_list'>
+				<option value='screen'>Screen</option>
+				<option selected value='csv'>CSV</option>
+				<option value='xls'>Spreadsheet</option>
+			</select>
+			<input dojoType='dijit.form.TextBox' id='filename' class='medium' trim='true' name='filename' type='hidden'>
+			<div trim="true" dojoType="dijit.form.ValidationTextBox" name="listenerField" id="listenerField" subscribe_topic="testTopic" maxLength="29" class="medium swift subscribeTopic" value="listenerField" required="true"></div>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<!-- Submit iFrame -->
+	<iframe name="formSubmitIframe" src="about:blank" onload="if(this.values)submittedValues(this.values)" style="display:none;"></iframe>
+	
+	<!-- realform -->
+	<div class="parseOnLoad">
+		<div dojoType="dijit.form.Form" name="realform" id="realform" action="resources/formAction.html" target="formSubmitIframe" method="POST">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="referenceid" id="referenceid" value="testRefID">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="tnxid" id="tnxid" value="testTnxId">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="operation" id="realform_operation">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="mode" id="mode" value="DRAFT">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="tnxtype" id="tnxtype" value="01">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="attIds" id="attIds">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="TransactionData" id="TransactionData">
+		</div>
+		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="adv_send_mode" id="adv_send_mode" value="01">
+	</div>
+	
+    </body>
+</html>

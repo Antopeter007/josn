@@ -1,0 +1,49 @@
+@import '../../../variables.scss';
+
+@mixin common_class_mixins($primaryColor) {
+    /* START IMPORT LETTER OF CREDIT*/
+    // Tab bottom border color change for BANK DETAIL SECTION.  
+    fcc-trade-bank-details .mat-ink-bar {
+        background: $primaryColor !important;
+    }
+    // Mat tab text color change
+    fcc-trade-bank-details .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+    fcc-trade-bank-details .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+        color: $primaryColor !important;
+        opacity: 1 !important;
+    }
+    // Tab bottom border color change NARRATIVE SECTION.
+    fcc-trade-narrative-details .mat-ink-bar {
+        background: $primaryColor !important;
+    }
+    // Mat tab text color change
+    fcc-trade-narrative-details .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+    fcc-trade-narrative-details .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+        color: $primaryColor !important;
+        opacity: 1 !important;
+    }
+    /* END IMPORT LETTER OF CREDIT*/
+
+    /* START EXPORT COLLECTION*/
+    ec-trade-bank-details .mat-ink-bar {
+        background: $primaryColor !important;
+    }
+    // Mat tab text color change
+    ec-trade-bank-details .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+    ec-trade-bank-details .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+        color: $primaryColor !important;
+        opacity: 1 !important;
+    }
+    /* END EXPORT COLLECTION*/
+}
+@mixin Styling_of_matTab() {
+
+}
+
+.Bank-One {
+    // primary color
+    $primaryColor: $GOLD-Y50;
+
+    @include Styling_of_matTab();
+    @include common_class_mixins($primaryColor);
+}

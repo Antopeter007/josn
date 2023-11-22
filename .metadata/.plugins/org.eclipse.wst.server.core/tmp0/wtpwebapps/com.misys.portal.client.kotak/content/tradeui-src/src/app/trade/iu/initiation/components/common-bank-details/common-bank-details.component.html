@@ -1,0 +1,633 @@
+<div *ngIf ="!viewMode  ;else viewContent">
+  <div [formGroup]="formName">
+    <p-panel header="{{ 'BANK_DETAILS_LABEL' | translate }}"[toggleable]="true" [collapsed] ="false">
+    <div *ngIf = "!this.commonData.getIsBankUser() && undertakingType === ''">
+      <div *ngIf="isMT798Enabled" class="field">
+        <label class="label-checkbox">{{'BANK_DETAILS_LEAD_BANK_LABEL' | translate}}&nbsp;</label>
+        <p-checkbox id="{{undertakingType}}leadBankFlag" formControlName = "{{undertakingType}}leadBankFlag" binary="true" (onChange) = "onChecked()"></p-checkbox>
+      </div>
+      <div *ngIf="toDisplayRecipientBank" class="field">
+        <label>{{ bankNameLabel }}<span *ngIf= "commonDataService.getPreviewOption() !== 'SUMMARY'" class="required-field-symbol">*</span>&nbsp;
+        </label>
+        <p-dropdown placeholder=" " [options]="bankTypeObj" id="{{undertakingType}}recipientBankAbbvName"
+          formControlName="{{undertakingType}}recipientBankAbbvName" (onChange)="updateValues();"
+          [styleClass]="validationService.isFieldInvalid(formName.get('recipientBankAbbvName')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+      </div>
+      <div *ngIf="isMT798Enabled" class="field">
+        <label>{{ bankIdentifier }}&nbsp;</label>
+        <input pInputText type="text" id="{{undertakingType}}leadBankIdentifier" formControlName="{{undertakingType}}leadBankIdentifier"
+        [class.fieldError]="validationService.isFieldInvalid(formName.get('leadBankIdentifier'))">
+        <fcc-common-error-message [control]="formName.get(undertakingType +'leadBankIdentifier')" ></fcc-common-error-message>
+      </div>
+      <div *ngIf="toDisplayRecipientBank" class="field">
+        <label>{{'PARTIESDETAILS_CUST_REFERENCE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown placeholder=" " [options]="referenceObj" id="{{undertakingType}}recipientBankCustomerReference"
+            formControlName="{{undertakingType}}recipientBankCustomerReference" (onChange)="onChangeIssuerReference();"
+            [styleClass]="validationService.isFieldInvalid(formName.get('recipientBankCustomerReference')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+        <fcc-common-error-message [control]="formName.get(undertakingType +'recipientBankCustomerReference')" ></fcc-common-error-message>
+      </div>
+      </div>
+      <div *ngIf = "this.commonData.getIsBankUser()">
+        <div *ngIf="undertakingType === ''">
+          <div class="field">
+            <label>{{ bankNameLabel }}&nbsp;</label>
+            <input pInputText type="text" id="{{undertakingType}}recipientBankAbbvName" formControlName="{{undertakingType}}recipientBankAbbvName" readonly>
+            <input pInputText type="hidden" id="recipientBankAbbvNameHidden" formControlName="recipientBankAbbvNameHidden" readonly>
+          </div>
+          <div class="field">
+            <label>{{'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+            <input pInputText type="text" id="{{undertakingType}}recipientBankCustomerReference" formControlName="{{undertakingType}}recipientBankCustomerReference" readonly>
+          </div>
+        </div>
+        <div *ngIf="undertakingType === 'cu'">
+            <div class="field">
+                <label><span class="required-field-symbol">*</span>{{ bankNameLabel }}&nbsp;</label>
+                <input pInputText type="text" id="{{undertakingType}}recipientBankAbbvName" formControlName="{{undertakingType}}recipientBankAbbvName"
+                [class.fieldError]="validationService.isFieldInvalid(formName.get('recipientBankAbbvName'))">&nbsp;
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}recipientBankAbbvNamePopUp" (click)="openBankDialog('issuing', undertakingType)"></a>
+              <fcc-common-error-message [control]="formName.get(undertakingType +'recipientBankAbbvName')" ></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate}}&nbsp;</label>
+                <input pInputText type="text" id="{{undertakingType}}issuingBankSwiftCode" formControlName="{{undertakingType}}issuingBankSwiftCode">&nbsp;
+            </div>
+            <div class="field">
+                <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                <input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine1" formControlName="{{undertakingType}}issuingBankAddressLine1" (click)="updateValues()">
+                <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine1')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>&nbsp;</label><input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine2" formControlName="{{undertakingType}}issuingBankAddressLine2">
+                <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine2')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>&nbsp;</label><input pInputText type="text" id="{{undertakingType}}issuingBankDom" formControlName="{{undertakingType}}issuingBankDom">
+                <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankDom')"></fcc-common-error-message>
+            </div>
+            <div *ngIf="!swiftMode" class="field">
+                <label>&nbsp;</label><input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine4" formControlName="{{undertakingType}}issuingBankAddressLine4">
+                <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine4')" ></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>{{'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+                <input pInputText type="text" id="{{undertakingType}}recipientBankCustomerReference" formControlName="{{undertakingType}}recipientBankCustomerReference">&nbsp;
+                <fcc-common-error-message [control]="formName.get(undertakingType +'recipientBankCustomerReference')" ></fcc-common-error-message>
+            </div>
+          </div>
+      </div>
+      <div *ngIf="undertakingType === ''">
+          <p-tabView (onChange)="handleChange($event)" [activeIndex]="index">
+            <!-- Tab 1 details -->
+            <p-tabPanel header="{{'BANKDETAILS_ISSUING_BANK_DETAILS' | translate}}">
+                      <div class="field">
+                        <label>{{'ISSUING_INSTRUCTIONS_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                          <p-dropdown [styleClass]="'fcc-dropdown-larger'" placeholder=" " [options]="issuingInstructionsObj" id="{{undertakingType}}issuingBankTypeCode"
+                              formControlName="{{undertakingType}}issuingBankTypeCode" (onChange)="changeIssuingInstructor();"
+                              [styleClass]="validationService.isFieldInvalid(formName.get('issuingBankTypeCode')) ? 'dropDownFieldError' : 'inherit'">
+                          </p-dropdown>
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankTypeCode')" ></fcc-common-error-message>
+                      </div>
+                      <div class="field">
+                          <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate}}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}issuingBankSwiftCode" formControlName="{{undertakingType}}issuingBankSwiftCode"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankSwiftCode'))">&nbsp;
+                          <a *ngIf="!(commonData.disableTnx) && showIssuingSwiftCode" id="{{undertakingType}}issuingBankSwiftCodePopUp" class="fa fa-search fa-lg" (click)="openBankDialog('issuing', undertakingType)"></a>
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankSwiftCode')" ></fcc-common-error-message>
+                        </div>
+                      <div class="field">
+                        <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}<span *ngIf="formName.get(this.undertakingType + 'issuingBankTypeCode').value === '02'" class="required-field-symbol">*</span>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}issuingBankName" formControlName="{{undertakingType}}issuingBankName"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankName'))">&nbsp;
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankName')" ></fcc-common-error-message>
+                      </div>
+                    <div class="field">
+                        <label>{{'PARTIESDETAILS_ADDRESS' | translate }}<span *ngIf="formName.get(this.undertakingType + 'issuingBankTypeCode').value === '02'" class="required-field-symbol">*</span>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine1" formControlName="{{undertakingType}}issuingBankAddressLine1"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankAddressLine1'))" (click)="updateValues()">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine1')" ></fcc-common-error-message>
+                    </div>
+                    <div class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine2" formControlName="{{undertakingType}}issuingBankAddressLine2"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankAddressLine2'))">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine2')"  ></fcc-common-error-message>
+                    </div>
+                    <div class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}issuingBankDom" formControlName="{{undertakingType}}issuingBankDom"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankDom'))">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankDom')" ></fcc-common-error-message>
+                    </div>
+                    <div *ngIf="!swiftMode" class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}issuingBankAddressLine4" formControlName="{{undertakingType}}issuingBankAddressLine4">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'issuingBankAddressLine4')"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('issuingBankAddressLine4'))" ></fcc-common-error-message>
+                    </div>
+              </p-tabPanel>
+               <!-- Tab 2 details -->
+              <p-tabPanel header="{{isAdvisingBankMandatory}}{{ 'BANKDETAILS_TAB_ADVISING_BANK' | translate}}">
+                          <div class="field">
+                            <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}advisingSwiftCode" formControlName="{{undertakingType}}advisingSwiftCode"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingSwiftCode'))" (blur)="populateConfirmBankDetails('advising')">&nbsp;
+                            <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}advisingSwiftCodePopUp" (click)="openBankDialog('advising', undertakingType)"></a>
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingSwiftCode')" ></fcc-common-error-message>
+                          </div>
+                          <div class="field">
+                            <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}advisingBankName" formControlName="{{undertakingType}}advisingBankName"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingBankName'))" (ngModelChange)="checkAdvisingBank()"
+                            (blur)="populateConfirmBankDetails('advising')">&nbsp;
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingBankName')" ></fcc-common-error-message>
+                           </div>
+                          <div class="field">
+                              <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                              <input pInputText type="text" id="{{undertakingType}}advisingBankAddressLine1" formControlName="{{undertakingType}}advisingBankAddressLine1"
+                              [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingBankAddressLine1'))"
+                              (blur)="populateConfirmBankDetails('advising')">
+                              <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingBankAddressLine1')" ></fcc-common-error-message>
+                          </div>
+                          <div class="field">
+                              <label>&nbsp;</label>
+                              <input pInputText type="text" id="{{undertakingType}}advisingBankAddressLine2" formControlName="{{undertakingType}}advisingBankAddressLine2"
+                              [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingBankAddressLine2'))"
+                              (blur)="populateConfirmBankDetails('advising')">
+                              <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingBankAddressLine2')" ></fcc-common-error-message>
+                            </div>
+                          <div class="field">
+                              <label>&nbsp;</label>
+                              <input pInputText type="text" id="{{undertakingType}}advisingBankDom" formControlName="{{undertakingType}}advisingBankDom"
+                              [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingBankDom'))"
+                              (blur)="populateConfirmBankDetails('advising')">
+                              <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingBankDom')" ></fcc-common-error-message>
+                          </div>
+                          <div *ngIf="!swiftMode" class="field">
+                              <label>&nbsp;</label>
+                              <input pInputText type="text" id="{{undertakingType}}advisingBankAddressLine4" formControlName="{{undertakingType}}advisingBankAddressLine4"
+                              [class.fieldError]="validationService.isFieldInvalid(formName.get('advisingBankAddressLine4'))"
+                              (blur)="populateConfirmBankDetails('advising')">
+                              <fcc-common-error-message [control]="formName.get(undertakingType + 'advisingBankAddressLine4')" ></fcc-common-error-message>
+                          </div>
+                          <div *ngIf="isConfirmingBankMandatory && this.commonDataService.getSubProdCode() === 'STBY'" class="field">
+                                <label class="label-checkbox">{{ 'BANK_DETAILS_CONFIRMATION_REQUIRED' | translate}}&nbsp;</label>
+                                <p-checkbox id="advBankConfReq" formControlName="advBankConfReq" binary="true" (onChange)="toggleAdvConfreq('advising', formName.get('advBankConfReq').value)" [disabled]="false"></p-checkbox>
+                          </div>
+              </p-tabPanel>
+               <!-- Tab 3 details -->
+              <p-tabPanel header="{{'BANKDETAILS_TAB_ADVISE_THRU_BANK' | translate }}">
+                      <div class="field">
+                          <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}adviseThruSwiftCode" formControlName="{{undertakingType}}adviseThruSwiftCode"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruSwiftCode'))">&nbsp;
+                          <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}adviseThruSwiftCodePopUp" (click)="openBankDialog('adviseThru', undertakingType)"
+                          (blur)="populateConfirmBankDetails('adviseThru')"></a>
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruSwiftCode')" ></fcc-common-error-message>
+                        </div>
+                      <div class="field">
+                        <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}adviseThruBankName" formControlName="{{undertakingType}}adviseThruBankName"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruBankName'))" (ngModelChange)="checkAdvisingBank();"
+                        (blur)="populateConfirmBankDetails('adviseThru')">&nbsp;
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruBankName')" ></fcc-common-error-message>
+                      </div>
+                    <div class="field">
+                        <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}adviseThruBankAddressLine1" formControlName="{{undertakingType}}adviseThruBankAddressLine1"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruBankAddressLine1'))" (blur)="populateConfirmBankDetails('adviseThru')">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruBankAddressLine1')" ></fcc-common-error-message>
+                    </div>
+                    <div class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}adviseThruBankAddressLine2" formControlName="{{undertakingType}}adviseThruBankAddressLine2"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruBankAddressLine2'))" (blur)="populateConfirmBankDetails('adviseThru')">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruBankAddressLine2')" ></fcc-common-error-message>
+                    </div>
+                    <div class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}adviseThruBankDom" formControlName="{{undertakingType}}adviseThruBankDom"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruBankDom'))" (blur)="populateConfirmBankDetails('adviseThru')">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruBankDom')" ></fcc-common-error-message>
+                    </div>
+                    <div *ngIf="!swiftMode" class="field">
+                        <label>&nbsp;</label>
+                        <input pInputText type="text" id="{{undertakingType}}adviseThruBankAddressLine4" formControlName="{{undertakingType}}adviseThruBankAddressLine4"
+                        [class.fieldError]="validationService.isFieldInvalid(formName.get('adviseThruBankAddressLine4'))" (blur)="populateConfirmBankDetails('adviseThru')">
+                        <fcc-common-error-message [control]="formName.get(undertakingType + 'adviseThruBankAddressLine4')" ></fcc-common-error-message>
+                    </div>
+                    <div *ngIf="isConfirmingBankMandatory && this.commonDataService.getSubProdCode() === 'STBY'" class="field">
+                      <label class="label-checkbox">{{ 'BANK_DETAILS_CONFIRMATION_REQUIRED' | translate}}&nbsp;</label>
+                      <p-checkbox id="adviseThruBankConfReq" formControlName="adviseThruBankConfReq" binary="true" (onChange)="toggleAdvConfreq('adviseThru', formName.get('adviseThruBankConfReq').value)" [disabled]="false"></p-checkbox>
+                    </div>
+              </p-tabPanel>
+              <!-- Tab 4 details -->
+              <p-tabPanel *ngIf="isLocalAdviseThroughMandatory && (this.commonDataService.displayLUSection() 
+                            && commonDataService.getPreviewOption() !== 'SUMMARY')"
+                          header="{{'BANKDETAILS_TAB_LOCAL_ADVISE_THROUGH_BANK' | translate }}">
+              <div class="field">
+                    <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                    <input pInputText type="text" id="{{undertakingType}}localAdviseThroughSwiftCode" formControlName="{{undertakingType}}localAdviseThroughSwiftCode"
+                    [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughSwiftCode'))">&nbsp;
+                    <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}localAdviseThroughSwiftCodePopUp" (click)="openBankDialog('localAdviseThrough', undertakingType)"
+                    (blur)="populateConfirmBankDetails('localAdviseThrough')"></a>
+                    <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughSwiftCode')" ></fcc-common-error-message>
+                  </div>
+                <div class="field">
+                  <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}localAdviseThroughName" formControlName="{{undertakingType}}localAdviseThroughName"
+                  [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughName'))">&nbsp;
+                  <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughName')" ></fcc-common-error-message>
+                </div>
+              <div class="field">
+                  <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}localAdviseThroughAddressLine1" formControlName="{{undertakingType}}localAdviseThroughAddressLine1"
+                  [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughAddressLine1'))" (blur)="populateConfirmBankDetails('localAdviseThrough')">
+                  <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughAddressLine1')" ></fcc-common-error-message>
+              </div>
+              <div class="field">
+                  <label>&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}localAdviseThroughAddressLine2" formControlName="{{undertakingType}}localAdviseThroughAddressLine2"
+                  [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughAddressLine2'))" (blur)="populateConfirmBankDetails('localAdviseThrough')">
+                  <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughAddressLine2')" ></fcc-common-error-message>
+              </div>
+              <div class="field">
+                  <label>&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}localAdviseThroughDom" formControlName="{{undertakingType}}localAdviseThroughDom"
+                  [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughDom'))" (blur)="populateConfirmBankDetails('localAdviseThrough')">
+                  <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughDom')" ></fcc-common-error-message>
+              </div>
+              <div *ngIf="!swiftMode" class="field">
+                  <label>&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}localAdviseThroughAddressLine4" formControlName="{{undertakingType}}localAdviseThroughAddressLine4"
+                  [class.fieldError]="validationService.isFieldInvalid(formName.get('localAdviseThroughAddressLine4'))" (blur)="populateConfirmBankDetails('localAdviseThrough')">
+                  <fcc-common-error-message [control]="formName.get(undertakingType + 'localAdviseThroughAddressLine4')" ></fcc-common-error-message>
+              </div>
+              <div *ngIf="isConfirmingBankMandatory && this.commonDataService.getSubProdCode() === 'STBY'" class="field">
+                <label class="label-checkbox">{{ 'BANK_DETAILS_CONFIRMATION_REQUIRED' | translate}}&nbsp;</label>
+                <p-checkbox id="localAdviseThroughConfReq" formControlName="localAdviseThroughConfReq" binary="true" (onChange)="toggleAdvConfreq('localAdviseThrough', formName.get('localAdviseThroughConfReq').value)" [disabled]="false"></p-checkbox>
+              </div>
+        </p-tabPanel>
+               <!-- Tab 5 details -->
+               <div *ngIf="isConfirmingBankMandatory && this.commonDataService.getSubProdCode() === 'STBY'">
+              <p-tabPanel header="{{isMandatory}}{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}" >
+                        <div class="field">
+                          <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}confirmingSwiftCode" formControlName="{{undertakingType}}confirmingSwiftCode"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingSwiftCode'))">&nbsp;
+                          <a *ngIf="enableConfirmPopUp && !(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}confirmingSwiftCodePopUp" (click)="openBankDialog('confirming', undertakingType)"></a>
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingSwiftCode')" ></fcc-common-error-message>
+                        </div>
+                        <div class="field">
+                          <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}confirmingBankName" formControlName="{{undertakingType}}confirmingBankName"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingBankName'))">&nbsp;
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingBankName')" ></fcc-common-error-message>
+                        </div>
+                        <div class="field">
+                            <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}confirmingBankAddressLine1" formControlName="{{undertakingType}}confirmingBankAddressLine1"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingBankAddressLine1'))">
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingBankAddressLine1')" ></fcc-common-error-message>
+                        </div>
+                        <div class="field">
+                            <label>&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}confirmingBankAddressLine2" formControlName="{{undertakingType}}confirmingBankAddressLine2"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingBankAddressLine2'))">
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingBankAddressLine2')" ></fcc-common-error-message>
+                        </div>
+                        <div class="field">
+                            <label>&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}confirmingBankDom" formControlName="{{undertakingType}}confirmingBankDom"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingBankDom'))">
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingBankDom')" ></fcc-common-error-message>
+                        </div>
+                        <div *ngIf="!swiftMode" class="field">
+                            <label>&nbsp;</label>
+                            <input pInputText type="text" id="{{undertakingType}}confirmingBankAddressLine4" formControlName="{{undertakingType}}confirmingBankAddressLine4"
+                            [class.fieldError]="validationService.isFieldInvalid(formName.get('confirmingBankAddressLine4'))">
+                            <fcc-common-error-message [control]="formName.get(undertakingType + 'confirmingBankAddressLine4')" ></fcc-common-error-message>
+                        </div>
+              </p-tabPanel>
+              </div>
+
+               <!-- Tab 6 details -->
+              <p-tabPanel *ngIf="showProcessingBankTab" header="{{isProcessingBankMandatory}}{{'BANKDETAILS_TAB_PROCESSING_BANK' | translate }}">
+                      <div class="field">
+                          <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingSwiftCode" formControlName="{{undertakingType}}processingSwiftCode"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingSwiftCode'))">&nbsp;
+                          <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{undertakingType}}processingSwiftCodePopUp" (click)="openBankDialog('processing', undertakingType)"></a>
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingSwiftCode')" ></fcc-common-error-message>
+                        </div>
+                      <div class="field">
+                          <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingBankName" formControlName="{{undertakingType}}processingBankName"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingBankName'))">&nbsp;
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingBankName')" ></fcc-common-error-message>
+                        </div>
+                      <div class="field">
+                          <label>{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingBankAddressLine1" formControlName="{{undertakingType}}processingBankAddressLine1"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingBankAddressLine1'))">
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingBankAddressLine1')" ></fcc-common-error-message>
+                      </div>
+                      <div class="field">
+                          <label>&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingBankAddressLine2" formControlName="{{undertakingType}}processingBankAddressLine2"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingBankAddressLine2'))">
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingBankAddressLine2')" ></fcc-common-error-message>
+                      </div>
+                      <div class="field">
+                          <label>&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingBankDom" formControlName="{{undertakingType}}processingBankDom"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingBankDom'))">
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingBankDom')" ></fcc-common-error-message>
+                      </div>
+                      <div *ngIf="!swiftMode" class="field">
+                          <label>&nbsp;</label>
+                          <input pInputText type="text" id="{{undertakingType}}processingBankAddressLine4" formControlName="{{undertakingType}}processingBankAddressLine4"
+                          [class.fieldError]="validationService.isFieldInvalid(formName.get('processingBankAddressLine4'))">
+                          <fcc-common-error-message [control]="formName.get(undertakingType + 'processingBankAddressLine4')" ></fcc-common-error-message>
+                      </div>
+                </p-tabPanel>
+            </p-tabView>
+            <p-confirmDialog id="advisingBankErrorDialog" class="lf-confirm-dialog" key='advisingBankErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        </div>
+        </p-panel>
+        </div>  
+    <p-confirmDialog id="confimationReqWarning" appendTo="body" class="lf-confirm-dialog" key='confimationReqWarningDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  </div>
+  <!--View Bank Details Section-->
+  <ng-template #viewContent>
+  <div *ngIf = "commonDataService.getPreviewOption() !== 'SUMMARY'">
+    <!-- MO inquiry -->
+  <p-panel *ngIf ="'HISTORY' === this.commonDataService.getOption() && this.commonData.getIsBankUser() &&
+  (undertakingType == '' || undertakingType == null || undertakingType == 'bg')"
+   header="{{ 'INQUIRY_HEADER_UNDERTAKING_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="false">
+
+      <div id="bg_amt_code_view_row" *ngIf ="bgRecord['bgAmt'] && bgRecord['bgAmt'] != null && bgRecord['bgAmt'] != ''">
+        <label for="bgAmt" id="bg_amt_label">{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgAmt']}}</label>
+      </div>
+      <div id="bg_available_amt_view_row" *ngIf ="bgRecord['bgAvailableAmt'] && bgRecord['bgAvailableAmt'] != null && bgRecord['bgAvailableAmt'] != ''">
+        <label for="bgAvailableAmt" id="bg_available_amt_label">{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgAvailableAmt']}}</label>
+      </div>
+      <div id = "recipientBankAbbvNameViewRow" *ngIf ="bgRecord['recipientBank']['abbvName'] && bgRecord['recipientBank']['abbvName'] != null && bgRecord['recipientBank']['abbvName'] != ''">
+        <label for =  "recipientBankAbbvName" id =  "recipientBankAbbvNameLabel">{{ 'RECIPIENT_BANK_NAME' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['recipientBank']['abbvName'] | translate}}</label>
+      </div>
+      <div id = "recipientBankCustomerReferenceViewRow" *ngIf ="bgRecord['recipientBank']['reference'] && bgRecord['recipientBank']['reference'] != null && bgRecord['recipientBank']['reference'] != ''">
+        <label for =  "recipientBankCustomerReference" id =  "recipientBankCustomerReferenceLabel">{{ 'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['recipientBank']['reference'] | translate}}</label>
+      </div>
+  </p-panel>
+  <p-panel *ngIf ="!('HISTORY' === this.commonDataService.getOption() && this.commonData.getIsBankUser())"
+  header="{{ 'BANK_DETAILS_LABEL' | translate }}" [toggleable]="true" [collapsed] ="false">
+      <div *ngIf ="undertakingType == '' || undertakingType == null || undertakingType == 'bg'">
+        <div *ngIf="bgRecord['recipientBank'] && commonData.getProductCode() === 'BG'" id = "recipientDetails">
+          <div id = "leadBankFlagViewRow" *ngIf ="bgRecord['leadBankFlag'] && bgRecord['leadBankFlag'] != null && bgRecord['leadBankFlag'] != '' && bgRecord['leadBankFlag'] === 'Y'">
+              <label for =  "leadBankFlag" id =  "leadBankFlagLabel">&nbsp;</label>
+              <label class = 'label-left'><strong>{{'BANK_DETAILS_LEAD_BANK_LABEL' | translate }}</strong></label>
+          </div>
+          <div id = "recipientBankAbbvNameViewRow" *ngIf ="bgRecord['recipientBank']['abbvName'] && bgRecord['recipientBank']['abbvName'] != null && bgRecord['recipientBank']['abbvName'] != ''">
+              <label for =  "recipientBankAbbvName" id =  "recipientBankAbbvNameLabel">{{ 'RECIPIENT_BANK_NAME' | translate }}&nbsp;</label>
+              <label class = 'label-left'>{{bgRecord['recipientBank']['abbvName'] | translate}}</label>
+          </div>
+          <div id = "recipientBankIsoCodeViewRow" *ngIf ="bgRecord['recipientBank']['isoCode'] && bgRecord['recipientBank']['isoCode'] != null && bgRecord['recipientBank']['isoCode'] != ''">
+              <label for =  "recipientBankIsoCode" id =  "recipientBankIsoCodeLabel">{{ 'BANK_DETAILS_LEAD_BANK_IDENTIFIER' | translate }}&nbsp;</label>
+              <label class = 'label-left'>{{bgRecord['recipientBank']['isoCode'] | translate}}</label>
+          </div>
+          <div id = "recipientBankCustomerReferenceViewRow" *ngIf ="bgRecord['recipientBank']['reference'] && bgRecord['recipientBank']['reference'] != null && bgRecord['recipientBank']['reference'] != ''">
+              <label for =  "recipientBankCustomerReference" id =  "recipientBankCustomerReferenceLabel">{{ 'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+              <label class = 'label-left'>{{bgRecord['recipientBank']['reference'] | translate}}</label>
+          </div>
+      </div>
+
+        <div *ngIf ="commonData.getProductCode() === 'BR' && bgRecord['advisingBank'] && checkIfBankAvailable('advisingBank')">
+          <div class="indented-header">
+            <h3>{{'BANKDETAILS_TAB_ADVISING_BANK' | translate }}</h3>
+          </div>
+          <div id = "advisingBankDetail">
+            <div id = "advisingBankNameViewRow" *ngIf ="bgRecord['advisingBank']['name'] && bgRecord['advisingBank']['name'] != null && bgRecord['advisingBank']['name'] != ''">
+              <label for =  "advisingBankName" id =  "advisingBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+              <label class = 'label-left'>{{bgRecord['advisingBank']['name']}}</label>
+            </div>
+          </div>
+        </div>
+
+      <!--Issuing Bank Tab-->
+    <div *ngIf="bgRecord['issuingBank'] && checkIfBankAvailable('issuingBank')">
+    <div class="indented-header">
+      <h3>{{'BANKDETAILS_ISSUING_BANK_DETAILS' | translate }}</h3>
+    </div>
+    <div id = "issuingBankDetails">
+            <div id = "issuingBankTypeCodeViewRow" *ngIf ="bgRecord['issuingBankTypeCode'] && bgRecord['issuingBankTypeCode'] != null && bgRecord['issuingBankTypeCode'] != ''">
+                <label for =  "issuingBankTypeCode" id =  "issuingBankTypeCodeLabel">{{ 'ISSUING_INSTRUCTIONS_LABEL' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{commonDataService.getIssuingInstructions(bgRecord['issuingBankTypeCode']) | translate}}</label>
+            </div>
+                <div id = "issuingBankSwiftCodeViewRow" *ngIf ="bgRecord['issuingBank']['isoCode'] && bgRecord['issuingBank']['isoCode'] != null && bgRecord['issuingBank']['isoCode'] != ''">
+                    <label for =  "issuingBankSwiftCode" id =  "issuingBankSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['isoCode']}}</label>
+                </div>
+                <div id = "issuingBankNameViewRow" *ngIf ="bgRecord['issuingBank']['name'] && bgRecord['issuingBank']['name'] != null && bgRecord['issuingBank']['name'] != ''">
+                    <label for =  "issuingBankName" id =  "issuingBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['name']}}</label>
+                </div>
+                <div id = "issuingBankAddressLine1ViewRow" *ngIf ="bgRecord['issuingBank']['addressLine1'] && bgRecord['issuingBank']['addressLine1'] != null && bgRecord['issuingBank']['addressLine1'] != ''">
+                    <label for =  "issuingBankAddressLine1" id =  "issuingBankAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['addressLine1']}}</label>
+                </div>
+                <div id = "issuingBankAddressLine2ViewRow" *ngIf ="bgRecord['issuingBank']['addressLine2'] && bgRecord['issuingBank']['addressLine2'] != null && bgRecord['issuingBank']['addressLine2'] != ''">
+                    <label for =  "issuingBankAddressLine2" id =  "issuingBankAddressLine2Label">&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['addressLine2']}}</label>
+                </div>
+                <div id = "issuingBankDomViewRow" *ngIf ="bgRecord['issuingBank']['dom'] && bgRecord['issuingBank']['dom'] != null && bgRecord['issuingBank']['dom'] != ''">
+                    <label for =  "issuingBankDom" id =  "issuingBankDomLabel">&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['dom']}}</label>
+                </div>
+                <div id = "issuingBankAddressLine4ViewRow" *ngIf ="bgRecord['issuingBank']['addressLine4'] && bgRecord['issuingBank']['addressLine4'] != null && bgRecord['issuingBank']['addressLine4'] != ''">
+                    <label for =  "issuingBankAddressLine4" id =  "issuingBankAddressLine4Label">&nbsp;</label>
+                    <label class = 'label-left'>{{bgRecord['issuingBank']['addressLine4']}}</label>
+                </div>
+            </div>
+          </div>
+       <!--Advising bank tab-->
+       <div *ngIf="bgRecord['advisingBank'] && checkIfBankAvailable('advisingBank') && adviseBankRequired  && commonData.getProductCode() === 'BG'">
+          <div class="indented-header">
+            <h3>{{'BANKDETAILS_TAB_ADVISING_BANK' | translate }}</h3>
+          </div>
+         <div id = "advisingBankDetails">
+            <div id = "advisingSwiftCodeViewRow" *ngIf ="bgRecord['advisingBank']['isoCode'] && bgRecord['advisingBank']['isoCode'] != null && bgRecord['advisingBank']['isoCode'] != ''">
+                <label for =  "advisingSwiftCode" id =  "advisingSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['isoCode']}}</label>
+            </div>
+            <div id = "advisingBankNameViewRow" *ngIf ="bgRecord['advisingBank']['name'] && bgRecord['advisingBank']['name'] != null && bgRecord['advisingBank']['name'] != ''">
+                <label for =  "advisingBankName" id =  "advisingBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['name']}}</label>
+            </div>
+            <div id = "advisingBankAddressLine1ViewRow" *ngIf ="bgRecord['advisingBank']['addressLine1'] && bgRecord['advisingBank']['addressLine1'] != null && bgRecord['advisingBank']['addressLine1'] != ''">
+                <label for =  "advisingBankAddressLine1" id =  "advisingBankAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['addressLine1']}}</label>
+            </div>
+            <div id = "advisingBankAddressLine2ViewRow" *ngIf ="bgRecord['advisingBank']['addressLine2'] && bgRecord['advisingBank']['addressLine2'] != null && bgRecord['advisingBank']['addressLine2'] != ''">
+                <label for =  "advisingBankAddressLine2" id =  "advisingBankAddressLine2Label">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['addressLine2']}}</label>
+            </div>
+            <div id = "advisingBankDomViewRow" *ngIf ="bgRecord['advisingBank']['dom'] && bgRecord['advisingBank']['dom'] != null && bgRecord['advisingBank']['dom'] != ''">
+                <label for =  "advisingBankDom" id =  "advisingBankDomLabel">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['dom']}}</label>
+            </div>
+            <div id = "advisingBankAddressLine4ViewRow" *ngIf ="bgRecord['advisingBank']['addressLine4'] && bgRecord['advisingBank']['addressLine4'] != null && bgRecord['advisingBank']['addressLine4'] != ''">
+                <label for =  "advisingBankAddressLine4" id =  "advisingBankAddressLine4Label">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['advisingBank']['addressLine4']}}</label>
+            </div>
+            <div id = "advBankConfReqViewRow" *ngIf ="bgRecord['reqConfParty'] && bgRecord['reqConfParty'] != null && bgRecord['reqConfParty'] != '' && bgRecord['reqConfParty'] === 'Advising Bank'">
+                <label for =  "advBankConfReq" id =  "advBankConfReqLabel">&nbsp;</label>
+                <label class = 'label-left'><strong>Confirmation Required</strong></label>
+            </div>
+          </div>
+       </div>
+       <!--Advise thru bank tab-->
+       <div *ngIf="bgRecord['adviseThruBank'] && checkIfBankAvailable('adviseThruBank')">
+            <div class="indented-header">
+              <h3>{{'BANKDETAILS_TAB_ADVISE_THRU_BANK' | translate }}</h3>
+            </div>
+            <div id ="advisingThruBankDetails">
+              <div id = "adviseThruSwiftCodeViewRow" *ngIf ="bgRecord['adviseThruBank']['isoCode'] && bgRecord['adviseThruBank']['isoCode'] != null && bgRecord['adviseThruBank']['isoCode'] != ''">
+                <label for =  "adviseThruSwiftCode" id =  "adviseThruSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['isoCode']}}</label>
+              </div>
+              <div id = "adviseThruBankNameViewRow" *ngIf ="bgRecord['adviseThruBank']['name'] && bgRecord['adviseThruBank']['name'] != null && bgRecord['adviseThruBank']['name'] != ''">
+                <label for =  "adviseThruBankName" id =  "adviseThruBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['name']}}</label>
+              </div>
+              <div id = "adviseThruBankAddressLine1ViewRow" *ngIf ="bgRecord['adviseThruBank']['addressLine1'] && bgRecord['adviseThruBank']['addressLine1'] != null && bgRecord['adviseThruBank']['addressLine1'] != ''">
+                <label for =  "adviseThruBankAddressLine1" id =  "adviseThruBankAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['addressLine1']}}</label>
+              </div>
+              <div id = "adviseThruBankAddressLine2ViewRow" *ngIf ="bgRecord['adviseThruBank']['addressLine2'] && bgRecord['adviseThruBank']['addressLine2'] != null && bgRecord['adviseThruBank']['addressLine2'] != ''">
+                <label for =  "adviseThruBankAddressLine2" id =  "adviseThruBankAddressLine2Label">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['addressLine2']}}</label>
+              </div>
+              <div id = "adviseThruBankDomViewRow" *ngIf ="bgRecord['adviseThruBank']['dom'] && bgRecord['adviseThruBank']['dom'] != null && bgRecord['adviseThruBank']['dom'] != ''">
+                <label for =  "adviseThruBankDom" id =  "adviseThruBankDomLabel">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['dom']}}</label>
+              </div>
+              <div id = "adviseThruBankAddressLine4ViewRow" *ngIf ="bgRecord['adviseThruBank']['addressLine4'] && bgRecord['adviseThruBank']['addressLine4'] != null && bgRecord['adviseThruBank']['addressLine4'] != ''">
+                <label for =  "adviseThruBankAddressLine4" id =  "adviseThruBankAddressLine4Label">&nbsp;</label>
+                <label class = 'label-left'>{{bgRecord['adviseThruBank']['addressLine4']}}</label>
+              </div>
+              <div id = "adviseThruBankConfReqViewRow" *ngIf ="bgRecord['reqConfParty'] && bgRecord['reqConfParty'] != null && bgRecord['reqConfParty'] != '' && bgRecord['reqConfParty'] === 'Advise Thru Bank'">
+                <label for =  "adviseThruBankConfReq" id =  "adviseThruBankConfReqLabel">&nbsp;</label>
+                <label class = 'label-left'><strong>Confirmation Required</strong></label>
+            </div>              
+            </div>
+        </div>
+         <!--Local Advise through bank tab-->
+       <div *ngIf="bgRecord['localAdviseThrough'] && checkIfBankAvailable('localAdviseThrough')">
+        <div class="indented-header">
+          <h3>{{'BANKDETAILS_TAB_LOCAL_ADVISE_THROUGH_BANK' | translate }}</h3>
+        </div>
+        <div id ="localAdviseThroughDetails">
+          <div id = "localAdviseThroughSwiftCodeViewRow" *ngIf ="bgRecord['localAdviseThrough']['isoCode'] && bgRecord['localAdviseThrough']['isoCode'] != null && bgRecord['localAdviseThrough']['isoCode'] != ''">
+            <label for =  "localAdviseThroughSwiftCode" id =  "adviseThruSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['isoCode']}}</label>
+          </div>
+          <div id = "localAdviseThroughNameViewRow" *ngIf ="bgRecord['localAdviseThrough']['name'] && bgRecord['localAdviseThrough']['name'] != null && bgRecord['localAdviseThrough']['name'] != ''">
+            <label for =  "localAdviseThroughName" id =  "localAdviseThroughNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['name']}}</label>
+          </div>
+          <div id = "localAdviseThroughAddressLine1ViewRow" *ngIf ="bgRecord['localAdviseThrough']['addressLine1'] && bgRecord['localAdviseThrough']['addressLine1'] != null && bgRecord['localAdviseThrough']['addressLine1'] != ''">
+            <label for =  "localAdviseThroughAddressLine1" id =  "localAdviseThroughAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['addressLine1']}}</label>
+          </div>
+          <div id = "localAdviseThroughAddressLine2ViewRow" *ngIf ="bgRecord['localAdviseThrough']['addressLine2'] && bgRecord['localAdviseThrough']['addressLine2'] != null && bgRecord['localAdviseThrough']['addressLine2'] != ''">
+            <label for =  "localAdviseThroughAddressLine2" id =  "localAdviseThroughAddressLine2Label">&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['addressLine2']}}</label>
+          </div>
+          <div id = "localAdviseThroughDomViewRow" *ngIf ="bgRecord['localAdviseThrough']['dom'] && bgRecord['localAdviseThrough']['dom'] != null && bgRecord['localAdviseThrough']['dom'] != ''">
+            <label for =  "localAdviseThroughDom" id =  "localAdviseThroughDomLabel">&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['dom']}}</label>
+          </div>
+          <div id = "localAdviseThroughAddressLine4ViewRow" *ngIf ="bgRecord['localAdviseThrough']['addressLine4'] && bgRecord['localAdviseThrough']['addressLine4'] != null && bgRecord['localAdviseThrough']['addressLine4'] != ''">
+            <label for =  "localAdviseThroughAddressLine4" id =  "localAdviseThroughAddressLine4Label">&nbsp;</label>
+            <label class = 'label-left'>{{bgRecord['localAdviseThrough']['addressLine4']}}</label>
+          </div>
+          <div id = "localAdviseThroughConfReqViewRow" *ngIf ="bgRecord['reqConfParty'] && bgRecord['reqConfParty'] != null && bgRecord['reqConfParty'] != '' && bgRecord['reqConfParty'] === 'Local Advise Through Bank'">
+            <label for =  "localAdviseThroughConfReq" id =  "localAdviseThroughConfReqLabel">&nbsp;</label>
+            <label class = 'label-left'><strong>Confirmation Required</strong></label>
+        </div>              
+        </div>
+    </div>
+
+        <!--Confirming Bank tab-->
+        <div *ngIf="bgRecord['confirmingBank'] && checkIfBankAvailable('confirmingBank')">
+          <div class="indented-header">
+            <h3>{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}</h3>
+          </div>
+              <div id ="confirmingBankDetails">
+                  <div id = "confirmingSwiftCodeViewRow" *ngIf ="bgRecord['confirmingBank']['isoCode'] && bgRecord['confirmingBank']['isoCode'] != null && bgRecord['confirmingBank']['isoCode'] != ''">
+                      <label for =  "confirmingSwiftCode" id =  "confirmingSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['isoCode']}}</label>
+                  </div>
+                  <div id = "confirmingBankNameViewRow" *ngIf ="bgRecord['confirmingBank']['name'] && bgRecord['confirmingBank']['name'] != null && bgRecord['confirmingBank']['name'] != ''">
+                      <label for =  "confirmingBankName" id =  "confirmingBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['name']}}</label>
+                  </div>
+                  <div id = "confirmingBankAddressLine1ViewRow" *ngIf ="bgRecord['confirmingBank']['addressLine1'] && bgRecord['confirmingBank']['addressLine1'] != null && bgRecord['confirmingBank']['addressLine1'] != ''">
+                      <label for =  "confirmingBankAddressLine1" id =  "confirmingBankAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['addressLine1']}}</label>
+                  </div>
+                  <div id = "confirmingBankAddressLine2ViewRow" *ngIf ="bgRecord['confirmingBank']['addressLine2'] && bgRecord['confirmingBank']['addressLine2'] != null && bgRecord['confirmingBank']['addressLine2'] != ''">
+                      <label for =  "confirmingBankAddressLine2" id =  "confirmingBankAddressLine2Label">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['addressLine2']}}</label>
+                  </div>
+                  <div id = "confirmingBankDomViewRow" *ngIf ="bgRecord['confirmingBank']['dom'] && bgRecord['confirmingBank']['dom'] != null && bgRecord['confirmingBank']['dom'] != ''">
+                      <label for =  "confirmingBankDom" id =  "confirmingBankDomLabel">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['dom']}}</label>
+                  </div>
+                  <div id = "confirmingBankAddressLine4ViewRow" *ngIf ="bgRecord['confirmingBank']['addressLine4'] && bgRecord['confirmingBank']['addressLine4'] != null && bgRecord['confirmingBank']['addressLine4'] != ''">
+                      <label for =  "confirmingBankAddressLine4" id =  "confirmingBankAddressLine4Label">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['confirmingBank']['addressLine4']}}</label>
+                  </div>
+              </div>
+        </div>
+        <!--Processing bank tab-->
+        <div *ngIf="bgRecord['processingBank'] && checkIfBankAvailable('processingBank')">
+              <div class="indented-header">
+                <h3>{{'BANKDETAILS_TAB_PROCESSING_BANK' | translate }}</h3>
+              </div>
+                <div id ="processingBankDetails">
+                  <div id = "processingSwiftCodeViewRow" *ngIf ="bgRecord['processingBank']['isoCode'] && bgRecord['processingBank']['isoCode'] != null && bgRecord['processingBank']['isoCode'] != ''">
+                      <label for =  "processingSwiftCode" id =  "processingSwiftCodeLabel">{{ 'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['isoCode']}}</label>
+                  </div>
+                  <div id = "processingBankNameViewRow" *ngIf ="bgRecord['processingBank']['name'] && bgRecord['processingBank']['name'] != null && bgRecord['processingBank']['name'] != ''">
+                      <label for =  "processingBankName" id =  "processingBankNameLabel">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['name']}}</label>
+                  </div>
+                  <div id = "processingBankAddressLine1ViewRow" *ngIf ="bgRecord['processingBank']['addressLine1'] && bgRecord['processingBank']['addressLine1'] != null && bgRecord['processingBank']['addressLine1'] != ''">
+                      <label for =  "processingBankAddressLine1" id =  "processingBankAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['addressLine1']}}</label>
+                  </div>
+                  <div id = "processingBankAddressLine2ViewRow" *ngIf ="bgRecord['processingBank']['addressLine2'] && bgRecord['processingBank']['addressLine2'] != null && bgRecord['processingBank']['addressLine2'] != ''">
+                      <label for =  "processingBankAddressLine2" id =  "processingBankAddressLine2Label">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['addressLine2']}}</label>
+                  </div>
+                  <div id = "processingBankDomViewRow" *ngIf ="bgRecord['processingBank']['dom'] && bgRecord['processingBank']['dom'] != null && bgRecord['processingBank']['dom'] != ''">
+                      <label for =  "processingBankDom" id =  "processingBankDomLabel">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['dom']}}</label>
+                  </div>
+                  <div id = "processingBankAddressLine4ViewRow" *ngIf ="bgRecord['processingBank']['addressLine4'] && bgRecord['processingBank']['addressLine4'] != null && bgRecord['processingBank']['addressLine4'] != ''">
+                      <label for =  "processingBankAddressLine4" id =  "processingBankAddressLine4Label">&nbsp;</label>
+                      <label class = 'label-left'>{{bgRecord['processingBank']['addressLine4']}}</label>
+                  </div>
+              </div>
+          </div>
+    </div>
+    </p-panel>
+  </div>
+  </ng-template>

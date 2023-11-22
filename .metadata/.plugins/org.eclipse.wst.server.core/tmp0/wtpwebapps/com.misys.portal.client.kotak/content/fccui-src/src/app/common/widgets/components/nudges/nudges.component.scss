@@ -1,0 +1,72 @@
+@import '../../../../../styles/variables.scss';
+:host ::ng-deep {
+
+    .nudges {
+            em {
+                margin-left: 0.5em;
+                font-size: 1.25em;
+            }
+    }
+
+    [dir="rtl"] em {
+        margin-right: 0.5em !important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar {
+        padding: 1em !important;
+        border: none;
+        border-radius: 0.3em 0.3em 0 0;
+    }
+
+    .ui-dialog .ui-dialog-footer {
+        padding: 1.571em 1em !important;
+        border-radius: 0 0 0.3em 0.3em;
+        .margin-left {
+            margin-left: 1em;
+        }
+    }
+
+    [dir="rtl"] .ui-dialog .ui-dialog-footer {
+        .margin-left {
+            margin-right: 1em !important;
+            margin-left: 0 !important;
+        }
+    }
+    
+    .ui-dialog .ui-dialog-content {
+        padding: 2em 1em 1em 1em !important;
+        border-bottom: none;
+        p {
+            font-weight: 500;
+            font-size: 0.875em;
+            color: $GREY;
+        }
+    }
+
+    [dir="rtl"] .ui-dialog-titlebar-icons {
+        float: left !important;
+    }
+
+    [dir="rtl"] p-footer {
+        float: left !important;
+    }
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.nudge{
+    display: flex;
+    justify-content: center;
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 0.5em;
+}
+
+.nudgeFull{
+    @extend .nudge;
+    flex: 0 0 100%;
+}

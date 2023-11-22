@@ -1,0 +1,13 @@
+<svg id="Netbanking_Icons_Debit_Card" data-name="Netbanking Icons_Debit Card" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <path id="Path_921" data-name="Path 921" d="M50.328,33.467a2.41,2.41,0,0,0-2.4-2.4L9.461,31a2.426,2.426,0,0,0-2.426,2.406L7,55.614a2.416,2.416,0,0,0,2.406,2.4l38.461.054a2.422,2.422,0,0,0,2.426-2.4Z" transform="translate(-4.76 -21.08)" fill="#cad7db"/>
+  <path id="Path_922" data-name="Path 922" d="M52.419,33.467a2.406,2.406,0,0,0-2.394-2.4L11.728,31a2.416,2.416,0,0,0-2.413,2.406L9.28,55.6a2.41,2.41,0,0,0,2.4,2.4l38.294.054a2.413,2.413,0,0,0,2.413-2.4Z" transform="translate(-6.31 -21.08)" fill="#eaf2f5"/>
+  <rect id="Rectangle_200" data-name="Rectangle 200" width="48" height="48" fill="none"/>
+  <rect id="Rectangle_201" data-name="Rectangle 201" width="9.875" height="6.739" rx="2.29" transform="translate(32.886 20.842)" fill="#cad7db"/>
+  <rect id="Rectangle_202" data-name="Rectangle 202" width="8.672" height="1.914" rx="0.957" transform="translate(5.002 31.347)" fill="#df0f1b"/>
+  <rect id="Rectangle_203" data-name="Rectangle 203" width="8.672" height="1.914" rx="0.957" transform="translate(14.701 31.347)" fill="#df0f1b"/>
+  <rect id="Rectangle_204" data-name="Rectangle 204" width="8.672" height="1.914" rx="0.957" transform="translate(24.384 31.347)" fill="#df0f1b"/>
+  <rect id="Rectangle_205" data-name="Rectangle 205" width="12.931" height="4.17" rx="2.085" transform="translate(5.322 13.437)" fill="#cad7db"/>
+  <path id="Path_923" data-name="Path 923" d="M108,46.977V42.2h1.536a2.259,2.259,0,0,1,1.139.288,2.006,2.006,0,0,1,.79.81,2.473,2.473,0,0,1,.288,1.174V44.7a2.448,2.448,0,0,1-.278,1.174,2.038,2.038,0,0,1-.781.816,2.2,2.2,0,0,1-1.123.294Zm1.162-3.882v3h.4a.886.886,0,0,0,.758-.352,1.706,1.706,0,0,0,.266-1.046v-.208a1.7,1.7,0,0,0-.266-1.043.912.912,0,0,0-.774-.352Z" transform="translate(-73.44 -28.695)" fill="#e0121b"/>
+  <path id="Path_924" data-name="Path 924" d="M124.759,45.207a1.76,1.76,0,0,1-.269.88,1.6,1.6,0,0,1-.691.592,2.336,2.336,0,0,1-1.014.211,1.882,1.882,0,0,1-1.485-.614,2.528,2.528,0,0,1-.541-1.734V44.3A2.88,2.88,0,0,1,121,43.076a1.821,1.821,0,0,1,.7-.813,1.968,1.968,0,0,1,1.066-.288,2.058,2.058,0,0,1,1.4.458,1.8,1.8,0,0,1,.6,1.261h-1.149a.848.848,0,0,0-.218-.64.922.922,0,0,0-.64-.189.685.685,0,0,0-.64.32,2.054,2.054,0,0,0-.211,1.027v.339a2.278,2.278,0,0,0,.192,1.091.7.7,0,0,0,.662.32.877.877,0,0,0,.6-.189.787.787,0,0,0,.224-.592Z" transform="translate(-82.112 -28.541)" fill="#e0121b"/>
+  <rect id="Rectangle_206" data-name="Rectangle 206" width="8.672" height="1.914" rx="0.957" transform="translate(34.09 31.347)" fill="#df0f1b"/>
+</svg>

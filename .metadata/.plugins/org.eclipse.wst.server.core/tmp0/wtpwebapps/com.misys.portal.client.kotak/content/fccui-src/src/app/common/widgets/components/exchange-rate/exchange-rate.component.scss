@@ -1,0 +1,263 @@
+@import './../../../../../styles/variables.scss';
+
+.p-grid {
+  margin: 0em;
+}
+
+:host ::ng-deep .ui-dropdown {
+  height: 2em;
+  width: 100%;
+  min-width: 100%;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-label-container {
+  width: 100%
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-panel {
+  top: 2.375em !important;
+}
+
+:host ::ng-deep .ui-dropdown label.ui-dropdown-label,
+:host ::ng-deep .ui-dropdown span.ui-dropdown-label {
+  border-bottom: 0.0625em solid $CHARCOAL-F25 !important;
+}
+
+:host ::ng-deep .currencyDropdown .ui-dropdown label.ui-dropdown-label {
+  border-bottom: 1.2px solid $CHARCOAL-F75 !important;
+}
+
+
+:host ::ng-deep .dropDownFocus .drop-down-select .ui-inputtext{
+  border: 0.2em solid $BLACK-02 !important;
+}
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger {
+  margin-top: 0.5em;
+}
+
+.underlineHeader {
+  color: $GRAYISH-BLUE-30;
+  margin-top: 2.0625em;
+}
+
+.underlineHeader .p-grid {
+  border-bottom: 1.2px solid $GRAYISH-BLUE-02;
+}
+
+.buysellRateHeader,
+.midRateHeader {
+  font-size: 0.75em;
+  line-height: 0.6875em;
+  text-align: center;
+}
+
+.rateHeaderCcy {
+  font-size: 0.75em;
+  line-height: 0.6875em;
+  padding-left: 2.5em;
+}
+
+ .commonContrastStyle {
+  color: #694ed6;
+  font-weight: 900;
+  font-size: small;
+ }
+
+.underline .p-grid {
+  border-bottom: 1.2px solid $GRAYISH-BLUE-02 !important;
+}
+
+.base-ccy-label {
+  margin-top: 1.375em;
+  margin-bottom: 0em;
+  color: $CHARCOAL-F75;
+  font-size: 0.85em;
+  line-height: 1em;
+}
+
+.font-size-17 {
+  opacity: 0.75;
+  color: $BLACK;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.field-flag {
+  vertical-align: middle;
+  border-radius: 50%;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.field-text {
+  vertical-align: middle;
+  margin-left: 0.5em;
+  color: $CHARCOAL-PRIMARY-COLOR;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
+
+.field-text-direction {
+  vertical-align: middle;
+  margin-right: 0.5em;
+  color: $CHARCOAL-PRIMARY-COLOR;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
+
+.dropdown-flag {
+  width: 1.875em;
+  position: absolute;
+  top: 0.0625em;
+  left: 0.3125em;
+}
+
+.dropdown-flag-direction {
+  width: 1.875em;
+  float: right;
+  top: 0.0625em;
+  right: 0.3125em;
+}
+
+.dropdown-text-direction {
+  font-size: 0.875em;
+  float: left;
+  margin-top: 0.25em;
+}
+
+.dropdown-text {
+  font-size: 0.875em;
+  float: right;
+  margin-top: 0.25em;
+}
+
+.dropdown-div {
+  font-size: 0.875em;
+  float: right;
+  margin-top: 0.25em;
+}
+
+.table-flag {
+  vertical-align: middle;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+}
+
+.table-ccy-text {
+  vertical-align: middle;
+  margin-left: 0.75em;
+  color: $GREY-05;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 0.875em;
+}
+
+.table-ccy-text-direction {
+  vertical-align: middle;
+  margin-right: 0.75em;
+  color: $GREY-05;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 0.875em;
+}
+
+.bottom-rate {
+  margin-bottom: -1.3125em;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-filter-container
+  .ui-dropdown-filter-icon {
+  display: none;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter {
+  padding-right: 0.429em;
+}
+
+:host ::ng-deep .ui-dropdown-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.focus a > em {
+  color: #000000 !important;
+}
+
+.focus a > em:hover {
+  color: #414141 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid $GREY-07;
+  font-weight: bold;
+  background-color: transparent;
+  color: $CHARCOAL-F100;
+  line-height: 0.875em;
+  text-align: left;
+  font-size: 0.75em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: $GRAY-HEX-88 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: $WHITE;
+  border-top: 0.00625em solid $GREY-07;
+  border-bottom: 0.00625em solid $GREY-07;
+  border-left: none;
+  border-right: none;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: left;
+  font-size: 0.875em;
+}
+
+@media screen and  (max-width: 1180px) and (min-width: 1024px) {
+:host ::ng-deep .ui-helper-clearfix {
+  height: 2em !important;
+ }
+ .dropdown-flag {
+  width: 1.5em !important;
+  left: 0em !important;
+ }
+.dropdown-text {
+  margin-left: 2.5em !important;
+  margin-top: -0.3em !important;
+  float: left !important;
+ }
+ .dropdown-flag-direction {
+  width: 1.5em !important;
+ }
+ .dropdown-text-direction {
+  float: none !important;
+  margin-top: -0.3em !important;
+  margin-right: 2em !important
+}
+}

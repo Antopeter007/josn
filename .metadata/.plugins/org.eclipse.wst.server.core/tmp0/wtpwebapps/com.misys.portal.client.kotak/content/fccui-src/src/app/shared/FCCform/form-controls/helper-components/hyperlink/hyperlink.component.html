@@ -1,0 +1,11 @@
+<div tabindex="0" class="divAccessbility" (keydown.enter)="fetchUrl()">
+<a [ngClass]="getHyperLinkClass()" (click)="fetchUrl()">{{linkInfo | translate}} </a>
+</div>
+<p-dialog *ngIf="displayDialog" header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+[modal]="true" [maximizable]="false" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>{{ 'popupConfirmationMessage' | translate }}</p>
+    <p-footer>
+        <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+        <p-button role="button"  (click)="close()" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+    </p-footer>
+</p-dialog>

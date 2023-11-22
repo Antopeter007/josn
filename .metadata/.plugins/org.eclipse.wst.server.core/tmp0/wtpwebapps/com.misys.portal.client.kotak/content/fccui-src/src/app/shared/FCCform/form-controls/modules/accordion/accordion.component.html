@@ -1,0 +1,739 @@
+<ng-container [formGroup]="form">
+  <div  class="p-col-12">
+    <div *ngIf="control.params.rendered" class="{{control.params.parentStyleClass}}">
+      <ng-container>
+        <div *ngIf="!control.params.isaccordionMultiExpandRequired && 
+        control.key.toUpperCase().indexOf('GENERALDETAILS') >= 0 " align="{{dir == 'rtl' ? 'left' : 'right'}}" 
+        ngClass="{{dir == 'rtl' ? 'accordion-expan-coll-all-left' : ''}}"
+        class="accordion-expan-coll-all">
+          <div class="btn-section">
+          <div class="accordion_expand_all" *ngIf="control.params.isaccordionMultiExpandRequired"
+            ngClass="{{isMasterAccordionExpanded == true ? 'accordion-master-expand' : ''}}"
+            tabindex="0"
+            (click)="setControlExpandValue(true)"
+            (keypress)="setControlExpandValue(true)"
+            title="{{ 'expandAll' | translate }}">
+          <mat-icon
+            svgIcon="accordion_expand_all_selected"
+            class="accordionIcons masterExpandAllIcon"
+          ></mat-icon>
+          </div>
+         <div class="accordion_collapse_all" *ngIf="control.params.isaccordionMultiExpandRequired"
+            ngClass="{{isMasterAccordionExpanded == false ? 'accordion-master-collapse' : ''}}"
+            tabindex="0"
+            (click)="setControlExpandValue(false)"
+            (keypress)="setControlExpandValue(false)"
+            title="{{ 'collapseAll' | translate }}">
+          <mat-icon
+            svgIcon="accordion_collapse_all_selected"
+            class="accordionIcons masterCollapseAllIcon"
+          ></mat-icon>
+        </div>
+        </div>
+        </div>
+        <mat-accordion *ngIf="control.params.options[0]?.header !== 'Licenses' || hostComponentData.productCode !== 'EL' || control.params.options[0].data[0].panelValue !== ''" dir={{dir}}>
+        <mat-expansion-panel [expanded]="control.params.parentAccordionExpanded" [hideToggle]="true" class="{{control.params.parentAccordionPanelStyle}}" #parentAccordion>
+
+            <mat-expansion-panel-header tabindex="0">
+              <mat-panel-title class="subheader-title {{control.params.parentAccordionTitleStyle}}">
+                <h4 class="subheader-title-h4">{{control.params.options[0]?.header}}</h4>
+
+              </mat-panel-title>
+              <mat-panel-description class="panelDescription">
+                <mat-icon *ngIf="!parentAccordion.expanded">keyboard_arrow_right</mat-icon>
+                <mat-icon *ngIf="parentAccordion.expanded">keyboard_arrow_down</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+         <div class="p-col-12" *ngIf="control && control.params && control.params.options && control.params.options[0]">
+           <div  *ngFor="let opt of control.params.options[0].data; let i = index">
+            <div *ngIf="opt.nestedAccordion">
+              <mat-accordion dir={{dir}}>
+                <mat-expansion-panel [expanded]="control.params.childAccordionExpanded" [hideToggle]="true" #childAccordion>
+                  <mat-expansion-panel-header tabindex="0">
+                    <mat-panel-title class="subheader-title {{control.params.nestedAccordionTitleStyle}}">
+                      {{opt.options[0].header}}
+                    </mat-panel-title>
+                    <mat-panel-description class="panelDescription">
+                      <span *ngIf="opt.options[0].description" class="{{control.params.descriptionStyle}}">
+                        {{opt.options[0].description}}
+                      </span>
+                      <button role="button"  type="button" *ngIf="control.params.nestedHeaderIcon" class="{{control.params.nestedHeaderIconStyle}}"
+                        (click)="nestedHeaderIconClick($event, control.key, opt.options[0].data)" title="{{control.params.nestedHeaderIconTitle | translate}}" mat-icon-button>
+                        <mat-icon class="nestedHeaderIconClass">{{control.params.nestedHeaderIcon}}</mat-icon>
+                      </button>
+
+                      <mat-icon *ngIf="!childAccordion.expanded">keyboard_arrow_right</mat-icon>
+                      <mat-icon *ngIf="childAccordion.expanded">keyboard_arrow_down</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div class="p-col-12">
+                    <div>
+                        <div class = "p-col-12 no-mr-pd blockLevel">
+                          <div *ngFor="let optValue of opt.options[0].data; let i = index">
+                          <div *ngIf = "optValue.panelHead else panelBlock">
+                           <div class="p-grid" style="margin-left: 0em; width: 100%">
+                           <div class="p-col-12">
+                            <p *ngIf = "!optValue.hideGrpHeaderInView" class="{{control.params.panelHeadStyle}}" tabindex="0">{{optValue.panelHead}}</p>
+                              <div class="{{control.params.rowStyle}}" *ngFor="let optionValue of optValue.panelValue; let i = index">
+                                <span [ngClass] = "optionValue.invalidValue ? 'labelStyleInRed' : control.params.labelStyle" tabindex="0">
+                                  {{optionValue.label}}
+                                  <button role="button"  type="button" *ngIf = "optionValue.invalidValue" (click)="navigateAway($event, control.key, optionValue.fieldName, optionValue.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link'">
+                                    <mat-icon class="iconSize" aria-hidden="false" aria-label="Link icon">
+                                      link
+                                    </mat-icon>
+                                  </button>
+                                  <a class = "infoLabel" *ngIf = "optValue.infolabel || optValue.groupLabel"> {{'AMENDED' | translate}}</a>
+                                </span>
+                                <br>
+                                  <div *ngIf="optionValue.masterValue" class="pstyle">
+                                    <pre class="{{optionValue.amendSummaryStyle}}" tabindex="0">{{optionValue.masterValue}}</pre>
+                                  </div>
+                                  <div *ngIf = "optionValue.masterValue; else valueBlock">
+                                    <pre class="{{optionValue.amendTnxSummaryStyle}}" tabindex="0">{{optionValue.value}}</pre>
+                                  </div>
+                                    <ng-template #valueBlock>
+                                      <span class="{{control.params.valueStyle}}" tabindex="0">{{optionValue.value}}</span>
+                                    </ng-template>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <ng-template #panelBlock>
+                            <div [ngClass] = "optValue.fullWidth ? 'fullRowStyle' : control.params.rowStyle">
+                              <span [ngClass] = "optValue.invalidValue ? 'labelStyleInRed' : opt.labelStyle" tabindex="0">{{optValue.label}}
+                                <button role="button"  type="button" *ngIf = "optValue.invalidValue" (click)="navigateAway($event, control.key, optValue.fieldName, optValue.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link'">
+                                  <mat-icon class="iconSize" aria-hidden="false" aria-label="Link icon">link</mat-icon>
+                                </button>
+                                <a class="infoLabel" *ngIf="optValue.infolabel || optValue.groupLabel"> {{'AMENDED' | translate}}</a>
+                                <button role="button"  type="button" *ngIf="optValue.fieldIcon" class="{{optValue.fieldIconStyle}}"
+                                  (click)="fieldIconClick($event, control.key, optValue.params)" title="{{optValue.fieldIconTitle | translate}}" mat-icon-button
+                                  [attr.aria-label]="'Icon'">
+                                  <mat-icon class="fieldIconClass" aria-hidden="false" aria-label="Icon">{{optValue.fieldIcon}}</mat-icon>
+                                </button>
+                              </span><br>
+                            <div *ngIf="optValue.masterValue" class="pstyle">
+                              <pre class="{{optValue.amendSummaryStyle}}" tabindex="0">{{optValue.masterValue}}</pre>
+                            </div>
+                            <div *ngIf="optValue.masterValue; else valueBlock">
+                              <pre class="{{optValue.amendTnxSummaryStyle}}" tabindex="0">{{optValue.value}}</pre>
+                            </div>
+                            <ng-template #valueBlock>
+                              <span class="{{optValue.valueStyle}}" tabindex="0">{{optValue.value}}</span>
+                            </ng-template>
+                            <div *ngIf = "optValue.bgVariationsBlock">
+                              <div class="ui-table">
+                                  <p-table formControlName="{{control.key}}"  id="{{control.key}}"  [columns]="optValue.control.params.columns"
+                                  [value]="optValue.control.params.data" class="fcc-ui-table">
+                                    <ng-template pTemplate="header" let-columns>
+                                        <tr>
+                                            <th id="header" scope="col" *ngFor="let cols of optValue.control.params.columns" [ngStyle]="{'width': cols.width, 'text-align': 'center'}">
+                                              <span>{{ cols.header }}</span>
+                                            </th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-rowData let-columns="{{optValue.control.params.columns}}" let-index="rowIndex">
+                                        <tr class="rowDataStyle">
+                                            <td *ngFor="let cols of optValue.control.params.columns" [ngStyle]="{'text-align': 'center'}" class="displayChevron">
+                                              {{rowData[cols.header]}}
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                              </div>
+                            </div>
+                            <div *ngIf = "optValue.cuVariationsBlock">
+                            <div class="ui-table">
+                                <p-table formControlName="{{control.key}}"  id="{{control.key}}"  [columns]="optValue.control.params.columns"
+                                [value]="optValue.control.params.data" class="fcc-ui-table">
+                                  <ng-template pTemplate="header" let-columns>
+                                      <tr>
+                                          <th id="header" scope="col" *ngFor="let cols of optValue.control.params.columns" [ngStyle]="{'width': cols.width, 'text-align': 'center'}">
+                                            <span>{{cols.header | translate}}</span>
+                                          </th>
+                                      </tr>
+                                  </ng-template>
+                                  <ng-template pTemplate="body" let-rowData let-columns="{{optValue.control.params.columns}}" let-index="rowIndex">
+                                      <tr class="rowDataStyle">
+                                          <td *ngFor="let cols of optValue.control.params.columns" [ngStyle]="{'text-align': 'center'}" class="displayChevron">
+                                            {{rowData[cols.header]}}
+                                          </td>
+                                      </tr>
+                                  </ng-template>
+                              </p-table>
+                            </div>
+                            </div>
+                            </div>
+                          </ng-template>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              </div>
+            <div  *ngIf = "opt.panelHead else panelBlock">
+              <!-- <ng-template #normalBlock> -->
+                <div class = "p-col-12 no-mr-pd blockLevel">
+                  <h4 *ngIf = "!opt.hideGrpHeaderInView" class="subHeaderPad {{control.params.panelHeadStyle}}" tabindex="0">{{opt.panelHead}}</h4>
+                  <div  *ngIf = "opt.narrativeFullWidth else nonNarrativeBlock">
+                    <div class="'amendNarrativeSectionStyle'" *ngFor="let optValue of opt.panelValue; let i = index">
+                      <span [ngClass] = "optValue.invalidValue ? 'labelStyleInRed' : control.params.labelStyle" tabindex="0">
+                        {{optValue.label}}
+                        <button role="button"  type="button" *ngIf = "optValue.invalidValue" (click)="navigateAway($event, control.key, optValue.fieldName, optValue.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'">
+                          <mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon>
+                        </button>
+                      </span>
+                      <br>
+                      <div>
+                        <div class="{{optValue.amendTnxSummaryStyle}}" tabindex="0" [innerHTML]="optValue.value"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-template #nonNarrativeBlock>
+                    <div [ngClass] = "optValue.fullWidth ? 'fullRowStyle' : control.params.rowStyle" *ngFor="let optValue of opt.panelValue; let i = index">
+                      <div *ngIf = "optValue.isSubHeader; else labelBlock">
+                        <span [ngClass] = "optValue.invalidValue ? 'labelStyleInRed' : control.params.panelHeadStyle" tabindex="0">{{optValue.label}} <button role="button"  type="button" *ngIf = "optValue.invalidValue" (click)="navigateAway($event, control.key, optValue.fieldName, optValue.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'"><mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon></button></span>
+                      </div>
+                      <ng-template #labelBlock>
+                        <span *ngIf = "optValue.label !== '' || optValue.infolabel || optValue.groupLabel" [ngClass] = "optValue.invalidValue ? 'labelStyleInRed' : control.params.labelStyle" tabindex="0">{{optValue.label}} <button role="button"  type="button" *ngIf = "optValue.invalidValue" (click)="navigateAway($event, control.key, optValue.fieldName, optValue.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'"><mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon></button><a class = "infoLabel" *ngIf = "optValue.infolabel || optValue.groupLabel"> {{'AMENDED' | translate}}</a></span><br>
+                      </ng-template>
+                        <div *ngIf="optValue.masterValue" class="pstyle">
+                          <pre class="{{optValue.amendSummaryStyle}}" tabindex="0">{{optValue.masterValue}}</pre>
+                        </div>
+                        <div *ngIf = "optValue.masterValue; else valueBlock">
+                          <pre class="{{optValue.amendTnxSummaryStyle}}" tabindex="0">{{optValue.value}}</pre>
+                        </div>
+                          <ng-template #valueBlock>
+                            <span  *ngIf = "!optValue.isSubHeader" class="{{control.params.valueStyle}}" [innerHTML]="optValue.value" tabindex="0"></span>
+                          </ng-template>
+                    </div>
+                  </ng-template>
+                </div>
+            </div>
+            <ng-template #panelBlock>
+              <div [ngClass] = "opt.fullWidth ? 'fullRowStyle' : control.params.rowStyle"
+              *ngIf="!opt.nestedAccordion && !(opt.attachmentBlock || opt.bankAttachmentsBlock || opt.bulkReferenceBlock || opt.editableTableBlock || opt.feesAndChargesBlock  || opt.cardBlock || opt.remInstBlock || opt.poBlock || opt.childReferencesBlock || opt.bkVariationsBlock)">
+                    <span *ngIf="opt.isHyperLink" style="display: inline-block;">
+                      <a href="#" id="viewSpecimenHyperLink" onclick="return false;" tabindex="0" [attr.title]="'viewSpecimenHyperLink' | translate"
+                      (click)="onClickViewSpecimenHyperLink($event, 'viewSpecimenHyperLink')"
+                      class="download"><em id="file-upload-icons-font" class="pi pi-download"></em></a>
+                    </span>
+                  <span [ngClass] = "opt.invalidValue ? 'labelStyleInRed' : control.params.labelStyle" tabindex= "{{opt.label ? 0 : -1}}">
+                    <span *ngIf="!control.params.isStyleEnabled">
+                     {{opt.label}} 
+                    </span>
+                    <span *ngIf="control.params.isStyleEnabled" [innerHTML]="opt.label" ></span>
+                    <button role="button"  type="button" *ngIf = "opt.invalidValue" (click)="navigateAway($event, control.key, opt.fieldName, opt.clubbedInvalidField)"
+                            title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'">
+                            <mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon>
+                    </button>
+                    <a class = "infoLabel" *ngIf = "opt.infolabel || opt.groupLabel"> {{'AMENDED' | translate}}</a>
+                  </span><br>
+                  <div *ngIf="opt.masterValue" class="pstyle"><pre class="{{opt.amendSummaryStyle}}" tabindex= "{{opt.masterValue ? 0 : -1}}">{{opt.masterValue}}</pre></div>
+                <div *ngIf = "opt.masterValue; else valueBlock">
+                    <pre class="{{opt.amendTnxSummaryStyle}}" tabindex= "{{opt.value ? 0 : -1}}">{{opt.value}}</pre>
+                  </div>
+                  <ng-template #valueBlock>
+                    <pre class="{{control.params.valueStyle}} preValueStyle"  [ngClass] = "opt.setContentWidth ? 'setContentWidth' : ''" tabindex="{{opt.value ? 0 : -1}}">{{opt.value}}</pre>
+                  </ng-template>
+                </div>
+
+                <div [ngClass] = "'fullRowStyle'" *ngIf = "opt.cardBlock">
+                  <mat-card>
+                    <mat-card-header class = "matCardHeaderPreview">
+                      <div *ngIf="opt.control.params['showChannelRef']" class="matCardTitlePreview">
+                        <mat-card-title>
+                        <span matTooltip={{this.tollTipDesc}} matTooltipPosition="above">
+                          {{opt.label | translate}}{{" | "}}{{this.refIdLabel}}
+                        </span>
+                      </mat-card-title>
+
+                      </div>
+                      <div *ngIf="opt.control.params['showViewLink']" class="matCardTitlePreview">
+                        <mat-card-title>{{opt.label | translate}}</mat-card-title>
+                      </div>
+                      <span *ngIf="opt.control.params['showViewLink']" style="display: inline-block;">
+                        <a href="#" id="parentDetails" onclick="return false;" tabindex="0" [attr.title]="'viewParent' | translate"
+                        (click)="onClickCardDetails($event, 'Summary')"><em class="pi pi-external-link pointer-class"></em></a>
+                      </span>
+                      <span *ngIf="opt.control.params['showChildViewLink']" style="display: inline-block;">
+                        <a href="#" id="parentDetails" onclick="return false;" tabindex="0" [attr.title]="'viewChild' | translate"
+                        (click)="onClickCardDetails($event, 'Summary')"><em class="pi pi-external-link pointer-class"></em></a>
+                      </span>
+                    </mat-card-header>
+                    <span *ngIf="opt.control.params['showStatusImg']" [ngSwitch]= "this.childStatusBackground">
+                      <span *ngSwitchCase="'green'">
+                        <div class="childStatusbackground">
+                          <img src='{{contextPath}}/content/FCCUI/assets/icons/Green.svg' style="width: 75%;" alt="Green" attr.title="{{this.statusTitle | translate}}">
+                          <div class="childStatus">{{this.childStatus | translate}}</div>
+                        </div>
+                      </span>
+                      <span *ngSwitchCase="'blue'">
+                        <div class="childStatusbackground">
+                          <img src='{{contextPath}}/content/FCCUI/assets/icons/Blue.svg' style="width: 75%;" alt="Blue" attr.title="{{this.statusTitle | translate}}">
+                          <div class="childStatus">{{this.childStatus | translate}}</div>
+                        </div>
+                      </span>
+                      <span *ngSwitchCase="'amber'">
+                        <div class="childStatusbackground">
+                          <img src='{{contextPath}}/content/FCCUI/assets/icons/Amber.svg' style="width: 75%;" alt="Amber" attr.title="{{this.statusTitle | translate}}">
+                          <div class="childStatus">{{this.childStatus | translate}}</div>
+                        </div>
+                      </span>
+                      <span *ngSwitchCase="'red'">
+                        <div class="childStatusbackground">
+                          <img src='{{contextPath}}/content/FCCUI/assets/icons/Red.svg' style="width: 75%;" alt="Red" attr.title="{{this.statusTitle | translate}}">
+                          <div class="childStatus">{{this.childStatus | translate}}</div>
+                        </div>
+                      </span>
+                    </span>
+                    <mat-card-content>
+                    <div class="p-grid p-col-12">
+                      <div class="p-col-6" *ngFor="let field of opt.control.params.options; let i = index">
+                        <div class="mat-card-fields">
+                          <div class="labelStyle">{{field.header | translate}}</div>
+                          <div class="valStyle">{{field.value | translate}}</div>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="childDetailsDiv">
+                      <span>
+                        <a href="#" *ngIf="opt.control.params['showViewDetails'] && (this.operation !== 'PREVIEW' && this.mode !== 'INITIATE'
+                        && this.mode !== 'DRAFT')"
+                        class="childDetails" id="parentDetails"
+                        onclick="return false;" tabindex="0" attr.title="{{this.tooltipTitle | translate}}"
+                        (click)="onClickViewDetails()">{{this.viewDetails | translate}}</a>
+                      </span>
+                    </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+                  <!-- Attachment table section -->
+
+                <div *ngIf = "opt.attachmentBlock || opt.bankAttachmentsBlock" class="{{opt.previewTableStyle}}">
+                  <div *ngIf = "opt.showLabelView"><span class="{{control.params.panelHeadStyle}}">{{opt.label}}</span><br></div>
+                  <p-table formControlName="{{control.key}}"  id="{{control.key}}" *ngIf = "opt.control.params.data && opt.control.params.data.length > 0"
+                    [columns]=opt.control.params.columns [value]="opt.control.params.data">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th scope="col" tabindex="0" id="header" *ngFor="let cols of opt.control.params.columns"
+                            [ngStyle]="{'width': cols.width, 'text-align': cols.align ? cols.align : 'left'}">
+                                {{cols.header}}
+                            </th>
+                            <th *ngIf="!opt.noPreviewActions" tabindex="0" id="actionsItem" style="width: 10%;outline-color:transparent;">
+                              {{control.params.actionsItem}}<span>{{'ACTION' | translate}}</span>
+                              <span *ngIf="hostComponentData.productCode !== 'EL'" style="display: none;">.</span>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex">
+                        <tr>
+                            <td *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'text-align': cols.align ? cols.align : 'left'}">
+                              <span tabindex="0" innerHTML="{{rowData[cols.field]}}">{{'action' | translate}}</span>
+                            </td>
+                            <td *ngIf="!opt.noPreviewActions" >
+                              <div class="fcc-view-file-div">
+                                <img *ngIf="(allowedDocViewerType.indexOf(opt.control.params.data[index].mimeType) >= 0 ) else emptyBlock"
+                                class = "fcc-view-file-icon" tabindex="0"
+                                #tooltip="matTooltip"
+                                (click)="onClickViewFile(rowData.attachmentId,rowData.fileName)"
+                                (keyup.enter)="onClickViewFile(rowData.attachmentId,rowData.fileName)"
+                                alt="{{'VIEW' | translate}} "
+                                src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                                matTooltip="View"
+                                matTooltipPosition="below" matTooltipClass="mat-tooltip"/>
+                                <ng-template #emptyBlock>
+                                  <span class="fcc-empty-icon-block"></span>
+                                </ng-template>
+                              </div>
+                              <div style="width: 50%;float: left;">
+                                <a (click)="onClickDownload(rowData,control.key,index)"
+                                style="cursor: pointer;" href="javascript:void(0)"
+                                #tooltip="matTooltip"
+                                aria-label="download"
+                                title="{{'download' | translate}}"
+                                matTooltip=""
+                                matTooltipPosition="below" matTooltipClass="mat-tooltip"
+                                tabindex="0" class="download">
+                                <em id="file-upload-icons-font" class="pi pi-download"></em>
+                                </a>
+                              </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <div *ngIf="hostComponentData.productCode === 'EL' && hostComponentData.mode !== 'view' && control.key === 'elUploadMT700'">
+                  <button role="button"  class="primaryButton viewButton" (click)="onClickView()">{{'VIEW' | translate}}</button>
+                </div>
+                <div *ngIf = "opt.control.params.data && opt.control.params.data.length === 0">
+                  <span class="{{control.params.valueStyle}}" tabindex="0">
+                    {{opt.control.params.emptyMessaage ? ('summarymasterempty'| translate) : ('NO_ATTACHMENT' | translate)}}
+                  </span>
+                  <br><br>
+                </div>
+                </div>
+
+                <div *ngIf = "opt.remInstBlock" [ngClass] = "'no-mr-pd blockLevel'">
+                  <div *ngIf = "opt.control.params.data && opt.control.params.data.length > 0">
+                    <h4 class="{{control.params.panelHeadStyle}}">{{opt.label}}</h4></div>
+                  <p-table formControlName="{{control.key}}"  id="{{control.key}}"
+                  *ngIf = "opt.control.params.data && opt.control.params.data.length > 0"
+                    [columns]=opt.control.params.columns [value]="opt.control.params.data">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th tabindex="0" id="header" scope="col" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width}">{{cols.header}}</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex">
+                        <tr>
+                            <td *ngFor="let cols of opt.control.params.columns">
+                              <span tabindex="0" innerHTML="{{rowData[cols.field]}}"></span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
+
+                <div *ngIf = "opt.poBlock">
+                  <div *ngIf = "opt.control.params.data && opt.control.params.data.length > 0">
+                    <h4 class="{{control.params.panelHeadStyle}}">{{opt.label}}</h4>
+                  </div>
+                  <fcc-purchase-order-view-preview [form]="form" [purchaseOrders]="opt.control.params.data" [productCode]="hostComponentData.productCode" [mode]="hostComponentData.mode"></fcc-purchase-order-view-preview>
+                </div>
+
+                <!--Edit table-->
+                <div *ngIf=" opt.editableTableBlock && !opt.control.params.isListData">
+                  <div *ngIf = "opt.showLabelView">
+                    <br>
+                    <span [ngClass] = "(opt.control.params.data.length === 0 || opt.control.params.invalidValue)  ? 'labelStyleInRed' : control.params.panelHeadStyle" tabindex="0">
+                      {{opt.label}}
+                      <button role="button"  type="button" *ngIf = "(opt.control.params.data.length === 0 || opt.control.params.invalidValue)"
+                      (click)="navigateAway($event, control.key, opt.control.params.key, opt.clubbedInvalidField)"
+                      title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'">
+                      <mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon></button></span><br><br>
+                  </div>
+                  <p-table #et [value]="opt.control.params.data" dataKey="id" editMode="row" *ngIf = "opt.control.params.data && opt.control.params.data.length > 0"
+                    [paginator]="opt.control.params.data.length > (rows - 1) ? true : false"
+                    [rows]="paginatorParams.defaultRows">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th scope="col" id="col" *ngFor="let colmn of opt.control.params.columnsHeaderData " class="{{colmn}}" [ngClass] = "(colmn === 'Amount' && opt.control.params.invalidValue) ? 'labelStyleInRed' : ''">
+                          {{colmn}}<button role="button"  type="button" *ngIf = "colmn === 'Amount' && opt.control.params.invalidValue" (click)="navigateAway($event, opt.control.key, opt.control.params.fieldName, opt.control.params.clubbedInvalidField)" title="{{'goAndEdit' | translate}}" mat-icon-button [attr.aria-label]="'Link to Update'"><mat-icon class="iconSize" aria-hidden="false" aria-label="Link to Update">link</mat-icon></button>
+                        </th>
+                        <th *ngIf="!opt.control.params.hasActions" id="col" class="actionHeader">Actions</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+                      <tr [pEditableRow]="product">
+                        <td pEditableColumn *ngFor="let col of opt.control.params.columns " class="{{col}}">
+                          <p-cellEditor>
+                            <ng-template pTemplate="input">
+                              <div *ngIf="product[col + 'Type']==='text'">
+                                <div *ngIf="product[col + 'Status']===false">
+                                  {{ product[col] }}
+                                </div>
+                                <div *ngIf="product[col + 'Status']===true">
+                                  <div *ngIf="opt.control.params.noEdit">
+                                    {{ product[col] }}
+                                  </div>
+
+                                  <div *ngIf="!opt.control.params.noEdit">
+                                    <div class="overDrawWrapper" *ngIf="opt.control.params.OverDrawStatus===true">
+                                      <span *ngIf="!opt.control.params.hasActions"> {{ opt.control.params.message1 }} </span>
+                                    </div>
+                                    <input role="textbox" (blur)="onkeyUpTextField($event,control.key,product)" maxlength="product[col + 'Maxlength']"
+                                      [required]="product[col + 'Required']" (keyup)="onkeyUpTextField($event,control.key,product)"
+                                      [ngModelOptions]="{standalone: true}" pInputText type="text" [value]="product[col]"
+                                      [(ngModel)]="product[col]"><a *ngIf="product[col + 'Required']"><em
+                                        class='fa fa-asterisk fa-sm'></em></a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div *ngIf="product[col + 'Type']==='date'">
+                                <div *ngIf="product[col + 'Status']===false">
+                                  {{product[col] | date}}
+                                </div>
+                                <div *ngIf="product[col + 'Status']===true">
+                                  <div *ngIf="opt.control.params.noEdit">
+                                    {{ product[col] }}
+                                  </div>
+                                  <div *ngIf="!opt.control.params.noEdit">
+                                    <input role="textbox" (blur)="onBlurDateField($event,control.key,product)" maxlength="product[col + 'Maxlength']"
+                                      [required]="product[col + 'Required']" [ngModelOptions]="{standalone: true}" pInputText
+                                      type="date" [value]="product[col]" [(ngModel)]="product[col]">
+                                  </div>
+                                </div>
+                              </div>
+                              <div *ngIf="product[col + 'Type']==='dropdown';  ">
+                                <div *ngIf="product[col + 'Status']===true">
+                                  <div *ngIf="opt.control.params.noEdit && col !== 'linkTo'">
+                                    {{ 'C064_' + product[col] | translate }}
+                                  </div>
+                                  <div *ngIf="opt.control.params.noEdit && col === 'linkTo'">
+                                    {{ product[col].label }}
+                                  </div>
+                                  <div *ngIf="!opt.control.params.noEdit">
+                                    <p-dropdown [ngModelOptions]="{standalone: true}"
+                                      (onChange)="onChangeDropdownField($event,control.key,product)" (onFocus)="onFocusDropdownField($event,control.key,product)"
+                                      [options]="opt.control.params.options" [(ngModel)]="product[col]" [style]="{'width':'100%'}">
+                                      <ng-template let-item pTemplate="item">
+                                        <div class="p-grid">
+                                          <div class="p-col-12 align-left">{{item.label}} </div>
+                                        </div>
+                                      </ng-template>
+                                    </p-dropdown>
+                                  </div>
+                                </div>
+                                <div *ngIf="product[col + 'Status']===false">
+                                  <p-dropdown [readonly]="true" [ngModelOptions]="{standalone: true}"
+                                    [options]="opt.control.params.options" [(ngModel)]="product[col]" [style]="{'width':'100%'}">
+                                  </p-dropdown>
+                                </div>
+                              </div>
+
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                              <div *ngIf="product[col + 'Type']==='text'">
+                                {{ product[col] }}
+                              </div>
+                              <div *ngIf="product[col + 'Type']==='date'">
+                                {{ product[col] }}
+                              </div>
+                              <div *ngIf="product[col + 'Type']==='dropdown' && product[col] !== '' && col !== 'linkTo'">
+                                {{ 'C064_' + product[col] | translate }}
+                              </div>
+                              <div *ngIf="col === 'linkTo'">
+                                {{ product[col].label }}
+                              </div>
+                            </ng-template>
+                          </p-cellEditor>
+                        </td>
+                        <td *ngIf="!opt.control.params.hasActions"  class="doc_actions">
+                          <a style="margin-left: 2.4em;cursor: pointer;" class="downloadActions" (click)="onClickDownload(product,'',ri)"
+                            href="javascript:void(0)" tabindex="0">
+                            <em class="pi  {{opt.control.params.downloadActions}}"></em>
+                          </a>
+                          <a style="margin-left: 1.4em;cursor: pointer;" (click)="onClickTrash(product,'',ri)" href="javascript:void(0)"
+                            tabindex="0">
+                            <em class="pi  {{opt.control.params.trashActions}}"></em>
+                          </a>
+                        </td>
+                      </tr>
+                    </ng-template>
+                    <ng-template [pTemplate]="setDirections('right')" let-state>
+                      <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSizeForEnrichTable($event)"
+                        (setCurrentPageCallback) = "setCurrentPageForEnrichTable($event)"></fcc-custom-paginator>
+                    </ng-template>
+                  </p-table>
+                  <div *ngIf = "opt.control.params.data && opt.control.params.data.length === 0">
+                    <span *ngIf = "opt.control.key === 'license'" class="{{control.params.valueStyle}}" tabindex="0">{{'NO_LICENSE' | translate}}</span>
+                    <span *ngIf = "opt.control.key === 'documentTableDetails'" class="{{control.params.valueStyle}}" tabindex="0">{{'NO_DOCUMENTS' | translate}}</span>
+                    <br><br>
+                  </div>
+                </div>
+
+                <!--Account Details table-->
+                <div class="account-table" *ngIf=" opt.editableTableBlock && opt.control.params.isListData">
+                <div *ngIf="opt.control.params.tableHeader" class="tableHeaderStyles">{{ opt.control.params.tableHeader | translate }}</div>
+                  <p-table #tt [value]="opt.control.params.data" *ngIf = "opt.control.params.data && opt.control.params.data.length > 0" class="accountList"
+                    [paginator]="opt.control.params.data.length > (rows - 1) ? true : false"
+                    [rows]="this.paginatorParams.defaultRows">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th scope="col"
+                        id="col"
+                        style="position: relative"
+                        *ngFor="let colmn of opt.control.params.columns"
+                        class="{{ control.params.applyColumnStyle ? colmn : '' }}">
+                        <span [ngSwitch]="colmn">
+                          <span *ngSwitchCase="'defaultAccountFlag'"></span>
+                          <span *ngSwitchDefault>{{ colmn | translate }}</span>
+                        </span>
+                        </th>
+                        <th *ngIf="opt.control.params.previewScreenViewAction" id="col" class="actionHeader">
+                        {{ 'ACTION' | translate }}
+                        </th>
+                      </tr>
+                    </ng-template>
+                    <ng-template
+                    pTemplate="body"
+                    let-item
+                    let-i="rowIndex"
+                  >
+                  <tr>
+                    <ng-container *ngFor="let col of opt.control.params.columns">
+                      <td *ngIf="item[col] && item[col] !== 'N'; else emptyField">
+                        <span [ngSwitch]="true">
+                          <span *ngSwitchCase="isTypeObject(item[col])">
+                            {{ item[col].shortName }}
+                          </span>
+                          <span *ngSwitchCase="col === 'defaultAccountFlag'">
+                            <img class = "iconImage" title="{{'defaultAccount' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Default.svg' id="defaultAccountFlag" alt="Default Flag">
+                          </span>
+                          <span *ngSwitchCase="col === 'accountActiveFlag' || col === 'interMediaryBank'"> {{ item[col] | translate }} </span>
+                          <span *ngSwitchDefault>{{ item[col] }}</span>
+                        </span>
+                      </td>
+                      <ng-template #emptyField>
+                        <td>
+                          <span [ngSwitch]="col">
+                            <span *ngSwitchCase="'accountActiveFlag'">{{ 'N' | translate }}</span>
+                            <span *ngSwitchCase="'interMediaryBank'">{{ 'N' | translate }}</span>
+                            <span *ngSwitchCase="'defaultAccountFlag'"></span>
+                            <span *ngSwitchDefault>-</span>
+                          </span>
+                        </td>
+                      </ng-template>
+                  </ng-container>
+                  <td *ngIf="opt.control.params.previewScreenViewAction" dir={{dir}} class="actionData">
+                    <div>
+                      <span>
+                        <button role="button"  mat-icon-button id="threeDots" [matMenuTriggerFor] = "menuThreeDots" [dir]="dir"
+                             tabindex="0" (click)="getMenus($event, control.params, i, item)" (keyup.enter)="getMenus($event, control.params, i, item)">
+                             <em class="material-icons threeDots ellipisis">more_vert</em>
+                        </button>
+                      </span>
+
+                      <mat-menu #menuThreeDots="matMenu" class="threeDotsMenu">
+                        <ul>
+                          <li *ngFor= "let itemName of actionList">
+                            <span mat-menu-item tabindex="0" (click)="keyPressRouteDots($event)"
+                            (keyup.enter)="keyPressRouteDots($event)">{{itemName.label}}</span>
+                          </li>
+                      </ul>
+                      </mat-menu>
+                    </div>
+                  </td>
+                  </tr>
+                </ng-template>
+
+                <ng-template [pTemplate]="setDirections('right')" let-state>
+                    <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSize($event)"
+                      (setCurrentPageCallback) = "setCurrentPage($event)"></fcc-custom-paginator>
+                </ng-template>
+
+                  </p-table>
+                  <ng-container *ngIf="opt.control.params.error">
+                    <span class="fcc-field-message">
+                      <p-message severity="warning" text="{{opt.control.params.error | translate}}"></p-message>
+                    </span>
+                  </ng-container>
+                  </div>
+
+                <div *ngIf="opt.childReferencesBlock">
+                     <p-table formControlName="{{control.key}}" id="{{control.key}}" [columns]=opt.control.params.columns class="childRefTable"
+                       [value]="opt.control.params.data">
+                       <ng-template pTemplate="header" let-columns>
+                        <tr>
+                          <th id="header" scope="col" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width}" class="childRefTable">
+                            <span tabindex="0" attr.aria-label="{{cols.header | translate}}">{{opt.control.params.key | translate}}</span>
+                          </th>
+                        </tr>
+                      </ng-template>
+                       <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex" class="childRefTable">
+                         <tr>
+                           <td *ngFor="let cols of opt.control.params.columns">
+                            <span innerHTML="{{rowData[cols.header]}}" tabindex="0" attr.aria-label="{{rowData[cols.header]}}"></span>
+                            <span> <a href="#" id="childRef" onclick="return false;" tabindex="0" [attr.title]="'viewChild' | translate"
+                              (click)="onClickChildRefDetails($event,control.key,rowData[cols.header])"><em class="pi pi-external-link pointer-class"></em></a>
+                              </span>
+                          </td>
+                         </tr>
+                       </ng-template>
+                     </p-table>
+                   </div>
+                <div *ngIf="opt.feesAndChargesBlock">
+                  <div *ngIf = "opt.showLabelView"><span class="{{control.params.panelHeadStyle}}">{{opt.label}}</span><br><br></div>
+                  <p-table formControlName="{{control.key}}" id="{{control.key}}" [columns]=opt.control.params.columns
+                    [value]="opt.control.params.data">
+                    <ng-template pTemplate="header" let-columns>
+                      <tr>
+                        <th id="header" scope="col" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width}">
+                          <span tabindex="0" attr.aria-label="{{cols.header | translate}}">{{cols.header | translate}}</span>
+                        </th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex">
+                      <tr>
+                        <td *ngFor="let cols of opt.control.params.columns">
+                          <span innerHTML="{{rowData[cols.header]}}" tabindex="0" attr.aria-label="{{rowData[cols.header]}}"></span>
+                        </td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+                </div>
+                <div *ngIf = "opt.bgVariationsBlock || opt.bkVariationsBlock" class="{{opt.previewTableStyle}}">
+                  <div class="ui-table">
+                      <p-table formControlName="{{control.key}}"  id="{{control.key}}"  [columns]="opt.control.params.columns"
+                      [value]="opt.control.params.data" class="fcc-ui-table">
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th scope="col" tabindex="0" id="header" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width, 'text-align': 'center'}">
+                                  <span>{{ cols.header | translate }}</span>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex">
+                            <tr class="rowDataStyle">
+                                <td *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'text-align': 'center'}" class="displayChevron">
+                                  <span tabindex="0">{{rowData[cols.header]}}</span>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                  </div>
+              </div>
+              <div class="bulkReferenceBlockStyle" *ngIf="opt.bulkReferenceBlock && opt.isFromPreviewScreen">
+                <p-table formControlName="{{control.key}}" id="{{control.key}}" [columns]=opt.control.params.columns class="childRefTable"
+                  [value]="opt.control.params.data">
+                  <ng-template pTemplate="header" let-columns>
+                   <tr>
+                     <th id="header" scope="col" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width}" class="childRefTable">
+                       <span tabindex="0" attr.aria-label="{{cols.header | translate}}">{{opt.control.params.key | translate}}</span>
+                     </th>
+                   </tr>
+                 </ng-template>
+                  <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex" class="childRefTable">
+                    <tr>
+                      <td *ngFor="let cols of opt.control.params.columns">
+                       <span innerHTML="{{rowData[cols.header]}}" tabindex="0" attr.aria-label="{{rowData[cols.header]}}"></span>
+                       <span> <a href="#" id="childRef" onclick="return false;" tabindex="0" [attr.title]="'bulkReference' | translate"
+                         (click)="onClickBulkReference($event, 'BulkDetails', rowData[cols.header])"><em class="pi pi-external-link pointer-class"></em></a>
+                         </span>
+                     </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+              <div *ngIf = "opt.cuVariationsBlock">
+                <div class="ui-table">
+                    <p-table formControlName="{{control.key}}"  id="{{control.key}}"  [columns]="opt.control.params.columns"
+                    [value]="opt.control.params.data" class="fcc-ui-table">
+                      <ng-template pTemplate="header" let-columns>
+                          <tr>
+                              <th scope="col" id="header" tabindex="0" *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'width': cols.width, 'text-align': 'center'}">
+                                {{ cols.header | translate }}
+                              </th>
+                          </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-rowData let-columns="{{opt.control.params.columns}}" let-index="rowIndex">
+                          <tr class="rowDataStyle">
+                              <td *ngFor="let cols of opt.control.params.columns" [ngStyle]="{'text-align': 'center'}" class="displayChevron">
+                                <span tabindex="0" >{{rowData[cols.header]}}</span>
+                              </td>
+                          </tr>
+                      </ng-template>
+                  </p-table>
+                </div>
+            </div>
+               </ng-template>
+              </div>
+             </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+    </ng-container>
+    </div>
+  </div>
+</ng-container>

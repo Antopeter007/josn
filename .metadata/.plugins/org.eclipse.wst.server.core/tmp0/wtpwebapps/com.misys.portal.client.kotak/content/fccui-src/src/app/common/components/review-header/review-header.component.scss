@@ -1,0 +1,149 @@
+@import './../../../../styles/variables.scss';
+
+.threeDots{
+  font-size: 1.25em;
+  color: $threeDotsColor;
+  border-radius: 0.25em !important;
+  background-color:$threeDotsBackgroundColor;
+}
+
+:host ::ng-deep .pi{
+  line-height: 1.59em !important;
+  position: absolute !important;
+  top: 7.4em !important;
+  right:1em !important;
+}
+
+.threeDots:focus{
+  box-shadow: $threeDotsFocusBoxShadow !important;
+  outline: none !important;
+}
+.verMenuCssClass :host ::ng-deep .pi{
+  line-height: 1.59em !important;
+  position: absolute !important;
+  top: 5.5em !important;
+  right: 1em !important;
+}
+
+.buttons .ltr{
+  text-align: right;
+}
+.buttons .rtl{
+  text-align: left;
+}
+
+.block1{
+  color: $enquiryeventtextColor;
+  font-size: 1em;
+  padding-right: 0.75em;
+  font-weight: 300;
+}
+
+.block2 {
+  color: $enquiryEventTypetextColor;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+[dir="rtl"] .block2 {
+  color: $enquiryEventTypetextColor;
+  font-size: 1em;
+  font-weight: 500;
+  padding-right: 0.75em
+}
+
+.refnum{
+  font-size: 1.5625em;
+  font-weight: 500;
+  color: $enquiryChannelReferencecolor;
+}
+.blockStyle{
+  margin-top: -0.5em;
+}
+
+:host ::ng-deep  .ui-card {
+  background-color: transparent;
+  color: $uiCardColor;
+  box-shadow: none;
+}
+
+:host ::ng-deep  .ui-card-body {
+  padding-bottom: 0em !important;
+}
+
+.block1, .block2
+{
+    display:inline;
+}
+
+:host ::ng-deep .primaryButton1{
+  background-color: transparent !important;
+  border: 1px solid $primaryButtonBorderColor !important;
+}
+
+:host ::ng-deep .primaryButton2{
+  background-color: $primaryButtonBackground !important
+
+}
+
+:host ::ng-deep .primaryButton{
+  font-size: 1em !important;
+  margin-right: 1.5em !important;
+}
+
+:host ::ng-deep .primaryButton1.ui-button.ui-button-text-only .ui-button-text {
+  color: $enquiryButtonTextColr !important;
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+
+:host ::ng-deep .primaryButton2.ui-button.ui-button-text-only .ui-button-text {
+  color: $enquiryButtonTextColr !important;
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+
+.journey-button {
+  background-color: $primaryjourneyButtonBackgroundColor !important;
+}
+
+@media screen and (min-width: 540px) and (max-width: 1023px) {
+  .p-justify-end {
+    margin-top: 2.5em;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  .p-justify-end {
+    margin-top: 3.5em !important;
+  }
+  .journey-button {
+    margin-top: 1em !important;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+  .p-justify-end {
+    margin-top: 3.7em !important;
+  }
+}
+
+:host ::ng-deep .removeSpace {
+  padding-bottom: 0em;
+}
+
+.p-message-error {
+  background: $ErrorMessageBackground;
+  border: 0.0625em solid $DarkRed;
+  padding: 0.9375em 1.0625em;
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 0.25em;
+}
+
+.dialogImage{
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+.paddingAll {
+  padding: 0.5em 2.5em 0.5em 1em;
+}

@@ -1,0 +1,236 @@
+@import './../../../../../styles/variables.scss';
+
+.workBreak {
+  word-break: break-all;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.msgDiv {
+  margin-top: 0.5em;
+}
+
+.finishMsg {
+  color: $CHARCOAL-F75;
+  font-style: italic;
+  padding: 0.5em 1.5em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.productHeader {
+  font-size: 0.9em;
+  opacity: 1.75;
+  color: #414141;
+  font-weight: 600;
+  line-height: 1.5em;
+  margin-top: -1em;
+}
+.displayIcon {
+  visibility: hidden;
+}
+
+tr:hover > td .displayIcon {
+  cursor: pointer;
+  visibility: visible;
+  font-size: 1.5em;
+  color: #c137a2;
+}
+
+tr:hover > td .ellipisis {
+  cursor: pointer;
+  visibility: visible;
+}
+
+:host ::ng-deep .plainTable .ui-table .ui-table-tbody > tr:hover > td {
+  cursor: default !important;
+}
+:host ::ng-deep .plainTable .ui-table .ui-table-tbody > tr:hover > td.viewCursor {
+  cursor: pointer !important;
+}
+
+:host ::ng-deep .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+  background-color: transparent;
+}
+
+:host ::ng-deep .ui-table .ui-table-caption {
+  border: 1px solid rgba(217, 211, 245, 0.31);
+  border-bottom: 1px solid rgba(217, 211, 245, 0.31);
+  background-color: rgba(217, 211, 245, 0.31);
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: #e0e0e0 !important;
+}
+
+@media screen and (max-width: 40em) {
+  :host ::ng-deep .ui-table.ui-table-responsive .ui-table-tbody > tr > td {
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+}
+
+.bottom-transaction {
+  padding-left: 47%;
+}
+
+:host ::ng-deep .ui-paginator {
+  background-color: #f4f4f4;
+  border: 1px solid #c8c8c8;
+  padding: 0;
+  background-color: rgba(217, 211, 245, 0.31);
+  border: 1px solid rgba(217, 211, 245, 0.31);
+}
+
+:host
+  ::ng-deep
+  .ui-paginator
+  .ui-paginator-pages
+  .ui-paginator-page.ui-state-active {
+  background-color: #694ed6;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-chkbox-box
+  .ui-widget
+  .ui-corner-all
+  .ui-state-active
+  .ui-state-active {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  color: #ffffff !important;
+  box-shadow: none !important;
+  border-color: #a6a6a6 !important;
+  background-color: #fff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight {
+  color: #000000;
+  background-color: transparent;
+}
+
+:host ::ng-deep .ui-dropdown {
+  background: #ffffff;
+  border: none;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  color: #6948d9;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  background-color: #694ed6;
+}
+
+:host ::ng-deep .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: #694ed6;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-filter-container
+  .ui-dropdown-filter-icon {
+  color: #694ed6;
+}
+
+:host
+  ::ng-deep
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
+  color: #694ed6;
+}
+
+.export {
+  float: right;
+  margin-left: 5px;
+}
+
+a {
+  color: #694ed6;
+}
+
+a:hover {
+  color: #694ed6;
+}
+
+#searchIcon {
+  margin-left: 4px;
+  margin-top: 10px;
+  float: left;
+  color: #694ed6;
+}
+
+.chartjsLegend li span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  border-radius: 25px;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:first-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:last-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus + tr > td {
+  box-shadow: none;
+}

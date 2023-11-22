@@ -1,0 +1,109 @@
+@import './../../../../styles/variables.scss';
+
+.container {
+    display: inline-block;
+  }
+
+.auditLayout {
+    white-space: nowrap;
+    margin-bottom: -1.8em;
+}
+
+.auditHorizontalLayout {
+    white-space: nowrap;
+    max-width: 95vw;
+    overflow-x: auto;
+  }
+
+.dashLayout {
+    position: relative;
+    color: $VIOLET-F50;
+    bottom: 5.5em;
+    display: inline-block;
+}
+
+.matCardLayout {
+    width: 11em;
+    height: auto !important;
+    margin-top: 1.8em;
+    margin-bottom: 2em;
+    border: 0.125em solid $VIOLET-F50;
+    border-radius: 5%;
+    display: inline-block;
+    text-align: center;
+}
+
+.cardTitle {
+    margin-top: -2em !important;
+    margin-bottom: 0;
+    font-size: 1em;
+    text-align: center;
+    color: $VIOLET-07;
+    font-weight: bold;
+    white-space: initial;
+}
+
+.cardSubtitle {
+    margin-top: 0.5em !important;
+    text-align: center;
+    font-size: 1em;
+}
+
+.profileAvatar {
+    font-size: 3em;
+    color: $FUCHSIA-F100;
+    position: relative;
+    top: -1em;
+    background-color: white;
+    width: 1.2em;
+    text-align: center;
+}
+
+.cardContent {
+    font-size: 0.95em !important;
+    position: relative;
+    top: -2.2em;
+    text-align: center;
+    color: $VIOLET-07 !important;
+    font-weight: normal !important;
+}
+
+span em {
+    color: rgba(0,0,0,0.54);
+    font-size: 1.5em;
+}
+
+.calendar {
+    position: relative;
+    left: -0.12em;
+}
+
+.date {
+    font-weight: bold;
+    color: $VIOLET-07;
+}
+
+.viewMoreLayout {
+    display: inline-block;
+    position: relative;
+    bottom: 5.5em;
+    left: 1.5em;
+    width: 7em;
+}
+
+.viewMoreLayout[dir="rtl"] {
+    left: 0em;
+    right: 1.5em;
+}
+
+.viewMore {
+    color: $FUCHSIA-F100;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    height: 4em;
+    border-bottom: 2em;
+}

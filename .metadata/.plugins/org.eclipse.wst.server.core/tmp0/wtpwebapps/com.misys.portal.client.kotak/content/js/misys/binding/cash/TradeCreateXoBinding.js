@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.cash.TradeCreateXoBinding"]){dojo._hasResource["misys.binding.cash.TradeCreateXoBinding"]=true;dojo.provide("misys.binding.cash.TradeCreateXoBinding");dojo.require("dojo.parser");dojo.require("dojo.data.ItemFileReadStore");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dijit.form.DateTextBox");dojo.require("dijit.form.TimeTextBox");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.NumberTextBox");dojo.require("dijit.form.FilteringSelect");dojo.require("misys.widget.Dialog");dojo.require("dijit.layout.ContentPane");dojo.require("dijit.ProgressBar");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("misys.form.SimpleTextarea");dojo.require("misys.form.DateTermField");dojo.require("misys.binding.cash.XoActions");fncDoBinding=function(){fncCommonBindingRules();};fncDoFormOnLoadEvents=function(){fncExpirationCodeChange();fncMarketOrderChange();dijit.byId("expiration_time").set("value",null);if(dojo.byId("validationErrors")){var _1="";dojo.query(".validationError").forEach(function(_2){_1+=(_2.innerHTML!="null")?misys.getLocalization(_2.innerHTML)+"<br/>":misys.getLocalization("technicalError");});misys.dialog.show("ERROR",_1);}};dojo.require("misys.client.binding.cash.TradeCreateXoBinding_client");}

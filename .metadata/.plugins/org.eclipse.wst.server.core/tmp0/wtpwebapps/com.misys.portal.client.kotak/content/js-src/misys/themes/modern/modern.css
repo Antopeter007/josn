@@ -1,0 +1,45 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Modern (Secured Pages)
+
+	summary:
+  		CSS rules loaded by all *secured* pages
+	
+*/
+
+/** Import the base theme **/
+@import "../base/base.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow {
+	border-left: 5px solid transparent;
+	border-right: 0px solid transparent;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowHover
+	{
+	border-left: 5px solid #b4a6ea;
+	border-right: 0px solid #b4a6ea;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected
+	{
+	border-left: 5px solid #694ed6;
+	border-right: 0px solid #694ed6;
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+	.textarea-button {
+		width: 10%;
+	}
+	.base .dijitTextArea {
+		width: 61% !important;
+	}
+	.toplevel-header {
+		width: 100% !important;
+	}
+}

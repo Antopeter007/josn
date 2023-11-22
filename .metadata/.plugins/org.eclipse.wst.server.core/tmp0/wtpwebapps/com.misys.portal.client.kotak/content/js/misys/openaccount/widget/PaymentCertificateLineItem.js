@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.openaccount.widget.PaymentCertificateLineItem"]){dojo._hasResource["misys.openaccount.widget.PaymentCertificateLineItem"]=true;dojo.provide("misys.openaccount.widget.PaymentCertificateLineItem");dojo.experimental("misys.openacount.widget.PaymentCertificateLineItem");dojo.require("dijit._Contained");dojo.require("dijit._Widget");dojo.require("misys.layout.SimpleItem");dojo.declare("misys.openaccount.widget.PaymentCertificateLineItem",[dijit._Widget,dijit._Contained,dijit._Container,misys.layout.SimpleItem],{purchaseOrderRefId:"",purchaseOrderIssDate:"",line_item_id_payment_certificate:"",is_valid:"Y",createItem:function(){var _1=this.get("line_item_id_payment_certificate");paymentCertificateLineItemIdObj="";if(_1){paymentCertificateLineItemIdObj=new misys.openaccount.widget.PaymentCertificateLineItemIdentifications();paymentCertificateLineItemIdObj.createItemsFromJson(_1);}var _2={purchaseOrderRefId:this.get("purchaseOrderRefId"),purchaseOrderIssDate:this.get("purchaseOrderIssDate"),line_item_id_payment_certificate:"",is_valid:this.get("is_valid")};if(this.hasChildren&&this.hasChildren()){dojo.forEach(this.getChildren(),function(_3){if(_3.createItem){var _4=_3.createItem();if(_4!=null){dojo.mixin(_2,_4);}}},this);}return _2;},constructor:function(){this.inherited(arguments);}});}

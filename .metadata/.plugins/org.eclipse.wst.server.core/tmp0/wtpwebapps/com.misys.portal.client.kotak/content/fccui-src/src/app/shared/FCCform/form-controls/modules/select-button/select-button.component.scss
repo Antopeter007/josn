@@ -1,0 +1,12 @@
+:host ::ng-deep .mat-button-toggle-group {
+    flex-wrap: wrap;
+}
+
+:host ::ng-deep .mat-button-toggle {
+    margin-top: 1em;
+    max-width: 25em;
+}
+
+.cancelStyle {
+    z-index: 999;
+}

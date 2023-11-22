@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.cash.ktp.messagecenter.ktp_remittance_report"]){dojo._hasResource["misys.binding.cash.ktp.messagecenter.ktp_remittance_report"]=true;dojo.provide("misys.binding.cash.ktp.messagecenter.ktp_remittance_report");dojo.require("misys.binding.cash.ktp.common.ktp_common");(function(d,dj,m){var _1;function _2(){if((dj.byId("DU").get("value")!==""&&dj.byId("AU").get("value")!=="")&&(dj.byId("DU").get("value")!==null&&dj.byId("AU").get("value")!==null)){var _3=dj.byId("DU");var to=dj.byId("AU");if(!m.compareDateFields(_3,to)){_1=m.getLocalization("toDateGreaterThanFromDateError",[dj.byId("AU").get("displayedValue"),dj.byId("DU").get("displayedValue")]);dj.byId("AU").set("state","Error");dj.hideTooltip(dj.byId("AU").domNode);m.showTooltip(_1,d.byId("AU"));return false;}}};function _4(){if((dj.byId("DU").get("value")!==""&&dj.byId("AU").get("value")!=="")&&(dj.byId("DU").get("value")!==null&&dj.byId("AU").get("value")!==null)){var _5=dj.byId("DU");var to=dj.byId("AU");if(!m.compareDateFields(_5,to)){_1=m.getLocalization("fromDateLessThanToDateError",[dj.byId("DU").get("displayedValue"),dj.byId("AU").get("displayedValue")]);dj.byId("DU").set("state","Error");dj.hideTooltip(dj.byId("DU").domNode);m.showTooltip(_1,d.byId("DU"));return false;}}};d.ready(function(){m.hideReportDescription();m.setGridCellFormatter();});d.mixin(m,{bind:function(){m.connect("DU","onBlur",function(){_4();});m.connect("AU","onBlur",function(){_2();});}});})(dojo,dijit,misys);}

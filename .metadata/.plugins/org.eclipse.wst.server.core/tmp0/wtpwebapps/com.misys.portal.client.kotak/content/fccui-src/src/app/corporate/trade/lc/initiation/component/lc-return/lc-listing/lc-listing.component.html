@@ -1,0 +1,19 @@
+<div class="p-grid top-lc">
+    <div class="p-col-3 left-class">
+        <div class="">
+            <ul *ngFor="let item of items; let i = index;" class="">
+                <li class={{item.styleClass}} (click)="sectionActive(i)">
+                    {{item.label}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ng-container>
+        <div class="p-col-9 right-class section-wrapper">
+           <div *ngFor = "let widget of widgetSelector">
+       <lc-dynamic-component type ="{{widget}}" context="readonly"></lc-dynamic-component>
+           </div>
+        </div>
+    </ng-container>
+
+</div>

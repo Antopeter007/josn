@@ -1,0 +1,207 @@
+<div class="p-grid widget-container">
+    <ng-container *ngIf="!productCode; else tabbedMenu">
+      <div *ngIf="displayHeader && tabListingHeader" tabindex="0" class="p-col-12 widget-header widget-padding">
+        <h1>{{tabListingHeader | translate}}</h1>
+      </div>
+      <div class="p-col-12 widget-padding" tabindex="0" *ngIf="tabListingArray && tabListingArray.length > 1" #panelTabs>
+        <ul class="sticky">
+            <ng-contaner *ngFor='let item of tabListingArray; let i = index'>
+                <li tabindex="0" (keyup)="OnEnterKey($event, i)" (click)="onWidgetClick(i)" [ngClass]="{'active': currentActive === i}">{{item?.tabName | translate}}
+                </li>
+            </ng-contaner>
+        </ul>
+      </div>
+      <div class="p-col-12 widget-listing" [ngClass]="{'widget-listing-all-account': isAllAccountScreen}" (scroll)="onScroll($event)" #tabListContent>
+          <div *ngFor="let listingItem of tabListingArray; let j = index" #tablList>
+              <ng-container *ngIf="listingItem.tabSelector === 'listdefCommonComponent'; else panelSection">
+              <ng-container *ngIf="!listingItem.showFilter">
+                <div *ngIf="listingItem.HyperLinks && listingItem.HyperLinks.length || listingItem.Switches && listingItem.Switches.length" 
+                class="p-col-12 widget-padding widget-header-margin mat-tab-btn-grp rightHeaderSection">
+                  <div [ngClass]="dir === 'rtl' ? 'rtlTabConfigHeader' : 'tabConfigHeader'">{{tabConfigHeader | translate}}</div>
+                  <ng-container  *ngIf="listingItem.HyperLinks && listingItem.HyperLinks.length">
+                    <div class="hyperlink" *ngFor="let button of listingItem.HyperLinks; let index = index;">
+                      <p (click)="handleHyperlink(button)"
+                      (keyup.enter)="handleHyperlink(button)" tabindex="0">{{button.hyperlinkName | translate}}</p>
+                    </div>
+                    <p-dialog *ngIf="displayDialog" header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+                    [modal]="true" [maximizable]="false" [draggable]="false" [resizable]="false">
+                        <p>{{ 'popupConfirmationMessage' | translate }}</p>
+                        <p-footer>
+                            <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+                            <p-button role="button"  (click)="close()" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+                        </p-footer>
+                    </p-dialog>
+                  </ng-container>
+                  <ng-container *ngIf="listingItem.Switches && listingItem.Switches.length">
+                      <ng-container *ngFor="let button of listingItem.Switches; let i = index">
+                        <button role="button" matTooltip="{{button.toolTip | translate}}" mat-button [class.active-tab]="activeIndex === i"  animationDuration="0ms" (click)="onSwitchChange(i,button,listingItem)">{{button.switchName | translate}}</button>
+                      </ng-container>
+                  </ng-container>
+                </div>
+                <div *ngFor="let listdefListingItem of listdefListingArray; let k = index">
+                  <ng-container *ngIf = "listingItem.listdefName === listdefListingItem.listdefName">
+                    <fcc-common-transactions-listdef #listdef [inputParams]="listdefListingItem"
+                      (rowUnSelectEventListdef)="getRowUnSelectEvent($event)" (refreshProductList)="refreshProductList()"
+                      (filterAppliedEvent)="onFilterApply($event)" (headerCheckboxToggle)="onHeaderCheckboxToggle($event)"
+                      (rowSelectEventListdef)="getRowSelectEvent($event)">
+                    </fcc-common-transactions-listdef>
+                  </ng-container>
+                </div>
+            </ng-container>
+          </ng-container>
+              <ng-container *ngIf="listingItem.showFilter">
+                <div class="p-col-2 multipleTabHeading" *ngIf="multipleTabEnable" id="multipleTabEnableHeaderId">
+                  <label class="multipleTabEnableHeaderId">
+                  {{ tabName | translate }}
+                </label>
+                </div>
+                <div class="p-col-12 accord-start" *ngIf="listingItem.showFilter">
+                  <p-accordion [activeIndex]="indexAcc"  (onOpen)="getFormValue($event, false)"(onClose)="getFormValue($event, true)">
+                    <p-accordionTab [(selected)]="activeState" class="acc-header {{dirChevronStyle}}">
+                      <p-header>
+                        <div class="p-grid">
+                          <div class="p-col-2 filterHeading" id="accordionHeaderId" attr.aria-label="{{ 'advanceFilter' | translate }}" attr.text="{{ 'advanceFilter' | translate }}">
+                            <label for="accordionHeaderId"> <!-- removed tabindex="0" here since its parent component is already under tab index. -->
+                              {{'advanceFilter' | translate}}
+                            </label>
+                          </div>
+                          <div dir={{dir}} class="p-col-10 accHeadParent">
+                          <div class="accHeadContent" *ngIf="formValues.length !==0" >
+                            <div *ngFor="let item of formValues" class="p-col-1 filterContent" tabindex="0">
+                              <div (click)="doNothing($event)">
+                                <span class="filterLabel">
+                                  {{item.name | translate}}:
+                                </span>
+                                <span class="filterType">
+                                  {{item.value | translate}}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </p-header>
+                      <div class="p-grid" id="filterSectionDivison" tabindex="0" *ngIf="diaplayAdvFilterData">
+                          <fcc-common-filtersection  [inputJson]="displayableJson" [filterParams]="filterParams" [filterParam]="filterParam" (filterApplied)="onFilterApplied()" class="p-col-12"></fcc-common-filtersection>
+                          <div class="p-col-12">
+                            <div class="p-justify-end buttonDisplay">
+                              <div *ngFor="let item of buttons" class="buttonStyle focus">
+                                <a href="javascript:void(0)" (click)="handleApplyClick($event);" tabindex="0">
+                                <button role="button"  pButton [type]="item.type" [class]="item.className" [label]="item.localizationkey" ></button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </p-accordionTab>
+                  </p-accordion>
+                </div>
+              <div *ngFor="let listingItem of allAccountlistingArray; let j = index">
+              <div *ngFor="let userAccountType of userAccountTypeArray">
+                <div *ngIf="listingItem.accountType == userAccountType.value">
+                  <fcc-common-transactions-listdef #listdef [inputParams]="listingItem"
+                  [inputParamsList]="allAccountlistingArray"
+                  (rowUnSelectEventListdef)="getRowUnSelectEvent($event)"
+                  (refreshProductList)="refreshProductList()" (filterAppliedEvent)="onFilterApply($event)"
+                  (headerCheckboxToggle)="onHeaderCheckboxToggle($event)"
+                  (rowSelectEventListdef)="getRowSelectEvent($event)">
+                  </fcc-common-transactions-listdef>
+                  <!-- Adding div to provide space between tables -->
+                  <!-- <div class="grid-breaker"></div> -->
+                </div>
+              </div>
+
+              </div>
+              </ng-container>
+              <ng-template #panelSection>
+                  <div>
+                      <dynamic-component-content context="readonly" tabindex="0" type="{{ listingItem?.widgetSelector }}"
+                          widgetDetails="{{ listingItem | json }}" #container>
+                      </dynamic-component-content>
+                    </div>
+              </ng-template>
+              <!-- <div *ngIf="j === tabListingArray.length - 1 || tabListingArray.length === 1" class='listing-scroll-append'>
+              </div> -->
+          </div>
+      </div>
+    </ng-container>
+
+    <ng-template #tabbedMenu>
+      <div *ngIf="tabListingHeader" class="p-col-12 widget-header widget-padding widget-header-margin">
+        <h1>{{tabListingHeader | translate}}</h1>
+        <div>
+          <ng-container *ngFor="let button of buttonList">
+            <button role="button"  id={{button.localizationKey}} *ngIf = "!button.filterDialogEnable" mat-raised-button (click)="navigateButtonUrl(button.routerLink)">{{button.localizationKey | translate}}</button>
+            <button role="button"  id={{button.localizationKey}} *ngIf = "button.filterDialogEnable" mat-raised-button (click)="handlefilterPopup()">{{button.localizationKey | translate}}</button>
+          </ng-container>
+        </div>
+      </div>
+      <div class="p-col-12 widget-padding widget-body" *ngIf="tabListingArray && tabListingArray.length">
+        <mat-tab-group (selectedTabChange)="onTabChange($event)" animationDuration="0ms">
+          <ng-container *ngFor="let tabs of tabListingArray; let j = index">
+            <mat-tab>
+              <ng-template mat-tab-label>
+                {{tabs.tabName | translate}}
+              </ng-template>
+              <div>
+                <div *ngIf="tabs.Tabs && tabs.Tabs.length;  else elseBlock" class="mat-tab-btn-grp">
+                  <ng-container *ngFor="let button of tabs.Tabs; let i = index">
+                    <button role="button"  mat-button id={{button.localizationKey}} [class.active-tab]="activeIndex === i" (click)="onButtonClick(i)">{{button.localizationKey | translate}} ({{button.count}})</button>
+                  </ng-container>
+                </div>
+                <ng-template #elseBlock>
+                  <div  class="p-col-12 widget-padding widget-header-margin mat-tab-btn-grp rightHeaderSection">
+                    <div [ngClass]="dir === 'rtl' ? 'rtlTabConfigHeader' : 'tabConfigHeader'">{{tabConfigHeader | translate}}</div>
+                    <ng-container  *ngIf="tabs.HyperLinks && tabs.HyperLinks.length">
+                      <div class="hyperlink" *ngFor="let button of tabs.HyperLinks; let index = index;">
+                        <p (click)="handleHyperlink(button)"
+                        (keyup.enter)="handleHyperlink(button)" tabindex="0">{{button.hyperlinkName | translate}}</p>
+                      </div>
+                      <p-dialog *ngIf="displayDialog" header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+                      [modal]="true" [maximizable]="false" [draggable]="false" [resizable]="false">
+                          <p>{{ 'popupConfirmationMessage' | translate }}</p>
+                          <p-footer>
+                              <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+                              <p-button role="button"  (click)="close()" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+                          </p-footer>
+                      </p-dialog>
+                    </ng-container>
+                    <ng-container *ngIf="tabs.Switches && tabs.Switches.length">
+                        <ng-container *ngFor="let button of tabs.Switches; let i = index">
+                          <button role="button" matTooltip="{{button.toolTip | translate}}" mat-button [class.active-tab]="activeIndex === i"  animationDuration="0ms" (click)="onSwitchChange(i,button,tabs)">{{button.switchName | translate}}</button>
+                        </ng-container>
+                    </ng-container>
+                  </div>
+                </ng-template>
+                <fcc-common-transactions-listdef #listdef *ngIf="changed"
+                  [inputParams]="chequeParams"
+                  (rowUnSelectEventListdef)="getRowUnSelectEvent($event)"
+                  (refreshProductList)="refreshProductList()" (filterAppliedEvent)="onFilterApply($event)"
+                  (headerCheckboxToggle)="onHeaderCheckboxToggle($event)"
+                  (rowSelectEventListdef)="getRowSelectEvent($event)">
+                </fcc-common-transactions-listdef>
+              </div>
+              <div class="p-col-12 rightDirect" *ngIf="activeItem['displayInputSwitch']  && activeItem['displayInputSwitch'].display && selectedRowsdata.length > 0">
+                <fcc-comment-section [visible]="true" position="bottom" [disableReturn]="disableReturn" [selectedRowsData]="selectedRowsdata"
+                  [commentsRequired]="false" [bottomButtonList]="bottomButtonList" (handleAction)="handleAction($event)"></fcc-comment-section>
+              </div>
+              <div *ngIf="toggleSubmission() && commentButtonList && commentButtonList.length" class="p-col-12">
+                <fcc-comment-section [visible]="true" position="bottom" [disableReturn]="disableReturn" [selectedRowsData]="selectedRowsdata"
+                  [commentsRequired]="commentsRequired" [buttonList]="commentButtonList" (handleAction)="handleAction($event)"></fcc-comment-section>
+              </div>
+              <div id="multiSubmitResponse" *ngIf="enableMultiSubmitResponse"  >
+                <div id="{{'responseHeader_' + i}}" *ngFor= "let detail of responseMap | keyvalue; let i= index">
+                  <br><strong>{{detail.key | translate}}</strong><br>
+                  <span class="viewTransaction focus pointer-class">
+                  <a href="#" id="{{'responseValueRow_' + i}}" *ngFor="let val of detail.value; let i=index" onclick="return false;" (click)="onClickView($event,val)">
+                  {{val.refId}}
+                  </a>
+                  </span>
+                </div>
+              </div>
+            </mat-tab>
+          </ng-container>
+        </mat-tab-group>
+      </div>
+    </ng-template>
+</div>

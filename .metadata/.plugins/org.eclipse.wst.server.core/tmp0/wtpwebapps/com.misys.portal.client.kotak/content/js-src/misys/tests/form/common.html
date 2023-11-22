@@ -1,0 +1,892 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Test Functions for form/common.js</title>
+        <style type="text/css">
+         @import "/cf/content/js-src/dojo/resources/dojo.css";
+         @import "/cf/content/js-src/dijit/themes/claro/claro.css";
+        </style>
+        <script type="text/javascript" src="../../../dojo/dojo.js" 
+                djConfig="isDebug: true, parseOnLoad: true, locale:'en-us'"></script>
+                
+         <!-- functions to help test -->
+        <script src="../../../dijit/tests/helpers.js"></script>	       
+         
+        <script type="text/javascript">
+        dojo.registerModulePath("misys", "../misys");
+        dojo.requireLocalization("misys", "common", "en-us");
+        dojo.require("dijit.form.TextBox");
+        dojo.require("dijit.form.FilteringSelect");
+        dojo.require("misys.form.CurrencyTextBox");
+        dojo.require("dijit.form.CheckBox");
+        dojo.require("dijit.form.DateTextBox");
+        dojo.require("dijit.form.NumberTextBox");
+        dojo.require("dijit.form.Form");
+        dojo.require("misys.form.SimpleTextarea");
+        dojo.require("dojo.parser");
+        dojo.require("doh.runner");
+        dojo.require("misys._base");
+		dojo.require("misys.common");
+		dojo.require("misys.form.common");
+        dojo.mixin(misys, {_config: { context: "/cf", servlet: "/portal", client: "misys", productCode: "bg"}});
+
+        dojo.ready(function(){
+        	doh.register("misys.tests.form.common", [
+        	                                       
+        	   function testConfigConstants() {
+        		   doh.t(misys._config.hasOwnProperty("advisingBank"));
+        		   doh.t(misys._config.hasOwnProperty("anyBank"));
+        		   doh.t(misys._config.hasOwnProperty("issuingBank"));
+        		   doh.t(misys._config.hasOwnProperty("other"));
+        		   doh.t(misys._config.hasOwnProperty("namedBank"));
+        	   },
+        	                                         
+               {
+        		   name : "Test Populate References",
+        		   timeout : 10000,
+        		   runTest: function(){
+        				// Sometimes a tiny lag that catches us out here, so making it async
+		               var d = new doh.Deferred;
+		               dijit.byId("issuing_bank_abbv_name").set("value", "SELENIUMBANK");
+		               dojo.hitch(dijit.byId("issuing_bank_abbv_name"), misys.populateReferences)();
+        			   setTimeout(function(){
+		            	   doh.is("", dijit.byId("issuing_bank_customer_reference").get("value"));
+		            	   dijit.byId("issuing_bank_customer_reference").set("value", "value1");
+		            	   setTimeout(function(){
+		            		   doh.is("value1", dijit.byId("issuing_bank_customer_reference").get("value"));
+		                	   doh.is("desc1", dijit.byId("issuing_bank_customer_reference").get("displayedValue"));
+		                	   dijit.byId("issuing_bank_customer_reference").set("value", "value2");
+		                	   doh.is("value2", dijit.byId("issuing_bank_customer_reference").get("value"));
+		                	   doh.is("desc2", dijit.byId("issuing_bank_customer_reference").get("displayedValue"));
+		                	   doh.is("SELENIUMBANK", dijit.byId("issuing_bank_name").get("value"));
+		                	   d.callback(true);
+		            	   }, 1000);
+        			   }, 1000);
+	            	   return d;
+        		   }
+               },
+               
+               { 
+            	   name : "test Populate References With Entity",
+            	   timeout: 1000,
+            	   runTest : function() {
+            		   var d = new doh.Deferred;
+	            	   dijit.byId("entity").set("value", "ENTITY");
+	            	   dijit.byId("issuing_bank_name").set("value", "");
+					   dijit.byId("issuing_bank_abbv_name").set("value", "SELENIUMBANK");
+	            	   
+	            	   dojo.hitch(dijit.byId("issuing_bank_abbv_name"), misys.populateReferences)();
+	            	   
+	            	   doh.is("", dijit.byId("issuing_bank_customer_reference").get("value"));
+	            	   dijit.byId("issuing_bank_customer_reference").set("value", "entityvalue1");
+	            	   setTimeout(function(){
+		            	   doh.is("entityvalue1", dijit.byId("issuing_bank_customer_reference").get("value"));
+		            	   doh.is("entitydesc1", dijit.byId("issuing_bank_customer_reference").get("displayedValue"));
+		            	   dijit.byId("issuing_bank_customer_reference").set("value", "entityvalue2");
+		            	   doh.is("entityvalue2", dijit.byId("issuing_bank_customer_reference").get("value"));
+		            	   doh.is("entitydesc2", dijit.byId("issuing_bank_customer_reference").get("displayedValue"));
+		            	   doh.is("SELENIUMBANK", dijit.byId("issuing_bank_name").get("value"));
+		            	   d.callback(true);
+	            	   }, 1000);
+	            	   
+	            	   return d;
+            	   }
+               },
+               
+               function testSetCurrency() {
+            	   dijit.byId("currency").set("value", "EUR");
+            	   
+            	   doh.f(dijit.byId("amount").get("constraints").hasOwnProperty("currency"));
+            	   doh.f(dijit.byId("amount2").get("constraints").hasOwnProperty("currency"));
+            	   doh.is("1.00", dijit.byId("amount").get("value"));
+            	   doh.is("2.00", dijit.byId("amount2").get("value"));
+            	   doh.is("1.00", dijit.byId("amount").get("displayedValue"));
+            	   doh.is("2.00", dijit.byId("amount2").get("displayedValue"));
+            	   
+            	   // Test with node and array of IDs
+            	   misys.setCurrency(dijit.byId("currency"), ["amount", "amount2"]);
+            	   var eurConstraints = dojo.cldr.monetary.getData("EUR");
+            	   
+            	   doh.is(eurConstraints.round, dijit.byId("amount").get("constraints").round);
+            	   doh.is(eurConstraints.places, dijit.byId("amount").get("constraints").places);
+            	   doh.is(eurConstraints.round, dijit.byId("amount2").get("constraints").round);
+            	   doh.is(eurConstraints.places, dijit.byId("amount2").get("constraints").places);
+
+            	   doh.is("1.00", dijit.byId("amount").get("value"));
+            	   doh.is("2.00", dijit.byId("amount2").get("value"));
+            	   doh.is("1.00", dijit.byId("amount").get("displayedValue"));
+            	   doh.is("2.00", dijit.byId("amount2").get("displayedValue"));
+            	   
+            	   // Test with id and single id
+            	   dijit.byId("currency").set("value", "USD");
+            	   doh.f(dijit.byId("amount3").get("constraints").hasOwnProperty("currency"));
+            	   doh.is("3.00", dijit.byId("amount3").get("value"));
+            	   doh.is("3.00", dijit.byId("amount3").get("displayedValue"));
+            	   misys.setCurrency("currency", "amount3");
+            	   var usdConstraints = dojo.cldr.monetary.getData("USD");
+            	   doh.is(usdConstraints.round, dijit.byId("amount3").get("constraints").round);
+            	   doh.is(usdConstraints.places, dijit.byId("amount3").get("constraints").places);
+            	   doh.is("3.00", dijit.byId("amount3").get("value"));
+            	   doh.is("3.00", dijit.byId("amount3").get("displayedValue"));
+               },
+               
+               function testSetTnxAmt() {
+            	   // TNX amount doesn't exist at this point - it should fail silently
+            	   var hasFailedSilently = true;
+            	   try {
+            		   misys.setTnxAmt("1");
+            	   } catch(err) {
+            		   hasFailedSilently = false;
+            	   }
+            	   doh.t(hasFailedSilently);
+            	   
+            	   // Create tnx_amt
+            	   new dijit.form.TextBox({
+            		   id : "tnx_amt",
+            		   type : "hidden",
+            	   }).placeAt(dojo.body());
+            	   doh.is("", dijit.byId("tnx_amt").get("value"));
+            	   misys.setTnxAmt("1");
+            	   doh.is("1", dijit.byId("tnx_amt").get("value"));
+               },
+               
+               function testAmendTransaction() {
+            	   // Increment
+            	   dijit.byId("inc_amt").set("value", 1);
+            	   doh.is("100.00", dijit.byId("bg_amt").get("displayedValue"));
+            	   doh.f(dijit.byId("dec_amt").get("disabled"));
+            	   dojo.hitch(dijit.byId("inc_amt"), misys.amendTransaction)();
+            	   doh.is("101.00", dijit.byId("bg_amt").get("displayedValue"));
+            	   doh.f(dijit.byId("inc_amt").get("disabled"));
+            	   doh.t(dijit.byId("dec_amt").get("disabled"));
+            	   
+            	   // Decrement
+            	   dijit.byId("dec_amt").set("disabled", false);
+            	   dijit.byId("inc_amt").set("value","");
+            	   dijit.byId("dec_amt").set("value","2");
+            	   dojo.hitch(dijit.byId("dec_amt"), misys.amendTransaction)();
+            	   doh.is("98.00", dijit.byId("bg_amt").get("displayedValue"));
+            	   doh.t(dijit.byId("inc_amt").get("disabled"));
+            	   doh.f(dijit.byId("dec_amt").get("disabled"));
+            	   
+            	   // Decrement with amount bigger than original amount
+            	   // (Should not change any value from before)
+            	   dijit.byId("dec_amt").set("value", "2000");
+            	   dojo.hitch(dijit.byId("dec_amt"), misys.amendTransaction)();
+            	   doh.is("98.00", dijit.byId("bg_amt").get("displayedValue"));
+            	   doh.t(dijit.byId("inc_amt").get("disabled"));
+            	   doh.f(dijit.byId("dec_amt").get("disabled"));
+            	   doh.is("Error", dijit.byId("dec_amt").get("state"));
+               },
+               
+               function testToggleAmendmentFields() {
+            	   dijit.byId("inc_amt").set("disabled", false);
+            	   dijit.byId("dec_amt").set("disabled", true);
+            	   dijit.byId("inc_amt").set("value", "1");
+            	   dijit.byId("dec_amt").set("value", "1");
+            	   dojo.hitch(dijit.byId("inc_amt"), misys.amendTransaction)();
+            	   doh.is("101.00", dijit.byId("bg_amt").get("displayedValue"));
+
+            	   // Checked
+            	   var fnc = dojo.hitch(dijit.byId("bg_release_flag"), misys.toggleAmendmentFields);
+            	   fnc();
+            	   doh.is("99.00", dijit.byId("bg_amt").get("displayedValue"));
+            	   doh.t(dijit.byId("inc_amt").get("disabled"));
+            	   doh.t(isNaN(dijit.byId("inc_amt").get("value")));
+            	   
+            	   // Not checked
+            	   // TODO
+               },
+               
+               function testSetSubTnxTypeCode() {
+            	   doh.is("", dijit.byId("sub_tnx_type_code").get("value"));
+            	   
+            	   // Case 1, bg_release_flag is checked
+            	   dijit.byId("bg_release_flag").set("checked", true);
+            	   misys.updateSubTnxTypeCode();
+            	   doh.is("05", dijit.byId("sub_tnx_type_code").get("value"));
+            	   
+            	   // Case 2, There is an increment amount
+            	   dijit.byId("bg_release_flag").set("checked", false);
+            	   dijit.byId("inc_amt").set("disabled", false);
+            	   dijit.byId("dec_amt").set("disabled", true);
+            	   dijit.byId("inc_amt").set("value", "1");
+            	   dijit.byId("dec_amt").set("value", "");
+            	   misys.updateSubTnxTypeCode();
+            	   doh.is("01", dijit.byId("sub_tnx_type_code").get("value"));
+            	   
+            	   // Cade 3, there is a decrement amount
+            	   dijit.byId("inc_amt").set("disabled", true);
+            	   dijit.byId("dec_amt").set("disabled", false);
+            	   dijit.byId("inc_amt").set("value", "");
+            	   dijit.byId("dec_amt").set("value", "1");
+            	   misys.updateSubTnxTypeCode();
+            	   doh.is("02", dijit.byId("sub_tnx_type_code").get("value"));
+            	   
+            	   // Case 4, none of the above are true
+            	   dijit.byId("inc_amt").set("disabled", true);
+            	   dijit.byId("dec_amt").set("disabled", true);
+            	   dijit.byId("inc_amt").set("value", "");
+            	   dijit.byId("dec_amt").set("value", "");
+            	   misys.updateSubTnxTypeCode();
+            	   doh.is("03", dijit.byId("sub_tnx_type_code").get("value"));
+               },
+               
+               function testEnableBeneficaryFields() {
+            	   doh.t(dijit.byId("beneficiary_address_line_1").get("disabled"));
+            	   doh.t(dijit.byId("beneficiary_address_line_2").get("disabled"));
+            	   doh.t(dijit.byId("beneficiary_dom").get("disabled"));
+            	   doh.t(dijit.byId("beneficiary_address_line_1").get("readOnly"));
+            	   doh.t(dijit.byId("beneficiary_address_line_2").get("readOnly"));
+            	   doh.t(dijit.byId("beneficiary_dom").get("readOnly"));
+            	   
+            	   misys.enableBeneficiaryFields();
+            	   
+            	   doh.f(dijit.byId("beneficiary_address_line_1").get("disabled"));
+            	   doh.f(dijit.byId("beneficiary_address_line_2").get("disabled"));
+            	   doh.f(dijit.byId("beneficiary_dom").get("disabled"));
+            	   doh.f(dijit.byId("beneficiary_address_line_1").get("readOnly"));
+            	   doh.f(dijit.byId("beneficiary_address_line_2").get("readOnly"));
+            	   doh.f(dijit.byId("beneficiary_dom").get("readOnly"));
+               }, 
+               
+               function toggleProdStatCodeFields() {
+            	   // Case 1 - prod stat code is 12
+            	   dijit.byId("prod_stat_code").set("value", "12");
+            	   doh.f(dijit.byId("action_req_code").get("readOnly"));
+            	   doh.t(dijit.byId("maturity_date").get("required"));
+            	   //misys.toggleProdStatCodeFields();
+            	   //doh.t(dijit.byId("action_req_code").get("readOnly"));
+            	   //doh.f(dijit.byId("maturity_date").get("required"));
+            	   // TODO Finish
+               },
+               
+               function testToggleGuaranteeText(){
+            	   // TODO
+            	   doh.t(false);
+               },
+               
+               function testSetApplicantReference(){
+            	  new dijit.form.TextBox({
+            		  id: "applicant_reference_value",
+            		  value: "test"
+            	  }).placeAt(dojo.body());
+            	  new dijit.form.TextBox({
+            		  id: "applicant_reference"
+            	  }).placeAt(dojo.body());
+            	  
+            	  doh.is("", dijit.byId("applicant_reference").get("value"));
+            	  dojo.hitch(dijit.byId("applicant_reference_value"), misys.setApplicantReference)();
+            	  doh.is("test", dijit.byId("applicant_reference").get("value"));
+            	  
+            	  dijit.byId("applicant_reference").set("value", "");
+            	  dijit.byId("applicant_reference").destroyRecursive();
+            	  
+            	  new dijit.form.TextBox({
+            		  id: "applicant_reference_hidden"
+            	  }).placeAt(dojo.body());
+            	  doh.is("", dijit.byId("applicant_reference_hidden").get("value"));
+            	  dojo.hitch(dijit.byId("applicant_reference_value"), misys.setApplicantReference)();
+            	  doh.is("test", dijit.byId("applicant_reference_hidden").get("value"));
+            	  return false;
+               },
+               
+               function testMaturityDate() {
+            		dijit.byId("iss_date").set("displayedValue", "03/30/2011");
+            		dijit.byId("maturity_date").set("displayedValue", "03/31/2011");
+            		doh.t(isNaN(dijit.byId("tenor").get("value")));
+            		
+            		// Calculate from maturity date
+            		dojo.hitch(dijit.byId("maturity_date"), misys.getMaturityDate)();
+            		doh.is("1", dijit.byId("tenor").get("value"));
+            		
+            		// Calculate from issue date
+            		dijit.byId("iss_date").set("displayedValue", "03/29/2011");
+            		dojo.hitch(dijit.byId("iss_date"), misys.getMaturityDate)();
+               },
+               
+               function testInitFTCounterparties() {
+            	   doh.t(false);
+               },
+               
+               function TestDisableNonAcceptanceFields() {
+            		doh.t(dijit.byId("non_acceptance_flag").get("checked"));
+            		var fnc = dojo.hitch(dijit.byId("non_acceptance_flag"), misys.disableNonAcceptanceFields);
+            		fnc();
+            		doh.t(dijit.byId("non_acceptance_flag").get("checked"));
+            		dijit.byId("term_code").set("value", "01");
+            		fnc();
+            		doh.f(dijit.byId("non_acceptance_flag").get("checked"));
+            	},
+            	
+            	function testSetCreditAvailBy() {
+            		// Advising Bank, !03 crAvlCode
+            		dijit.byId("credit_available_with_bank_type").set("value", misys._config.advisingBank);
+            		doh.is("", dijit.byId("credit_available_with_bank_name").get("value"));
+            		var fnc = dojo.hitch(dijit.byId("credit_available_with_bank_type"), misys.setCreditAvailBy);
+            		fnc();
+            		doh.is(misys._config.advisingBank, dijit.byId("credit_available_with_bank_name").get("value"));
+            		doh.is(misys._config.advisingBank, dijit.byId("drawee_details_bank_name").get("value"));
+            		
+            		// Advising Bank, 03 crAvlCode
+            		dijit.byId("cr_avl_by_code_3").set("checked", true);
+            		fnc();
+            		doh.is(misys._config.advisingBank, dijit.byId("credit_available_with_bank_name").get("value"));
+            		doh.is(misys._config.issuingBank, dijit.byId("drawee_details_bank_name").get("value"));
+
+            		// Any Bank
+            		dijit.byId("credit_available_with_bank_type").set("value", misys._config.anyBank);
+            		fnc();
+            		doh.is(misys._config.anyBank, dijit.byId("credit_available_with_bank_name").get("value"));
+            		doh.is(misys._config.issuingBank, dijit.byId("drawee_details_bank_name").get("value"));
+            		
+            		// Issuing Bank
+            		dijit.byId("credit_available_with_bank_type").set("value", misys._config.issuingBank);
+            		fnc();
+            		doh.is(misys._config.issuingBank, dijit.byId("credit_available_with_bank_name").get("value"));
+            		
+            		// Other
+            		dijit.byId("credit_available_with_bank_type").set("value", misys._config.other);
+            		fnc();
+            		doh.is(misys._config.issuingBank, dijit.byId("drawee_details_bank_name").get("value"));
+            		doh.is(misys._config.issuingBank, dijit.byId("drawee_details_bank_name").get("value"));
+            	},
+            	
+            	function testToggleDraftTerm() {
+
+            		// 01 passed as String, keepValues = false
+            		dijit.byId("draft_term").set("value", "test");
+            		misys.toggleDraftTerm("01");
+            		doh.is("", dijit.byId("draft_term").get("value"));
+            		doh.t(dijit.byId("tenor_days").get("disabled"));
+            		doh.t(dijit.byId("tenor_period").get("disabled"));
+            		doh.t(dijit.byId("tenor_from_after").get("disabled"));
+            		doh.t(dijit.byId("tenor_days_type").get("disabled"));
+            		doh.t(dijit.byId("tenor_maturity_date").get("disabled"));
+            		
+            		// 02 passed as String, keepValues = false
+            		misys.toggleDraftTerm("02");
+            		doh.t(dijit.byId("tenor_days").get("disabled"));
+            		doh.t(dijit.byId("tenor_period").get("disabled"));
+            		doh.t(dijit.byId("tenor_from_after").get("disabled"));
+            		doh.t(dijit.byId("tenor_days_type").get("disabled"));
+            		doh.f(dijit.byId("tenor_maturity_date").get("disabled"));
+            		
+            		// 03 passed as String, keepValues = false
+            		misys.toggleDraftTerm("03");
+            		doh.f(dijit.byId("tenor_days").get("disabled"));
+            		doh.f(dijit.byId("tenor_period").get("disabled"));
+            		doh.f(dijit.byId("tenor_from_after").get("disabled"));
+            		doh.f(dijit.byId("tenor_days_type").get("disabled"));
+            		doh.t(dijit.byId("tenor_maturity_date").get("disabled"));
+            	},
+            	
+            	function testInitDraweeFields() {
+
+            		// neither cr_avl_by_code_2 or cr_avl_by_code_3 checked
+            		dijit.byId("drawee_details_bank_name").set("value", "Issuing Bank");
+            		dijit.byId("drawee_details_bank_address_line_1").set("value", "bar");
+            		dijit.byId("drawee_details_bank_address_line_2").set("value", "foo");
+            		dijit.byId("drawee_details_bank_dom").set("value", "bar");
+            		
+            		dijit.byId("cr_avl_by_code_1").set("checked", true);
+            		
+            		misys.initDraweeFields();
+            		doh.is("", dijit.byId("drawee_details_bank_name").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_address_line_1").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_address_line_2").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_dom").get("value"));
+            		doh.t(dijit.byId("drawee_details_bank_name").get("disabled"));
+            		doh.t(dijit.byId("drawee_details_bank_address_line_1").get("disabled"));
+            		doh.t(dijit.byId("drawee_details_bank_address_line_2").get("disabled"));
+            		doh.t(dijit.byId("drawee_details_bank_dom").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_name").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_1").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_2").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_dom").get("required"));
+            		
+            		// cr_avl_code_2 checked
+            		dijit.byId("drawee_details_bank_name").set("value", "Issuing Bank");
+            		dijit.byId("drawee_details_bank_address_line_1").set("value", "bar");
+            		dijit.byId("drawee_details_bank_address_line_2").set("value", "foo");
+            		dijit.byId("drawee_details_bank_dom").set("value", "bar");
+            		
+            		dijit.byId("cr_avl_by_code_2").set("checked", true);
+            		misys.initDraweeFields();
+            		doh.is("Issuing Bank", dijit.byId("drawee_details_bank_name").get("value"));
+            		doh.is("bar", dijit.byId("drawee_details_bank_address_line_1").get("value"));
+            		doh.is("foo", dijit.byId("drawee_details_bank_address_line_2").get("value"));
+            		doh.is("bar", dijit.byId("drawee_details_bank_dom").get("value"));
+            		doh.f(dijit.byId("drawee_details_bank_name").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_1").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_2").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_dom").get("disabled"));
+            		doh.t(dijit.byId("drawee_details_bank_name").get("required"));
+            		doh.t(dijit.byId("drawee_details_bank_address_line_1").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_2").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_dom").get("required"));
+            		
+            		// cr_avl_code_3 checked
+            		dijit.byId("drawee_details_bank_name").set("value", "Confirming Bank");
+            		dijit.byId("drawee_details_bank_address_line_1").set("value", "foo");
+            		dijit.byId("drawee_details_bank_address_line_2").set("value", "bar");
+            		dijit.byId("drawee_details_bank_dom").set("value", "foo");
+            		
+            		dijit.byId("cr_avl_by_code_3").set("checked", true);
+            		misys.initDraweeFields();
+            		doh.is("Confirming Bank", dijit.byId("drawee_details_bank_name").get("value"));
+            		doh.is("foo", dijit.byId("drawee_details_bank_address_line_1").get("value"));
+            		doh.is("bar", dijit.byId("drawee_details_bank_address_line_2").get("value"));
+            		doh.is("foo", dijit.byId("drawee_details_bank_dom").get("value"));
+            		doh.f(dijit.byId("drawee_details_bank_name").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_1").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_2").get("disabled"));
+            		doh.f(dijit.byId("drawee_details_bank_dom").get("disabled"));
+            		doh.t(dijit.byId("drawee_details_bank_name").get("required"));
+            		doh.t(dijit.byId("drawee_details_bank_address_line_1").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_address_line_2").get("required"));
+            		doh.f(dijit.byId("drawee_details_bank_dom").get("required"));
+            	},
+            	
+            	{
+            		name: "Test togglePaymentDraft",
+            		timeout: 10000,
+            		runTest: function(){
+            			var d = new doh.Deferred;
+            			dijit.byId("draft_term").set("value", "foo");
+
+            			doh.t(isVisible(dojo.byId("payment-draft")));
+            			doh.f(isVisible(dojo.byId("draft-term")));
+
+            			// Test 01
+	            			dijit.byId("cr_avl_by_code_1").set("checked", true);
+	            			dojo.hitch(dijit.byId("cr_avl_by_code_1"), misys.togglePaymentDraftAt)();
+            			
+            			doh.t(isVisible(dojo.byId("payment-draft")));
+            			doh.f(isVisible(dojo.byId("draft-term")));
+            			doh.t(dijit.byId("tenor_type_1").get("checked"));
+            			doh.f(dijit.byId("tenor_type_1").get("disabled"));
+            			doh.is("", dijit.byId("draft_term").get("value"));
+
+            			// Test 02
+            			dijit.byId("cr_avl_by_code_2").set("checked", true);
+            			dojo.hitch(dijit.byId("cr_avl_by_code_2"), misys.togglePaymentDraftAt)();
+            			doh.t(isVisible(dojo.byId("payment-draft")));
+            			doh.f(isVisible(dojo.byId("draft-term")));
+            			doh.f(dijit.byId("tenor_type_2").get("disabled"));
+            			doh.t(dijit.byId("tenor_type_3").get("checked"));
+            			doh.f(dijit.byId("tenor_type_3").get("disabled"));
+            			doh.is("", dijit.byId("draft_term").get("value"));
+            			
+            			// Test 03
+            			dijit.byId("cr_avl_by_code_3").set("checked", true);
+            			dojo.hitch(dijit.byId("cr_avl_by_code_3"), misys.togglePaymentDraftAt)();
+            			doh.t(isVisible(dojo.byId("payment-draft")));
+            			doh.f(isVisible(dojo.byId("draft-term")));
+            			doh.t(dijit.byId("tenor_type_2").get("disabled"));
+            			doh.t(dijit.byId("tenor_type_3").get("checked"));
+            			doh.f(dijit.byId("tenor_type_3").get("disabled"));
+            			doh.is("", dijit.byId("draft_term").get("value"));
+            			
+            			// Test 04
+            			dijit.byId("cr_avl_by_code_4").set("checked", true);
+            			dojo.hitch(dijit.byId("cr_avl_by_code_4"), misys.togglePaymentDraftAt)();
+            			doh.t(isVisible(dojo.byId("payment-draft")));
+            			doh.f(isVisible(dojo.byId("draft-term")));
+            			doh.f(dijit.byId("tenor_type_2").get("disabled"));
+            			doh.t(dijit.byId("tenor_type_3").get("checked"));
+            			doh.f(dijit.byId("tenor_type_3").get("disabled"));
+            			doh.is("", dijit.byId("draft_term").get("value"));
+            			
+            			// Test 05
+            			dijit.byId("cr_avl_by_code_5").set("checked", true);
+            			setTimeout(function(){
+            				dojo.hitch(dijit.byId("cr_avl_by_code_5"), misys.togglePaymentDraftAt)();
+            				setTimeout(function(){
+           				        doh.f(isVisible(dojo.byId("payment-draft")));
+           				        doh.t(isVisible(dojo.byId("draft-term")));
+	           					doh.f(dijit.byId("tenor_type_1").get("checked"), "Testing Checked 1");
+	           					doh.f(dijit.byId("tenor_type_2").get("checked"), "Testing Checked 2");
+	           					doh.f(dijit.byId("tenor_type_3").get("checked"), "Testing Checked 13");
+	           					doh.is("", dijit.byId("draft_term").get("value"), "Testing draft");
+	           					d.callback(true);
+            				}, 3000);
+            			}, 1000);
+            			
+            			return d;
+            		},
+            		tearDown : function(){
+            			dijit.byId("cr_avl_by_code_1").set("checked", true);
+            			dojo.hitch(dijit.byId("cr_avl_by_code_1"), misys.togglePaymentDraftAt)();
+            		}
+            	}, 
+            	
+            	function testBankPaymentDraftAt() {
+
+            		dijit.byId("draft_term").set("value", "foo");
+            		dijit.byId("drawee_details_bank_name").set("value", "Advising Bank");
+            		dijit.byId("drawee_details_bank_address_line_1").set("value", "foo");
+            		dijit.byId("drawee_details_bank_address_line_2").set("value", "foo");
+            		dijit.byId("drawee_details_bank_dom").set("value", "foo");
+            		dijit.byId("drawee_details_bank_iso_code").set("value", "foo");
+            		dijit.byId("drawee_details_bank_reference").set("value", "foo");
+            		misys.toggleBankPaymentDraftAt();
+            		doh.is("", dijit.byId("draft_term").get("value"));
+            		doh.is("Issuing Bank", dijit.byId("drawee_details_bank_name").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_address_line_1").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_address_line_2").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_dom").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_iso_code").get("value"));
+            		doh.is("", dijit.byId("drawee_details_bank_reference").get("value"));
+            	},
+            	
+            	function testSetDraftTerm(){
+            		dijit.byId("draft_term").set("value", "foo");
+            		
+            		// Test tenor_type_1
+            		dijit.byId("cr_avl_by_code_1").set("checked", true);
+            	    dojo.hitch(dijit.byId("cr_avl_by_code_1"), misys.togglePaymentDraftAt)();
+            		dijit.byId("tenor_type_1").set("checked", true);
+            		misys.setDraftTerm();
+            		doh.is("Sight", dijit.byId("draft_term").get("value"));
+
+            		// Test tenor_type_2
+            		dijit.byId("cr_avl_by_code_2").set("checked", true);
+            	    dojo.hitch(dijit.byId("cr_avl_by_code_2"), misys.togglePaymentDraftAt)();
+            		dijit.byId("tenor_type_2").set("checked", true);
+            		dijit.byId("tenor_maturity_date").set("displayedValue", "3/29/2011");
+            		misys.setDraftTerm();
+            		doh.is("Maturity date: 3/29/2011", dijit.byId("draft_term").get("value"));
+            		
+            		// Test tenor_type_3
+            		dijit.byId("tenor_type_3").set("checked", true);
+            		dijit.byId("tenor_days").set("value", 99);
+            		dijit.byId("tenor_period").set("value", "W");
+            		dijit.byId("tenor_from_after").set("value", "A");
+            		dijit.byId("tenor_days_type").set("value", "05");
+            		misys.setDraftTerm();
+            		doh.is("99 weeks after invoice", dijit.byId("draft_term").get("value"));
+            		
+            		// Test tenor_type_3, other
+            		dijit.byId("tenor_days_type").set("value", 99);
+            		dijit.byId("tenor_type_details").set("disabled", false);
+            		dijit.byId("tenor_type_details").set("value", "Test");
+            		misys.setDraftTerm();
+            		doh.is("99 weeks after Test", dijit.byId("draft_term").get("value"));
+            	},
+            	
+            	function testSetDraftDaysReadOnly() {
+            		dijit.byId("tenor_type_1").set("checked", true);
+            		dijit.byId("tenor_days").set("readOnly", false);
+            		dojo.hitch(dijit.byId("tenor_days"), misys.setDraftDaysReadOnly)();
+            		doh.t(dijit.byId("tenor_days").get("readOnly"));
+            	}, 
+            	
+            	function testCheckFlags(){
+            		// Irrevocable 1
+            		dijit.byId("ntrf_flag").set("checked", false);
+            		dijit.byId("stnd_by_lc_flag").set("checked", true);
+            		dijit.byId("irv_flag").set("checked", false);
+            		dojo.hitch(dijit.byId("irv_flag"), misys.checkIrrevocableFlag)();
+            		doh.t(dijit.byId("irv_flag").get("checked"));
+            		
+            		// Irrevocable 2
+            		dijit.byId("ntrf_flag").set("checked", true);
+            		dijit.byId("stnd_by_lc_flag").set("checked", false);
+            		dijit.byId("irv_flag").set("checked", false);
+            		dojo.hitch(dijit.byId("irv_flag"), misys.checkIrrevocableFlag)();
+            		doh.f(dijit.byId("irv_flag").get("checked"));
+            		
+            		// checkNonTransferableFlag 1
+            		dijit.byId("ntrf_flag").set("checked", false);
+            		dijit.byId("stnd_by_lc_flag").set("checked", true);
+            		dijit.byId("irv_flag").set("checked", false);
+            		dojo.hitch(dijit.byId("ntrf_flag"), misys.checkNonTransferableFlag)();
+            		doh.f(dijit.byId("ntrf_flag").get("checked"));
+            		doh.t(dijit.byId("irv_flag").get("checked"));
+            		
+            		// checkNonTransferableFlag 1
+            		dijit.byId("ntrf_flag").set("checked", true);
+            		dijit.byId("stnd_by_lc_flag").set("checked", true);
+            		dijit.byId("irv_flag").set("checked", false);
+            		dojo.hitch(dijit.byId("ntrf_flag"), misys.checkNonTransferableFlag)();
+            		doh.t(dijit.byId("ntrf_flag").get("checked"));
+            		doh.f(dijit.byId("irv_flag").get("checked"));
+            		
+            		// checkStandByFlag 1
+            		dijit.byId("stnd_by_lc_flag").set("checked", true);
+            		dijit.byId("ntrf_flag").set("checked", false);
+            		dijit.byId("irv_flag").set("checked", false);
+            		dojo.hitch(dijit.byId("stnd_by_lc_flag"), misys.checkStandByFlag)();
+            		doh.t(dijit.byId("irv_flag").get("checked"));
+            	},
+            	
+            	function testResetConfirmationCharges() {
+            		dijit.byId("cfm_inst_code_2").set("checked", true);
+            		dijit.byId("cfm_chrg_brn_by_code_1").set("checked", true);
+            		dijit.byId("cfm_chrg_brn_by_code_2").set("checked", false);
+            		dojo.hitch(dijit.byId("cfm_inst_code_1"), misys.resetConfirmationCharges)();
+            		doh.f(dijit.byId("cfm_chrg_brn_by_code_1").get("checked"));
+            		doh.t(dijit.byId("cfm_chrg_brn_by_code_2").get("checked"));
+            	}, 
+            	
+            	function testCheckConfirmationCharges() {
+            		dijit.byId("cfm_inst_code_3").set("checked", true);
+            		dijit.byId("cfm_chrg_brn_by_code_1").set("checked", true);
+            		dojo.hitch(dijit.byId("cfm_chrg_brn_by_code_1"), misys.checkConfirmationCharges)();
+            		doh.f(dijit.byId("cfm_chrg_brn_by_code_1").get("checked"));
+            	}, 
+            	
+            	function testToggleRenewalDetails() {
+            		dijit.byId("renew_flag").set("checked", false);
+            		var fnc = dojo.hitch(dijit.byId("renew_flag"), misys.toggleRenewalDetails);
+            		fnc();
+
+            		doh.t(dijit.byId("advise_renewal_flag").get("disabled"));
+            		doh.t(dijit.byId("rolling_renewal_flag").get("disabled"));
+            		doh.t(dijit.byId("renew_amt_code_1").get("disabled"));
+            		doh.t(dijit.byId("renew_amt_code_2").get("disabled"));
+            		doh.t(dijit.byId("renew_on_code").get("disabled"));
+            		doh.t(dijit.byId("renew_for_nb").get("disabled"));
+            		doh.t(dijit.byId("renew_for_period").get("disabled"));
+            		doh.f(dijit.byId("renew_on_code").get("required"));
+            		doh.f(dijit.byId("renew_for_nb").get("required"));
+            		doh.f(dijit.byId("renew_for_period").get("required"));
+            		
+            		dijit.byId("renew_flag").set("checked", true);
+            		fnc();
+            		doh.f(dijit.byId("advise_renewal_flag").get("disabled"));
+            		doh.f(dijit.byId("rolling_renewal_flag").get("disabled"));
+            		doh.f(dijit.byId("renew_amt_code_1").get("disabled"));
+            		doh.f(dijit.byId("renew_amt_code_2").get("disabled"));
+            		doh.f(dijit.byId("renew_on_code").get("disabled"));
+            		doh.f(dijit.byId("renew_for_nb").get("disabled"));
+            		doh.f(dijit.byId("renew_for_period").get("disabled"));
+            		doh.t(dijit.byId("renew_on_code").get("required"));
+            		doh.t(dijit.byId("renew_for_nb").get("required"));
+            		doh.t(dijit.byId("renew_for_period").get("required"));
+            	},
+            	
+            	function testToggleDependentFields() {
+            		var field = dijit.byId("myField");
+            		var dependentField = dijit.byId("myDependentField");
+            		field.set("value", "");
+            		dependentField.set("value", "");
+            		misys.toggleDependentFields(field, dependentField, "TEST");
+            		doh.isNot("Error", field.get("state"));
+            		
+            		dependentField.set("value", "xxx");
+            		field.set("value", "xxx");
+            		misys.toggleDependentFields(field, dependentField, "TEST");
+            		doh.is("Error", field.get("state"));
+            	},
+            	
+            	function testUpdateOutstandingAmount() {
+            		// 14
+            		dijit.byId("prod_stat_code").set("value", 14);
+            		dijit.byId("bg_amt").set("value", 100);
+            		dijit.byId("org_bg_amt").set("value", 100);
+            		dijit.byId("tnx_amt").set("value", 50);
+            		misys.updateOutstandingAmount(dijit.byId("bg_amt"), dijit.byId("org_bg_amt"));
+            		doh.is(50, dijit.byId("bg_amt").get("value"));
+            		doh.is(100, dijit.byId("org_bg_amt").get("value"));
+            		
+            		// !14
+            		dijit.byId("prod_stat_code").set("value", 99);
+            		misys.updateOutstandingAmount(dijit.byId("bg_amt"), dijit.byId("org_bg_amt"));
+            		doh.is(100, dijit.byId("bg_amt").get("value"));
+            		doh.is(100, dijit.byId("org_bg_amt").get("value"));
+            	}
+        	]);
+        	
+            doh.run();
+        });
+        </script>
+    </head>
+    <body class="claro">
+    	<select autocomplete="true" dojoType="dijit.form.FilteringSelect" id="issuing_bank_abbv_name" class="medium" required="true">
+    		<option></option>
+    		<option value="testBank">testBnk</option>
+    		<option value="SELENIUMBANK">Selenium Bank, Do not delete</option>
+    	</select>
+    	<select autocomplete="true" dojoType="dijit.form.FilteringSelect" id="issuing_bank_customer_reference" class="medium" required="true">
+    	</select>
+    	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="issuing_bank_name">
+    	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="entity">
+    	<script>
+    		misys._config.customerReferences = {};
+    		misys._config.customerReferences['SELENIUMBANK_'] = ['desc1','value1','desc2','value2'];
+    		misys._config.customerReferences['SELENIUMBANK_ENTITY'] = ['entitydesc1','entityvalue1','entitydesc2', 'entityvalue2'];
+ 		</script>
+ 		<br>
+ 		<input dojoType="dijit.form.TextBox" id="currency">
+ 		<input dojoType="misys.form.CurrencyTextBox" id="amount" value="1">
+ 		<input dojoType="misys.form.CurrencyTextBox" id="amount2" value="2">
+ 		<input dojoType="misys.form.CurrencyTextBox" id="amount3" value="3">
+ 		<br>
+ 		Original BC Amt: <input dojoType="misys.form.CurrencyTextBox" id="org_bg_amt" value="100"><br>
+ 		BG Amt: <input dojoType="misys.form.CurrencyTextBox" id="bg_amt" value="100"><br>
+ 		Inc Amt: <input dojoType="misys.form.CurrencyTextBox" id="inc_amt"><br>
+ 		Dec Amt : <input dojoType="misys.form.CurrencyTextBox" id="dec_amt"><br>
+ 		<input dojoType="dijit.form.CheckBox" id="bg_release_flag" checked="true">
+ 		<input type="hidden" dojoType="dijit.form.TextBox" id="sub_tnx_type_code">
+ 		<br>
+ 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="beneficiary_address_line_1" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div>
+ 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="beneficiary_address_line_2" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div>
+ 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="beneficiary_dom" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div>
+ 		<br>
+ 		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="prod_stat_code"><br>
+ 		<input readOnly="false" dojoType="dijit.form.TextBox" type="hidden" id="action_req_code"><br>
+ 		Latest answer date <div trim="true" dojoType="dijit.form.DateTextBox" name="latest_answer_date" id="latest_answer_date"></div><br>
+ 		Maturity Date <div trim="true" dojoType="dijit.form.DateTextBox" name="maturity_date" id="maturity_date"  required="true"></div><br>
+ 		Iss Date <div trim="true" dojoType="dijit.form.DateTextBox" name="iss_date" id="iss_date"  required="true"></div><br>
+ 		Tenor <input dojoType="dijit.form.NumberTextBox" type="text" id="tenor"><br>
+ 		Term Code <select autocomplete="true" dojoType="dijit.form.FilteringSelect" id="term_code" class="medium" value="03">
+ 			<option></option>
+ 			<option value="01">03</option>
+ 			<option value="03">03</option>
+    	</select><br>
+ 		Non acceptance <input dojoType="dijit.form.CheckBox" id="non_acceptance_flag" checked="true"><br>
+ 		
+ 		<div dojoType="dijit.form.Form" name="fakeform1" id="fakeform1" action="" class="form validate" method="POST">
+	 		<select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="credit_available_with_bank_type" id="credit_available_with_bank_type" class="medium" required="true" value="">
+	 			<option value="Advising Bank">Advising Bank</option>
+	 			<option value="Any Bank">Any Bank</option>
+	 			<option value="Issuing Bank">Issuing Bank</option>
+	 			<option value="Other">Other</option>
+	 		</select>
+	 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="credit_available_with_bank_address_line_1" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div><br>
+	 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="credit_available_with_bank_address_line_2" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div><br>
+	 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="credit_available_with_bank_dom" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div><br>
+	 		<div trim="true" dojoType="dijit.form.ValidationTextBox" id="credit_available_with_bank_name" maxLength="34" class="medium swift" readOnly="true" disabled="true"></div><br>
+			<select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="drawee_details_bank_name" id="drawee_details_bank_name" class="medium" required="true" value="Issuing Bank">
+				<option value="Issuing Bank">Issuing Bank</option>
+				<option value="Confirming Bank">Confirming Bank</option>
+				<option value="Advising Bank">Advising Bank</option>
+				<option value="Negotiating Bank">Negotiating Bank</option>
+				<option value="Reimbursing Bank">Reimbursing Bank</option>
+				<option value="Applicant">Applicant</option>
+				<option value="Other">Other</option>
+			</select><br>
+			<label for="cr_avl_by_code_1"><input dojoType="dijit.form.RadioButton" type="radio" name="cr_avl_by_code" id="cr_avl_by_code_1" value="01" checked="true">Payment</label><br>
+			<label for="cr_avl_by_code_2"><input dojoType="dijit.form.RadioButton" type="radio" name="cr_avl_by_code" id="cr_avl_by_code_2" value="02">Acceptance</label><br>
+			<label for="cr_avl_by_code_3"><input dojoType="dijit.form.RadioButton" type="radio" name="cr_avl_by_code" id="cr_avl_by_code_3" value="03">Negotiation</label><br>
+			<label for="cr_avl_by_code_4"><input dojoType="dijit.form.RadioButton" type="radio" name="cr_avl_by_code" id="cr_avl_by_code_4" value="04">Deferred Payment</label><br>
+			<label for="cr_avl_by_code_5"><input dojoType="dijit.form.RadioButton" type="radio" name="cr_avl_by_code" id="cr_avl_by_code_5" value="05">Mixed Payment</label><br>
+			
+			<br><br>
+			<div id="payment-draft" style="opacity:1; display:block">
+				<div class="field radio" id="tenor_type_1_row">
+					<label for="tenor_type_1"><input disabled="true" value="01" id="tenor_type_1" name="tenor_type" type="radio" dojoType="dijit.form.RadioButton">Sight</label>
+				</div>
+				<div class="field radio" id="tenor_type_2_row">
+					<label for="tenor_type_2"><input disabled="true" value="02" id="tenor_type_2" name="tenor_type" type="radio" dojoType="dijit.form.RadioButton">Maturity Date:</label>
+					<div trim="true" dojoType="dijit.form.DateTextBox" name="tenor_maturity_date" id="tenor_maturity_date" maxLength="10" class="small" value="" displayedValue=""></div>
+				</div>
+				<div class="field radio" id="tenor_type_3_row">
+					<label for="tenor_type_3"><input disabled="true" value="03" id="tenor_type_3" name="tenor_type" type="radio" dojoType="dijit.form.RadioButton"></label>
+					<div value="" trim="true" dojoType="dijit.form.NumberTextBox" name="tenor_days" id="tenor_days" maxLength="3" class="x-small"></div>
+					<select class="small" id="tenor_period" name="tenor_period" dojoType="dijit.form.FilteringSelect" autocomplete="true" value="">
+						<option value="D">days</option>
+						<option value="W">weeks</option>
+						<option value="M">months</option>
+						<option value="Y">years</option>
+					</select>
+					<select class="small" id="tenor_from_after" name="tenor_from_after" dojoType="dijit.form.FilteringSelect" autocomplete="true" value="">
+						<option value="F">from</option>
+						<option value="A">after</option>
+					</select>
+					<br>
+					<div style="margin-left:250px;">
+						<select class="large" id="tenor_days_type" name="tenor_days_type" dojoType="dijit.form.FilteringSelect" autocomplete="true" value="">
+							<option value="07">sight</option>
+							<option value="01">air waybill</option>
+							<option value="02">arrival of goods</option>
+							<option value="03">bill of exchange</option>
+							<option value="04">bill of lading</option>
+							<option value="05">invoice</option>
+							<option value="06">shipment date</option>
+							<option value="08">arrival and inspection of goods</option>
+							<option value="99">other</option>
+						</select>
+						<br>
+						<div trim="true" dojoType="dijit.form.ValidationTextBox" name="tenor_type_details" id="tenor_type_details" maxLength="35" class="medium swift" disabled="disabled" value=""></div>
+					</div>
+				</div>
+			</div>
+			<div id="draft-term" style="opacity:0; display:none">
+				<textarea dojoType="misys.form.SimpleTextarea" class=" swift" name="draft_term" id="draft_term" rows="4" cols="35" maxSize="300" required="true"></textarea>
+			</div>
+			<br>
+			<div trim="true" dojoType="dijit.form.ValidationTextBox" id="drawee_details_bank_address_line_1" maxLength="34" class="medium swift"></div><br>
+ 			<div trim="true" dojoType="dijit.form.ValidationTextBox" id="drawee_details_bank_address_line_2" maxLength="34" class="medium swift"></div><br>
+ 			<div trim="true" dojoType="dijit.form.ValidationTextBox" id="drawee_details_bank_dom" maxLength="34" class="medium swift"></div><br>
+ 			<div trim="true" dojoType="dijit.form.ValidationTextBox" id="drawee_details_bank_iso_code" maxLength="34" class="medium swift"></div><br>
+ 			<div trim="true" dojoType="dijit.form.ValidationTextBox" id="drawee_details_bank_reference" maxLength="34" class="medium swift" readOnly="true"></div><br>
+ 			<br><br>
+ 			<label for="irv_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="irv_flag" id="irv_flag" checked readOnly="true">Irrevocable</label>
+ 			<label for="ntrf_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="ntrf_flag" id="ntrf_flag" checked>Non Transferable</label>
+ 			<label for="stnd_by_lc_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="stnd_by_lc_flag" id="stnd_by_lc_flag">Stand By</label>
+			<br><br>
+			<label for="cfm_chrg_brn_by_code_1">
+				<input dojoType="dijit.form.RadioButton" type="radio" name="cfm_chrg_brn_by_code" id="cfm_chrg_brn_by_code_1" value="01">Applicant
+			</label>
+			<label for="cfm_chrg_brn_by_code_2">
+				<input dojoType="dijit.form.RadioButton" type="radio" name="cfm_chrg_brn_by_code" id="cfm_chrg_brn_by_code_2" value="02">Beneficiary
+			</label><br>
+			<div id="cfm_inst_code_1_row" class="field radio">
+				<label for="cfm_inst_code_1">
+					<input dojoType="dijit.form.RadioButton" type="radio" name="cfm_inst_code" id="cfm_inst_code_1" value="01">Confirm
+				</label>
+			</div><br>
+			<div id="cfm_inst_code_2_row" class="field radio">
+				<label for="cfm_inst_code_2">
+					<input dojoType="dijit.form.RadioButton" type="radio" name="cfm_inst_code" id="cfm_inst_code_2" value="02">May Add
+				</label>
+			</div><br>
+			<div id="cfm_inst_code_3_row" class="field radio">
+				<label for="cfm_inst_code_3"><input dojoType="dijit.form.RadioButton" type="radio" name="cfm_inst_code" id="cfm_inst_code_3" value="03" checked>Without</label>
+			</div><br>
+			<br><br>
+			<h2 class="toc-item"><span class="legend">Renewal Details</span></h2><div><div id="renew_flag_row" class="field checkbox"><label for="renew_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="renew_flag" id="renew_flag">Renewal Allowed</label></div><div id="renew_on_code_row" class="field"><label for="renew_on_code">Renew On:</label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="renew_on_code" id="renew_on_code" class="small" required="false" value=""><option value="01">Expiry</option><option value="02">Calendar</option></select></div><div id="renewal_calendar_date_row" class="field"><label for="renewal_calendar_date"></label><div trim="true" dojoType="dijit.form.DateTextBox" name="renewal_calendar_date" id="renewal_calendar_date" maxLength="10" class="small swift" readOnly="true"></div></div><div id="renew_for_nb_row" class="field"><label for="renew_for_nb">Renew For:</label><div trim="true" dojoType="dijit.form.NumberTextBox" name="renew_for_nb" id="renew_for_nb" maxLength="3" constraints="{min:0}" class="x-small swift" readOnly="true"></div></div><div id="renew_for_period_row" class="field"><label for="renew_for_period"></label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="renew_for_period" id="renew_for_period" class="small" required="false" value=""><option value="D">days</option><option value="W">weeks</option><option value="M">months</option><option value="Y">years</option></select></div><div id="advise_renewal_flag_row" class="field checkbox"><label for="advise_renewal_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="advise_renewal_flag" id="advise_renewal_flag" disabled="true">Advise Renewal:</label></div><div id="advise_renewal_days_nb_row" class="field"><label for="advise_renewal_days_nb">Days Notice:</label><div trim="true" dojoType="dijit.form.NumberTextBox" name="advise_renewal_days_nb" id="advise_renewal_days_nb" maxLength="3" constraints="{min:0}" class="x-small swift" readOnly="true"></div></div><div id="rolling_renewal_flag_row" class="field checkbox"><label for="rolling_renewal_flag"><input dojoType="dijit.form.CheckBox" type="checkbox" name="rolling_renewal_flag" id="rolling_renewal_flag" disabled="true">Rolling Renewal:</label></div><div id="rolling_renewal_nb_row" class="field"><label for="rolling_renewal_nb">Number Of Renewals:</label><div trim="true" dojoType="dijit.form.NumberTextBox" name="rolling_renewal_nb" id="rolling_renewal_nb" maxLength="3" constraints="{min:0}" class="x-small swift" readOnly="true"></div></div><div id="rolling_cancellation_days_row" class="field"><label for="rolling_cancellation_days">Cancellation Notice (days):</label><div trim="true" dojoType="dijit.form.NumberTextBox" name="rolling_cancellation_days" id="rolling_cancellation_days" maxLength="3" constraints="{min:0}" class="x-small swift" readOnly="true"></div></div><div class="field multioption-group-label"><span class="label">Renewal Amount:</span><div id="renew_amt_code_1_row" class="field radio"><label for="renew_amt_code_1"><input dojoType="dijit.form.RadioButton" type="radio" name="renew_amt_code" id="renew_amt_code_1" value="01">Original Amount</label></div><div id="renew_amt_code_2_row" class="field radio"><label for="renew_amt_code_2"><input dojoType="dijit.form.RadioButton" type="radio" name="renew_amt_code" id="renew_amt_code_2" value="02" checked>Current Amount</label></div></div></div></div>
+			<br><br>
+			My Field : <div trim="true" dojoType="dijit.form.ValidationTextBox" id="myField" maxLength="34" class="medium swift"></div><br>
+ 			My Dependent Field: <div trim="true" dojoType="dijit.form.ValidationTextBox" id="myDependentField" maxLength="34" class="medium swift"></div><br>
+			
+			
+ 			<script>
+ 			 dojo.ready(function(){
+
+ 		  	misys._config = misys._config || {};
+
+ 		  	var periodLabels = misys._config.tenorPeriodLabels = [];
+ 		  	periodLabels[""] = "";
+ 		  	periodLabels["D"] = "days";
+ 		  	periodLabels["W"] = "weeks";
+ 		  	periodLabels["M"] = "months";
+ 		  	periodLabels["Y"] = "years";
+
+ 		  	var fromAfterLabels = misys._config.tenorFromAfterLabels = [];
+ 		  	fromAfterLabels[""] = "";
+ 		  	fromAfterLabels["F"] = "from";
+ 		  	fromAfterLabels["A"] = "after"; 
+
+ 		  	var daysTypeLabels = misys._config.tenorDaysTypeLabels = [];
+ 		  	daysTypeLabels[""] = "";
+ 		  	daysTypeLabels["07"] = "sight";
+ 		  	daysTypeLabels["01"] = "air waybill";
+ 		  	daysTypeLabels["02"] = "arrival of goods";
+ 		  	daysTypeLabels["03"] = "bill of exchange";
+ 		  	daysTypeLabels["04"] = "bill of lading";
+ 		  	daysTypeLabels["05"] = "invoice";
+ 		  	daysTypeLabels["06"] = "shipment date";
+ 		  	daysTypeLabels["08"] = "arrival and inspection of goods";
+ 		  	daysTypeLabels["99"] = "other";
+
+ 		   	misys.setLocalization("tenorSight", "Sight");
+ 		   	misys.setLocalization("tenorMaturityDate", "Maturity Date");
+ 		   	misys.setLocalization("tenorOtherDate", "Other Date");
+ 			});
+ 			</script>
+    </body>
+</html>

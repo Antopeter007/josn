@@ -1,0 +1,29 @@
+<div class="top-wrapper" *ngIf="reviewDetail">
+    <div class="p-grid textalign">
+        <div class="p-col-12 p-md-12 p-lg-12 p-sm-12">
+            <div class="p-grid">
+                <div class="p-col-12">
+                    <div class="p-grid padd-lft" [ngClass]="(reviewDetail.length) <= 4 ? 'p-justify-center' : ''">
+                        <ng-container *ngFor="let data of reviewDetail let i = index">
+                            <div [ngClass]="(reviewDetail.length) < 6 ? 'p-col-6 p-sm-6 p-md-4 p-lg-3' : 'p-col-6 p-sm-6 p-md-4 p-lg-2'">
+                                <div [ngClass]="borderClass(i)">
+                                    <div>
+                                        <span tabindex="0" class="lc-small-text">{{data.key | translate}}</span>
+                                    </div>
+
+                                    <div>
+                                    <span tabindex="0" class="small-text-c" *ngIf="data.fieldType ==='amount'">
+                                        {{data.currency}}
+                                    </span>
+                                        <span tabindex="0" class="medium-text">{{data.value}}
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>

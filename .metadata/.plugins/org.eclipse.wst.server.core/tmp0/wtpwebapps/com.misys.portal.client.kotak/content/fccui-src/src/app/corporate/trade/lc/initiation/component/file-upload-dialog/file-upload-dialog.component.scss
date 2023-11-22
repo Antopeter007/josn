@@ -1,0 +1,100 @@
+@import '../../../../../../../styles/variables.scss';
+.form-header {
+  font-size: 1.125em;
+  margin-top: 1.25em;
+  color: $formHeaderColor;
+  font-weight: 700;
+}
+:host ::ng-deep .ui-inputtext {
+  font-size: 0.875em;
+  color: $uiInputTextCOlor;
+  padding: 0.429em 0.429em 0.429em 0em;
+  border-bottom: $uiInputTextBorderBottom;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-fileupload .ui-fileupload-buttonbar {
+    background-color: $uiFileUploadBackgroundColor !important;
+    border: none !important;
+}
+:host ::ng-deep .ui-fileupload .ui-fileupload-content{
+    border: none !important;
+    max-width: 27.8em !important;
+}
+.UploadButton{
+      width: 100%;
+      color: $secondaryColor  !important;
+      border-radius: 18px !important;
+      padding: 0 16px !important;
+      min-width: 64px !important;
+      line-height: 36px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+      outline: 0 !important;
+      border-color: $secondaryColor  !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      vertical-align: baseline !important;
+      text-align: center !important;
+      background-color: $uploadButtonBackgroundColor !important;
+    
+}
+:host ::ng-deep .ui-inputtext.ng-dirty.ng-invalid {
+  border: none;
+  border-bottom: 0.075em solid $uiInputTextDirtyInvalid;
+}
+:host ::ng-deep .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: $primaryColor;
+  outline: 0 none;
+  box-shadow: none;
+  border-bottom: 0.08em solid $primaryColor;
+}
+:host ::ng-deep .ui-inputtext {
+  font-size: 0.875em;
+  color: $uiInputTextCOlor;
+  padding: 0.429em 0.429em 0.429em 0em;
+  border-bottom: $uiInputTextBorderBottom !important;
+  width: 100%;
+  border: none;
+  border-radius: 0em !important;
+}
+:host ::ng-deep .ui-button{
+  background-color: $secondaryColor !important;
+  border-radius: 18px !important;
+  border: 0px solid $uiButtonBorder !important;
+}
+:host ::ng-deep .ui-corner-right {
+  border-bottom-right-radius: 0em !important;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  background-color: $primaryColor !important;
+  color: $uiDialogColor !important;
+}
+:host ::ng-deep .ui-fileupload-row>div {
+  display: block !important;
+  overflow-wrap: break-word;
+  max-width: 27.8em !important;
+  text-align: center;
+  padding-bottom: 0em !important;
+}
+:host ::ng-deep .ui-button-icon-only .ui-button-icon-left {
+   background-color: $secondaryColor !important;
+}
+:host ::ng-deep .ui-fileupload .ui-progressbar{
+  display: none !important;
+}
+
+.fileUploadError {
+  text-align: center !important;
+  font-size: 1em !important;
+  font-weight: normal !important;
+  color: $fileUploadErrorColor !important;
+  margin: 0em !important;
+  padding-top: 0.1em !important;
+}

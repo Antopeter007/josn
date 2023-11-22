@@ -1,0 +1,332 @@
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles that control layout and positioning
+  		
+	description:
+	  	Other than those generated via the Java/PSML, this files contains rules pertaining
+	  	to overall layout and positioning, and header/footer organisation.
+	  	
+	  	------------- Page Row/Column Layout --------------------------
+	  	
+		The initial block of CSS has been adapted from those freely available at
+		 
+ 			http://matthewjamestaylor.com/blog/perfect-3-column.htm
+ 
+ 		Widths and additional details are set inline, in accordance with the PSML
+
+		In addition, this file describes global headers, footers and menus
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Everyone
+*/
+
+/** ------------------------------ Master Layout/Positioning Rules ---------------------------- **/
+
+
+/** -----------  Start of matthewjamestaylor.com CSS ------------- **/
+.colmask {
+	position: relative;
+	/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	float: right;
+	clear: both;
+	width: 100%; /* width of whole page */
+	overflow: hidden; /* This chops off any overhanging divs */
+}
+
+.colmid {
+	position: relative;
+	float: right;
+	width: 200%;
+}
+
+.colright {
+	position: relative;
+	float: right;
+	width: 100%;
+	right: 50%;
+}
+
+.col1wrap {
+	position: relative;
+	float: left;
+	width: 50%;
+	left: 100%;
+}
+
+.col1pad {
+	margin-top: 0;
+	margin-left: 5px; /* Right padding*/
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+.col1 {
+	width: 100%;
+	overflow: hidden;
+}
+
+.col2 {
+	float: right;
+	position: relative;
+	margin-right: -50%; /* ?*/
+	overflow: hidden;
+	padding-right: 5px;
+}
+
+.col3 {
+	float: right;
+	position: relative;
+	right: 5px; /* Padding */
+	overflow: hidden;
+}
+
+/** Percentage layout classes */
+.percent .colmid,.percent .colright,.percent .colleft {
+	width: 100%; /* width of page */
+	position: relative;
+}
+
+.percent .col1,.percent .col2,.percent .col3 {
+	float: right;
+	position: relative;
+	margin-right: auto;
+}
+
+/** -----------  End of matthewjamestaylor.com CSS ------------- **/
+
+.column-wrapper{
+	float: right;
+	width: 50%;	
+}
+
+.search-column-wrapper {
+	float: right;
+	width: 50%;
+}
+
+.column-container{
+	margin: 3px 0;	
+}
+
+.width3per {
+	width: 3%;
+}
+
+.width4per{
+	width: 4%;
+}
+
+.width5per {
+	width: 5%;
+}
+
+.width8per{
+	width: 8%;
+}
+
+.width10per {
+	width: 10%;
+}
+
+.width13per{
+	width: 13%;
+}
+
+.width15per {
+	width: 15%;
+}
+
+.width20per {
+	width: 20%;
+}
+
+.width25per {
+	width: 25%;
+}
+
+.width30per {
+	width: 30%;
+}
+
+.width35per {
+	width: 35%;
+}
+
+.width40per {
+	width: 40%;
+}
+
+.width45per {
+	width: 45%;
+}
+
+.width50per{
+	width: 50%;
+}
+
+.width60per{
+	width: 60%;
+}
+
+.width70per{
+	width: 70%;
+}
+
+.width80per{
+	width: 80%;
+}
+
+.width85per{
+	width: 85%;
+}
+
+.width90per{
+	width:90%;
+}
+
+.width100per{
+	width:100%;
+}
+
+.alignRight{
+	text-align:left;
+}
+
+.alignCenter{
+	text-align:center;
+}
+
+.alignLeft{
+  	text-align:right;	
+}
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+
+.panel1, .panel2 {
+	clear: both;
+	width: 100%;
+}
+
+/** Fixed width heights as they have a fixed width background image **/
+.panel1 {
+	padding: 2px 0;
+	height: 18px;
+}
+
+.panel2 {
+	height: 50px;
+}
+
+.breadcrumb {
+	float: right;
+	font-weight: bold;
+	font-size:0.75em;
+	padding: 0 12px 0 0;
+	vertical-align: middle;
+	width: 215px;
+}
+
+.message {
+	float: right;
+	vertical-align: middle;
+	font-size: 0.75em;
+}
+
+.submenu {
+	float: left;
+	font-weight: bold;
+	padding: 4px 0 0 16px;
+	vertical-align: middle;
+}
+
+.submenu img {
+	margin: 4px 4px 0 0;
+}
+
+.logo {
+	float: right;
+	margin: 4px 16px 0 0;
+}
+
+/** Page Footer **/
+.footer {
+	clear: both;
+	border-top: 1px solid #999;
+}
+
+/** ----------------------------------- Product Menu --------------------------------- **/
+
+#MenuBuilder {
+	border: none;
+}
+
+#MenuBuilder .portlet-section-header {
+	display: none;
+}
+
+.product-menu {
+	position: relative;		/** Fixes an issue with backgrounds under IE6 **/
+	padding-right: 0.625em;
+}
+
+.product-menu li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.product-menu .currentModule {
+	color: red;
+}
+
+.product-menu ul {
+	margin: 0.5em 1em 1em 0;
+}
+
+.product-menu li li {
+	margin: 0;
+}
+
+.product-menu li li a {
+	font-weight: normal;
+}
+
+.product-menu-items a {
+	font-size: 0.916em;
+}
+
+.menuBarHighlight {
+	color: black;	
+}
+
+/** --------------------------- Product History ------------------------------ **/
+
+#ProductOverview {
+	margin-right: 1px;
+}
+
+#actions {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#actions li a {
+	font-size: 0.916em; /** 11px **/
+}
+/**---- Inline block for handling special case for IE7----**/
+.inlineBlock {
+	display:inline-block;	
+}
+
+.dj_ie6 .inlineBlock,
+.dj_ie7 .inlineBlock {
+    zoom: 1;
+	display:inline;
+}
+.widgetButtonContainer{
+	float:left
+}
+

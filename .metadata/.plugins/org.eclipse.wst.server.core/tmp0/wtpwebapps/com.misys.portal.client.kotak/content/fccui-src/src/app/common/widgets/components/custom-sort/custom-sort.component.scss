@@ -1,0 +1,39 @@
+@import '../../../../../styles/variables.scss';
+.iconImage
+{
+  color: $CHARCOAL-F100 !important;
+  opacity: 0.75;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.125em !important;
+  line-height: 0em;
+  border-radius: 37%;
+  cursor: pointer;
+}
+
+.iconImage:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+
+.iconImage.disableIcon{
+  cursor: default !important;
+}
+
+.iconImage.disableIcon:hover{
+  background-color: transparent !important;
+  color: $CHARCOAL-F100 !important;
+  cursor: default  !important;
+}
+
+.iconImage:focus-visible{
+  outline-color: $BLACK;
+  outline-style: auto;
+  outline-width: 1px;
+}
+
+.reverse{
+    transform: rotate(180deg) scale(1);
+    transition: ease;
+}

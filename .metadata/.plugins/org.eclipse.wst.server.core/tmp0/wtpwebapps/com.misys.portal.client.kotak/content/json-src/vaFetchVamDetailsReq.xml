@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_VAM_DETAILS</action_type>
+    <crn>1048024</crn>
+    <from_date>24-APR-2009</from_date>
+    <to_date>25-APR-2009</to_date>
+    <virtual_account>9980000014</virtual_account>
+    <status>REJECTED</status>
+</Request>

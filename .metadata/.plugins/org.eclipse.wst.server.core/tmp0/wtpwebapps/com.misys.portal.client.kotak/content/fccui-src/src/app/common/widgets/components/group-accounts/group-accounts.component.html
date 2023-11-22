@@ -1,0 +1,84 @@
+<div id="groupListingWrapper">
+	<div class="p-col-2 multipleTabHeading" *ngIf="multipleTabEnable" id="multipleTabEnableHeaderId">
+	    <label class="multipleTabEnableHeaderId">
+	    {{ tabName | translate }}
+	  </label>
+	</div>
+    <div class="noGroup" *ngIf="!groupStatus && !(noOfAccounts < minUserAccounts)">
+        <p>{{noGroupMessage}}</p>
+    </div>
+    <div class="noGroup" *ngIf="!groupStatus && (noOfAccounts < minUserAccounts)">
+        <p>{{noGroupNoAccountMessage}}</p>
+    </div>
+    <div id="groupAccountWrapper">
+        <div class="p-grid">
+            <div class="p-col-7 p-md-7">
+                </div>
+                <div class="p-col-3 p-md-3 button_wrapper">
+                    <button role="button"  [disabled]="((noOfAccounts >= minUserAccounts) && (noOfGroups < maxNumberOfGroups)) ? false:true" class="primaryButton" (click)="createGroup()">+ {{createNewGroup}}</button>
+                </div>
+                <mat-toolbar class="toolbarclass">
+                    <span [ngClass]="dir === 'rtl' ? 'rtlSpan' : 'ltlSpan'">
+                        <mat-form-field *ngIf="noOfGroups > 0">
+                            <mat-label>{{ 'eqCcy' | translate }}</mat-label>
+                            <mat-select aria-label="currency" disableOptionCentering (selectionChange)="onCurrencyChange($event)" [value]="viewInCurrency">
+                                <ng-container *ngFor="let currency of currencyList">
+                                    <mat-option [value]="currency === viewInCurrency ? viewInCurrency : currency">{{currency}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                        <button role="button"  mat-button class = "groupDownloadIcon" *ngIf="groupDownloadEnabled && invokeList" [matMenuTriggerFor] = "menuDownload"
+                            tabindex="0" attr.aria-label="{{'listDownload' | translate}}">
+                            <em title="{{ 'listDownload' | translate }}" class="fa fa-download "></em>
+                        </button>
+                    </span>
+                </mat-toolbar>
+        </div>
+    </div>
+<div class="contentWrapper" *ngIf="groupStatus" [ngClass]="activeGroup > enableGroupLimit ? 'enableaero':'disableaero' ">
+<mat-button-toggle-group class="uxg-filtering-toggle-group" >
+    <p-carousel *ngIf="enablecarousel" [value]="groupDetails" [numVisible]="numVisible" >
+        <ng-template let-item let-index pTemplate="item"  class="groupWrapper">
+            <div class="Groupwrapper tabOrder_{{item.groupId}}" tabindex="0" (keyup.enter)="onSelectionGroup(item, $event)"  (click)="onSelectionGroup(item, $event)">
+            <div class='active labelStyle'><strong>{{item.groupName}}</strong></div>
+            <div class="noofaccounts">{{item.groupAccountCount}} Account(s)</div>
+            <div>
+            <span class='currencyType active'>{{viewInCurrency}}</span>
+            <span title="Amount" class='amountSpan active'>
+                <span class='currencyType' title="{{ item.totalAmountBalance }}">{{ item.totalAmountBalance | currencyAbbreviation }}</span>
+            </span>&nbsp;&nbsp;
+            <span class="iconWrapper">
+            <button role="button"  *ngIf="((noOfAccounts >= minUserAccounts) && (currentGroupName === item.groupName))" [dir]="dir" tabindex="0" mat-icon-button  class="example-icon filter-icon btn" aria-label="filter" (click)="onSelectionGroup(item, $event);edit()">
+                <em class="fa fa-edit" [title]="editMsg" aria-hidden="true"></em>
+                </button>
+
+                <button role="button"   *ngIf="currentGroupName === item.groupName" [dir]="dir" tabindex="0" mat-icon-button class="example-icon filter-icon btn" aria-label="filter" (click)="deleteGroup(item)">
+                    <em class="fa fa-trash" [title]="deleteMsg" aria-hidden="true"></em>
+                </button>
+            </span>
+            </div>
+        </div>
+        </ng-template>
+    </p-carousel>
+
+
+</mat-button-toggle-group>
+
+
+<div *ngIf="invokeList">
+ <fcc-common-transactions-listdef #transactionListdef
+ [inputParams]="params" [equivalentCurrency]="viewInCurrency"
+(retrieveFilterParams)="retrieveFilterParams($event)" (selectedAccounts) = "getSelectedAccounts($event)">
+</fcc-common-transactions-listdef>
+</div>
+</div>
+<mat-menu #menuDownload="matMenu" class="downloadMatMenu">
+    <ul>
+      <li *ngFor= "let downloadOption of allowedDownloadOptions">
+        <span mat-menu-item tabindex="0" (click)="onClickDownloadOption(downloadOption)" (keydown.enter)="onClickDownloadOption(downloadOption)">
+            {{downloadOption | translate}}
+        </span>
+      </li>
+  </ul>
+</mat-menu>
+</div>

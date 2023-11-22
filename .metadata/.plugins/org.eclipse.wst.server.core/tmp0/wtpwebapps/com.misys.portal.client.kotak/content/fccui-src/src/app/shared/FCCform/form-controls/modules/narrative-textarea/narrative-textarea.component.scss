@@ -1,0 +1,19 @@
+@import './../../../../../../styles/variables.scss';
+
+.ft-cash.indented-text-area-field-35 {
+    margin: initial !important;
+    width: initial !important;
+    word-break: initial !important;
+}
+
+.resize-none {
+    resize: none;
+}
+
+.label-below {
+    color: $RED-100;
+}
+
+textarea {
+    max-height: 6em;
+}

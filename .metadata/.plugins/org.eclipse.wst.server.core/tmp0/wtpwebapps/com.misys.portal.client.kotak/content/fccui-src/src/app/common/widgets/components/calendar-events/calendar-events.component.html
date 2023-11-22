@@ -1,0 +1,84 @@
+<div class="p-lg-12 calander-event" *ngIf="!hideShowCard" [@moveState] >
+<p-card class="{{classCheck}}">
+    <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+    </p-header>
+  <div [ngClass]="langDir==='rtl' ? 'headerTitle headerTitlertl' :'headerTitle headerTitler'">{{'calendar' | translate}}</div>
+  <div class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+      <div class="p-col-12 calendarGrid">
+          <p-calendar [ngClass]="langDir==='rtl'?'rtlcls':'ltrcls'" [(ngModel)]="value" [locale]="langLocale" [inline]="true" [utc]="true" (onMonthChange)="getSelectedMonthEvents($event)" (onYearChange)="getSelectedMonthEvents($event)" [focusTrap]="false"
+            (onSelect)="getSelectedDateEvents($event)" dateFormat="dd/MM/yyyy"  [yearNavigator]="(checkCustomise === true) ? false : true" 
+            [disabled]="(checkCustomise === true) ? true : false" yearRange={{yearRange}}>
+
+            <ng-template pTemplate="date" let-date>
+              <span *ngIf="eventDates?.length>0 ; else elseBlock"
+                [ngStyle]="{backgroundColor: getBackgroundColor(date.day)}"
+                class="highlight-event-dates">{{date.day}}</span>
+            </ng-template>
+
+            <ng-template pTemplate="date" let-date #elseBlock>
+              <span [ngStyle]="{backgroundColor: getBackgroundColor(date.day)}"
+                class="non-event-dates">{{date.day}}</span>
+            </ng-template>
+          </p-calendar>
+          <hr class="line-class">
+          <div class="event-card" tabindex="-1">
+            <div class="event-header-text" style="display: flex">
+              <span class="event-text-label">{{'events' | translate}}</span>
+              <span class="event-date-label">{{displayValue}}</span>
+              <span><a href="#" id="currentDateEvent" onclick="return false;" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" [attr.title]="'viewAllEvents' | translate"
+                (click)="getAllEvents()"><em class="pi pi-external-link pointer-class"></em></a></span>
+            </div>
+            <div *ngFor="let events of paginationResponse; let count=index" class="event-details">
+              <p-card>
+                <div class="events-of-event1">
+                  <div class="focus">
+                    <span *ngIf = "events?.referenceID" class=" events-of-eventcontent" 
+                    title="{{'channelReference' | translate}}: {{events?.referenceID}}">
+                      <a (click)="eventDetails(events)" href="#" onclick="return false;" attr.aria-label="{{'channelReference' | translate}}: {{events?.referenceID}}">{{events?.referenceID}}&nbsp;</a>
+                    </span>
+                    <span class="events-of-eventcontent1" 
+                    title="{{'product' | translate}}: {{events?.eventType}}" 
+                    attr.aria-label="{{'product' | translate}}: {{events?.eventType}}">
+                      {{events?.eventType}}
+                    </span>
+                    <span class="events-of-eventcontent2"
+                      title="{{'EVENT' | translate}}: {{events?.eventTitle}}" 
+                      attr.aria-label="{{'EVENT' | translate}}: {{events?.eventTitle}}">
+                      {{events?.eventTitle}}
+                    </span>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+
+            <div
+              *ngIf="paginationResponse?.length===defaultCalendarEventsCount && calendarevents?.length>paginationResponse?.length "
+              dir="{{langDir}}" class="ui-g-12 bottom-rate padding-cal-footer">
+              <a href="#" id="currentDateEvent" onclick="return false;" [attr.title]="'viewMore' | translate"  tabindex="0" (click)="getMoreEvents()">
+                <em class="pi pi-chevron-down pointer-class"></em>
+              </a>
+            </div>
+
+            <div
+              *ngIf="paginationResponse?.length>defaultCalendarEventsCount && calendarevents?.length>paginationResponse?.length"
+              dir="{{langDir}}" class="ui-g-12 bottom-rate padding-cal-footer">
+              <a href="#" id="currentDateEvent" onclick="return false;" [attr.title]="'viewLess' | translate"  tabindex="0" (click)="getDefaultEvents()">
+                <em class="pi pi-chevron-up pointer-class"></em>
+              </a>
+            </div>
+            <div
+              *ngIf="paginationResponse?.length>defaultCalendarEventsCount  && calendarevents?.length===paginationResponse?.length "
+              dir="{{langDir}}" class="ui-g-12 bottom-rate padding-cal-footer">
+              <a href="#" id="currentDateEvent" onclick="return false;" [attr.title]="'viewLess' | translate"  tabindex="0" (click)="getDefaultEvents()">
+                <em class="pi pi-chevron-up pointer-class"></em>
+              </a>
+            </div>
+          </div>
+      </div>
+
+  </div>
+  <app-nudges [nudges] = "nudges">
+  </app-nudges>
+</p-card>
+</div>

@@ -1,0 +1,128 @@
+<ng-container [formGroup]="form">
+  <div>
+    <div
+      *ngIf="control.params.rendered && mode === 'edit'"
+      class="candyStriped {{ control.params.styleClass }}"
+      dir="{{ dir }}"
+    >
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ control.params.label }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p-table formControlName="{{ control.key }}" [columns]="control.params.columns" [value]="control?.params?.data"
+          selectionMode="single" [(selection)]="control.params.selectedRow" dataKey="{{ control.params.dataKey }}"
+          class="{{ control.params.tableClass }}" [responsive]="true" (onRowSelect)="onTableRowSelect($event, control.key)"
+          (onRowUnselect)="onTableRowUnSelect($event, control.key)">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th id="checkerHeaderColStyle" class="{{ control.params.radioButtonColStyle }}" aria-label="Select"></th>
+              <th scope="col" id="headerColStyle" *ngFor="let cols of control.params.columns"
+                [ngStyle]="{ width: cols.width }">
+                {{ cols.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="{{ control.params.columns }}" let-index="rowIndex">
+            <tr [pSelectableRow]="rowData" class="{{ control.params.tableRowStyle }}">
+              <td class="fcc-radio-button {{ control.params.radioButtonStyle }}">
+                <p-tableRadioButton title="{{'select' | translate}}" attr.text="{{ 'select' | translate }}" attr.aria-label="{{'select' | translate}}" [disabled]="control.params.disabled" [value]="rowData"></p-tableRadioButton>
+              </td>
+              <td *ngFor="let cols of control.params.columns">
+                <span class="ui-column-title">{{ cols.header }}</span>
+                {{ rowData[cols.field] }}
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr class="emptyMessage" *ngIf="columns !== undefined">
+              <td [attr.colspan]="control.params.columns.length + 1">
+                {{ "noRecordsFound" | translate }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </mat-expansion-panel>
+    </mat-accordion>
+    
+      <!-- <p-accordion>
+        <p-accordionTab header="{{ control.params.label }}">
+          <p-table
+            formControlName="{{ control.key }}"
+            [columns]="control.params.columns"
+            [value]="control?.params?.data"
+            selectionMode="single"
+            [(selection)]="control.params.selectedRow"
+            dataKey="{{ control.params.dataKey }}"
+            class="{{ control.params.tableClass }}"
+            [responsive]="true"
+            (onRowSelect)="onTableRowSelect($event, control.key)"
+            (onRowUnselect)="onTableRowUnSelect($event, control.key)"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th
+                  id="checkerHeaderColStyle"
+                  class="{{ control.params.radioButtonColStyle }}"
+                ></th>
+                <th
+                scope="col"
+                  id="headerColStyle"
+                  *ngFor="let cols of control.params.columns"
+                  [ngStyle]="{ width: cols.width }"
+                >
+                  {{ cols.header }}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template
+              pTemplate="body"
+              let-rowData
+              let-columns="{{ control.params.columns }}"
+              let-index="rowIndex"
+            >
+              <tr
+                [pSelectableRow]="rowData"
+                class="{{ control.params.tableRowStyle }}"
+              >
+                <td
+                  class="fcc-radio-button {{ control.params.radioButtonStyle }}"
+                >
+                  <p-tableRadioButton
+                    [disabled]="control.params.disabled"
+                    [value]="rowData"
+                  ></p-tableRadioButton>
+                </td>
+                <td *ngFor="let cols of control.params.columns">
+                  <span class="ui-column-title">{{ cols.header }}</span>
+                  {{ rowData[cols.field] }}
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr class="emptyMessage" *ngIf="columns !== undefined">
+                <td [attr.colspan]="control.params.columns.length + 1">
+                  {{ "noRecordsFound" | translate }}
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-accordionTab>
+      </p-accordion> -->
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

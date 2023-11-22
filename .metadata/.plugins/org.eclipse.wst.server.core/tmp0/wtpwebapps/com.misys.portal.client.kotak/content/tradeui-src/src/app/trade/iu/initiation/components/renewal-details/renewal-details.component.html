@@ -1,0 +1,6 @@
+<!-- <div *ngIf="showSection"> --> <!-- TODO :: ToHandle P308 also. -->
+  <p-panel id="bgRenewalDetailsSection" *ngIf="iuCommonDataService.getPreviewOption() !== 'SUMMARY'" header="{{'EXTENSION_DETAILS_LABEL' | translate}}" [toggleable]="true" [collapsed] ="!this.collapsible">
+    <div [formGroup]="renewalDetailsSection">
+      <fcc-iu-common-renewal-details *ngIf="bgRecord" [showUndertakingType]="'bg'" [bgRecord]="bgRecord" [sectionForm]="renewalDetailsSection" (finalRenewalExpDate)="emitFinalRenewalExpDate($event)"></fcc-iu-common-renewal-details>
+    </div>
+  </p-panel>

@@ -1,0 +1,26 @@
+@import '../../../variables.scss';
+
+@mixin common_class_mixin($primaryColor, $summaryFieldText) {
+    
+}
+// Mode OF transmission Select button styling and color and background color change.
+@mixin selectButtonModeOFTranmission($primaryColor,$transimission-Tick-Color) {
+    .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover, .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover{
+        box-shadow: 0 0 2px 1px $primaryColor !important;
+    }
+    .transmission .mat-button-toggle.mat-button-toggle-checked .material-icons, .transmission-2 .mat-button-toggle.mat-button-toggle-checked .material-icons{
+        color: $transimission-Tick-Color !important;
+    }
+}
+
+
+
+.FCC {
+    // primary clors
+    $primaryColor: $primaryColor;
+    $transimission-Tick-Color: $transimission-Tick-Color;
+    $summaryFieldText: $BLACK_03;
+
+    @include common_class_mixin($primaryColor,$summaryFieldText);
+    @include selectButtonModeOFTranmission($primaryColor,$transimission-Tick-Color);
+}

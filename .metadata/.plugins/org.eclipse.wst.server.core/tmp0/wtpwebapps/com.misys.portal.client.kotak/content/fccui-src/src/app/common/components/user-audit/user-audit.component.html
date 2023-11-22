@@ -1,0 +1,27 @@
+<div [ngClass] = "{'auditHorizontalLayout': displayType === 'horizontal', 'auditLayout': displayType !== 'horizontal'}" *ngIf="showAuditData">
+  <div class="container" *ngFor="let auditRecord of auditList; let index = index;">
+    <div class="dashLayout" *ngIf="index!==0">
+      - - -
+    </div>
+    <mat-card class="matCardLayout" tabindex="0">
+      <mat-card-content>
+        <div mat-card-avatar class="fa fa-user-circle profileAvatar" aria-hidden="true"></div>
+        <mat-card-title class="cardTitle">{{auditRecord.fullName}}</mat-card-title>
+        <mat-card-subtitle class="cardSubtitle">{{auditRecord.role | translate}}</mat-card-subtitle><br>
+        <p class="cardContent">
+            <span>{{'auditDateAndTime' | translate}}:</span><br>
+            <span class="date">{{auditRecord.date}}</span><br>
+            <span class="date" dir="ltr">{{auditRecord.time}}</span>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div [dir]="dir" class="viewMoreLayout" *ngIf="isViewMoreApplicable && auditList.length > 0">
+    <a class="viewMore" href="javascript:void(0)" onclick="return false" (click)="viewMore();" tabindex="0">
+      {{'viewMore' | translate}}
+    </a>
+  </div>
+  <div *ngIf="auditList.length === 0" class="message">
+    {{'noAuditMessage' | translate}}
+  </div>
+</div>

@@ -1,0 +1,295 @@
+@import './../../../../styles/variables.scss';
+
+.successTick {
+  text-align: center;
+  margin-top: 4.5em;
+}
+
+.successTick em {
+  color: #56c271;
+  font-size: 2.5em;
+}
+
+.warningIcon {
+  text-align: center;
+  margin-top: 4.5em;
+}
+
+.warningIcon em {
+  color: #eb7c15;
+  font-size: 2.5em;
+}
+
+.success,
+.successMessage {
+  text-align: center;
+}
+
+.success {
+  font-size: 2.5em;
+  font-weight: bold;
+  line-height: 1em;
+  color: #4a4a4a;
+}
+
+.successMessage {
+  color: #4a4a4a;
+  white-space: pre-wrap;
+}
+
+.submitError {
+  text-align: center;
+  margin-top: 4.5em;
+}
+@media screen and (min-width: 700px) and (max-width: 1265px) {
+  .submitError {
+    text-align: center;
+    margin-top: 7.5em;
+  }
+}
+.submitError em {
+  color: $errorMessageColor;
+  font-size: $font-size-2_5;
+}
+
+.finalDetails {
+  margin-top: 3em;
+}
+.circleBackgroundLC {
+  display: inline-block;
+  border-radius: 50%;
+  min-width: 1.875em;
+  min-height: 1.875em;
+  padding: 1.2125em;
+  font-size: 1.125em;
+  text-align: center;
+  line-height: 1.875em;
+  box-sizing: content-box;
+  white-space: nowrap;
+}
+
+.circleBackground:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+  height: 0;
+}
+
+.justifyGrid {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.subDetails {
+  margin-top: 1em !important;
+}
+
+.dataFont1 {
+  color: #545454;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-transform: capitalize;
+  word-break: break-word;
+}
+.dataFont2 {
+  color: #545454;
+  font-weight: 500;
+  font-size: 1.2em;
+  word-break: break-word;
+}
+
+.headerFont {
+  color: #9f9f9f;
+}
+
+.listing {
+  margin-right: 1.8em;
+}
+
+:host ::ng-deep .p-grid {
+  margin: 0em;
+}
+
+:host ::ng-deep .ui-card {
+  box-shadow: 0.0625em 0.0625em 0.1875em 0.0625em rgba(0, 0, 0, 0.2),
+    0.0625em 0.0625em 0.0625em 0.0625em rgba(0, 0, 0, 0.14),
+    -0.125em -0.125em 0.0625em -0.0625em rgba(0, 0, 0, 0.12);
+}
+
+.pdf {
+  padding-left: 3em;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.pdfIcon {
+  padding-left: 2em;
+  font-size: 1.3em;
+}
+
+.lcButton {
+  margin-bottom: 6em;
+}
+
+.icon {
+  font-size: 1.5em;
+}
+
+.align {
+  margin-left: 25.66666667%;
+}
+
+.headerAlign {
+  margin-left: 3.5em;
+}
+.headerStyle {
+  color: #545454;
+  font-weight: 600;
+  margin-left: 3em;
+}
+
+.templateAlign {
+  margin-left: 6em;
+}
+
+.textAlign {
+  margin-left: 3em;
+}
+
+.buttonAlign {
+  margin-right: 8em;
+}
+
+.divRow{
+  padding-left: 2em;
+  margin-top: -1.5em;
+}
+
+.desc{
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.iconImage
+{
+  color: #414141 !important;
+  opacity: 0.75;
+  text-align: center;
+  padding: 0.6em;
+  text-decoration: none;
+  font-size: 18px !important;
+  line-height: 0em;
+  border-radius: 37%;
+  cursor: pointer;
+}
+
+.positionStyle {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+@media screen and (min-width: 540px) and (max-width: 768px) {
+  .circleBackgroundLC {
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+  }
+}
+@media screen and (min-width: 820px) and (max-width: 1180px) {
+  .circleBackgroundLC {
+    margin-top: 2em;
+  }
+}
+@media screen and (min-width: 540px) and (max-width: 1024px) {
+  .successTick {
+    margin-top: 10.5em !important;
+  }
+}
+
+.circleBackgroundError {
+  display: inline-block;
+  border-radius: 50%;
+  min-width: 1.875em;
+  min-height: 1.875em;
+  padding: 0.9em;
+  font-size: 1.125em;
+  text-align: center;
+  line-height: 1.875em;
+  box-sizing: content-box;
+  white-space: nowrap;
+}
+
+.circleBackgroundError:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+  height: 0;
+}
+@media screen and  (min-width: 768px) and (max-width: 1024px){
+  :host ::ng-deep .positionStyle{
+  width: 96% !important;
+  margin-right: 1em !important;
+}
+:host ::ng-deep .divRow{
+  padding-left: 0em !important;
+}
+
+:host ::ng-deep .p-grid {
+  margin-top: 4.1em !important;
+}
+
+:host ::ng-deep .ui-card-content {
+  margin-top: -9.5em !important;
+}
+
+:host ::ng-deep .successTick {
+  margin-top: 8.5em !important;
+}
+
+:host ::ng-deep .p-col-12 {
+  width: 100%;
+}
+:host ::ng-deep .p-grid.divRow {
+  margin: 0em;
+  
+}
+
+:host ::ng-deep .success {
+  margin-top: -1.5em;
+}
+
+:host ::ng-deep.LC_background.circleBackgroundLC {
+  position:absolute;
+  margin-top: -1em;
+  
+}
+:host ::ng-deep.iconImage{
+  position: absolute;
+  top: 25em;
+}
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1080px) {
+  :host ::ng-deep .p-lg-9 {
+    width: 82%;
+  }
+  :host ::ng-deep .successTick {
+    margin-top: 8.5em !important;
+  }
+}
+
+@media screen and  (min-width: 820px) and (max-width: 1180px){
+  :host ::ng-deep .successTick {
+    margin-top: 4.5em!important;
+}
+:host ::ng-deep .LC_background.circleBackgroundLC {
+  
+  margin-top: -1em;
+}
+:host ::ng-deep .p-grid.divRow {
+  margin: 2em;
+}
+}

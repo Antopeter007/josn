@@ -1,0 +1,110 @@
+<div>
+    <mat-card style="display: flex; flex-direction: column;">
+        <div>
+            <div class="multipleTabHeading" id="multipleTabEnableHeaderId">
+                <label>
+                    {{ tabName | translate }}
+                </label>
+                <button role="button"  mat-button class="downloadIcon" [dir]="dir" attr.aria-label="{{'listDownload' | translate}}" [matMenuTriggerFor]="menuDownload" id="tableDownload" tabindex="0">
+                    <em title="{{listDownload}}" class="fa fa-download"></em>
+                </button>
+                <label class="view-payments-list" tabindex="0" (click)="navigateByUrl('#/productListing?option=PAYMENTS&category=FCM')"
+                    (keyup.enter)="navigateByUrl('#/productListing?option=PAYMENTS&category=FCM')">{{ 'VIEW_PAYMENTS_LIST' | translate }}</label>
+                <br>
+            </div>
+
+            <div class="radio-button">
+                <mat-radio-group tabindex="0" (change)="changeDate()" [(ngModel)]="liquidationDateDuration">
+                    <mat-radio-button value="TODAY" [checked]=true>{{ 'today' | translate }}</mat-radio-button>
+                    <mat-radio-button value="YESTERDAY">{{ 'yesterday' | translate }}</mat-radio-button>
+                    <mat-radio-button value="LAST_7_DAYS">{{ 'last_seven_days' | translate }}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div *ngIf="packagesList.length>0">
+                <label class="total-payments">
+                    {{ 'total_payments' | translate }}
+                </label>
+            </div>
+            <div *ngIf="packagesList.length>0">
+                <label class="total-amount">
+                    {{totalConsolidatedPackageAmount}}
+                </label>
+                <br>
+            </div>
+
+            <div>
+                <div class="left-section" p-grid>
+                    <div *ngIf="packagesList.length==0" class="no-records-found">
+                        <div><div class="emptyMsgIcon"><em class="material-icons noRecordIconStyle">warning</em> </div></div>
+                        <div>
+                            <p>{{ 'noRecordsFound' | translate }}<p>
+                        </div>
+                        <div class="emptyMsg" *ngIf="isMaker">
+                            <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateByUrl('#/commonProductScreen?option=PAYMENTS&operation=ADD_FEATURES&category=FCM');$event.preventDefault();"
+                              (click)="navigateByUrl('#/commonProductScreen?option=PAYMENTS&operation=ADD_FEATURES&category=FCM');$event.preventDefault();" href="javascript:void(0)">{{ 'createPayment' | translate}}</a>
+                          </div>
+                          <div class="emptyMsg" *ngIf="!isMaker">
+                            <a tabindex="0" id="empty-msg-link" (keyup.enter)="navigateByUrl('#/productListing?option=PAYMENTS&category=FCM');$event.preventDefault();"
+                              (click)="navigateByUrl('#/productListing?option=PAYMENTS&category=FCM');$event.preventDefault();" href="javascript:void(0)">{{ 'paymentListing' | translate}}</a>
+                          </div>
+                    </div>
+                    <div *ngIf="packagesList.length>0" class="header-container" >
+                        <span class="package-header">{{ 'packageName' | translate }}</span><span class="amount-header">{{ 'amount' | translate }}</span><span class="percentage-header">{{ 'percent' | translate }}</span>
+                    </div>
+                    <mat-accordion multi="false">
+                        <div *ngFor="let row of packagesList">
+                            <mat-expansion-panel #panel hideToggle>
+                                <mat-expansion-panel-header (click)="getPackageDetails(row.name)" class="header-container">
+                                    <mat-panel-title style="width: 60%;">
+                                        <div [style.background]=row.color class="color-circle"></div>
+                                        <label class="package-name">{{row.name}}</label>
+                                    </mat-panel-title>
+                                    <mat-panel-description style="width: 40%;"tabindex="0"> <label
+                                            class="package-amount">{{row.amount}}</label>
+                                        <label class="package-discount">{{row.discount}}</label>
+                                    </mat-panel-description>
+                                    <mat-icon class="down-arrow">{{panel.expanded? 'expand_less' : 'expand_more'}}</mat-icon>
+                                </mat-expansion-panel-header>
+
+                                <mat-list *ngFor="let selectedRow of packageDetailsList|slice:0:showPackageDetails">
+                                    <mat-list-item class="header-container">
+                                        <label class="client-code">{{selectedRow.clientCode}}</label>
+                                        <label class="client-amount">{{selectedRow.clientTotalAmount}}</label>
+                                    </mat-list-item>
+                                </mat-list>
+                                <p class="show-more" dir = {{dir}} *ngIf="showPackageDetails < packageDetailsList.length"
+                                    (click)="showPackageDetails = packageDetailsList.length">Show more</p>
+                            </mat-expansion-panel>
+                            <span layout="row">
+                                <hr flex />
+                            </span>
+                        </div>
+                    </mat-accordion>
+                </div>
+
+                <div *ngIf="packagesList.length>0" class="right-section">
+                    <div class="doughnut-center-text">
+                        <p class="total-payment">{{ 'total_payments' | translate }}</p>
+                        <h1 class="totalConsolidatedPackageAmount">{{totalConsolidatedPackageAmount}}</h1>
+                    </div>
+                    <div style="display: block;">
+                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                            [options]="limitDoughnutChartOptions" [colors]="colors"  [chartType]="doughnutChartType" height="130px">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </mat-card>
+</div>
+<mat-menu #menuDownload="matMenu" class="downloadMatMenu downloadMatMainMenu">
+    <ul>
+      <li *ngFor= "let downloadOption of downloadOptions">
+        <button role="button"  id="{{ downloadOption + '_download'}}" mat-menu-item tabindex="0"
+        (click)="onClickDownloadOption(downloadOption)">{{ downloadOption }}</button>
+      </li>
+  </ul>
+</mat-menu>
+

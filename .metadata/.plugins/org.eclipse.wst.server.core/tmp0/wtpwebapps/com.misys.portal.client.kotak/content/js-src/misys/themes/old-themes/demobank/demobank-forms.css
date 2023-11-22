@@ -1,0 +1,983 @@
+/*
+ Styles for pages containing forms
+*/
+
+@media print {
+	.demobank .noprint
+	{
+		display: none;
+	}
+	.demobank .menu
+	{
+		display: none;
+	}
+}
+
+
+/** Root Portlet **/
+.demobank #default #GTPRootPortlet.portlet {
+	border: none;
+}
+
+.demobank #default #GTPRootPortlet .portlet-title{
+	font-size:1.5em;
+}
+
+.demobank #default #GTPRootPortlet .portlet-section-header {
+	background: none;
+	background-color: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.demobank #offsetsign01_0_row label {
+	text-align: left;
+}
+
+.demobank #offsetsign01_1_row label {
+	text-align: left;
+}
+
+.demobank #offsetsign02_0_row label {
+	text-align: left;
+}
+
+.demobank #offsetsign02_1_row label {
+	text-align: left;
+}
+
+.demobank #threshold_sign01_0_row label, .demobank #threshold_sign01_1_row label,
+.demobank #threshold_sign02_0_row label, .demobank #threshold_sign02_1_row label,
+.demobank #threshold_sign03_0_row label, .demobank #threshold_sign03_1_row label {
+	text-align: left;
+}
+
+.demobank #default #GTPRootPortlet .portlet-section-header h2 {
+	color: #117BAA;
+}
+
+.demobank .menu {
+	margin: 10px 0 10px auto;
+    text-align: right;
+}
+
+.demobank .menu .floating{
+	margin: 0px;
+	float:right;
+    text-align: right;
+}
+
+.demobank .menu button{
+	font-weight:bold;
+}
+
+.demobank .menu .dijitButton {
+	display:inline;
+}
+
+.demobank #xhrDialog{
+	font-size:0.8em;
+}
+
+.demobank #xhrDialog .menu{
+	padding-right:10px;
+}
+
+/*.demobank #xhrDialog .grid{
+	visibility:visible;
+}*/
+
+/** Center all validating forms **/
+.demobank .form{
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/** Top-level fieldset **/
+.demobank .toplevel-header{
+	margin: 5px auto 15px auto;
+	padding: 0 0 0.5em 0;
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.demobank .multipleItemDialog .toplevel-header{
+	margin-bottom:0px;
+}
+
+.demobank .toplevel-header h2{
+    font-weight: bold;
+    background: transparent url("images/header_33px.png") repeat-x top;
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+/** A second-level, indented fieldset **/
+.demobank .indented-header,
+.demobank #event-summary .attachments-container .toplevel-header{
+	border: none;
+	clear:both;
+}
+
+.demobank .indented-header h3,
+.demobank #event-summary .attachments-container .toplevel-header h2{
+	background-image:none;
+    background-color: #F0F0F0;
+    color: #000000;
+    padding-left:0.2em;
+    margin: 15px 20px 5px; 
+} 
+
+/** Required field symbol **/
+.demobank .required-field-symbol{
+	color: #eb6e1f;
+}
+
+/** Standard Field sizes **/
+.demobank .xx-small{width:3em;}
+.demobank .x-small{width:4em;}
+.demobank .small{width:10em;}
+.demobank .medium{width:20em;}
+.demobank .large{width:25em;}
+.demobank .x-large{width:30em;}
+
+/** Field layout for a group of options **/
+.demobank .multioption-group-label{
+	text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 10px;
+	padding-bottom: 10px;
+	height: auto;
+}
+
+.demobank .multioption-group-label .field {
+	margin: 3px 0 3px 0;
+}
+
+.demobank .multioption-group-label label {
+	text-align: left;
+	white-space: nowrap;
+	width: auto;
+	font-weight: normal !important;
+}
+
+/** A checkbox or a radio button label**/
+.demobank .checkbox label,
+.demobank .radio label{
+	margin-left: 180px;
+}
+
+.demobank .checkbox label{
+	text-align:left;
+	width: 200px;
+}
+
+/** Textarea **/
+.demobank textarea{
+	width:auto;
+}
+
+.demobank .textareacontent {
+	padding-left:1.6em;
+    margin: 15px 20px 5px 0px;
+    display: block; 
+}
+
+/** Tabs **/
+
+/** Default height **/
+.demobank .tabcontainer{
+	width: 100%;
+	height: 215px;
+}
+
+/** An updated tab **/
+.demobank .tabChangeStyle{
+    font-weight:bold;
+}
+
+.demobank .tabLabel img{
+	padding:0px 0px 5px 2px;
+}
+
+/** Buttons **/
+.demobank h2 button, .demobank h3 button{
+    border: 0;
+    background-image: none;
+    background-color:transparent;
+    color: blue;
+    margin: 0;
+    padding: 0;
+    float:right;
+    width:16px;
+    height:18px;
+}
+
+.dj_ie6 h2 button, .dj_ie7 h2 button {
+	 margin-top:-15px;
+}
+
+/** A button on a textarea**/
+.demobank .textarea-button{
+	
+	
+	display:inline-block;
+	*display:inline;
+	vertical-align:top;
+}
+
+.demobank #chargeDialog label{
+	width: 110px;
+}
+
+/** An empty list **/
+.demobank .empty-list-notice {
+	padding: 0 0 0 0.2em;
+	margin: 0 0 0 0.2em;
+	font-weight: bold;
+}
+
+/** Attachments Table **/
+.demobank .attachments .dijitDownArrowButton .dijitArrowButtonInner {
+	display:none;
+}
+
+/** Collaboration Window **/
+/** TODO Refactor into CSS for the custom widget **/
+.demobank #collaborationWindowContainer {
+    visibility:hidden;
+}
+
+.demobank #collaborationWindow {
+    height:auto;
+    right:200px;
+    top:7px;
+    z-index:99;
+}
+
+.demobank .tasksBox{
+	border: 1px dotted #0079A7;
+}
+
+.demobank .tasksBoxTitle{
+	margin:5px 5px 10px 5px;
+	font-size:1.1em;
+}
+
+.demobank .tasksBox li{
+	font-size:0.9em;
+}
+
+.demobank .pinButton{
+	width:18px;
+    height:15px; 
+    overflow:hidden;
+    cursor:pointer;
+    float:right;
+}
+
+.demobank #collaborationWindowContent {
+	height:0px;
+}
+
+.demobank #collaborationWindow ol{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+.demobank #collaborationWindow ol label{
+    display:inline;
+}
+
+.demobank #collaborationWindow ol li{
+    display:block;
+    clear:both;
+}
+
+
+
+.demobank .dojoxFloatingPaneFg {
+    border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.demobank #collaborationWindow .dojoxFloatingPaneTitle {
+    background-color:#EB6E1F;
+    background-image:none;
+    color: white;
+}
+
+.demobank .dojoxFloatingPane .dijitArrowNode {
+    cursor: pointer;
+    background-image: url("../../../dijit/themes/tundra/images/spriteArrows.png");
+    background-repeat: no-repeat;
+    height: 7px;
+    width: 7px;
+}
+
+.dj_ie6 .demobank .dojoxFloatingPane .dijitArrowNode {
+    background-image: url("../../../dijit/themes/tundra/images/spriteArrows.gif");
+}
+
+.demobank .dojoxFloatingPane .dijitOpen .dijitArrowNode {
+    background-position: 0px 0px;
+}
+
+.demobank .dojoxFloatingPane .dijitClosed .dijitArrowNode {
+    background-position: -14px 0px;
+}
+
+.demobank .dojoxFloatingPane .dijitArrowNodeInner {
+    display:none;
+}
+
+.demobank .dijit_a11y .dojoxFloatingPane .dijitArrowNodeInner {
+    display:inline !important;
+    cursor: pointer;
+    padding-bottom:.2em;
+}
+
+.demobank .dijit_a11y .dojoxFloatingPane .dijitArrowNode {
+    display:none;
+}
+
+.demobank #dojoxGlobalResizeHelper{
+	display:none;
+}
+
+/** Table of Contents **/
+.demobank #toc{
+	 display:block;
+     position: fixed;
+     top: 78px;
+     right: 32px;
+     border-style: solid;
+     border-width: 2px;
+     background-color: #EB6E1F;
+     border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+     z-index:99;
+}
+
+.demobank #toc a{
+	font-weight:normal;
+	color: white;
+}
+
+.demobank #toc p{
+    padding:3px;
+    margin:1px;
+}
+
+.demobank #toccontent{
+    line-height: 110%;
+    margin-bottom:5px;
+}
+
+.demobank #toccontent ul{
+	list-style-type:none;
+}
+
+.demobank #toccontent a {
+  margin-left: 16px;
+  margin-top: 5px;
+}
+
+/** Popup overlay styles **/
+.demobank #xhrDialog .dijitDialogPaneContent #edit{
+	border: 0px solid #ffff00;
+}
+
+.demobank #xhrDialog p{
+	margin:1%;
+}
+
+/** Override Dijit classes **/
+.demobank .dijitButtonNode {
+	background-color: transparent;
+}
+
+.demobank .dijitInputField                    
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.demobank .dijitMenuItem{
+	font-size:0.8em !important;
+}
+
+.demobank .dijitArrowButton{
+	line-height:17px;
+}
+
+.demobank .dijitTextArea {
+    font-family: "Courier New";
+    font-size:1em;
+}
+
+/** Attachments table **/
+.demobank table.attachments{
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	margin:1em auto;
+	border-collapse:collapse;
+	width:80%;
+}
+
+.demobank .small-tblheader, .demobank .button-tblheader{
+	width:20px;
+}
+
+.demobank .attachments caption{
+	font-size:.94em;
+	letter-spacing:.1em;
+	margin:1em 0 1em 0;
+	padding:0;
+	caption-side:top;
+	text-align:center;
+}
+
+.demobank .attachments td {
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+	text-align:center;
+}
+
+.demobank .attachments th {
+	font-weight:normal;
+	text-align:left;
+	border-bottom: 1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+}
+
+.demobank .attachments thead th {
+	background:#f4f9fe;
+	text-align:center;
+	font-weight:bold;
+}	
+	
+.demobank .attachments tfoot th {
+	text-align:center;
+}
+
+.demobank .attachments tfoot th strong {
+	margin:.5em .5em .5em 0;
+}
+
+/** Calendar **/
+.demobank .dijitCalendarContainer{
+	font-size:0.8em !important;
+}
+
+/** Calendar in the side bar **/
+.demobank #MenuBuilder .dijitCalendarContainer{
+	font-size:1em !important;
+	margin-bottom:5px;
+}
+
+/** View mode **/
+.demobank #reporting_popup,
+.demobank #reporting_popup .portlet-section-body{
+	padding:5px 5px 0px 5px;
+}
+
+.demobank #reporting_popup .toplevel-header .toplevel-header{
+	margin:0px 5px 0px 5px;
+}
+
+.demobank .disclaimer {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	font-weight: bold;
+	clear: both;
+	font-size:0.9em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.demobank .collapse-label label
+{
+    margin:0;
+    padding:0;
+    width:0;
+}
+
+.demobank .collapse-label .field{
+	margin-left:0;
+}
+
+.demobank .multi-select {
+	width: 550px;
+}
+
+
+.demobank .collapsible-header
+{
+
+padding-left:5px;
+padding-right:5px;
+font-weight:bold;
+height:20px;
+margin:5px 20px 0px 13%;
+width:auto;
+
+}
+
+.demobank .collapsible-left-margin
+{
+	margin-left: 175px;	
+}
+
+.demobank .collapsible-header .collapsible-header-inner
+{
+float:left;
+display:block;
+background-color:#EEEEEE;
+background-image:none;
+width:100%;
+height:15px;
+}
+
+.demobank .collapsible-header .collapsible-header-inner .legend
+{
+font-size:0.9em;
+}
+
+.demobank .collapsible-header .collapsible-header-inner .image
+{
+	float:right;
+	margin-top:-15px;
+	*margin-top:-15px;
+}
+
+
+.demobank div.multiple-date-selection label
+{
+	display:inline;
+	margin:0px;
+	width:0px;
+}
+
+.demobank div.multiple-date-selection  div.field  div.field
+{
+	margin:0px;
+    display:inline;
+}
+
+.demobank div.multiple-date-selection div.field  div.field label
+{
+	margin:0px;
+    width:auto;
+}
+
+.demobank div.multiple-date-selection > div > label
+{
+	width:175px;
+    display:inline-block;
+} 
+
+.demobank div.multiple-date-selection div.label
+{
+	display:inline;
+	text-align:right;
+	margin:0px;
+}
+
+.demobank div.multiple-date-selection span.title
+{
+	display:inline;
+	text-align:right;
+width:175px;
+margin-right:5px;
+}
+
+
+
+.demobank div#validationErrorinnerDiv ul li
+{
+list-style-type:disc;
+}
+
+.demobank #ok_leg_formula_row label
+{
+width:auto;
+margin-left:25px;
+}
+
+/** Cross References **/
+.demobank .field ul{
+	margin-left:175px;
+	font-family: "Courier New";
+	font-weight:bold;
+}
+
+/** LC Specific **/
+.demobank #widget_tenor_days{
+	margin-left:50px;
+}
+
+/** File Upload **/
+#fileUploadDialog .field label{
+	width:80px;
+}
+
+/** IE Specific **/
+.dj_ie6 .demobank #toc {
+ display:none !important;
+}
+
+/** Temp rule, remove once entity popup no long inside HTML <body> fragment **/
+.demobank #entity_popup{
+	font-size:1.2em;
+}
+.demobank #entity_popup .grid{
+	font-size:0.8em;
+}
+
+/** History view **/
+.demobank #history-master .field{
+	margin-left:0;
+}
+
+.demobank #history-master .field{
+	margin-left:0;
+}
+
+.demobank #ProductOverview .label{
+	width:120px;
+}
+
+.demobank #customers-section{
+	padding-left:1.6em;
+}
+
+.demobank #view .field .field,
+.demobank #event-summary .field .field{
+	display:inline;
+	margin-left:0;
+}
+
+
+
+.demobank #view .field .field .label,
+.demobank #event-summary .field .field .label{
+	display:none;
+}
+
+.demobank #view .field #pstv_tol_pct_row .label{
+	display:inline-block;
+}
+
+
+.demobank #view .field div#neg_tol_pct_row.field span.label{
+	display:inline-block;
+}
+
+.demobank #view .field div#neg_tol_pct_row.field
+{
+	display:block;
+	margin-left: 180px;
+}
+
+.demobank #view .field div.block{
+    display:block;
+    
+}
+
+.demobank .field .checkbox{
+	padding-right:10px;
+}
+
+.demobank #cash_flow_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+}
+
+.demobank #asset_schedule_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+}
+
+.demobank #bg_document{
+	margin:20px;
+}
+
+.demobank .inline-group div.field {
+	display: inline;
+}
+
+.demobank .inline-group .field label {
+	margin: 0px 0px 0px 0.5em;
+}
+
+.demobank .comment-list li {
+	list-style-image: url('images/comment.png');
+}
+
+.demobank #customerReferenceDialog {
+	width: 550px;
+}
+
+.demobank #criterium_pre_defined_value_section label{
+	margin-left:10px;
+}
+
+.demobank #criterium_pre_defined_value_section .label{
+	 width:300px;
+}
+
+.demobank .ctr-acc-tblheader{
+	width:40%;
+}
+
+.demobank .sp-acct-tblheader{
+	width:30%;
+}
+
+.demobank .sp-amt-tblheader{
+	width:25%;
+}
+
+.demobank .table-buttons{
+	width:20%
+}
+
+.demobank  .multipleItemDialog{
+	 width:475px;
+}
+
+.dj_ie6 .demobank div#free_format_text_row label {
+	display: block;
+}
+
+.dj_ie7 .demobank div#free_format_text_row label {
+	display: block;
+}
+
+
+.demobank #beneficiary_name_row {
+	display: inline;
+}
+
+.demobank button#beneficiary_img {
+	border: 0 none;
+	margin-left: 10px;
+	background-color: white;
+}
+
+.dj_webkit .demobank .gridActions img:hover,
+.dj_gecko .demobank .gridActions img:hover,
+.dj_ie8 .demobank .gridActions img:hover {
+	cursor:pointer;
+}
+
+.demobank .gridActions{
+	text-align:center;
+}
+
+/*Summit developments*/
+
+#cashflows, #schedules
+{
+	overflow:auto;
+	position:relative;
+	width:100%;
+	height:400px;
+	}
+	
+.demobank .inline-group div.field {
+	display: inline;
+}
+
+.demobank .inline-group .field label {
+	margin: 0px 0px 0px 2em;
+	width: auto;
+}
+
+.demobank #cash_flow_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.demobank #asset_schedule_data{
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height:300px;
+}
+
+.demobank div.fees-container
+{
+	margin:10px;
+	margin-left:21%;
+	margin-right:30px;
+	padding-left:5px;
+	
+}
+
+.demobank .widePopup
+{
+	width:80%;
+}
+
+.demobank .barriers-container,.demobank .double-barriers-container
+{
+	margin:10px 30px 10px 21%;
+}
+
+#barriers .dijitButtonNode
+{
+	background:url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x scroll left bottom #FFFFFF;
+	border:1px solid gray;
+}
+
+.demobank #securities, .demobank  #prices, .demobank  #stocks
+{
+	margin-left : 20px;
+}
+
+.demobank #formulaDialogContainer
+{
+display: none;
+}
+
+.demobank #collaborationWindow div.dijitTitlePaneTitle
+{
+	color: white;
+}
+
+.demobank #collaborationWindow.dijitTitlePane {
+	float: right;
+	width: 300px;
+	margin-right: -180px;
+	position: absolute;
+	margin-top: 20px;
+}
+
+/* Disable resizing of textareas in FF4/Chrome */
+.demobank textarea {
+  resize: none; 
+}
+
+.demobank label.recursive_event_label {
+	text-align:left; 
+	padding-left: 5%;
+	width: 80px;
+}
+
+.demobank #documentDialog, 
+.demobank #roleDialog {
+	width: 500px;
+}
+
+.demobank #topicDialog,
+.demobank #logoUploadDialog {
+	width: 400px;
+}
+
+.demobank #topicDialog label,
+.demobank #logoUploadDialog label {
+	width: 20%;
+}
+
+.demobank label.dialogLabelCheckBtn {
+	text-align: left;
+	margin-left: 20px;
+	width: 250px;
+}
+
+/*Center titles of table headers*/ 
+.demobank div.dojoxGridHeader table th.dojoxGridCell  {
+	text-align:center;	
+}
+
+.demobank .errorIcon{
+	 padding-bottom:2px;
+	 padding-left:5px;
+}
+
+/** The following styles are for the collaboration window fields **/
+.demobank #public_tasks_fields label, 
+.demobank #public_tasks_fields .label,
+.demobank #private_description_nosend_row label,
+.demobank #notification_tasks_dialog label,
+.demobank #notification_tasks_dialog .label{
+	width:100px;
+}
+
+.demobank #public_tasks_fields .radio label, 
+.demobank #public_tasks_fields .checkbox label {
+	margin-left: 105px;
+	width:100%;
+}
+
+.demobank #public_task_details_email_notification_nosend_row label,
+.demobank #notification_task_details_email_notification_nosend_row label{
+	width:100%;
+	margin-left:30px;	
+}
+
+.demobank .bookmark{
+	width: 145px;
+	height:35px;
+}
+/** Value Added Service table **/
+.demobank table.valueaddedservice{
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	margin:1em auto;
+	border-collapse:collapse;
+	width:100%;
+}
+.demobank .valueaddedservice caption{
+	font-size:.94em;
+	letter-spacing:.1em;
+	margin:1em 0 1em 0;
+	padding:0;
+	caption-side:top;
+	text-align:center;
+}
+
+.demobank .valueaddedservice td {
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
+	padding:.1em;
+	text-align:center;
+}
+
+.demobank .valueaddedservice th.dojoxGridCell {
+	background: none repeat scroll 0 0 #7692B7 !important;
+	font-weight:normal;
+	text-align:left;
+	border-bottom: 1px solid #999;
+	border-left:1px solid #999;
+	padding:.3em 1em;
+}
+
+.demobank .valueaddedservice thead th {
+	background:#f4f9fe;
+	text-align:center;
+	font-weight:bold;
+}	
+	
+.demobank .valueaddedservice tfoot th {
+	text-align:center;
+}
+
+.demobank .valueaddedservice tfoot th strong {
+	margin:.5em .5em .5em 0;
+}

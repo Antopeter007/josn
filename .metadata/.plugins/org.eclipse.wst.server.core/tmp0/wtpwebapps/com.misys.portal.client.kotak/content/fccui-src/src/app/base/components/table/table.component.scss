@@ -1,0 +1,1649 @@
+@import './../../../../styles/variables.scss';
+.headerTitle {
+  opacity: 1.75;
+  color: $CHARCOAL-F100;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.065em solid $GREY-15 !important;
+  background-color: ghostwhite;
+}
+:host ::ng-deep .ui-table .ui-table-tbody .rowClass:hover {
+  cursor: pointer !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0em 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0em solid #c8c8c8;
+  font-weight: bold;
+  background-color: transparent;
+  color: $CHARCOAL-F100;
+  text-align: left;
+  font-size: 1em;
+}
+
+@media (min-width: 1170px) {
+  .tableAlign {
+    width: 100%;
+    //height: calc(100vh - 28em); //Need To uncomment while enabling table's vertical scroll
+  }
+}
+
+@media (max-width: 1170px) {
+  .tableAlign {
+    width: 100%;
+    //height: calc(100vh - 35em); //Need To uncomment while enabling table's vertical scroll
+  }
+}
+
+:host ::ng-deep .ui-table-wrapper{
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.stickyHeader {
+  position: sticky;
+}
+
+.stickyAction {
+  position: sticky;
+  right: 0 !important;
+}
+
+.stickyAction[dir='rtl'] {
+  left: 0 !important;
+}
+
+.stickyPosition {
+  z-index: 1;
+}
+
+.freezeAction {
+  box-shadow: inset 0.0625em 0em 0em $LIGHTGREY;
+}
+
+.freezeAction[dir='rtl'] {
+  box-shadow: inset -0.0625em 0em 0em $LIGHTGREY;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > .stickyAction {
+  background-color: $VIOLET-14 !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:last-child td:last-child p-menu.fourth-item .ui-menu-dynamic {
+  transform: translateY(-13em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:nth-last-child(2) td:last-child p-menu.fourth-item .ui-menu-dynamic {
+  transform: translateY(-13em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:last-child td:last-child p-menu.third-item .ui-menu-dynamic {
+  transform: translateY(-11em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:nth-last-child(2) td:last-child p-menu.third-item .ui-menu-dynamic {
+  transform: translateY(-11em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:last-child td:last-child p-menu.second-item .ui-menu-dynamic {
+  transform: translateY(-9em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:nth-last-child(2) td:last-child p-menu.second-item .ui-menu-dynamic {
+  transform: translateY(-9em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:last-child td:last-child p-menu.first-item .ui-menu-dynamic {
+  transform: translateY(-7em) !important;
+}
+
+:host ::ng-deep p-table.fcc-ui-table tr:nth-last-child(2) td:last-child p-menu.first-item .ui-menu-dynamic {
+  transform: translateY(-7em) !important;
+}
+
+:host ::ng-deep .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+  background-color: transparent;
+}
+
+:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+  color: #848484;
+}
+
+:host ::ng-deep .ui-table .ui-table-caption {
+  padding: 0.2em;
+  background-color: white;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: #e0e0e0 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.065em solid $GREY-15;
+}
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: #fff;
+  border: 0em solid #c8c8c8;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: left;
+  font-size: 0.875em;
+  padding-right: 2em;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > .stickyHeader {
+  background-color: $VIOLET-14 !important;
+  z-index: 1;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(even) > td {
+  background-color: $VIOLET-14 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(odd) > td {
+  background-color: $WHITE !important;
+}
+
+.displayChevron {
+  visibility: hidden;
+}
+
+tr:hover > td{
+  cursor: pointer;
+  border-bottom: 0.065em solid #c137a2;
+  border-top: 0.065em solid #c137a2;
+}
+
+tr:hover > td .displayChevron{
+  cursor: pointer;
+  visibility:  visible;
+  color: $primaryColor;
+}
+
+tr:hover > td .ellipisis, tr:focus-within > td .ellipisis{
+  cursor: pointer;
+  visibility:  visible;
+}
+
+tr > td .action-icons, tr:focus-within > td .action-icons{
+  cursor: pointer;
+  visibility:  visible;
+}
+
+tr > td {
+  color: black;
+}
+
+@media screen and (max-width: 40em) {
+  :host ::ng-deep .ui-table.ui-table-responsive .ui-table-tbody > tr > td {
+    text-align: left !important;
+  }
+}
+
+.bottom-transaction {
+  padding-left: 47%;
+}
+
+:host ::ng-deep .ui-paginator {
+  background-color: #f4f4f4;
+  border: 0.065em solid #c8c8c8;
+  padding: 0;
+  background-color: rgba(217, 211, 245, 0.31);
+  border: 0.065em solid rgba(217, 211, 245, 0.31);
+}
+
+:host
+  ::ng-deep
+  .ui-paginator
+  .ui-paginator-pages
+  .ui-paginator-page.ui-state-active {
+  background-color: $ActiveNumberbackgroundColor;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: #ffffff !important;
+  visibility: visible;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-widget.ui-state-default.ui-state-focus {
+  outline :1px solid black;
+}
+
+:host
+  ::ng-deep
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-chkbox-box
+  .ui-widget
+  .ui-corner-all
+  .ui-state-active
+  .ui-state-active {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  color: #ffffff !important;
+  box-shadow: none !important;
+  border-color: #a6a6a6 !important;
+  background-color: #fff !important;
+}
+
+:host
+  ::ng-deep
+  .ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight {
+  color: #000000;
+  background-color: transparent;
+}
+
+:host ::ng-deep .ui-dropdown {
+  background: #ffffff;
+  border: none;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  color: $primaryColor;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  background-color: $primaryColor;
+}
+
+:host ::ng-deep .ui-dropdown-label {
+  border-bottom: 0em none !important;
+  padding-top: 0.4em !important;
+}
+
+:host ::ng-deep .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: $primaryColor;
+}
+
+:host
+  ::ng-deep
+  .ui-dropdown-panel
+  .ui-dropdown-filter-container
+  .ui-dropdown-filter-icon {
+  color: $primaryColor;
+}
+
+:host
+  ::ng-deep
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
+  color: $primaryColor;
+}
+
+:host ::ng-deep .ui-corner-right {
+  border-top-right-radius: none !important;
+  border-bottom-right-radius: none !important;
+  border: none !important;
+  border-left: none !important;
+}
+
+:host ::ng-deep .ui-multiselect-label {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+:host ::ng-deep .ui-multiselect .ui-multiselect-label{
+  color: rgb(0 0 0);
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item {
+  text-align: justify;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item .ui-chkbox {
+  margin: 0 0.5em 0 0.5em;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-inputtext {
+  margin: 0 0.5em 0 0;
+}
+:host ::ng-deep .displayChevron .pi-chevron-down:before {
+  content: "\e902" !important;
+}
+
+:host ::ng-deep .pi-chevron-down:before {
+  content: "\e906" !important;
+}
+
+a {
+  color: $primaryColor;
+}
+
+a:hover {
+  color: $primaryColor;
+  text-decoration: none !important;
+}
+
+#searchIcon {
+  margin-left: 0.25em;
+  margin-top: 0.625em;
+  float: left;
+  color: $primaryColor;
+}
+
+.columnHeader {
+  font-weight: bold;
+}
+
+.rowExpandColumn {
+  width: 2em;
+}
+.rowExpandStyle {
+  padding-left: 14.7em;
+}
+
+.headerFont {
+  padding: 1em 0em;
+  font-size: 0.75em;
+  font-family: Roboto;
+  color: $CHARCOAL-F100;
+  line-height: 0.875em;
+  padding-bottom: 0.5em;
+}
+
+.dataFont {
+  font-size: 0.875em;
+  font-family: Roboto;
+  color: #545454;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border-color: $FUCHSIA-F100;
+  color: $WHITE;
+  border-bottom-width: -27em;
+  border-width: 0.2em;
+  border-style: solid;
+  background-color: $WHITE;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon {
+  background-color: $FUCHSIA-F100;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  color: $WHITE !important;
+  border-color: $FUCHSIA-F100 !important;
+  background-color: $WHITE !important;
+}
+
+td.radioButtonStyle {
+  padding: 0.2em !important;
+}
+
+.radioColumnStyle {
+  width: 2em;
+}
+
+.ellipisis {
+  color:#6948d9;
+  visibility: hidden;
+}
+
+.overdraw {
+  visibility: visible;
+}
+
+
+.iconwrapper {
+  min-width: 1em;
+}
+
+.threeDots{
+  font-size: 1.7em;
+  color: #707070;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.75;
+  top: -0.4em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.actionThreeDots {
+  font-size: 1.7em;
+  color: #707070;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.75;
+}
+
+.actionThreeDots:hover {
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+
+.alignActions {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.threeDotsMenuWidget{
+  left: auto !important;
+}
+
+.threeDots:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+
+:host ::ng-deep .ui-menu {
+  top: 4.5em !important;
+  left: auto !important;
+  height: auto !important;
+  background-color: #fff !important;
+  right: 2em;
+}
+
+:host ::ng-deep .ui-table-caption{
+  height: 2em !important;
+  border: none !important;
+}
+
+:host ::ng-deep .pi-download:before {
+  content: "\e970" !important;
+  cursor: pointer !important;
+}
+
+.downloadIcon,
+.csvIcon,
+.columnIcon,
+.pdfIcon,
+.filterIcon
+{
+  color: $CHARCOAL-F100 !important;
+  opacity: 0.75;
+  text-align: center;
+  padding: 0.6em;
+  text-decoration: none;
+  font-size: 1.3em !important;
+  line-height: 0em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.filterIcon {
+  margin-right: 0.5em;
+  color: $CHARCOAL-F100 !important;
+  opacity: 0.75;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3em !important;
+  padding: 0.3em 0.3em 0 0.3em;
+}
+
+.col-customise {
+  color: $CHARCOAL-F100 !important;
+  line-height: 0em;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0 0.3em 0 0.3em;
+  margin-top: -0.1em;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  margin-left: 0.4em;
+}
+
+.downloadIcon {
+  padding: 0.2em !important;
+  min-width: 40px;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+[dir="rtl"] .downloadIcon {
+  margin-left: -0.3em !important;
+}
+
+.downloadIcon:hover
+.columnIcon:hover,
+.pdfIcon:hover,
+.csvIcon:hover,
+.filterIcon:hover,
+.col-customise:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  opacity: 0.94;
+}
+
+.focus button:hover {
+  background-color: rgba(158, 158, 158, 0.2) !important;
+  opacity: 0.94 !important;
+}
+
+.col-customise:hover .mat-icon {
+  color: $CHARCOAL-F100 !important;
+}
+
+.focus button:focus {
+  outline: 0.125em solid $primaryColor !important;
+  border-radius: 0% !important;
+  .mat-button-focus-overlay{
+    background-color: #fff !important;
+    opacity: 0.94 !important;
+  }
+}
+
+.emptyMessage {
+  border: 0em none;
+  text-align: center;
+  background-color: #fff;
+  line-height: 0;
+}
+
+.hyperlink {
+  margin: 0 1em;
+  cursor: pointer;
+  text-align: center;
+  p {
+    color: $primaryColor;
+    font-size: 0.9em;
+  }
+}
+
+.rowStyleDirection {
+  padding-right: 0.7em;
+}
+
+.rowStyle {
+  padding-left: 0.7em;
+}
+
+.rowStyleDirection:hover .custom-sort{
+  visibility: visible;
+}
+.rowStyleDirection:focus-visible .custom-sort{
+  visibility: visible;
+}
+
+.rowStyle:hover .custom-sort{
+  visibility: visible;
+}
+.rowStyle:focus-visible .custom-sort{
+  visibility: visible;
+}
+.custom-sort-holder:focus-visible .custom-sort{
+  visibility: visible;
+}
+
+
+.sortIcon {
+  visibility: hidden;
+}
+
+:host ::ng-deep .pi-sort-alt:before {
+  visibility: hidden;
+}
+
+:host ::ng-deep .pi-sort-amount-down:before {
+  content: "\e919" !important;
+}
+
+:host ::ng-deep .pi-sort-amount-up-alt:before {
+  content: "\e91c" !important;
+}
+
+:host ::ng-deep .rowDataStyle {
+  position: relative;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > th:hover .sortIcon,
+:host ::ng-deep .ui-table .ui-table-thead > tr > th:focus .sortIcon,
+:host ::ng-deep .ui-table .ui-table-thead > tr > th.ui-state-highlight .sortIcon{
+  visibility: visible;
+}
+
+:host ::ng-deep .ui-paginator-right-content,
+:host ::ng-deep .ui-paginator-left-content {
+  line-height: 2.286em;
+  margin-left: 1em;
+  margin-right: 1em;
+  color: #848484;
+}
+
+:host ::ng-deep .ui-paginator-right-content{
+  width : 100%;
+  margin-top: -2.4em;
+}
+:host ::ng-deep .ui-paginator-left-content {
+  width : 100%;
+  margin-bottom: -2.4em;
+}
+
+:host ::ng-deep .colFilter .ui-multiselect-panel .ui-multiselect-header .ui-chkbox {
+  margin-right: 0em;
+}
+
+:host ::ng-deep .colFilter .ui-multiselect .ui-multiselect-panel{
+  max-width: -webkit-fill-available;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  word-break: normal;
+}
+
+.alignToTop {
+  vertical-align: top;
+}
+
+.chevronColumn {
+  width: 2em;
+}
+
+.leftBorderDefault {
+  width: 0em;
+  border-left: 0.5em solid #9F9F9F;
+}
+
+.productCodeDefault {
+  color: #7F7F7F;
+  background: #ECECEC;
+  display: inline-block;
+  border-radius: 50%;
+  min-width: 2em;
+  min-height: 2em;
+  padding: 0.5em;
+  font-size: 1.25em;
+  text-align: center;
+  line-height: 1em;
+  box-sizing: content-box;
+  white-space: nowrap;
+}
+
+.productCodeDefault::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+  height: 0;
+}
+
+.event {
+  background: #ECECEC;
+  display: inline-flex;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  border-radius: 0.125em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+:host ::ng-deep p-multiselect > div.ui-multiselect.ui-state-focus {
+  border-bottom: 0.08em solid $primaryColor !important
+}
+
+.focus a:focus {
+  outline: 0.125em solid $primaryColor !important;
+}
+
+.eventHeader {
+  padding-left: 0.6125em;
+}
+.wildsearch{
+  width:11em !important;
+  height: 1.8em;
+  padding-top: -1em;
+}
+.wildsearchwrapper {
+  width: 14em;
+  position: relative;
+  top: -0.1em;
+}
+
+.displayIcon {
+  visibility: hidden;
+}
+
+tr:hover > td .displayIcon {
+  cursor: pointer;
+  visibility: visible;
+  font-size: 1.5em;
+  color: #c137a2;
+}
+
+.threeDotsAction{
+  font-size: 1.7em;
+  color: $CHARCOAL-F75;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.75;
+  padding: 0.6em;
+  top: -0.15em;
+  margin-right: 1em;
+}
+
+.threeDotsAction:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+#threeDots:focus-within{
+  border: 2px solid $BLACK;
+  height: 35px;
+  width: 35px;
+  border-radius: 13px;
+  padding: 10px 3px;
+}
+:host ::ng-deep .mat-icon-button .mat-button-focus-overlay {
+  background-color: white !important;
+}
+
+.threeDotsAction:focus-visible{
+  outline-color: $BLACK;
+  outline-style: auto;
+  outline-width: 1px;
+}
+
+.iconImage
+{
+  color: $CHARCOAL-F100 !important;
+  opacity: 0.75;
+  text-align: center;
+  padding: 0.6em;
+  text-decoration: none;
+  font-size: 1.125em !important;
+  line-height: 0em;
+  border-radius: 37%;
+  cursor: pointer;
+}
+
+.iconImage:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+
+.iconImage.disableIcon{
+  cursor: default !important;
+}
+
+.iconImage.disableIcon:hover{
+  background-color: transparent !important;
+  color: $CHARCOAL-F100 !important;
+  cursor: default  !important;
+}
+
+.iconImage:focus-visible{
+  outline-color: $BLACK;
+  outline-style: auto;
+  outline-width: 1px;
+}
+
+.deletemessage{
+  text-align: center;
+  color:#56c271;
+}
+
+:host ::ng-deep .ui-menu .ui-menuitem {
+  text-align: start;
+}
+
+:host ::ng-deep .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -0.3em;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+:host ::ng-deep th[dir="rtl"] .ui-chkbox,
+:host ::ng-deep td[dir="rtl"] .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+:host :ng-deep .ui-chkbox-box .ui-widget .ui-state-default{
+visibility: hidden;
+}
+
+.favIconWidth{
+  width: 3em !important;
+}
+
+.checkboxWidth {
+  width: 3em !important;
+  left: 0px !important;
+  right: 0px !important;
+  position: sticky;
+}
+
+.checkboxWidth[dir="rtl"]  {
+  padding-left: 2em !important;
+}
+
+.pi-star:before {
+  content: "\e937";
+  color: $VIOLET-F100;
+}
+.star-size{
+  font-size: 2em;
+}
+
+.star-layout {
+  margin: -0.2em;
+}
+
+span.Standby.LC.Template {
+  color: rgb(65, 65, 65) !important;
+}
+span.Type.of.Standby.LC {
+  color: rgb(65, 65, 65) !important;
+}
+.Actions, span.Actions {
+  position: relative;
+}
+img.Repay{
+  position: relative;
+  top: 0.19em;
+}
+
+//UI Pagination icons for arabic style
+[dir="rtl"] :host ::ng-deep .ui-paginator-prev {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-first {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-next {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-last {
+  transform: scaleX(-1);
+}
+
+:host ::ng-deep {
+  .ui-dialog .ui-dialog-titlebar {
+    padding: 1em !important;
+    border: none;
+    border-radius: 0.3em 0.3em 0 0;
+  }
+
+  .ui-dialog .ui-dialog-footer {
+    padding: 1.571em 1em !important;
+    border-radius: 0 0 0.3em 0.3em;
+    .margin-left {
+        margin-left: 1em;
+    }
+  }
+
+  .ui-dialog .ui-dialog-content {
+    padding: 2em 1em 1em 1em !important;
+    border-bottom: none;
+    p {
+        font-weight: 500;
+        font-size: 0.875em;
+        color: $GREY;
+    }
+  }
+
+  [dir="rtl"] .ui-dialog-titlebar-icons {
+    float: left !important;
+  }
+}
+
+::ng-deep .downloadMatMenu {
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+    li {
+        cursor: pointer;
+    }
+  }
+}
+
+.mat-menu-content {
+    color: $GREY-05 !important;
+}
+
+.mat-menu-item:focus{
+  border: 1px solid black !important;
+}
+
+.inputSwitch {
+  margin: 0.5em;
+}
+
+.inputToggleDiv {
+text-align: left;
+}
+
+:host ::ng-deep .ui-inputswitch {
+  width: 2.8em;
+  height: 1.3em;
+  bottom: -0.3em;
+}
+
+:host ::ng-deep .ui-inputswitch .ui-inputswitch-slider:before {
+  height: 0.9em;
+  width: 0.9em;
+  bottom: 0.23em;
+}
+
+[dir="rtl"].inputToggleDiv {
+  text-align: right;
+  }
+
+.toggleSpan {
+  margin-top: 0.3em;
+  font-weight: bold;
+}
+
+.hideActionColumn {
+  display: none;
+}
+
+.warningStyle {
+  font-style: italic;
+  display: block;
+  color: $GREY-01;
+  font-weight: $fontWeight-bold;
+  position: relative;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.tertiaryButton {
+  margin-right: 1em;
+}
+
+.tertiaryButton[dir="rtl"] {
+  margin-left: 1em;
+}
+
+.columnPanel {
+  padding: 0.5em;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.columnIconLayout {
+  float: right;
+}
+
+.columnHeader {
+  margin-top: 1em;
+}
+
+.drag-list {
+  width: auto;
+}
+
+.drag-box {
+  padding: 0.2em;
+}
+
+:host ::ng-deep .ui-overlaypanel {
+  background-color: $WHITE;
+  color: $activecolor;
+  padding: 0;
+  border: 0.0625em solid $GREY-07;
+  z-index: 9999 !important;
+  top: 2.625em !important;
+}
+
+.toggleSpan {
+  margin-top: 0.3em;
+}
+
+:host ::ng-deep .ui-overlaypanel:before {
+  display: none;
+}
+
+.hideActionColumn {
+  display: none;
+}
+
+:host ::ng-deep .columnPanel .ui-overlaypanel {
+  width: 15.5em;
+}
+
+.selectAll {
+  border-bottom: solid 0.0625em $BLACK-01;
+}
+
+.buttonLayout {
+  font-size: 0.85em;
+  text-align: right;
+  padding-top: 0.8em;
+}
+
+.buttonLayout[dir="rtl"] {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.columnHeader {
+  padding-left: 0.4em;
+  font-size: 0.95em !important;
+}
+
+.column-list {
+  height: 15em;
+  overflow: auto;
+  .column-box {
+    margin-bottom: 0.3em;
+    width: auto;
+    height: 2.5em;
+  }
+}
+
+.column-box {
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: white;
+  font-size: 0.875em;
+  width: auto;
+}
+
+.columnListIcon {
+  float: right;
+  text-align: right;
+}
+
+.columnListIcon[dir="rtl"] {
+  float: left;
+  text-align: left;
+}
+
+.cdk-drag-preview {
+  opacity: 0;
+}
+
+.cdk-drag-placeholder {
+  box-sizing: border-box;
+  border-radius: 0.25em;
+  box-shadow: 0 0.125em 0.125em -0.1875em rgba(0, 0, 0, 0.2),
+              0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.14),
+              0 0.0625em 0.125em 0.0625em rgba(0, 0, 0, 0.12)
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.column-box:last-child {
+  border: none;
+}
+
+.column-list.cdk-drop-list-dragging .column-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.columnListIcon .material-icons {
+  font-size: 1em;
+  position: relative !important;
+  color: $GRAY-TROLLEYGREY-01 !important;
+  max-width: 1em;
+  height: 1em;
+  margin-left: 0.7em;
+}
+
+.focus .material-icons {
+  position: relative !important;
+  color: $GRAY-TROLLEYGREY-01 !important
+}
+
+:host ::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+  font-size: 0.89em;
+}
+
+:host ::ng-deep .column-list .column-box .mat-checkbox-checked .mat-checkbox-layout {
+  font-weight: 450;
+}
+
+.drag-handler .material-icons {
+  cursor: grab;
+}
+
+.options {
+  padding: 0.2em;
+  text-align: center;
+  font-size: 0.875em;
+  margin-top: 0.2em;
+  height: 2em;
+}
+
+.options-body {
+  width: 100%;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > .freezeColBorder {
+  box-shadow: inset -0.0625em 0em 0em $LIGHTGREY;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > .freezeColBorder {
+  box-shadow: inset -0.0625em 0em 0em $LIGHTGREY;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > .freezeColBorder[dir='rtl'] {
+  box-shadow: inset 0.0625em 0em 0em $LIGHTGREY;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > .freezeColBorder[dir='rtl'] {
+  box-shadow: inset 0.0625em 0em 0em $LIGHTGREY;
+}
+
+.freezeColCustomListBorder {
+  border-bottom: solid 0.0625em $GREY-03;
+}
+
+.staticText {
+  padding-left: 0.4em;
+}
+
+.btmline{
+  text-align: center;
+}
+
+.livefilter a{
+  color: $CHARCOAL-F100;
+}
+
+.viewMoreStyle{
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+}
+
+.clearAll{
+  cursor: pointer;
+  font-size: 0.75em;
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+.Chipfilter {
+ background: $GREY-15;
+ text-align: center;
+  border-radius: 1.5em;
+  margin-right: 1.02em;
+  margin-top: 0.2em;
+  font-size: 0.75em;
+  width: auto;
+  i{
+    padding-left: 0.5em;
+    cursor: pointer;
+  }
+  a {
+    color:$BLACK;
+    cursor: default;
+  }
+}
+
+.hideChip{
+  display: none;
+}
+
+.ChipWrapper{
+  margin: 0.5em;
+  margin-left: 0.04em;
+}
+.auditClose {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: $GREY-06;
+}
+
+.closeLayout {
+  position: relative;
+  float: right;
+}
+
+.closeLayout[dir="rtl"] {
+  float: left;
+}
+
+.auditDataLayout {
+  margin-top: -2em;
+}
+
+.icon-align{
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-align{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pl-zero{
+  padding-left: 0em !important;
+}
+
+.balanceAmtStyle {
+  color: $primaryColor !important;
+  font-weight: 500 !important;
+  font-size: 1.15em !important;
+}
+
+:host ::ng-deep .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
+  border:  0.14em solid $Purple !important;
+  border-radius: 0%;
+}
+
+:host ::ng-deep .ui-multiselect-items-wrapper {
+  overflow: auto;
+  height: auto !important;
+}
+
+[dir="rtl"] .amountSpanStyle {
+  float: left !important;
+  padding-right: 0.3em !important;
+}
+
+.actionColWidth {
+  width: 14rem !important;
+}
+
+.buttonWidth {
+  width: 25em !important;
+}
+
+.adjustButtonsMargin .secondaryButton{
+margin-left: 1.5em;
+}
+
+.stickyAction {
+  position: sticky;
+  right: 0 !important;
+  box-shadow : inset 0.0625em 0em 0em $LIGHTGREY;
+}
+.stickyAction[dir='rtl'] {
+  left: 0 !important;
+  box-shadow: inset -0.0625em 0em 0em $LIGHTGREY;
+}
+.freezeAction {
+  box-shadow: inset 0.0625em 0em 0em $LIGHTGREY;
+}
+.freezeAction[dir='rtl'] {
+  box-shadow: inset -0.0625em 0em 0em $LIGHTGREY;
+}
+.stickyPosition {
+  z-index: 1;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > .stickyAction {
+  background-color: $VIOLET-14 !important;
+}
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(even) > td {
+  background-color: $VIOLET-14 !important;
+}
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(odd) > td {
+  background-color: $WHITE !important;
+}
+:host ::ng-deep .ui-table-wrapper{
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.dot {
+  height: 0.8em;
+  width: 0.8em;
+  min-width: 0.8em;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0px 0.4em;
+}
+
+.dot-wrapper{
+  align-items: center;
+  display: inline-flex;
+}
+
+.remark {
+  color: $uiTableColor !important;
+  opacity: 0.75;
+  text-align: center;
+  padding: 1.5em 0 0 2em;
+  text-decoration: none;
+  font-size: 0.125em !important;
+  line-height: 0em;
+  border-radius: 37%;
+  width: 11em;
+  img {
+    width: inherit;
+  }
+}
+
+::ng-deep .myTooltip {
+  height: auto;
+  width: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.clubbed-field{
+color: $GREY-100;
+}
+
+:host ::ng-deep .ui-dropdown-label-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  overflow-y: scroll;
+}
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+.bene-fav-icon {
+  padding-right: 1em;
+}
+
+.filterPopup {
+  float: right;
+  padding-top: 0.1em;
+}
+
+.filterPopup[dir="rtl"] {
+  float: left;
+}
+
+
+.disable-menu {
+  color: $LIGHTGREY;
+  pointer-events: none;
+}
+
+.disable-star {
+  color: $LIGHTGREY;
+}
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.6em;
+  overflow-y: scroll;
+}
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3em;
+  overflow-y: scroll;
+}
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+:host ::ng-deep .ui-table-scrollable-header-box{
+  padding-right: 0em !important;
+  padding-left: 0em !important;
+}
+:host ::ng-deep .ui-table-scrollable-header{
+  margin-right: 0em;
+  margin-left: 0px;
+}
+[dir="rtl"] :host ::ng-deep .ui-table-scrollable-header{
+  margin-left: 0.3em;
+  margin-right: 0px;
+}
+:host ::ng-deep .ui-table-scrollable-view{
+  background-color: $VIOLET-14;
+}
+:host ::ng-deep .ui-table-flex-scrollable{
+  display: block !important;
+}
+:host ::ng-deep .ui-table-scrollable-wrapper{
+  width: 100% !important;
+}
+.height-auto{
+  height: auto;
+}
+:host ::ng-deep .ui-table .ui-table-tbody > tr.disableRow > td {
+  background-color: $WHITE-08 !important;
+  pointer-events: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr.disableRow > td.enableField {
+  background-color: $WHITE-08 !important;
+  pointer-events: auto;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr.disableRow:hover > td {
+  cursor: context-menu !important;
+  background-color: $WHITE-08 !important;
+  font-weight: normal !important;
+}
+
+.disableAction {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.emptyMsg {
+  padding-top: 3em;
+}
+
+.emptyMsgLink {
+  padding-top: 2em;
+}
+
+.clubbed-field-margin {
+  margin-top: 00.3em;
+}
+
+a#empty-msg-link:focus {
+  font-weight: bold;
+}
+.custom-sort{
+  visibility: hidden;
+}
+.custom-sort-wrapper{
+  width: 2em;
+  display: flex;
+  justify-content: space-around;
+}
+.applied-sort{
+  visibility: visible;
+}
+
+// :host ::ng-deep .ui-paginator .ui-paginator-page {
+//   visibility: hidden !important;
+// }
+
+// :host ::ng-deep .ui-paginator-first{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-prev{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-next{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-last{
+//   visibility: hidden  !important;
+// }
+
+:host ::ng-deep .ui-paginator >  p-dropdown > .ui-dropdown{
+  visibility: hidden  !important;
+}
+.header-div{
+  min-height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+.unset-background {
+  background-color: unset !important;
+}
+
+.paymentStatusWidgetNoRecord {
+  text-align: center;
+  .emptyMsg {
+    padding-top: 1em;
+  }
+  .emptyMsgIcon {
+    padding-top: 2em;
+  }
+}
+
+.noRecordIconStyle {
+  position: relative !important;
+  cursor: default;
+}
+
+.daysCount {
+  padding-top: 0.5em !important;
+  font-size: 0.9em !important;
+  font-weight: 300 !important;
+}
+
+.infoIconStyle {
+  padding-top: 1em;
+  font-size: 1em;
+}
+
+.showContentsAlign{
+  display: contents;
+}
+
+.iconMargin{
+  margin-bottom: 0.3em;
+}
+
+[dir=rtl]  .primaryButton{
+  right: -1em;
+}
+
+.newStyle{
+  padding-bottom: 1em;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+.emptyMessage {
+  width: 50% !important;
+}
+}
+
+
+.displayMessage {
+  border: 0em none;
+  font-size: 0.8em;
+  background-color: $WHITE;
+  line-height: 0;
+}
+
+.flex-display {
+  display: flex;
+  align-items: center;
+}
+
+.spacing{
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr.highlightRow > td {
+  background-color:  $WHITE-08 !important;
+  pointer-events: none;
+}
+.width-100 {
+  width: 100% !important;
+}
+
+.list-download{
+  width: 25%;
+  height: 3.3em;
+  text-align: left;
+  padding: 1.1em;
+  background: $VIOLET-F20;
+  border: 0.1em solid $GREY-15;
+  border-radius: 0.5em;
+  color: $CHARCOAL-F100;
+  font-weight: 500;
+  font-size: 1em;
+  top: 1.5em;
+  position: relative;
+}
+.button-disable{
+  color:$GREY-06 !important;
+}
+.download-info{
+  font-size: .75em;
+  color: grey;
+}
+.dwnld-msg-info-icon{
+  padding-top: 0.2em;
+  font-size: 1em;
+}
+.dwnld-msg-info{
+  margin-right: 1.5em;
+}
+:host ::ng-deep .ui-table-loading{
+  z-index: 2 !important;
+}
+.hide-td{
+  visibility: hidden;
+  width: 0% !important;
+}
+:host ::ng-deep .custom-filter-col .ui-multiselect-label.ui-multiselect-label{
+   padding-left: 0em;
+   font-size: 0.875em;
+   font-weight: 700;
+}

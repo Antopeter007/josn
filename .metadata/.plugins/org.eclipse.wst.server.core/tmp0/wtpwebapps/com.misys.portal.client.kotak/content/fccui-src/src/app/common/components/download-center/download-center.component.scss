@@ -1,0 +1,78 @@
+@import './../../../../styles/variables.scss';
+
+.downloadCenterListdef {
+    width: 100% !important;
+    padding: 1em 4.125em 1em 3.125em;
+}
+
+.widget-container {
+    padding-top: 3em;
+    margin-right: 0.5em;
+    background-color: $WHITE;
+
+    .widget-header {
+      margin-top: 2em;
+      color: $primaryColor !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        margin: 0 0.5em;
+        color: $WHITE;
+        background-color: $FUCHSIA-F100;
+      }
+    }
+
+    .widget-padding {
+      padding: 1.2em 3em;
+      background-color: $WHITE;
+      
+    }
+
+    .widget-listing {
+      overflow-y: auto;
+      padding: 0 3em;
+      height: 40em;
+      margin-right: 0;
+    }
+
+    .active-tab {
+      background-color: $VIOLET-F100 !important;
+      color: $WHITE !important;
+    }
+
+}
+
+.pageTitleStyle{
+    font-size: 1.5em;
+    font-weight: 500;
+    min-height: 1em;
+    margin-left: -0.8em !important;
+    font-weight: bold;
+    line-height: 1.6875em;
+    margin: 0;
+    padding-left: 0.5em;
+  }
+  
+  :host ::ng-deep .secondaryButton {
+    box-shadow: none !important;
+  }
+
+  :host ::ng-deep .noteStyle {
+    color: $BLACK-01;
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-right: 5.5em;
+    margin-left: 2em;
+    margin-top: -1.5em;
+  }
+  
+  :host ::ng-deep .noteMessageStyle {
+    color: $BLACK-01;
+    font-weight: 300;
+    font-size: 0.9em;
+    margin-right: 5.5em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+  }

@@ -1,0 +1,1 @@
+({"g_strDecimalDelimiter":".","g_blnSWIFTChecking":"true","g_strGlobalDateFormat":"dd/MM/yyyy"})

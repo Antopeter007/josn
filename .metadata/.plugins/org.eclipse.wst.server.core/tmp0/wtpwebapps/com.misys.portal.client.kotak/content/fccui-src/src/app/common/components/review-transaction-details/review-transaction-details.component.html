@@ -1,0 +1,7 @@
+<div *ngIf="!eventRequiredForEnquiry">
+    <em [dir]="dir" tabindex="0" class="fa fa-file-pdf-o pdfIcon" title="{{'pdfDownload'| translate}}"
+    (keyup)="OnEnterKey($event)" (click)="downloadPDF()" attr.aria-label="{{'pdfDownload'| translate}}"></em>
+</div>
+<div class="p-grid p-col-12 removeSpace">
+    <fcc-product-component [inputParams]= "params" class = "transactionTab"></fcc-product-component>
+</div>

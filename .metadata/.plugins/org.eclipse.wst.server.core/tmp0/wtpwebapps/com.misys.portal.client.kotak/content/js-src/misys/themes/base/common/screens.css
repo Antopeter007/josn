@@ -1,0 +1,1168 @@
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles for specific screens
+  		
+	description:
+	  	Any style that is applied to a specific screen, collection of screens or field
+	  	should be placed in this file, and documented in its own block
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Everyone
+*/
+
+
+/** ------------------------------------ COMMON CASH RULES ------------------------------------ **/
+
+#ok_leg_formula_row label {
+	width: auto;
+	margin-left: 25px;
+}
+
+.standingInstructionsGrid th {
+	text-align: center;
+}
+
+/** Use by Foreign Exchange to display the progress bar**/
+#progressBarCash {
+	display : inline-block;
+}
+
+#progressBarCash #countdownProgress {
+	display : inline-block;
+}
+
+.dj_ie7 #progressBarCash,.dj_ie7 #progressBarCash #countdownProgress {
+	zoom: 1;
+	display:inline;
+}
+
+/** ------------------------------------ CREATE SP RULES ------------------------------------ **/
+
+.sp-acct-tblheader{
+	width: 30%;
+}
+
+.sp-amt-tblheader{
+	width: 25%;
+}
+
+.table-buttons{
+	width: 100px;
+}
+
+/** ----------------------------------- ALERT BALANCE RULES --------------------------------- **/
+
+#threshold_sign01_0_row label,
+#threshold_sign01_1_row label,
+#threshold_sign02_0_row label, 
+#threshold_sign02_1_row label,
+#threshold_sign03_0_row label,
+#threshold_sign03_1_row label {
+	text-align: left;
+}
+
+/** ----------------------------------- ALERT CALENDAR RULES --------------------------------- **/
+
+#offsetsign01_0_row label,
+#offsetsign01_1_row label,
+#offsetsign02_0_row label,
+#offsetsign02_1_row label {
+	text-align: left;
+}
+
+#alert01_details_offsetsigncode_nosend_0_row label,
+#alert01_details_offsetsigncode_nosend_1_row label,
+#alert02_details_offsetsigncode_nosend_0_row label,
+#alert02_details_offsetsigncode_nosend_1_row label {
+	margin-left: 180px;
+	text-align: left;
+}
+
+/** ----------------------------------- COMMON SUMMIT RULES  --------------------------------- **/
+
+#validationErrorinnerDiv li {
+	list-style-type: disc;
+}
+
+/** TODO I assume this font-family calls are superfluous? **/
+#cash_flow_data {
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height: 300px;
+}
+
+#asset_schedule_data {
+	font-family: Arial, sans-serif;
+	font-size: 1.5em;
+	overflow: scroll;
+	height: 300px;
+}
+
+#cashflows, #schedules {
+	overflow: auto;
+	position: relative;
+	width: 100%;
+	height: 400px;
+}
+
+.inline-group .field {
+	display: inline;
+}
+
+.inline-group .field label {
+	margin: 0 0 0 2em;
+	width: auto;
+}
+
+.fees-container {
+	margin: 10px;
+	margin-left: 21%;
+	margin-right: 30px;
+	padding-left: 5px;
+}
+
+.widePopup {
+	width: 80%;
+}
+
+.barriers-container,.double-barriers-container {
+	margin: 10px 30px 10px 21%;
+}
+
+#barriers .dijitButtonNode {
+	border: 1px solid gray;
+}
+
+#securities,#prices,#stocks {
+	margin-left: 20px;
+}
+
+#formulaDialogContainer {
+	display: none;
+}
+
+/** ------------------------------ Value Added Service table ---------------------------------- **/
+
+.valueaddedservice {
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+	margin: 1em auto;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.valueaddedservice caption {
+	font-size: 0.94em;
+	letter-spacing: 0.1em;
+	margin: 1em 0 1em 0;
+	padding: 0;
+	caption-side: top;
+	text-align: center;
+}
+
+.valueaddedservice td {
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	padding: 0.1em;
+	text-align: center;
+}
+
+.valueaddedservice .dojoxGridCell {
+	background: none repeat scroll 0 0 #7692B7 !important;
+	font-weight: normal;
+	text-align: left;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	padding: 0.3em 1em;
+}
+
+.valueaddedservice thead th {
+	background: #f4f9fe;
+	text-align: center;
+	font-weight: bold;
+}	
+	
+.valueaddedservice tfoot th {
+	text-align: center;
+}
+
+.valueaddedservice tfoot th strong {
+	margin: 0.5em 0.5em 0.5em 0;
+}
+
+.multiple-date-selection label {
+	display: inline;
+}
+
+.multiple-date-selection .field  .field {
+    display: inline;
+}
+
+.multiple-date-selection .field  .field label {
+	margin: 0;
+    width: auto;
+}
+
+/** TODO Do you really want a descendant selector here?? **/
+.multiple-date-selection > div > label {
+	width: 175px;
+    display: inline-block;
+} 
+
+.dj_ie7 .multiple-date-selection > div > label {
+    zoom: 1;
+	display:inline;
+}
+
+.multiple-date-selection .label {
+	display: inline;
+	text-align: right;
+}
+
+.multiple-date-selection .title {
+	display: inline;
+	text-align: right;
+	/** NOTE An inline element cannot have a width or margin, so follow rules not applied **/
+	width: 175px;
+	margin-right: 5px;
+}
+
+.inline-group .field {
+	display: inline;
+}
+
+.inline-group .field label {
+	margin: 0 0 0 0.5em;
+}
+
+#swapDetailsSection .dijitButtonNode {
+	border: 1px solid gray;
+}
+
+#swapDetailsSection .dijitArrowButton {
+	border-color: #9B9B9B;
+	border-style: solid;
+	border-width: 0 0 0 1px;
+}
+
+/** ------------------------------------- CREATE BG RULES  ----------------------------------- **/
+
+#bg_document {
+	margin: 20px;
+}
+
+/** ------------------------------------- CREATE EC RULES  ----------------------------------- **/
+
+#dir_coll_letter_flag_row label {
+	width: 250px;
+}
+
+/** ------------------------------------ COMMON LC/SI RULES  ---------------------------------- **/
+
+.dj_ie6 #free_format_text_row label,
+.dj_ie7 #free_format_text_row label {
+	display: block;
+}
+
+/** TODO The following rules should be examined and refactored away, if possible **/
+
+#beneficiary_name_row {
+	display: inline;
+}
+
+#counterparty_name_row {
+	display: inline;
+}
+
+/** Is this used? **/
+#beneficiary_img {
+	border: 0;
+	margin-left: 4px;
+	background-color: white;
+	padding: 0;
+}
+
+#company_role_list_row.field .multi-select li {
+	text-align: left;
+	width: 630px;
+}
+
+#entity_role_list_row.field .multi-select li {
+	width: 630px;
+}
+
+#company_role_list_row.field {
+	padding-left: 0;
+	
+}
+
+/** Currency Dialog **/
+#currencydata label {
+	width: 60px;
+}
+
+#tenor_type_3_row label {
+	margin-right: 0;
+}
+
+.base .dijitTextBox {
+	margin:1px 2px 2px 0;
+}
+
+#payment_draft_fields {
+	margin-left: 37.6%;
+}
+
+#view .field #pstv_tol_pct_row .label {
+	display: inline-block;
+}
+
+.dj_ie7 #view .field #pstv_tol_pct_row .label {
+    zoom: 1;
+	display:inline;
+}
+
+#view #neg_tol_pct_row.field .label {
+	display: inline-block;
+}
+
+.dj_ie7 #view #neg_tol_pct_row.field .label {
+    zoom: 1;
+	display:inline;
+}
+
+#view #neg_tol_pct_row.field {
+	display: block;
+/* 	margin-left: 180px; */
+	margin-left: 0px;
+}
+
+/** ------------------------------------- EVENT CALENDAR RULES  ------------------------------ **/
+
+.recursive_event_label {
+	text-align: left; 
+	padding-left: 5%;
+	width: 80px;
+}
+
+/** 
+	Position the products select box offscreen, as its length can cause the layout
+	to jump around
+**/
+.notready #product_code_row {
+	position: absolute;
+	left: -9999em;
+}
+
+.dj_ie6 .notready #product_code_row {
+	right: 101%;
+	overflow: hidden;
+}
+
+#switchLink {
+	margin-top: 12px;
+}
+
+.calendarMilestoneContainer {
+	margin-top: 24px;
+}
+
+/** ---------------------------------------- GUARANTEE RULES  --------------------------------- **/
+
+#customers-section {
+	padding-left: 1.6em;	/** TODO Check **/ 
+}
+
+/** --------------------------------------- USER ENTITY RULES  ------------------------------- **/
+
+#user_list_row.field {
+	padding-left: 0;
+	text-align: center;
+}
+/** ---------------------------------------ENTITY CUSTOMER ACCOUNTS REFERNCES  ----------------------------- **/
+.entityReferencesTableCell{	
+	vertical-align: middle;
+	height: 35px;
+	border: 1.5px solid white;	
+    display: inline-block;
+	
+}
+.dj_ie6 .entityReferencesTableCell,.dj_ie7 .entityReferencesTableCell{
+	
+	zoom: 1;
+	display:inline;
+}
+.entityReferencesTableCellHeader {
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+    height: 25px;
+}
+.entityReferencesColumnCell {
+	padding-left : 4px;	
+}
+.entityReferencesHeaderSelector {
+	width: 3%;	
+	 padding-top:9px;
+}
+.entityReferencesTableCellOdd {
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+/** --------------------------------------- USER ACCOUNTS TABLE  ----------------------------- **/
+.userAccounts .wipeInOutTabHeader{
+	background-color: #F8F8F8;	
+	 padding: 6px;
+	  word-wrap: break-word;
+}
+.userAccountsTableCell {
+	vertical-align: middle;
+	height: 35px;
+	border: 1.5px solid white;	
+    display: inline-block;
+}
+.dj_ie6 .userAccountsTableCell,.dj_ie7 .userAccountsTableCell{
+	zoom: 1;
+	display:inline;
+}
+
+.userAccountsTableCellHeader {
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+    height: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .userAccountsMergedCell {
+text-align:left !important;
+margin-left : 10px;
+ }
+}
+
+.userAccountsTableCellOdd {
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+
+.userAccountsTableCellEven {
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+
+.userAccountsTableMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+
+.userAccountsTableCellSelectAll {
+	background: none repeat scroll 0 0 #7692B7;
+	padding-top: 3px;
+    text-align: center;
+}
+
+.userAccountColumnCell {
+	padding-left : 4px;	
+}
+
+.userAccountsHeaderSelector {
+	width: 3%;	
+}
+
+.userAccountsMultiSelect label{
+	width:0px;	
+}
+.userAccountsMultiSelect{
+	margin : 5px 0 5px;	
+}
+.userAccounts .multiselect-buttons{ 
+	height: 220px;
+	vertical-align: middle;
+}
+.userAccounts .multi-select{
+	width : 300px;	
+}
+.userAccountsMergedCell{
+	text-align: center;
+}
+.user_account_edit .userAccountsMergedCell{
+	height:190px;	
+}
+.correspondentBankTableMergedCellContainer{
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+.correspondentBankMultiSelect label{
+	width:0px;	
+}
+.correspondentBankMultiSelect{
+	margin : 5px 0 5px;	
+}
+.correspondentBankMergedCell .multiselect-buttons{ 
+	height: 220px;
+	vertical-align: middle;
+}
+.correspondentBankMergedCell .multi-select{
+	width : 300px;	
+}
+.correspondentBankMergedCell{
+	text-align: center;
+}
+.corr_bank_currency_edit .correspondentBankMergedCell{
+	height:190px;	
+}
+.alignCenterWithPadding {
+	text-align: center;
+	padding-top: 4px;	
+}
+.alignLeftWithPadding {
+	padding: 4px 0 0 4px;	
+}
+
+.alignLeftWithPaddingHeader {
+	padding: 3px 0 0 4px;	
+}
+
+.alignCenterWithPadding .dijitCheckBox{
+	 margin-top: 5px !important;	
+}
+/** ------------------------------------------ REPORT RULES  --------------------------------- **/
+
+#criterium_pre_defined_value_section label {
+	margin-left: 10px;
+	padding: 0 !important;
+	text-align: right !important;
+}
+
+#criterium_pre_defined_value_section .label {
+	width: 310px;
+}
+
+#aggregate_use_product_currency_row label {
+	margin-left: 50px;
+}
+
+/** --------------------------------------------- HELP RULES  --------------------------------- **/
+
+.searchhelp {
+	font-size: 0.8em;  /** TODO Check **/
+}
+
+#onlinehelp_popup label, 
+#onlinehelp_popup .label {
+	display: inline-block;
+	line-height: 1.5em;
+	text-align: right;
+	width: 200px;
+}
+.dj_ie7  #onlinehelp_popup label, 
+.dj_ie7  #onlinehelp_popup .label {
+	zoom: 1;
+	display:inline;
+}
+
+.base #helpSearchForm .dijitTextBox {
+	width: 30em;	
+}
+
+#onlinehelp_popup .toplevel-header{
+	margin: 4px 0 0 0;
+	padding: 1em 0 0.5em;
+}
+
+#standardSearchContainer {
+	display: block;
+	padding: 8px;
+	margin-top: 4px;
+}
+
+#advancedSearchContainer{
+	display:none;
+}
+
+#advancedSearchInputContainer {
+	padding: 8px;
+	margin-top: 4px;
+}
+
+#onlineHelpPortlet {
+	width: 100%;
+	height: 620px;
+	margin-top: 8px;
+}
+
+#onlineHelpPortlet #onlineHelpMenu{
+	width: 400px;
+}
+
+#onlineHelpPortlet #onlineHelpContent ul{
+    padding-left: 10px;
+}
+
+#onlineHelpPortlet #onlineHelpContent li {
+    list-style-type: circle;
+}
+
+/** TODO Replace in favour of common class **/
+.onlinehelp .float-right {
+	float: right;
+}
+
+#searchsummary {
+	padding: 0.1em;
+	clear: left;
+	margin-top: 8px;
+}
+
+#searchsummary .emphasize {
+	font-weight: bold;
+}
+
+#onlineHelpNav {
+	margin-bottom: 5px;
+}
+
+#searchresults li {
+	padding: 0.5em;
+}
+
+.section-nav-separator {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#onlinehelp {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+
+/** ---------------------------------- CREATE / EDIT USER PROFILE ------------------------------ **/
+
+#change_password_row label,
+#create_admin_row label {
+	width: 400px;
+}
+
+/** --------------------------------- CREATE / EDIT COUNTERPARTY ------------------------------ **/
+
+#access_opened_row label,
+#notification_enabled_row label {
+	width: 400px;
+}
+
+/** ----------------------------------------- CHARTS RULES  ---------------------------------- **/
+
+/** Sometimes the border of charts is hidden **/
+/** TODO This should be a class, representing the first chart in the page, but there isn't
+         an easy way to do this at the moment.  **/
+#MOOutstandingPerCurrencyChartPortlet,
+#LCOutstandingPerCurrencyChartPortlet,
+#ELOutstandingPerCurrencyChartPortlet,
+#BGOutstandingPerCurrencyChartPortlet,
+#BROutstandingPerCurrencyChartPortlet,
+#ECOutstandingPerCurrencyChartPortlet,
+#ICOutstandingPerCurrencyChartPortlet,
+#SROutstandingPerCurrencyChartPortlet,
+#LAPerCurrencyChartPortlet {
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+/** ----------------------------------------- SEARCH FIELDS  ---------------------------------- **/
+
+/** Search submit button needs a tiny bit of extra width **/
+#submitButton_row label {
+	width: 20.2%;
+}
+
+.dj_ie #submitButton_row label {
+	width: 20.5%;
+}
+
+/** --------------------------------------- COUNTERPARTIES  ---------------------------------- **/
+
+#counterparty-products {
+	margin-top: 24px;
+}
+/** ---------------------------------------- BENEFICIARY ADVICES  --------------------------------- **/
+#beneficiaryAdvicesMainContainer .indented-header h3 {
+    margin: 16px 6px 4px;
+}
+#beneficiaryAdvicesMainContainer #customers-section,#beneficiaryAdvicesMainContainer #columns-section{
+	padding-left: 1em;
+}
+.beneficiaryAdvicesTransactionContainer .indented-header h3 {
+    margin: 10px 20px 4px;
+}
+.beneficiaryAdvicesTransactionContainer .fieldset-content {
+    padding: 6px 0 12px;
+}
+.beneficiaryAdvicesTransactionContainer .beneAdvCountry label,.beneficiaryAdvicesTransactionContainer .beneAdvCountry .label{
+	width:68px;
+}
+#postal_code_div .beneAdvCountry label,#postal_code_div .beneAdvCountry .label{
+	width:68px;
+}
+#bene_details_postal_code_div .beneAdvCountry label,#bene_details_postal_code_div .beneAdvCountry .label{
+	width:68px;
+}
+.beneficiaryAdvicesTransactionContainer label,.beneficiaryAdvicesTransactionContainer .label{
+	width: 350px;
+}
+#beneAdvTableDivContainer .indented-header h3 {
+    margin: 10px 5px 4px 0;
+}
+#beneAdvTemplateDiv th img{
+	display:none;	
+}
+#beneAdvEmailDiv2 {
+	margin-left:20px;	
+}
+.dj_chrome #beneAdvEmailDiv2 , .dj_ie #beneAdvEmailDiv2{
+	margin-left:25px;	
+}
+
+#view #beneAdvEmailDiv2 {
+	margin-left:0px;	
+}
+#view .dj_chrome #beneAdvEmailDiv2 , #view .dj_ie #beneAdvEmailDiv2{
+	margin-left:0px;	
+}
+#view .beneficiaryAdvicesTransactionContainer .textarea .content{
+	margin-left:240px;	
+}
+#view .beneficiaryAdvicesTransactionContainer #beneAdvTable img{
+	display : none;
+}
+#view .beneficiaryAdvicesTransactionContainer label,#view .beneficiaryAdvicesTransactionContainer .label{
+	width: 240px;
+}
+#view .beneficiaryAdvicesTransactionContainer .beneAdvCountry label,#view .beneficiaryAdvicesTransactionContainer .beneAdvCountry .label{
+	width:68px;
+}
+#transactionDetails .beneficiaryAdvicesTransactionContainer #beneAdvTable img{
+	display : none;
+}
+#transactionDetails #beneAdvEmailDiv2 {
+	margin-left:0px;	
+}
+#transactionDetails .dj_chrome #beneAdvEmailDiv2 , #transactionDetails .dj_ie #beneAdvEmailDiv2{
+	margin-left:0px;	
+}
+#transactionDetails .beneficiaryAdvicesTransactionContainer .beneAdvCountry label,#transactionDetails .beneficiaryAdvicesTransactionContainer .beneAdvCountry .label{
+	width:68px;
+}
+/**------------------------------------------- IP UPLOAD TEMPLATE --------------------**/
+.ipUploadTemplateMandatoryColumn {
+	color:#82129E;
+	font-weight:bold;
+}
+
+/**------------------------------------------ Cheque Services----------------------**/
+.chequeServicesChequeNumber .label,.chequeServicesChequeNumber label{
+	width:50px;
+}
+
+#beneficiary-details-div #counterparty_name_3_div label{
+	font-size: 11px;	
+}
+
+/**---------------------------------------------FSCM--------------------------------------------**/
+.base .fscmLineItemInputField .dijitTextBoxReadOnly{
+   outline : none;
+   border:none;
+   color : #000000;
+   font-weight:bold;
+}
+
+.base .fscmDisclaimerContent {
+	display: inline;
+    text-align: left;	
+}
+
+.base .fscmMultiChoiceField {
+	font-weight:bold;
+	margin-top: 20px;
+}
+
+.base .fscmTextAreaField{
+	width:542px;
+	height: 198px;
+}
+
+.base .remoteAuthContainer .label, .base .remoteAuthContainer label{
+	width : 350px;
+}
+
+
+/*------------------ Client Code ----------------*/
+
+#beneficiarydata {
+	height: 450px !important;
+	width: 850px !important;
+}
+
+#currencydata {
+	height: 450px !important;
+	width: 500px !important;
+	overflow:auto;
+}
+
+#phrasedata {
+	height: 450px !important;
+	width: 750px !important;
+}
+
+#bankdata,
+#accountdata,
+#bank_swift_data {
+	height: 450px !important; 
+	width: 800px !important;
+}
+
+#codevaluedata {
+	height: 500px;
+	width: 500px !important;	
+}
+
+#USERentities,
+#SYSTEMentities,
+#COMPANYentities,
+#CUSTOMERentities {
+	height: 400px !important;
+	width: 800px !important;	
+}
+
+#Userdata {
+	height: 250px !important;	
+}
+
+/** ---------------------------------------- LC Common  ---------------------------------- **/
+
+#narrative-period-tabcontainer {
+	height: 140px;
+}
+
+#payment_draft_fields {
+	margin-left: 263px;
+}
+
+/** ------------------------------------ Doc Editor Screens  ---------------------------------- **/
+
+#document-editor label {
+	width: auto;
+}
+
+/** ---------------------------------------- Help Rules  ---------------------------------- **/
+
+#onlinehelp_popup .toplevel-header {
+	background-color: #F2F2F2;
+	border: 1px solid #D0D0D0;	
+}
+
+#standardSearchContainer {
+	background-color: #F2F2F2;
+	border: 1px solid #999;
+}
+
+#advancedSearchInputContainer {
+	background-color: #F2F2F2;
+	border: 1px solid #999;
+}
+
+#searchsummary {
+	background-color: #F0F0F0;
+	border-top: 1px solid #0079A7;
+}
+
+/** ------------------------------ Value Added Service table ---------------------------------- **/
+
+.valueaddedservice {
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+}
+.valueaddedservice .dateFormatLabel{
+	display : none;	
+}
+.valueaddedservice td {
+	background-color: #CBE3FF;
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+}
+
+.valueaddedservice th.dojoxGridCell {
+	text-align: center;
+	border-bottom: 2px solid white;
+	border-left: 2px solid white;
+	padding: 1px 1px;
+	color: #fff;
+	/** font-size: 12px;  TODO TEST **/
+	font-weight: bold;
+}
+
+.valueaddedservice thead th {
+	background: none repeat scroll 0 0 #7692B7;
+}
+
+.valueaddedservice label,
+.valueaddedservice .label {
+	/** TODO TEST **/
+	width: 0px !important;
+	display: inline-block;
+    line-height: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.dj_ie7 .valueaddedservice label,
+.dj_ie7 .valueaddedservice .label {
+	zoom: 1;
+	display:inline;	
+}
+
+/** TODO Test **/
+.valueaddedservice .field {
+	margin: 0;	
+}
+
+.valueaddedservice .small {
+	width: 7em;
+}
+
+.valueaddedservice .medium{
+	width: 12em;	
+}
+
+/** ------------------------------ Multiple Account Dialog ---------------------------------- **/
+
+
+.multipleAccountDialog .toplevel-header {
+	margin-bottom: 0;
+}
+.multipleAccountDialog {
+	overflow: auto;
+    position: relative;
+    width: 900px;
+}
+
+/** ------------------------------ Beneficiary Master ---------------------------------- **/
+
+.inlineBlockNoLabel .label,
+.inlineBlockNoLabel label {
+	width: 0 !important;
+	margin-right: 0;
+}
+
+#account_cur_code_row {
+	display: inline-block;   
+}
+
+.dj_ie6 #account_cur_code_row,
+.dj_ie7 #account_cur_code_row {
+	display: inline;	
+	zoom: 1;
+}
+
+.bene-acc-medium {
+	width: 13.5em;
+}
+
+/** ------------------------------ Change User Profile ---------------------------------- **/
+
+#change_qa_row label {
+	width: 400px;
+}
+
+/** --------------------------------------- USER ENTITIES TABLE  ----------------------------- **/
+.userEntityHeaderSelector {
+	width: 3.6%;	
+}
+.entityRows .label,.entityRows label{
+	width:0px;
+}
+.entityRows .field {
+    margin: 0px;
+    display: inline;
+}
+.entityRows img{
+	margin: 3px 2px 0px 0px;	
+}
+#userEntityTabel .dijitToggleButton,#userEntityTabel .dijitButton,#userEntityTabel .dijitDropDownButton,#userEntityTabel .dijitComboButton {
+    /* margin: 0em; */
+}
+.userEntityTableCell{
+	vertical-align:middle;
+	height: 33px;
+	border: 1.5px solid white;
+    display: inline-block;
+    word-wrap:break-word;
+}
+.dj_ie6 .userEntityTableCell,.dj_ie7 .userEntityTableCell{
+	zoom: 1;
+	display:inline;
+}
+.userEntityTableCellHeader{
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
+}
+.userEntityTableCellOdd{
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+.userEntityTableCellEven{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.userEntityTableMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+
+.userEntityTableMergedCellContainer .field .multi-select li {
+	width: 630px;
+}
+
+.alignCenter{
+	text-align:center;	
+}
+/**---------------------For server message in FT------------- **/
+.serverMessage{
+	background: none repeat scroll 0 0 #EEE8AA;
+    font-weight: bold;
+    padding: 3px;
+    border: 1px dotted;
+}
+
+/**----------------------------- Parameter Maintenance------**/
+#parmForm .indented-header h3 {
+   margin: 10px 0;
+}
+#parmForm .s-medium {
+	width:17em;
+}
+#configurable_grid_items th img{
+	display:none;	
+}
+.labelCutOff label,.labelCutOff .label{
+	width : 70px;
+}
+.labelCutOffDowntime label,.labelCutOff .label{
+	width : 170px;
+}
+
+/**---------------------------- Factoring-----------------**/
+.factoringTableCell{
+	vertical-align:middle;
+	height: 30px;
+	border: 1.5px solid white;	
+    display: inline-block;
+}
+.dj_ie6 .factoringTableCell,.dj_ie7 .factoringTableCell{
+	zoom: 1;
+	display:inline;
+}
+.factoringTableCellHeader{
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+	height: 35px;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
+}
+.factoringTableCellOdd{
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+.factoringTableCellEven{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.factoringTableMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.factoringTableCellAggregate{
+	background: none repeat scroll 0 0 #F0F0F0;    
+}
+.widthOverDueHeader{
+	width : 8%;	
+}
+
+/**-------------------------- OTP Token Assignment---------------*/
+.base .otp_token_serial_no{
+	width:300px;	
+}
+.base .otp_token_serial_no_img_div{
+	width:350px;
+}
+
+/**---------------------- Documents Upload -----------------**/
+#document-master-table td{
+	word-break: break-all;
+}
+
+/**-----------------------FX Contacts-----------------------**/
+#contractMsgDiv{
+	float: left;
+	margin-left:85px;
+	font-weight:bold;
+}
+
+#totalUtiliseDiv{
+	margin-right:235px;
+}
+
+
+/**-------------------Rules for multi selection message ------**/
+.multiSubmissionListHeader {
+	background: none repeat scroll 0 0 #7692B7;
+	border-bottom:solid 1px #CBE3FF;
+	color: #F0F0F0;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+    height: 30px;
+}
+
+.multiSubmissionColumnCell{
+	background-color: #CBE3FF;
+}
+
+.multiSubmissionColumnCellValuePlacement{
+	height: 35px;
+	padding: 8px 0 0 4px;
+}
+.beneficiaryFailedRecordsTable {
+	border-collapse: collapse; 
+	width:100%;
+    color: white;
+    table-layout: fixed;
+}
+
+.beneficiaryFailedRecordsTable th, .beneficiaryFailedRecordsTable td  {
+	background: none repeat scroll 0 0 #7692B7;
+    border: 1.5px solid white;
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    height:30px;
+}
+
+.beneficiaryFailedRecordsTable td {
+	background : none repeat scroll 0 0 #CBE3FF;
+	color: black;
+    font-weight: normal;
+}
+
+.beneficiaryFailedRecordsTable .errorMsg {
+	text-align: left;
+}
+
+#widget_charge_option {
+	width : 60% ;
+}

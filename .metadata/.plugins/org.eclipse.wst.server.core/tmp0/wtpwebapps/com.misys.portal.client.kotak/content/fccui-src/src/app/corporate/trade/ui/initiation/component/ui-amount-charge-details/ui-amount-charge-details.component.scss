@@ -1,0 +1,229 @@
+@import './../../../../../../../styles/variables.scss';
+
+.form-header {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .ui-float-label label {
+  font-weight: 400;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  min-width: 100%;
+  resize: none;
+}
+:host ::ng-deep.label-header.p-col-12.ng-star-inserted {
+  color:$CHARCOAL-F75;
+}
+:host ::ng-deep .ui-radiobutton-label {
+  color: #414141;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: none;
+  border-bottom: 0.06em solid #a6a6a6;
+}
+
+:host ::ng-deep .ui-dropdown,
+:host ::ng-deep .ui-inputtext {
+  background: transparent !important;
+}
+
+:host ::ng-deep .ui-dropdown-label-container {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-checkbox {
+  padding-left: 0em;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: #fff !important;
+  border-color: #694ed6;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: #694ed6;
+  background-color: #fff !important;
+  color: #ffffff;
+  box-shadow: #ffffff;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active
+  .ui-radiobutton-icon {
+  background-color: #694ed6;
+  border-color: #694ed6;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border: 0.1em solid #694ed6;
+  background-color: #f8f8f8;
+  color: #ffffff;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box {
+  background-color: none;
+}
+
+.issuance_radio.p-grid,
+.issuance_radio .p-grid,
+.corresponding_radio.p-grid,
+.corresponding_radio .p-grid,
+.confirm_radio.p-grid,
+.confirm_radio .p-grid {
+  width: 100%;
+}
+
+.tolplus {
+  color: #414141;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+}
+
+.tolminus {
+  color: #414141;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items-wrapper {
+  overflow-x: hidden;
+  background-color: #fff !important;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item,
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
+  margin: 0;
+  padding: 0.429em 0.857em;
+  border: 0 none;
+  color: #333333;
+  border-radius: 0;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+.indented-text-area-field-35 textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+  font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+.infoDropDownIcon {
+  position: absolute;
+  right: -0.2em;
+  top: 0.2em;
+}
+
+.fcc-radio-button .infodisplaylabel {
+  margin-top: 1em !important;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger {
+  border-bottom: 0.06em solid #694ed7;
+  border-radius: 0em;
+}
+
+.currencyView .fieldvalue {
+  margin-top: 1em;
+}
+
+.incDecAmt {
+  padding-right: 0.7em !important;
+}
+
+.incDecAmt > div {
+  padding-left: 0em;
+  margin-left: -1.3em;
+  padding-right: 0em;
+}
+
+.orgLCAmtStyle {
+  padding-top: 0em;
+}
+
+.orgLCAmtStyle .label-header {
+  padding-bottom: 0em;
+  color: #707070;
+}
+
+.orgLCAmtStyle .fieldvalue {
+  padding-top: 0.4em;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0em 0;
+}
+
+:host ::ng-deep .newLCAmtStyle input.mat-input-element {
+  font-weight: 500;
+  color: #694ed6;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-label {
+  color: #694ed6;
+}
+
+.incDecAmt .fcc-field-message {
+  margin-top: -2em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #694ed6;
+}
+
+.revolveStyle{
+  position: relative;
+  top: 0 !important;
+}
+.subheader-title{
+  margin-top:0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+:host ::ng-deep .mat-input-element{
+  color: $BLACK !important;
+}
+
+:host ::ng-deep .no-margin-multiselect {
+  padding-top: 1.34em !important;
+}
+
+:host ::ng-deep .chargeAmt {
+  margin-top: 1em !important;
+}
+
+:host ::ng-deep .ui-float-label .ui-dropdown .ui-widget {
+  top: -0.938em !important;
+}

@@ -1,0 +1,348 @@
+<ng-container [formGroup]="form">
+  <div *ngIf="!control.params.loadListDef">
+    <div class="tnsAmount" *ngIf="control.params.tnsAmountStatus">
+      <span *ngIf="!control.params.hasActions">
+        {{ control.params.message2 }}
+      </span>
+    </div>
+    <div aria-live="polite">
+      <span *ngIf = "control.params.hasError" id="invalid-error-text" class="invalid-error-text">{{errorHeader | translate}}: {{control.params.message}}</span>
+     </div>
+    <div class="ui-table" dir="{{ dir }}" *ngIf="( (hostComponentData.onlyamendToggleValue && control.params.amendedFlag) || (!hostComponentData.onlyamendToggleValue ))">
+      <p-table #et [value]="control.params.data" *ngIf="!control.params.isListData" dataKey="id" editMode="row" 
+      [paginator]="control.params.data.length > (rows - 1) ? true : false"
+      [rows]="paginatorParams.defaultRows"
+      (rowsChange)="refreshData()">
+        <ng-template pTemplate="header">
+          <tr>
+            <th
+              id="col" scope="col"
+              *ngFor="let col of control.params.columnsHeaderData"
+              class="{{ control.params.applyColumnStyle ? col : '' }}"
+            >
+              {{ col }}
+            </th>
+            <th
+              *ngIf="!control.params.hasActions"
+              id="col"
+              class="actionHeader"
+            >
+            {{ 'ACTION' | translate }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template
+          pTemplate="body"
+          let-product
+          let-editing="editing"
+          let-ri="rowIndex"
+        >
+          <tr [pEditableRow]="product">
+            <td
+              pEditableColumn
+              *ngFor="let col of control.params.columns"
+              class="{{ control.params.applyColumnStyle ? col : '' }}"
+              [ngClass]="
+                col === 'amount' && control.status === 'INVALID'
+                  ? 'table-data-highlight'
+                  : ''
+              "
+            >
+            <div *ngIf="col === 'documentType'">
+              <p-dropdown
+                [ngModelOptions]="{ standalone: true }"
+                (onChange)="onChangeDropdownField($event, col, product)"
+                [options]="product[col + 'Options']"
+                [(ngModel)]="product[col]"
+                [style]="{ width: '100%' }"
+              >
+              </p-dropdown>
+            </div>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <div *ngIf="product[col + 'Type'] === 'text'">
+                    <div *ngIf="product[col + 'Status'] === false">
+                      {{ product[col] }}
+                    </div>
+                    <div *ngIf="product[col + 'Status'] === true">
+                      <div *ngIf="control.params.noEdit">
+                        {{ product[col] }}
+                      </div>
+
+                      <div *ngIf="!control.params.noEdit">
+                        <div
+                          class="overDrawWrapper"
+                          *ngIf="control.params.OverDrawStatus === true"
+                        >
+                          <span *ngIf="!control.params.hasActions">
+                            {{ control.params.message1 }}
+                          </span>
+                        </div>
+                        <input role="textbox"
+                          [ngClass]="
+                            col === 'amount' && control.status === 'INVALID'
+                              ? 'table-data-highlight'
+                              : ''
+                          "
+                          (blur)="
+                            onkeyUpTextField($event, control.key, product)
+                          "
+                          [maxlength]="product[col + 'Maxlength']"
+                          [required]="product[col + 'Required']"
+                          [ngModelOptions]="{ standalone: true }"
+                          pInputText
+                          type="text"
+                          [value]="product[col]"
+                          [(ngModel)]="product[col]"
+                          id="{{ col }}"
+                          [disabled]="product[col + 'Disabled']"
+                        /><a
+                          *ngIf="
+                            product[col + 'Required'] &&
+                            control.key !== 'documentTableDetails'
+                          "
+                          ><em class="fa fa-asterisk fa-sm"></em
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="product[col + 'Type'] === 'date'">
+                    <div *ngIf="product[col + 'Status'] === false">
+                      {{ product[col] | date }}
+                    </div>
+                    <div *ngIf="product[col + 'Status'] === true">
+                      <div *ngIf="control.params.noEdit">
+                        {{ product[col] }}
+                      </div>
+                      <div *ngIf="!control.params.noEdit">
+                        <span *ngIf="!control.params.showDatePicker">
+                          <input role="textbox"
+                            matInput
+                            formControlName="{{ control.key }}"
+                            maxlength="{{ control.params.maxlength }}"
+                            placeholder="{{ control.params.placeholder }}"
+                            [required]="product[col + 'Required']"
+                            [disabled]="product[col + 'Disabled']"
+                            id="{{ control.key }}"
+                            [(ngModel)]="product[col]"
+                            (change)="
+                              onBlurDateField($event, control.key, product)
+                            "
+                            (onBlur)="
+                              onBlurDateField($event, control.key, product)
+                            "
+                            (keypress)="
+                              onBlurDateField($event, control.key, product)
+                            "
+                          />
+                        </span>
+                        <span *ngIf="control.params.showDatePicker">
+                          <mat-form-field
+                            appearance="fill"
+                            class="input-mat-width"
+                          >
+                            <input role="textbox"
+                              matInput
+                              [matDatepicker]="picker"
+                              formControlName="{{ control.key }}"
+                              maxlength="{{ control.params.maxlength }}"
+                              [min]="control.params.minDate"
+                              [required]="product[col + 'Required']"
+                              [max]="control.params.maxDate"
+                              [disabled]="product[col + 'Disabled']"
+                              (dateChange)="
+                                onBlurDateField($event, control.key, product)
+                              "
+                              (inputChange)="
+                                onBlurDateField($event, control.key, product)
+                              "
+                              (click)="picker.opened = true"
+                              id="{{ control.key }}"
+                              [(ngModel)]="product[col]"
+                            />
+                            <mat-datepicker-toggle
+                              matSuffix
+                              [for]="picker"
+                            ></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="product[col + 'Type'] === 'dropdown'">
+                    <div *ngIf="product[col + 'Status'] === true">
+                      <div *ngIf="control.params.noEdit">
+                        {{ "C064_" + product[col] | translate }}
+                      </div>
+                      <div *ngIf="!control.params.noEdit && col != 'documentType'">
+                        <p-dropdown
+                          [ngModelOptions]="{ standalone: true }"
+                          (onChange)="
+                            onChangeDropdownField($event, col, product)
+                          "
+                          [options]="product[col + 'Options']"
+                          [(ngModel)]="product[col]"
+                          [style]="{ width: '100%' }"
+                        >
+                          <ng-template let-item pTemplate="item">
+                            <div class="p-grid">
+                              <div class="p-col-12 align-left">
+                                {{ item.label }}
+                              </div>
+                            </div>
+                          </ng-template>
+                        </p-dropdown>
+                      </div>
+                    </div>
+                    <div *ngIf="product[col + 'Status'] === false">
+                      <p-dropdown
+                        [readonly]="true"
+                        [ngModelOptions]="{ standalone: true }"
+                        [options]="control.params.options"
+                        [(ngModel)]="product[col]"
+                        [style]="{ width: '100%' }"
+                      >
+                      </p-dropdown>
+                    </div>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  <div *ngIf="product[col + 'Type'] === 'text'">
+                    {{ product[col] }}
+                  </div>
+                  <div *ngIf="product[col + 'Type'] === 'date'">
+                    {{ product[col] }}
+                  </div>
+                  <div
+                    *ngIf="
+                      product[col + 'Type'] === 'dropdown' &&
+                      product[col] !== '' &&
+                      col !== 'linkTo' &&
+                      col !== 'documentType'
+                    "
+                  >
+                    {{ "C064_" + product[col] | translate }}
+                  </div>
+                  <div
+                    *ngIf="
+                      col === 'linkTo' && product[col].label !== 'undefined'
+                    "
+                  >
+                    {{ product[col].label }}
+                  </div>
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td *ngIf="!control.params.hasActions"
+              class="actionscol">
+              <a
+                style="margin-left: 4em; cursor: pointer"
+                [title]="'DELETE' | translate"
+                (click)="onClickTrash(product, control.key, ri)"
+                href="javascript:void(0)"
+                tabindex="0"
+              >
+                <em class="pi {{ control.params.trashActions }}"></em>
+              </a>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template [pTemplate]="setDirections('right')" let-state>
+          <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSizeForEnrichTable($event)"
+            (setCurrentPageCallback) = "setCurrentPageForEnrichTable($event)"></fcc-custom-paginator>
+        </ng-template>
+      </p-table>
+    </div>
+    <div *ngIf="control.params.isListData && control.params.data.length" style="border: 1px solid #c8c8c8;margin-left: 0.5em;" id ="editGridTable">
+      <p-table #tt [value]="control.params.data" *ngIf="control.params.isListData" 
+      [paginator]="control.params.data.length > (rows - 1) ? true : false"
+      [rows]="paginatorParams.defaultRows"
+      (rowsChange)="refreshData()">
+        <ng-template pTemplate="header">
+          <tr tabindex="0">
+            <th
+              id="col" scope="col"
+              *ngFor="let col of control.params.columns"
+              class="{{ control.params.applyColumnStyle ? col : '' }}">
+              <span [ngSwitch]="col">
+                <span *ngSwitchCase="'defaultAccountFlag'"></span>
+                <span *ngSwitchDefault>{{ updateIfEnrichmentTable(col) | translate }}</span>
+              </span>
+            </th>   
+            <th *ngIf="control.params.hasActions === undefined || control.params.hasActions"
+              id="col"
+              class="actionHeader">
+            {{ 'ACTION' | translate }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template
+          pTemplate="body"
+          let-item
+          let-i="rowIndex"
+          let-rowData
+        >
+          <tr tabindex="0" *ngIf="!rowData.discardFlag" [ngClass]="{'highlightRow':rowData.highlight}">
+            <ng-container *ngFor="let col of control.params.columns">
+                <td *ngIf="item[col] && item[col] !== 'N'; else emptyField" class="{{ control.params.applyColumnStyle ? col : '' }}">
+                  <span [ngSwitch]="true">
+                    <span *ngSwitchCase="isTypeObject(item[col])">
+                      {{ item[col].shortName }}
+                    </span>
+                    <span *ngSwitchCase="col === 'defaultAccountFlag'">
+                      <ng-container *ngIf="rowData['editOnlyFlag'] ; else editonly"> 
+                        <mat-checkbox #tooltip="matTooltip" matTooltip="{{'defaultAccountFlag' | translate}}" 
+                        matTooltipPosition="below" matTooltipClass="mat-tooltip" (change)="setToDefault($event, i)" 
+                        [checked]=true></mat-checkbox>
+                      </ng-container>
+                      <ng-template #editonly> 
+                        <img class = "iconImage" title="{{'defaultAccount' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Default.svg' id="defaultAccountFlag" alt="Default Flag">
+                      </ng-template>
+                      </span>
+                    <span *ngSwitchCase="col === 'accountActiveFlag' || col === 'interMediaryBank'"> {{ item[col] | translate }} </span>
+                    <span *ngSwitchDefault>{{ item[col] }}</span>
+                  </span>
+                </td>
+                <ng-template #emptyField>
+                  <td>
+                    <span [ngSwitch]="col">
+                      <span *ngSwitchCase="'accountActiveFlag'">{{ 'N' | translate }}</span>
+                      <span *ngSwitchCase="'interMediaryBank'">{{ 'N' | translate }}</span>
+                      <span *ngSwitchCase="'defaultAccountFlag'">
+                        <mat-checkbox *ngIf="rowData['editOnlyFlag']" #tooltip="matTooltip" matTooltip="{{'defaultAccountFlag' | translate}}"
+                        matTooltipPosition="below" matTooltipClass="mat-tooltip" (change)="setToDefault($event, i)"></mat-checkbox>
+                      </span>
+                      <span *ngSwitchDefault>-</span>
+                    </span>
+                  </td>
+                </ng-template>
+            </ng-container>
+            <td dir={{dir}} class="actionData" *ngIf="control.params.hasActions === undefined || control.params.hasActions">
+              <div *ngIf="rowData['updateFlag']">
+                <em class="pi pi-pencil" (click)="onClickPencil($event, control.params, i, item)" (keyup.enter)="onClickPencil($event, control.params, i, item)" style="cursor: pointer;"
+                title="{{'edit' | translate}}" tabindex="0"></em>
+                <em class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="onClickTrash($event, item, i, control.key)" (keyup.enter)="onClickTrash($event, item, i, control.key)" style="cursor: pointer;"
+                title="{{'delete' | translate}}" tabindex="0"></em>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template [pTemplate]="setDirections('right')" let-state>
+          <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSize($event)"
+            (setCurrentPageCallback) = "setCurrentPage($event)"></fcc-custom-paginator>
+        </ng-template>
+      </p-table>
+    </div>
+    <ng-container *ngIf="control.params.warning">
+      <span class="fcc-field-message">
+        <p-message severity="warning" text="{{control.params.warning | translate}}"></p-message>
+      </span>
+  </ng-container>
+  </div>
+
+  <div *ngIf="control.params.loadListDef">
+    <form-listdef-table ></form-listdef-table>
+  </div>
+
+</ng-container>

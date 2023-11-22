@@ -1,0 +1,190 @@
+<ng-container>
+  <div *ngIf="showSpinner" class="spinnerStyle">
+    <p-progressSpinner
+      [style]="{ width: '4em', height: '4em' }"
+      strokeWidth="5"
+      fill="transparent"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+  <div *ngIf="!showSpinner && transactionInProgressList.length > 0">
+    <div class="divTable focus">
+      <a
+        class="divRow focus"
+        *ngFor="let transactionData of dataList; let i = index"
+        id="{{ i }}"
+        (click)="onRowClick(transactionData)" attr.aria-label="Row {{i+1}}"
+        tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" href="#" onclick="return false;"
+      >
+        <div class="divCell leftBorderStyle">
+          <div
+            [ngClass]="{
+              leftBorder: flagArray[i] == false,
+              leftBorderExtended: flagArray[i] == true
+            }"
+            class="{{ 'N004_' + transactionData['tnxStatCode'] }}"
+          ></div>
+        </div>
+
+        <a
+          class="divCell expandArrow"
+          (click)="expandAndCollapseRow(i, $event)"
+          href="#" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"  onclick="return false;" attr.aria-label="Expand Row {{i+1}}"
+        >
+          <div class="displayOnHover displayOnFocus">
+            <em
+              class="pi"
+              [ngClass]="{
+                'pi-chevron-right': flagArray[i] == false,
+                'pi-chevron-down': flagArray[i] == true
+              }"
+              aria-hidden="true"
+            ></em>
+          </div>
+        </a>
+
+        <div class="divCell productCodeField">
+          <div [ngClass]="'productCodeDefault'">
+            <div
+              class="circleBackground {{ transactionData['productCode'] }} {{
+                transactionData['productCode'] + '_background'
+              }}"
+            >{{transactionData['productCode']}}
+            </div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerPadding">{{ 'event' | translate }}</div>
+            <div [ngClass]="'event'">
+              <div
+                class="dataPadding {{
+                  transactionData['productCode'] + '_background'
+                }}"
+              >
+                {{ 'N002_' + transactionData['tnxTypeCode'] | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="row_2" *ngIf="flagArray[i]">
+            <div class="headerFont">{{ 'tnxId' | translate }}</div>
+            <div class="dataFont">{{ transactionData['tnxId'] }}</div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerFont">
+              {{
+                getCounterPartyHeading(transactionData['productCode'])
+                  | translate
+              }}
+            </div>
+            <div *ngIf="transactionData['beneficiaryName'] !== ''">
+              <div class="dataFont">
+                {{ transactionData['beneficiaryName'] }}
+              </div>
+            </div>
+            <div *ngIf="transactionData['beneficiaryName'] === ''">
+              <div class="hideData">-</div>
+            </div>
+          </div>
+          <div class="row_2" *ngIf="flagArray[i]">
+            <div class="headerFont">{{ 'type' | translate }}</div>
+            <div class="dataFont" [innerHTML]= "transactionData['fullType']"></div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerFont">
+              {{
+                (transactionData['entity'] === '' ? 'company' : 'entity')
+                  | translate
+              }}
+            </div>
+            <div class="dataFont">
+              {{
+                transactionData['entity'] === ''
+                  ? transactionData['companyName']
+                  : transactionData['entity']
+              }}
+            </div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerFont">{{ 'ccy' | translate }}</div>
+            <div *ngIf="transactionData['tnxCurCode'] !== ''">
+              <div class="dataFont">{{ transactionData['tnxCurCode'] }}</div>
+            </div>
+            <div *ngIf="transactionData['tnxCurCode'] === ''">
+              <div class="hideData">-</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div [ngClass]="'amount'">
+              <div class="headerFont">{{ 'amount' | translate }}</div>
+              <div *ngIf="transactionData['tnxAmt'] !== ''">
+                <div class="dataFont" [innerHTML]="transactionData['tnxAmt']"></div>
+              </div>
+              <div *ngIf="transactionData['tnxAmt'] === ''">
+                <div class="hideData">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerFont">{{ 'status' | translate }}</div>
+            <div class="dataFont" [innerHTML]= "transactionData['status']"></div>
+          </div>
+        </div>
+
+        <div class="divCell">
+          <div class="row_1">
+            <div class="headerFont">{{ 'REFERENCEID' | translate }}</div>
+            <div class="dataFont">{{ transactionData['refId'] }}</div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div *ngIf="numRows > count" class="focus chevron">
+      <a (click)="
+                moreDataDisplayed === false ? getData(count * 2) : getData(count);
+                moreDataDisplayed = !moreDataDisplayed
+              " tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" href="#" onclick="return false;" [attr.aria-label]="dataDisplayTitle" 
+              [title]="dataDisplayTitle">
+        <em
+          [ngClass]="
+            moreDataDisplayed === false
+              ? 'pi pi-chevron-down pointer-class'
+              : 'pi pi-chevron-up pointer-class'
+          "
+        ></em>
+      </a>
+    </div>
+
+    <div  *ngIf="viewAllTnxPermission">
+      <p class="view-all-links pointer-class focus">
+        <a (click)="onClick()" href="#" [routerLink]="[]" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+          {{ 'viewAllTransactions' | translate }}
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div
+    *ngIf="!showSpinner && transactionInProgressList.length === 0"
+    class="displayNotAvailable"
+  >
+    {{ 'notAvailable' | translate }}
+  </div>
+</ng-container>

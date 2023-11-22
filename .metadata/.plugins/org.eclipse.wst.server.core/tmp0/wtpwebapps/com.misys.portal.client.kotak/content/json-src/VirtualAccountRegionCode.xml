@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+
+	<header>
+
+		<sourceappcode>JARVIS</sourceappcode>
+
+		<RqUID>2</RqUID>
+
+		<action_type>FETCH_REG_CODE</action_type>
+
+		<company_code>GREENSTAR</company_code>
+
+		<product_code>KARNATAKA</product_code>
+
+		<crn>69914730</crn>
+
+	</header>
+	<master>
+
+		<code>BALLARI</code>
+
+		<description>BALLARI</description>
+
+	</master>
+	<master>
+
+		<code>BANGALORE</code>
+
+		<description>BANGALORE</description>
+
+	</master>
+	<master>
+
+		<code>HUBLI</code>
+
+		<description>HUBLI</description>
+
+	</master>
+
+	<request_status>
+
+		<error_flag>N</error_flag>
+
+		<error_desc>Region Found</error_desc>
+
+		<error_code>KOT000</error_code>
+
+	</request_status>
+
+</Response>

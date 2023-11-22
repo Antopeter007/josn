@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="18px" viewBox="0 0 19 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 13</title>
+    <defs>
+        <polygon id="path-1" points="0.82467 0.20151 10.2357 0.20151 10.2357 7.66881 0.82467 7.66881"></polygon>
+        <polygon id="path-3" points="0 18 17.4357 18 17.4357 0 0 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13">
+            <polygon id="Fill-1" fill="#707070" points="0 0.00018 0 18.00018 6.4377 18.00018 6.4377 16.20018 1.8 16.20018 1.8 1.80018 12.6567 1.80018 12.6567 8.70048 14.4558 8.70048 14.4558 0.00018"></polygon>
+            <g id="Group-12">
+                <path d="M16.09983,10.59174 C14.60043,12.17934 13.09923,13.75884 11.59713,15.34644 L9.27153,13.29984 L8.48763,14.29524 L11.24343,16.72074 L11.67453,17.09964 L12.07053,16.68024 C13.70403,14.95314 15.33663,13.23594 16.97103,11.50614 L16.09983,10.59174 Z" id="Fill-2" fill="#707070"></path>
+                <g id="Group-6" transform="translate(7.200000, 9.900000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-5"></g>
+                    <path d="M1.75077,4.35321 L4.45257,6.73101 L9.30537,1.60731 L8.90037,1.18161 L4.41837,5.91471 L2.11617,3.88881 L1.75077,4.35321 Z M4.49667,7.66881 L0.82467,4.43781 L2.02707,2.91141 L4.37607,4.97781 L8.89857,0.20151 L10.23597,1.60551 L4.49667,7.66881 Z" id="Fill-4" fill="#707070" mask="url(#mask-2)"></path>
+                </g>
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-8"></g>
+                <polygon id="Fill-7" fill="#707070" mask="url(#mask-4)" points="3.0996 6.5844 6.1686 6.5844 6.1686 3.3426 3.0996 3.3426"></polygon>
+                <polygon id="Fill-9" fill="#707070" mask="url(#mask-4)" points="8.3016 6.5844 11.3706 6.5844 11.3706 3.3426 8.3016 3.3426"></polygon>
+                <polygon id="Fill-10" fill="#707070" mask="url(#mask-4)" points="8.2944 11.2185 11.3634 11.2185 11.3634 7.9767 8.2944 7.9767"></polygon>
+                <polygon id="Fill-11" fill="#707070" mask="url(#mask-4)" points="3.0942 11.2185 6.1632 11.2185 6.1632 7.9767 3.0942 7.9767"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

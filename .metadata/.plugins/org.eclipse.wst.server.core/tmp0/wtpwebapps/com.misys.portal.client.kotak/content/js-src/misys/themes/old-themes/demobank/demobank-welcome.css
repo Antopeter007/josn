@@ -1,0 +1,128 @@
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/form/Common.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+@import url("../../../dijit/themes/tundra/form/Checkbox.css");
+@import url("../../../dijit/themes/tundra/form/RadioButton.css");
+@import url("demobank-layout.css");
+@import url("demobank-styles.css");
+@import url("demobank-portlets.css");
+
+/** Styles specific to the home page **/
+.demobank .portlet-section-header{
+	display: none;
+}
+
+.demobank #DefaultContent, .demobank #TradeApplicationsDefault{
+	border: none;
+}
+
+.demobank #DefaultContent{
+	margin-top:11px;
+}
+
+.demobank #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	margin: 10px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+/** Login Form **/
+.demobank #loginForm {
+ margin: 10% auto; 
+ width: 40%;
+}
+/** Login Form For Q And A**/
+.demobank #loginFormQA{
+ margin: 5% auto; 
+ width: 100%;
+ height: 50%;
+ align: left;
+}
+
+/** Login page **/
+.demobank .toplevel-header{
+	width:80%;
+	padding: 0 0 0.5em 0;
+	margin: 5px auto 30px auto;
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+.demobank .toplevel-header h2{
+    font-weight: bold;
+    background: transparent url("images/header_33px.png") repeat-x top;
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+.demobank label,
+.demobank .label{
+    width: 6em;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+}
+
+.demobank #changePassword label,
+.demobank #changePassword .label{
+	width:8em;
+}
+/** Change password QA **/
+.demobank #changePasswordQA label,
+.demobank #changePasswordQA .label{
+	width:25em;
+	text-align: left;
+	margin-left: 1px;
+}
+.demobank #changePassword.legend{
+	font-size:0em;
+	text-decoration:underline;
+}
+	
+
+.demobank .dijitTextBox,
+.demobank .dijitComboBox .dijitInputField                      
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.demobank .small{
+	width:10em;
+}
+
+.demobank #loginForm .field .dijitButton .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+	background: #fff url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left;
+}
+.demobank #loginFormQA .field{
+	margin-left:0px;	
+	width:100%;
+	size: 120;
+}
+
+/** News paragraph **/
+.demobank .para .icon {
+ float:left;
+ width:55px;
+}
+
+.demobank .para-quote {
+	font-style: italic;
+}
+
+.demobank .message{
+	margin-left:6px;
+}

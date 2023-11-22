@@ -1,0 +1,821 @@
+/*
+	
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles that override or augment core Dijit rules and widgets (RTL version)
+  		
+	description:
+	  	Note that all styles must be prefixed by .base (unless an ID is in the selector). 
+	  	This is to ensure that our rules take precedence over the default Dijit styles. You may 
+	  	occasionally have to use !important, but it's rarely needed.
+
+	version:   1.0
+	date:      11/02/2013
+	author:    Everyone
+*/
+
+/** ------------------------------------- Forms and Fields --------------------------------- **/
+
+.base .dijitInputField {
+	padding: 0.1em 0.1em 0.1em 0em;
+}
+
+.base .dijitButtonNode {
+	background-color: transparent;
+}
+
+/** Put the magnifying glass button a bit closer to the field **/
+.base .field .dijitButton {
+	margin-right: -2px;
+}
+
+.dj_gecko .base .field .dijitButton {
+	margin-right: -4px;
+}
+ 
+.dj_ie .base .field .dijitButton {
+	margin-right: -4px;
+}
+
+/**
+ * Bug fix for IE to push enter in forms
+ */
+.dj_ie .notready .dijitButton {
+	visibility: visible;
+}
+
+/** Except in the currency/country code dialogs .. **/
+#currencydata .field .dijitButton,
+#codevaluedata .field .dijitButton {
+	margin-right: 6px;
+}
+
+/** ComboBox Menuitems are attached to the body, so they need to be given
+    the same font size as other top-level elements **/
+.base .dijitComboBoxMenu .dijitMenuItem {
+	font-size: 0.75em;
+} 
+
+.base .dijitArrowButton {
+	line-height: 1.45em;  /** TODO Check **/
+}
+
+.base .dijitTitlePane {
+	margin: auto;
+	width: 500px;  /** TODO Check **/
+}
+
+/** A button in a form, such as the one that opens the entity dialog **/
+.base .noborder .dijitButtonNode {
+	border: none;
+	background: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+.base .menu .dijitButton {
+	display: inline;
+}
+
+.base .multiselect-buttons .dijitButton {
+	margin-right: 6px;
+}
+
+/** Don't show the arrow button for the attachment table delete button **/
+/** TODO Check & Simplify this selector **/
+.base .attachments .dijitDownArrowButton .dijitArrowButtonInner {
+	display: none;
+}
+
+.base .dijitTextArea {
+	font-family: "Courier New";
+	font-size: 1em; /** Needed for Firefox **/
+}
+
+/** This inherits the body font-size (16px) so we have to bring it down to 12px **/
+.base .dijitTooltipContainer {
+	font-size: 0.75em;
+	padding: 4px 6px;
+}
+
+.base .dijitCheckBox,
+.base .dijitRadio {
+	margin-right: 3px;
+	margin-top: -4px;
+}
+
+/** --------------------------------- DataGrid, EnhanceGrid Rules ------------------------- **/
+
+.base .dojoxGrid {
+	font-size: 0.916em;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+/** Padding around error message is too small under IE **/
+.dj_ie6 .base .dojoxGridMasterMessages,
+.dj_ie7 .base .dojoxGridMasterMessages,
+.dj_ie8 .base .dojoxGridMasterMessages {
+	padding: 1.2em;
+}
+
+.base .dojoxGridHeader .dojoxGridCell  {
+	text-align:center;	
+}
+
+.base .dojoxGridRowbarSelected {
+    background:transparent url("../images/tick.png") no-repeat right;
+}
+
+.base .dojoxGridRowOver .dojoxGridCell {
+	background-color: white; 
+	color: #000;
+}
+
+.base .linkableGrid .dojoxGridRowOver {
+	cursor: pointer;
+}
+
+.base .gridActions {
+	text-align: center;
+}
+
+.dj_webkit .base .gridActions img:hover,
+.dj_gecko .base .gridActions img:hover,
+.dj_ie8 .base .gridActions img:hover {
+	cursor: pointer;
+}
+
+.base .dojoxGrid th {
+	text-align: center;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .base .group {
+	height: 300px;
+}
+.dj_ie7 .base .group {
+	height: 300px;
+}
+.dj_ie8 .base .group {
+	height: 300px;
+}
+
+.base .treeDataGrid .dojoxGridRow .dojoxGridGroupHeader.dojoxGridGroupHeaderCell{
+	background-color: #CBE3FF;
+	text-align: right !important;
+}
+
+.base .treeDataGrid .dojoxGridRow .dojoxGridCell{
+	background-color: #F0F7FF;
+}
+
+.base .treeDataGrid .dojoxGridRowTable {
+	height: auto !important;
+}
+
+/** ---------------------------------------- Calendar Rules -------------------------------- **/
+
+/** Calendar in the side bar **/
+#MenuBuilder .dijitCalendarContainer {
+	margin-bottom: 6px;
+}
+
+/*#TradeCalendarPortlet .dijitCalendarDateTemplate,
+#default .dijitCalendarDateTemplate {
+	text-align: center;
+	letter-spacing: 1px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: top left;
+}*/
+
+.base .dijitCalendarCurrentMonth {
+	/*border: 1px solid white;*/
+}
+
+/** Inherits from <body>, so we have to reset it to ~12px **/
+.base .dijitCalendarPopup {
+	font-size: 0.75em;
+}
+
+/** cell for today's date */
+.base .dijitCalendarCurrentDate {
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+/** ------------------------------------------- Dialogs -------------------------------- **/
+
+.base .dijitDialog {
+	font-size: 0.75em;  /**TODO 12px **/
+}
+
+.base .dijitDialogTitleBar {
+	padding: 2px 2px 1px 0;
+	font-weight: normal;
+	border: 0;
+}
+
+.base .dijitDialog .field {
+	margin-left: 0;
+}
+
+/** Hide the close icon for some dialogs, to force the user to click cancel **/
+#alertDialog .dijitDialogCloseIcon,
+#loadingDialog .dijitDialogCloseIcon,
+#delayDialog .dijitDialogCloseIcon,
+#dealSummaryDialog .dijitDialogCloseIcon,
+#waitingDialog .dijitDialogCloseIcon,
+#reauth_dialog .dijitDialogCloseIcon {
+    display:none !important;
+}
+
+.base .dijitDialogPaneActionBar .dijitButton {
+	margin-right: 4px !important;
+}
+
+/** ----------------------------- Collaboration / FloatingPane Rules ------------------------- **/
+
+.base .dojoxFloatingPaneTitle {
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.base .dojoxFloatingPane {
+	border: none;
+	background-color: white;
+	-webkit-box-shadow: 1px 3px 12px #adadad;
+	-moz-box-shadow: 1px 3px 12px #adadad;
+	-o-box-shadow: 1px 3px 12px #adadad;
+	-ms-box-shadow: 1px 3px 12px #adadad;
+	box-shadow: 1px 3px 12px #adadad;
+}
+
+.dj_ie .base .dojoxFloatingPane {
+	border: 1px solid #adadad;
+}
+
+.base .dojoxFloatingPaneFg {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+.base .dojoxFloatingPaneContent {
+	padding: 6px;
+}
+
+.dj_ie .base .dojoxFloatingPaneContent {
+	width: 95%;
+	height: 90%;
+}
+
+.base #collaborationWindow.dijitContentPane {
+	padding: 0;
+}
+
+.base #collaborationWindow .dijitButton {
+	margin: 0;
+}
+
+.base .dojoxFloatingPane .dijitArrowNode {
+	cursor: pointer;
+	background-image: url("../images/spriteArrows.png");
+	background-repeat: no-repeat;
+	height: 7px;
+	width: 7px;
+}
+
+/** An empty list, also used for other empty lists in the application **/
+.empty-list-notice {
+	padding: 0 0.2em 0 0; /** TODO Change to pixel **/
+	margin: 0 0.2em 0 0;
+	font-weight: bold;
+}
+
+.dj_ie6 .base .dojoxFloatingPane .dijitArrowNode {
+	background-image:
+		url("../images/spriteArrows.gif");
+}
+
+/* TODO Simplify the following selectors */
+.base .dojoxFloatingPane .dijitOpen .dijitArrowNode {
+	background-position: 0 0;
+}
+
+.base .dojoxFloatingPane .dijitClosed .dijitArrowNode {
+	background-position: -14px 0;
+}
+
+.base .dojoxFloatingPane .dijitArrowNodeInner {
+	display: none;
+}
+
+.base .dijit_a11y .dojoxFloatingPane .dijitArrowNodeInner {
+	display: inline !important;
+	cursor: pointer;
+	padding-bottom: 3px;
+}
+
+.base .dijit_a11y .dojoxFloatingPane .dijitArrowNode,
+.base #dojoxGlobalResizeHelper {
+	display: none;
+}
+
+/** ----------------------------------------- TabContainer ---------------------------------- **/
+
+.base .tabLabel img {
+	padding: 0 4px 4px 0;
+}
+
+.base .tabContentDiv {
+	padding-top: 12px;
+}
+
+.base .tabContentDiv .textarea-button {
+	margin-top: -6px;
+	margin-right: -4px;
+}
+
+.dj_gecko .base .tabContentDiv .textarea-button {
+	margin-top: -4px;
+}
+
+
+/*------------------ Client Code ----------------*/
+
+.base .dijitToggleButton,
+.base .dijitButton,
+.base .dijitDropDownButton,
+.base .dijitComboButton {
+    margin-left: 2px;
+}
+
+.base .dijitDialogUnderlay {
+	opacity: 0.2;
+	background: black;
+}
+
+/** ------------------------------------- Forms and Fields --------------------------------- **/
+
+.base .noborder .dijitButtonNode {
+	border: none;
+	background: transparent;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+	-o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+	-ms-box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.base input[type=text]::-ms-clear {
+	display : none;
+}
+
+.base .dijitTextBoxDisabled .dijitInputContainer input {
+	color:#777777;
+}
+
+/** ----------------------------- Collaboration / FloatingPane Rules ------------------------- **/
+
+.base .dojoxFloatingPaneTitle {
+    background-color: #769DC0;
+    background-image: none;
+    color: white;
+}
+
+/**------------------------------------Book Marks -------------------**/
+.base .bookmarkMenu .dijitDropDownButtonActive .dijitButtonNode{
+    -moz-transition-duration: 0.1s;
+    background-color: #990000;
+    box-shadow: 0 0 0 transparent;
+}
+
+.base .bookmarkMenu .dijitDropDownButton .dijitButtonNode{
+    background-color: #990000;
+    background-image: none;
+    background-position: center top;
+    background-repeat: repeat-x;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0px;
+}
+.base .bookmarkMenu .dijitButtonNode .dijitArrowButtonInner {
+    background: none;
+    width: 0px;
+}
+
+/** ------------------------------------------- Dialogs -------------------------------- **/
+
+.base .dijitDialogTitleBar {
+	background: #990000;
+	color: white;
+}
+
+.base .dijitDialogTitle {
+	font-weight: bold;
+}
+
+.base .dijitTitlePaneTitle {
+	background: none;
+	background-color: #769DC0;
+}
+
+.base .dijitDialog .label,
+.base .dijitDialog label,
+.base #TransactionSearchForm .label,
+.base #TransactionSearchForm label {
+     width: 140px;
+}
+
+.base .dijitDialogCloseIcon {
+	background-position : -21px;
+}
+/** ---------------------------------------- Calendar Rules -------------------------------- **/
+
+#TradeCalendarPortlet .dijitCalendarSelectedYear,
+#TradeCalendarPortlet .dijitCalendarSelectedDate,
+#default .dijitCalendarSelectedYear,
+#default .dijitCalendarSelectedDate {
+	background-color: #7692B7;
+	color: white;
+}
+
+#MenuBuilder .dijitCalendarContainer,
+#TradeCalendarPortlet .dijitCalendarContainer {
+	background: transparent;
+	margin: 0 auto;
+}
+
+#MenuBuilder .dijitCalendar,
+#TradeCalendarPortlet .dijitCalendar {
+	 border: 0;
+	 padding: 0;
+}
+
+#MenuBuilder .dijitCalendarContainer th,
+#TradeCalendarPortlet .dijitCalendarContainer th {
+	background: #7692B7;
+}
+
+#MenuBuilder .dijitCalendarDayLabelTemplate,
+#TradeCalendarPortlet .dijitCalendarDayLabelTemplate {
+	background: #CBE3FF !important;
+	padding: 3px 3px;
+}
+
+#MenuBuilder .dijitCalendarMonthLabel ,
+#TradeCalendarPortlet .dijitCalendarMonthLabel {
+	color: #fff;
+	font-weight: bold;
+	padding: 4px;
+}
+
+/** ------------------------------------------- DataGrids ----------------------------------- **/
+.base .dojoxGridSummarySpan {
+	visibility: hidden;
+}
+
+.base .dojoxGrid {
+	background-color: transparent;
+	border-width: 1px 0 0 0;
+   	font-size: 1em;
+}
+
+.base #ratesGrid{
+	border-width: 1px;
+	overflow: visible;
+}
+
+.base .dojoxGrid img{
+	margin: 0 2px;
+    width: 16px;
+    height: 16px;
+}
+
+.base .dojoxGridHeader th.dojoxGridCell  {
+	 background: none repeat scroll 0 0 #7692B7;
+}
+
+.base .dojoxGridSortNode {
+    background: transparent !important; 
+    border: 0 none #fff;    
+}
+
+.base .dojoxGridCell {
+	 border: 1px solid #fff;
+	 padding-right:3px !important; 
+}
+
+.base #baselineCustomerdata_grid .dojoxGridCell{
+	word-wrap: break-word;
+}
+
+.base .dojoxGridRowTable {
+	height: 30px !important;
+	word-wrap: break-word;
+}
+
+.base .dojoxGridRow .dojoxGridCell {
+	background-color: #CBE3FF;
+	padding-right: 0;
+}
+
+.base .dojoxGridRowOdd .dojoxGridCell{
+	background-color: #F0F7FF;
+}
+
+.base .dojoxGridRowOver .dojoxGridCell {
+	background:url("../images/row_back.png") #ABD6FF repeat-x;
+	border-top:1px solid #769DC0;
+	border-bottom:1px solid #769DC0;
+}
+
+.base .dojoxGridHeader .dojoxGridCell {
+   border: 1px solid #fff;
+   font-weight: bold; 
+   color: #fff;
+}
+
+.base .dojoxGridRowbarOver .dojoxGridRowbarTable {
+	background-color: transparent;
+}
+
+.base .dojoxGridRowbar{
+	background-color: transparent;
+}
+
+.base .dojoxGridRowbarTable {
+    height: 30px !important;	
+}
+
+.base .dojoxGridColNoResize, 
+.dojoxGridColNoResize .dojoDndItemOver {
+	cursor: default !important;
+}
+
+.base .dojoxGridPaginator {
+    border: 1px solid white;
+    padding: 2px 5px;
+    background: transparent !important;
+}
+.base .dojoxGridHeader .dojoxGridCell {
+	padding: 5px;	
+}
+
+.base .dojoxGridHeader {
+	background-color: transparent;
+}
+
+.base .dojoxGridPaginatorGotoDivDisabled {
+	background: transparent;
+	display: none;	
+}
+
+.base #alerts01 .dojoxGridMasterHeader img, 
+.base #alerts02 .dojoxGridMasterHeader img,
+.base #alerts03 .dojoxGridMasterHeader img {
+	display: none;	
+}
+
+.base .dojoxGridRow .dojoxGridGroupCell {
+	background-color: #D0D0D0;
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.base .dojoxGridRow .dojoxGridAggregateCell {
+	background-color: #F09090;
+	font-weight: bold;
+	vertical-align: top;
+}
+
+/** ------------------------------------------- MenuBar ----------------------------------- **/
+
+.base .dijitMenuBar {
+	background: #990000;
+	border: 0;
+}
+
+.base .dijitMenuBar .dijitMenuItem {
+	color: white;
+	outline: none;
+}
+
+.base .dijitMenuBar .menuBarHighlight {
+	text-decoration: underline;	
+	color: #ccc;
+}
+
+.base .dijitMenuPassive .dijitMenuItemHover, 
+.base .dijitMenuPassive .dijitMenuItemSelected {
+	background: #F0F0F0;
+	color: #ccc;
+	border: 0 none;
+}
+
+.base .dijitMenuActive .dijitMenuItemHover, 
+.base .dijitMenuActive .dijitMenuItemSelected {
+	background: #F0F0F0;
+	color: #ccc;
+	border: 0 none;
+}
+
+.base .dijitMenuBar .dijitMenuItemLabel {
+	background: #990000;
+	border: 0 none;
+	padding : 6px 10px 7px;
+	font-size: 0.875em;
+	font-weight:600;
+}
+
+.base .dijitMenu .dijitMenuItemLabel {
+	font-size: 0.8125em;
+}
+
+.base .dijitMenuSeparatorTop {
+    border-bottom: 1px solid #990000;
+}
+
+.base .portalMenuItem {
+	color: white !important;
+	letter-spacing: -0.25px;
+}
+
+.base .menuBarSeperator{
+	color: white;
+}
+.base .portalMenu {
+	background-color: #FFF8F7;	
+	border: 1px solid #990000;
+	border-bottom: 0;	
+}
+
+.base .portalMenuBar {
+	text-align: right;
+	display: none;
+}
+
+.base .portalMenuItem a:hover {
+	text-decoration: none;
+	color: black;
+	font-weight: normal;
+}
+
+.base .portalMenuItem a{
+	color: black;
+	font-weight: normal;
+}
+
+/** ------------------------------------------- Tooltips ----------------------------------- **/
+
+.base .dijitTooltipContainer {
+	font-size: 0.875em;	
+}
+
+/** ----------------------------------------- Tabcontainer ----------------------------------- **/
+
+.base .dijitTabPaneWrapper  {
+	border: 0;
+}
+/**-------------------------------------- Calendar -------------------------------------------**/
+.base .dijitCalendarCurrentDate {
+	/* cell for today's date */
+	text-decoration:underline;
+	background-color : #CBE3FF;
+}
+/**-------------------------------------- Pagination -------------------------------------------**/
+/* MPS-21511 */
+.dojoxGridRtl .dojoxGridDescription {
+	text-align: right;
+	margin-right: 9px;
+}
+.dojoxGridRtl .dojoxGridPaginatorStep {
+	float: left;
+}
+.dojoxGridRtl .dojoxGridActived {
+	margin: 1px 5px 0 6px;
+	float: right;
+}
+.dojoxGridRtl .dojoxGridInactived {
+	margin: 1px 5px 0 6px;
+	float: right;
+}
+.dijitRtl .dojoxGridfirstPageBtn {
+	cursor: pointer;
+	margin: 2px 1px 0 0;
+	background-position: -37px 3px;
+}
+.dijitRtl .dojoxGridfirstPageBtnDisable {
+	margin: 2px 1px 0 0;
+	background-position: -37px -17px;
+}
+.dijitRtl .dojoxGridprevPageBtn {
+	cursor: pointer;
+	margin: 2px 9px 0 5px;
+	background-position: -17px 3px;
+}
+.dijitRtl .dojoxGridprevPageBtnDisable {
+	margin: 2px 9px 0 5px;
+	background-position: -17px -17px;
+}
+.dijitRtl .dojoxGridlastPageBtn {
+	cursor: pointer;
+	background-position: -57px 3px;
+}
+.dijitRtl .dojoxGridlastPageBtnDisable {
+	background-position: -57px -17px;
+}
+.dijitRtl .dojoxGridnextPageBtn {
+	cursor: pointer;
+	margin: 2px 3px 0 0;
+	background-position: 3px 3px;
+}
+.dijitRtl .dojoxGridnextPageBtnDisable {
+	margin: 2px 3px 0 0;
+	background-position: 3px -17px;
+}
+.dojoxGridRtl .dojoxGridWardButton {
+	float: right;
+}
+.base #useraccountdata_grid .dojoxGridMasterView .dojoxGridView .dojoxGridScrollbox .dojoxGridContent .dojoxGridRowTable .dojoxGridCell a:after  {
+	content: "\200E";
+}
+.base #useraccountdata_grid .dojoxGridMasterView .dojoxGridView .dojoxGridScrollbox .dojoxGridContent .dojoxGridRowTable .dojoxGridCell a:before  {
+	 content: "\200E";
+}
+.base .dijitInputField #account_no {
+	direction:ltr;
+	text-align: right;
+}
+
+div#balgroup-dialog-template-content {
+	width: 630px;
+	height: 500px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+div#balsubgroup-dialog-template {
+	width: 480px;
+	height: 400px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#si_document.dijitEditor .dijitToolbar {
+	text-align: right;
+}
+
+div[id*='Grid'] .dojoxGridMasterView .dojoxGridView .dojoxGridScrollbox .dojoxGridContent .dojoxGridRowTable td:not([class*='align-center']) {
+	text-align: right;
+}
+
+/** Applicable for all popup grid listings **/
+.base div[id*='data_grid'][class*='dojoxGrid'] {
+	direction: rtl; 
+}
+.base div[id*='data_grid'] .dojoxGridMasterView .dojoxGridView .dojoxGridScrollbox .dojoxGridContent .dojoxGridRowTable .dojoxGridCell {
+	text-align: right;
+}
+.base #view .fieldset-content .field .content {
+	/** Applicable for all transaction preview screens to restrict the data content to be inside the current element. **/
+	word-break: break-all !important;
+	/* For IE to work, both word-wrap and display attributes are required. */
+	display: inline;
+}
+
+
+.dojoxGridInactiveSwitch {
+    font-weight: normal;
+    color: #5D88AF;
+    float: right;
+    cursor: pointer;
+    margin: 1px 7px 0 7px;
+    zoom: 1;
+}
+
+.dojoxGridSeparator {
+    float: right;
+}
+
+.dojoxGridActivedSwitch {
+    font-weight: bold;
+    color: black;
+    float: right;
+    margin: 1px 7px 0 7px;
+    text-decoration: none!important;
+    zoom: 1;
+}

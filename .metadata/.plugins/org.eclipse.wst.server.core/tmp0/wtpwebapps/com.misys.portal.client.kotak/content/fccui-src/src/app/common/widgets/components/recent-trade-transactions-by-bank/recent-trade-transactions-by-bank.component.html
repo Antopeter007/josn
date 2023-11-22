@@ -1,0 +1,64 @@
+<ng-container>
+    <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+      <p-card class="{{classCheck}}">
+          <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+              <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+          </p-header>
+      <h1 class="headerTitle">
+        {{ approvedTransactions | translate }}
+      </h1>
+      <div dir="{{ dir }}"
+      class="fcc-input widget-dropdown-1 p-col-12 flexDisplay">
+        <div class="p-col-8"></div>
+        <div class="p-col-4">
+        <p-multiSelect *ngIf="filterOption && filterOption.length > 1"
+          #ProductFilter class="colFilter" [(ngModel)]="selectedProduct"
+        [options]="filterOption"
+        defaultLabel="{{ 'product' | translate}}"
+        styleClass="fcc-multiselect" [tooltipPosition]="'bottom'"
+        ariaFilterLabel = "{{ 'productFilter' | translate }}"
+        (onPanelShow) = "onPanelShowHandler()"
+        (onPanelHide) = "onClickProduct()"
+      ></p-multiSelect></div>
+     </div>
+      <div *ngIf="dataAvailable" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <div class="p-grid">
+        <div class="p-col-4">
+        <p-chart type="polarArea" [data]="polarAreaChartData" [options]="polarAreaChartOptions"  (onDataSelect)="selectData($event)" height="500" ></p-chart>
+      </div>
+      <div class="p-col-8">
+        <fcc-common-transactions-listdef *ngIf="recordAvailable"
+         [inputParams] = "inputParams" [resultDataArray]="approvalsList">
+          </fcc-common-transactions-listdef>
+      </div>
+
+  </div>
+  </div>
+  <div *ngIf="dataAvailable!= undefined" class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <div  *ngIf="!dataAvailable" class="p-col-8 finishMsg"><span class="nowrap"></span> {{noApprovals | translate}} {{days}} {{day | translate}}</div>
+    <div *ngIf="!dataAvailable" class="p-col-4">
+      <p class="view-all-links pointer-class focus" *ngIf="viewAllTnxPermission">
+        <a href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()" (keyup.enter)="onClickViewAllTransactions()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" attr.aria-label="'viewPastApprovedTransactions' | translate">
+          {{ viewPastTransactions | translate }}
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="approvalsList?.length > 0" class="p-grid msgDiv" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <div  class="p-col-4 finishMsg"><span class="nowrap"></span> {{approvalDays | translate}} {{days}} {{day | translate}}</div>
+    <div  class="p-col-4 finishMsg"><span class="nowrap"></span> {{star | translate}}{{showMessage| translate}} {{approvalsList.length}} {{of}} {{totalCount}} {{recordsDisplayed}}</div>
+    <div class="p-col-4" *ngIf="viewAllTnxPermission">
+      <p class="view-all-links pointer-class focus">
+        <a href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()" (keyup.enter)="onClickViewAllTransactions()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" attr.aria-label="'viewAllTransactions' | translate">
+          {{ 'viewAllTransactions' | translate }}
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <app-nudges [nudges] = "nudges">
+  </app-nudges>
+      </p-card>
+      </div>
+  </ng-container>

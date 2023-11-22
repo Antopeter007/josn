@@ -1,0 +1,435 @@
+@import './../../../../../../styles/variables.scss';
+
+// .list-box-class {
+//   // padding-top: 1em;
+//   // padding-right: 0.5em;
+//   // padding-left: 0.5em;
+//   // box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%);
+// }
+
+:host ::ng-deep table {
+    width: 100%;
+  }
+  
+  :host ::ng-deep td.mat-column-star {
+    width: 20px;
+    padding-right: 8px !important;
+  }
+  
+  :host ::ng-deep .mat-row {
+    &:hover {
+      background-color: $White-Lilac !important;
+    }
+    a {
+      color: #3e75ff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .highlightSelectedRow {
+    background-color: $White-Lilac !important;
+    border-left: 0.4em solid $VIOLET-F100;
+  }
+
+  .highlightSelectedRow { 
+    td { 
+      color: $VIOLET-F100 !important;
+    } 
+  }
+
+  [dir="rtl"] .highlightSelectedRow {
+    border-left: none;
+    border-right: 0.4em solid $VIOLET-F100;
+  }
+
+  :host ::ng-deep .mat-header-row {
+    display: none;
+  }
+
+  :host ::ng-deep .mat-row {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    clear: both;
+    background-color: #fff;
+    border-radius: 2px;
+    height: 120px;
+    + .mat-row {
+      margin-top: 5px;
+    }
+    
+}
+
+:host ::ng-deep .mat-cell {
+  width: 50% !important;
+  float: left !important;
+  padding-left: 3px !important;
+  margin: 1px 0;
+  border: 0 none;
+  text-align: left !important;
+  height: 23px !important; 
+  &:first-child{
+    font-weight: bold !important;
+    padding-right: 0px !important;
+  }
+  &:nth-child(even) {
+    text-align: right !important;
+    padding-right: 3px !important;
+    &:before {
+      display: none;
+    }
+  }
+  &.m-card-title {
+    padding: 2px 1px 1px 2px;
+    color: black;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+ 
+}
+
+
+
+[dir="rtl"] :host ::ng-deep .mat-cell{
+  text-align: right !important;
+  float: right !important;
+  &:nth-child(even) {
+    text-align: left !important;
+  }
+}
+
+
+
+/*
+* To wrap the column values and display in two rows
+* new changes added in m-card-title css 
+* in m-card-title
+*/ 
+// :host ::ng-deep .mat-table tr th, .mat-table tr td {
+//     // white-space: normal !important;
+// }
+
+.mat-column-star {
+  width: auto;
+  padding: 8px 0 0 !important;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  &:before {
+    display: none;
+  }
+}
+
+  // To align the search icon within the mat form field
+  :host ::ng-deep .search-box .material-icons {
+    font-family: "Material Icons" !important;
+    position: absolute !important;
+    cursor: pointer;
+    bottom: 25% !important;
+    right: 5% !important;
+  }
+  :host ::ng-deep #idSearchIcon{
+     cursor: default; 
+  }
+
+  :host ::ng-deep .mat-form-field {
+    font-size: 14px;
+    width: 60%;
+  }
+
+  // To align the place holder text
+  :host ::ng-deep .mat-form-field-infix {
+    // bottom: 0.25em !important;
+    padding-left: 1em !important;
+  }
+  [dir="rtl"]   :host ::ng-deep .mat-form-field-infix {
+    padding-right: 1em !important;
+    padding-left: 0px !important;
+  }
+
+// To apply rounded corners for the mat input field
+  :host ::ng-deep .mat-form-field-outline-start {
+    border-radius: 28px 0 0 28px !important;
+    min-width: 28px !important;
+    border-color: $VIOLET-F100 !important;
+  }
+  
+  :host ::ng-deep .mat-form-field-outline-end {
+    border-radius: 0 28px 28px 0 !important;
+    border-color: $VIOLET-F100 !important;
+  }
+  
+  :host ::ng-deep .mat-icon {
+    color: $VIOLET-F100;
+  }
+  
+  // @media screen and (max-width: 960px) {
+  // .mat-elevation-z8 {
+  //   background: transparent;
+  //   box-shadow: none;
+  // }
+
+
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  :host ::ng-deep .mat-table {
+    background: transparent;
+    * {
+      box-sizing: border-box;
+    }
+    padding-bottom: 2em !important;
+  }
+
+  .noRecordsMessage {
+    padding-top: 10% !important;
+    padding-left: 30% !important;
+    width: 100% !important;
+  }
+
+
+  .mat-paginator {
+    height: auto;
+  }
+  :host ::ng-deep .mat-paginator {
+    border-top: 1px solid #d6d6d6;
+    padding: 5px;
+  }
+
+  :host ::ng-deep .mat-paginator-page-size-select {
+    margin: 5px 4px 0 4px !important;
+    width: 50px !important;
+  }
+
+  :host ::ng-deep .mat-paginator-outer-container{
+    justify-content: space-between;
+  }
+
+  :host ::ng-deep .mat-no-data-row{
+    padding-left: 20px !important;
+    padding-top: 25px !important;
+    padding-right: 20px !important;
+  }
+  :host ::ng-deep .mat-paginator-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 56px !important;
+    height: auto !important;
+    padding: 0 4px;
+    width: 100%;
+  }
+
+  :host ::ng-deep .eventListingSortingPanel .ui-overlaypanel{
+    margin-left: -180px;
+    margin-top: -50px;
+  }
+
+  :host ::ng-deep .mat-paginator-page-size {
+    display: flex;
+    align-self: flex-start;
+    margin-top: -18px;
+    margin-right: 0px;
+  }
+
+  :host ::ng-deep .mat-paginator-range-actions {
+    margin-top: 40px;
+  } 
+
+  :host ::ng-deep .mat-paginator-range-label {
+    margin: -50px 1px 1px 1px !important;
+    position: absolute;
+  }
+  :host ::ng-deep .mat-paginator-page-size-label{
+    margin: 0px !important;
+  }
+  [dir=rtl] :host ::ng-deep .mat-paginator-page-size {
+    margin-right: 0;
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 1499px){
+    :host ::ng-deep .mat-paginator-container {
+      display: block;
+    }
+    :host ::ng-deep .mat-paginator-range-actions {
+      margin-top: 40px;
+      margin-bottom: 0px;
+    } 
+    :host ::ng-deep .mat-paginator-range-label {
+      margin: -50px 1px 1px 1px !important; 
+    }
+    :host ::ng-deep .mat-paginator-page-size {
+      margin-top: -5px;
+    }
+  }
+  :host ::ng-deep #eventListingPaginator .mat-icon-button {
+    height: 24px !important;
+    width: 24px !important;
+  }
+
+  :host ::ng-deep .mat-icon-button {
+    height: 40px ;
+    width: 30px ;
+    line-height: 24px !important;
+  }
+
+  :host ::ng-deep .search-box .mat-form-field-flex{
+    border: 1px solid $VIOLET-F100 !important;
+    border-radius: 25px !important;
+    background-color: transparent !important;
+  }
+  :host ::ng-deep .search-box .mat-form-field-underline{
+    display: none;
+  }
+  :host ::ng-deep .search-box .mat-input-element{
+    width: 60%;
+  }
+
+  // [dir="rtl"] :host ::ng-deep .search-box .mat-input-element {
+  //   text-align: right;
+  //   direction: ltr;
+  // }
+
+  [dir="rtl"] :host ::ng-deep .search-box .material-icons{
+    right: auto !important;
+    left: 3% !important;
+  }
+  [dir="rtl"] :host ::ng-deep .mat-no-data-row .mat-cell{
+    float: right !important;
+  }
+
+  .go-to-container {
+    display: flex;
+    align-items: baseline;
+    background: white;
+    input {
+      width: 56px;
+      margin: 6px 4px 0 4px;
+      font-size: 12px;
+    }
+    .go-to-label {
+      margin: 0 4px;
+      font-size: 12px;
+      color: rgba(0,0,0,.54);
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+  }
+  .advanceSearchContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+  }
+  ::ng-deep .ui-overlaypanel-flipped .ui-overlaypanel-content{
+
+    .mat-selection-list {
+      max-height:250px;
+      overflow:auto;
+    }
+    
+    .mat-selection-list::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        overflow-y: scroll;
+    }
+    
+    .mat-selection-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+  
+  
+     .mat-selection-list{
+         font-weight: 600;
+    }
+  
+    
+     .mat-selection-list .mat-list-option{
+      font-weight: 400;
+  }
+  
+
+  }
+  
+  :host ::ng-deep .list-sort-icon{
+    float: right;
+    padding-left: 3%;
+    width: 5%;
+    //top: 14%;
+  }
+
+  ::ng-deep .ui-overlaypanel .ui-overlaypanel-content{
+
+    .mat-selection-list {
+      max-height:250px;
+      overflow:auto;
+    }
+    
+    .mat-selection-list::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        overflow-y: scroll;
+    }
+    
+    .mat-selection-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+  
+  
+     .mat-selection-list{
+         font-weight: 600;
+    }
+  
+    
+     .mat-selection-list .mat-list-option{
+      font-weight: 400;
+      font-size: 0.9em;
+  }
+  
+
+  }
+
+  .iconClass {
+    margin-left: 1.25em;
+  }
+
+  .highlightFilterApplied {
+    background-color: $VIOLET-F25;
+  }
+  [dir="rtl"]   .iconClass {
+    margin-right: 1.25em;
+    margin-left: 0px;
+  }
+
+  .event-action-icon{
+    position: absolute;
+    bottom: 80%;
+    left: 90%;
+  }
+
+  .event-action-icon .event-mat-icon{
+    bottom: 20%;
+    position: inherit;
+    width: 70%;
+  }
+
+  .iconListStyleRtl{
+    bottom: 100%;
+    position: absolute;
+    right: 88%;
+  }
+
+  .iconListStyleRtl .event-mat-icon{
+    display: block;
+    bottom: 20%;
+    position: inherit;
+    width: 70%;
+  }

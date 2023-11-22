@@ -1,0 +1,113 @@
+.horMenuCssClass {
+  margin-top: 3em;
+}
+.verMenuCssClass {
+  margin-top: 0.5em;
+}
+
+:host ::ng-deep textarea.mat-input-element {
+  resize: none;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.example-tree .mat-tree-node ul {
+  width: 86%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  top: 8em !important;
+  padding: 1.43em;
+  width: 30% !important;
+  overflow-y: auto;
+  position: fixed;
+  height: auto !important;
+  bottom: 0;
+}
+
+.mat-drawer-container {
+  background-color: white;
+}
+
+:host ::ng-deep .mat-drawer-content {
+  overflow: inherit;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.example-card {
+  width: 100%;
+  border-style: solid;
+  border-width: 0.1em;
+  margin-bottom: 0.5em;
+  border-color: lightgrey;
+  box-shadow: none !important;
+}
+
+.icon-close {
+  float: right;
+}
+
+.icon-close-left {
+  float: left;
+}
+
+.border-style {
+  border: solid;
+  border-width: 0.1em;
+  margin-bottom: 0.5em;
+  border-color: lightgrey;
+}
+
+.common-style {
+  font-size: 1em;
+  font-family: Roboto;
+}
+
+.card-content-style {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.54);
+  font-family: Roboto;
+}
+
+.right-align {
+  right: 0em;
+}
+
+.left-align {
+  left: 0em;
+}
+
+a.mat-button .mat-icon, a.mat-raised-button .mat-icon,
+a.mat-stroked-button .mat-icon, a.mat-flat-button .mat-icon,
+button.mat-button .mat-icon, button.mat-raised-button .mat-icon,
+button.mat-stroked-button .mat-icon, button.mat-flat-button .mat-icon {
+  right: 0em;
+}
+
+@media screen and (min-width: 540px) and (max-width: 1024px) {
+  mat-drawer {
+    margin-top: 5em;
+    .close-icon {
+      top: -0.8em;
+    }
+  }
+}

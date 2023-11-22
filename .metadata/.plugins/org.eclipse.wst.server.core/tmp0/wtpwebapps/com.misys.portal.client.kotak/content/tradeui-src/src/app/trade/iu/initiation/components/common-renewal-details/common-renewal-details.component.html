@@ -1,0 +1,368 @@
+<div *ngIf="!viewMode ;else viewContent">
+    <div [formGroup]="sectionForm">
+      <div *ngIf="showRenewalType" class="field">
+          <div *ngIf="(undertakingType === 'bg')">
+              <label id="bgRenewalTypeRow" class="label-radiobutton" for="bgRenewalType">{{ 'EXTENSION_TYPE' | translate }}&nbsp;</label>
+              <p-radioButton value="01"  id="bgRenewalType" label="{{'EXTENSION_TYPE_REGULAR' | translate}}" formControlName="bgRenewalType" name="bgRenewalTypeSelected"
+                (onClick)="toggleOnRenewalType()" (click)="setExtensionOnDefault()">
+              </p-radioButton>
+              <p-radioButton value="02" id="bgRenewalType" label="{{'EXTENSION_TYPE_IRREGULAR' | translate}}" formControlName="bgRenewalType" name="bgRenewalTypeSelected"
+                (onClick)="toggleOnRenewalType()" (click)="setExtensionOnDefault()">
+              </p-radioButton>
+              <div *ngIf="sectionForm.get('bgRenewalType') && sectionForm.get('bgRenewalType').value &&
+              sectionForm.get('bgRenewalType').value != null && sectionForm.get('bgRenewalType').value !== ''" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}
+              </div>
+          </div>
+        <div *ngIf="undertakingType === 'cu'" class="field">
+          <label id="cuRenewalTypeRow" class="label-radiobutton" for="cuRenewalType">{{ 'EXTENSION_TYPE' | translate }}&nbsp;</label>
+          <p-radioButton value="01"  formControlName="cuRenewalType" label="{{'EXTENSION_TYPE_REGULAR' | translate}}" id="cuRenewalType" name="cuRenewalTypeSelected"
+            (onClick)="toggleOnRenewalType()" (click)="setExtensionOnDefault()">
+          </p-radioButton>
+          <p-radioButton value="02" formControlName="cuRenewalType" label="{{'EXTENSION_TYPE_IRREGULAR' | translate}}" id="cuRenewalType" name="cuRenewalTypeSelected"
+            (onClick)="toggleOnRenewalType()" (click)="setExtensionOnDefault()">
+          </p-radioButton>
+          <div *ngIf="sectionForm.get('cuRenewalType') && sectionForm.get('cuRenewalType').value &&
+              sectionForm.get('cuRenewalType').value != null && sectionForm.get('cuRenewalType').value !== ''" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showRenewalSection">
+        <!-- Renew on radio button -->
+        <div id="{{undertakingType}}RenewOnCodeRow" class="field" enable>
+          <label for="{{undertakingType}}RenewOnCode" id="{{undertakingType}}RenewOnCodeLabel">{{ 'EXTENSION_ON' | translate }}<span class="required-field-symbol" *ngIf = "sectionForm.get(undertakingType+'RenewFlag').value">*</span>&nbsp;</label>
+          <p-radioButton value="01" id="{{undertakingType}}RenewOnCode" label="{{'EXTENSION_EXPIRY' | translate}}" formControlName="{{undertakingType}}RenewOnCode" name="{{undertakingType}}RenewOnCodeSelected"
+            (ngModelChange)="toggleOnRenew();commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);">
+          </p-radioButton>
+            <p-radioButton value="02" id="{{undertakingType}}RenewOnCode" label="{{'EXTENSION_CALENDAR' | translate}}"  formControlName="{{undertakingType}}RenewOnCode" name="{{undertakingType}}RenewOnCodeSelected"
+            (ngModelChange)="toggleOnRenew();commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);">
+          </p-radioButton>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RenewOnCode')"></fcc-common-error-message>
+        </div>
+        <!-- Renew on calender -->
+        <div id="{{undertakingType}}RenewalCalendarDateRow" class="field" *ngIf="showRenewalCalendarDate">
+          <label><span class="required-field-symbol" *ngIf = "sectionForm.get(undertakingType+'RenewOnCode').value === '01'">*</span>&nbsp;</label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}RenewalCalendarDate"
+            id="{{undertakingType}}RenewalCalendarDate" (onSelect)= "commonService.setRenewalCalendarDate(sectionForm.get(undertakingType+'RenewalCalendarDate').value, this.undertakingType);
+             commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType); setFinalExpiryDate(undertakingType);"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorCalendarDate(undertakingType+'RenewalCalendarDate');"
+            [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'RenewalCalendarDate')) ? 'calendarFieldError' : 'inherit'" [showButtonBar]="true"></p-calendar>
+            <a *ngIf="!(commonData.disableTnx) && hasRenewalCalendarDate()" class="fa fa-remove fa-lg text-danger" (click)="clearRenewalCalendarDate($event);"></a>
+            <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RenewalCalendarDate')"></fcc-common-error-message>
+        </div>
+        <!-- Renew For -->
+        <div *ngIf="undertakingType === 'bg'" id="bgRenewForNbRow" class="field">
+          <label for="bgRenewForNb" id="bgRenewForNbLabel"> {{ 'EXTENSION_EXTEND_FOR' | translate }}<span class="required-field-symbol" *ngIf ="sectionForm.get(undertakingType+'RenewFlag').value">*</span>&nbsp;</label>
+          <input id="bgRenewForNb" formControlName="bgRenewForNb" pInputText type="text" maxlength="3" class="input-three-digit"
+          (change)= "commonService.setRenewForNb(sectionForm.get(undertakingType+'RenewForNb').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType); setFinalExpiryDate(undertakingType);" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgRenewForNb'))"/>&nbsp;&nbsp;
+          <p-dropdown placeholder=" " [options]="renewForPeriodObj" [showClear]="false" formControlName="{{undertakingType}}RenewForPeriod"
+          id="{{undertakingType}}RenewForPeriod" (onChange)= "commonService.setRenewForPeriod(sectionForm.get(undertakingType+'RenewForPeriod').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType); setFinalExpiryDate(undertakingType);" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RenewForPeriod')) ? 'dropDownFieldError' : 'inherit'"></p-dropdown>
+          <fcc-common-error-message [control]="sectionForm.get('bgRenewForNb')"></fcc-common-error-message>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RenewForPeriod')"></fcc-common-error-message>
+        </div>
+        <div *ngIf="undertakingType === 'cu'" id="cuRenewForNbRow" class="field">
+          <label for="cuRenewForNb" id="cuRenewForNbLabel">{{ 'EXTENSION_EXTEND_FOR' | translate }}<span class="required-field-symbol" *ngIf ="sectionForm.get(undertakingType+'RenewFlag').value">*</span>&nbsp;</label>
+          <input id="cuRenewForNb" formControlName="cuRenewForNb" pInputText type="text" maxlength="3" class="input-three-digit"
+          (change)= "commonService.setRenewForNb(sectionForm.get(undertakingType+'RenewForNb').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('cuRenewForNb'))"/>&nbsp;&nbsp;
+          <p-dropdown placeholder=" " [options]="renewForPeriodObj" [showClear]="false" formControlName="{{undertakingType}}RenewForPeriod"
+          id="{{undertakingType}}RenewForPeriod" (onChange)= "commonService.setRenewForPeriod(sectionForm.get(undertakingType+'RenewForPeriod').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RenewForPeriod')) ? 'dropDownFieldError' : 'inherit'"></p-dropdown>
+          <fcc-common-error-message [control]="sectionForm.get('cuRenewForNb')"></fcc-common-error-message>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RenewForPeriod')"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="showRollingRenewal">
+          <!-- Renew on -->
+          <div id="{{undertakingType}}RollingRenewOnCodeRow" class="field">
+            <label id="{{undertakingType}}RollingRenewOnCodeLabel"for="{{undertakingType}}RollingRenewOnCode"> {{ 'ROLLING_EXTENSION_ON' | translate }}<span class="required-field-symbol" >*</span>&nbsp;</label>
+            <p-radioButton value="01" formControlName="{{undertakingType}}RollingRenewOnCode" label="{{'EXTENSION_EXPIRY' | translate}}"  id="{{undertakingType}}RollingRenewOnCode" name="{{undertakingType}}RollingRenewOnCodeSelected"
+              (ngModelChange)="toggleOnRollingRenew();commonService.calculateRollingExtFinalExpiryDate(undertakingType);">
+            </p-radioButton>
+            <p-radioButton value="02" formControlName="{{undertakingType}}RollingRenewOnCode" label="{{'EXTENSION_CALENDAR_DATE' | translate}}"  id="{{undertakingType}}RollingRenewOnCode" name="{{undertakingType}}RollingRenewOnCodeSelected"
+              (ngModelChange)="toggleOnRollingRenew();commonService.calculateRollingExtFinalExpiryDate(undertakingType);">
+            </p-radioButton>
+            <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingRenewOnCode')"></fcc-common-error-message>
+          </div>
+        </div>
+         <!-- Days in Month -->
+         <div *ngIf="showDayInMonth" id="{{undertakingType}}RollingDayInMonthRow" class="field">
+          <label id="{{undertakingType}}RollingDayInMonthLabel" for="{{undertakingType}}RollingDayInMonth">{{'ROLLING_DAY_IN_MONTH' | translate}}<span *ngIf="sectionForm.get(undertakingType+'RenewalType').value === '02'" class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText formControlName="{{undertakingType}}RollingDayInMonth" id="{{undertakingType}}RollingDayInMonth"
+            type= "text"  class="input-three-digit" maxlength="3" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RollingDayInMonth'))"/>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingDayInMonth')"></fcc-common-error-message>
+        </div>
+        <div *ngIf="showRollingRenewal">
+          <!-- Frequency -->
+          <div id="{{undertakingType}}RollingRenewForNbRow" class="field">
+            <label id="{{undertakingType}}RollingRenewForNbLabel" for="{{undertakingType}}RollingRenewForNb">{{ 'ROLLING_FREQUENCY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+            <input pInputText formControlName="{{undertakingType}}RollingRenewForNb" id="{{undertakingType}}RollingRenewForNb"
+              type="text"  class="input-three-digit" maxlength="3" (change)= "commonService.setRollingRenewForNb(sectionForm.get(undertakingType + 'RollingRenewForNb').value,this.undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);"
+              [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RollingRenewForNb'))"/>&nbsp;&nbsp;
+            <p-dropdown placeholder=" " [options]="renewForPeriodObj" [showClear]="false" formControlName="{{undertakingType}}RollingRenewForPeriod"
+            id="{{undertakingType}}RollingRenewForPeriod" (onChange)= "commonService.setRollingRenewForPeriod(sectionForm.get(undertakingType + 'RollingRenewForPeriod').value,this.undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RollingRenewForPeriod')) ? 'dropDownFieldError' : 'inherit'">
+          </p-dropdown>
+           <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingRenewForNb')"></fcc-common-error-message>
+           <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingRenewForPeriod')"></fcc-common-error-message>
+          </div>
+        </div>
+
+        <!-- Number of Renewals -->
+        <div id="{{undertakingType}}RollingRenewalNbRow" class="field">
+          <label id="{{undertakingType}}RollingRenewalNbLabel" for="{{undertakingType}}RollingRenewalNb">{{'EXTENSION_NUMBER_EXTENSIONS' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText formControlName="{{undertakingType}}RollingRenewalNb" id="{{undertakingType}}RollingRenewalNb"
+            (change)="commonService.setRollingRenewalNb(sectionForm.get(undertakingType+'RollingRenewalNb').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setFinalExpiryDate(undertakingType);" type= "text"  class="input-three-digit" maxlength="3" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RollingRenewalNb'))"/>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingRenewalNb')"></fcc-common-error-message>
+        </div>
+        <!--Final expiry date-->
+        <div id="{{undertakingType}}FinalExpiryDateRow">
+          <label id="{{undertakingType}}FinalExpiryDateLabel" for="{{undertakingType}}FinalExpiryDate">{{ 'EXTENSION_FINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+          <p-calendar id="{{undertakingType}}FinalExpiryDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}FinalExpiryDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorFinalExpDate(undertakingType+'FinalExpiryDate'); setFinalExpiryDate(undertakingType);"
+            [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'FinalExpiryDate')) ? 'calendarFieldError' : 'inherit'" [showButtonBar]="true"></p-calendar>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div *ngIf="showNotification" class="date-notice">{{ "FINAL_EXPIRY_DATE_NOTIFICATION" | translate}}</div>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'FinalExpiryDate')"></fcc-common-error-message>
+        </div>
+        <!--  advise renewal tick button -->
+        <div id="{{undertakingType}}AdviseRenewalFlagRow" class="field">
+          <label id="{{undertakingType}}AdviseRenewalFlagLabel" class="label-checkbox">{{ 'ADVISE_EXTENSION' | translate}}&nbsp;</label>
+          <p-checkbox formControlName="{{undertakingType}}AdviseRenewalFlag" binary="true"
+            id="{{undertakingType}}AdviseRenewalFlag" (onChange)="toggleOnAdviseFlag()"></p-checkbox>
+        </div>
+        <!-- Days Notice -->
+        <div id="{{undertakingType}}AdviseRenewalDaysNbRow" *ngIf="showAdviseRenewalDaysNbRow" class="field">
+          <label id="{{undertakingType}}AdviseRenewalDaysNbLabel" for="{{undertakingType}}AdviseRenewalDaysNb">{{ 'EXTENSION_DAYS_NOTICE' | translate}}<span class="required-field-symbol" *ngIf ="sectionForm.get(undertakingType+'AdviseRenewalFlag').value">*</span>&nbsp;</label>
+          <input pInputText id="{{undertakingType}}AdviseRenewalDaysNb" formControlName="{{undertakingType}}AdviseRenewalDaysNb" class="input-three-digit" maxlength="3"
+            id="{{undertakingType}}AdviseRenewalDaysNb" type="text" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'AdviseRenewalDaysNb'))">
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'AdviseRenewalDaysNb')"></fcc-common-error-message>
+        </div>
+
+        <!-- Renewal amount radio button -->
+        <div id="{{undertakingType}}RenewAmtCodeRow" class="field">
+          <label id="{{undertakingType}}RenewAmtCodeLabel" class="label-radiobutton" for="{{undertakingType}}RenewAmtCode">{{ 'EXTENSION_AMOUNT' | translate }}&nbsp;</label>
+          <p-radioButton value="01" formControlName="{{undertakingType}}RenewAmtCode" label="{{'EXTENSION_ORIGINAL_AMOUNT' | translate}}"  name="{{undertakingType}}RenewAmtCodeSelected"
+            id="{{undertakingType}}RenewAmtCode" (onClick)="this.setValueFromField(undertakingType + 'RenewAmtCode', undertakingType);"></p-radioButton>
+
+          <p-radioButton value="02" formControlName="{{undertakingType}}RenewAmtCode" label="{{'EXTENSION_CURRENT_AMOUNT' | translate}}" name="{{undertakingType}}RenewAmtCodeSelected"
+            id="{{undertakingType}}RenewAmtCode" (onClick)="this.setValueFromField(undertakingType + 'RenewAmtCode', undertakingType);"></p-radioButton>
+          <div *ngIf="sectionForm.get(undertakingType + 'RenewAmtCode') && sectionForm.get(undertakingType + 'RenewAmtCode').value && sectionForm.get(undertakingType + 'RenewAmtCode').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+        </div>
+
+        <!-- Cancellation Notice -->
+        <div id="{{undertakingType}}RollingCancellationDays" class="field">
+          <label id="{{undertakingType}}RollingCancellationDaysLabel" for="{{undertakingType}}RollingCancellationDays">
+            {{ 'EXTENSION_CANCELLATION_NOTICE' | translate }}&nbsp;</label>
+          <input pInputText formControlName="{{undertakingType}}RollingCancellationDays" type="text" (change)="validateNarrative()" class="input-three-digit"
+            id="{{undertakingType}}RollingCancellationDays" maxlength="3" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType + 'RollingCancellationDays'))"/>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'RollingCancellationDays')"></fcc-common-error-message>
+        </div>
+        <!-- Cancellation narrative -->
+        <div *ngIf="undertakingType === 'cu' && showNarrativeCancellation" id="{{undertakingType}}RollingCancellationNarrativeRow" class="field">
+            <label id="{{undertakingType}}RollingCancellationNarrativeLabel" for="{{undertakingType}}RollingCancellationNarrative">{{ 'EXTENSION_CANCELLATION_NARRATIVE' | translate }}<span class="required-field-symbol" *ngIf ="sectionForm.get(undertakingType+'RollingCancellationDays').value">*</span> &nbsp;</label>
+            <textarea fccCommonTextArea [controlName]="sectionForm.get('cuNarrativeCancellation')" pInputTextarea [rows]="12" [cols]="65"
+              formControlName="cuNarrativeCancellation" id="cuNarrativeCancellation"
+               [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('cuNarrativeCancellation'))">
+
+            </textarea>
+          <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get('cuNarrativeCancellation').value ? sectionForm.get('cuNarrativeCancellation').value.length : 0"
+            [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="sectionForm.get('cuNarrativeCancellation')"></fcc-common-error-message>
+        </div>
+        <div *ngIf="undertakingType === 'bg' && showNarrativeCancellation" id="{{undertakingType}}RollingCancellationNarrativeRow" class="field">
+            <label id="{{undertakingType}}RollingCancellationNarrativeLabel" for="{{undertakingType}}RollingCancellationNarrative">{{ 'EXTENSION_CANCELLATION_NARRATIVE' | translate }}<span class="required-field-symbol" *ngIf="sectionForm.get(undertakingType+'RollingCancellationDays').value">*</span>&nbsp;</label>
+            <textarea fccCommonTextArea [controlName]="sectionForm.get(undertakingType + 'NarrativeCancellation')" pInputTextarea [rows]="12"
+              [cols]="65" formControlName="bgNarrativeCancellation" id="bgNarrativeCancellation"
+              [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('bgNarrativeCancellation'))">
+            </textarea>
+          <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get('bgNarrativeCancellation').value ? sectionForm.get('bgNarrativeCancellation').value.length : 0"
+            [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'NarrativeCancellation')"></fcc-common-error-message>
+        </div>
+      </div>
+    </div>
+  <!-- Alert dialog -->
+ <p-dialog header="{{errorTitle}}" [(visible)]="displayErrorDialog"
+ [draggable]="false" [modal]="true" [blockScroll]="true">
+   {{errorMessage}}
+   <p-footer>
+       <button type="button" pButton icon="pi pi-check" (click)="displayErrorDialog=false" label="{{'USER_ACTION_OK' | translate }}"></button>
+   </p-footer>
+ </p-dialog>
+</div>
+<!--View screen content-->
+<ng-template #viewContent>
+  <div *ngIf="iuCommonDataService.getPreviewOption() !== 'SUMMARY'">
+    <div *ngIf="undertakingType == '' || undertakingType == null || undertakingType == 'bg'" id="renewalDetails">
+      <div id="bgRenewFlagRow" *ngIf="bgRecord['bgRenewFlag'] && bgRecord['bgRenewFlag'] != null && bgRecord['bgRenewFlag'] != '' && bgRecord['bgRenewFlag'] === 'Y'">
+        <label>&nbsp;</label>
+        <label id="bgRenewFlagLabel" class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">
+          <strong>{{ 'EXTENSION_ALLOWED' | translate }}</strong>
+        </label>
+      </div>
+      <div id="bgRenewalTypeRow" *ngIf="bgRecord['bgRenewalType']">
+          <label id="bgRenewalTypeLabel">{{ 'EXTENSION_TYPE' | translate }}</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}"> {{iuCommonDataService.getRenewalType(bgRecord['bgRenewalType'])}}</label>
+      </div>
+      <!-- Renew on dropdown -->
+      <div id="renewOnCodeRow" *ngIf="bgRecord['bgRenewOnCode'] && bgRecord['bgRenewOnCode'] != null && bgRecord['bgRenewOnCode'] != ''">
+        <label for="bgRenewOnCode" id="bgRenewOnCode_label">
+          {{ 'EXTENSION_ON' | translate }}&nbsp;
+        </label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getRenewOnCode(bgRecord['bgRenewOnCode']) | translate}}</label>
+      </div>
+      <!-- Renew on calender -->
+      <div *ngIf="bgRecord['bgRenewalCalendarDate'] && bgRecord['bgRenewalCalendarDate'] != null && bgRecord['bgRenewalCalendarDate'] != ''">
+        <label for="bgRenewalCalendarDate" id="bgRenewalCalendarDate">&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRenewalCalendarDate']}}</label>
+      </div>
+      <!-- Renew For and Renew Period -->
+      <div id="bgRenewForNb" *ngIf="bgRecord['bgRenewForNb'] && bgRecord['bgRenewForNb'] != null && bgRecord['bgRenewForNb'] != '' &&
+       bgRecord['bgRenewForPeriod'] && bgRecord['bgRenewForPeriod'] != null && bgRecord['bgRenewForPeriod'] != ''">
+        <label for="bgRenewForNb" id="bgRenewForNb_label">{{ 'EXTENSION_EXTEND_FOR' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRenewForNb']}}&nbsp;{{iuCommonDataService.getRenewForPeriod(bgRecord['bgRenewForPeriod']) | translate}}</label>
+      </div>
+       <!-- Renew on -->
+        <div id="bgRollingRenewOnCodeRow" *ngIf="bgRecord['bgRollingRenewOnCode'] && bgRecord['bgRollingRenewOnCode'] != null && bgRecord['bgRollingRenewOnCode'] != ''">
+          <label id="bgRollingRenewOnCodeLabel" for="bgRollingRenewOnCode">{{ 'ROLLING_EXTENSION_ON' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getRollingRenewOnCode(bgRecord['bgRollingRenewOnCode']) | translate}}</label>
+        </div>
+          <!-- Days in Month -->
+        <div id="bgRollingDayInMonthRow" *ngIf="bgRecord['bgRollingDayInMonth'] && bgRecord['bgRollingDayInMonth'] != null && bgRecord['bgRollingDayInMonth'] != ''">
+          <label id="bgRollingDayInMonthLabel" for="bgRollingDayInMonth">{{'ROLLING_DAY_IN_MONTH' | translate}}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRollingDayInMonth']}}</label>
+        </div>
+        <!-- Frequency -->
+        <div id="bgRollingRenewForNbRow" *ngIf="bgRecord['bgRollingRenewForNb'] && bgRecord['bgRollingRenewForNb'] != null && bgRecord['bgRollingRenewForNb'] != '' &&
+        bgRecord['bgRollingRenewForPeriod'] && bgRecord['bgRollingRenewForPeriod'] != null && bgRecord['bgRollingRenewForPeriod'] != ''">
+          <label id="bgRollingRenewForNbLabel" for="bgRollingRenewForNb">{{ 'ROLLING_FREQUENCY' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRollingRenewForNb']}}&nbsp;{{iuCommonDataService.getRollingRenewForPeriod(bgRecord['bgRollingRenewForPeriod']) | translate}}</label>
+        </div>
+      <!-- Number of Renewals -->
+      <div id="bgRollingRenewalNbRow" *ngIf="bgRecord['bgRollingRenewalNb'] && bgRecord['bgRollingRenewalNb'] != null && bgRecord['bgRollingRenewalNb'] != ''">
+          <label id="bgRollingRenewalNbLabel" for="bgRollingRenewalNb">{{'EXTENSION_NUMBER_EXTENSIONS' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRollingRenewalNb']}}</label>
+      </div>
+      <!-- Final Expiry Date-->
+      <div id="bgFinalExpiryDate_viewRow" *ngIf="bgRecord['bgFinalExpiryDate'] && bgRecord['bgFinalExpiryDate'] != null && bgRecord['bgFinalExpiryDate'] != ''">
+          <label id="bgFinalExpiryDate_viewLabel" for="bgFinalExpiryDate">{{ 'EXTENSION_FINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgFinalExpiryDate']}}</label>
+      </div>
+
+      <!--  advise renewal indented header -->
+      <div id="bgAdviseRenewalFlagRow" *ngIf="bgRecord['bgAdviseRenewalFlag'] && bgRecord['bgAdviseRenewalFlag'] != null && bgRecord['bgAdviseRenewalFlag'] != '' && bgRecord['bgAdviseRenewalFlag'] === 'Y'">
+        <label>&nbsp;</label>
+        <label id="bgAdviseRenewalFlagLabel" class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">
+          <strong>{{ 'ADVISE_EXTENSION' | translate }}</strong>
+        </label>
+      </div>
+      <!-- Days Notice -->
+      <div id="bgAdviseRenewalDaysNbRow" *ngIf="bgRecord['bgAdviseRenewalDaysNb'] && bgRecord['bgAdviseRenewalDaysNb'] != null && bgRecord['bgAdviseRenewalDaysNb'] != ''">
+        <label id="bgAdviseRenewalDaysNbLabel" for="bgAdviseRenewalDaysNb">{{ 'EXTENSION_DAYS_NOTICE' | translate}}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgAdviseRenewalDaysNb']}}</label>
+      </div>
+
+      <!-- Renew Amt Code -->
+      <div id="bgRenewAmtCodeRow" *ngIf="bgRecord['bgRenewAmtCode'] && bgRecord['bgRenewAmtCode'] != null && bgRecord['bgRenewAmtCode'] != ''">
+          <label id="bgRenewAmtCodeLabel" for="bgRenewAmtCode">{{ 'EXTENSION_AMOUNT' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getRenewalAmount(bgRecord['bgRenewAmtCode']) | translate}}</label>
+        </div>
+
+      <!-- Cancellation Notice -->
+      <div id="bgRollingCancellationDays" *ngIf="bgRecord['bgRollingCancellationDays'] && bgRecord['bgRollingCancellationDays'] != null && bgRecord['bgRollingCancellationDays'] != ''">
+          <label id="bgRollingCancellationDaysLabel" for="bgRollingCancellationDays">{{ 'EXTENSION_CANCELLATION_NOTICE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgRollingCancellationDays']}}</label>
+        </div>
+      <!-- Cancellation narrative -->
+      <div id="rollingCancellationNarrativeRow" *ngIf="bgRecord['bgNarrativeCancellation'] && bgRecord['bgNarrativeCancellation'] != null && bgRecord['bgNarrativeCancellation'] != ''">
+        <label id="rollingCancellationNarrativeRowLabel" for="rollingCancellationNarrative">{{ 'EXTENSION_CANCELLATION_NARRATIVE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['bgNarrativeCancellation']}}</label>
+      </div>
+    </div>
+
+    <!-- for lu -->
+    <div *ngIf="undertakingType == 'cu'" id="cuRenewalDetails">
+      <div id="cuRenewFlagRow" *ngIf="bgRecord['cuRenewFlag'] && bgRecord['cuRenewFlag'] != null && bgRecord['cuRenewFlag'] != '' && bgRecord['cuRenewFlag'] === 'Y'">
+        <label>&nbsp;</label>
+        <label id="cuRenewFlagLabel" class="label-left">
+          <strong>{{ 'EXTENSION_ALLOWED' | translate }}</strong>
+        </label>
+      </div>
+      <!-- Renewal Type-->
+      <div id="cuRenewalTypeRow" *ngIf="bgRecord['cuRenewalType']">
+          <label id="cuRenewalTypeLabel">{{ 'EXTENSION_TYPE' | translate }}</label>
+          <label class="label-left"> {{iuCommonDataService.getRenewalType(bgRecord['cuRenewalType'])}}</label>
+      </div>
+      <!-- Renew on dropdown -->
+      <div id="cuRenewOnCodeRow" *ngIf="bgRecord['cuRenewOnCode'] && bgRecord['cuRenewOnCode'] != null && bgRecord['cuRenewOnCode'] != ''">
+        <label id="cuRenewOnCodeLabel" for="cuRenewOnCode" id="cuRenewOnCodeLabel">
+          {{ 'EXTENSION_ON' | translate }}&nbsp;
+        </label>
+        <label class="label-left">{{iuCommonDataService.getRenewOnCode(bgRecord['cuRenewOnCode']) | translate}}</label>
+      </div>
+      <!-- Renew on calender -->
+      <div *ngIf="bgRecord['cuRenewalCalendarDate'] && bgRecord['cuRenewalCalendarDate'] != null && bgRecord['cuRenewalCalendarDate'] != ''">
+        <label for="cuRenewalCalendarDate" id="cuRenewalCalendarDate">&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuRenewalCalendarDate']}}</label>
+      </div>
+        <!-- Renew For and Renew Period -->
+      <div id="cuRenewForNb" *ngIf="bgRecord['cuRenewForNb'] && bgRecord['cuRenewForNb'] != null && bgRecord['cuRenewForNb'] != '' &&
+       bgRecord['cuRenewForPeriod'] && bgRecord['cuRenewForPeriod'] != null && bgRecord['cuRenewForPeriod'] != ''">
+        <label for="cuRenewForNb" id="cuRenewForNbLabel">{{ 'EXTENSION_EXTEND_FOR' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuRenewForNb']}}&nbsp;{{iuCommonDataService.getRenewForPeriod(bgRecord['cuRenewForPeriod']) | translate}}</label>
+      </div>
+      <!-- Days in Month -->
+      <div id="cuRollingDayInMonthRow" *ngIf="bgRecord['cuRollingDayInMonth'] && bgRecord['cuRollingDayInMonth'] != null && bgRecord['cuRollingDayInMonth'] != ''">
+        <label id="cuRollingDayInMonthLabel" for="cuRollingDayInMonth">{{'ROLLING_DAY_IN_MONTH' | translate}}&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuRollingDayInMonth']}}</label>
+      </div>
+     <!-- Renew on -->
+        <div id="cuRollingRenewOnCodeRow" *ngIf="bgRecord['cuRollingRenewOnCode'] && bgRecord['cuRollingRenewOnCode'] != null && bgRecord['cuRollingRenewOnCode'] != ''">
+          <label id="cuRollingRenewOnCodeLabel" for="cuRollingRenewOnCode">{{ 'ROLLING_EXTENSION_ON' | translate }}&nbsp;</label>
+          <label class="label-left">{{iuCommonDataService.getRollingRenewOnCode(bgRecord['cuRollingRenewOnCode']) | translate}}</label>
+        </div>
+        <!-- Frequency -->
+        <div id="cuRollingRenewForNbRow" *ngIf="bgRecord['cuRollingRenewForNb'] && bgRecord['cuRollingRenewForNb'] != null && bgRecord['cuRollingRenewForNb'] != '' &&
+        bgRecord['cuRollingRenewForPeriod'] && bgRecord['cuRollingRenewForPeriod'] != null && bgRecord['cuRollingRenewForPeriod'] != ''">
+          <label id="cuRollingRenewForNbLabel" for="cuRollingRenewForNb">{{ 'ROLLING_FREQUENCY' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['cuRollingRenewForNb']}}&nbsp;{{iuCommonDataService.getRollingRenewForPeriod(bgRecord['cuRollingRenewForPeriod']) | translate}}</label>
+        </div>
+        <!-- Number of Renewals -->
+        <div id="cuRollingRenewalNbRow" *ngIf="bgRecord['cuRollingRenewalNb'] && bgRecord['cuRollingRenewalNb'] != null && bgRecord['cuRollingRenewalNb'] != ''">
+          <label id="cuRollingRenewalNbLabel" for="cuRollingRenewalNb">{{'EXTENSION_NUMBER_EXTENSIONS' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['cuRollingRenewalNb']}}</label>
+        </div>
+
+        <div id="cuFinalExpiryDateRow" *ngIf="bgRecord['cuFinalExpiryDate'] && bgRecord['cuFinalExpiryDate'] != null && bgRecord['cuFinalExpiryDate'] != ''">
+            <label id="cuFinalExpiryDateLabel" for="cuFinalExpiryDate">{{ 'EXTENSION_FINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+            <label class="label-left"> {{bgRecord['cuFinalExpiryDate']}}</label>
+          </div>
+
+      <!--  advise renewal tick button -->
+      <div id="cuAdviseRenewalFlagRow" *ngIf="bgRecord['cuAdviseRenewalFlag'] && bgRecord['cuAdviseRenewalFlag'] != null && bgRecord['cuAdviseRenewalFlag'] != '' && bgRecord['cuAdviseRenewalFlag'] === 'Y'">
+        <label>&nbsp;</label>
+        <label id="cuAdviseRenewalFlagLabel" class="label-left">
+          <strong>{{ 'ADVISE_EXTENSION' | translate }}</strong>
+        </label>
+      </div>
+      <!-- Days Notice -->
+      <div id="cuAdviseRenewalDaysNbRow" *ngIf="bgRecord['cuAdviseRenewalDaysNb'] && bgRecord['cuAdviseRenewalDaysNb'] != null && bgRecord['cuAdviseRenewalDaysNb'] != ''">
+        <label id="cuAdviseRenewalDaysNbLabel" for="cuAdviseRenewalDaysNb">{{ 'EXTENSION_DAYS_NOTICE' | translate}}&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuAdviseRenewalDaysNb']}}</label>
+      </div>
+      <div id="cuRenewAmtCodeRow" *ngIf="bgRecord['cuRenewAmtCode'] && bgRecord['cuRenewAmtCode'] != null && bgRecord['cuRenewAmtCode'] != ''">
+          <label id="cuRenewAmtCodeLabel">{{ 'EXTENSION_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left"> {{iuCommonDataService.getRenewalAmount(bgRecord['cuRenewAmtCode']) | translate}}</label>
+        </div>
+
+      <!-- Cancellation Notice -->
+      <div id="cuRollingCancellationDays" *ngIf="bgRecord['cuRollingCancellationDays'] && bgRecord['cuRollingCancellationDays'] != null && bgRecord['cuRollingCancellationDays'] != ''">
+        <label id="cuRollingCancellationDaysLabel" for="cuRollingCancellationDays">{{ 'EXTENSION_CANCELLATION_NOTICE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuRollingCancellationDays']}}</label>
+      </div>
+      <!-- Cancellation narrative -->
+      <div id="cuNarrativeCancellationRow" *ngIf="undertakingType === 'cu' && bgRecord['cuNarrativeCancellation'] && bgRecord['cuNarrativeCancellation'] != null && bgRecord['cuNarrativeCancellation'] != ''">
+        <label id="cuNarrativeCancellationLabel" for="cuNarrativeCancellation">{{ 'EXTENSION_CANCELLATION_NARRATIVE' | translate }}&nbsp;</label>
+        <label class="label-left-narrative">{{bgRecord['cuNarrativeCancellation']}}</label>
+      </div>
+
+
+    </div>
+  </div>
+</ng-template>

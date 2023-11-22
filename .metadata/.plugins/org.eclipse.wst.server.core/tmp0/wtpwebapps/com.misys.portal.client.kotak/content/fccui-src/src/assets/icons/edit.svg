@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/image/edit_24px</title>
+    <defs>
+        <path d="M14.6469643,8.16857143 L15.8298214,9.35142857 L4.18125,21 L2.99839286,21 L2.99839286,19.8171429 L14.6469643,8.16857143 L14.6469643,8.16857143 Z M19.2755357,0.428571429 C18.9541071,0.428571429 18.6198214,0.557142857 18.3755357,0.801428571 L16.0226786,3.15428571 L20.8441071,7.97571429 L23.1969643,5.62285714 C23.6983929,5.12142857 23.6983929,4.31142857 23.1969643,3.81 L20.1883929,0.801428571 C19.93125,0.544285714 19.6098214,0.428571429 19.2755357,0.428571429 Z M14.6469643,4.53 L0.426964286,18.75 L0.426964286,23.5714286 L5.24839286,23.5714286 L19.4683929,9.35142857 L14.6469643,4.53 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Finastra-/-Component-/-Table-/-Simple-with-Actions-" transform="translate(-740.000000, -2.000000)">
+            <g id="Finastra-/-Component-/-Table-/-Standard-/-Cell-/-Actions-/-Common-Actions">
+                <g transform="translate(698.000000, 0.000000)">
+                    <g id="Finastra-/-Component-/-Table-/-Standard-/-Elements-/-Cell-/-Content-/-Actions-/-Common-Actions">
+                        <g id="icon/image/edit_24px" transform="translate(42.000000, 2.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g fill-rule="nonzero"></g>
+                            <g id="✱-Color-/-Material-/-Icons-/-Preview" mask="url(#mask-2)" fill="#000000" fill-opacity="0.54">
+                                <g transform="translate(-3.428571, -3.428571)" id="Rectangle">
+                                    <rect x="0" y="0" width="41.1428571" height="41.1428571"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

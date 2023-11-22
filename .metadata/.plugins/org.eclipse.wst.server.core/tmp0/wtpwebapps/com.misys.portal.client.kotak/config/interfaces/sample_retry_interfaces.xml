@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+	
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 		xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	<!-- This is a sample interface to give an example of how the retry interface works to take care of fail over scenario in writing message to jms queue
+	This make use of Interface message table to persist the outgoing xml
+	
+	 -->
+		<interface name="xmlout"
+		onerror="logger" description="Output Transaction as XML to the interface message table">
+		<component name="environmentreader">			
+			<component name="productinterfaceprocessor">
+				<component name="filter">
+					<properties>
+						<property name="script">'FT' == event.product_code || 'SE' == event.product_code || 'TD' == event.product_code</property>
+					</properties>
+					<component name="filter">
+						<properties>
+							<property name="script">03 == event.tnx_stat_code || 04 ==
+								event.tnx_stat_code</property>
+						</properties>
+						<!-- <component name="freeformattextappender"> -->
+							<component name="xmlorgappender">
+								<component name="xmloutprocessor">
+								     <properties>
+										<property name="export.attachments">false</property>
+									 </properties>
+									<component name="xsltransformer">
+										<properties>
+											<property name="stylesheet.name">${xmloutStylesheet}</property>
+										</properties>
+										<!-- <component name="outgoingmessagepersister"/>
+										<transaction>
+											<component name="interfacemessagepersister">
+												<properties>
+													<property name="failsafe">true</property>
+													<property name="messagetype">03</property>
+													<property name="target">xmljmscashsender</property>
+													<property name="persistenttype">insert</property>
+												</properties>
+											</component>
+										</transaction>-->
+										<component name="jmssender">
+										<!-- Cash Queue Sender Configuration -->
+											<properties>
+												<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+												<property name="queue" description="Queue">${CashOutgoingMessageSenderQueue}</property>
+												<property name="user" description="User"></property>
+												<property name="password" description="Password"></property>
+												<property name="encoding" description="Encoding"></property>
+												<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+												<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+												<property name="directory" description="output base directory">${xml_output_directory}</property>			
+												<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+												<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+												<property name="secondary.queue" description="Queue">${CashOutgoingMessageSenderSecondaryQueue}</property>
+												<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>													
+											</properties>
+											<component name="logger">
+												<properties>
+													<property name="logger">${interfacemessagelogger}</property>
+												</properties>
+							 				</component>
+											<component name="interfacemessagepersister">
+												<properties>
+													<property name="persistenttype">update</property>
+												</properties>						
+											</component>
+											<component name="jmsackreceiver">
+												<!-- Cash Acknowledge receiver queue -->	
+												<properties>
+													<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+													<property name="queue" description="Queue">${CashOutgoingMessageAcknowledgementReceiverQueue}</property>
+													<property name="encoding" description="Encoding"></property>
+													<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+													<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+													<property name="directory" description="output base directory">${xml_output_directory}</property>			
+													<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+													<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+													<property name="secondary.queue" description="Queue">${CashOutgoingMessageAcknowledgementReceiverSecondaryQueue}</property>
+													<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+												</properties>
+												<component name="logger">
+													<properties>
+														<property name="logger">${interfacemessagelogger}</property>
+													</properties>
+								 				</component> 	
+												<!-- <component name="incomingmessagepersister"/>-->
+												<component name="interfacemessagepersister">
+													<properties>
+														<property name="persistenttype">delete</property>
+													</properties>
+												</component>
+											</component>
+										</component>
+									</component>
+								</component>
+								<transaction>
+									<component name="recurringPostDatedProcessor" />
+								</transaction>
+							</component>
+						<!-- </component> -->
+						</component>
+					</component>
+					<component name="filter">
+						<properties>
+							<property name="script">'BK' == event.product_code</property>
+						</properties>
+						<component name="filter">
+								<properties>
+									<property name="script">03 == event.tnx_stat_code || 04 ==
+										event.tnx_stat_code</property>
+								</properties>
+								<component name="freeformattextappender">
+									<component name="xmlorgappender">
+											<component name="xmloutprocessor">
+												<component name="filewriter">
+												 <properties>
+														<property name="directory.name" description="Specify Connect Direct Location">${BulkXmlOutLocation}</property>
+														<property name="directory.override" description="Overide interface default location">true</property>
+														<property name="directory.isDynamic" description="">false</property>
+												 </properties>
+												</component>
+													<!--<component name="jmssender">
+														<properties>
+														Tomcat Specific Begins: The following properties should be mentioned if deployed through tomcat
+														<property name="initialContextFactory" description="Initial Context Factory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+															<property name="providerURL" description="Provider URL">file:/C:/dev/appdata</property>
+															<property name="user" description="User">Administrator</property>
+															<property name="password" description="Password">Singapore1</property>			
+															<property name="secondary.user" description="User">Administrator</property>
+															<property name="secondary.password" description="Password">Singapore1</property>
+															Tomcat Specific Ends 
+															 <property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+															<property name="queue" description="Queue">${BulkSenderQueue}</property>			
+															<property name="encoding" description="Encoding"></property>
+															<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+															<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+															<property name="directory" description="output base directory">${xml_output_directory}</property>
+															<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+															<property name="secondary.queue" description="Queue">${BulkSenderSecondaryQueue}</property>
+															<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+														</properties>
+														<component name="logger">
+															<properties>
+																<property name="logger">${interfacemessagelogger}</property>
+															</properties>
+										 				</component>
+													</component>
+											--></component>
+									</component>
+								  </component>
+						</component>
+				  </component>
+				</component>
+			</component>			
+	</interface>
+	
+	
+	<interface name="xmljmscashsender"
+		onerror="logger" description="Read interfacemessage table and send message to a JMS Queue">
+		<component name="environmentreader">
+			<component name="interfacemessagereader">
+				<properties>
+					<property name="executiontype">send</property>
+				</properties>
+				<transaction>
+					<component name="interfacemessageexecuter">
+						<properties>
+							<property name="jmsexecute">sender</property>
+						</properties>
+						<component name="jmssender">
+							<!-- Cash Queue Configuration -->
+							<properties>
+								<property name="initialContextFactory" description="Initial Context Factory"></property>
+								<property name="providerURL" description="Provider URL"></property>
+								<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+								<property name="queue" description="Queue">${CashOutgoingMessageSenderQueue}</property>
+								<property name="user" description="User"></property>
+								<property name="password" description="Password"></property>
+								<property name="encoding" description="Encoding"></property>
+								<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+								<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+								<property name="directory" description="output base directory">${xml_output_directory}</property>			
+								<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+								<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+								<property name="secondary.queue" description="Queue">${CashOutgoingMessageSenderSecondaryQueue}</property>
+								<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>																		
+							</properties>
+							<component name="logger">
+								<properties>
+									<property name="logger">${interfacemessagelogger}</property>
+								</properties>
+			 				</component>
+							<component name="interfacemessagepersister">
+								<properties>
+									<property name="persistenttype">update</property>
+								</properties>						
+							</component>
+							<component name="jmsackreceiver">
+								<!-- Cash Acknowledge receiver queue -->	
+								<properties>
+									<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+									<property name="queue" description="Queue">${CashOutgoingMessageAcknowledgementReceiverQueue}</property>
+									<property name="encoding" description="Encoding"></property>
+									<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+									<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+									<property name="directory" description="output base directory">${xml_output_directory}</property>			
+									<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+									<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+									<property name="secondary.queue" description="Queue">${CashOutgoingMessageAcknowledgementReceiverSecondaryQueue}</property>
+									<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+								</properties> 
+								<component name="logger">
+									<properties>
+										<property name="logger">${interfacemessagelogger}</property>
+									</properties>
+				 				</component>	 		
+								<!-- <component name="incomingmessagepersister"/>-->
+								<component name="interfacemessagepersister">
+									<properties>
+										<property name="persistenttype">delete</property>
+									</properties>
+								</component>
+							</component>
+						</component>
+					</component>
+				</transaction>
+			</component>
+		</component>
+	</interface>
+	
+	
+	<interface name="xmljmstradesender"
+		onerror="logger" description="Read interfacemessage table and send message to a JMS Queue">
+		<component name="environmentreader">
+			<component name="interfacemessagereader">
+				<properties>
+					<property name="executiontype">send</property>
+				</properties>
+				<transaction>
+					<component name="interfacemessageexecuter">
+						<properties>
+							<property name="jmsexecute">sender</property>
+						</properties>
+						<component name="jmssender">
+							<!-- Trade Queue sender Configuration -->
+							<properties>
+								<property name="initialContextFactory" description="Initial Context Factory"></property>
+								<property name="providerURL" description="Provider URL"></property>
+								<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+								<property name="queue" description="Queue">${TradeOutgoingMessageSenderQueue}</property>
+								<property name="user" description="User"></property>
+								<property name="password" description="Password"></property>
+								<property name="encoding" description="Encoding"></property>
+								<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+								<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+								<property name="directory" description="output base directory">${xml_output_directory}</property>			
+								<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+								<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+								<property name="secondary.queue" description="Queue">${TradeOutgoingMessageSenderSecondaryQueue}</property>
+								<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>								
+							</properties>
+							<component name="logger">
+								<properties>
+									<property name="logger">${interfacemessagelogger}</property>
+								</properties>
+			 				</component>
+							<component name="interfacemessagepersister">
+								<properties>
+									<property name="persistenttype">update</property>
+								</properties>						
+							</component>
+							<component name="jmsackreceiver">
+								<!-- Trade Acknowledge receiver queue -->	
+								<properties>
+									<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+									<property name="queue" description="Queue">${TradeOutgoingMessageAcknowledgementReceiverQueue}</property>
+									<property name="encoding" description="Encoding"></property>
+									<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+									<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+									<property name="directory" description="output base directory">${xml_output_directory}</property>			
+									<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+									<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+									<property name="secondary.queue" description="Queue">${TradeOutgoingMessageAcknowledgementReceiverSecondaryQueue}</property>
+									<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+								</properties>
+								<component name="logger">
+									<properties>
+										<property name="logger">${interfacemessagelogger}</property>
+									</properties>
+				 				</component>		
+								<!-- <component name="incomingmessagepersister"/>-->								
+								<component name="interfacemessagepersister">
+									<properties>
+										<property name="persistenttype">delete</property>
+									</properties>
+								</component>
+							</component>
+						</component>
+					</component>
+				</transaction>
+			</component>
+		</component>
+	</interface>
+	
+		<interface name="xmljmsacknowledgementreceiver"
+		onerror="logger" description="Read interfacemessage table and receive acknowledgement messages from a JMS Queue">
+		<component name="environmentreader">
+			<component name="interfacemessagereader">
+				<properties>
+					<property name="executiontype">acknowledgement</property>
+				</properties>
+				<transaction>
+					<component name="interfacemessageexecuter">
+						<properties>
+							<property name="jmsexecute">receiver</property>
+						</properties>
+						<component name="jmsackreceiver">
+							<component name="logger">
+								<properties>
+									<property name="logger">${interfacemessagelogger}</property>
+								</properties>
+			 				</component>	
+							<component name="interfacemessagepersister">
+								<properties>
+									<property name="persistenttype">delete</property>
+								</properties>
+							</component>	
+							<!--<component name="filewriter">
+								<properties>
+									<property name="failsafe">true</property>
+								</properties>
+							</component>-->
+						</component>
+					</component>
+				</transaction>
+			</component>
+		</component>
+	</interface>
+	
+		
+</interfaces>

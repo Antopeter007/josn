@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2012 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<component name="mhubxslselector">
+		<description>Routes different types of object to the MOBI interfaces, 
+		adding the bank environment variable</description>
+		<classname>com.misys.portal.cash.interfaces.outgoing.MHUBSelector</classname>
+	</component>
+
+	<component name="jsstylesheetpicker">
+		<description>This component receives the event, and based on the rules defined below, it
+		adds a stylesheet to the execution environment based on a script. The rules must follow the format
+		NNN.rule, and the associated stylesheet must follow the form NNN.stylsheet, where NNN is a sequential
+		number. The sequence will be used to order the rules during the evaluation.</description>
+		<classname>com.misys.portal.interfaces.components.JavascriptStylesheetPicker</classname>
+		<properties>
+			<!-- default parameter set -->
+			<property name="001.rule">event.sub_product_code == 'INT' || event.sub_product_code == 'TPT'</property>
+			<property name="001.stylesheet">STYLESHEET_MOBI_CIX_OUT_URL</property>
+			<property name="002.rule">event.sub_product_code == 'DOM' || event.sub_product_code == 'BILLP' || event.sub_product_code == 'BILLS' || event.sub_product_code == 'MUPS'</property>
+			<property name="002.stylesheet">STYLESHEET_MOBI_PAY_OUT_URL</property>
+			<property name="003.rule">event.sub_product_code == 'MT103'</property>
+			<property name="003.stylesheet">STYLESHEET_MOBI_SWF_OUT_URL</property>
+			<property name="004.rule">event instanceof Packages.com.misys.portal.product.util.CustomerReference &amp;&amp; event.objectData.contains("enable")</property>
+			<property name="004.stylesheet">STYLESHEET_MOBI_CUSENAREQ_OUT_URL</property>
+			<property name="005.rule">event instanceof Packages.com.misys.portal.product.util.CustomerReference &amp;&amp; event.objectData.contains("disable")</property>
+			<property name="005.stylesheet">STYLESHEET_MOBI_CUSDISREQ_OUT_URL</property>
+			<property name="006.rule">event instanceof Packages.com.misys.portal.interfaces.incoming.CompanyFile</property>
+			<property name="006.stylesheet">STYLESHEET_MOBI_CUSENAREQ_OUT_URL</property>
+			<property name="007.rule">event.sub_product_code == 'CQBKR'</property>
+			<property name="007.stylesheet">STYLESHEET_MOBI_CHEQUE_BOOK_REQUEST_URL</property>
+			<property name="008.rule">event.sub_product_code == 'COCQS'</property>
+			<property name="008.stylesheet">STYLESHEET_MOBI_CHEQUE_BOOK_REQUEST_URL</property>
+			<property name="default.stylesheet" description="Default stylesheet to define in case there is no rule that matches the event"></property>
+			<property name="stylesheet.resource">xslname</property>
+		</properties>
+	</component>
+	
+	<component name="mhubpwprintfilter">
+		<description>MHUB XSL Password printing</description>
+		<classname>com.misys.portal.cash.interfaces.outgoing.MHUBPasswordPrintoutFilter
+		</classname>
+		<properties>
+			<property name="failsafe">${mhub_xml_output_directory}</property>
+		</properties>
+	</component>
+	<component name="mhubloginprintfilter">
+		<description>MHUB XSL Password printing</description>
+		<classname>com.misys.portal.cash.interfaces.outgoing.MHUBLoginPrintoutFilter
+		</classname>
+		<properties>
+			<property name="failsafe">${mhub_xml_output_directory}</property>
+		</properties>
+	</component>
+	<component name="mhubpwresetprintfilter">
+		<description>MHUB XSL Reset Password printing</description>
+		<classname>com.misys.portal.cash.interfaces.outgoing.MHUBPasswordResetPrintoutFilter
+		</classname>
+		<properties>
+			<property name="failsafe">${mhub_xml_output_directory}</property>
+		</properties>
+	</component>
+	
+	<component name="beneficiarynotificationstylesheetpicker">
+		<description>This component receives the event, and based on the rules defined below, it
+		adds a stylesheet to the execution environment based on a script. The rules must follow the format
+		NNN.rule, and the associated stylesheet must follow the form NNN.stylsheet, where NNN is a sequential
+		number. The sequence will be used to order the rules during the evaluation.</description>
+		<classname>com.misys.portal.interfaces.components.JavascriptStylesheetPicker</classname>
+		<properties>
+			<!-- default parameter set -->
+			<property name="001.rule">event.product_code == 'FT' &amp;&amp; event.product.objectData.contains("notify_beneficiary") &amp;&amp; event.product.objectData.getField("notify_beneficiary").getValue() == 'Y'</property>
+			<property name="001.stylesheet">STYLESHEET_FT_BENEFICIARY_NOTIFICATION_URL</property>
+			<property name="default.stylesheet" description="Default stylesheet to define in case there is no rule that matches the event"></property>
+			<property name="stylesheet.resource">xslname</property>
+		</properties>
+	</component>
+	
+	<component name="bulkspiltter">
+	 <description>This component spilts the bulks into FTS so that it will be processed by back office</description>
+	  <classname>com.misys.portal.interfaces.components.BulkSpiltter
+	 </classname>
+	 <consumer type="ObjectConsumer" object="Transaction product file"/>
+	 <producer type="ObjectProducer" object="Transaction product file"/>
+	</component>
+  <component name="bkstatusprocessor">
+	 <description>This component updates the bulk status based on the status of FTs sent from back office</description>
+	  <classname>com.misys.portal.interfaces.components.BulkStatusProcessor
+	 </classname>
+	  <consumer type="ObjectConsumer" object="Transaction product file"/>
+	 <producer type="ObjectProducer" object="Transaction product file"/>
+	</component>
+   
+</components>

@@ -1,0 +1,33 @@
+@import './../../styles/variables.scss';
+
+:host ::ng-deep .autosavedInfo {
+    font-size: 0.7em !important;
+    color: $GRAY-TROLLEYGREY-01 !important;
+}
+
+.modal-footer {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1em;
+    #saveForLater {
+        margin-left: 0.3em !important;
+    }
+    #dontCancel {
+        margin-left: 0.3em !important;
+    }
+    #yesCancel {
+        margin-left: 0.3em !important;
+    }
+}
+
+.infoRtl {
+    padding-left: 12em;
+}
+
+.btnsLtl {
+    padding-left: 1em;
+}
+
+:host ::ng-deep button.mat-focus-indicator.close-button.mat-icon-button.mat-button-base:focus{
+    outline: 0.15em solid $FUCHSIA-F100 !important;
+}

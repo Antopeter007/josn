@@ -1,0 +1,79 @@
+@import "../../../dojo/resources/dojo.css";
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dojox/layout/resources/FloatingPane.css");
+@import url("../../../dojox/layout/resources/ResizeHandle.css");
+@import url("../../../dojox/layout/resources/ToggleSplitter.css");
+@import url("../../../dojox/grid/resources/Grid.css");
+@import url("../../../dojox/grid/resources/tundraGrid.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/Tree.css");
+@import url("../../../dijit/themes/tundra/layout/ContentPane.css");
+@import url("../../../dijit/themes/tundra/layout/TabContainer.css");
+@import url("../../../dijit/themes/tundra/layout/BorderContainer.css");
+@import url("../../../dijit/themes/tundra/form/Common.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/form/Checkbox.css");
+@import url("../../../dijit/themes/tundra/form/RadioButton.css");
+@import url("../../../dijit/themes/tundra/ProgressBar.css");
+@import url("../../../dijit/themes/tundra/TitlePane.css");
+@import url("../../../dijit/themes/tundra/Calendar.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+@import url("../../../dijit/themes/tundra/Editor.css");
+@import url("../../../dijit/icons/editorIcons.css");
+@import url("../../../dojox/editor/plugins/resources/editorPlugins.css");
+@import url("../../../dojox/grid/enhanced/resources/tundra/EnhancedGrid.css");
+@import url("../../../dojox/grid/enhanced/resources/EnhancedGrid_rtl.css");
+
+@import url("demobank-layout.css");
+@import url("demobank-styles.css");
+@import url("demobank-portlets.css");
+@import url("demobank-forms.css");
+@import url("demobank-help.css");
+
+/* main classes for dojox.widget.Toaster */
+
+.dijitToasterContent {
+	padding:1em;
+	padding-top:0.25em;
+	background:#73c74a;
+}
+
+.dijitToasterMessage{ 
+	color:#fff;
+}
+
+.dijitToasterWarning{ }
+.dijitToasterError,
+.dijitToasterFatal{
+	font-weight:bold;
+	color:#fff;
+}
+
+.dijitToasterWarning .dijitToasterContent{
+	padding:1em;
+	padding-top:0.25em;
+	background:#d4d943;
+} 
+
+.dijitToasterError .dijitToasterContent{
+	padding:1em;
+	padding-top:0.25em;
+	background:#c46600;
+}
+
+/* imported from dijit.css */
+ 
+.dijitToasterClip {
+	position: absolute;
+	z-index: 5000;
+	overflow: hidden;
+}
+
+.dijitToasterContainer {
+	display: block;
+	position: absolute;
+	width: 17.5em;
+	margin: 0px;
+	font:0.75em Tahoma, Helvetica, Verdana, Arial;
+}
+ 

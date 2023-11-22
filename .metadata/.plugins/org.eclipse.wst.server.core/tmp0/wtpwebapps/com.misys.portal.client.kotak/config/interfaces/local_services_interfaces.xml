@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+	
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 		xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<interface name="lsproductwriter" description="Push Transaction Data From Portal Transactions for Local services">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">03 == event.tnx_stat_code || 04 == event.tnx_stat_code || 01 == event.tnx_stat_code</property>
+				</properties>				
+				<component name="productoutputprocessor">
+					<properties>
+						<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+						<property name="subtype" description="Output sub-type code">01</property>
+					</properties>
+						<component name="xmloutprocessor">
+							<properties>
+								<property name="directory" description="output base directory">${xml_output_directory}</property>
+								<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+								<property name="export.attachments" description="true to export attachments into directory">false</property>
+							</properties>
+							<transaction>
+								<component name="outputwriter">
+									<properties>
+										<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+									</properties>
+								</component>
+							</transaction>
+					</component>
+				</component>
+			</component>
+		</component>		
+	</interface>
+	
+	<interface name="wsxmlin" description="XML Incoming (Web services)">
+		<component name="environmentreader">
+			<component name="templatemergerprocessor">
+				<component name="wsproductinitiator">
+					<component name="transformNarrative"> 
+						<component name="incominginitiator">
+							<component name="documentparser">
+							<component name="filter">
+									<properties>
+										<property name="script">event.product_code == 'SE' &amp;&amp; event.sub_product_code == 'BNUPL'</property>
+									</properties>
+										<component name="attachmenttypehandler"/>
+								</component>
+								<component name="businessvalidator">
+								<component name="filter">
+											<properties>
+												<property name="script">event.product_code == 'FT'</property>
+											</properties>
+											<component name="stpvalidation"/>
+									</component>
+									<component name="antiviruscheck">
+										<component name="filter">
+											<properties>
+												<property name="script">event.tnx_stat_code == null</property><!-- Filter block for malicious file -->
+											</properties>
+											<component name="bankemailformatter">
+												<properties>
+													<property name="message.bodykey" description="Key of localized body">BANK_EMAIL_ERP_ATTACHMENT_VIRUS_TEXT</property>
+												</properties>
+												<component name="sendmail"/>
+											</component>
+										</component>
+										<component name="filter">
+											<properties>
+												<property name="script">event.tnx_stat_code != null</property><!-- Filter block for clean attachment file -->
+											</properties>
+											<component name="useridsanddttmmanager">
+												<component name="clientprocessor">
+													<component name="dmsreferencemanager">
+														<component name="databaseserializer"/>
+														<component name="filter">
+															<properties>
+																<property name="script">event.product_code == 'CN' || event.product_code == 'CR'</property>
+															</properties>
+															<component name="creditnoteconnector">
+																<component name="databaseserializer"/>
+															</component>
+														</component>
+													</component>
+												</component>
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>		
+	</interface>
+	
+	<!-- Bulk xml out -->
+	<!--  <interface name="xmlbulkfileuploadout"
+		onerror="logger" description="Transform the Upload File content and persist the SE file with Bulk Transactions">
+		<component name="environmentreader">			
+				<component name="productinterfaceprocessor">
+					<component name="freeformattextappender">
+							<component name="xmlorgappender">
+								<component name="filter">
+									<properties>
+										<property name="script">event.product_code == 'SE' &amp;&amp; event.sub_product_code == 'BKUPL' &amp;&amp; event.product.objectData.contains("product_group") &amp;&amp; (event.product.objectData.getField("product_group").getValue() == 'PAYMT' || event.product.objectData.getField("product_group").getValue() == 'PAYRL')</property>
+									</properties>
+									<component name ="bulkuploadpreprocessor">
+	                                	set the sefile in the environment pass the wps file to the child. before this we need 
+	                                	filter for payroll
+										<component name ="bulkfileprocessor">
+		                                  <component name="bulkuploadpostprocessor">
+		                                    read the se file and append to holder
+		                                         <component name="bulkvalidations">
+		                                            <component name="transactionlifecyclecontroller">
+		                                                <component name="bulktransactionexecutor">
+		                                                      <component name="useridsanddttmmanager">
+		                                                            <component name="attachmentsmanager">
+		                                                                  <properties>
+		                                                                        <property name="mode">disk</property>
+		                                                                        <property name="disk.directory.base">${BulkFileAttachmentFromBO}</property>
+		                                                                  </properties>
+		                                                            </component>
+		                                                      </component>
+		                                                      <component name="filter">
+		                                                            <properties>
+		                                                                  <property name="script">save_transaction==true</property>
+		                                                            </properties>
+		                                                                  <component name="databaseserializer" />
+		                                                      </component>
+		                                                </component>
+		                                          </component>
+		                                      </component>
+		                                    </component>
+	                                      </component> 
+	                                </component>
+	                                chain of ls product writer
+		                             <component name="filter">
+										<properties>
+											<property name="script">(${erp.enable} ==true) &amp;&amp; (03 == event.tnx_stat_code || 04 == event.tnx_stat_code || 01 == event.tnx_stat_code)</property>
+										</properties>				
+										<component name="productoutputprocessor">
+											<properties>
+												<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+												<property name="subtype" description="Output sub-type code">01</property>
+											</properties>
+												<component name="xmloutprocessor">
+													<properties>
+														<property name="directory" description="output base directory">${xml_output_directory}</property>
+														<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+														<property name="export.attachments" description="true to export attachments into directory">false</property>
+													</properties>
+													<transaction>
+														<component name="outputwriter">
+															<properties>
+																<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+															</properties>
+														</component>
+													</transaction>
+											</component>
+										</component>
+							     </component>
+                                </component>
+                                <component name="xmloutprocessor">
+								<properties>
+									<property name="directory" description="output base directory">${BulkFileUploadLocation}</property>
+									<property name="embed.attachments" description="true to embed attachments into xml in Base64">false</property>
+									<property name="export.attachments" description="true to export attachments into directory">true</property>
+								</properties>								
+									 <component name="filewriter">
+											<properties>
+												<property name="directory.name" description="Specify Connect Direct Location">${BulkFileUploadLocation}</property>
+												<property name="directory.override" description="Overide interface default location">true</property>
+												<property name="directory.isDynamic" description="">false</property>
+											</properties>
+									</component>
+							    </component>
+						</component>
+					</component>
+				</component>	
+				</component>		
+	</interface> -->
+	
+	<!-- Beneficiary File Upload for Local Service-->
+	<interface name="beneficiaryFileUploadout" description="Transforms the uploaded file and persists the beneficiary">
+		<component name="environmentreader">
+			<!-- Converts SE file to BeneficiaryUpload -->
+			<component name="setobeneconvertor">
+		   <component name="beneficiaryuploadprocessor">
+			     <transaction>			     
+		         <component name="databaseserializer">	         
+				 </component>
+				 </transaction>
+			</component>
+		   </component>
+		</component>
+	</interface>
+	
+	<interface name="wsretrievetnx" description="XML Retrieval (Web services)">
+		<component name="tnxreader">
+			<component name="tnxserializer">
+				<component name="lsenvironmentwriter" />
+			</component>
+		</component>		
+	</interface>
+	<interface name="wsproecssreport"  description="Generate the report and stores it in GTP_OUTPUT_CONTENT table.">
+		<component name="reportextractor"/>
+	</interface>
+
+</interfaces>

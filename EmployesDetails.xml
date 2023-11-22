@@ -1,0 +1,76 @@
+<company>
+    <employees>
+        <employee>
+            <id>101</id>
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+            <position>Software Engineer</position>
+            <department>Engineering</department>
+            <salary>75000</salary>
+            <contactInformation>
+                <email>john.doe@gmail.com</email>
+                <phone>123-456-7890</phone>
+                <address>
+                    <street>123 Main St</street>
+                    <city>Las Angles</city>
+                    <state>USA</state>
+                    <zip>12345</zip>
+                </address>
+            </contactInformation>
+        </employee>
+        <employee>
+            <id>102</id>
+            <firstName>Arun</firstName>
+            <lastName>Smith</lastName>
+            <position>Marketing Manager</position>
+            <department>Marketing</department>
+            <salary>80000</salary>
+            <contactInformation>
+                <email>arun.smith@gmail.com</email>
+                <phone>456-789-0123</phone>
+                <address>
+                    <street>456 Elm St</street>
+                    <city>TamilNadu</city>
+                    <state>NagarCoil</state>
+                    <zip>67890</zip>
+                </address>
+            </contactInformation>
+        </employee>
+       <employee>
+            <id>103</id>
+            <firstName>Anto</firstName>
+            <lastName>Peter</lastName>
+            <position>Software developer </position>
+            <department>Marketing</department>
+            <salary>80000</salary>
+            <contactInformation>
+                <email>anto.peter@gamil.com</email>
+                <phone>7092545780</phone>
+                <address>
+                    <street>456 Elm St</street>
+                    <city>Tenkasi</city>
+                    <state>NewYork</state>
+                    <zip>67890</zip>
+                </address>
+            </contactInformation>
+        </employee>
+		<employee>
+            <id>104</id>
+            <firstName>Arul</firstName>
+            <lastName>Sam</lastName>
+            <position>Software Devloper</position>
+            <department>IT</department>
+            <salary>5000000</salary>
+            <contactInformation>
+                <email>sam.kingsly@gmail.com</email>
+                <phone>456-789-0123</phone>
+                <address>
+                    <street>456 Elm St</street>
+                    <city>Tirunelveli</city>
+                    <state>TamilNadu</state>
+                    <zip>627808</zip>
+                </address>
+            </contactInformation>
+        </employee>
+    </employees>
+</company>

@@ -1,0 +1,13 @@
+{
+  "/restportal/*": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/content/*": {
+    "target": "http://localhost:8081/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

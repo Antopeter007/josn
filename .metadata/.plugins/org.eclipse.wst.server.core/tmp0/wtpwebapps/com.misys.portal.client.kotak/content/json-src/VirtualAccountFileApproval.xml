@@ -1,0 +1,138 @@
+ <?xml version="1.0" encoding="utf-8" ?>
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">	
+	<header>
+		<sourceappcode>JARVIS</sourceappcode>
+		<RqUID>2</RqUID>
+		<action_type>FETCH_FILES_APPROVAL</action_type>
+		<crn>38288199</crn>
+		<from_date>29-NOV-2011</from_date>
+		<to_date>01-DEC-2021</to_date>
+	</header>	
+	<file_upload_info>
+		<file_id>17180</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>21-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>150</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>150</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17181</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>22-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>250</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>250</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17182</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17183</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17184</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17185</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17186</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>17187</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17188</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17189</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>	
+	<file_upload_info>
+		<file_id>17190</file_id>
+		<file_name>TestUpload.txt</file_name>		
+		<file_upld_datetime>23-Nov-2021 11:33</file_upld_datetime>
+		<file_upld_by>Maker2</file_upld_by>
+		<total_count>350</total_count>
+		<file_count>
+			<mode>C</mode>
+			<count>350</count>
+		</file_count>		
+	</file_upload_info>		
+	<request_status>
+		<error_flag>N</error_flag>
+		<error_desc> </error_desc>
+		<error_code>KOT000 </error_code>
+	</request_status>
+</Response>

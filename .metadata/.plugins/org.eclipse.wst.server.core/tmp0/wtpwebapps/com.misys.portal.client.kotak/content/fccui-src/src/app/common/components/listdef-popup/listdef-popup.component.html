@@ -1,0 +1,23 @@
+<ng-container *ngIf="isDialog">
+  <button role="button"  mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" >close</mat-icon>
+  </button>
+   <h4 mat-dialog-title class="moredetails">{{'heading' | translate}}</h4> 
+    <mat-dialog-content class="mat-typography">
+    <div class="container">
+        <div class="item" *ngFor="let item of data | keyvalue">
+          <div class="info-title">{{item.key| translate}}</div>
+          <div class="info-value">{{item.value}}</div>
+  
+        </div>
+      </div>
+    </mat-dialog-content>
+    <!-- <br> -->
+    <hr>
+    <mat-dialog-actions >
+      <button role="button"  mat-button [mat-dialog-close]="true" class="moredetails">{{'MOREDETAILS' | translate}}</button>
+    </mat-dialog-actions>
+  </ng-container>
+  <ng-container *ngIf="!isDialog">
+    {{compData}}
+  </ng-container>

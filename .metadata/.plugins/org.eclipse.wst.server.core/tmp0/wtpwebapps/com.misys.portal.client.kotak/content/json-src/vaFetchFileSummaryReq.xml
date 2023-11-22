@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request
+    xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_FILE_SUMMARY</action_type>
+    <crn>69914730</crn>
+    <from_date>07-SEP-18</from_date>
+    <to_date>07-DEC-21</to_date>
+    <file_status></file_status>
+    <file_name>Virtual_account_creation_file10.csv</file_name>
+    <company_code></company_code>
+    <sub_company_code></sub_company_code>
+    <file_id></file_id>
+</Request>

@@ -1,0 +1,152 @@
+@import './../../../../../styles/variables.scss';
+
+
+:host ::ng-deep .mainHeader {
+  font-size: 1.14em !important;
+  font-weight: bold !important;
+}
+
+:host ::ng-deep .mainSubHeader {
+  font-size: 1.14em !important;
+  color: $VIOLET-02 !important;
+  font-weight: bold !important;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  min-width: 100%;
+  resize: none;
+}
+
+:host ::ng-deep .mat-accordion
+  > *:last-child:not(.mat-expansion-panel)
+  .mat-expansion-panel-spacing {
+  margin-bottom: 0.6em;
+}
+
+:host ::ng-deep .chargeAmt .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -0.5em !important;
+}
+
+:host ::ng-deep .ui-dropdown-label-container {
+  width: 100%;
+}
+
+:host ::ng-deep .marginRightStyle {
+  line-height: 1.14em;
+  margin-right: 0.5em;
+}
+
+:host ::ng-deep .deleteIconStyle {
+  height: 1.14em !important;
+  width: 1.14em !important;
+  visibility: hidden;
+  border: none;
+  background: none;
+}
+
+:host ::ng-deep .browseButton {
+  border-color: $GREY-100 !important;
+  color: $VIOLET-02 !important;
+}
+
+:host ::ng-deep .filter_dropdown {
+  padding-top: 1.3em !important;
+}
+
+:host ::ng-deep .bank_addressAlign {
+  padding-top: 0.5em !important;
+}
+
+:host ::ng-deep .mat-checkbox-checked .mat-checkbox-checkmark {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: $WHITE !important;
+  visibility: visible;
+}
+
+:host ::ng-deep .iconStyle {
+  top: 1.5em;
+}
+
+:host ::ng-deep .applicant_bene_entity_class {
+  top: -0.4em !important;
+}
+
+:host ::ng-deep .applicant_bene_entity_class .ui-dropdown-items {
+  font-size: 0.8em !important;
+}
+
+:host ::ng-deep .ui-state-disabled.ui-dropdown span.ui-dropdown-label {
+  border-bottom: initial !important;
+}
+
+:host ::ng-deep .applicant_bene_entity_class .ui-dropdown span.ui-dropdown-label {
+  padding-left: 1.5em ;
+}
+
+
+:host ::ng-deep .ui-table-wrapper{
+  overflow-x: auto;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr {
+  border-bottom: 0.065em solid $GREY-07;
+  line-height: 2em !important;
+}
+
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+  width: 10em;
+  position: sticky;
+  text-align: left;
+  right: 0;
+  border: none;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+  width: 10em;
+  position: sticky;
+  text-align: right !important;
+  left: 0 !important;
+  border: none;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+  width: 10em;
+  position: sticky;
+  right: 0;
+  border: none;
+  outline: 0.0675em solid $GREY-07;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+  width: 10em;
+  position: sticky !important;
+  left: 0 !important;
+  border: none;
+  outline: 0.0675em solid $GREY-07;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover {
+  font-weight: bold !important;
+  background-color: $VIOLET-14 !important;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody td{
+  font-size: 0.875em !important;
+  border: none;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr em.pi {
+  display: none;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover em.pi {
+  display: inline-block;
+  font-size: 1.5em !important;
+}
+
+:host ::ng-deep  .amt {
+  padding-top: 0.5em !important
+}
+

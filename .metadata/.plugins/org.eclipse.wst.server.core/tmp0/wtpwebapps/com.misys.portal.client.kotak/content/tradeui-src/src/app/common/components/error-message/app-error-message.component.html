@@ -1,0 +1,6 @@
+<div *ngIf="errorMessage !== null">
+  <!-- Label should not be there in the error message for Return Comment on every Unsigned Screen -->
+  <label *ngIf="this.unsignedMode !== 'UNSIGNED' || (this.commonData.getIsBankUser() && this.unsignedMode === 'UNSIGNED')">&nbsp;</label>
+  <em class="icon-style pi pi-times-circle"></em>
+  <span class="compact-error-message error-msg messages text-left text-danger">{{errorMessage}}</span>
+</div>

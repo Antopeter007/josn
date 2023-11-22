@@ -1,0 +1,305 @@
+@import "../styles/variables.scss";
+// FCC BRANDING FILE-------------------------------------------
+/* Start Primary Button css */
+.primaryButton {
+  color: $primaryBtnColor !important;
+  border-radius: $primaryBtnBorderRadius !important;
+  padding: $primaryBtnPadding !important;
+  min-width: $primaryBtnMinWidth !important;
+  line-height: $primaryBtnLineHeight !important;
+  font-size: $primaryBtnFontSize !important;
+  font-weight: $primaryBtnFontWeight !important;
+  cursor: pointer !important;
+  outline: $primaryBtnOutline !important;
+  border: $primaryBtnBorder !important;
+  display: $primaryBtnDisplay !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: $primaryBtnTextAlign !important;
+  background-color: $primaryBtnBackgroundColor !important;
+  width: auto;
+}
+
+.listing {
+  margin-left: 1em !important;
+}
+
+.primaryButton:hover {
+  background-color: $primaryButtonHoverBackgroundcolor !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+.primaryButton:focus {
+  box-shadow: none !important;
+  background-color: $primaryButtonFocusBackgroundcolor !important;
+}
+
+.primaryButton:active {
+  background-color: $primaryButtonActiveBackgroundcolor !important;
+  box-shadow: none !important;
+}
+
+.primaryButton:disabled {
+  background-color: #e4e4e4 !important;
+  color: #b5b5b5 !important;
+  cursor: default !important;
+}
+
+.primaryButton.ui-button.ui-button-text-only .ui-button-text {
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+/* End Primary Button css */
+
+/* Start Secondary Button css */
+.secondaryButton {
+  color: $secondaryBtnColor !important;
+  border-radius: $secondaryBtnBorderRadius !important;
+  padding: $secondaryBtnPadding !important;
+  min-width: $secondaryBtnMinWidth !important;
+  line-height: $secondaryBtnLineHeight !important;
+  font-size: $secondaryBtnFontSize !important;
+  font-weight: $secondaryBtnFontWeight !important;
+  cursor: pointer !important;
+  outline: $secondaryBtnOutline !important;
+  border: $secondaryBtnBorder !important;
+  display: $secondaryBtnDisplay !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: $secondaryBtnTextAlign !important;
+  background-color: $secondaryBtnBackgroundColor !important;
+}
+
+.secondaryButton:hover {
+  background-color: $secondaryButtonHoverBackgroundcolor !important;
+  box-shadow: none !important;
+}
+
+.secondaryButton:focus {
+  box-shadow: none !important;
+}
+
+.secondaryButton:active {
+  background-color: $secondaryButtonActive !important;
+  box-shadow: none !important;
+}
+
+.secondaryButton.ui-button.ui-button-text-only .ui-button-text {
+  color: $SecondaryButtonColor !important;
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+/* End Secondary Button css */
+
+/* Start Tertiary Button css */
+.tertiaryButton {
+  color: $tertiaryBtnColor !important;
+  border-radius: $tertiaryBtnBorderRadius !important;
+  padding: $tertiaryBtnPadding !important;
+  min-width: $tertiaryBtnMinWidth !important;
+  line-height: $tertiaryBtnLineHeight !important;
+  font-size: $secondaryBtnFontSize !important;
+  font-weight: $tertiaryBtnFontWeight !important;
+  cursor: pointer !important;
+  outline: $tertiaryBtnOutline !important;
+  border: $tertiaryBtnBorder !important;
+  display: $tertiaryBtnDisplay !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: $tertiaryBtnTextAlign !important;
+  background-color: $tertiaryBtnBackgroundColor !important;
+}
+
+.tertiaryButton:hover {
+  background-color: $secondaryHoverBGColor !important;
+  box-shadow: none !important;
+}
+
+.tertiaryButton:focus {
+  background-color: $secondaryHoverBGColor !important;
+  border: 3px solid $BLACK !important;
+  box-shadow: none !important;
+}
+
+.tertiaryButton:active {
+  background-color: $FUCHSIA-F25 !important;
+  box-shadow: none !important;
+}
+
+.tertiaryButton.ui-button.ui-button-text-only .ui-button-text {
+  color: $FUCHSIA-PRIMARY-COLOR !important;
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+/* End Tertiary Button css */
+
+/* Start Candy Stripped Table css */
+.candyStriped .ui-table .ui-table-thead > tr {
+  border-bottom: 0.065em solid $GREY-15 !important;
+  background-color: $VIOLET-14 !important;
+}
+
+.candyStriped .ui-table .ui-table-thead > tr > th {
+  padding-top: 1.25em !important;
+  padding-bottom: 1.25em !important;
+  border: none !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  font-size: 0.875em !important;
+  line-height: 0.875em !important;
+  text-align: left;
+  padding-right: 1em !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr {
+  border-top: 0.065em solid $GREY-15 !important;
+  border-bottom: 0.065em solid $GREY-15 !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr:nth-child(odd) {
+  background-color: $tableoddrowcolor !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr:nth-child(even) {
+  background-color: $tableEvenrowcolor !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr > td {
+  background-color: transparent !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  border: none !important;
+  padding-top: 1.1875em !important;
+  padding-bottom: 1.1875em !important;
+  padding-right: 1em !important;
+  line-height: 0.875em !important;
+  font-size: 0.875em !important;
+  word-break: break-word !important;
+  text-align: left;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr:hover > td {
+  cursor: context-menu !important;
+  background-color: $tableRowHover !important;
+  font-weight: 600 !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr.selectableCursor:hover > td {
+    cursor: pointer !important;
+  }
+
+.candyStriped .ui-table .ui-table-tbody > tr > td .displayIcon {
+  visibility: hidden !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr:hover > td .displayIcon {
+  cursor: pointer !important;
+  visibility: visible !important;
+  font-size: 1.5em !important;
+  color: $FUCHSIA-PRIMARY-COLOR !important;
+}
+
+.candyStriped .ui-table .ui-table-tbody > tr:hover > td .ellipisis {
+  cursor: pointer !important;
+  visibility: visible !important;
+}
+.candyStriped .ui-table .ui-table-tbody > tr:focus > td .ellipisis {
+  cursor: pointer !important;
+  visibility: visible !important;
+}
+/* End Candy Stripped Table css */
+
+/* Start Candy Stripped(Even) Table css */
+.candyStripedEven .ui-table .ui-table-thead > tr {
+  border-bottom: 0.125em solid $GREY-15 !important;
+}
+
+.candyStripedEven .ui-table .ui-table-thead > tr > th {
+  padding-top: 29px !important;
+  padding-bottom: 29px !important;
+  padding-right: 2em !important;
+  border: none !important;
+  font-weight: 700 !important;
+  background-color: $WHITE !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  font-size: 0.875em !important;
+  line-height: 0.875em !important;
+  text-align: left;
+}
+
+.candyStripedEven .ui-table .ui-table-tbody > tr {
+  border-top: 0.065em solid $GREY-15 !important;
+  border-bottom: 0.065em solid $GREY-15 !important;
+}
+
+.candyStripedEven .ui-table .ui-table-tbody > tr:nth-child(odd) {
+  background-color: $VIOLET-14 !important;
+}
+
+.candyStripedEven .ui-table .ui-table-tbody > tr:nth-child(even) {
+  background-color: $WHITE !important;
+}
+
+.candyStripedEven .ui-table .ui-table-tbody > tr > td {
+  padding-top: 29px !important;
+  padding-bottom: 29px !important;
+  padding-right: 2em !important;
+  background-color: transparent !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  border: none !important;
+  line-height: 0.875em !important;
+  font-size: 0.875em !important;
+  word-break: break-word !important;
+  text-align: left;
+}
+
+.candyStripedEven .ui-table .ui-table-tbody > tr:hover > td {
+  cursor: context-menu !important;
+  background-color: $VIOLET-15 !important;
+  font-weight: 600 !important;
+}
+/* End Candy Stripped(Even) Table css */
+
+/* Start Plain Table css */
+.plainTable .ui-table .ui-table-thead > tr {
+  border-bottom: 0.125em solid $GREY-15 !important;
+}
+
+.plainTable .ui-table .ui-table-thead > tr > th {
+  padding-top: 1.1875em !important;
+  padding-bottom: 1.1875em !important;
+  padding-right: 2em !important;
+  border: none !important;
+  font-weight: 700 !important;
+  background-color: $WHITE !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  font-size: 0.875em !important;
+  line-height: 0.875em !important;
+  text-align: left;
+}
+
+.plainTable .ui-table .ui-table-tbody > tr {
+  border-top: 0.065em solid $GREY-15 !important;
+  border-bottom: 0.065em solid $GREY-15 !important;
+}
+
+.plainTable .ui-table .ui-table-tbody > tr > td {
+  padding-top: 1.1875em !important;
+  padding-bottom: 1.1875em !important;
+  padding-right: 2em !important;
+  background-color: $WHITE !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  border: none !important;
+  line-height: 0.875em !important;
+  font-size: 0.875em !important;
+  word-break: break-word !important;
+  text-align: left;
+}
+
+.plainTable .ui-table .ui-table-tbody > tr:hover > td {
+  cursor: pointer !important;
+  background-color: $VIOLET-15 !important;
+  font-weight: 600 !important;
+}
+

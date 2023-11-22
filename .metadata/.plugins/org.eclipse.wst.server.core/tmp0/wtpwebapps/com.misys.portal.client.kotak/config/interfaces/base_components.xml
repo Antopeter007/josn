@@ -1,0 +1,1711 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<!-- Generic and Common components -->
+	<component name="environmentreader">
+		<description>Read objects from the Interface Environment and publish to the Interface chain</description>
+		<classname>com.misys.portal.interfaces.components.EnvironmentReader</classname>
+		<properties>
+			<property name="source.isProperty" description="This indicates whether the source is passed to the file using the environment"/>
+			<property name="property.name" description="When source.isProperty is set to true, this specifies the name of the property"/>
+			<property name="property.isDynamic" description="This specifies whether the property name can be dynamic when source.isProperty is set to true"/>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any Java object or nothing when source.isProperty is set to true"/>
+		<producer type="ObjectProducer" object="The source object or an object from the environment when source.isProperty is set to true"/>
+	</component>
+	<component name="environmentwriter">
+		<description>Write objects to the Interface Environment</description>
+		<classname>com.misys.portal.interfaces.components.EnvironmentWriter</classname>
+		<properties>
+			<property name="property.name" description="This specifies the name of the property"/>
+			<property name="property.isDynamic" description="This specifies whether the property name can be dynamic"/>
+			<property name="class.name" description="This specifies the class name for the published object"/>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any Java object"/>
+		<producer type="ObjectProducer" object="The source object"/>
+	</component>
+
+	<component name="textsplitter">
+		<description>Split a text event into events from a delimiter</description>
+		<classname>com.misys.portal.interfaces.components.TextSplitter</classname>
+		<properties>
+			<property name="delimiter" description="text delimiter">-}</property>
+		</properties>
+	</component>
+
+	<component name="logger">
+		<description>Report event to a logger</description>
+		<classname>com.misys.portal.interfaces.components.Logger</classname>
+		<properties>
+			<property name="logger" description="Apache Log4j logger name"/>
+		</properties>
+		<consumer type="ObjectConsumer" object="InterfaceErrorEvent or any Java object"/>
+		<producer type="ObjectProducer" object="The source object"/>
+	</component>
+
+	<component name="filter">
+		<description>Filters event based on the script and sends through only when the script is evaluated as true</description>
+		<classname>com.misys.portal.interfaces.components.JavaScriptBasedFilterProcessor</classname>
+		<properties>
+			<property name="script" description="A script that will be evaluated against the source event">true</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any Java object"/>
+		<producer type="ObjectProducer" object="The source object if script evaluates as true"/>
+	</component>
+	
+	<component name="swiftfilter">
+		<description>MT798 Message Filter</description>
+		<classname>com.misys.portal.interfaces.components.MT798MessageFilter</classname>
+		<properties>
+			<property name="triggerMT798" description="return true if event should be sent to next component">false</property>
+		</properties>
+	</component>
+	
+	
+	<component name="filedescriptor">
+		<description>File loader. Trigger a java.io.File event to later components. If no file name is found in the Environment or in the filename.name property, the input trigger is expected to be the file name.</description>
+		<classname>com.misys.portal.interfaces.components.FileDescriptor</classname>
+		<properties>
+			<property name="filename.isDynamic" description="If true, retrieves the file name from the Environment using the filename.name property, otherwise filename.name is the name of the file.">true</property>
+			<property name="filename.name" description="The name of Environment property containing the file name or the file name itself.">file</property>
+			<property name="directory.isDynamic" description="If true, retrieves the directory from the Environment using the directory.name property, otherwise directory.name is the name of the directory.">true</property>
+			<property name="directory.name" description="The name of Environment property containing the file name or the file name itself.">directory</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="The name of the file or nothing when filename.isDynamic is set to true"/>
+		<producer type="ObjectProducer" object="java.io.File object "/>
+	</component>
+
+	<component name="incominginitiator">
+		<description>Parse a xml record and register xml nodes into Interfaces Environment</description>
+		<classname>com.misys.portal.interfaces.incoming.IncomingInitiator</classname>
+		<properties>
+			<property name="validation" description="Whether to validate against the corresponding xsd">false</property>
+			<property name="stylesheet" description="The main XSL stylesheet used to parse the xml">/core/xsl/incoming/incoming.xsl</property>
+			<property name="xml.handler" description="XML handler class">com.misys.portal.interfaces.incoming.BasicElementHandler</property>
+			<property name="xml.handler.elements" description="List of fields separated by whitespace to look for value in the xml">product_code tnx_id</property>
+			<property name="language" description="Language">en</property>
+			<property name="transformer.parameters" description="List of parameters to be passed to transformer">banks</property>
+		</properties>
+		<published>
+			<property name="product_code" description="Product code for the incoming xml if applicable"/>
+			<property name="tnx_id" description="Transaction id for the transaction product file if applicable" />
+		</published>
+		<consumer type="ObjectConsumer" object="XML string"/>
+		<producer type="SAXProducer"/>		
+	</component>	
+	
+	<component name="documentparser">
+		<description>Generates a list of BulkObjects from a xml record</description>
+		<classname>com.misys.portal.interfaces.incoming.DocumentParser</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<prerequisites>
+			<property name="product_code" description="Product code for the xml if applicable"/>
+		</prerequisites>
+		<consumer type="SAXConsumer"/>
+		<producer type="ObjectProducer" object="A list containing Bulk Objects"/>		
+	</component>
+	
+	<component name="useridsanddttmmanager">
+		<description>Manage user id and dttm for a transaction product file</description>
+		<classname>com.misys.portal.interfaces.incoming.UserIDandDTTMManager</classname>
+		<prerequisites>
+			<property name="tnx_id" description="Transaction id for the transaction product file"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="Transaction product file"/>
+		<producer type="ObjectProducer" object="Source object"/>	
+	</component>	
+
+	<component name="attachmentsmanager">
+		<description>Retrieve and Store or not Attachments</description>
+		<classname>com.misys.portal.interfaces.incoming.AttachmentsManager</classname>
+		<properties>
+			<property name="mode" description="database or disk or discard">discard</property>
+			<property name="disk.directory.base">/incoming</property>
+		</properties>
+	</component>
+
+	<component name="databaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.DatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="bulkuploadxmlfields">
+		<description>Retrieve the bulk records into Xml</description>
+		<classname> com.misys.portal.interfaces.incoming.BulkUploadXmlFields</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="updatetreasurycrossreferences">
+	    <description>Update Cross references for treasury transactions </description>
+	    <classname>com.misys.portal.interfaces.incoming.treasury.UpdateTreasuryCrossReferences</classname>
+	    <properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="treasuryactionrequiredhandler">
+		<description>Add a cross reference to the transaction when the product status code is Arrival Bill Clean or Discrepant(in case of LC) or according to the action code sent.</description>
+		<classname>com.misys.portal.interfaces.components.TreasuryActionRequiredHandler</classname>
+	</component>
+	
+	<component name="filewriter">
+		<description>Write output to File</description>
+		<classname>com.misys.portal.interfaces.components.FileWriter</classname>
+		<properties>
+			<property name="filename.isDynamic" description="If true, retrieves the file name from the Environment using the filename.name property, otherwise filename.name is the name of the file.">true</property>
+			<property name="filename.name" description="The name of Environment property containing the file name or the file name itself.">filename</property>
+			<property name="directory.isDynamic" description="If true, retrieves the directory from the Environment using the directory.name property, otherwise directory.name is the name of the directory."/>
+			<property name="directory.name" description="The name of Environment property containing the file name or the file name itself."/>
+			<property name="directory.override" description="If true, override the file if it already exists in the directory."/>
+		</properties>
+		<consumer type="ByteConsumer"/>
+	</component>
+	
+	<component name="filereader">
+		<description>Read input from File</description>
+		<classname>com.misys.portal.interfaces.components.FileReader</classname>
+		<properties>
+			<property name="filename.isDynamic" description="If true, retrieves the file name from the Environment using the filename.name property, otherwise filename.name is the name of the file.">true</property>
+			<property name="filename.name" description="The name of Environment property containing the file name or the file name itself.">file</property>
+			<property name="directory.isDynamic" description="If true, retrieves the directory from the Environment using the directory.name property, otherwise directory.name is the name of the directory.">true</property>
+			<property name="directory.name" description="The name of Environment property containing the file name or the file name itself.">directory</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any Java object or nothing"/>
+		<producer type="ByteProducer"/>
+	</component>
+
+	<component name="xmloutprocessor">
+		<description>Transform Object into XML</description>
+		<classname>com.misys.portal.interfaces.components.OutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory for attachments">${xml_output_directory}</property>
+			<property name="embed.attachments" description="If true, attachments will be embedded into xml in Base64 fdormat">false</property>
+			<property name="export.attachments" description="If true, attachments will be exported to directory">true</property>
+		</properties>
+		<published>
+			<property name="filename" description="Name of the file"/>
+			<property name="filetype" description="Type of the file - product_xml, staticdata_xml or product_attachment" />
+		</published>
+		<consumer type="ObjectConsumer" object="Transaction product file or Bulk Object"/>
+		<producer type="ByteProducer"/>
+	</component>
+	
+	<component name="auditprocessor">
+		<description>Trigger the Audit Service</description>
+		<classname>com.misys.portal.interfaces.components.AuditProcessor</classname>
+		<published>
+			<property name="filename" description="Name of the file"/>
+			<property name="filetype" description="Type of the file - product_xml, staticdata_xml or product_attachment" />
+		</published>
+		<consumer type="ObjectConsumer" object="Transaction product file or Bulk Object"/>
+		<producer type="ByteProducer"/>
+	</component>
+
+	<component name="tnxdata2fbiprocessor">
+		<description>Transform Object into XML</description>
+		<classname>com.misys.portal.interfaces.components.FBIOutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory for attachments">${integration_output_directory}</property>
+		</properties>
+		<published>
+			<property name="filename" description="Name of the file"/>
+		</published>
+		<consumer type="ObjectConsumer" object="Transaction product file"/>
+		<producer type="ByteProducer"/>
+	</component>
+	
+	<component name="xmloutlistprocessor">
+	<description>Transform List into XML</description>
+	<classname>com.misys.portal.interfaces.components.OutgoingListProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory for attachments">${xml_output_directory}</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="Transaction product file or Bulk Object"/>
+		<producer type="ByteProducer"/>
+	</component>	
+	
+	<component name="xmlorgappender">
+		<description>For an Amendment add Master file as an additional field. For a Discrepancy Response, add cross referenced transaction as an additional field</description>
+		<classname>com.misys.portal.interfaces.components.OrgDetailsAppender</classname>
+		<properties>
+			<property name="master.type" description="Additional field's type">xml_text</property>
+			<property name="master.name" description="Additional field's name">original_details</property>
+			<property name="transaction.type" description="Additional field's type">xml_text</property>
+			<property name="transaction.name" description="Additional field's name">original_transaction_details</property>
+		</properties>
+	</component>	
+			
+	<!--Additional User Details in outgoing xml -->		
+	<component name="xmluserdetails">
+		<description>For user details as an additional field in outgoing xml</description>
+		<classname>com.misys.portal.interfaces.components.UserDetails</classname>
+		<properties>
+			<property name="first_name.name" description="Additional field's name">releaser_first_name</property>
+			<property name="last_name.name" description="Additional field's name">releaser_last_name</property>
+			<property name="phone.name" description="Additional field's name">releaser_phone</property>
+			<property name="email.name" description="Additional field's name">releaser_email</property>
+			
+			<!-- <property name="time_zone.name" description="Additional field's name">releaser_time_zone</property>
+			<property name="country.name" description="Additional field's name">releaser_country</property>
+			<property name="address_1.name" description="Additional field's name">releaser_address_1</property>
+			<property name="address_2.name" description="Additional field's name">releaser_address_2</property> -->
+		</properties>
+	</component>	
+			
+	<component name="commonPartyAcknowledgementProcessor">
+		<description>Common Party Acknowledgement outgoing xml</description>
+		<classname>com.misys.portal.interfaces.components.CommonPartyAcknowledgementProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory for attachments">${xml_output_directory}</property>
+		</properties>
+	</component>
+	
+	<!-- SWIFT Components -->
+	<component name="swiftoutproductfilter">
+		<description>Clone an SI to an LC</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTProductFilter</classname>
+	</component>	
+	<component name="swiftoutselector">
+		<description>Find which SWIFT message to produce from event</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTSelector</classname>
+		<properties>
+			<property name="filters.url" description="Filters definition">/swift/filters2018.xml</property>
+		</properties>
+		<published>
+			<property name="msgNames"/>
+			<property name="msgTypes"/>
+		</published>
+	</component>	
+	<component name="swiftoutprocessor">
+		<description>Generate SWIFT from event</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTGenerator</classname>
+		<properties>
+			<property name="swifts.url" description="MT Messages Definition">/swift/swifts2018.xml</property>
+			<property name="functions" description="Callback Functions">com.misys.portal.interfaces.components.swift.Functions</property>
+		</properties>
+		<prerequisites>
+			<property name="msgNames"/>
+			<property name="msgTypes"/>
+		</prerequisites>
+		<published>
+			<property name="messages"/>
+		</published>
+	</component>
+	<component name="swiftoutaggregator">
+		<description>Concat Messages parts</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTMT798Aggregator</classname>
+		<properties>
+			<property name="directory" description="Base Directory">${xml_output_directory}</property>
+		</properties>
+		<prerequisites>
+			<property name="messages"/>
+			<property name="msgNames"/>
+			<property name="msgTypes"/>
+		</prerequisites>
+		<published>
+			<property name="filename"/>
+		</published>
+	</component>
+	
+	<component name="swiftoutgoingattachmentmanager">
+		<description>Concat Messages parts</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTMT798OutgoingAttachmentsManager</classname>
+		<properties>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>
+		</properties>		
+	</component>
+	
+	<component name="datapdugenerator">
+		<description>Generate the DataPDU XML file used to send attachment via FileAct</description>
+		<classname>com.misys.portal.interfaces.components.swift.DataPDUGenerator</classname>
+		<properties>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>
+			<property name="dirmainbank" description="output sub directory">true</property>
+			<property name="dirproductcode" description="output sub directory">true</property>
+			<property name="service" description="SWIFT service">swift.generic.fast!p</property>
+		</properties>
+		<prerequisites>
+			<property name="fileact"/>
+		</prerequisites>		
+		<published>
+			<property name="filename"/>
+		</published>				
+	</component>			
+
+	<component name="ftsupload">
+		<description>Send a file (SWIFT message) to GMS</description>
+		<classname>com.misys.portal.interfaces.components.FTSUpload</classname>		
+	</component>		
+	
+	<component name="ftszipupload">
+		<description>Send a zip file (FileAct) to GMS</description>
+		<classname>com.misys.portal.interfaces.components.FTSZipUpload</classname>		
+	</component>
+	
+	<component name="swiftFirstCharacterInLineChecker">
+		<description>Checks first character in a line of SWIFT message is correct and replaces incorrect character if desired.</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTFirstCharacterInLineChecker</classname>
+		<properties>
+			<property name="is.component.activated" description="Is the component active or not">true</property>
+			<property name="is.first.charater.of.narrative.ignored" description="Should the first character of the narrative be ignored">false</property>
+			<property name="product.code.list" description="List of product codes">LC,SI,EL,SR</property>
+			<property name="narrative.name.list" description="List of narrative field names to be transformed">narrative_goods,narrative_documents_required,narrative_additional_instructions,narrative_charges,narrative_additional_amount,narrative_payment_instructions,narrative_period_presentation,narrative_shipment_period,narrative_sender_to_receiver,amd_details,narrative_special_beneficiary,narrative_special_recvbank,narrative_amend_charges_other,narrative_transfer_conditions,narrative_delivery_to</property>
+			<property name="carriage.return.line.feed.options" description="List of possible carriage return/line feed">\\r\\n,\r,\n</property>
+			<property name="to.be.replaced.characters" description="Characters to be replaced">:,-</property>
+			<property name="replace.character" description="Character to be used for replacement">.</property>
+			<property name="prefix.character" description="Character to be used as prefix to make SWIFT line compliant"></property>
+		</properties>
+	</component>
+	
+	<component name="reportoutputprocessor">
+		<description>Output Processor (Report Batch)</description>
+		<classname>com.misys.portal.interfaces.components.ReportOutputProcessor</classname>
+		<properties>
+			<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">01</property>
+			<property name="subtype" description="Output sub-type code">03</property>
+		</properties>
+		<published>
+			<property name="type"/>
+			<property name="subtype"/>
+			<property name="BRCH_CODE"/>
+			<property name="COMPANY_ID"/>
+			<property name="KEY_1"/>
+			<property name="KEY_2"/>
+			<property name="KEY_3"/>
+			<property name="filetype"/>
+			<property name="__alertParameter"/>
+			<property name="__interface_data_companyid"/>
+		</published>
+	</component>	
+
+	<component name="productoutputprocessor">
+		<description>Output Processor (Customer Web Services)</description>
+		<classname>com.misys.portal.interfaces.components.ProductOutputProcessor</classname>
+		<properties>
+			<property name="type" description="Output type code">01</property>
+		</properties>
+		<published>
+			<property name="type"/>
+			<property name="subtype"/>
+			<property name="BRCH_CODE"/>
+			<property name="COMPANY_ID"/>
+			<property name="KEY_1"/>
+			<property name="KEY_2"/>
+			<property name="KEY_3"/>
+			<property name="KEY_4"/>
+			<property name="KEY_5"/>
+			<property name="__interface_data_companyid"/>
+		</published>
+	</component>	
+
+	<component name="outputwriter">
+		<description>Insert the data into the GTP_OUTPUT_KEYS, GTP_OUTPUT_CONTENT and GTP_OUTPUT_EXTRACTION tables</description>
+		<classname>com.misys.portal.interfaces.components.OutputWriter</classname>
+		<properties>
+			<property name="filename.name" description="Name for the file">filename</property>
+			<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">01</property>
+		</properties>
+		<prerequisites>
+			<property name="type" description="Type code"/>
+			<property name="subtype" description="Sub type code"/>
+			<property name="BRCH_CODE" description="Branch code"/>
+			<property name="COMPANY_ID" description="Company ID"/>
+			<property name="KEY_1" description="Value for KEY_1"/>
+			<property name="KEY_2" description="Value for KEY_2"/>
+			<property name="KEY_3" description="Value for KEY_3"/>
+			<property name="KEY_4" description="Value for KEY_4"/>
+			<property name="KEY_5" description="Value for KEY_5"/>
+			<property name="filetype" description="Type of the file"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="Any serializable object"/>
+		<producer type="ObjectProducer" object="Source event"/>
+	</component>
+	
+	<component name="xmlinoutputwriter">
+		<description>Insert the data into the GTP_OUTPUT_KEYS, GTP_OUTPUT_CONTENT and GTP_OUTPUT_EXTRACTION tables</description>
+		<classname>com.misys.portal.interfaces.components.XmlinOutputWriter</classname>
+		<properties>
+			<property name="filename.name" description="Name for the file">filename</property>
+			<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, 05 =ELS ...)">05</property>
+		</properties>
+		<prerequisites>
+			<property name="type" description="Type code"/>
+			<property name="subtype" description="Sub type code"/>
+			<property name="BRCH_CODE" description="Branch code"/>
+			<property name="COMPANY_ID" description="Company ID"/>
+			<property name="KEY_1" description="Value for KEY_1"/>
+			<property name="KEY_2" description="Value for KEY_2"/>
+			<property name="KEY_3" description="Value for KEY_3"/>
+			<property name="KEY_4" description="Value for KEY_4"/>
+			<property name="KEY_5" description="Value for KEY_5"/>
+			<property name="filetype" description="Type of the file"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="Any serializable object"/>
+		<producer type="ObjectProducer" object="Source event"/>
+	</component>	
+
+	<component name="xclprocessor">
+		<description>XCL Processor</description>
+		<classname>com.misys.portal.interfaces.components.xcl.XCLProcessor</classname>
+		<properties>
+			<property name="xcl.name.isDynamic" description="">true</property>
+			<property name="xcl.name" description="">xclname</property>
+			<property name="xcl.location" description="">${xcl_location}</property>
+		</properties>
+	</component>
+	
+	<component name="freeformattextappender">
+		<description>Free format text appender</description>
+		<classname>com.misys.portal.interfaces.components.FreeFormatTextAppender</classname>
+		<properties>
+			<property name="localization.key" description="Localization key">XSL_DEFAULT_CUSTOMER_ATTACHMENTS_NOTIFICATION</property>
+			<property name="language.fromUser" description="true to get language from User profile">true</property>
+			<property name="language.default" description="Language to use if not from User profile">en</property>
+		</properties>
+	</component>
+	<component name="botnxidappender">
+		<description>Bo_tnx_id appender</description>
+		<classname>com.misys.portal.interfaces.components.BoTnxIdAppender</classname>
+		<properties>
+			<property name="language.fromUser" description="true to get language from User profile">true</property>
+			<property name="language.default" description="Language to use if not from User profile">en</property>
+		</properties>
+	</component>
+	<component name="filepathprocessor">
+		<description>Prefix exported_file_path with path property</description>
+		<classname>com.misys.portal.interfaces.components.FreeFormatTextAppender</classname>
+		<properties>
+			<property name="path" description="Path prefix">${ti_attachment_location}</property>
+		</properties>
+	</component>
+	
+	<component name="identifynextauthorisers">
+		<description>Identify the next authorisers for a particular unsigned transaction</description>
+		<classname>com.misys.portal.interfaces.components.IdentifyNextAuthorisers</classname>
+	</component>
+	
+	<component name="identifynextauthorisersrolename">
+		<description>This Component used to capture the Next Authoriser RoleName</description>
+		<classname>com.misys.portal.interfaces.components.IdentifyNextAuthorisersRoleName</classname>
+	</component>
+
+	<component name="onlinealert">
+		<description>Create online alert from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.AlertProcessor</classname>
+	</component>
+
+	<component name="mailformatter">
+		<description>Build message from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.EmailFormatter</classname>
+		<properties>
+			<property name="destination" description="00: Customer, 01: Bank">00</property>
+			<property name="titlekey" description="Key of localized title">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+			<property name="message.from.isDynamic" description="Dynamic Sender email address">false</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.to" description="Environment property containing Recipient email address">message.to</property>
+			<property name="message.cc" description="Environment property containing CC'ed address"></property>
+			<property name="message.bcc" description="Environment property containing BCC'ed address"></property>
+			<property name="message.subject" description="Environment property containing Subject">message.subject</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>
+		</properties>
+	</component>
+	
+	<component name="genericmailformatter">
+		<description>Build message from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.GenericEmailFormatter</classname>
+		<properties>
+			<property name="destination" description="00: Customer, 01: Bank">00</property>
+			<property name="message.from.isDynamic" description="Dynamic Sender email address">false</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.to" description="Environment property containing Recipient email address">message.to</property>
+			<property name="message.cc" description="Environment property containing CC'ed address"></property>
+			<property name="message.bcc" description="Environment property containing BCC'ed address"></property>
+		</properties>
+	</component>
+	
+	<component name="ffdcalertformatter">
+		<description>Save Alert into DB and post to FFDC</description>
+		<classname>com.misys.portal.interfaces.components.FFDCAlertHandler</classname>
+	</component>
+	
+	<component name="entityprocessor">
+		<description>Process entiy file for entity response</description>
+		<classname>com.misys.portal.interfaces.components.EntityProcessor</classname>
+	</component>
+	
+	<component name="entityparser">
+		<description>parse the entity object and handle the Error</description>
+		<classname>com.misys.portal.interfaces.components.EntityParser</classname>
+	</component>
+	
+	<component name="mailformattercounterpartycreated">
+		<description>Build message from counterparty object </description>
+		<classname>com.misys.portal.interfaces.components.CounterPartyEmailFormatter</classname>
+		<properties>
+			<property name="titlekey" description="Key of localized title">COUNTERPARTY_CREATED_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">COUNTERPARTY_CREATED_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			 <property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+	<component name="mailformattercounterpartyactivated">
+		<description>Build message from counterparty object </description>
+		<classname>com.misys.portal.interfaces.components.CounterPartyActivationEmailFormatter</classname>
+		<properties>
+			<property name="titlekey" description="Key of localized title">COUNTERPARTY_COMPANY_ACTIVATED_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">COUNTERPARTY_COMPANY_ACTIVATED_ALERT_EMAIL_BODY</property>
+			<property name="message.from.isDynamic" description="Dynamic Sender email address">true</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+	<component name="mailformattercounterpartyuseractivated">
+		<description>Build message from counterparty object </description>
+		<classname>com.misys.portal.interfaces.components.CounterPartyActivationEmailFormatter</classname>
+		<properties>
+			<property name="titlekey" description="Key of localized title">COUNTERPARTY_USER_ACTIVATED_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">COUNTERPARTY_USER_ACTIVATED_ALERT_EMAIL_BODY</property>
+			<property name="message.from.isDynamic" description="Dynamic Sender email address">true</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+	<component name="mailformattermilestones">
+		<description>Format milestone email</description>
+		<classname>com.misys.portal.interfaces.components.MilestonesMailFormatter</classname>
+		<properties>
+			<property name="destination" description="00: Customer, 01: Bank">00 or 01</property>
+			<property name="titlekey" description="Key of localized title">CUSTOMER_MILESTONES_ALERT_EMAIL_TITLE or BANK_MILESTONES_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">CUSTOMER_MILESTONES_ALERT_EMAIL_BODY or BANK_MILESTONES_ALERT_EMAIL_BODY</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>	
+		</properties>
+	</component>
+	
+	<component name="mailuserformatter">
+		<description>Format milestone email</description>
+		<classname>com.misys.portal.interfaces.components.UserMailFormatter</classname>
+		<properties>
+		 <property name="message.from.isDynamic" description="Dynamic Sender email address">true</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+	
+	<component name="mailpasswordformatter">
+		<description>Format milestone email</description>
+		<classname>com.misys.portal.interfaces.components.PasswordMailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+
+	<component name="mailformatterreportclient">
+		<description>Mail Formatter Report Batch</description>
+		<classname>com.misys.portal.interfaces.components.ReportMailFormatter</classname>
+		<properties>
+			<property name="titlekey" description="Key of localized title">REPORT_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">REPORT_ALERT_EMAIL_BODY</property>
+			<property name="bodykey.with.attachment.protected" description="Key of localized body">REPORT_ALERT_EMAIL_BODY_ATTACHMENT_PROTECTED</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+		</properties>
+	</component>
+	
+	<component name="sendmail">
+		<description>Build message from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.EmailSender</classname>
+		<properties>
+			<!--<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.to" description="Environment property containing Recipient email address">message.to</property>
+			<property name="message.cc" description="Environment property containing CC'ed address"></property>
+			<property name="message.bcc" description="Environment property containing BCC'ed address"></property>
+			<property name="message.subject" description="Environment property containing Subject">message.subject</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>-->
+			<property name="mail.host" description="SMTP relay">${smtp.host}</property>
+			<property name="mail.transport.protocol" description="Protocol">smtp</property>
+		</properties>
+	</component>
+	
+	<component name="genericSendMail">
+		<description>Build message from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.GenericEmailSender</classname>
+		<properties>
+			<!--<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.to" description="Environment property containing Recipient email address">message.to</property>
+			<property name="message.cc" description="Environment property containing CC'ed address"></property>
+			<property name="message.bcc" description="Environment property containing BCC'ed address"></property>
+			<property name="message.subject" description="Environment property containing Subject">message.subject</property>
+			<property name="message.attachment" description="Environment property containing Attachment content as bytes">message.attachment</property>
+			<property name="message.filename" description="Environment property containing Attachment filename">filename</property>-->
+			<property name="mail.host" description="SMTP relay">${smtp.host}</property>
+			<property name="mail.transport.protocol" description="Protocol">smtp</property>
+		</properties>
+	</component>
+
+	<component name="parameterdatafilter">
+		<description>Send file location as event</description>
+		<classname>com.misys.portal.interfaces.components.OutputParamFilter</classname>
+		<!-- 
+		<properties>
+			<property name="parmid" description="Parameter ID">aValue</property>
+			<property name="key_1" description="KEY_1 column">aValue</property>
+			<property name="key_2" description="KEY_2 column">productCode</property>
+			<property name="key_2.fromTransactionProductFile" description="true to indicate value is a TransactionProductFile field value">true</property>
+		</properties>
+		-->
+		<published>
+			<property name="parmid"/>
+			<property name="type"/>
+			<!-- <property name="subtype"/>-->
+			<property name="BRCH_CODE"/>
+			<property name="COMPANY_ID"/>
+			<property name="KEY_1"/> <!-- Type -->
+			<property name="KEY_5"/> <!-- Main Bank -->
+		</published>
+	</component>
+
+	<component name="pdfprocessor">
+		<description></description>
+		<classname>com.misys.portal.interfaces.components.PDFGenerator</classname>
+		<properties>
+			<property name="language">fr</property>
+			<property name="filename.name" description="filename or environment property name">filename</property>
+		</properties>
+		<published>
+			<property name="type"/>
+			<property name="subtype"/>
+			<property name="BRCH_CODE"/>
+			<property name="COMPANY_ID"/>
+			<property name="KEY_1"/> <!-- ref_id -->
+			<property name="KEY_2"/> <!-- tnx_id -->
+			<property name="KEY_3"/> <!-- tnx_type_code -->	
+			<property name="KEY_4"/> <!-- product_code -->
+			<property name="KEY_5"/> <!-- main Bank -->
+			<property name="__interface_data_companyid"/>
+		</published>
+	</component>	
+	
+	<component name="jdbcreader">
+		<description>Runs a query on the database</description>
+		<classname>com.misys.portal.interfaces.components.JDBCReader</classname>
+		<properties>
+			<property name="jdbc.query" description="The query to be run"/>
+			<property name="system.database" description="The system database adapter name"/>
+			<property name="hasPamameters" description="If true, the query can have parameters"/>
+			<property name="parameter.isDynamic" description="If true, the parameters for query is available in the environment"/>
+			<property name="pamameter.parameter_1" description="Parameter 1 for the query"/>
+			<property name="pamameter.parameter_2" description="Parameter 2 for the query"/>
+			<property name="pamameter.parameter_3" description="Parameter 3 for the query"/>
+			<property name="pamameter.parameter_4" description="Parameter 4 for the query"/>
+			<property name="pamameter.parameter_5" description="Parameter 5 for the query"/>
+			<property name="pamameter.parameter_6" description="Parameter 6 for the query"/>
+			<property name="pamameter.parameter_7" description="Parameter 7 for the query"/>
+			<property name="pamameter.parameter_8" description="Parameter 8 for the query"/>
+			<property name="pamameter.parameter_9" description="Parameter 9 for the query"/>			
+		</properties>
+		<consumer type="ObjectConsumer" object="Any object"/>
+		<producer type="ObjectProducer" object="com.misys.portal.interfaces.components.JDBCValues"/>
+	</component>
+	
+	<component name="jdbcjsonreader">
+		<description>Runs a query on the database</description>
+		<classname>com.misys.portal.interfaces.components.JDBCJsonReader</classname>
+		<properties>
+			<property name="jdbc.query" description="The query to be run"/>
+			<property name="hasPamameters" description="If true, the query can have parameters"/>
+			<property name="parameter.isDynamic" description="If true, the parameters for query is available in the environment"/>
+			<property name="pamameter.parameter_1" description="Parameter 1 for the query"/>
+			<property name="pamameter.parameter_2" description="Parameter 2 for the query"/>		
+		</properties>
+		<consumer type="ObjectConsumer" object="Any object"/>
+		<producer type="ObjectProducer" object="com.misys.portal.interfaces.components.JDBCJsonValues"/>
+	</component>
+	
+	<component name="outputserializer">
+		<description></description>
+		<classname>com.misys.portal.interfaces.components.OutputSerializer</classname>
+		<!-- 
+		<properties>
+			<property name="extractor" description="The name of the interface played added in the column 'extractor' of GTP_OUTPUT_EXTRACTION table">thePlayedInterfaceName</property>
+		</properties>
+		-->
+	</component>
+
+	<component name="xsltransformer">
+		<description>Transform a XML file using a custom XSL</description>
+		<classname>com.misys.portal.interfaces.components.XSLTStreamProcessor</classname>
+		<properties>
+			<property name="stylesheet.name" description="The file name of the stylesheet located from document root"/>
+			<property name="stylesheet.resource" description="The file name of the stylesheet located from classpath"/>
+			<property name="stylesheet.isDynamic" description="If true, the file name of the stylesheet is read from environment"/>
+			<property name="stylesheet.parameters.name" description="The list parameters used for the transformation, separated using :"/>
+			<property name="stylesheet.parameter" description="The prefix for each parameter"/>
+			<property name="isDynamic" description="If true, the parameter names are read from environment"/>
+		</properties>
+		<consumer type="ObjectConsumer" object="XML String"/>
+		<producer type="ObjectProducer" object="Transformed XML String"/>
+	</component>
+	
+	<component name="productinterfaceprocessor">
+  		<description>Product Interface processor</description>
+  		<classname>com.misys.portal.interfaces.components.ProductInterfaceProcessor</classname>
+  		<published>
+   			<property name="BRCH_CODE"/>
+   			<property name="COMPANY_ID"/>
+   			<property name="KEY_1"/>
+   			<property name="KEY_2"/>
+   			<property name="KEY_3"/>
+   			<property name="KEY_4"/>
+   			<property name="KEY_5"/>
+   			<property name="KEY_6"/>
+   			<property name="KEY_6"/>
+   			<property name="MAIN_BANK"/>
+  		</published>
+ 	</component>
+ 	<component name="interfacemessagepersister">
+  		<description>Interface Message Persister</description>
+  		<classname>com.misys.portal.interfaces.components.InterfaceMessagePersister</classname>  	
+ 	</component>
+ 	<component name="interfacemessagereader">
+  		<description>Interface Message Reader</description>
+  		<classname>com.misys.portal.interfaces.components.InterfaceMessageReader</classname>  	
+ 	</component>
+ 	<component name="interfacemessageexecuter">
+  		<description>Interface Message Reader</description>
+  		<classname>com.misys.portal.interfaces.components.InterfaceMessageExecuter</classname>  	
+ 	</component>
+ 
+	<component name="jmssender">
+		<description>Send input event to a JMS Queue</description>
+		<classname>com.misys.portal.interfaces.components.JMSQueueSerializer</classname>
+		<properties>
+			<!--Tomcat Specific Begins: The following properties should be mentioned if deployed through tomcat-->
+			<!--<property name="initialContextFactory" description="Initial Context Factory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+			<property name="providerURL" description="Provider URL">file:/D:/appdata/jms</property>
+			<property name="user" description="User">Administrator</property>
+			<property name="password" description="Password">Singapore1</property>			
+			<property name="secondary.user" description="User">Administrator</property>
+			<property name="secondary.password" description="Password">Singapore1</property>-->
+			<!--Tomcat Specific Ends -->			
+			<!--Azure specific configuration explaination begins -->
+			<!--"user", "password","secondary.user"  and "secondary.password" are taken from azure portal 
+				 factory=SBFC,queue=QUEUE_OUT,secondary.factory=SBFC,secondary.queue=QUEUE_OUT, 
+				 these properties are configured in interface.proprties-->			
+			<!--Azure specific configuration explaination ends -->						
+			<property name="secondary.user" description="User">${module.trade.secondary.user}</property>
+			<property name="secondary.password" description="Password">${module.trade.secondary.password}</property>			
+	 		<property name="user" description="User">${module.trade.user}</property>
+			<property name="password" description="Password">${module.trade.password}</property>			
+			<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+			<property name="queue" description="Queue">${TradeOutgoingMessageSenderQueue}</property>			
+			<property name="encoding" description="Encoding"></property>
+			<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="failsafe.timestamp" description="true to add timestamp to filename">true</property>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>
+			<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+			<property name="secondary.queue" description="Queue">${TradeOutgoingMessageSenderSecondaryQueue}</property>
+			<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+			<property name="defaultTimeToLive" description="defaultTimeToLive">${MessageTimeToLive}</property>
+			<property name="multibankEnabled" description="to handle multibank scenario">false</property>
+			<property name="invoker" description="">01</property>
+			<property name="retry" description="">false</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any Object"/>
+		<producer type="ObjectProducer" object="Source Event"/>
+	</component>	
+ 	<component name="jmsackreceiver">
+  		<description>JMS message receiver</description>
+  		<classname>com.misys.portal.interfaces.incoming.JMSAcknowledgementReceiver</classname> 
+		<properties>
+			<!--Tomcat Specific Begins: The following properties should be mentioned if deployed through tomcat-->
+			<!-- <property name="initialContextFactory" description="Initial Context Factory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+			<property name="providerURL" description="Provider URL">file:/C:/dev/appdata</property>
+			<property name="user" description="User">Administrator</property>
+			<property name="password" description="Password">Singapore1</property>			
+			<property name="secondary.user" description="User">Administrator</property>
+			<property name="secondary.password" description="Password">Singapore1</property> -->
+			<!--Tomcat Specific Ends -->
+			<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+			<property name="queue" description="Queue">${TradeOutgoingMessageAcknowledgementReceiverQueue}</property>
+			<property name="encoding" description="Encoding"></property>
+			<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>			
+			<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+			<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+			<property name="secondary.queue" description="Queue">${TradeOutgoingMessageAcknowledgementReceiverSecondaryQueue}</property>
+			<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+		</properties> 		
+ 	</component>
+ 	
+ 	<component name="jmsmessagereceiver">
+  		<description>JMS message receiver</description>
+  		<classname>com.misys.portal.interfaces.components.JMSMessageReceiver</classname> 
+		<properties>
+			<!--Tomcat Specific Begins: The following properties should be mentioned if deployed through tomcat-->
+			<!-- <property name="initialContextFactory" description="Initial Context Factory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+			<property name="providerURL" description="Provider URL">file:/C:/dev/appdata</property>
+			<property name="user" description="User">Administrator</property>
+			<property name="password" description="Password">Singapore1</property>			
+			<property name="secondary.user" description="User">Administrator</property>
+			<property name="secondary.password" description="Password">Singapore1</property> -->
+			<!--Tomcat Specific Ends -->
+			<property name="factory" description="Factory">${AsyncQueueConnectionFactory}</property>
+			<property name="queue" description="Queue">${IncomingMessageReceiverQueue}</property>
+			<property name="encoding" description="Encoding"></property>
+			<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>			
+			<property name="timeout" description="timeout to receive the messages">${jms.message.timeout}</property>
+			<property name="secondary.factory" description="Factory">${AsyncQueueConnectionFactorySecondary}</property>
+			<property name="secondary.queue" description="Queue">${IncomingMessageReceiverSecondaryQueue}</property>
+			<property name="maxretryfailure" description="maxretryfailure">${jms.message.max.retry.count}</property>
+		</properties> 		
+ 	</component>
+ 	
+ 	<component name="jmsmessagedigester">
+  		<description>JMS Message Digester</description>
+  		<classname>com.misys.portal.interfaces.components.JMSMessageDigester</classname>  	
+ 	</component>
+ 	
+	<component name="initializefactorprodata">
+		<description>Clear existing factor pro data from the tables.</description>
+		<classname>com.misys.portal.interfaces.incoming.InitializeFactorProData</classname>
+	</component>
+	<!-- FSCM components -->
+	<component name="fscmconnector">
+		<description>Connect ALL FSCM modules including filters logic.</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.FSCMConnector</classname>
+	</component>
+	
+	<!-- FSCM components -->
+	<component name="fscmprogramconnector">
+		<description>Connect ALL FSCM modules including filters logic.</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.FSCMProgramConnector</classname>
+	</component>
+	
+	<component name="meridiantransformer">
+		<description>Transforms a SWIFT message into a Portal XML representation</description>
+		<classname>com.misys.portal.interfaces.components.swift.MeridianTransformer</classname>	
+		<properties>
+			<property name="stylesheet.folder">/core/xsl/swift</property>
+		</properties>
+	</component>
+	
+	<!--  bulk validations -->
+	<component name="bulkvalidations">
+	    <description>Validates the incoming bulk xmls and decides bulk should be created or discarded</description>
+	    <classname>com.misys.portal.interfaces.incoming.BulkValidations</classname>
+	</component>
+	<!--  bulk executor -->
+	<component name="bulktransactionexecutor">
+	    <description>Based on the validations based on previous component, decides whether to save the bulk or need to update only File Upload</description>
+	    <classname>com.misys.portal.interfaces.incoming.BulkTransactionsExecutor</classname>
+	</component>
+    <component name="transactionlifecyclecontroller">
+	  	<description>Controls the life cycle of a transaction</description>
+	  	<classname>com.misys.portal.interfaces.components.TransactionLifeCycleController</classname>
+	  	<published>
+	  		<property name="ack_status" description="Set as 0000000 if the transaction has been acknowledged"></property>
+	  	</published>
+		<consumer type="ObjectConsumer" object="Transaction product file or bulk upload holder"/>
+		<producer type="ObjectProducer" object="Source Event"/>
+    </component>
+    <component name="recurringPostDatedProcessor">
+		<description>Controls the postdated and recurring transaction life cycle</description>
+		<classname>com.misys.portal.interfaces.components.RecurringPostDatedProcessor</classname>
+	</component>
+	<component name="outgoingboreferenceprocessor">
+		<description>Populate the corresponding back office reference from the logical reference based on the type of product file for outgoing interfaces</description>
+		<classname>com.misys.portal.interfaces.components.OutgoingBOReferenceProcessor</classname>
+		<consumer type="ObjectConsumer" object="Transaction product file"/>
+		<producer type="ObjectProducer" object="Source Event"/>
+	</component>
+	
+	
+	<component name="bankSimuationProcessor">
+		<description>To simulate back office functionality for updating account balances and statements</description>
+		<classname>com.misys.portal.interfaces.components.BankSimuationProcessor</classname>
+		<consumer type="FundTransferFile" object="Transaction product file"/>
+		<producer type="ObjectProducer" object="Source Event"/>
+	</component>
+	
+	<component name="incomingboreferenceprocessor">
+		<description>Populate the logical reference from the back office reference based on the type of product file for incoming interfaces</description>
+		<classname>com.misys.portal.interfaces.components.IncomingBOReferenceProcessor</classname>
+	<consumer type="ObjectConsumer" object="Transaction product file"/>
+	<producer type="ObjectProducer" object="Source Event"/>
+	</component>
+	
+	<component name="actionrequiredhandler">
+		<description>Add a cross reference to the transaction when the product status code is Arrival Bill Clean or Discrepant(in case of LC) or according to the action code sent.</description>
+		<classname>com.misys.portal.interfaces.components.ActionRequiredHandler</classname>
+	</component>
+	
+	<component name="contacthelpdeskformatter">
+		<description>Send a email to helpdesk</description>
+		<classname>com.misys.portal.interfaces.components.ContactHelpdeskFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender email">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+		</properties>
+	</component>
+	
+	
+	<component name="useremailformatter">
+		<description>Send a email to customer</description>
+		<classname>com.misys.portal.interfaces.components.UserEmailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender email">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.subjectkey" description="Key of localized title">USER_FIRST_LOGIN_EMAIL_NOTIFICATION_SUBJECT</property>
+			<property name="message.bodykey" description="Key of localized body">USER_FIRST_LOGIN_EMAIL_NOTIFICATION_TEXT</property>
+		</properties>
+	</component>
+	
+	<component name="bankemailformatter">
+		<description>Send a email to customer</description>
+		<classname>com.misys.portal.interfaces.components.BankEmailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender email">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"></property>
+			<property name="message.subjectkey" description="Key of localized title">BANK_EMAIL_ATTACHMENT_VIRUS_SUBJECT</property>
+			<property name="message.bodykey" description="Key of localized body">BANK_EMAIL_ATTACHMENT_VIRUS_TEXT</property>
+		</properties>
+	</component>
+	
+	<component name="usersmsformatter">
+		<description>Send a SMS to customer</description>
+		<classname>com.misys.portal.interfaces.components.UserSMSFormatter</classname>
+		<properties>
+				<property name="messsage.notificationText" description="key of localized text for sms">ESIGN_REQUEST_SMS_TEXT</property>
+		</properties>
+	</component>
+
+	<!-- Components used when Portal is connected to TI 4.1.7 -->
+	<component name="tiattachmentmergeprocessor">
+		<description>Merge attachment content with xml structures</description>
+		<classname>com.misys.portal.interfaces.components.TIAttachmentMergeProcessor</classname>
+	</component>
+	
+	<component name="attachmentfilenamesprocessor">
+		<description>Retrieve attachment filenames</description>
+		<classname>com.misys.portal.interfaces.components.AttachmentFilenamesProcessor</classname>
+		<properties>
+				<property name="filename.name">filename</property>
+		</properties>
+	</component>
+
+	<component name="binaryoutputprocessor">
+		<description>Sets the environmentwith values used for storage of message in GTP_OUTPUT_CONTENT</description>
+		<classname>com.misys.portal.interfaces.components.BinaryOutputProcessor</classname>
+		<properties>
+				<property name="recordtype" description="type of record stored in GTP_OUTPUT_KEYS">02</property>
+		</properties>
+	</component>
+	
+	<component name="bulkindividualtnxdispatcher">
+		<description>Extracts individual transactions in a Bulk for transaction level processing</description>
+		<classname>com.misys.portal.interfaces.components.BulkIndividualTnxDispatcher</classname>
+	</component>
+	
+	<component name="beneficiaryuploadprocessor">
+		<description>Extracts the beneficiaries from the file</description>
+		<classname>com.misys.portal.interfaces.components.BeneficiaryUploadProcessor</classname>
+	</component>
+	
+	<component name="counterpartyuploadprocessor">
+		<description>Extracts the counterparties from the file</description>
+		<classname>com.misys.portal.interfaces.components.CounterpartyUploadProcessor</classname>
+	</component>
+	
+	<component name="attachmentzipcreator">
+		<description>Zip the transaction attachments</description>
+		<classname>com.misys.portal.interfaces.components.AttachmentZipCreator</classname>
+		<properties>
+			<property name="directory" description="output base directory">${xml_output_directory}</property>
+			<property name="dirmainbank" description="output sub directory">true</property>
+			<property name="dirproductcode" description="output sub directory">true</property>			
+		</properties>
+		<published>
+			<property name="filename" description="path to the ZIP created"/>
+			<property name="fileact" description="file name of the ZIP created"/>
+		</published>		
+	</component>
+	
+	<component name="mt940uploadprocessor">
+		<description>Extracts the uploaded file from the upload holder</description>
+		<classname>com.misys.portal.interfaces.components.MT940UploadProcessor</classname>
+	</component>
+	
+	<component name="mt940uploadvalidator">
+		<description>Extracts the uploaded file from the upload holder</description>
+		<classname>com.misys.portal.interfaces.components.MT940UploadValidator</classname>
+	</component>
+	 <!-- Bulk Upload Preprocessor component -->
+	<component name="bulkuploadpreprocessor">
+		<description>Set the SE file into the Environment and fire next component with input as Attachment.</description>
+		<classname>com.misys.portal.interfaces.components.BulkUploadPreprocessor</classname>
+	</component>
+		
+	   <!-- Bulk Upload Postprocessor component -->
+	<component name="bulkuploadpostprocessor">
+		<description>Takes the Bulk Holder object as input and append the SE file by reading from Environment.</description>
+		<classname>com.misys.portal.interfaces.components.BulkUploadPostprocessor</classname>
+	</component>
+	
+	<!-- Interface Message Cleaner component -->
+	<component name="interfacecleaner">
+		<description>It will clear the failed messages stored in DB once they are pushed again.</description>
+		<classname>com.misys.portal.interfaces.components.InterfaceMessageCleaner</classname>
+	</component> 
+	
+	<component name="bulkfileprocessor">
+		<description>Transforms a CSV file (SHB specific format) into a portal Bulk object</description>
+		<classname>com.misys.portal.interfaces.components.BulkFileProcessor</classname>
+		<properties>
+			<property name="failsafe">${backOffice_xml_output_directory}</property>
+		</properties>
+	</component>
+		
+	<component name="businessvalidator">
+		<description>Validate the incoming transaction product</description>
+		<classname>com.misys.portal.interfaces.incoming.BusinessValidator</classname>
+		<prerequisites>
+			<property name="product_code" description="may be nil for static data"/>
+		</prerequisites>		
+	</component>
+	<component name="creditnoteconnector">
+		<description>Synchronizes(create/update) Credit Note transactions between Portal Customer and Counterparty.</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.CreditNoteConnector</classname>
+		<consumer type="ObjectConsumer" object="BaseLineCreditNoteFile object"/>
+		<producer type="ObjectProducer" object="BaseLineCreditNoteFile object"/>
+	</component>
+	<!-- Program Counterparty  -->
+	<component name="staticdataprgmcptyoutgoingprocessor">
+		<description>Takes the Bulk Holder object as input and process the staticdata object .</description>
+		<classname>com.misys.portal.interfaces.components.StaticDataPrgmCptyOutgoingProcessor</classname>
+	</component>
+	
+	<component name="staticdataxmloutprocessor">
+		<description>Processes the staticdata object and generates xml</description>
+		<classname>com.misys.portal.interfaces.components.StaticDataOutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Directory where the xml file is exported">${xml_output_directory}</property>
+		</properties>
+		<published>
+			<property name="filename" description="Name of the output XML file "/>
+		</published>
+		<consumer type="ObjectConsumer" object="Hashmap containing a StaticData"/>
+		<producer type="SAXProducer"/>		
+	</component>
+
+<!-- FX related component  -->
+
+	<component name="processmultipletransactions">
+		<description>Process Multiple FX Orders</description>
+		<classname>com.misys.portal.interfaces.components.ProcessMultipleTransactions</classname>
+	</component>
+	
+	<component name="productparser">
+		<description>Parse Element in root node "transactions" and Dispatch them as Object</description>
+		<classname>com.misys.portal.interfaces.components.ProductParser</classname>
+	</component>
+	
+	<component name="fxbuysellmidratemerger">
+		<description>Merges multiple types of rate viz. Buy rate, Sell rate and Mid rate for a single rate pair from a collection of Rate objects, where these rates comes in separate Rate objects</description>
+		<classname>com.misys.portal.interfaces.incoming.treasury.FXBuySellMidRateMerger</classname>
+	</component>
+	
+	<component name="incomingvalidator">
+		<description>Validate the incoming StaticDataFile</description>
+		<classname>com.misys.portal.interfaces.incoming.IncomingValidator</classname>
+		<consumer type="ObjectConsumer" object="StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>		
+	</component>
+	
+	<component name="checkinvoiceupdate">
+		<description>Check whether there is any change in the invoice details if yes then fire the next component</description>
+		<classname>com.misys.portal.interfaces.incoming.CheckInvoiceUpdate</classname>
+	</component>
+	
+	<component name="unReferencedLNUpdator">
+		<description>Validate the incoming StaticDataFile</description>
+		<classname>com.misys.portal.interfaces.incoming.UpdateUnReferencedLoans</classname>
+		<consumer type="ObjectConsumer" object="StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>		
+	</component>
+
+<!-- Loan related component  -->	
+	<component name="repricedloanextractor">
+		<description>Get the loanfile to which the source loanfile has been repriced </description>
+		<classname>com.misys.portal.interfaces.incoming.RepricedLoanExtractor</classname>
+		<consumer type="ObjectConsumer" object="LoanFile"/>
+		<producer type="ObjectProducer" object="The repriced LoanFile which was linked to the source LoanFile, if any"/>		
+	</component>
+	<component name="doctrackattachmentout">
+		<description>Writes the attachments of a document tracking SE file to the file system </description>
+		<classname>com.misys.portal.interfaces.components.loan.DocTrackAttachmentOutgoingProcessor</classname>
+		<properties>
+			<property name="directory" description="Output directory for attachments">${attachment_output_directory_loan}</property>
+		</properties>
+		<published>
+			<property name="filelist" description="An array containing the details of the files of all attachments"/>
+		</published>
+		<consumer type="ObjectConsumer" object="Document Tracking Secure Email File"/>
+		<producer type="ByteProducer"/>
+	</component>
+	<component name="doctrackupload">
+		<description>Writes the attachments of a document tracking SE file to the file system </description>
+		<classname>com.misys.portal.interfaces.components.loan.LoanDocTrackUpload</classname>
+		<prerequisites>
+			<property name="filelist" description="An array containing the details of the files of all attachments"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="Document Tracking Secure Email File"/>
+		<producer type="ObjectProducer" object="Source file"/>
+	</component>
+	<component name="loanextractor">
+		<description>Extracts historical loanids from Loan IQ system for a customer</description>
+		<classname>com.misys.portal.interfaces.components.loan.HistoricalLoanExtractor</classname>
+		<properties>
+			<property name="directory" description="Directory where the xml file is exported">${xml_output_directory}</property>
+		</properties>
+		<published>
+			<property name="filename" description="Name of the output XML file "/>
+		</published>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+		<producer type="ObjectProducer" object="Loan XML"/>
+	</component>
+	
+	<component name="loanrequestor">
+		<description>Sends XML request for historical loan ids to Loan IQ system for a customer asynchronously through JMS</description>
+		<classname>com.misys.portal.interfaces.components.loan.HistoricalLoanRequestor</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="loanlistprocessor">
+		<description>Saves historical loan ids into database</description>
+		<classname>com.misys.portal.interfaces.components.loan.HistoricalLoanListProcessor</classname>
+		<consumer type="ObjectConsumer" object="object containing list of loan ids received for borrower reference"/>
+	</component>
+	
+	<component name="HistoricalLoanProcessor">
+		<description>Sends request through JMS or Web Services for historical loans to Loan IQ system for a customer</description>
+		<classname>com.misys.portal.interfaces.components.loan.HistoricalLoanProcessor</classname>
+		<consumer type="ObjectConsumer" object="object containing list of loan ids received for borrower reference"/>
+	</component>
+	
+<!-- Document generator for Export Collection -->
+	<component name="genericdocumentgenerator">
+		<description>Static document generator/ Cover letter generator for Export Collection. </description>
+		<classname>com.misys.portal.interfaces.incoming.GenericDocumentGenerator</classname>
+		<consumer type="ObjectConsumer" object="ExportCollectionFile"/>
+		<producer type="ObjectProducer" object="ExportCollectionFile with cover letter based on the configuration P243"/>		
+	</component>
+	
+	<component name="genericdocumentgenerator">
+		<description>Static document generator/ Cover letter generator for Export LetterOf Credit. </description>
+		<classname>com.misys.portal.interfaces.incoming.GenericDocumentGenerator</classname>
+		<consumer type="ObjectConsumer" object="ExportLetterofCreditFile"/>
+		<producer type="ObjectProducer" object="ExportLetterofCreditFile with BOE based on the configuration P243"/>		
+	</component>
+	<component name="bulkspiltter">
+		 <description>This component spilts the bulks into FTS so that it will be processed by back office</description>
+		  <classname>com.misys.portal.interfaces.components.BulkSpiltter
+		 </classname>
+		 <consumer type="ObjectConsumer" object="Transaction product file"/>
+		 <producer type="ObjectProducer" object="Transaction product file"/>
+	</component>
+  	<component name="bkstatusprocessor">
+		 <description>This component updates the bulk status based on the status of FTs sent from back office</description>
+		  <classname>com.misys.portal.interfaces.components.BulkStatusProcessor
+		 </classname>
+		  <consumer type="ObjectConsumer" object="Transaction product file"/>
+		 <producer type="ObjectProducer" object="Transaction product file"/>
+	</component>
+	
+	
+	<component name="deleteswiftbics">
+		<description>Deletes the static BIC codes from the related table maintained in the system.</description>
+		<classname>com.misys.portal.interfaces.components.DeleteSwiftBics</classname>
+	</component>
+	
+	<component name="uploadswiftbics">
+		<description>Upload Swift BIC codes</description>
+		<classname>com.misys.portal.interfaces.components.UploadSwiftBics</classname>
+	</component>
+	
+	<component name="bankcurrencyprocessor">
+		<description>Check for CurrencyFile object and inserts currency into GTP_BANK_CURRENCY table</description>
+		<classname>com.misys.portal.interfaces.incoming.BankCurrencyProcessor</classname>
+		<consumer type="ObjectConsumer" object="CurrencyFile"/>
+		<producer type="ObjectProducer" object="Source file"/>		
+	</component>
+
+	<component name="historicallogindata">
+		<description>Generates historical login data </description>
+		<classname>com.misys.portal.interfaces.components.fbi.ExportFbccHistoricalLoginData
+		</classname>
+		<properties>
+			<property name="fbcc.target.db.fromdate"
+				description="The value for the range of dates - from date in yyyy/MM/dd format">2016/08/14</property>
+			<property name="fbcc.target.db.todate"
+				description="The value for the range of dates - to date in yyyy/MM/dd format">2016/11/22</property>
+			<property name="fbcc.target.csv.users.filename"
+				description="The value for the csv file name, to hold the user login data">E:/FBI/FbccHistoricalLoginData.csv</property>
+			<property name="fbcc.target.csv.company.filename"
+				description="The value for the csv file name, to hold the company login data">E:/FBI/FbccHistoricalCompanyData.csv</property>
+			<property name="fbcc.target.csv.header.required"
+				description="The value if true prints the header">true</property>
+		</properties>
+	</component>
+	<component name="historicaltransactiondata">
+		<description>Generates historical transaction data </description>
+		<classname>com.misys.portal.interfaces.components.fbi.ExportFbccHistoricalTnxData
+		</classname>
+		<properties>
+			<property name="fbcc.target.db.fromdate"
+				description="The value for the range of dates - from date in yyyy/MM/dd format">2016/08/14</property>
+			<property name="fbcc.target.db.todate"
+				description="The value for the range of dates - to date in yyyy/MM/dd format">2016/11/22</property>
+			<property name="fbcc.target.csv.filename"
+				description="The value for the csv file name, to hold the user login data">E:/FBI/FbccHistoricalTransactionData.csv</property>
+			<property name="fbcc.target.csv.header.required"
+				description="The value if true prints the header">true</property>
+			<property name="backofficeTypeProductCode"
+				description="The value if true prints the header">CPARTY</property>
+		</properties>
+	</component>
+	
+	<!-- Configuring input events to JMS Queues and can be configurable specific to Banks -->
+	<component name="multibranchjmssender">
+		<description>Send input event to JMS Queues, choosing the parameter based on the current
+			bank in the environment.</description>
+		<classname>com.misys.portal.interfaces.components.JMSQueueSerializer</classname>
+		<properties>
+		
+			<!-- default parameter set -->
+			<property name="initialContextFactory" description="Initial Context Factory"></property>
+			<property name="providerURL" description="Provider URL">file:/C:/JNDI/mq</property>
+			<property name="factory" description="Factory">MHUB004</property>
+			<property name="queue" description="Queue">MCPOutputQueue</property>
+			<property name="user" description="User"></property>
+			<property name="password" description="Password"></property>
+			<property name="encoding" description="Encoding"></property>
+			<property name="failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="failsafe.filename" description="true to add timestamp to filename">true</property>
+			<!--
+			<property name="secondary.factory" description="Secondary Factory">jms/MPQCF</property>
+			<property name="secondary.queue" description="Secondary Queue">jms/queue/BANKGROUPOUT</property>
+			-->
+			<property name="maxretryfailure" description="maxretryfailure">3</property>
+			<property name="defaultTimeToLive" description="defaultTimeToLive">0</property>
+
+			<!--
+			bank group parameter set
+			<property name="BANKGRP.initialContextFactory" description="Initial Context Factory"></property>
+			<property name="BANKGRP.providerURL" description="Provider URL"></property>
+			<property name="BANKGRP.factory" description="Factory">jms/MPQCF</property>
+			<property name="BANKGRP.queue" description="Queue">jms/queue/BANKGROUPOUT</property>
+			<property name="BANKGRP.user" description="User"></property>
+			<property name="BANKGRP.password" description="Password"></property>
+			<property name="BANKGRP.encoding" description="Encoding"></property>
+			<property name="BANKGRP.failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="BANKGRP.failsafe.filename" description="true to add timestamp to filename">true</property>
+			<property name="BANKGRP.secondary.factory" description="Secondary Factory">jms/MPQCF</property>
+			<property name="BANKGRP.secondary.queue" description="Secondary Queue">jms/queue/BANKGROUPOUT</property>
+			<property name="BANKGRP.maxretryfailure" description="maxretryfailure">3</property>
+			<property name="BANKGRP.defaultTimeToLive" description="defaultTimeToLive">0</property>
+
+			first bank parameter set
+			<property name="MISYSBANK.initialContextFactory" description="Initial Context Factory"></property>
+			<property name="MISYSBANK.providerURL" description="Provider URL"></property>
+			<property name="MISYSBANK.factory" description="Factory">jms/MPQCF</property>
+			<property name="MISYSBANK.queue" description="Queue">jms/queue/BANK1OUT</property>
+			<property name="MISYSBANK.user" description="User"></property>
+			<property name="MISYSBANK.password" description="Password"></property>
+			<property name="MISYSBANK.encoding" description="Encoding"></property>
+			<property name="MISYSBANK.failsafe" description="true to raise input event if an error occurs with filename in environment">true</property>
+			<property name="MISYSBANK.failsafe.filename" description="true to add timestamp to filename">true</property>
+			<property name="MISYSBANK.secondary.factory" description="Secondary Factory">jms/MPQCF</property>
+			<property name="MISYSBANK.secondary.queue" description="Secondary Queue">jms/queue/BANKGROUPOUT</property>
+			<property name="MISYSBANK.maxretryfailure" description="maxretryfailure">3</property>
+			<property name="MISYSBANK.defaultTimeToLive" description="defaultTimeToLive">0</property>
+			-->
+			
+		</properties>
+	</component>	
+	
+	<component name="retryrecordmanager">
+		<description>DAO to perform CRUD operations for failed records</description>
+		<classname>com.misys.portal.interfaces.components.RetryRecordManager</classname>
+		<properties>
+			<property name="operation" description="Operation to be performed. One of read, insert, update or delete. Mandatory."/>
+			<property name="product" description="Product codes for which retry records have to be retrieved. Multiple product codes may be specified delimited by comma. Optional. If not specified, all product codes are fetched."/>
+			<property name="readfilter" description="Flag for whether to get records which are within the max retry count or exceeded it. One of belowmax or abovemax. Optional. Default is belowmax"></property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="TransactionProductFile or StaticDataFile"/>
+	</component>
+	
+	<!-- Credit Note Invoice Handler  -->
+	<component name="creditnoteinvoicehandler">
+		<description>Processes the invoices attached to a BaseLineCreditNoteFile </description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.CreditNoteInvoiceHandler</classname>
+	</component>
+
+	<component name="updatesestatus">
+		<description>Update the status of the SE (Bulk Upload File) if it goes into INPROGRESS</description>
+		<classname>com.misys.portal.interfaces.components.SEStatusProcessor</classname>
+		<consumer type="ObjectConsumer" object="InterfaceErrorEvent or any Java object"/>
+		<producer type="ObjectProducer" object="The source object"/>
+	</component>		
+	
+	<!-- Generate acknowledgement for treasury incoming messages -->
+	<component name="generateack">
+		<description>Sets the acknowledge status value in the interface environment</description>
+		<classname>com.misys.portal.interfaces.components.GenerateAcknowledgement</classname>
+	</component>
+	
+	<component name="errorTracker">
+		<description>Stores the error in environment variable to send in NACK</description>
+		<classname>com.misys.portal.interfaces.components.ErrorTracker</classname>
+	</component>
+	
+	<component name="sendNack">
+		<description>Creates Nack response and triggers NACK sender</description>
+		<classname>com.misys.portal.interfaces.components.SendNAcknowledgement</classname>
+	</component>
+	
+	<component name="userdata2finshare">
+		<description>Sends the data to Finshare</description>
+		<classname>com.misys.portal.interfaces.components.finshare.ExportUserDataToFinshare</classname>
+	</component>		
+
+	<component name="transformNarrative">
+		<description>Transform Narratives to XML format</description>
+		<classname>com.misys.portal.interfaces.components.TransformNarrative</classname>
+		<properties>
+			<property name="prductCodeList" description="List of product codes">LC,SI,EL,SR</property>
+			<property name="narrativeNameList" description="List of narrative field names to be transformed">narrative_description_goods, narrative_documents_required, narrative_additional_instructions, narrative_special_beneficiary, narrative_special_recvbank</property>
+		</properties>
+	</component>
+	
+	<component name="standbyMigrationSWIFT2021">
+		<description>Migration</description>
+		<classname>com.misys.portal.interfaces.components.StandbyMigrationHandler</classname>
+	</component>
+	
+	<component name="mt798handler">
+		<description>MT798 related event handler.</description>
+		<classname>com.misys.portal.interfaces.components.MT798Handler</classname>
+	</component>
+	
+	<component name="liquidityffcrequester">
+		<description>FFC Requester for building and calling service hosted on FFC</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityFFCRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityagreementlistresponseprocessor">
+		<description>FFC Requester for building and calling service hosted on FFC</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityAgreementListRespProcessor</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityfeaturerequester">
+		<description>Requests Liquidity feature for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.misys.portal.interfaces.components.LiquidityFeatureRequestor</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityaccountrequester">
+		<description>Requests Liquidity account for all customers asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityAccountRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+
+	<component name="liquidityagreementlistrequester">
+		<description>Requests Liquidity agreements list for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityAgreementListRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+
+	<component name="liquidityagreementdetailrequester">
+		<description>Requests Liquidity agreement details for a customer synchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityAgreementDetailRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityexecutiondetailrequester">
+		<description>Requests Liquidity agreements list for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityExecutionDetailRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+		
+	<component name="liquidityexecutiondetailresponsehandler">
+		<description>Requests Liquidity agreements list for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityExecutionDetailResponseHandler</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<!-- <component name="liquidityexecutiondetailsplitter">
+		<description>Requests Liquidity agreements list for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityExecutionDetailSplitter</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component> -->
+
+	<component name="liquidityexecutionmovementrequester">
+		<description>Requests Liquidity agreement details for a customer synchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityExecutionMovementRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityexecutionmovementresponsehandler">
+		<description>Requests Liquidity agreement details for a customer synchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityExecutionMovementResponseHandler</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+
+	<component name="liquidityschedulerequester">
+		<description>Requests Liquidity agreement schedules for a customer asynchronously through FFC and webservice call</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityScheduleRequester</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="liquidityscheduleresponsehandler">
+		<description>Accepts response from LiquidityScheduleRequester and persists it into DB</description>
+		<classname>com.finastra.portal.liquidity.interfaces.components.LiquidityScheduleResponseHandler</classname>
+		<consumer type="ObjectConsumer" object="HashMap object containing CustomerReferenceSet"/>
+	</component>
+	
+	<component name="writeemailnotficationtodatabase">
+		<description>Writes Email Notification Message into Database</description>
+		<classname>com.misys.portal.interfaces.components.WriteEmailNotficationToDatabase</classname>
+	</component>
+	
+	<component name="extractdbemailnotification">
+		<description>Extracts the Email Message from DBEmailNotificationRecord</description>
+		<classname>com.misys.portal.interfaces.components.ExtractDBEmailNotification</classname>
+	</component>
+	
+	<component name="importcnapsbankcode">
+		<description>Persist CNAPS Bank Code Received from PowerCNAPS</description>
+		<classname>com.misys.portal.interfaces.incoming.PersistCNAPSBankCode</classname>
+		<properties>
+			<property name="encoding" description="CNAPS Bank Code XML encoding used, default is UTF-8">UTF-8</property>
+		</properties>
+	</component>
+	
+	<component name="constructbulkuploadholder">
+		<description>Save the bulk upload holder of individual bulk file into a Parent holder file and fire next component with input as this Parent holder file.</description>
+		<classname>com.misys.portal.interfaces.components.ConstructBulkUploadHolder</classname>
+	</component>
+		<component name="tradeacknackprocessor">
+		<description>Process SWIFT Ack /Nack by updating corresponding transaction</description>
+		<classname>com.misys.portal.interfaces.incoming.TradeAckNackProcessor</classname>
+	</component>
+	<component name="AcknowledgementMailFormatter">
+		<description>Send No Acknowledgement Mail</description>
+		<classname>com.misys.portal.interfaces.components.AcknowledgementMailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.to.address" description="Reciever email address">${alert.email.to.address}</property>
+		</properties>
+	</component>
+	
+	<component name="UserProvisioningProcessor">
+		<description>Process the User Provisioning Request</description>
+		<classname>com.misys.portal.interfaces.components.userprovisioning.UserProvisioningProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="StaticDataFile"/>
+	</component>
+	
+	<component name="FCMEnableDisableProcessor">
+		<description>Enable Disable User on FCM</description>
+		<classname>com.misys.portal.interfaces.components.userprovisioning.FCMEnableDisableProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="FCMUserCheckProcessor">
+		<description>Check if FCC User is present in FCM system</description>
+		<classname>com.misys.portal.interfaces.components.userprovisioning.FCMUserCheckProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="ExternalAPIHandler">
+		<description>Process the API invocation</description>
+		<classname>com.misys.portal.interfaces.components.ExternalAPIHandler</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="RequestGenerator">
+		<description>request generator for custom input source</description>
+		<classname>com.misys.portal.interfaces.components.custominput.RequestGenerator</classname>
+	</component>
+	
+	<component name="ExternalFCMAPIHandler">
+		<description>Process the API invocation</description>
+		<classname>com.misys.portal.interfaces.components.ExternalFCMAPIHandler</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="asyncStatementGenerator">
+		<description>Asynchronous account statement generation processing</description>
+		<classname>com.misys.portal.common.services.AsyncAccountStatementDataProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="DummyRecentTransactionsComponent">
+		<description>fetching recent transaction from dummy response</description>
+		<classname>com.misys.portal.interfaces.components.custominput.DummyRecentTransactionsComponent</classname>
+	</component>
+	
+	<component name="DummyMostActiveAccountsComponent">
+		<description>fetching Most Active Accounts from dummy response</description>
+		<classname>com.misys.portal.interfaces.components.custominput.DummyMostActiveAccountsComponent</classname>
+	</component>
+	
+	<component name="DummyAccountSummaryComponent">
+		<description>fetching Account Summary from dummy response</description>
+		<classname>com.misys.portal.interfaces.components.custominput.DummyAccountSummaryComponent</classname>
+	</component>
+	
+	<component name="BeneficiaryProcessor">
+		<description>Process the Benificiary API Requests</description>
+		<classname>com.misys.portal.interfaces.components.beneficiaryprovisioning.BeneficiaryProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="PaymentsProcessor">
+		<description>Process the Payment API Requests</description>
+		<classname>com.misys.portal.interfaces.components.fcm.payments.PaymentsProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+
+	<component name="FeedbackProcessor">
+		<description>Process the Feedback API Requests</description>
+		<classname>com.misys.portal.interfaces.components.feedback.FeedbackProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="AccountProcessor">
+		<description>Process the Account API Requests</description>
+		<classname>com.misys.portal.interfaces.components.currentAccountProcessor.AccountProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="AccountStatementAdditionalDetailsProcessor">
+		<description>Process the Additional posting details API Requests</description>
+		<classname>com.misys.portal.interfaces.components.currentAccountProcessor.AccountStatementAdditionalDetailsProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+
+	<component name="ExternalSystemQueryComponent">
+		<description>Fetches the query and bindParams</description>
+		<classname>com.misys.portal.interfaces.components.external.system.query.ExternalSystemQueryComponent</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	
+	<component name="DealAPIProcessor">
+			<description>call laonIQ and parse XML</description>
+			<classname>com.misys.portal.interfaces.components.loan.DealAPIProcessor</classname>
+			<properties>
+				<property name="language" description="Language">en</property>
+			</properties>
+			<consumer type="ObjectConsumer" object="XML string"/>
+		</component>	
+		
+	<component name="jsonconverter">
+			<description>Parse XML to JSON</description>
+			<classname>com.misys.portal.interfaces.components.loan.XMLToJsonConverter</classname>
+			<properties>
+				<property name="language" description="Language">en</property>
+			</properties>
+			<consumer type="ObjectConsumer" object="JSON string"/>
+		</component>		
+		
+</components>

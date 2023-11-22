@@ -1,0 +1,343 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .bkLNListRowStyle {
+  margin-bottom: 1em;
+  width: 50%;
+  float: left;
+}
+
+:host ::ng-deep [dir=rtl] .bkLNListRowStyle {
+  margin-bottom: 1em;
+  width: 50%;
+  float: right;
+}
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0em;
+}
+:host ::ng-deep .panelDescription .mat-icon:not(.nestedHeaderIconClass) {
+  right: 0.5em;
+  position: inherit !important;
+  margin-top: 0.5em;
+}
+
+:host ::ng-deep .mainHeader {
+  font-size: 1.14em !important;
+  font-weight: bold !important;
+}
+
+:host ::ng-deep .mainSubHeader {
+  font-size: 1.14em !important;
+  color: #4a4a4a !important;
+  font-weight: bold !important;
+}
+
+:host ::ng-deep .mat-accordion
+  > *:last-child:not(.mat-expansion-panel)
+  .mat-expansion-panel-spacing {
+  margin-bottom: 0.6em;
+}
+
+:host ::ng-deep .marginRightStyle {
+  line-height: 1.14em;
+  margin-right: 0.5em;
+  margin-top: 1em;
+}
+
+:host ::ng-deep .deleteIconStyle {
+  height: 1.14em !important;    
+  margin-top: 1.1em;
+  margin-right: 0.4em;
+  width: 1.14em !important;
+  visibility: hidden;
+  border: none;
+  background: none;
+}
+
+:host ::ng-deep .deleteIconStyle:focus {
+  visibility: visible;
+}
+
+:host ::ng-deep .deleteIconStyle .mat-icon {
+  position: relative !important;
+  font-size: 1.3em !important;
+  width: 1em;
+}
+
+:host ::ng-deep mat-expansion-panel-header:hover .deleteIconStyle,
+:host ::ng-deep mat-expansion-panel-header:focus .deleteIconStyle {
+  visibility: visible;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon {
+  position: absolute;
+  right: 1em;
+}
+
+:host ::ng-deep .padding_left {
+  padding-left: 0.5em !important;
+}
+
+:host ::ng-deep .radioButtonColStyle {
+  width: 5em;
+}
+
+:host ::ng-deep .radioButtonStyle {
+  visibility: hidden;
+}
+:host ::ng-deep .warningStyle {
+  font-style: italic;
+  color: $GREY-01;
+  font-weight: 500;
+  bottom: 1em;
+  position: relative;
+}
+
+:host ::ng-deep .tableRowStyle:hover .radioButtonStyle {
+  visibility: visible;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $primaryColor;
+  font-size: 1.2em;
+}
+
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover
+  a,
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover
+  a,
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active
+  a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $primaryColor;
+}
+
+:host ::ng-deep .mat-expansion-panel
+  .mat-expansion-panel-header.cdk-keyboard-focused,
+:host ::ng-deep .mat-expansion-panel
+  .mat-expansion-panel-header.cdk-program-focused,
+:host ::ng-deep .mat-expansion-panel .mat-expansion-panel-header:hover {
+  border: 0.134em solid #694ed6 !important;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active
+  a
+  .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover
+  a
+  .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover
+  a
+  .ui-accordion-toggle-icon {
+  color: #a0a0a0;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-content {
+  border: none;
+  background-color: transparent;
+  padding: 0.571em 0em;
+}
+
+:host ::ng-deep .totalRepricedAmtParentClass {
+  padding: 0em 3.8em 1em;
+  font-size: 1.2em;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+:host ::ng-deep .totalRepricedAmtValueClass {
+  text-align: right;
+  padding-right: 2em;
+}
+
+:host ::ng-deep [dir=rtl] .totalRepricedAmtValueClass {
+  text-align: left;
+  padding-left: 2em;
+}
+
+:host ::ng-deep .emptyMessage td {
+  text-align: center;
+}
+
+:host ::ng-deep .remittanceInstLayout {
+  padding: 1em !important;
+}
+
+:host ::ng-deep .remittanceInstLayout
+  .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0em;
+}
+
+:host ::ng-deep .remittanceInstLayout
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0.5em 0.5em #f4f4f7;
+  border-color: #737375;
+}
+
+:host ::ng-deep .remittanceInstLayout
+  .fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  background-color: #ffffff !important;
+  color: #ffffff;
+  box-shadow: 0 0 0.5em 0.5em #e9e6f9;
+  border: 2px solid #694ed6;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: 0.125em solid $primaryColor !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:first-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:last-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus + tr > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .remittanceInstLayout
+  .candyStriped[dir="rtl"]
+  .ui-accordion
+  .ui-accordion-header
+  a
+  .ui-accordion-toggle-icon {
+  left: 1em;
+  right: auto;
+}
+
+:host ::ng-deep .createLNButtonLayoutStyle {
+  padding: 1em !important;
+}
+
+
+
+:host ::ng-deep mat-expansion-panel-header:hover .deleteIconStyle {
+  visibility: visible;
+}
+
+:host ::ng-deep .eyeIconStyle {
+  border: none;
+  height: 1em;
+  width: 1.2em;
+  background-color: transparent;
+}
+
+:host ::ng-deep .eyeIconStyle .mat-icon{
+  position: relative !important;
+  height: 1em;
+  width: 1.2em;
+  font-size: 1.2em;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid $GREY-07 !important;
+  font-weight: bold;
+  background-color: transparent;
+  color: $CHARCOAL-F100;
+  line-height: 0.875em;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: $GRAY-HEX-88 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: $WHITE;
+  border-top: 0.00625em solid $GREY-07;
+  border-bottom: 0.00625em solid $GREY-07;
+  border-left: none !important;
+  border-right: none !important;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: center;
+  font-size: 0.875em;
+}
+
+:host ::ng-deep tr:hover > td {
+  border-bottom: 0.0625em solid $FUCHSIA-F100 !important ;
+  border-top: 0.0625em solid $FUCHSIA-F100 !important ;
+}
+
+:host ::ng-deep tr > td {
+  color: black;
+}
+
+:host ::ng-deep .totalNewLoanAmountLabelClass {
+  color: $BLACK-01 !important;
+  padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .principalPaymentLabelClass {
+  color: $BLACK-01 !important;
+  padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .increaseAmountLabelClass {
+  color: $BLACK-01 !important;
+  padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding-top: 0.9375em !important;
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}
+
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #A65494;
+  }
+  26% {
+      stroke: #7262B4;
+  }
+  51% {
+      stroke: #6AA6B4;
+  }
+  76% {
+      stroke: #C6AE74;
+  }
+}

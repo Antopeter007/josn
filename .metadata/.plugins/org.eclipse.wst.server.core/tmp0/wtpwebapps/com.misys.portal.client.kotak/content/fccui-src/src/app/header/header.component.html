@@ -1,0 +1,336 @@
+<div class="ng-header" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+  <p-toast styleClass="custom-toast" [position]="toastPosition"  key="tc"></p-toast>
+  <div class="header-top">
+    <ng-container>
+      <div *ngIf = "dir === 'rtl'">
+        <div class="header-right focus">
+          <a #skipFirst class="first-skip-link" id="skipFirst" tabindex="-1"></a>
+          <a (click)="skipLink('search')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to global search">Skip to Search</a>
+          <a (click)="skipLink('footerLogo')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to footer">Skip to Footer</a>
+         <a class="breadCrumb">
+            <div class="NavBreadCrumb" *ngIf="displayBredcrumb" >
+              <p-breadcrumb [model]="breadmenuObj" position="right"></p-breadcrumb>
+            </div>
+          </a>
+          <a class="breadCrumb">
+            <div class="separatorRight" *ngIf="displayBredcrumb && breadmenuObj.length > 0">
+              <span class="ui-breadcrumb-chevron">
+                <em class="pi pi-forward" position="right"></em></span>
+            </div>
+          </a>
+          <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="homePageRefresh()" href="#"  onclick="return false;" tabindex="0" aria-label="Top Menu Breadcrumb" class="breadCrumbTopRight" attr.title="{{'dashboard' | translate}}">
+            <!-- Model to be added once router module's refactoring is done and more angular pages come up -->
+            <em class="pi pi-home"></em>
+        </a>
+          <a [href]="homeUrl" target="_blank" class="logo-img" tabindex="0">
+              <img src="{{logoFilePath}}" alt="{{'C102_Home_*_*' | translate }}" />
+          </a>
+          <a (click)="skipLink('search')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to global search">Skip to Search</a>
+          <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="displayMenu = true; skipLink('closeSideNav')" *ngIf="commonHeader === false" href="#" onclick="return false;" aria-label="Open side navigation" id="openSideNav" tabindex="0"><em class="pi pi-bars"></em></a>
+          <p-sidebar [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"  #sideBar [(visible)]="displayMenu" position="right" [showCloseIcon]="false" class="sideNavClass">
+            <div class="close-icon">
+              <a (click)="hideSidebar($event); skipLink('openSideNav');" href="#" onclick="return false;" aria-label="Close side navigation" onkeypress="hideSidebar($event)" tabindex="0" id="closeSideNav"><em class="pi pi-bars rightStyle"></em></a>
+            </div>
+            <div class="corp-av">
+              <span class="corp-avatar">{{ 'corporatechannels' | translate  | uppercase | slice: 0:1 }}</span>
+            </div>
+            <div class="corp-name">{{ 'corporatechannels' | translate }}</div>
+            <div class="sideNavBreadCrumb" *ngIf="breadcrumbObject.length > 0">
+              <p-breadcrumb [model]="breadcrumbObject" [home]="breadcrumbHome"></p-breadcrumb>
+            </div>
+            <p-slideMenu #slideMenu [model]="menuObject" menuWidth="250" viewportHeight="480"></p-slideMenu>
+          </p-sidebar>
+        </div>
+      </div>
+      <div *ngIf = "dir === 'ltr'">
+          <div class="header-left focus">
+              <a #skipFirst class="first-skip-link" id="skipFirst" tabindex="-1"></a>
+              <a (click)="skipLink('search')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to global search">Skip to Search</a>
+              <a (click)="skipLink('footerLogo')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to footer">Skip to Footer</a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="displayMenu = true; skipLink('closeSideNav')" href="#" *ngIf="commonHeader === false" onclick="return false;" aria-label="Open side navigation" id="openSideNav" tabindex="0"><em class="pi pi-bars"></em></a>
+              <a [href]="homeUrl" target="_blank" class="logo-img" tabindex="0">
+                <img src="{{logoFilePath}}" alt="{{'C102_Home_*_*' | translate }}"/>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="homePageRefresh()" href="#" onclick="return false;" tabindex="0" aria-label="Top Menu Breadcrumb" class="breadCrumbTop" attr.title="{{'dashboard' | translate}}" >
+                <!-- Model to be added once router module's refactoring is done and more angular pages come up -->
+                  <em class="pi pi-home"> </em>
+                </a>
+                <a class="breadCrumb">
+                  <div class="separator" *ngIf="displayBredcrumb && breadmenuObj.length > 0">
+                    <span class="ui-breadcrumb-chevron">
+                      <em class="pi pi-forward"></em></span>
+                  </div>
+                </a>
+                <a class="breadCrumb">
+                  <div class="NavBreadCrumb" *ngIf="displayBredcrumb">
+                    <p-breadcrumb [model]="breadmenuObj"></p-breadcrumb>
+                  </div>
+                </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="skipLink('search')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to global search">Skip to Search</a>
+              <p-sidebar [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" #sideBar [(visible)]="displayMenu" [ngStyle]="{'visibility': displayMenu ? 'visible': 'hidden'}" [showCloseIcon]="false" class="sideNavClass">
+                <div class="close-icon">
+                  <a (click)="hideSidebar($event); skipLink('openSideNav');" href="#" onclick="return false;" aria-label="Close side navigation" onkeypress="hideSidebar($event)" tabindex="0" id="closeSideNav"><em class="pi pi-bars"></em></a>
+                </div>
+                <div class="corp-av">
+                  <span class="corp-avatar">{{ 'corporatechannels' | translate  | uppercase | slice: 0:1 }}</span>
+                </div>
+                <div class="corp-name">{{ 'corporatechannels' | translate }}</div>
+                <div class="sideNavBreadCrumb" *ngIf="breadcrumbObject.length > 0">
+                  <p-breadcrumb [model]="breadcrumbObject" [home]="breadcrumbHome"></p-breadcrumb>
+                </div>
+                <p-slideMenu #slideMenu [model]="menuObject" menuWidth="250" viewportHeight="400"></p-slideMenu>
+              </p-sidebar>
+          </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div *ngIf="dir === 'rtl'">
+          <div class="header-left focus">
+              <a (click)="logout()" href="#" onclick="return false;" id="headerLogout" tabindex="0">
+                  <em class="pi pi-sign-out" id="logout" aria-hidden="true"></em>
+                  <span class="log-out">{{'logout' | translate}}</span>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" id="userProfileArabic" (click)="updateDropList(op, $event);" href="#" onclick="return false;" role="img" aria-label="User Profile panel" title="{{'userProfilePanel' | translate}}" tabindex="0">
+                  <span class="material-icons" id="userProfileIcon" aria-hidden="true">
+                    account_circle
+                  </span>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="pendingListFlag" class="pendingTask" role="img" (keyup.enter)="navigateToPendingTask()"
+                   aria-label="My Pending List" title="{{'myPendingTask' | translate}}" (click)="navigateToPendingTask();" tabindex="0">
+                  <span class="material-icons" aria-hidden="true">
+                    <mat-icon
+                      id="pendingTaskIcon" aria-hidden="true"
+                      svgIcon="pending_actions">
+                    </mat-icon>
+                  </span>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf = "helpDeskFlag" class ="headset" role="img" aria-label="Contact Help Desk" title="{{'contactHelpDesk' | translate}}" (click)="navigateToHelpdesk();" tabindex="0">
+                  <span id="helpDesk" class="material-icons" aria-hidden="true">headset</span>
+                </a>
+                <a *ngIf="language.length !== 1" id="language" [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="op4.toggle($event);" (keydown)="keyPressOptions($event,op4)" href="#" class ="globe" onclick="return false;" role="img" aria-label="Change Language" title="{{'changeLanguage' | translate}}" tabindex="0">
+                  <span id="languageIcon" class="material-icons">language</span>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (keydown.enter)="onClickHelp($event, op3);onClickHelpSection();" (click)="onClickHelp($event, op3);onClickHelpSection();" href="#" onclick="return false;" role="img" aria-label="Help" title="{{'help' | translate}}" tabindex="0">
+                  <!-- <img src='{{contextPath}}/content/FCCUI/assets/images/helpicon.svg'
+                    class="helpIcon"
+                    title="{{'help' | translate}}"
+                    alt="help"
+                    (keydown.enter)="op3.toggle($event);onClickHelpSection();"
+                    (click)="op3.toggle($event);onClickHelpSection();"
+                    tabindex="0"> -->
+                    <em class="fa fa-question" id="Help" aria-hidden="true"></em>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="op1.toggle($event);" *ngIf="commonHeader === false" href="#" onclick="return false;" role="img" aria-label="List of Dashboard" title="{{'listOfDashboards' | translate}}" tabindex="0">
+                  <em class="fa fa-th" id="listOfDashboards" aria-hidden="true"></em>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="hasChatbotAccess === true && commonHeader === false" (click) = "onClickChatBot()" href="#" onclick="return false;" role="img" aria-label="Chat" title="{{'chatBot' | translate}}" tabindex="0">
+                  <em class="fa fa-comments" id="chatBot" aria-hidden="true"></em>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"(click)="onClickDownloadCenter()" *ngIf="commonHeader === false" href="#" onclick="return false;" id="search" role="img"
+                   aria-label="Global Search" title="{{'downloadCenter' | translate}}" class="downloadCentre" onkeypress="onClickDownloadCenter()" tabindex="0">
+                  <mat-icon
+                    id="downloadCentreIcon" aria-hidden="true"
+                    svgIcon="download_centre">
+                  </mat-icon>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="onClick()" *ngIf="commonHeader === false" href="#" onclick="return false;" id="search" role="img" aria-label="Global Search popup" title="{{'globalSearch' | translate}}" onkeypress="onClick()" tabindex="0">
+                    <em class="fa fa-search" id="globalSearch" aria-hidden="true"></em>
+                </a>
+                <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="skipLink('subDashboardLayout')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to main content">Skip to content</a>
+            </div>
+        </div>
+        <div *ngIf="dir === 'ltr'"><div class="header-right focus">
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"(click)="onClick()" *ngIf="commonHeader === false" href="#" onclick="return false;" id="search" role="img" aria-label="Global Search" title="{{'globalSearch' | translate}}" onkeypress="onClick()" tabindex="0">
+                <em class="fa fa-search" id="globalSearch" aria-hidden="true"></em>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"(click)="onClickDownloadCenter()" *ngIf="commonHeader === false" href="#" class="downloadCentre"
+                 onclick="return false;" id="search" role="img" aria-label="Global Search" title="{{'downloadCenter' | translate}}" onkeypress="onClickDownloadCenter()" tabindex="0">
+                <mat-icon
+                  id="downloadCentreIcon" aria-hidden="true"
+                  svgIcon="download_centre">
+                </mat-icon>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="hasChatbotAccess === true && commonHeader === false" (click) = "onClickChatBot()" href="#" role="img" aria-label="Chat" onclick="return false;" title="{{'chatBot' | translate}}" tabindex="0">
+                <em class="fa fa-comments" id="chatBot" aria-hidden="true"></em>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="op1.toggle($event);" *ngIf="commonHeader === false" href="#" onclick="return false;" role="img" aria-label="List of Dashboards" title="{{'listOfDashboards' | translate}}" tabindex="0">
+                <em class="fa fa-th" id="listOfDashboards" aria-hidden="true"></em>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="onClickHelp($event,op3);onClickHelpSection();" href="#" onclick="return false;" role="img" aria-label="Help" title="{{'help' | translate}}" tabindex="0">
+              <!-- <img src='{{contextPath}}/content/FCCUI/assets/images/helpicon.svg' class="helpIcon"
+                title="{{'help' | translate}}"
+                alt="help"
+                (keydown.enter)="op3.toggle($event);onClickHelpSection();"
+                (click)="op3.toggle($event);onClickHelpSection();"
+                tabindex="0"> -->
+                <em class="fa fa-question" id="Help" aria-hidden="true"></em>
+            </a>
+            <a *ngIf="language.length !== 1" id="language" [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"  (click)="op4.toggle($event);" (keydown)="keyPressOptions($event,op4)" href="#" class ="globe" onclick="return false;" role="img" aria-label="Change Language" title="{{'changeLanguage' | translate}}" tabindex="0">
+              <span id="languageIcon" class="material-icons">language</span>
+            </a>
+            <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf = "helpDeskFlag" class ="headset" role="img" aria-label="Contact Help Desk" title="{{'contactHelpDesk' | translate}}" (keyup.enter)="navigateToHelpdesk();" (click)="navigateToHelpdesk();" tabindex="0">
+              <span id="helpDesk" class="material-icons" aria-hidden="true">headset</span>
+            </a>
+            <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="pendingListFlag" class="pendingTask" role="img" aria-label="My Pending List" title="{{'myPendingTask' | translate}}" (keyup.enter)="navigateToPendingTask();" (click)="navigateToPendingTask();" tabindex="0">
+              <span class="material-icons" aria-hidden="true">
+                <mat-icon
+                  id="pendingTaskIcon" aria-hidden="true"
+                  svgIcon="pending_actions">
+                </mat-icon>
+              </span>
+            </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"  id="userProfile" (keydown)="getKeyCode($event)" (click)="updateDropList(op, $event);" href="#" onclick="return false;" role="img" aria-label="User Profile panel" title="{{'userProfilePanel' | translate}}" tabindex="0">
+                <span class="material-icons" id="userProfileIcon" aria-hidden="true">
+                  account_circle
+                </span>
+              </a>
+              <a (click)="logout()" href="#" onclick="return false;" id="headerLogout" #logoutTab tabindex="0">
+                <em class="pi pi-sign-out" id="logout" aria-hidden="true"></em>
+                <span class="log-out">{{'logout' | translate}}</span>
+              </a>
+              <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="skipLink('subDashboardLayout')" href="#" onclick="return false;" class="skip-link" tabindex="0" title="Go to main content">Skip to content</a>
+            </div>
+        </div>
+    </ng-container>
+  </div>
+  <div [ngClass]="hideForLanding == false ? 'hideforLanding' : 'showforLanding'" *ngIf="topMenuDisplay === 'true'" class="ui-g-12 ng-menu {{dirStyle}}">
+    <p-menubar [model]="topMenuObject"></p-menubar>
+  </div>
+  <div [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="showLastLogin" dir={{dir}} class="p-col-12 lastLoginContainer">
+    <span class="lastLoginLabel"><span *ngIf="isBankTime">{{'bankLastLoginLabel' | translate}}{{bankDateTime}}</span><span *ngIf="isBankTime">&#x25FE; </span>{{'userLastLoginLabel' | translate}}{{userDateTime}}</span>
+  </div>
+
+  <p-overlayPanel #op role="dialog" aria-modal="true" >
+    <div class="profile-box">
+      <div class="p-grid">
+        <div class="p-col-3 p-md-3 p-lg-3">
+          <div id="profileImage" tabindex="0" aria-label="profile open" #profile>
+            <img src={{profileImagePath}} alt="{{'userProfileImage' | translate}}" class="userProfileImage" />
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-9 m-r-15">
+          <div class="user-info1" class="user-info3" class="user-info4">
+            {{userDisplayName}}
+            <br>
+            <br>
+            {{companyabbvname}}
+          </div>
+          <div class="user-info2">
+            {{userEmail}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-grid pref-list1">
+      <div *ngIf="commonHeader === false" class="p-col-12">
+        <ul  class="item-list">
+          <button role="button"  (click)="toggleMenu();op.hide()" id="toggleMenu" class="button-link">
+            <li>
+              <span><em class="fa fa-th-large" aria-hidden="true"></em>
+                <span class="item-info">{{'toggleMenu' | translate}}</span>
+              </span>
+            </li>
+          </button>
+          <li class="landingCheck">
+            <p-checkbox binary="true" (onChange)="checkValue($event)" [disabled]= value ></p-checkbox>
+
+            <span class="item-info" [ngClass]="(value == true) ? 'textDisable':''">{{'showLandingPage' | translate}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="p-grid pref-list2" >
+      <div *ngIf="commonHeader === false" class="p-col-12 layoutOption {{dir}}">
+        <p-dropdown [options]="lay"
+          styleClass="ui-rtl"
+          dir="{{dir}}"
+          optionLabel="dashboardName"
+          [(ngModel)]="selectedDropdownLayout"
+          (onChange)="layoutchange($event)"
+          name="selectedDropdownLayout"
+          (onShow)="onDropdownChange($event);"
+          (keyup.escape)="oncloseDropdown($event);">
+        </p-dropdown>
+      </div>
+      <div class="p-col-12">
+        <button role="button"  pButton type="button" (click)="logout()"
+          label="{{'logout' | translate}}"></button>
+      </div>
+      <div class="p-col-12 view-profile">
+        <span><a (click)="switchViewProfile()" (focusout)="profileFocusOut($event, op)" href="#" onclick="return false;" tabindex="0">{{'viewProfile' | translate}}</a></span>
+      </div>
+    </div>
+  </p-overlayPanel>
+  <p-overlayPanel #op1 autoZIndex="true" class="dashboardOL" (onShow)="skipLink('opDashboard')">
+    <div class="p-grid">
+      <div class="p-col-12 p-md-6 p-lg-6 item-list" id="opDashboard" (click)="layoutChangeCards('globalDashboard');op1.hide()" (keypress)="layoutChangeCards('globalDashboard')" tabindex="0">
+        <div class="landingbackground pointer-class" *ngFor= "let icon of landingIconUrl">
+          <div *ngIf = "icon.product ==='dashboard'">
+            <img class="landing-card-icons" src="{{icon.iconUrl}}" alt="{{'navigateTo' | translate}}{{'globalDashboard' | translate}}" />
+          </div>
+        </div>
+        <span class="item-info-card">{{'dashboard' | translate}}</span>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-6 item-list" (click)="genericRouteHandler(landing);op1.hide()" (keypress)="genericRouteHandler(landing)" *ngFor="let landing of products" tabindex="0">
+        <div class="headerCards  pointer-class">
+          <img class="landing-card-icons" src="{{contextPath + landing.iconUrl}}" alt="{{'navigateTo' | translate}}{{landing.product | translate}}" />
+        </div>
+        <span class="item-info-card">{{landing.product | translate}}</span>
+      </div>
+    </div>
+
+  </p-overlayPanel>
+
+    <div class="helpSection">
+  <p-overlayPanel #op3 [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [dismissable]="true">
+    <h1 class="p-col-12">
+      <button role="button"  pButton type="button" class="helpbutton" (click)="onlineHelpCentre()"
+        label="{{'helpcentre' | translate}}"></button>
+    </h1>
+
+    <div class="fccHelp">
+  <h2 class="helpTitle">{{ title }}</h2>
+  <h3 class="helpContent" [innerHtml]="getContent()"></h3>
+</div>
+</p-overlayPanel>
+</div>
+
+<p-overlayPanel #op4 autoZIndex="true" class="languageGlobe" (onShow)= "loadSelectedLanguage(true)">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-12 p-lg-12" tabindex="0" id="languagePanelGrid">
+      <div class="languageList pointer-class" *ngFor= "let lang of language" (click)="switchLanguage(lang.label);op4.hide()" (keypress)="switchLanguage(lang.label)" tabindex="0">
+        <div *ngIf = "lang.value.code.toLowerCase() === getSelectedLanguage();else notHighlightedLanguageCode">
+          <div class="languageCodeSelected">
+            <img src="{{imagePath}}languages/{{lang.value.code.toLowerCase()}}.png" alt=""  />
+            <span>
+              {{lang.label}}
+            </span>
+          </div>
+        </div>
+        <ng-template #notHighlightedLanguageCode>
+          <div class = "languageCodeNotSelected">
+          <img src="{{imagePath}}languages/{{lang.value.code.toLowerCase()}}.png" alt=""  />
+          <span>
+            {{lang.label}}
+          </span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+</p-overlayPanel>
+
+
+</div>
+
+<p-dialog header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+    [modal]="true" [maximizable]="false" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>{{ 'popupConfirmationMessage' | translate }}</p>
+    <p-footer>
+        <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+        <p-button role="button"  (click)="displayDialog = false" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+    </p-footer>
+</p-dialog>
+

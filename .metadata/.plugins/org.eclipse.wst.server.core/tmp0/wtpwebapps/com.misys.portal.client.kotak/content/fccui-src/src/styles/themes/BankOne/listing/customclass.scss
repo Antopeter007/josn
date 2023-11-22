@@ -1,0 +1,177 @@
+@import '../../../variables.scss';
+@import '@angular/material/theming';
+
+@mixin custom ($mainstartBackgroundColor,$primaryColor,$ui-cornerright-border-top-right-radius,
+$ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,$ui-cornerright-border-left,
+$ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius,
+$saved-view-blockBackgroundColor,$threeDotsColor,$threeDotsBackgroundColor,$threeDotsFocusBoxShadow,$secondaryColor,$paginator-background,$activePaginator){
+
+    .main-start {
+       background-color: $mainstartBackgroundColor;
+      }
+    .pageTitleBar {
+      color: $primaryColor;
+    }
+   
+      fcc-common-productlisting .saved-view-block {
+        background-color: $saved-view-blockBackgroundColor;
+      }
+      fcc-common-productlisting .threeDots{
+        color: $threeDotsColor;
+       
+      }
+      fcc-common-productlisting .pageTitleBar {
+       
+        color: $progressBar;
+        
+      }
+      fcc-common-transactions-listdef .acc-header .ui-accordion-toggle-icon {
+        float: left;
+        color : $secondaryColor !important;
+      }
+      
+      fcc-common-transactions-listdef .filterHeading {
+         color: $secondaryColor;
+        
+      
+          label {
+              white-space: nowrap;
+          }
+      }
+
+      // style for pagination start here
+      .LeftPaginator .ui-paginator {
+        text-align: left;
+      }
+      .RightPaginator .ui-paginator {
+        text-align: right;
+      }
+      .CenterPagination .ui-paginator{
+        text-align: center; 
+      }
+
+    .ui-dropdown{
+      width: 4em;
+    }
+
+
+      #selectPage{
+        text-align: right;
+      }
+      #selectPage{
+      p-calendar{
+      display: none;
+      }
+    }
+
+      .pi-caret-left:before
+      {
+        content: url("/content/FCCUI/assets/images/prev_1.svg");
+      }
+      
+     .pi-step-backward:before{
+        content: url("/content/FCCUI/assets/images/prev_2.svg");
+      }
+    
+       .pi-caret-right:before{
+        content: url("/content/FCCUI/assets/images/next_1.svg");
+      }
+    
+      .pi-step-forward:before{
+        content: url("/content/FCCUI/assets/images/next_2.svg");
+      }
+      .pi-chevron-down:before
+      { 
+        content: url("/content/FCCUI/assets/images/down.svg");
+      }
+      .ui-paginator{
+        background-color: $paginator-background;
+        border:none;
+      }
+    
+        .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover
+      {
+        background-color: $paginator-background !important;
+        border:none !important;
+      }
+    
+    
+      .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active
+      {
+        background-color: $paginator-background !important;
+        color: $activePaginator;
+        box-shadow: none !important;
+        border:none !important;
+      }
+    
+      body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover {
+        background-color: $paginator-background !important;
+      }
+    
+    body .ui-paginator .ui-paginator-pages .ui-paginator-page:focus{
+      box-shadow: none;
+    }
+    
+    body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover
+    {
+      background-color: $paginator-background !important;
+    }
+    
+   //  .ui-paginator .ui-paginator-pages .ui-paginator-page:focus, .ui-paginator .ui-paginator-first:not(.ui-state-disabled):focus, .ui-paginator .ui-paginator-prev:not(.ui-state-disabled):focus, .ui-paginator .ui-paginator-next:not(.ui-state-disabled):focus, .ui-paginator .ui-paginator-last:not(.ui-state-disabled):focus{
+   //   box-shadow: none !important;
+   //  }
+     .ui-dropdown-items-wrapper{
+       width: 5em;
+       border-radius: 4em;
+     }
+     .ui-dropdown-label-container{
+      width: 5em;
+       .ui-dropdown-label{
+         text-align: left;
+         position: relative;
+         top: 2px;
+       }
+     }
+      // style for pagination ends here
+      
+}
+
+
+.Bank-One{
+    // Default Variables
+$primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$MainHeadingColor:$CHARCOAL-F100;
+$MainHeadingFontSize:20px;
+$SubHeaderColor:$CHARCOAL-A10;
+$SubHeaderFontSize:'';
+$transimission-Tick-Color: $GREEN-01;
+$form-Wrapper-background:$VIOLET-F30;
+$paginator-background:$WHITE;
+$activePaginator:$darkBlue;
+    //main-start
+$mainstartBackgroundColor:$WHITE;
+//ui-corner
+$ui-cornerright-border-top-right-radius: 20rem;
+$ui-cornerright-border-bottom-right-radius: 20rem;
+$ui-cornerright-border: $borderNone;
+$ui-cornerright-border-left: $borderNone;
+$ui-cornerTop-border-top-left-radius: 0px;
+$ui-cornerTop-border-top-right-radius:0px;
+
+//saved-view-block
+$saved-view-blockBackgroundColor:$Alabaster;
+//threeDots
+$threeDotsColor:$CHARCOAL-F75;
+$threeDotsBackgroundColor: $primaryColor;
+$threeDotsFocusBoxShadow: 0 0 0 0.125em $secondaryColor;
+
+
+    @include custom($mainstartBackgroundColor,$primaryColor,$ui-cornerright-border-top-right-radius,
+    $ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,$ui-cornerright-border-left,
+    $ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius,
+    $saved-view-blockBackgroundColor,$threeDotsColor,$threeDotsBackgroundColor,$threeDotsFocusBoxShadow,$secondaryColor,$paginator-background,$activePaginator);
+}

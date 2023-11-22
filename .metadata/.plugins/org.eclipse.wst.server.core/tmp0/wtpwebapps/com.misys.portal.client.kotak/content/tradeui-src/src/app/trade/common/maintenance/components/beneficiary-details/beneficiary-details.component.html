@@ -1,0 +1,35 @@
+<div class="indented-header">
+  <h3>{{'HEADER_BENEFICIARY_DETAILS' | translate }}</h3>
+    <div [formGroup]="beneficiaryDetailsForm">
+      <div>
+        <label> {{ 'PARTIESDETAILS_NAME' | translate }} &nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryName']}}</label>
+      </div>
+      <div>
+        <label> {{ 'PARTIESDETAILS_ADDRESS' | translate }} &nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryAddressLine1']}}</label>
+      </div>
+      <div *ngIf="bgRecord['beneficiaryAddressLine2'] && bgRecord['beneficiaryAddressLine2'] != null && bgRecord['beneficiaryAddressLine2'] !== ''">
+      <label></label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryAddressLine2']}}</label>
+      </div>
+      <div *ngIf="bgRecord['beneficiaryDom'] && bgRecord['beneficiaryDom'] != null && bgRecord['beneficiaryDom'] !== ''">
+        <label></label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryDom']}}</label>
+      </div>
+      <div>
+        <label> {{ 'PARTIESDETAILS_REFERENCE' | translate }} &nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryReference']}}</label>
+      </div>
+       <div *ngIf="option === 'UPDATE_ENTITY'">
+         <label>{{ 'PARTIESDETAILS_ENTITY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+          <input formControlName="entity" type="text" readonly pInputText/>
+          <a *ngIf="!(commonDataService.disableTnx)" class="fa fa-search fa-lg" (click)="openEntityDialog('entity')"></a>
+        </div>
+      <div *ngIf="option === 'UPDATE_CUSTOMER_REF'">
+        <label>{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <input formControlName="cust_reference_id" type="text"/>
+         <fcc-common-error-message [control]="beneficiaryDetailsForm.get('cust_reference_id')" ></fcc-common-error-message>
+      </div>
+    </div>
+</div>

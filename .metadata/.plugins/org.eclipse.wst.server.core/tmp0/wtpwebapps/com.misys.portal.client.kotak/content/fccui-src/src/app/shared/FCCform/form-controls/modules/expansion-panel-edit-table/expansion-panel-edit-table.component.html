@@ -1,0 +1,135 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="control.params.rendered && mode === 'edit'"
+      class="candyStriped {{ control.params.styleClass }}"
+      dir="{{ dir }}"
+    >
+    <div *ngFor="let opt of control.params.options; let i = index">
+        <p-accordion (onClose)="handleAccordinClose($event, opt)" (onOpen)="handleAccordinOpen($event, opt)">
+          <p-accordionTab header="{{ opt.headerLabel }}">
+              <p-table *ngIf = "opt.open"
+                [columns]="opt.columns"
+                [value]="opt.data"
+                editMode="row"
+                selectionMode="multiple"
+                [responsive]="true"
+                [(selection)]="control.params.selectedRow"
+                dataKey="{{ control.params.dataKey }}"
+                [responsive]="true"
+                (onRowSelect)="onTableRowSelect($event, control.key)"
+                (onRowUnselect)="onTableRowUnSelect($event, control.key)"
+                (onHeaderCheckboxToggle)="onFormTableHeaderCheckboxToggle($event,opt.headerLabel)">
+              >
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th id="checkerHeaderColStyle"
+                      tabindex="0"  title="{{'selectAll' | translate}}" scope="col"
+                      attr.text="{{ 'selectAll' | translate }}" attr.aria-label="{{'selectAll' | translate}}"
+                      role="checkbox" dir={{dir}} class="checkboxWidth">
+                      <p-tableHeaderCheckbox [disabled]="opt.disableHeaderCheckbox" ariaLabel="{{ 'selectAll' | translate }}"></p-tableHeaderCheckbox>
+                    </th>
+                    <ng-container *ngFor="let col of opt.columns; let index = index;">
+                      <th
+                        id="col" scope="col"
+                        *ngIf= "!col.hidden"
+                        [ngStyle]="{ width: col.width, 'text-align': (col.align) ?  col.align : (dir === 'rtl' ? 'right' : 'left') }"
+                        class="{{ col.header }}"
+                        tabindex="0"
+                      >
+                      <img *ngIf= "col.editable" class = "iconImage" tabindex="-1" title="{{'edit' | translate}}"
+                      src='{{control.params.contextPath}}/content/FCCUI/assets/icons/edit_small.svg' alt="Edit"/>
+
+                        <span *ngIf= "!col.hidden">{{ col.header }} </span>
+                      </th>
+                    </ng-container>
+                  </tr>
+                </ng-template>
+                <ng-template
+                  pTemplate="body"
+                  let-rowData
+                  let-editing="editing"
+                  let-ri="rowIndex"
+                >
+                <tr>
+                  <td dir={{dir}} tabindex="-1" role="checkbox" class="checkboxWidth">
+                      <mat-checkbox
+                        role="checkbox" title="{{'select' | translate}}"
+                        (keyup.space)="$event.data=rowData;rowData.selected=== 'true' ? onTableRowUnSelect($event, control.key) : onTableRowSelect($event, control.key)"
+                        [pSelectableRow]="rowData"
+                        [checked]="rowData.selected=== 'true' ? true : false"
+                        class="p-col-6 chk-box">
+                      </mat-checkbox>
+                    </td>
+                    <ng-container *ngFor="let col of opt.columns; let index = index;">
+                      <td
+                        pEditableColumn
+                        *ngIf="col.editable && !col.hidden && rowData.selected=== 'true'"
+                        class=""
+                        [ngClass]=""
+                        [pEditableRow]="col.editable ? rowData : {}"
+                        [ngStyle]="col.align ? {'text-align': col.align, 'padding-left': '1em'} : {'text-align': (dir === 'rtl' ? 'right' : 'left')}"
+                        tabindex="0" role="editableRow"
+                      >
+                        <span class="ui-column-title" tabindex="0" >{{ col.header }}</span>
+                        <p-cellEditor tabindex="0">
+                          <ng-template pTemplate="input">
+                            <input role="textbox"
+                              onkeypress="return /[\d.,]/.test(String.fromCharCode(event.charCode));"
+                              [ngClass]="rowData[col.field] === (col.formattedNullValue) ? 'error' : '' "
+                              (blur)="onkeyUpTextField($event, control.key, rowData)"
+                              [maxlength]="rowData[col + 'Maxlength']"
+                              [required]="rowData[col + 'Required']"
+                              [ngModelOptions]="{ standalone: true }"
+                              pInputText
+                              type="text"
+                              [value]="rowData[col.field]"
+                              [(ngModel)]="rowData[col.field]"
+                              [ngStyle]="{'text-align': (col.align) ?  col.align : (dir === 'rtl' ? 'right' : 'left')}"
+                              [disabled]="rowData[col + 'Disabled']"
+                            />
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                            <input role="textbox"
+                            [ngClass]="rowData[col.field] === (col.formattedNullValue) ? 'error' : '' "
+                              (blur)="onkeyUpTextField($event, control.key, rowData)"
+                              [maxlength]="rowData[col + 'Maxlength']"
+                              [required]="rowData[col + 'Required']"
+                              [ngModelOptions]="{ standalone: true }"
+                              pInputText
+                              type="text"
+                              [value]="rowData[col.field]"
+                              [(ngModel)]="rowData[col.field]"
+                              [ngStyle]="{'text-align': (col.align) ?  col.align : (dir === 'rtl' ? 'right' : 'left')}"
+                              [disabled]="rowData[col + 'Disabled']"
+                            />
+                          </ng-template>
+                        </p-cellEditor>
+                      </td>
+                      <td
+                        *ngIf="(!col.editable || rowData.selected=== 'false') && !col.hidden"
+                        [ngStyle]="{'text-align': (col.align) ?  col.align : (dir === 'rtl' ? 'right' : 'left')}"
+                        tabindex="0"
+                      >
+                        <span class="ui-column-title">{{ col.header }}</span>
+                        {{ rowData[col.field] }}
+                      </td>
+                    </ng-container>
+
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                  <tr>
+                      <td *ngIf="control.params.footerMsg" colspan="4">{{ control.params.footerMsg }}</td>
+                      <td  *ngFor="let feeTotal of opt.feeSummary; let index = index;" [ngStyle]="{'text-align': (feeTotal.align) ?  feeTotal.align : (dir === 'rtl' ? 'right' : 'left')}">
+                        {{ feeTotal.value }}
+                      </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </p-accordionTab>
+        </p-accordion>
+      </div>
+    </div>
+  </div>
+</ng-container>

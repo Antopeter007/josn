@@ -1,0 +1,176 @@
+@import './../../../../../../styles/variables.scss';
+:host ::ng-deep .ui-card {
+  background-color: transparent;
+  color: $uiCardColor;
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-card-body {
+  padding: 0em !important;
+}
+
+:host ::ng-deep .fcc-dialog-header {
+  margin-bottom: 1.5em !important;
+  color: $primaryColor;
+  font-weight: 500;
+  line-height: 1.25em;
+  font-size: 1.3em;
+}
+
+:host ::ng-deep .chargeAmt .ui-dropdown {
+  min-width: auto;
+}
+:host ::ng-deep .banner-top-wrapper {
+  border-radius: 0.1875em;
+  background-color: $enquirydetailsBackgroundColor;
+  box-shadow: $topWrapperBoxShadow;
+}
+
+:host ::ng-deep .top-lc-wrapper {
+  padding: 2em 2em 0em 2em;
+}
+:host ::ng-deep .middle-lc-wrapper {
+  border-bottom: 0.1em solid rgb(114, 113, 113);
+}
+:host ::ng-deep .banner-small-text {
+  color: $enquirydetailsmallTextColor;
+  font-family: Roboto;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.188em;
+  opacity: 0.7;
+  letter-spacing: 0.03125em;
+}
+:host ::ng-deep .padd-all {
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+:host ::ng-deep .padd-lft {
+  padding: 0.5em 0em 0em 0em;
+}
+:host ::ng-deep .banner-medium-text {
+  color: $enquiryDetailsMediumTextColor;
+  font-family: Roboto;
+  font-size: 1.313em;
+  font-weight: 500;
+  line-height: 1.5em;
+  margin-top: 0.4em;
+  word-break: break-all;
+  letter-spacing: 0.03125em;
+}
+:host ::ng-deep .banner-border-class {
+  border-right: $borderClassBorderRight;
+  min-height: 0em;
+}
+
+:host ::ng-deep .create-new-loan-Checkbox {
+  color: $BLACK;
+  position: relative;
+  top: -0.125em;
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}
+
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #A65494;
+  }
+  26% {
+      stroke: #7262B4;
+  }
+  51% {
+      stroke: #6AA6B4;
+  }
+  76% {
+      stroke: #C6AE74;
+  }
+}
+
+:host ::ng-deep .riskTypeMargin {
+  margin-top: 0.5em !important;
+}
+
+:host ::ng-deep .banner-border-class-left {
+  border-left: 0.0625em solid $WHITE;
+  min-height: 0em;
+}
+:host ::ng-deep .textalign {
+  text-align: center;
+}
+:host ::ng-deep .banner-small-text-currency {
+  font-size: 1em;
+  color: $enquirydetailsmallTextColor;
+  letter-spacing: 0.0125em;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid $GREY-07;
+  font-weight: bold;
+  background-color: transparent;
+  color: $CHARCOAL-F100;
+  line-height: 0.875em;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+:host ::ng-deep .ui-paginator {
+  display: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: $GRAY-HEX-88 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: $WHITE;
+  border-top: 0.00625em solid $GREY-07;
+  border-bottom: 0.00625em solid $GREY-07;
+  border-left: none;
+  border-right: none;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: center;
+  font-size: 0.875em;
+}
+:host ::ng-deep tr:hover > td {
+  border-bottom: 0.0625em solid $FUCHSIA-F100 !important ;
+  border-top: 0.0625em solid $FUCHSIA-F100 !important ;
+}
+
+:host ::ng-deep tr > td {
+  color: black;
+}
+
+:host ::ng-deep .createButton {
+  position: relative;
+}
+:host ::ng-deep .createButtonArabic {
+  position: relative;
+}
+:host ::ng-deep .cancel {
+  position: relative;
+  text-align: right;
+}
+:host ::ng-deep .cancelArabic {
+  position: relative;
+  text-align: left;
+  margin-left: 1em;
+}

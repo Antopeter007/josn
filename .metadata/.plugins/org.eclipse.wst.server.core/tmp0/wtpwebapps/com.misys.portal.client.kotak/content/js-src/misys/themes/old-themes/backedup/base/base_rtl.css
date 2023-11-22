@@ -1,0 +1,78 @@
+/*
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		RTL version of the Base theme, extended by all other themes. 
+  		
+	description:
+	  	The base theme describes the overall layout of the portal in terms of
+	  	positioning, typography, HTML and Dijit overrides, portlet organisation and
+	  	screen-specific CSS. All other themes extend base with their own colours, 
+	  	fonts, backgrounds, positioning, etc.
+	  	
+	  	RTL Base is organised into the following files
+	  	
+	  	- welcome_rtl.css          (Loaded by all unsecured pages)
+	  	- base_rtl.css             (Loaded by all other pages)
+	  	- common/document_rtl.css  (Typography presets, commonly used classes)
+	  	- common/layout_rtl.css    (Row/Col layout, positioning, header/footer, menu)
+	  	- common/portlets_rtl.css  (Portlet layout, definition of rules for Portlet Specification classes)
+	  	- common/dijit_rtl.css     (Any overrides of core Dijit classes. Must be qualified with .base)
+	  	- common/forms_rtl.css     (Styles for forms, for both edit and view modes)
+	  	- common/screens_rtl.css   (Any screen-specific styles)
+	  	
+	  	Custom themes should override Base in the following way
+	  	
+	  	1. In portal.properties, set dojo.css.base.theme as follows
+	  	
+	  			dojo.css.base.theme = claro base
+	  	
+	  	2. Set dojo.css.theme to the name of your theme, e.g. myTheme
+	  	
+	  	3. Create the folder /js-src/misys/themes/myTheme
+	  	
+	  	4. Create the file welcome.css. Put all required Dijit imports at the top
+	  	
+	  	5.	Import "../base/welcome.css";
+	  	
+	  	6. Create the file myTheme.css. Put all your Dijit imports at the to
+	  	
+	  	7. Import "../base/base.css";
+	  	
+	  	8. If you need to override any rule in Base, create the corresponding CSS file in your
+	  	   theme and add the new rule there, ensuring that you import it as needed in welcome.css
+	  	   or myTheme.css. 
+	  	   
+	  	   For example, suppose I want to add a custom logo. The class .logo is found in 
+	  	   	
+	  	   		base/common/layout.css
+	  	   
+	  	   So I would create
+	  	   
+	  	   		/myTheme/common/layout.css
+	  	   	
+	  	   with my custom rule. 
+	  	 
+	  	 9. In welcome.css and myTheme.css, I would import "common/layout.css";
+	  	  
+	  	 7. If you need to override Dijit classes, you must qualify the override with the name
+	  	    of your theme, which is set as a class on the <body> tag. E.g. 
+	  	    
+	  	    .myTheme .dijitDialog {
+	  	    	// rule override
+	  	    }
+
+	version:   1.0
+	date:      11/02/2013
+	author:    Mauricio Moura da Silva
+	email:     mauricio.mouradasilva@misys.com
+*/
+
+/** Core imports **/
+@import "common/document_rtl.css";
+@import "common/layout_rtl.css";
+@import "common/portlets_rtl.css";
+@import "common/forms_rtl.css";
+@import "common/screens_rtl.css";
+@import "common/dijit_overrides_rtl.css"; 

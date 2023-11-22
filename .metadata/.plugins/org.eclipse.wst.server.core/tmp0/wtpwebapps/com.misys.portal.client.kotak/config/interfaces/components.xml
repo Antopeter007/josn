@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd" 
+			xmlns:xi="http://www.w3.org/2001/XInclude">
+	
+	<xi:include href="base_components.xml"/>
+	<xi:include href="collaboration_components.xml"/>
+	<xi:include href="openaccount_components.xml"/>
+	<xi:include href="tsu_components.xml"/> 
+	<xi:include href="mobi_components.xml"/>
+	<xi:include href="local_services_components.xml"/>
+	<xi:include href="inquiry_components.xml"/>
+	<!-- Uncomment this if the incoming interface are triggered in the webbapp-->
+	<xi:include href="incoming_components.xml"/>
+	<xi:include href="client_components.xml"/>
+	<xi:include href="opics_components.xml"/>
+	<xi:include href="loan_components.xml"/>
+	<!--Incoming component configuration for Gpp -->
+	<xi:include href="payment_components.xml"/>
+</components>

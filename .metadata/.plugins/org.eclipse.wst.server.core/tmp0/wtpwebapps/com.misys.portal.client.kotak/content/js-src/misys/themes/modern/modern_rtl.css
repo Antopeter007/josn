@@ -1,0 +1,32 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Modern (Secured Pages) (RTL version)
+
+	summary:
+  		CSS rules loaded by all *secured* pages
+*/
+
+/** Import the base RTL theme **/
+@import "../base/base_rtl.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow {
+	border-left: 0px solid transparent;
+	border-right: 5px solid transparent;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowHover
+	{
+	border-left: 0px solid #b4a6ea;
+	border-right: 5px solid #b4a6ea;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected
+	{
+	border-left: 0px solid #694ed6;
+	border-right: 5px solid #694ed6;
+}

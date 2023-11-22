@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.system.reset_password"]){dojo._hasResource["misys.binding.system.reset_password"]=true;dojo.provide("misys.binding.system.reset_password");dojo.require("dojo.parser");dojo.require("dijit.form.CheckBox");dojo.require("dijit.form.FilteringSelect");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("misys.validation.password");dojo.require("misys.validation.login");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("dojo._base.json");(function(d,dj,m){function _1(){m.checkConfirmPassword("password_value","password_confirm");};d.mixin(m,{bind:function(){m.setValidation("password_value",m.validateChangePasswordNP);m.setValidation("password_confirm",m.validateChangePasswordCP);m.connect("password_value","onBlur",_1);},clearFields:function(){dojo.forEach(dojo.query(".dijitInputInner"),function(_2){dijit.byId(_2.id).set("value","");});},beforeSubmitEncryption:function(){if(dj.byId("clientSideEncryption")){try{dijit.byId("password").set("value",misys.encrypt(dijit.byId("password").get("value")));return true;}catch(error){misys.dialog.show("ERROR",misys.getLocalization("passwordNotEncrypted"),"",function(){});return false;}}}});})(dojo,dijit,misys);dojo.require("misys.client.binding.system.reset_password_client");}

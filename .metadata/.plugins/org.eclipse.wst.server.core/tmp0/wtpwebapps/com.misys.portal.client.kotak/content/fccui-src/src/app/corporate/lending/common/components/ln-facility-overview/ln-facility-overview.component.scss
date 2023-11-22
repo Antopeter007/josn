@@ -1,0 +1,113 @@
+@import "./../../../../../../styles/variables.scss";
+
+.horMenuCssClass {
+  margin-top: 5em;
+}
+.verMenuCssClass {
+  margin-top: 2em;
+}
+
+.facility-fee-listing-main, .facility-fee-cycle-detail-main {
+  width: 100%;
+  background: $WHITE;
+}
+.pt50{
+  padding-top: 50px;
+}
+.rtl-float{
+  float: right;
+}
+.btSpace{
+  margin: 0 0.5em;
+}
+
+
+
+:host ::ng-deep li.ui-tabmenuitem.ui-corner-top.ui-state-active {
+  border: $ui-tabmenuItem-CornerTopActive-Border !important;
+  background: $ui-tabmenuItem-CornerTopActive-Background !important;
+  font-weight: 500 !important;
+  border-bottom: $ui-tabmenuItem-CornerTopActive-BorderBottom !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active{
+background-color: $ui-tabview-backgroundcolor !important;
+border: $ui-tabview-border !important;
+border-bottom: $ui-tabview-borderBottom !important;
+color: $ui-menuitemColor;
+}
+
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a {
+color: $ui-tabview-Active-a-color !important;
+}
+
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover{
+background-color: $ui-tabview-ActiveHover-BackgroundColor !important;
+border-bottom: $ui-tabview-borderBottom !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover{
+background-color: $ui-tabview-DisabledHover-BackgroundColor !important;
+border: $ui-tabview-DisabledHover-Border !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li{
+border: $ui-tabview-border !important;
+background-color: $ui-tabview-backgroundcolor !important;
+-webkit-transition: background-color 0.2s !important;
+transition: background-color 0.2s !important;
+}
+:host ::ng-deep .ui-state-default .ui-corner-top .ui-tabview-selected .ui-state-active{
+border: none !important;
+}
+:host ::ng-deep .ui-tabview .ui-tabview-panels {
+background-color: $ui-tabview-panels-backgroundColor;
+padding: 0.571em;
+color:  $ui-tabview-panels-Color;
+border-top: $ui-tabview-panels-borderTop;
+border-left: $ui-tabview-panels-borderLeft;
+border-right: $ui-tabview-panels-borderRight;
+border-bottom: $ui-tabview-panels-borderBottom;
+}
+:host ::ng-deep .ui-tabview .ui-tabview-title {
+vertical-align: middle;
+font-family: Roboto;
+font-size: 1.286em;
+line-height: 1.3125em;
+}
+
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+float: none;
+display: inline-block;
+color: $ui-tabview-color !important;
+padding: 0.571em 2em;
+font-weight: 500;
+}
+
+.tooltipStyle .ui-tooltip-text {
+  	background-color: $tooltipstyleBackgroundColor;
+}
+
+:host ::ng-deep .tooltipStyle .ui-tooltip .ui-tooltip-text {
+  background-color:$tooltipstyleBackgroundColor;
+  width: 100em;
+}
+:host ::ng-deep .rtl .ui-tabview .ui-tabview-nav li {
+  float:right;
+}
+
+.facility-screen-class {
+  overflow: auto;
+}
+
+.facility-search-icon
+{
+  display: inline-block;
+  width: 1.2500em;
+  height: 1.3750em;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+.verMenuCssClass {
+  margin-top: 5em !important;
+  margin-right: 2em !important;
+}
+}

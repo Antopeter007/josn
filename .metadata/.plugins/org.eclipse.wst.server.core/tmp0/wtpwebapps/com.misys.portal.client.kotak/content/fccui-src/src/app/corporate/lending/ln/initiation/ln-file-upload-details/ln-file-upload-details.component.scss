@@ -1,0 +1,68 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .form-header {
+  font-size: 1.125em;
+  margin-top: 1.25em;
+  color: rgb(81, 81, 201);
+  font-weight: 700;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid $GREY-07;
+  font-weight: bold;
+  background-color: transparent;
+  color: $CHARCOAL-F100;
+  line-height: 0.875em;
+  text-align: left;
+  font-size: 0.75em;
+}
+
+:host ::ng-deep .ui-paginator {
+  display: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: $GRAY-HEX-88 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 0.0625em solid $GREY-15 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: $WHITE;
+  border-top: 0.00625em solid $GREY-07;
+  border-bottom: 0.00625em solid $GREY-07;
+  border-left: none;
+  border-right: none;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: left;
+  font-size: 0.875em;
+}
+:host ::ng-deep tr:hover > td {
+  border-bottom: 0.0625em solid $FUCHSIA-F100 !important ;
+  border-top: 0.0625em solid $FUCHSIA-F100 !important ;
+}
+
+:host ::ng-deep tr > td {
+  color: black;
+}
+
+:host ::ng-deep .invalid-error-text {
+  color: red;
+  font-size: 0.75em;
+  margin-left: 0em;
+}

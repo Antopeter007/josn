@@ -1,0 +1,35 @@
+<div class="indented-header">
+  <div *ngIf="!viewMode  ;else view_content">
+    <form [formGroup]="beneficiaryDetailsFormSection">
+      <div>
+        <!--Beneficiary Deatils view-->
+        <p-panel header="{{ 'HEADER_BENEFICIARY_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+          <fcc-trade-party-details [bankType]="'beneficiary'" *ngIf="bgRecord" [bgRecord]="bgRecord"
+            [genericBankDetails]="beneficiaryDetailsFormSection" [showBEICode]="'y'" [labelName]="'PARTIESDETAILS_NAME'"
+            [labelAddress]="'PARTIESDETAILS_ADDRESS'" [labelCountry]="'PARTIESDETAILS_CONTRY'">
+          </fcc-trade-party-details>
+          <!-- Contact Details -->
+          <div>
+            <fcc-trade-party-details [bankType]="'contact'" *ngIf="bgRecord" [bgRecord]="bgRecord"
+              [genericBankDetails]="beneficiaryDetailsFormSection" [labelName]="'BENEFICIARY_CONTACT_DETAILS_NAME'"
+              [labelAddress]="'BENEFICIARY_CONTACT_DETAILS_ADDRESS'"></fcc-trade-party-details>
+          </div>
+        </p-panel>
+      </div>
+    </form>
+  </div>
+  <ng-template #view_content>
+    <div *ngIf="iuCommonDataService.getPreviewOption() !== 'SUMMARY'">
+      <!--Beneficiary Deatils view-->
+      <p-panel header="{{ 'HEADER_BENEFICIARY_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+        <fcc-trade-party-details [bankType]="'beneficiary'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord"
+          [viewMode]="true"></fcc-trade-party-details>
+        <!-- Contact Details -->
+        <div>
+          <fcc-trade-party-details [bankType]="'contact'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord"
+            [viewMode]="true"></fcc-trade-party-details>
+        </div>
+      </p-panel>
+    </div>
+  </ng-template>
+</div>

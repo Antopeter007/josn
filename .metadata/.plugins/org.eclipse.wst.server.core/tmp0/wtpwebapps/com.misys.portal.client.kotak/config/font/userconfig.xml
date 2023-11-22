@@ -1,0 +1,62 @@
+<fop version="1.0">
+
+	<!-- Strict user configuration -->
+	<strict-configuration>true</strict-configuration>
+
+	<!-- Strict FO validation -->
+	<strict-validation>true</strict-validation>
+
+	<!-- Base URL for resolving relative URLs -->
+	<base>.</base>
+
+	<!-- Font Base URL for resolving relative font URLs (if not defined in ApacheFOProcessorService-->
+	<!-- <font-base></font-base> -->
+	<!--
+		Source resolution in dpi (dots/pixels per inch) for determining the
+		size of pixels in SVG and bitmap images, default: 72dpi
+	-->
+	<source-resolution>72</source-resolution>
+	<!--
+		Target resolution in dpi (dots/pixels per inch) for specifying the
+		target resolution for generated bitmaps, default: 72dpi
+	-->
+	<target-resolution>72</target-resolution>
+
+	<renderers>
+		<renderer mime="application/pdf">
+			<fonts>
+				<font embed-url="abomsaab.ttf" kerning="yes">
+					<font-triplet name="Iqraa" style="normal" weight="normal" />
+					<font-triplet name="Iqraai" style="italic" weight="normal" />
+					<font-triplet name="Iqraab" style="bold" weight="normal" />
+				</font>
+				<font embed-url="tahoma.ttf" kerning="yes">
+					<font-triplet name="Tahoma" style="normal" weight="normal" />
+					<font-triplet name="Tahomait" style="italic" weight="normal" />
+					<font-triplet name="Tahomabl" style="bold" weight="normal" />
+				</font>
+				<font embed-url="arial.ttf" kerning="yes">
+					<font-triplet name="Arial" style="normal" weight="normal" />
+					<font-triplet name="Arialit" style="italic" weight="normal" />
+					<font-triplet name="Arialbl" style="bold" weight="normal" />
+				</font>
+				<font embed-url="arialuni.ttf" kerning="yes">
+					<font-triplet name="Arialu" style="normal" weight="normal" />
+					<font-triplet name="Arialuit" style="italic" weight="normal" />
+					<font-triplet name="Arialubl" style="bold" weight="normal" />
+				</font>
+				<font embed-url="times.ttf" kerning="yes">
+					<font-triplet name="times" style="normal" weight="normal" />
+					<font-triplet name="times" style="italic" weight="normal" />
+					<font-triplet name="times" style="bold" weight="normal" />
+				</font>
+				<font embed-url="traditionalArabic.ttf" kerning="yes">
+					<font-triplet name="Traditional Arabic" style="normal" weight="normal" />
+					<font-triplet name="Traditional Arabic" style="italic" weight="normal" />
+					<font-triplet name="Traditional Arabic" style="bold" weight="normal" />
+				</font>
+			</fonts>
+		</renderer>
+	</renderers>
+
+</fop>

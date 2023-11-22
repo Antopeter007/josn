@@ -1,0 +1,30 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+  <p-card class="{{classCheck}}">
+    <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+      <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+    </p-header>
+    <h1 class="headerTitle">
+      {{ 'taskWidget' | translate}}
+    </h1>
+    <div class="p-grid taskPadding" *ngFor="let task of taskObj">
+      <div class="p-col-2 imgStyle">
+        <span class="fa fa-user-circle" aria-hidden="true"></span>
+      </div>
+      <div class="p-col-10" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+        <div>
+          <span class="taskRefId">{{task.REFERENCEID}}</span>
+          <span class="taskType">{{task.TASKTYPE | translate}}&nbsp;&#8226;&nbsp;{{task.DATE}}</span>
+        </div>
+
+        <div (click)="navigateToForms($event,task)" (keyup.enter)="navigateToForms($event,task)"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" class="taskName">{{task.TASKNAME}}</div>
+        <div class="desc">{{task.DESCRIPTION}}</div>
+
+        <div (click)="comments(task)"  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (keyup.enter)="comments(task)"   class="commentsMargin">{{task.COMMENTCOUNT}} {{'comments' | translate}}</div>
+        <hr>
+      </div>
+    </div>
+    <div *ngIf="taskObj == ''">{{'emptyTask'|translate}}</div>
+    <button role="button"  pButton *ngIf="taskObj != ''" class="taskMonitoring" type="button"
+      label="{{'taskCenter' | translate}}" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="taskMonitoringCentre()"></button>
+  </p-card>
+</div>

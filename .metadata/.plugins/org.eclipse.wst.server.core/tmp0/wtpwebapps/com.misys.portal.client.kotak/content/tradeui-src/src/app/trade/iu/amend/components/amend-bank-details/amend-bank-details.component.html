@@ -1,0 +1,189 @@
+<div *ngIf ="!viewMode  ;else viewContent">
+  <p-panel *ngIf ="isAmendBankSectionAvailable" header="{{ 'BANK_AND_CONFIRMING_PARTY_DETAILS_LABEL' | translate }}"[toggleable]="true" [collapsed] ="false">
+    <div [formGroup]="amendBankDetailsSection">
+    <p-tabView (onChange)="handleChange($event)" [activeIndex]="index">
+      <!-- Tab 1 details (Requested Confirmation Party)-->
+      <p-tabPanel header="{{'BANKDETAILS_TAB_REQUESTED_CONFIRMATION_PARTY' | translate}}">
+                <div class="field">
+                  <label>{{'BANKDETAILS_TAB_REQUESTED_CONFIRMATION_PARTY' | translate }}&nbsp;</label>
+                    <p-dropdown placeholder=" " [options]="requestedConfirmationPartyObj" id="reqConfParty"
+                        formControlName="reqConfParty" (onChange)="changeRequestedConfirmationParty(); updateConfirmingBankDetails()"
+                        [styleClass]="validationService.isFieldInvalid(amendBankDetailsSection.get('reqConfParty')) ? 'dropDownFieldError' : 'inherit'">
+                    </p-dropdown>
+                    <fcc-common-error-message [control]="amendBankDetailsSection.get('reqConfParty')"></fcc-common-error-message>
+                </div>
+                <div *ngIf="amendBankDetailsSection.get('reqConfParty').value === 'Other'" >
+                <div class="field">
+                    <label>{{'PARTIESDETAILS_SWIFT_CODE' | translate }}</label>&nbsp;
+                    <input pInputText type="text" id="requestedConfirmationPartySwiftCode" formControlName="requestedConfirmationPartySwiftCode"
+                    [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartySwiftCode'))">&nbsp;
+                    <a id="requestedConfirmationPartySwiftCodePopUp" class="fa fa-search fa-lg" (click)="openBankDialog('requestedConfirmationParty')"></a>
+                    <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartySwiftCode')"></fcc-common-error-message>
+                  </div>
+                <div class="field">
+                  <label><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>&nbsp;
+                  <input pInputText type="text" id="requestedConfirmationPartyName" formControlName="requestedConfirmationPartyName" (blur)="updateConfirmingBankDetails()"
+                  [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartyName'))">&nbsp;
+                  <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartyName')"></fcc-common-error-message>
+                </div>
+              <div class="field">
+                  <label><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_ADDRESS' | translate }}</label>&nbsp;
+                  <input pInputText type="text" id="requestedConfirmationPartyAddressLine1" formControlName="requestedConfirmationPartyAddressLine1" (blur)="updateConfirmingBankDetails()"
+                  [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartyAddressLine1'))">
+                  <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartyAddressLine1')"></fcc-common-error-message>
+              </div>
+              <div class="field">
+                  <label>&nbsp;</label>&nbsp;
+                  <input pInputText type="text" id="requestedConfirmationPartyAddressLine2" formControlName="requestedConfirmationPartyAddressLine2" (blur)="updateConfirmingBankDetails()"
+                  [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartyAddressLine2'))">
+                  <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartyAddressLine2')"></fcc-common-error-message>
+              </div>
+              <div class="field">
+                  <label>&nbsp;</label>&nbsp;
+                  <input pInputText type="text" id="requestedConfirmationPartyDom" formControlName="requestedConfirmationPartyDom" (blur)="updateConfirmingBankDetails()"
+                  [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartyDom'))">
+                  <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartyDom')"></fcc-common-error-message>
+              </div>
+              <div *ngIf="!swiftMode" class="field">
+                  <label>&nbsp;</label>&nbsp;
+                  <input pInputText type="text" id="requestedConfirmationPartyAddressLine4" formControlName="requestedConfirmationPartyAddressLine4" (blur)="updateConfirmingBankDetails()">
+                  <fcc-common-error-message [control]="amendBankDetailsSection.get('requestedConfirmationPartyAddressLine4')" 
+                  [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('requestedConfirmationPartyAddressLine4'))"></fcc-common-error-message>
+              </div>
+              </div>
+        </p-tabPanel>
+         <!-- Tab 2 details (Confirming bank) -->
+         <div *ngIf="this.commonDataService.getSubProdCode() === 'STBY'">
+         <p-tabPanel header="{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}" >
+            <div class="field">
+              <label>
+                {{'PARTIESDETAILS_SWIFT_CODE' | translate }}
+              </label>&nbsp;
+              <input pInputText type="text" id="confirmingSwiftCode" formControlName="confirmingSwiftCode"
+              [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingSwiftCode'))">&nbsp;
+              <a *ngIf="isSearchEnabled" class="fa fa-search fa-lg" id="confirmingSwiftCodePopUp" (click)="openBankDialog('confirming')"></a>
+              <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingSwiftCode')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+              <label>{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>&nbsp;
+              <input pInputText type="text" id="confirmingBankName" formControlName="confirmingBankName"
+              [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingBankName'))">&nbsp;
+              <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingBankName')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>{{'PARTIESDETAILS_ADDRESS' | translate }}</label>&nbsp;
+                <input pInputText type="text" id="confirmingBankAddressLine1" formControlName="confirmingBankAddressLine1"
+                [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingBankAddressLine1'))">
+                <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingBankAddressLine1')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>&nbsp;</label>&nbsp;
+                <input pInputText type="text" id="confirmingBankAddressLine2" formControlName="confirmingBankAddressLine2"
+                [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingBankAddressLine2'))">
+                <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingBankAddressLine2')"></fcc-common-error-message>
+            </div>
+            <div class="field">
+                <label>&nbsp;</label>&nbsp;
+                <input pInputText type="text" id="confirmingBankDom" formControlName="confirmingBankDom"
+                [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingBankDom'))">
+                <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingBankDom')"></fcc-common-error-message>
+            </div>
+            <div *ngIf="!swiftMode" class="field">
+                <label>&nbsp;</label>&nbsp;
+                <input pInputText type="text" id="confirmingBankAddressLine4" formControlName="confirmingBankAddressLine4"
+                [class.fieldError]="validationService.isFieldInvalid(amendBankDetailsSection.get('confirmingBankAddressLine4'))">
+                <fcc-common-error-message [control]="amendBankDetailsSection.get('confirmingBankAddressLine4')"></fcc-common-error-message>
+            </div>
+        </p-tabPanel>
+        </div>
+      </p-tabView>
+    </div>
+    </p-panel>
+    </div>
+    <!--View Bank Details Section-->
+  <ng-template #viewContent>
+    <div *ngIf="checkConfirmingBankAndRequestedConfirmationParty()">
+      <p-panel *ngIf="isAmendBankSectionAvailable" header="{{ 'BANK_AND_CONFIRMING_PARTY_DETAILS_LABEL' | translate }}"
+        [toggleable]="true" [collapsed]="!checkConfirmingBankAndRequestedConfirmationParty()">
+        <div *ngIf="bgRecord['requestedConfirmationParty'] != null">
+          <div class="indented-header">
+            <h3>{{'BANKDETAILS_TAB_REQUESTED_CONFIRMATION_PARTY' | translate }}</h3>
+          </div>
+          <div id = "reqConfPartyDetails">
+          <div class="field"
+            *ngIf="bgRecord['reqConfParty']&& bgRecord['reqConfParty']!= null &&  bgRecord['reqConfParty']!= ''">
+            <label for="reqConfParty">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['reqConfParty']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['isoCode'] && bgRecord['requestedConfirmationParty']['isoCode'] != null &&  bgRecord['requestedConfirmationParty']['isoCode'] != ''">
+            <label for="requestedConfirmationPartyIsoCode">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['isoCode']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['name'] && bgRecord['requestedConfirmationParty']['name'] != null &&  bgRecord['requestedConfirmationParty']['name'] != ''">
+            <label for="requestedConfirmationPartyName">{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['name']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['addressLine1'] && bgRecord['requestedConfirmationParty']['addressLine1'] != null &&  bgRecord['requestedConfirmationParty']['addressLine1'] != ''">
+            <label for="requestedConfirmationPartyAddressLine1">{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['addressLine1']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['addressLine2'] && bgRecord['requestedConfirmationParty']['addressLine2'] != null &&  bgRecord['requestedConfirmationParty']['addressLine2'] != ''">
+            <label for="requestedConfirmationPartyAddressLine2">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['addressLine2']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['dom'] && bgRecord['requestedConfirmationParty']['dom'] != null &&  bgRecord['requestedConfirmationParty']['dom'] != ''">
+            <label for="requestedConfirmationPartyDom">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['dom']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['requestedConfirmationParty']['addressLine4'] && bgRecord['requestedConfirmationParty']['addressLine4'] != null &&  bgRecord['requestedConfirmationParty']['addressLine4'] != ''">
+            <label for="requestedConfirmationPartyAddressLine4">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['requestedConfirmationParty']['addressLine4']}}</label>
+          </div>
+          </div>
+        </div>
+        <div *ngIf="bgRecord['confirmingBank'] != null">
+          <div class="indented-header">
+            <h3>{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}</h3>
+          </div>
+          <div id = "confirmingBankDetails">
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['isoCode'] && bgRecord['confirmingBank']['isoCode'] != null &&  bgRecord['confirmingBank']['isoCode'] != ''">
+            <label for="confirmingBankIsoCode">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['isoCode']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['name'] && bgRecord['confirmingBank']['name'] != null &&  bgRecord['confirmingBank']['name'] != ''">
+            <label for="confirmingBankName">{{'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['name']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['addressLine1'] && bgRecord['confirmingBank']['addressLine1'] != null &&  bgRecord['confirmingBank']['addressLine1'] != ''">
+            <label for="confirmingBankAddressLine1">{{'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['addressLine1']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['addressLine2'] && bgRecord['confirmingBank']['addressLine2'] != null &&  bgRecord['confirmingBank']['addressLine2'] != ''">
+            <label for="confirmingBankAddressLine2">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['addressLine2']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['dom'] && bgRecord['confirmingBank']['dom'] != null &&  bgRecord['confirmingBank']['dom'] != ''">
+            <label for="confirmingBankDom">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['dom']}}</label>
+          </div>
+          <div class="field"
+            *ngIf="bgRecord['confirmingBank']['addressLine4'] && bgRecord['confirmingBank']['addressLine4'] != null &&  bgRecord['confirmingBank']['addressLine4'] != ''">
+            <label for="confirmingBankAddressLine4">&nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['confirmingBank']['addressLine4']}}</label>
+          </div>
+          </div>
+        </div>
+      </p-panel>
+    </div>
+  </ng-template>

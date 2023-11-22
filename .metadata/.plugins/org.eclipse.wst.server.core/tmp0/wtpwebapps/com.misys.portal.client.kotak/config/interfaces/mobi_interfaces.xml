@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2012 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<interface name="mhubxmlout" onerror="logger" description="Outputs a message in MOBI format">
+		<component name="environmentreader">	
+			<component name="filter">
+				<properties>
+					<property name="script">(('FT' == event.product_code) ||  (('BK' == event.product_code) &amp;&amp; ('PAYRL' == event.product.bk_type || 'PAYMT' == event.product.bk_type)))</property>
+				</properties>
+				<component name="filter">
+					<properties>
+						<property name="script">'BK' == event.product_code</property>					
+					</properties>
+					<component name="xmloutprocessor">
+						<component name="filewriter">
+						 <properties>
+								<property name="directory.name" description="Specify Connect Direct Location">${BulkXmlOutLocation}</property>
+								<property name="directory.override" description="Overide interface default location">true</property>
+								<property name="directory.isDynamic" description="">false</property>
+						 </properties>
+						</component>
+					</component>
+				</component>
+				<component name="bulkspiltter">
+					<component name="filter">
+						<properties>
+							<property name="script">((${mhubxmlout.enable} == true) &amp;&amp; (('FT' == event.product_code) &amp;&amp; ('INT' == event.sub_product_code || 'TPT' == event.sub_product_code || 'DOM' == event.sub_product_code || 'MUPS' == event.sub_product_code || 'MT103' == event.sub_product_code || 'BILLP' == event.sub_product_code || 'BILLS' == event.sub_product_code || 'BANKB' == event.sub_product_code ))||('SE' == event.product_code &amp;&amp; ('CQBKR' == event.sub_product_code)))</property>
+						</properties>
+						<component name="mhubxslselector">
+							<component name="jsstylesheetpicker">
+								<component name="outgoingboreferenceprocessor">
+									<component name="xmloutprocessor">
+										<component name="xsltransformer">
+											<properties>
+												<property name="stylesheet.isDynamic">true</property>
+												<property name="stylesheet.resource">xslname</property>
+											</properties>
+											<component name="multibranchjmssender"></component>
+											<component name="filewriter">
+												<properties>
+													<property name="failsafe">true</property>
+													<!-- Start: MPS-19819 : Recent notifications update -->
+													<property name="directory.override">true</property>
+													<property name="directory.isDynamic">false</property>
+													<property name="directory.name">${xml_output_directory_mobi}
+													</property>
+													<!-- End: MPS-19819 : Recent notifications update -->
+												</properties>
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="beneficiarynotification" onerror="logger" description="Email notification for the transfer beneficiary">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">(event.product_code == 'FT' &amp;&amp; event.product.objectData.contains("notify_beneficiary") &amp;&amp; event.product.objectData.getField("notify_beneficiary").getValue() == 'Y')</property>
+				</properties>
+				<component name="beneficiarynotificationstylesheetpicker">
+					<component name="xmloutprocessor">
+						<component name="xsltransformer">
+							<properties>
+								<property name="stylesheet.isDynamic">true</property>
+								<property name="stylesheet.resource">xslname</property>
+							</properties>
+							<component name="sendmail" />
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="beneficiarynotificationparam" onerror="logger" description="Email notification for the transfer beneficiary">
+			<component name="environmentreader">
+				<component name="filter">
+					<properties>
+						<property name="script">event.product_code == 'FT' &amp;&amp; event.product.objectData.contains("notify_beneficiary") &amp;&amp; event.product.objectData.getField("notify_beneficiary").getValue() == 'Y' &amp;&amp; event.tnx_stat_code == '03'</property>
+					</properties>
+					<component name="genericmailformatter">
+							<properties>
+								<property name="alerttype">10</property>
+							</properties>
+							<component name="genericSendMail"/>
+						</component>
+				</component>
+			</component>
+		</interface>
+
+	<!-- This interface to be merged with xmlin /xmljmsin as the case once tested along with other incoming interfaces -->
+	<interface name="mhubportalin" onerror="logger" description="MHUB Customer profile incoming (company and user)">
+		<component name="environmentreader">
+			<!-- <component name="xsltransformer"> -->
+			<component name="incominginitiator">
+				<component name="documentparser">
+					<!-- MPS-19819 : Recent notifications update : Added component useridsanddttmmanager -->
+					<component name="useridsanddttmmanager">
+						<transaction>
+							<component name="incomingboreferenceprocessor">
+								<component name="databaseserializer" />
+							</component>
+						</transaction>						
+						<component name="filter">
+								<properties><property name="script">(event.tnx_stat_code == 04) &amp;&amp; (event.product_code != 'FT' || (event.product_code == 'FT' &amp;&amp; event.bulk_ref_id == '') || (event.product_code == 'FT' &amp;&amp; event.bulk_ref_id != '' &amp;&amp; ${childTnxSubmissionAlert} == true))</property></properties>
+								<component name="genericmailformatter">
+									<properties>
+										<property name="destination">00</property>
+										<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+										<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+										<property name="alerttype">01</property>
+									</properties>
+									
+									<component name="genericSendMail"/>
+								</component>
+						</component> 
+						<component name="filter">
+							<properties>
+								<property name="script">('FT' != event.product_code &amp;&amp; 'ADVNO' != event.sub_product_code)</property>
+							</properties>
+							<component name="mhubxslselector">
+								<component name="jsstylesheetpicker">
+									<component name="xmloutprocessor">
+										<component name="xsltransformer">
+											<properties>
+												<property name="stylesheet.resource">xslname</property>
+												<property name="stylesheet.isDynamic">true</property>
+											</properties>
+											<component name="jmssender">
+												<!-- MHUB MQ Server properties -->
+												<!-- uncomment only when send the response to mhub queue -->
+												<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+													<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+													<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+													<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+													</properties> -->
+												<component name="filewriter">
+													<properties>
+														<property name="directory.override">true</property>
+														<property name="directory.isDynamic">false</property>
+														<property name="directory.name">${xml_output_directory_mobi}
+														</property>
+													</properties>
+												</component>
+												<!-- uncomment jmssender when mhub jms is enabled -->
+												<!-- <component name="jmssender" /> -->
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+							<component name="mhubloginprintfilter">
+								<component name="xsltransformer">
+									<properties>
+										<property name="stylesheet.resource">xslname</property>
+										<property name="stylesheet.isDynamic">true</property>
+									</properties>
+									<component name="jmssender">
+										<!-- MHUB MQ Server properties -->
+										<!-- uncomment only when send the response to mhub queue -->
+										<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+											<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+											<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+											<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+											</properties> -->
+										<component name="filewriter">
+											<properties>
+												<property name="directory.override">true</property>
+												<property name="directory.isDynamic">false</property>
+												<property name="directory.name">${xml_output_directory_mobi}
+												</property>
+											</properties>
+										</component>
+										<!-- uncomment jmssender when mhub jms is enabled -->
+										<!-- <component name="jmssender" /> -->
+									</component>
+								</component>
+							</component>
+							<component name="mhubpwprintfilter">
+								<component name="xsltransformer">
+									<properties>
+										<property name="stylesheet.resource">xslname</property>
+										<property name="stylesheet.isDynamic">true</property>
+									</properties>
+									<component name="jmssender">
+										<!-- MHUB MQ Server properties -->
+										<!-- uncomment only when send the response to mhub queue -->
+										<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+											<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+											<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+											<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+											</properties> -->
+										<component name="filewriter">
+											<properties>
+												<property name="directory.override">true</property>
+												<property name="directory.isDynamic">false</property>
+												<property name="directory.name">${xml_output_directory_mobi}
+												</property>
+											</properties>
+										</component>
+										<!-- uncomment jmssender when mhub jms is enabled  -->
+										<!-- <component name="jmssender" />-->
+									</component>
+								</component>
+							</component>
+						</component> 
+						<component name="filter">
+								<properties><property name="script">(event.product_code == 'FT')</property></properties>
+								<component name="bkstatusprocessor">									
+										<component name="filter">
+											<properties>
+												<property name="script">(${erp.enable} ==true) &amp;&amp; (event.product_code == 'BK'  &amp;&amp; event.tnx_stat_code == '04')</property>
+											</properties>				
+											<component name="productoutputprocessor">
+												<properties>
+													<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+													<property name="subtype" description="Output sub-type code">01</property>
+												</properties>
+													<component name="xmloutprocessor">
+														<properties>
+															<property name="directory" description="output base directory">${xml_output_directory}</property>
+															<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+															<property name="export.attachments" description="true to export attachments into directory">false</property>
+														</properties>
+														<transaction>
+															<component name="outputwriter">
+																<properties>
+																	<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+																</properties>
+															</component>
+														</transaction>
+												</component>
+											</component>
+								     </component>										
+																							   
+							</component>						
+						</component>
+						<component name="filter">
+							<properties><property name="script">(${balanceAlert.enable} ==true &amp;&amp; event instanceof com.misys.portal.interfaces.incoming.AccountSet)</property></properties>							
+																								   
+				 
+				  
+								<component name="onlinealert" failsafe="true" />
+								<component name="mailformatter" failsafe="true">
+									<properties>
+										<property name="destination">00</property>
+				   
+										<property name="titlekey">N906_BAOT</property>
+																																				  
+										<property name="bodykey">N907_BAOB</property>
+				   
+									</properties>
+									<component name="sendmail"/>
+								</component>	
+						</component>
+					</component>
+				<component name="filter">
+					<properties>
+						<property name="script">(${export.tnxdata2fbi.enable}==true)
+						</property>
+					</properties>
+					<component name="tnxdata2fbiprocessor">
+						<component name="multibranchjmssender">
+							<properties>
+								<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory
+								</property>
+								<property name="providerURL">${provider_url}</property>
+								<property name="factory">QueueConnectionFactory</property>
+								<property name="queue">dynamicQueues/${fbi_tnx_queue_name}
+								</property>
+							</properties>
+							<component name="filewriter" />
+						</component>
+					</component>
+				</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="mhubenablexmlout" onerror="logger" description="MHUB Customer profile enable out">
+		<component name="environmentreader">
+		  <component name="filter">
+			<properties>
+				<property name="script">(${mhubenablexmlout.enable} == true)</property>
+			</properties>
+			<component name="mhubxslselector">
+				<component name="jsstylesheetpicker">
+					<component name="xmloutprocessor">
+						<component name="xsltransformer">
+							<properties>
+								<property name="stylesheet.resource">xslname</property>
+								<property name="stylesheet.isDynamic">true</property>
+							</properties>
+							<component name="jmssender">
+								<!-- MHUB MQ Server properties -->
+								<!-- uncomment only when send the response to mhub queue -->
+								<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+									<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+									<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+									<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+									</properties> -->
+								<component name="filewriter">
+									<properties>
+										<property name="directory.override">true</property>
+										<property name="directory.isDynamic">false</property>
+										<property name="directory.name">${xml_output_directory_mobi}
+										</property>
+									</properties>
+								</component>
+								<!-- uncomment jmssender when mhub jms is enabled -->
+								<!-- <component name="jmssender" /> -->
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+		</component>
+	</interface>
+
+	<interface name="mhubloginpwdprintout" onerror="logger"
+		description="MHUB Login Printing">
+		<component name="environmentreader">
+		  <component name="filter">
+			<properties>
+				<property name="script">(${mhubloginpwdprintout.enable} == true)</property>
+			</properties>
+			<component name="mhubloginprintfilter">
+				<component name="xsltransformer">
+					<properties>
+						<property name="stylesheet.resource">xslname</property>
+						<property name="stylesheet.isDynamic">true</property>
+					</properties>
+					<component name="jmssender">
+						<!-- MHUB MQ Server properties -->
+						<!-- uncomment only when send the response to mhub queue -->
+						<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+							<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+							<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+							<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+							</properties> -->
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory_mobi}</property>
+							</properties>
+						</component>
+						<!-- uncomment jmssender when mhub jms is enabled -->
+						<!-- <component name="jmssender" /> -->
+					</component>
+				</component>
+			</component>
+			<component name="mhubpwprintfilter">
+				<component name="xsltransformer">
+					<properties>
+						<property name="stylesheet.resource">xslname</property>
+						<property name="stylesheet.isDynamic">true</property>
+					</properties>
+					<component name="jmssender">
+						<!-- MHUB MQ Server properties -->
+						<!-- uncomment only when send the response to mhub queue -->
+						<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+							<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+							<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+							<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+							</properties> -->
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory_mobi}</property>
+							</properties>
+						</component>
+						<!-- uncomment jmssender when mhub jms is enabled -->
+						<!-- <component name="jmssender" /> -->
+					</component>
+				</component>
+			</component>
+		</component>
+		</component>
+	</interface>
+
+	<interface name="mhubpasswordresetprintout" onerror="logger"
+		description="MHUB Reset Password Printing">
+		<component name="environmentreader">
+		  <component name="filter">
+			<properties>
+				<property name="script">(${mhubpasswordresetprintout.enable} == true)</property>
+			</properties>
+			<component name="mhubpwresetprintfilter">
+				<component name="xsltransformer">
+					<properties>
+						<property name="stylesheet.resource">xslname</property>
+						<property name="stylesheet.isDynamic">true</property>
+					</properties>
+					<component name="jmssender">
+						<!-- MHUB MQ Server properties -->
+						<!-- uncomment only when send the response to mhub queue -->
+						<!-- <properties> <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+							<property name="providerURL">file:/D:/jms/binding</property> <property name="factory">MhubQueueConnectionFactory</property> 
+							<property name="queue">V5.TO.MHUB</property> <property name="user">mhubsvc</property> 
+							<property name="password">Mhub737136</property> <property name="multibankEnabled">false</property> 
+							</properties> -->
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory_mobi}</property>
+							</properties>
+						</component>
+						<!-- uncomment jmssender when mhub jms is enabled -->
+						<!-- <component name="jmssender" /> -->
+					</component>
+				</component>
+			</component>
+		</component>
+		</component>
+	</interface>
+</interfaces>
+

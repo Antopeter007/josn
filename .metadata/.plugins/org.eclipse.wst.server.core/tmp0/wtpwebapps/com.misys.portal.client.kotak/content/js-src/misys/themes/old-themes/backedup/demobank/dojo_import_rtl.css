@@ -1,0 +1,24 @@
+/*
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank (Secured Pages)
+
+	summary:
+  		Dojo imports used by the theme (RTL version)
+  		
+	description:
+	  	Refer to themes/demobank/demobank_rtl.css
+*/
+
+/* Import RTL overrides */
+@import "../../../dijit/themes/dijit_rtl.css";
+@import "../../../dijit/themes/claro/layout/TabContainer_rtl.css";
+@import "../../../dijit/themes/claro/form/Common_rtl.css";
+@import "../../../dijit/themes/claro/form/Button_rtl.css";
+@import "../../../dijit/themes/claro/TitlePane_rtl.css";
+@import "../../../dijit/themes/claro/Calendar_rtl.css";
+@import "../../../dijit/themes/claro/Dialog_rtl.css";
+@import "../../../dijit/themes/claro/Editor_rtl.css";
+@import "../../../dijit/themes/claro/Menu_rtl.css";
+@import "../../../dijit/icons/editorIcons_rtl.css";

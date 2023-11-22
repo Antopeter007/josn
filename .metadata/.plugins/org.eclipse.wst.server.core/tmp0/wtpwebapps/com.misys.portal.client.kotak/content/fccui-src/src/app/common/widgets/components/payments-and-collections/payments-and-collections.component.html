@@ -1,0 +1,62 @@
+<div>
+    <div class="p-col-2 multipleTabHeading" *ngIf="multipleTabEnable" id="multipleTabEnableHeaderId">
+      <label class="multipleTabEnableHeaderId">
+      {{ tabName | translate }}
+    </label>
+    </div>
+    <mat-toolbar class="toolbarclass" *ngIf="invokeList">
+        <span [ngClass]="dir === 'rtl' ? 'rtlSpan' : 'ltlSpan'">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'eqCcy' | translate }}</mat-label>
+                <mat-select aria-label="currency" disableOptionCentering (selectionChange)="onCurrencyChange($event)" [value]="viewInCurrency">
+                    <ng-container *ngFor="let currency of currencyList">
+                        <mat-option [value]="currency === viewInCurrency ? viewInCurrency : currency">{{currency}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <button role="button"  mat-button class = "groupDownloadIcon" *ngIf="groupDownloadEnabled" [matMenuTriggerFor] = "menuDownload"
+                tabindex="0" attr.aria-label="{{'listDownload' | translate}}">
+                <em title="{{ 'listDownload' | translate }}" class="fa fa-download "></em>
+            </button>
+        </span>
+    </mat-toolbar>
+    <div>
+        <mat-button-toggle-group class="uxg-filtering-toggle-group">
+            <mat-button-toggle *ngFor="let group of groupDetails" [checked] = "group.checked" class="p-col-12 cardStyle" (change)="onSelectionGroup(group)" tabindex="0">
+                <mat-label class="spanWidth">
+                    <div class="groupLabelStyle"><strong>{{ group.groupName | translate}}</strong></div>
+                    <div class="accountsCountColor">{{'displayAccountsCount' | translate : { accountsCount: group.groupAccountCount } }}</div>
+                    <div class="spanWidth">
+                        <span *ngIf="isDisplayAmtBalance" [ngClass]="dir === 'rtl' ? 'rtlCurrencyType' : 'currencyType'">{{ viewInCurrency }}</span>
+                        <span *ngIf="isDisplayAmtBalance" title="{{ group.totalAmountBalance }}" [ngClass]="dir === 'rtl' ? 'rtlAmountSpan' : 'amountSpan'">{{ group.totalAmountBalance | currencyAbbreviation }}</span>
+                        <span [ngClass]="dir === 'rtl' ? 'rtlIconWrapper' : 'iconWrapper'">
+                            <button role="button"  mat-icon-button [dir]="dir" tabindex="0" class="example-icon filter-icon" aria-label="filter" (click)="onSelectionGroup(group);edit()">
+                                <em class="fa fa-edit" [title]="editMsg" aria-hidden="true"></em>
+                            </button>
+                        </span>
+                    </div>
+                </mat-label>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div *ngIf="!invokeList" class="msgStyles">
+        <div *ngIf="noGroupsAdded">{{ 'noGroupsAddedMessage' | translate }}</div>
+        <div *ngIf="noAccountsAdded">{{ 'noAccountsAddedMessage' | translate }}</div>
+    </div>
+    <div *ngIf="invokeList">
+        <div class="cumulativeAmountMessageStyle">{{'cumulativeAmountMessage' | translate : { statementType: tnxStatementType, numberOfDays: tnxStatementsFromPastNDays } }}</div>
+        <fcc-common-transactions-listdef #transactionListdef [inputParams]="params" [equivalentCurrency]="viewInCurrency"
+            (retrieveFilterParams)="retrieveFilterParams($event)" (selectedAccounts) = "getSelectedAccounts($event)">
+        </fcc-common-transactions-listdef>
+    </div>
+</div>
+
+<mat-menu #menuDownload="matMenu" class="downloadMatMenu">
+    <ul>
+      <li *ngFor= "let downloadOption of allowedDownloadOptions">
+        <span mat-menu-item tabindex="0" (click)="onClickDownloadOption(downloadOption)" (keydown.enter)="onClickDownloadOption(downloadOption)">
+            {{downloadOption | translate}}
+        </span>
+      </li>
+  </ul>
+</mat-menu>

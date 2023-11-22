@@ -1,0 +1,201 @@
+@import './../../../initiation/component/si-narrative-details/si-narrative-details.component.scss';
+
+
+:host ::ng-deep .deleteIcon {
+    display: inline-block;
+    color: white;
+    border-radius: 51%;
+    box-shadow: 0 0 2px #888;
+    background-color: #694ED6 !important;
+    padding: 0.2em 1.8em 1.6em 0.4em;
+    margin-left: 6px;
+    font-size: 15px;
+  }
+  :host ::ng-deep .tableStyle{
+  width: 100% !important;
+  }
+  
+  :host ::ng-deep .UploadPurchase{
+    margin-left: 6em
+  }
+  
+  .NewPurchase:hover {
+    background-color: #694ED6 !important;
+  }
+  .NewPurchase:active {
+    background-color: #694ED6 !important;
+  }
+  .NewPurchase:focus {
+    background-color: #694ED6 !important;
+  }
+  .NewPurchase {
+    color: #694ED6 !important;
+    font-weight: bolder !important;
+    padding-left: 40px;
+}
+:host ::ng-deep .rightDirect{
+  padding-left: 40px !important;
+}
+  
+  :host ::ng-deep .grossAmountValueClass{
+        float: left;
+        margin-left: 20px;
+        font-weight: bold;
+      }
+      
+  :host ::ng-deep .grossAmountLabelClass{
+      float: left;
+    }
+    :host ::ng-deep .poOverrideError{
+      height: 0px !important;
+      min-height: 10px !important;
+      margin: 0;
+    }
+    :host ::ng-deep .poOverrideError span{
+    color: #694ed6;
+    font-size: 0.9em;
+    text-align: left;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    }
+    :host ::ng-deep .poSeparator span{
+      visibility: hidden;
+    }
+    :host ::ng-deep .poSeparator{
+      padding: 0;
+      height: 20px;
+      margin: 0;
+      border-bottom: 2px solid #694ed6;
+    }
+      
+    :host ::ng-deep .poOverrideErrorLayout{
+      padding: 0;
+      min-height: 10px !important;
+      margin: 0;
+    }
+
+    :host ::ng-deep .lcAmountValueClass{
+      float: left;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    
+:host ::ng-deep .lcAmountLabelClass{
+    float: left;
+  }
+  
+  :host ::ng-deep .lcAmountClass{
+  margin: auto 0 auto auto !important;
+      float: right;
+      width: auto !important;
+    }
+    
+    :host ::ng-deep .grossAmountClass{
+    margin: auto 0 auto auto !important;
+        float: right;
+        width: auto !important;
+      }
+  
+  .UploadPurchase:hover {
+    background-color: #ffffff !important;
+    color: #694ED6 !important;
+    font-weight: bolder !important;
+  }
+  
+  .UploadPurchase:active {
+    background-color: #ffffff !important;
+    color: #694ED6 !important;
+    font-weight: bolder !important;
+  }
+  
+  .UploadPurchase:focus {
+    background-color: #ffffff !important;
+    color: #694ED6 !important;
+    font-weight: bolder !important;
+    border-color: #694ED6 !important;
+    border-radius: 60px !important;
+  }
+  
+  :host ::ng-deep .warningStyle {
+    font-size: 13px !important;
+      color: #ff0000;
+      height: 0.875em;
+      padding-top: 10px;
+      font-size: 0.9em;
+      font-weight: 300;
+      letter-spacing: 0.00625em;
+      font-family: Roboto, sans-serif !important;
+      line-height: 0.875em;
+      word-break: break-word;
+  }
+  
+  :host ::ng-deep .grossAmountError{
+    font-size: 13px !important;
+    color: #ff0000;
+    font-size: 0.9em;
+    font-weight: 300;
+    letter-spacing: 0.00625em;
+    font-family: Roboto, sans-serif !important;
+    line-height: 0.875em;
+    word-break: break-word;
+    margin: auto 0 auto auto !important;
+    float: right;
+  
+  }
+  :host ::ng-deep .deleteIcon .material-icons {
+    font-family: "Material Icons" !important;
+    position: absolute !important;
+    cursor: pointer;
+    font-size: 21px;
+  }
+  :host ::ng-deep .grossAmountLayout{
+    width: 50% !important;
+    margin: auto 0 auto auto !important;
+    padding: 0;
+    float: right;
+  }
+  :host ::ng-deep .lcAmountLayout{
+    width: 50% !important;
+    margin: auto 0 auto auto !important;
+    padding: 0;
+    float: right;
+  }
+  :host ::ng-deep .grossAmountErrorLayout{
+    width: 50% !important;
+    float: right;
+    padding: 0;
+    margin:-2em 0 auto auto !important;
+  }
+  
+  :host ::ng-deep .deductionsStyle{
+    padding: 0;
+  }
+  :host ::ng-deep .grossAmountVisibility{
+    visibility: hidden;
+  }
+  
+  :host ::ng-deep .goodsPercentageStyle{
+    padding: 0;
+  
+  }
+  
+  @media screen and (min-width: 992px) {
+    :host ::ng-deep .p-lg-6{
+      width: 50% !important;
+    }
+    :host ::ng-deep .p-lg-8{
+      width: 75% !important;
+    }
+    :host ::ng-deep .p-lg-4{
+      width: 33% !important;
+    }
+    :host ::ng-deep .p-lg-2{
+      width: 25% !important;
+    }
+}
+
+:host ::ng-deep .overrideLCAmountSelectButton {
+  margin-top: -1em !important;
+  padding-top: -1em !important;
+  float: right !important;
+}

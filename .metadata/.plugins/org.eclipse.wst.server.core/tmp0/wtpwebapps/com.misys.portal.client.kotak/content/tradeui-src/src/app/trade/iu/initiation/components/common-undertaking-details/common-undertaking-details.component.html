@@ -1,0 +1,281 @@
+<div *ngIf ="!viewMode  ;else view_content">
+    <div [formGroup]="formName">
+          <div class="field">
+              <label id="rulesApplicableLabel" for="{{undertakingType}}Rule">
+                {{'GTEEDETAILS_RULES_LABEL' | translate }}&nbsp;
+              </label>
+              <p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="rulesApplicableObj"
+                [showClear]="true" id= "{{undertakingType}}Rule" formControlName="{{undertakingType}}Rule" (onChange)="changeRulesApplicable();">
+              </p-dropdown>
+          </div>
+
+          <div class="field" *ngIf = "this.formName.get(this.undertakingType + 'Rule').value === '99'">
+              <label for="{{undertakingType}}RuleOther">&nbsp;</label>
+              <input pInputText type="text" id="{{undertakingType}}RuleOther" formControlName="{{undertakingType}}RuleOther" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'RuleOther'))">
+              <fcc-common-error-message [control]="formName.get(undertakingType + 'RuleOther')"></fcc-common-error-message>
+          </div>
+
+          <div class="field">
+              <label id="placeOfJurisdictionLabel">
+                {{'PLACE_OF_JURISDICTION_LABEL' | translate }}&nbsp;
+              </label>
+              <input class="input-three-digit" pInputText type="text" maxlength='2' id="{{undertakingType}}GovernCountry" formControlName="{{undertakingType}}GovernCountry"  oninput="this.value = this.value.toUpperCase()"
+              (change)="countryValidationService.validateCountry(formName.get(undertakingType + 'GovernCountry'))" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'GovernCountry'))">
+              <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" (click)="openCountryDialog()"></a>
+              <fcc-common-error-message [control]="formName.get(undertakingType + 'GovernCountry')"></fcc-common-error-message>
+          </div>
+          <div *ngIf ="isSwiftVersion2023Enable" class="field">
+            <label id="governcountry">{{'BG_GOVERN_COUNTRY_SUBDIV' | translate }}&nbsp;</label>
+            <input pInputText type="text" id="{{undertakingType}}GovernCountrySubdiv" formControlName="{{undertakingType}}GovernCountrySubdiv" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'GovernCountrySubdiv'))">
+            <fcc-common-error-message [control]="formName.get(undertakingType + 'GovernCountrySubdiv')"></fcc-common-error-message>
+          </div>
+          <div class="field">
+              <label id="governingLawLabel">{{'GTEEDETAILS_GOVERNING_LABEL' | translate }}&nbsp;</label>
+              <input pInputText type="text" id="{{undertakingType}}GovernText" formControlName="{{undertakingType}}GovernText" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'GovernText'))">
+              <fcc-common-error-message [control]="formName.get(undertakingType + 'GovernText')"></fcc-common-error-message>
+          </div>
+          <div class="field">
+              <label id="demandIndicatorLabel" for="{{undertakingType}}DemandIndicator">
+                {{'GTEEDETAILS_DEMAND_INDICATOR_LABEL' | translate }}&nbsp;
+              </label>
+              <p-dropdown [styleClass]="'fcc-dropdown-larger'" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="demandIndicatorDropdown" [showClear]="true"
+              id="{{undertakingType}}DemandIndicator" formControlName="{{undertakingType}}DemandIndicator" >
+              </p-dropdown>
+          </div>
+
+        <div class="field" *ngIf="commonData.getProductCode() !== 'BR' ">
+            <label for="{{undertakingType}}TextTypeCode">{{'GTEEDETAILS_TEXT_UNDERTAKING_LABEL' | translate }}<span *ngIf="undertakingType === 'bg' || (isBankUser)" class="required-field-symbol">*</span>&nbsp;</label>
+            <p-dropdown placeholder="{{this.commonService.setPlaceholder(undertakingType)}}" [options]="undertakingTextObj" [showClear]="(undertakingType === 'cu' && !isBankUser)"
+             id="{{undertakingType}}TextTypeCode" formControlName="{{undertakingType}}TextTypeCode" (onChange)="changeUndertakingText();" [styleClass]="validationService.isFieldInvalid(formName.get(undertakingType + 'TextTypeCode')) ? 'dropDownFieldError' : 'inherit'">
+            </p-dropdown>
+            <fcc-common-error-message *ngIf="undertakingType === 'bg' || isBankUser"
+            [control]="formName.get(undertakingType + 'TextTypeCode')"></fcc-common-error-message>
+        </div>
+
+        <div class="field" *ngIf="this.formName.get(this.undertakingType + 'TextTypeCode').value === '04'">
+            <label for="{{undertakingType}}TextTypeDetails"><span *ngIf="undertakingType === 'bg' || isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+            <input pInputText type="text" id="{{undertakingType}}TextTypeDetails" formControlName="{{undertakingType}}TextTypeDetails" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'TextTypeDetails'))">
+            <fcc-common-error-message [control]="formName.get(undertakingType + 'TextTypeDetails')"></fcc-common-error-message>
+        </div>
+
+        <div class="field" *ngIf="undertakingType === 'bg' && this.formName.get(this.undertakingType + 'TextTypeCode').value === '01' && !(isBankUser && this.commonData.getProductCode() === 'BR' && bgRecord['tnxTypeCode'] ==='01')">
+            <label for="{{undertakingType}}SpecialTerms">
+              {{'GTEEDETAILS_SPECIAL_TERMS_RULES_LABEL' | translate }}&nbsp;
+            </label>
+            <p-dropdown [styleClass]="'fcc-dropdown-larger'" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="specialTermsObj"
+                [showClear]="true" id="{{undertakingType}}SpecialTerms" formControlName="{{undertakingType}}SpecialTerms">
+            </p-dropdown>
+        </div>
+
+        <div class="field">
+            <label id="textLanguageLabel" for="{{undertakingType}}TextLanguage">
+              {{'GTEEDETAILS_TEXT_LANGUAGE_LABEL' | translate }}&nbsp;
+            </label>
+            <p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="textLanguageObj"
+                [showClear]="true" id="{{undertakingType}}TextLanguage" formControlName="{{undertakingType}}TextLanguage" (onChange)="changeTextLanguage()">
+            </p-dropdown>
+        </div>
+
+        <div class="field" *ngIf = "this.formName.get(this.undertakingType + 'TextLanguage').value === '*'">
+            <label for="{{undertakingType}}TextLanguageOther">&nbsp;</label>
+            <input pInputText type="text" id="{{undertakingType}}TextLanguageOther" formControlName="{{undertakingType}}TextLanguageOther" [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'TextLanguageOther'))">
+            <fcc-common-error-message [control]="formName.get(undertakingType + 'TextLanguageOther')"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="isMOAmend" class="field">
+          <label id="bgAmdDetailsLabel" for="bgAmdDetails">{{'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}</label>
+          <textarea  class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get('bgAmdDetails')" pInputTextarea [rows]="150" [cols]="65" formControlName="bgAmdDetails"
+            id="bgAmdDetails" [class.fieldError]="validationService.isFieldInvalid(formName.get('bgAmdDetails'))">
+          </textarea>
+          <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgAmdDetails')"></a>
+          <fcc-common-narrative-character-count *ngIf="swiftMode" [enteredCharCount]="formName.get('bgAmdDetails') ? (formName.get('bgAmdDetails').value ? formName.get('bgAmdDetails').value.length : 0) : 0" [allowedCharCount]="9750" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="formName.get('bgAmdDetails')"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="!isMOAmend && swiftMode" class="field">
+            <label *ngIf="undertakingType === 'bg'" for="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}">{{'GTEEDETAILS_TEXT_OF_UNDERTAKING_LABEL' | translate }}<span class="required-field-symbol">*</span> &nbsp;</label>
+            <label *ngIf="undertakingType === 'cu'" for="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}">
+              {{'CU_UNDERTAKING_TERMS_AND_CONDITIONS' | translate }}
+            </label>
+            <textarea  class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))" pInputTextarea [rows]="150" [cols]="65" formControlName="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}"
+            id="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}" [class.fieldError]="validationService.isFieldInvalid(formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')))">
+            </textarea>
+            <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))"></a>
+        <fcc-common-narrative-character-count [enteredCharCount]="formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')).value ? formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')).value.length : 0" [allowedCharCount]="9750" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))"></fcc-common-error-message>
+       </div>
+       <div *ngIf="!isMOAmend && !swiftMode" class="field">
+            <label id="textOfUndertakingLabel" *ngIf="undertakingType === 'bg'" for="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}">{{'GTEEDETAILS_TEXT_OF_UNDERTAKING_LABEL' | translate }}<span class="required-field-symbol">*</span> &nbsp;</label>
+            <label *ngIf="undertakingType === 'cu'" for="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}">
+                {{'CU_UNDERTAKING_TERMS_AND_CONDITIONS' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+            <textarea  class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))" pInputTextarea [rows]="150" [cols]="65" [nonSwiftValidation]="true" formControlName="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}"
+            id="{{getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')}}" [class.fieldError]="validationService.isFieldInvalid(formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking')))">
+            </textarea>
+            <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))"></a>
+        <fcc-common-error-message [control]="formName.get(getNarrativeNameForUndertaking('bgNarrativeTextUndertaking'))"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="!isMOAmend && swiftMode" class="field">
+            <label for="{{undertakingType}}NarrativeUnderlyingTransactionDetails">{{'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span> &nbsp;</label>
+            <textarea id="{{undertakingType}}NarrativeUnderlyingTransactionDetails" class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails')" pInputTextarea [rows]="50" [cols]="65" [nonSwiftValidation]="true" formControlName="{{undertakingType}}NarrativeUnderlyingTransactionDetails"
+             [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails'))">
+            </textarea>
+         <fcc-common-narrative-character-count [enteredCharCount]="formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails').value ? formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails').value.length : 0" [allowedCharCount]="3250" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails')"></fcc-common-error-message>
+        </div>
+        <div *ngIf="!isMOAmend && !swiftMode" class="field">
+            <label id="underlyingTransactionDetailsLabel" *ngIf="undertakingType === 'bg'" for="{{undertakingType}}NarrativeUnderlyingTransactionDetails">{{'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}<span class="required-field-symbol">*</span> &nbsp;</label>
+            <label id="underlyingTransactionDetailsLabel" *ngIf="undertakingType === 'cu'" for="{{undertakingType}}NarrativeUnderlyingTransactionDetails">{{'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+            <textarea id="{{undertakingType}}NarrativeUnderlyingTransactionDetails"  class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails')" pInputTextarea [rows]="50" [cols]="65" [nonSwiftValidation]="true" formControlName="{{undertakingType}}NarrativeUnderlyingTransactionDetails"
+             [class.fieldError]="validationService.isFieldInvalid(formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails'))">
+            </textarea>
+        <fcc-common-error-message [control]="formName.get(undertakingType + 'NarrativeUnderlyingTransactionDetails')"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="!isMOAmend && swiftMode" class="field">
+            <label for="{{undertakingType}}NarrativePresentationInstructions">
+              {{'GTEEDETAILS_PRESENTATION_INSTRUCTIONS' | translate }}&nbsp;
+            </label>
+            <textarea id="{{undertakingType}}NarrativePresentationInstructions" class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(undertakingType + 'NarrativePresentationInstructions')" pInputTextarea [rows]="100" [cols]="65" formControlName="{{undertakingType}}NarrativePresentationInstructions">
+            </textarea>
+            <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog(undertakingType + 'NarrativePresentationInstructions')"></a>
+        <fcc-common-narrative-character-count [enteredCharCount]="formName.get(undertakingType + 'NarrativePresentationInstructions').value ? formName.get(undertakingType + 'NarrativePresentationInstructions').value.length : 0" [allowedCharCount]="6500" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="formName.get(undertakingType + 'NarrativePresentationInstructions')"></fcc-common-error-message>
+       </div>
+       <div *ngIf="!isMOAmend && !swiftMode " class="field">
+            <label id="presentationInstructionsLabel" for="{{undertakingType}}NarrativePresentationInstructions">
+              {{'GTEEDETAILS_PRESENTATION_INSTRUCTIONS' | translate }}&nbsp;
+            </label>
+            <textarea id="{{undertakingType}}NarrativePresentationInstructions"  class="textarea-fixed-height" fccCommonTextArea [controlName]="formName.get(undertakingType + 'NarrativePresentationInstructions')" pInputTextarea [rows]="100" [cols]="65" [nonSwiftValidation]="true" formControlName="{{undertakingType}}NarrativePresentationInstructions">
+            </textarea>
+            <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog(undertakingType + 'NarrativePresentationInstructions')"></a>
+        <fcc-common-error-message [control]="formName.get(undertakingType + 'NarrativePresentationInstructions')"></fcc-common-error-message>
+       </div>
+       <p-confirmDialog id="entityWarningPhraseUndertaking" appendTo="body" class="lf-confirm-dialog" key='entityWarningPhraseUndertaking' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+    </div>
+
+     <!--View Template-->
+      <ng-template #view_content>
+        <div *ngIf = "commonDataService.getPreviewOption() !== 'SUMMARY'">
+          <div *ngIf ="undertakingType == '' || undertakingType == null || undertakingType == 'bg'" id="undertakingDetails">
+            <div id =  "bg_rule_view_row" *ngIf ="bgRecord['bgRule'] && bgRecord['bgRule'] != null && bgRecord['bgRule'] != ''">
+                <label for =  "bgRule" id =  "bg_rule_label">{{ 'GTEEDETAILS_RULES_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{commonDataService.getRulesApplicable(bgRecord['bgRule']) | translate}}</label>
+            </div>
+            <div id =  "bg_rule_other_view_row" *ngIf ="bgRecord['bgRule'] && bgRecord['bgRule'] ==='99' && bgRecord['bgRuleOther'] && bgRecord['bgRuleOther'] != null && bgRecord['bgRuleOther'] != ''">
+                <label for =  "bg_rule_other" id =  "bg_rule_other_label">&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgRuleOther']}}</label>
+            </div>
+            <div id =  "govern_view_row" *ngIf ="bgRecord['bgGovernCountry'] && bgRecord['bgGovernCountry'] != null && bgRecord['bgGovernCountry'] != ''">
+                <label for =  "bg_govern" id =  "bg_govern_label">{{ 'PLACE_OF_JURISDICTION_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgGovernCountry']}}</label>
+            </div>
+            <div id =  "govern_country_view_row" *ngIf ="bgRecord['bgGovernCountrySubdiv'] && bgRecord['bgGovernCountrySubdiv'] != null && bgRecord['bgGovernCountrySubdiv'] != ''">
+                <label for =  "bg_govern_country" id =  "bg_govern_label">{{ 'BG_GOVERN_COUNTRY_SUBDIV' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgGovernCountrySubdiv']}}</label>
+            </div>
+            <div id =  "govern_view_row" *ngIf ="bgRecord['bgGovernText'] && bgRecord['bgGovernText'] != null && bgRecord['bgGovernText'] != ''">
+                <label for =  "bg_govern" id =  "bg_govern_label">{{ 'GTEEDETAILS_GOVERNING_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgGovernText']}}</label>
+            </div>
+            <div id =  "bg_demand_indicator_view_row" *ngIf ="bgRecord['bgDemandIndicator'] && bgRecord['bgDemandIndicator'] != null && bgRecord['bgDemandIndicator'] != ''">
+                <label for =  "bgDemandIndicator" id =  "bg_demand_indicator_label">{{ 'GTEEDETAILS_DEMAND_INDICATOR_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{commonDataService.getDemandIndicator(bgRecord['bgDemandIndicator']) | translate}}</label>
+            </div>
+            <div id =  "bg_text_type_code_view_row" *ngIf ="bgRecord['bgTextTypeCode'] && bgRecord['bgTextTypeCode'] != null && bgRecord['bgTextTypeCode'] != ''">
+                <label for =  "bgTextTypeCode" id =  "bg_text_type_code_label">{{ 'GTEEDETAILS_TEXT_UNDERTAKING_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{commonDataService.getUndertakingText(bgRecord['bgTextTypeCode']) | translate}}</label>
+            </div>
+            <div id =  "bg_text_type_details_view_row" *ngIf ="bgRecord['bgTextTypeCode'] && bgRecord['bgTextTypeCode'] ==='04' && bgRecord['bgTextTypeDetails'] && bgRecord['bgTextTypeDetails'] != null && bgRecord['bgTextTypeDetails'] != ''">
+                <label for =  "bgTextTypeDetails" id =  "bg_text_type_details_label">&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgTextTypeDetails']}}</label>
+            </div>
+            <div id =  "bg_special_terms_view_row" *ngIf ="bgRecord['bgSpecialTerms'] && bgRecord['bgSpecialTerms'] != null && bgRecord['bgSpecialTerms'] != ''">
+                <label for =  "bgSpecialTerms" id =  "bg_special_terms_label">{{ 'GTEEDETAILS_SPECIAL_TERMS_RULES_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{commonDataService.getSpecialTerms(bgRecord['bgSpecialTerms']) | translate}}</label>
+            </div>
+            <div id =  "text_language_view_row" *ngIf ="bgRecord['bgTextLanguage'] && bgRecord['bgTextLanguage'] != null && bgRecord['bgTextLanguage'] != ''">
+                <label for =  "bgTextLanguage" id =  "text_language_label">{{ 'GTEEDETAILS_TEXT_LANGUAGE_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{commonDataService.getTextLanguage(bgRecord['bgTextLanguage']) | translate}}</label>
+            </div>
+            <div id =  "text_language_other_view_row" *ngIf ="bgRecord['bgTextLanguage'] && bgRecord['bgTextLanguage'] ==='*' && bgRecord['bgTextLanguageOther'] && bgRecord['bgTextLanguageOther'] != null && bgRecord['bgTextLanguageOther'] != ''">
+                <label for =  "bgTextLanguageOther" id =  "text_language_other_label">&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgTextLanguageOther']}}</label>
+            </div>
+            <div id =  "narrative_text_undertaking_view_row" *ngIf="!isMOAmend && bgRecord['bgNarrativeTextUndertaking'] && bgRecord['bgNarrativeTextUndertaking'] != null && bgRecord['bgNarrativeTextUndertaking'] != ''">
+                <label for =  "bgNarrativeTextUndertaking" id =  "narrative_text_undertaking_label">{{ 'GTEEDETAILS_TEXT_OF_UNDERTAKING_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left-narrative">{{bgRecord['bgNarrativeTextUndertaking']}}</label>
+            </div>
+            <div id =  "narrative_underlying_transaction_details_view_row" *ngIf="!isMOAmend && bgRecord['bgNarrativeUnderlyingTransactionDetails'] && bgRecord['bgNarrativeUnderlyingTransactionDetails'] != null && bgRecord['bgNarrativeUnderlyingTransactionDetails'] != ''">
+                <label for =  "bgNarrativeUnderlyingTransactionDetails" id =  "narrative_underlying_transaction_details_label">{{ 'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left-narrative">{{bgRecord['bgNarrativeUnderlyingTransactionDetails']}}</label>
+            </div>
+            <div id =  "narrative_presentation_instructions_view_row" *ngIf="!isMOAmend && bgRecord['bgNarrativePresentationInstructions'] && bgRecord['bgNarrativePresentationInstructions'] != null && bgRecord['bgNarrativePresentationInstructions'] != ''">
+                <label for =  "bgNarrativePresentationInstructions" id =  "narrative_presentation_instructions_label">{{ 'GTEEDETAILS_PRESENTATION_INSTRUCTIONS' | translate }}&nbsp;</label>
+                <label class="label-left-narrative">{{bgRecord['bgNarrativePresentationInstructions']}}</label>
+            </div>
+          </div>
+
+          <!--For CU Undertaking Section checking for purpose as counter and local undertaking(02) / counter-counter and counter undertaking(03)-->
+            <div *ngIf="undertakingType == 'cu' && bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] != '' && (bgRecord['purpose'] === '02' || bgRecord['purpose'] === '03')" id="cuUndertakingDetails">
+              <div id =  "cu_rule_view_row" *ngIf ="bgRecord['cuRule'] && bgRecord['cuRule'] != null && bgRecord['cuRule'] != ''">
+                  <label for =  "cuRule" id =  "cu_rule_label">{{ 'GTEEDETAILS_RULES_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{commonDataService.getRulesApplicable(bgRecord['cuRule']) | translate}}</label>
+              </div>
+              <div id =  "cu_rule_other_view_row" *ngIf ="bgRecord['cuRule'] && bgRecord['cuRule'] ==='99' && bgRecord['cuRuleOther'] && bgRecord['cuRuleOther'] != null && bgRecord['cuRuleOther'] != ''">
+                  <label for =  "cuRuleOther" id =  "cu_rule_other_label">&nbsp;</label>
+                  <label class="label-left">{{bgRecord['cuRuleOther']}}</label>
+              </div>
+              <div id =  "cu_govern_view_row" *ngIf ="bgRecord['cuGovernCountry'] && bgRecord['cuGovernCountry'] != null && bgRecord['cuGovernCountry'] != ''">
+                <label for =  "cu_govern" id =  "cu_govern_label">{{ 'PLACE_OF_JURISDICTION_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['cuGovernCountry']}}</label>
+            </div>
+              <div id =  "cu_govern_country_view_row" *ngIf ="bgRecord['cuGovernCountrySubdiv'] && bgRecord['cuGovernCountrySubdiv'] != null && bgRecord['cuGovernCountrySubdiv'] != ''">
+                <label for =  "cu_govern_country" id =  "cu_govern_label">{{ 'BG_GOVERN_COUNTRY_SUBDIV' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['cuGovernCountrySubdiv']}}</label>
+            </div>
+              <div id =  "cu_govern_view_row" *ngIf ="bgRecord['cuGovernText'] && bgRecord['cuGovernText'] != null && bgRecord['cuGovernText'] != ''">
+                  <label for =  "cu_govern" id =  "cu_govern_label">{{ 'GTEEDETAILS_GOVERNING_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{bgRecord['cuGovernText']}}</label>
+              </div>
+              <div id =  "cu_demand_indicator_view_row" *ngIf ="bgRecord['cuDemandIndicator'] && bgRecord['cuDemandIndicator'] != null && bgRecord['cuDemandIndicator'] != ''">
+                  <label for =  "cuDemandIndicator" id =  "cu_demand_indicator_label">{{ 'GTEEDETAILS_DEMAND_INDICATOR_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{commonDataService.getDemandIndicator(bgRecord['cuDemandIndicator']) | translate}}</label>
+              </div>
+              <div id =  "cu_text_type_code_view_row" *ngIf ="bgRecord['cuTextTypeCode'] && bgRecord['cuTextTypeCode'] != null && bgRecord['cuTextTypeCode'] != ''">
+                  <label for =  "cuTextTypeCode" id =  "cu_text_type_code_label">{{ 'GTEEDETAILS_TEXT_UNDERTAKING_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{commonDataService.getUndertakingText(bgRecord['cuTextTypeCode']) | translate}}</label>
+              </div>
+              <div id =  "cu_text_type_details_view_row" *ngIf ="bgRecord['cuTextTypeCode'] && bgRecord['cuTextTypeCode'] ==='04' && bgRecord['cuTextTypeDetails'] && bgRecord['cuTextTypeDetails'] != null && bgRecord['cuTextTypeDetails'] != ''">
+                  <label for =  "cuTextTypeDetails" id =  "cu_text_type_details_label">&nbsp;</label>
+                  <label class="label-left">{{bgRecord['cuTextTypeDetails']}}</label>
+              </div>
+              <div id =  "cu_text_language_view_row" *ngIf ="bgRecord['cuTextLanguage'] && bgRecord['cuTextLanguage'] != null && bgRecord['cuTextLanguage'] != ''">
+                  <label for =  "cu_text_language" id =  "cu_text_language_label">{{ 'GTEEDETAILS_TEXT_LANGUAGE_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{commonDataService.getTextLanguage(bgRecord['cuTextLanguage']) | translate}}</label>
+              </div>
+              <div id =  "cu_text_language_other_view_row" *ngIf ="bgRecord['cuTextLanguage'] && bgRecord['cuTextLanguage'] ==='*' && bgRecord['cuTextLanguageOther'] && bgRecord['cuTextLanguageOther'] != null && bgRecord['cuTextLanguageOther'] != ''">
+                  <label for =  "cu_text_language_other" id =  "cu_text_language_other_label">&nbsp;</label>
+                  <label class="label-left">{{bgRecord['cuTextLanguageOther']}}</label>
+              </div>
+              <div id =  "narrative_text_undertaking_cu_view_row" *ngIf ="bgRecord['cuNarrativeUndertakingTermsAndConditions'] && bgRecord['cuNarrativeUndertakingTermsAndConditions'] != null && bgRecord['cuNarrativeUndertakingTermsAndConditions'] != ''">
+                  <label for =  "narrativeUndertakingTermsAndConditionsCu" id =  "narrative_text_undertaking_label">{{ 'CU_UNDERTAKING_TERMS_AND_CONDITIONS' | translate }}&nbsp;</label>
+                  <label class="label-left-narrative">{{bgRecord['cuNarrativeUndertakingTermsAndConditions']}}</label>
+              </div>
+              <div id =  "narrative_underlying_transaction_details_cu_view_row" *ngIf ="bgRecord['cuNarrativeUnderlyingTransactionDetails'] && bgRecord['cuNarrativeUnderlyingTransactionDetails'] != null && bgRecord['cuNarrativeUnderlyingTransactionDetails'] != ''">
+                  <label for =  "narrativeUnderlyingTransactionDetailsCu" id =  "narrative_underlying_transaction_details_label">{{ 'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left-narrative">{{bgRecord['cuNarrativeUnderlyingTransactionDetails']}}</label>
+              </div>
+              <div id =  "narrative_presentation_instructions_cu_view_row" *ngIf ="bgRecord['cuNarrativePresentationInstructions'] && bgRecord['cuNarrativePresentationInstructions'] != null && bgRecord['cuNarrativePresentationInstructions'] != ''">
+                  <label for =  "narrativePresentationInstructionsCu" id =  "narrative_presentation_instructions_label">{{ 'GTEEDETAILS_PRESENTATION_INSTRUCTIONS' | translate }}&nbsp;</label>
+                  <label class="label-left-narrative">{{bgRecord['cuNarrativePresentationInstructions']}}</label>
+              </div>
+              <div id =  "amendment_details_cu_view_row" *ngIf ="bgRecord['cuAmdDetails'] && bgRecord['cuAmdDetails'] != null && bgRecord['cuAmdDetails'] != ''">
+                  <label for = "cuAmdDetails"  id ="amendment_details_cu_label">{{ 'COUNTER_AMEND_NARRATIVE' | translate }}:&nbsp;</label>
+                  <label class="label-left" >{{bgRecord['cuAmdDetails']}}</label>
+              </div>
+            </div>
+        </div>
+    </ng-template>
+

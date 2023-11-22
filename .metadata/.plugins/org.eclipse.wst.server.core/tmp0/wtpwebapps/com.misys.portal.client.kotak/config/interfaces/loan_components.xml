@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<component name="loanProcessor">
+		<description>Process the loan(s) submission</description>
+		<classname>com.misys.portal.interfaces.components.loan.LoanProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	
+	<component name="checkLoanExist">
+		<description>Process the loan(s) submission</description>
+		<classname>com.misys.portal.interfaces.components.loan.CheckLoanExist</classname>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="loanStatusUpdator">
+		<description>Process the loan(s) submission</description>
+		<classname>com.misys.portal.interfaces.components.loan.LoanStatusUpdator</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+
+	<component name="unReferencedLNUpdator">
+		<description>Validate the incoming StaticDataFile</description>
+		<classname>com.misys.portal.interfaces.incoming.UpdateUnReferencedLoans</classname>
+		<consumer type="ObjectConsumer" object="StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>		
+	</component>
+
+		
+</components>

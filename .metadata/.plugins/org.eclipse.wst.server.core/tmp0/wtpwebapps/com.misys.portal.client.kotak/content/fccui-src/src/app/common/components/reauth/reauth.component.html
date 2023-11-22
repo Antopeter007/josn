@@ -1,0 +1,14 @@
+<div class="componentSize">
+  <div class="verifyText">{{'passwordVerification' | translate}}</div>
+  <div class="enterInputText">{{'enterPassword' | translate}}</div>
+
+  <span class="ui-float-label implementation">
+    <input role="textbox" appBlockPaste OnFocusInput="true" id="auth-input" type="password" pInputText #authInput>
+    <label for="auth-input">{{'password' | translate}}</label>
+  </span>
+
+  <div aria-live="polite" class="error" *ngIf="displayError">{{errorHeader | translate}}: {{validationError | translate}}</div>
+  <div [ngClass]="displayError ? 'validate-error' : 'validate'" *ngIf="authInput.value !== ''" >
+    <button role="button"  pButton type="button" label="{{'validate' | translate}}" class="ui-button-rounded primaryButton" (click)="validate(authInput)"></button>
+  </div>
+</div>

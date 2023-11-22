@@ -1,0 +1,28 @@
+
+
+.IdleOkButton {
+  color: #ffffff !important;
+  border-radius: 1.125em !important;
+  font-size: 0.8125em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border-color: #c137a2  !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: #c137a2 !important;
+  float: right !important;
+}
+
+:host ::ng-deep .leftDirect {
+  float : left;
+}
+
+:host ::ng-deep .rightDirect {
+  float: right;
+}
+
+:host ::ng-deep .primaryButton .session{
+  width: 100% !important;
+}

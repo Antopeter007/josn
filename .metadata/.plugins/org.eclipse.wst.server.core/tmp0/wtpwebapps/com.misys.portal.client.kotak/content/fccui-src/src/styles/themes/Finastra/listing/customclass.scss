@@ -1,0 +1,81 @@
+@import '../../../variables.scss';
+@import '@angular/material/theming';
+
+@mixin custom ($mainstartBackgroundColor,$primaryColor,$ui-cornerright-border-top-right-radius,
+$ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,$ui-cornerright-border-left,
+$ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius,
+$saved-view-blockBackgroundColor,$threeDotsColor,$threeDotsBackgroundColor,$threeDotsFocusBoxShadow,$secondaryColor){
+
+    .main-start {
+       background-color: $mainstartBackgroundColor;
+      }
+    .pageTitleBar {
+      color: $primaryColor;
+    }
+   
+      fcc-common-productlisting .saved-view-block {
+        background-color: $saved-view-blockBackgroundColor;
+      }
+      fcc-common-productlisting .threeDots{
+        color: $threeDotsColor;
+       
+      }
+      fcc-common-productlisting .pageTitleBar {
+       
+        color: $progressBar;
+        
+      }
+      fcc-common-transactions-listdef .acc-header .ui-accordion-toggle-icon {
+        float: left;
+        color : $secondaryColor !important;
+      }
+      
+      fcc-common-transactions-listdef .filterHeading {
+         color: $secondaryColor;
+        
+      
+          label {
+              white-space: nowrap;
+          }
+      }
+      
+}
+
+
+.finastra{
+    // Default Variables
+$primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$MainHeadingColor:$CHARCOAL-F100;
+$MainHeadingFontSize:20px;
+$SubHeaderColor:$CHARCOAL-A10;
+$SubHeaderFontSize:'';
+$transimission-Tick-Color: $GREEN-01;
+$form-Wrapper-background:$VIOLET-F30;
+
+    //main-start
+$mainstartBackgroundColor:$WHITE;
+//ui-corner
+$ui-cornerright-border-top-right-radius: 20rem;
+$ui-cornerright-border-bottom-right-radius: 20rem;
+$ui-cornerright-border: $borderNone;
+$ui-cornerright-border-left: $borderNone;
+$ui-cornerTop-border-top-left-radius: 0px;
+$ui-cornerTop-border-top-right-radius:0px;
+
+//saved-view-block
+$saved-view-blockBackgroundColor:$Alabaster;
+//threeDots
+$threeDotsColor:$CHARCOAL-F75;
+$threeDotsBackgroundColor: $primaryColor;
+$threeDotsFocusBoxShadow: 0 0 0 0.125em $secondaryColor;
+
+
+    @include custom($mainstartBackgroundColor,$primaryColor,$ui-cornerright-border-top-right-radius,
+    $ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,$ui-cornerright-border-left,
+    $ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius,
+    $saved-view-blockBackgroundColor,$threeDotsColor,$threeDotsBackgroundColor,$threeDotsFocusBoxShadow,$secondaryColor);
+}

@@ -1,0 +1,5 @@
+<div class="ui-rtl" dir={{dir}}>
+    <fcc-common-productlisting  [inputParams]= "inputParams" (rowSelectEventListdef)="getDataOnRowClick($event)" (rowUnSelectEventListdef)="removeDataOnRowClick($event)" (multiSelectEventListdef)="onHeaderCheckboxToggle($event)">
+    </fcc-common-productlisting>
+    <button role="button"  *ngIf="enableLicenseOKButton" pButton class="primaryButton okbutton" label="{{'ok' | translate}}" (click)="onClickOK()"></button>
+</div>

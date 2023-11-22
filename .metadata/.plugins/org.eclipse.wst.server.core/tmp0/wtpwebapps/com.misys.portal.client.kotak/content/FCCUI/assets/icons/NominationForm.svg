@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_1280" data-name="Path 1280" d="M106.23,12.01,119.7,26.05v2.29l-13.67-.61Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle id="Ellipse_1787" data-name="Ellipse 1787" cx="32.88" cy="32.88" r="32.88" transform="translate(724.1 418.48)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_68009" data-name="Group 68009" transform="translate(-322 -5190)">
+    <g id="Netbanking_Icons-37" data-name="Netbanking Icons-37" transform="translate(322 5190)">
+      <rect id="Rectangle_521" data-name="Rectangle 521" width="150" height="150" fill="none"/>
+      <path id="Path_1278" data-name="Path 1278" d="M115.56,23.27a.32.32,0,0,1-.08-.09q-3.06-3-6.1-6.1a.53.53,0,0,1-.1-.06c-.33-.35-.68-.67-1-1H34.78a5.27,5.27,0,0,0-5.28,5.27V132.72A5.27,5.27,0,0,0,34.78,138h76.48a5.27,5.27,0,0,0,5.27-5.27V24.07a12.491,12.491,0,0,0-.97-.8Z" fill="#cbd8dc"/>
+      <path id="Path_1279" data-name="Path 1279" d="M33.47,16.73V129.31A4.72,4.72,0,0,0,38.19,134h77.58a4.72,4.72,0,0,0,4.73-4.72l-.82-90.91V25.92l-4.28-.87c0-2.61-1.32-1.4-3.93-1.4L113,21.91,106.22,12h-68a4.72,4.72,0,0,0-4.75,4.73Z" fill="#eaf2f5"/>
+      <rect id="Rectangle_522" data-name="Rectangle 522" width="69.04" height="6.96" rx="3.48" transform="translate(42.51 100.1)" fill="#dee9ec"/>
+      <rect id="Rectangle_523" data-name="Rectangle 523" width="69.04" height="6.96" rx="3.48" transform="translate(42.51 114.1)" fill="#dee9ec"/>
+      <g id="Group_21457" data-name="Group 21457" clip-path="url(#clip-path)">
+        <rect id="Rectangle_524" data-name="Rectangle 524" width="18.17" height="18.67" rx="5.2" transform="translate(106.05 7.46)" fill="#cbd8dc"/>
+      </g>
+      <rect id="Rectangle_525" data-name="Rectangle 525" width="150" height="150" fill="none"/>
+      <g id="Group_21550" data-name="Group 21550" transform="translate(-680 -392.41)" clip-path="url(#clip-path-2)">
+        <circle id="Ellipse_1785" data-name="Ellipse 1785" cx="32.88" cy="32.88" r="32.88" transform="translate(724.1 418.48)" fill="#dee9ec"/>
+        <circle id="Ellipse_1786" data-name="Ellipse 1786" cx="12.39" cy="12.39" r="12.39" transform="translate(744.61 434.83)" fill="#e0121b"/>
+        <path id="Path_2051" data-name="Path 2051" d="M785.47,486.67a28.5,28.5,0,0,0-57,0Z" fill="#e0121b"/>
+      </g>
+    </g>
+  </g>
+</svg>

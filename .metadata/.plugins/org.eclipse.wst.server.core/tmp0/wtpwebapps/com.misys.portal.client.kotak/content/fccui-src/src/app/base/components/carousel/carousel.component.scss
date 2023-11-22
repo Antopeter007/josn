@@ -1,0 +1,163 @@
+@import '../../../../styles/variables.scss';
+:host ::ng-deep .ui-carousel-item {
+  padding: 1em;
+}
+
+:host
+  ::ng-deep
+  .ui-carousel
+  .ui-carousel-viewport
+  .ui-carousel-items
+  .ui-carousel-item:hover {
+  transform: scale(0.97, 0.97);
+  box-shadow: 0.125em 0.125em 0.625em 0em #eaeaea,
+    -0.125em -0.125em 0.625em 0em #eaeaea;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dropdown {
+  display: none;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-mobiledropdown {
+  display: none;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-header {
+  padding: 0em;
+  height: 0em;
+  background-color: transparent;
+  border: 0em solid #c8c8c8;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-button.pi-arrow-circle-right {
+  position: absolute;
+  top: 42%;
+  z-index: 999;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-button.pi-arrow-circle-left {
+  position: absolute;
+  top: 42%;
+  z-index: 999;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+:host
+::ng-deep
+.ui-carousel
+.ui-carousel-viewport
+.ui-carousel-items
+.ui-carousel-item {
+margin: 0.4em;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-viewport {
+  border: 0em solid #c8c8c8;
+}
+:host ::ng-deep .ui-carousel .ui-carousel-viewport .ui-carousel-items .ui-carousel-item {
+  border:none;
+  border-right: 0.0625em solid #e2e2e2;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item.ui-state-highlight .ui-carousel-dot-icon {
+  background-color: $secondaryColor;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-next:not(.ui-state-disabled):hover {
+color: $secondaryColor;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-content .ui-carousel-prev:not(.ui-state-disabled):hover {
+  color: $secondaryColor;
+  }
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item .ui-carousel-dot-icon {
+  height: 0.4375em;
+  width: 0.4375em;
+  }
+
+:host ::ng-deep .ui-carousel-items-container  .ui-carousel-item{
+  padding-right: 0.5em;
+  text-align: justify;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-carousel-item{
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+:host ::ng-deep .ui-carousel-items-content {
+  overflow: hidden;
+  width: 100%;
+}
+
+.selectedCardDisplay {
+  display: flex;
+}
+
+.cardHeader {
+  font-size: 1.5em;
+  line-height: 1.375em;
+  font-weight: bold;
+  color: #000000;
+}
+
+.subHeader {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: #6948d9;
+}
+
+.entityStyle {
+  color: #575757;
+  font-size: 0.8750em;
+  font-weight: 500;
+  word-wrap: break-word;
+  line-height: 3em;
+}
+
+.cardTextStyle {
+  color: #575757;
+  font-size: 0.8750em;
+  font-weight: 500;
+}
+
+.cardTextStyle2 {
+  color: #6948d9;
+  font-size: 0.8750em;
+  font-weight: 500;
+}
+
+.heading {
+  background: #493694;
+}
+.greetingStyle {
+  padding: 1em;
+  line-height: normal;
+}
+
+.greetingText {
+  font-size: x-large;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.textStyle {
+  display: block;
+  color: #ffffff;
+}
+
+.row-eq-height {
+  display: grid;
+  flex-grow: inherit;
+  outline: none;
+}
+
+.carsol {
+  background: linear-gradient(to bottom, #fafafa 0%, #fafafa 60%, #fafafa 50%, #fafafa 100%);
+}

@@ -1,0 +1,37 @@
+@import '../../../variables.scss';
+
+@mixin Styling_of_Check_box($secondaryColor, $sizeOfCheckBox) {
+    // Background color of checkbox when bydefault selected.
+    checkbox-disabled .mat-checkbox-checkmark {
+        background-color: $secondaryColor !important;
+    }
+    // Background color of checkbox when it's not checked bydefault.
+    .mat-checkbox-checked .mat-checkbox-checkmark {
+        background: $secondaryColor !important;
+    }
+    // for changing the width and height of the checkBox and border of the checkbox use this.
+    .mat-checkbox-inner-container {
+        display: inline-block;
+        height: $sizeOfCheckBox !important; //------- No need to change other than that.
+        line-height: 0;
+        margin: auto;
+        margin-right: 8px;
+        order: 0;
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: $sizeOfCheckBox !important; //-------
+        flex-shrink: 0;
+    }
+}
+
+.Bank-One {
+
+    // CheckBox uses Secondary color Bydefault. for Changing background color of the check box. 
+    $secondaryColor:$GOLD-Y50;
+
+    // Styling of CheckBox. like change the width and height of the chackbox, remember height and width should be equal ratio.
+    $sizeOfCheckBox: $font-size-16;
+    // InputBox_class_mixin use to change text color, background-color, hover border color, 
+    @include Styling_of_Check_box($secondaryColor, $sizeOfCheckBox);
+}

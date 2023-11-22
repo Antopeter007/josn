@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="11px" viewBox="0 0 16 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Icon / Visibility / Outlined</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,6.66666667 C8.92,6.66666667 9.66666667,7.41333333 9.66666667,8.33333333 C9.66666667,9.25333333 8.92,10 8,10 C7.08,10 6.33333333,9.25333333 6.33333333,8.33333333 C6.33333333,7.41333333 7.08,6.66666667 8,6.66666667 L8,6.66666667 Z M8,5.33333333 C6.34666667,5.33333333 5,6.68 5,8.33333333 C5,9.98666667 6.34666667,11.3333333 8,11.3333333 C9.65333333,11.3333333 11,9.98666667 11,8.33333333 C11,6.68 9.65333333,5.33333333 8,5.33333333 L8,5.33333333 Z M8,4.66666667 C10.5266667,4.66666667 12.78,6.08666667 13.88,8.33333333 C12.78,10.58 10.5266667,12 8,12 C5.47333333,12 3.22,10.58 2.12,8.33333333 C3.22,6.08666667 5.47333333,4.66666667 8,4.66666667 L8,4.66666667 Z M8,3.33333333 C4.66666667,3.33333333 1.82,5.40666667 0.666666667,8.33333333 C1.82,11.26 4.66666667,13.3333333 8,13.3333333 C11.3333333,13.3333333 14.18,11.26 15.3333333,8.33333333 C14.18,5.40666667 11.3333333,3.33333333 8,3.33333333 L8,3.33333333 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Visibility-/-Outlined" transform="translate(0.000000, -3.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="✱-Color-/-Material-/-Icons-/-Selected-/-On-Surface-/-Inactive" mask="url(#mask-2)" fill="#000000" fill-opacity="0.54" fill-rule="evenodd">
+                <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

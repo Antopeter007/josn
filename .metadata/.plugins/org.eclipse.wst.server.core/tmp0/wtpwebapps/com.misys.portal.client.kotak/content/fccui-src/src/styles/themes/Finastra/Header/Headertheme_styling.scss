@@ -1,0 +1,147 @@
+@import '../../../variables.scss';
+
+@mixin headerstyling($ngheaderborder-bottom,$uiOverlayPanelBorder,$uiOverlayPanelBorderRadius,$corpavatarBorderradius,
+$uidropdownBorder,$corpNameBorderBottom,$corpNameFOntWeight,$uimenubarBorder-radius,$uimenubarBorder,$uiMenuitemBorderBottom,$uiMenuitemBorderTop,
+$ngmenuUIMenuitemLinkBorderLeft,$ngmenuUIMenuitemLinkBorderRight,$ngMenuLTR-UiMenuItemActiveLinkBorderLeft,$uiSlideMenuItemLinkBorderLeft,
+$UiBreadCrumbAFocus,$UiSlideMenuItemAFocus,$ngmenuItemAFocusBorder,$LTRDropDownLabelBorderBottom,$RTLDropDownItemHighlightBorderRight,
+$RTLDropDownTriggerBorderRight,$RTLDropDownTriggerBordertop,$RTLDropDownTriggerBorderBottom,$LanguageCodeSelectedBorderLeft,
+$LanguagecodeNotSelectedBorderLeft) {
+
+    fcc-common-header .ng-header {
+        border-bottom: $ngheaderborder-bottom  ;
+      }
+      fcc-common-header .ui-overlaypanel {
+        border:$uiOverlayPanelBorder;
+        border-radius:$uiOverlayPanelBorderRadius ;
+      }
+      fcc-common-header .corp-avatar {
+
+        border-radius: $corpavatarBorderradius;
+
+      }
+      fcc-common-header .ui-dropdown {
+        border: $uidropdownBorder !important;
+       
+    }
+    fcc-common-header .corp-name {
+        border-bottom:  $corpNameBorderBottom;
+        font-weight: $corpNameFOntWeight;
+      }
+
+      fcc-common-header .ng-menu .ui-menubar {
+        border: $uimenubarBorder;
+       border-radius: $uimenubarBorder-radius;
+    }
+    fcc-common-header .ng-menu .ui-submenu .ui-submenu-list .ui-menuitem {
+        border-top: $uiMenuitemBorderTop;
+        border-bottom: $uiMenuitemBorderBottom;
+        background-color: transparent;
+      }
+
+    fcc-common-header .ng-menu .ui-menubar
+        .ui-submenu-list
+        .ui-menuitem
+        .ui-menuitem-link {
+        border-left: $ngmenuUIMenuitemLinkBorderLeft;
+        border-right: $ngmenuUIMenuitemLinkBorderRight;
+    }
+    fcc-common-header .ng-menu.dirLtrStyle
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    border-left: $ngMenuLTR-UiMenuItemActiveLinkBorderLeft;
+   
+  }
+  fcc-common-header .ui-slidemenu .ui-menuitem-link {
+    border-left: $uiSlideMenuItemLinkBorderLeft;
+  }
+  fcc-common-header .ui-breadcrumb ul li  > a:focus {
+    border: $UiBreadCrumbAFocus !important;
+  }
+  fcc-common-header .ui-slidemenu .ui-menuitem > a:focus{
+    border: $UiSlideMenuItemAFocus !important;
+  }
+  
+  fcc-common-header .ng-menu .ui-menubar .ui-submenu-list .ui-menuitem > a:focus {
+    border: $ngmenuItemAFocusBorder!important;
+   
+  }
+  fcc-common-header .layoutOption .ltr .ui-dropdown label.ui-dropdown-label {
+  border-bottom: $LTRDropDownLabelBorderBottom;
+}
+fcc-common-header .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+    border-right: $RTLDropDownItemHighlightBorderRight !important;
+  }
+  fcc-common-header .rtl .ui-dropdown .ui-dropdown-trigger {
+    border-right: $RTLDropDownTriggerBorderRight;
+    border-top: $RTLDropDownTriggerBordertop;
+    border-bottom: $RTLDropDownTriggerBorderBottom;
+  }
+  fcc-common-header .languageCodeSelected {
+    border-left: $LanguageCodeSelectedBorderLeft !important;
+    }
+
+    fcc-common-header .languageCodeNotSelected {
+       
+        border-left: $LanguagecodeNotSelectedBorderLeft !important;
+      }
+      
+    
+}
+.finastra {
+   
+    $primaryColor: $VIOLET-F100;
+    $primaryLight:$VIOLET-F25;
+    $secondaryColor:$FUCHSIA-F100;
+    $standardFontSize : '14px';
+    $standardFontFamily:'Roboto';
+    $ngheaderborder-bottom : none;
+    $activeMenuLeftBorder:  $YELLOW-F10;
+    $menuitemFocus:$secondaryColor;
+    $uiMenuitemBorderTop: 2px solid transparent;
+    $uiMenuitemBorderBottom : 2px solid transparent;
+    $ngmenuUIMenuitemLinkBorderLeft : 5px solid transparent;;
+    $ngmenuUIMenuitemLinkBorderRight : 5px solid transparent;
+    $ngmenuItemAFocusBorder : .125em solid $menuitemFocus;
+    $RTLDropDownTriggerBorderRight : 0;
+    $RTLDropDownTriggerBordertop:0;
+    $RTLDropDownTriggerBorderBottom:0;
+
+    $LanguagecodeNotSelectedBorderLeft : 0.4em solid transparent;
+    $LanguageCodeSelectedBorderLeft : 0.4em solid $VIOLET-PRIMARY-COLOR;
+
+    $RTLDropDownItemHighlightBorderRight : 0.4em solid $primaryColor;
+
+    $LTRDropDownLabelBorderBottom : none;
+
+    $uiSlideMenuItemLinkBorderLeft : 0.788em solid transparent;
+    $UiSlideMenuItemAFocus : .125em solid $primaryColor;; 
+    $UiBreadCrumbAFocus : .125em solid $primaryColor; 
+
+    $ngMenuLTR-UiMenuItemActiveLinkBorderLeft : 5px solid $activeMenuLeftBorder ;
+    $menuBorder:$VIOLET-F100-dark;
+    $uimenubarBorder-radius : 0px;
+    $uimenubarBorder : 1px solid $menuBorder;
+    $corpNameBorderBottom: 1px solid $Gallery;
+    $corpNameFOntWeight:$fontWeight-900;
+    $uidropdownBorder: 1px solid $GREY-02;
+    $primaryColor: $VIOLET-F100;
+    $primaryLight:$VIOLET-F25;
+    $secondaryColor:$FUCHSIA-F100;
+    $standardFontSize : '14px';
+    $standardFontFamily:'Roboto';
+    $ngheaderborder-bottom : none;
+
+    $uiOverlayPanelBorder: 1px solid $GREY-07;
+    $uiOverlayPanelBorderRadius : 0px;
+    $corpavatarBorderradius : 50%;
+    
+
+    @include headerstyling($ngheaderborder-bottom,$uiOverlayPanelBorder,$uiOverlayPanelBorderRadius,$corpavatarBorderradius,$uidropdownBorder,
+    $corpNameBorderBottom,$corpNameFOntWeight,$uimenubarBorder-radius,$uimenubarBorder,$uiMenuitemBorderBottom,$uiMenuitemBorderTop,
+    $ngmenuUIMenuitemLinkBorderLeft,$ngmenuUIMenuitemLinkBorderRight,$ngMenuLTR-UiMenuItemActiveLinkBorderLeft,$uiSlideMenuItemLinkBorderLeft,
+    $UiBreadCrumbAFocus,$UiSlideMenuItemAFocus,$ngmenuItemAFocusBorder,$LTRDropDownLabelBorderBottom,$RTLDropDownItemHighlightBorderRight,
+    $RTLDropDownTriggerBorderRight,$RTLDropDownTriggerBordertop,$RTLDropDownTriggerBorderBottom,$LanguageCodeSelectedBorderLeft,
+    $LanguagecodeNotSelectedBorderLeft );
+}

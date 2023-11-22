@@ -1,0 +1,70 @@
+
+@import '../../../../styles/variables.scss';
+:host ::ng-deep .ui-button.ui-button-rounded {
+    height: 2em !important;
+    background-color: $FUCHSIA-F100 !important;
+    border-color: $FUCHSIA-F100 !important;
+    box-shadow: none !important;
+    float: right !important;
+    width: auto !important;
+  }
+
+  :host ::ng-deep .ui-button.ui-button-rounded:focus {
+    background-color: $primaryButtonFocusBackgroundcolor !important;
+  }
+
+  :host ::ng-deep .ui-dialog .ui-dynamicdialog .ui-widget .ui-widget-content {
+    height: auto !important;
+    width: 40em !important;
+  }
+
+  .base-label{
+    margin-top: 1.375em;
+    margin-bottom: 0em;
+    color: #707070;
+    font-size: 0.85em;
+    line-height: 1em;
+  }
+
+  :host ::ng-deep .ui-dialog .ui-dialog-content {
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    padding: 0.571em 1em;
+    border-left: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+  }
+
+  :host ::ng-deep .ui-chkbox .ui-chkbox-box {
+    border: 1px solid #a6a6a6;
+    background-color: #ffffff;
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    border-radius: 3px;
+    -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  :host ::ng-deep .ui-chkbox {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    width: 13px;
+    height: 13px;
+  }
+  :host ::ng-deep .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+    overflow: hidden;
+    position: relative;
+    font-size: 12px;
+  }
+  
+  :host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #c137a2 !important;
+    background-color: #c137a2 !important;
+    color: #ffffff !important;
+  }
+  .chk-box {
+    font-size: .9em;
+    color: black;
+  }

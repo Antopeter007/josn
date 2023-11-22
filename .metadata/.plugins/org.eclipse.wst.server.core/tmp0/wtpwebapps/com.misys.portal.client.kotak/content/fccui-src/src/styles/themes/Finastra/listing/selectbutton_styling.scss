@@ -1,0 +1,48 @@
+
+@import '../../../variables.scss';
+@mixin selectbutton_styling($ui-tabmenu-nav-li-Border,$ui-tabmenu-ul-borderBottom,$ui-tabmenu-nav-liHover-Border,
+$tabActiveBackgroundcolor ) {
+    
+    fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav li {
+        border: $ui-tabmenu-nav-li-Border !important;
+       
+      }
+      fcc-common-productlisting .ui-tabmenu ul {
+        border-bottom: $ui-tabmenu-ul-borderBottom !important;
+      }
+      fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav li:hover {
+      
+        border: $ui-tabmenu-nav-liHover-Border !important;
+      
+      }
+      .indented-Field .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+      .bank-select .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+        border-radius: 0px;
+       
+        border: 1px solid $tabActiveBackgroundcolor;
+      }
+      .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover {
+  
+  border-radius: 2px;
+  box-shadow: 0 0 2px 1px #6948d9;
+}
+}
+
+
+.finastra {
+    $primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$Tabcolor:$VIOLET-03;
+$tabBorderColor: $YELLOW-F10;
+$ui-tabmenu-nav-li-Border: 0.0625em $borderSolid $tabBorderColor;
+$ui-tabmenu-nav-liHover-Border:0.0625em $borderSolid $ui-tabmenu-focus;
+$ui-tabmenu-ul-borderBottom: none;
+$tabActiveBackgroundcolor:$VIOLET-07;
+
+    @include selectbutton_styling($ui-tabmenu-nav-li-Border,$ui-tabmenu-ul-borderBottom,$ui-tabmenu-nav-liHover-Border,
+    $tabActiveBackgroundcolor );
+}

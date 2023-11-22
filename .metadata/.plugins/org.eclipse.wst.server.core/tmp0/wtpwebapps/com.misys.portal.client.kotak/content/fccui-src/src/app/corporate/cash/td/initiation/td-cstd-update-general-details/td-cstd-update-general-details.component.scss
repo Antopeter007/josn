@@ -1,0 +1,95 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .margin-side {
+  margin-top: .5em !important;
+}
+
+:host ::ng-deep .warningStyle {
+  color: $GREY-01;
+  font-weight: 300;
+  font-size: 0.85em;
+  bottom: 1em;
+  position: relative;
+}
+
+:host ::ng-deep .noteStyle {
+  color: $BLACK-01;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .noteMessageStyle {
+  color: $BLACK-01;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep [dir=rtl] .noteMessageStyle {
+  color: $BLACK-01;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .paymentInstruction {
+  padding-top: 0.5em !important;
+}
+
+:host ::ng-deep .noteWithdrawalMessageStyle {
+  color: $BLACK-01 !important;
+  font-weight: 300 !important;
+  font-size: 0.9em !important;
+}
+
+:host ::ng-deep [dir=rtl] .noteWithdrawalMessageStyle {
+  color: $BLACK-01;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .infoicon {
+  margin-top: 1.2em;
+  margin-left: -2.5em;
+}
+
+:host ::ng-deep [dir=rtl] .currencyTD {
+  padding-right: 0;
+  text-align: right !important;
+  padding-right: 0 !important;
+}
+
+:host ::ng-deep .appl-detail-header {
+  margin-right: 0.6em !important;
+}
+
+:host ::ng-deep .currencyTD {
+  text-align: left;
+  margin-top: 1.6em !important;
+  padding-left: 0;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+:host ::ng-deep.indented-text-area-field-35 textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+  height: 1.7em;
+  font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      :host ::ng-deep .infoicon {
+        width: 100%;
+
+      }
+    }

@@ -1,0 +1,157 @@
+<div class="p-grid">
+  <div class="p-col-12 successTick"><em class="fa fa-check-circle fa-2x"></em></div>
+</div>
+<div class="p-grid">
+  <div class="p-col-12 success">{{success}} </div>
+</div>
+<div class="p-grid">
+  <div class="p-col-12 successMessage">{{successMessage}} </div>
+</div>
+
+<div *ngIf="!isTemplateCreation" class="p-grid finalDetails">
+  <div class="p-col-12">
+    <div class="p-col-8 p-offset-2">
+      <p-card class="overlayCardClass">
+        <div class="p-grid p-justify-end">
+          <div class="p-col-2 p-md-1 p-lg-1">
+            <em class="fa fa-file-pdf-o pdf" aria-hidden="true" title="{{pdfDownloadIcon}}" (click)="downloadPDF()"></em>
+          </div>
+        </div>
+        <div class="p-grid subDetails">
+          <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+            <div [ngClass]="'productCodeDefault'">
+              <div class="circleBackgroundLC LC_background">
+                <span class="icon">{{productCode}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-12 p-lg-11 p-sm-12">
+            <div class="p-grid divRow">
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{channelsId}}</div>
+                  <div class="dataFont1">{{refId}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{entity}}</div>
+                  <div class="dataFont1">{{entityName}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{amount}}</div>
+                  <div class="dataFont1">{{currency}} {{tnxAmt}}</div>
+                </div>
+              </div>
+              <div *ngIf="lcmodeParam && lcmodeParam !== 'undefined'" class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{transmissionMode}}</div>
+                  <div class="dataFont1">{{lcmode}}</div>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{event}}</div>
+                  <div class="dataFont2">{{eventValue}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{beneficiaryNameLabel}}</div>
+                  <div class="dataFont2">{{beneficiaryNameValue}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{expiresOn}}</div>
+                  <div class="dataFont2">{{expiryDate}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{status}}</div>
+                  <div class="dataFont2">{{statusValue}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+<div *ngIf="!isTemplateCreation" class="p-grid justifyGrid">
+  <div class="p-col-12 lcButton">
+    <div class="p-col-8 p-offset-2">
+      <div [ngStyle]="{'float': setDirection()}">
+        <div>
+          <button role="button"  pButton class="secondaryButton listing" type="button" label={{LCListing}}
+            (click)="openDashboardListing($event)"></button>
+          <button role="button"  pButton class="secondaryButton newForm" type="button" label={{newLetterOfCredit}}
+            (click)="initiateFromScratch($event)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isTemplateCreation" class="p-grid finalDetails">
+  <div class="p-col-12">
+    <div class="p-col-6 align">
+      <p-card class="overlayCardClass">
+        <div class="p-grid p-justify-end">
+          <div class="p-col-2 p-md-1 p-lg-1">
+            <em class="fa fa-file-pdf-o pdf" aria-hidden="true"></em>
+          </div>
+        </div>
+        <div class="p-grid subDetails">
+          <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+            <div [ngClass]="'productCodeDefault'">
+              <div class="circleBackgroundLC LC_background">
+                <span class="icon">{{productCode}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-12 p-lg-11 p-sm-12">
+            <div class="p-grid divRow">
+              <div class="p-grid p-col-12">
+                  <div class="p-col-6">
+                    <div class="dataFont1">{{templateName}}</div>
+                    <div class="dataFont2">{{templateId}}</div>
+                  </div>
+                  <div class="p-col-6">
+                    <div class="dataFont1">{{entity}}</div>
+                    <div class="dataFont2 ">{{entityName}}</div>
+                  </div>
+
+              </div>
+             <div class="p-col-12 desc">
+                  <div class="p-col-12">
+                  <div class="dataFont1">{{description}}</div>
+                  <div class="dataFont2">{{templateDescription}}</div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+<div *ngIf="isTemplateCreation" class="p-grid justifyGrid">
+  <div class="p-col-12 lcButton">
+    <div class="p-col-8 p-offset-2">
+      <div [ngStyle]="{'float': setDirection()}">
+        <div>
+          <button role="button"  pButton class="secondaryButton listing" type="button" label={{templateLanding}}
+            (click)="openTemplateListing($event)"></button>
+          <button role="button"  pButton class="secondaryButton newForm buttonAlign" type="button" label={{newTemplate}}
+            (click)="initiateTemplate($event)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

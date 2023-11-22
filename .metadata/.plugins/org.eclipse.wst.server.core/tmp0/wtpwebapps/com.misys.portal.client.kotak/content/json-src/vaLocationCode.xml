@@ -1,0 +1,10 @@
+?xml version="1.0" encoding="utf-8" ?>
+<Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_LOC_CODE</action_type>
+    <crn>10003540</crn>
+    <company_code>MULTIACCOUNT</company_code>
+    <product_code>PRODCUTMULTI2</product_code>
+    <region_code>REGIONTEST2</region_code>
+</Request>

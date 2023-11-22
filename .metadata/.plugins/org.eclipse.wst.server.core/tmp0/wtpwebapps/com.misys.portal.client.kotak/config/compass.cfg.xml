@@ -1,0 +1,55 @@
+<compass-core-config xmlns="http://www.compass-project.org/schema/core-config"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.compass-project.org/schema/core-config
+           http://www.compass-project.org/schema/compass-core-config-2.2.xsd">
+
+
+<compass name="default">
+  <connection>
+      <jdbc managed="true" disableSchemaOperations="true" dialect="org.apache.lucene.store.jdbc.dialect.OracleDialect">
+      <!-- Default external datasource configuration --> 
+        <dataSourceProvider>
+        	<external/>
+        </dataSourceProvider>
+		<!-- Datasource configuration through DBCP. For MySQL the additional property of emulateLocators=true is to be set to the connection URL-->
+		<!-- 
+		<dataSourceProvider>
+           <dbcp url="jdbc:mysql://localhost:3306/migration5311_2?emulateLocators=true" 
+                  username="root" password="Admin123"
+                  driverClass="com.mysql.jdbc.Driver"
+                  maxActive="10" maxWait="5" maxIdle="2" initialSize="3" minIdle="4"
+                  poolPreparedStatements="true" />
+        </dataSourceProvider>
+         -->
+        <!-- Datasource configuration through JNDI --> 
+		<!--        
+		<dataSourceProvider>
+			<jndi lookup="java:comp/env/jdbc/helpDS"/>
+		</dataSourceProvider>
+		-->         
+      </jdbc>
+  </connection>
+  	<!--  For MySQL the additional attribute of  processor="async" can be set -->
+    <transaction commitBeforeCompletion="true"/>
+    <converters>
+    	 <converter name="html-converter" type="com.misys.portal.index.common.HTMLConverter"></converter>
+    </converters>
+    <searchEngine>
+        <analyzer name="en-analyzer" type="Standard" />
+		<analyzer name="fr-analyzer" type="French" />  
+		<analyzer name="default" type="Standard" /> 
+		<optimizer schedule="false"/>      
+    </searchEngine>
+      
+	<settings>
+     <setting name="compass.engine.connection.subContext" value="GTP" />     
+     <setting name="compass.engine.store.jdbc.disableSchemaOperations" value="true" />
+     <setting name="compass.engine.optimizer.schedule" value="false" /> 
+     <setting name="compass.engine.indexManagerScheduleInterval" value="0"/>
+     <!-- for postgresql please uncomment the below --> 
+     <!-- <setting name="compass.engine.store.jdbc.lockType" value="org.apache.lucene.store.jdbc.lock.NoOpLock" /> --> 
+   	</settings>
+  </compass>
+
+</compass-core-config>
+

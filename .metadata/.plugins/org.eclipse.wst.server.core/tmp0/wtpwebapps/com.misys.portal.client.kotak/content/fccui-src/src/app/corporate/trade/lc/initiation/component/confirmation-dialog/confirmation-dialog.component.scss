@@ -1,0 +1,62 @@
+@import './../../../../../../../styles/variables.scss';
+:host ::ng-deep .form-header {
+    font-size: 1.125em;
+    margin-top: 1.25em;
+    color: $formHeaderColor;
+    font-weight: 700;
+}
+
+:host ::ng-deep .ConfirmButton {
+  color: $primaryButtonColor !important;
+  border-radius: 1.125em !important;
+  padding: 0 1.5em !important;
+  min-width: 5em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border: none !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $secondaryColor !important;
+  width: auto;
+  }
+
+  :host ::ng-deep .deleteConfirmationMsg {
+    font-size: 0.875em !important;
+    padding: 0em !important;
+    margin: 0em !important;
+}
+
+:host ::ng-deep [dir="rtl"] .deleteConfirmationMsg {
+    font-size: 0.875em !important;
+    padding: 0em !important;
+    margin: 0em !important;
+}
+
+:host ::ng-deep .tertiaryButton {
+    float: right;
+}
+
+:host ::ng-deep [dir="rtl"] #yesButton {
+    float: left;
+}
+
+:host ::ng-deep .savedInfo {
+    font-size: 0.75em !important;
+    color: $GRAY-TROLLEYGREY-01 !important;
+    padding: 0em !important;
+    margin: 0em !important;
+    font-weight: 400 !important;
+}
+
+:host ::ng-deep [dir="rtl"] #noButtonTertiary {
+    float: left;
+}
+
+:host ::ng-deep #yesButtonPrimary:focus, ::ng-deep #noButtonTertiary:focus {
+    border: 0.063em solid $BLACK !important;
+}

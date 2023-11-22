@@ -1,0 +1,74 @@
+<ng-container [formGroup]="form">
+  <div #references class=" {{ control.params.layoutClass }} ">
+    <div *ngIf="control.params.rendered" dir="  {{ control.params.dir }}">
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <mat-tab-group
+        class="tabStyle {{ control.params.dir }}"
+        #tabs
+        (selectedIndexChange)="onMatTabChange($event, references)"
+      >
+        <mat-tab
+          *ngFor="let tab of control.params.tabs"
+          selectedIndex="i==0"
+          [aria-label]="
+            tab.templateHeader[0] === '*'
+              ? tab.templateHeader.substr(1, tab.templateHeader.length) +
+                ' required'
+              : tab.templateHeader
+          "
+        >
+          <ng-template mat-tab-label>
+            <div id="{{tab.controlName}}"
+              [ngClass]="
+                form.get(tab.templateName).status === 'INVALID'
+                  ? 'tab-highlight-error'
+                  : ''
+              "
+            >
+              {{ tab.templateHeader }}
+            </div>
+          </ng-template>
+          <div class="{{ control?.params?.valueStyleClass }}">
+            <ng-template matTabContent>
+              <lc-dynamic-component
+                type="{{ tab.templateName }}"
+                [parentForm]="form"
+                [data]="tab.templateData"
+                [controlName]="tab.controlName"
+              ></lc-dynamic-component>
+            </ng-template>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</ng-container>

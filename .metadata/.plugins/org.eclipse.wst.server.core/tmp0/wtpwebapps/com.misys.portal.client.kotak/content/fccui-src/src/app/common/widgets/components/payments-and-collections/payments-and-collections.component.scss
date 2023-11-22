@@ -1,0 +1,212 @@
+@import './../../../../../styles/variables.scss';
+
+.cardStyle {
+    padding-left: .5em !important;
+    width: 15.25em;
+    height: 5.7em;
+}
+
+.groupLabelStyle {
+    font-size: 1.2em;
+}
+
+.currencyType {
+    width: auto !important;
+    font-weight: 400 !important;
+}
+
+.amountSpan {
+    width: auto !important;
+    margin-left: 0.3em !important;
+    font-weight: bold !important;
+    font-size: 1.3em !important;
+}
+
+.rtlAmountSpan {
+    width: auto !important;
+    margin-right: 0.3em !important;
+    font-weight: bold !important;
+    font-size: 1.3em !important;
+}
+
+.rtlCurrencyType {
+    float: right !important;
+    font-weight: 400 !important;
+    width: auto !important;
+}
+
+
+:host ::ng-deep .multipleTabHeading {
+  color:$widgetHeaderColor;
+  font-size: 1.3em;
+  font-weight: 900;
+  margin-top: 1em;
+
+	label {
+		white-space: nowrap;
+	}
+}
+
+.btn{
+    margin-left: 7em !important;
+}
+.btn[dir='rtl']{
+    margin-left: 0em !important;
+    margin-right: 7em !important;
+}
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content {
+    line-height: 2em !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle .mat-button-toggle-button {
+    text-align: left !important;
+    margin-top: -0.3em !important;
+    margin-left: -0.5em !important;
+}
+
+[dir=rtl] :host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle .mat-button-toggle-button {
+    text-align: right !important;
+    margin-top: -0.3em !important;
+    margin-left: -0.5em !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+    padding-bottom: 2em;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content span {
+    position: initial !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle .mat-button-toggle-label-content {
+    font-weight: 400 !important;
+    width: 100% !important;
+}
+
+.cumulativeAmountMessageStyle {
+    margin-bottom: 0.6em !important;
+}
+
+:host ::ng-deep .mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked  {
+    background-color: $WHITE;
+}
+
+[dir=rtl] :host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    margin-right: 1.25em;
+}
+
+[dir=rtl] :host ::ng-deep .mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    border-left: solid 1px $CHARCOAL-F10 !important;
+}
+
+[dir=rtl] :host ::ng-deep .mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle-checked {
+    border-left: solid 1px $VIOLET-PRIMARY-COLOR !important;
+}
+
+.groupDownloadIcon {
+    color: $CHARCOAL-F100 !important;
+    opacity: 0.75;
+    text-align: center;
+    padding: 0.6em;
+    text-decoration: none;
+    font-size: 1.3em !important;
+    line-height: 0em;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+}
+
+.groupDownloadIcon:hover {
+    background-color: rgba(158, 158, 158, 0.2);
+    opacity: 0.94;
+}
+
+::ng-deep .downloadMatMenu {
+
+    ul {
+        list-style-type: none;
+        li {
+            cursor: pointer;
+        }
+    }
+}
+
+.toolbarclass {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.rtlSpan {
+    float : left !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 0.25em;
+}
+
+.ltlSpan {
+    float : right !important;
+    margin-left: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 0.25em;
+}
+
+:host ::ng-deep .mat-form-field-flex {
+    background: $WHITE !important;
+    width: 6em !important;
+    height: 0 !important;
+    padding: 0 0.5em !important;
+}
+
+:host ::ng-deep .mat-button-toggle {
+    em {
+        visibility: hidden;
+    }
+}
+
+:host ::ng-deep .mat-button-toggle.mat-button-toggle-checked:hover {
+    em {
+        visibility: visible;
+    }
+}
+
+
+.rtlIconWrapper button:focus{
+    em{
+        visibility: visible !important;
+    }
+}
+
+
+.iconWrapper button:focus{
+    em{
+        visibility: visible !important;
+    }
+}
+
+.spanWidth {
+    width: 100% !important;
+}
+
+
+.mat-icon-button {
+    width: 1.3em !important;
+}
+
+.iconWrapper {
+    float: right !important;
+}
+
+.rtlIconWrapper {
+    float: left !important;
+}
+
+.accountsCountColor {
+    color: $CHARCOAL-F100 !important;
+}
+
+.msgStyles {
+    padding-left: 0.5em !important;
+}

@@ -1,0 +1,49 @@
+.top-wrapper{
+    border-radius: 0.1875em;
+    background-color: #493595;
+    box-shadow: 0 0.125em 0.5em 0 rgba(0,0,0,0.21);
+}
+.top-lc-wrapper {
+    padding: 2em 2em 0em 2em;
+}
+.middle-lc-wrapper{
+    border-bottom: 0.1em solid rgb(114, 113, 113);
+}
+.lc-small-text{
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 0.75em;
+    font-weight: 300;
+    line-height: 0.875em;
+}
+.lc-large-text{
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.75em;
+    margin-left: 0.3em;
+}
+.padd-all{
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+.padd-lft {
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+.medium-text{
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 1em;
+    margin-top: 0.4em;
+    word-break: break-all;
+}
+.border-class{
+    border-right: 0.0625em solid #fff;
+    min-height: 1em;
+}
+
+.textalign{
+  text-align: center;
+}

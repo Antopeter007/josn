@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2011 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<interface name="loanProcessorIntf" onerror="logger"  description="Comprehensive Loan Repricing">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">(event.product_code == 'LN' || (event.product_code == 'SE' &amp;&amp; event.sub_product_code == 'LNCDS') ||(event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'BLFP') ||(event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN')) &amp;&amp; (event.prod_stat_code == '18'|| event.tnx_type_code =='01' || event.tnx_type_code =='03' || event.tnx_type_code =='13') &amp;&amp; event.sub_tnx_stat_code == '05'</property>
+				</properties>
+				<component name="filter">
+					<properties>
+						<property name="script">(${upload_attachments_loan_directory}==true)</property>
+					</properties>
+					<component name="doctrackattachmentout">
+						<component name="filewriter" />
+					</component>
+				</component>	
+				<transaction>		
+					<component name="loanProcessor">
+						<component name="databaseserializer"/>
+						<component name="filter">
+							<properties>
+								<property name="script">(${upload_attachments_loan_directory}==true)</property>
+							</properties>
+							<component name="doctrackupload" />
+						</component>																					
+						<component name="filter">
+							<properties>
+								<property name="script">((event.product_code == 'LN' || event.product_code == 'BK' ) &amp;&amp; event.prod_stat_code == '01' &amp;&amp; event.tnx_stat_code =='04'  &amp;&amp; event.sub_tnx_stat_code == '20')</property>
+							</properties>
+							<component name="mailformatter">
+								<properties>
+									<property name="destination" description="00: Customer, 01: Bank">01</property>
+									<property name="titlekey" description="Key of localized title">CUSTOMER_SUBMISSION_ALERT_VALIDATION_ERROR_EMAIL_TITLE</property>
+									<property name="bodykey" description="Key of localized body">CUSTOMER_SUBMISSION_ALERT_VALIDATION_ERROR_EMAIL_BODY</property>
+								</properties>
+								<component name="sendmail"/>
+							</component>
+						</component>
+						<component name="filter">
+							<properties>
+								<property name="script">event.prod_stat_code == '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+							</properties>
+							<component name="retryrecordmanager">
+								<properties>
+									<property name="operation">insert</property>
+								</properties>						
+							</component>
+						</component>
+					</component>
+				</transaction>
+			</component>			
+			<component name="filter">
+				<properties>
+					<property name="script">event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN' &amp;&amp; event.prod_stat_code == '01' &amp;&amp; event.tnx_stat_code == '04'</property>
+				</properties>
+				<transaction>		
+					<component name="loanStatusUpdator">
+						<component name="databaseserializer"/>
+					</component>
+				</transaction>
+			</component>								
+		</component>		
+	</interface>
+	
+	<interface name="loanautoretry" description="Automatic retry technical reject records for Loan" onerror="logger">
+		<component name="retryrecordmanager">
+			<properties>
+				<property name="operation">read</property>
+				<property name="product">LN\,BK</property>
+			</properties>
+			<component name="filter">
+				<properties>
+					<property name="script">event.product_code == 'LN' || (event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN') &amp;&amp; event.prod_stat_code == '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+				</properties>
+				<transaction>
+				    <component name="checkLoanExist">
+						<component name="loanProcessor">
+							<component name="databaseserializer"/>
+							<component name="filter">
+								<properties>
+									<property name="script">event.prod_stat_code == '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+								</properties>
+								<component name="retryrecordmanager">
+									<properties>
+										<property name="operation">update</property>
+									</properties>						
+								</component>
+							</component>
+							<component name="filter">
+								<properties>
+									<property name="script">event.prod_stat_code != '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+								</properties>
+								<component name="retryrecordmanager">
+									<properties>
+										<property name="operation">delete</property>
+									</properties>						
+								</component>
+							</component>
+						</component>
+					</component>
+				</transaction>						
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="loanmanualretry" description="Manual retry technical reject records for Loan" onerror="logger">
+		<component name="environmentreader">		
+			<component name="filter">
+					<properties>
+						<property name="script">event.product_code == 'LN' || (event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN')</property>
+					</properties>
+					<transaction>
+					<component name="checkLoanExist">
+						<component name="loanProcessor">
+							<component name="databaseserializer"/>
+							<component name="filter">
+								<properties>
+									<property name="script">event.prod_stat_code == '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+								</properties>
+								<component name="retryrecordmanager">
+									<properties>
+										<property name="operation">update</property>
+									</properties>						
+								</component>
+							</component>
+							<component name="filter">
+								<properties>
+									<property name="script">event.prod_stat_code != '18' &amp;&amp; event.tnx_stat_code == '03'</property>
+								</properties>
+								<component name="retryrecordmanager">
+									<properties>
+										<property name="operation">delete</property>
+									</properties>						
+								</component>
+							</component>
+						</component>
+					</component>
+				</transaction>						
+			</component>	
+		</component>
+	</interface>
+
+
+</interfaces>

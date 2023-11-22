@@ -1,0 +1,18 @@
+<div [formGroup] = "uploadForm">
+      <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label for =  "title" id =  "title_label">{{ 'KEY_FILE_TITLE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText type="text" id="titleAttachment" name="titleField" formControlName="title" autocomplete="off"
+        [class.fieldError]="validationService.isFieldInvalid(uploadForm.get('title'))">
+        <fcc-common-error-message [control]="uploadForm.get('title')"></fcc-common-error-message>
+      </div>
+
+      <div class="{{commonService.getUserLanguage() === 'ar' ? 'label-upload-dialog-right' : 'label-upload-dialog'}}">
+          <p-fileUpload #fileUpload name="upload" id="attachments" uploadLabel="{{uploadLabel}}" cancelLabel="{{cancelLabel}}" chooseLabel="{{browseLabel}}" customUpload="true" (uploadHandler)="onAddClick()" (onSelect)="onFilesAdded($event)">
+          </p-fileUpload>
+      </div>
+
+    <fcc-common-loader></fcc-common-loader>
+
+    <p-confirmDialog id="attachmentError" class="lf-confirm-dialog" key='attachmentError' header="Error" icon="pi pi-exclamation-triangle" appendTo="body"></p-confirmDialog>
+    <p-confirmDialog id="titleError" class="lf-confirm-dialog" key='titleError' header="Error" icon="pi pi-exclamation-triangle" appendTo="body"></p-confirmDialog>
+</div>

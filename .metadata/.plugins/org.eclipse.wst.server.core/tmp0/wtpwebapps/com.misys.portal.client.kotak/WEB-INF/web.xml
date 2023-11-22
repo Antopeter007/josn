@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd" 
+	metadata-complete="true" 
+	version="3.1">
+
+
+  <display-name>Fusion Corporate Channels</display-name>
+  <description>Fusion Corporate Channels</description>
+   <!-- Filter to prevent Host Header Injection attack  -->
+  	<filter>
+		<filter-name>HostFilter</filter-name>
+		<filter-class>com.misys.portal.services.rundata.HostFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>HostFilter</filter-name>
+		<url-pattern>/*</url-pattern>		
+	</filter-mapping>
+	<!-- End of Filter to prevent Host Header Injection attack  -->
+  	
+    <filter>
+        <filter-name>
+            CacheForever
+        </filter-name>
+        <filter-class>
+            com.misys.portal.services.rundata.DefaultGTPResponseHeaderFilter
+        </filter-class>
+        <init-param>
+            <param-name>
+                Cache-Control
+            </param-name>
+            <param-value>
+                max-age=290304000, public
+            </param-value>
+        </init-param>
+    </filter>
+    <filter>
+	    <filter-name>RateLimitingFilter</filter-name>
+	    <filter-class>com.misys.portal.webservices.apis.interceptors.RateLimitingFilter</filter-class>
+	    <init-param>
+	      <param-name>enabled</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	  </filter>
+	  <filter-mapping>   
+			<filter-name>RateLimitingFilter</filter-name>
+			<url-pattern>/restportal/*</url-pattern>
+	  </filter-mapping>
+	  <filter>
+      <filter-name>RequestDecrypterFilter</filter-name>
+      <filter-class>com.misys.portal.webservices.apis.interceptors.RequestDecrypterFilter</filter-class>
+     </filter>
+     <filter-mapping>   
+		<filter-name>RequestDecrypterFilter</filter-name>
+		<url-pattern>/restportal/*</url-pattern>
+     </filter-mapping> 
+<!--     <filter>
+        <filter-name>
+            GzipFilter
+        </filter-name>
+        <filter-class>
+            compressionFilters.CompressionFilter
+        </filter-class>
+        <init-param>
+            <param-name>
+                debug
+            </param-name>
+            <param-value>
+                0
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>
+                compressionThreshold
+            </param-name>
+            <param-value>
+                128
+            </param-value>
+        </init-param>
+    </filter> -->
+<filter> 
+   <filter-name>GzipFilter</filter-name> 
+   <filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class>
+</filter>     
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+		<filter-mapping>
+			<filter-name>springSecurityFilterChain</filter-name>
+			<url-pattern>/restportal/*</url-pattern>
+		</filter-mapping>  
+    <filter>
+		<filter-name>deviceResolverRequestFilter</filter-name>
+		<filter-class>org.springframework.mobile.device.DeviceResolverRequestFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping> 
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.js</url-pattern> 
+	</filter-mapping>
+	<filter-mapping> 
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.css</url-pattern> 
+	</filter-mapping>
+	<filter-mapping> 
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.html</url-pattern> 
+	</filter-mapping>    
+	<!-- images gzip -->
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.gif</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.jpg</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.png</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.svg</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.ttf</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.woff</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.woff2</url-pattern> 
+	</filter-mapping>
+	<filter-mapping>    
+		<filter-name>GzipFilter</filter-name> 
+		<url-pattern>*.json</url-pattern> 
+	</filter-mapping> 
+	<!-- 6113HF3 -->
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>/restportal/*</url-pattern>
+	</filter-mapping> 
+	<!-- 6113HF3 --> 	
+	<filter-mapping>   
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>/content/images/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>/content/js/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>*.gif</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>*.png</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>*.jpg</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheForever</filter-name>
+		<url-pattern>/content/*</url-pattern>
+	</filter-mapping>  
+
+
+
+ 
+     <filter-mapping>
+		<filter-name>deviceResolverRequestFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Uncomment the below filter only if using Tomcat -->
+   <!--MPS-20103: Filter to prevent exposing of the jsessionid in the url  -->
+	<!-- <filter>
+		<filter-name>urlcleanup</filter-name>
+		<filter-class>com.misys.portal.services.rundata.URLCleanupFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>urlcleanup</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+  <!-- Uncomment the below to activate the single session per user -->
+  <listener>
+    <listener-class>com.misys.portal.services.session.UniqueSessionListener</listener-class>
+  </listener>
+  <servlet>
+        <servlet-name>
+            portal
+        </servlet-name>
+	<description>Trade Portal</description>
+        <servlet-class>
+            org.apache.turbine.Turbine
+        </servlet-class>
+    <!--
+      Use the following to set the application outside of Web context <init-param> <param-name>applicationRoot</param-name>
+      <param-value>c:/Dev/appdata</param-value> </init-param>
+    -->
+    <!--
+      Use the following to set the application root to WebContext <init-param> <param-name>applicationRoot</param-name>
+      <param-value>webContext</param-value> </init-param>
+    -->
+    <init-param>
+      <param-name>applicationRoot</param-name>
+      <param-value>webContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>configuration</param-name>
+      <param-value>/config/configuration.xml</param-value>
+    </init-param>
+    <!--
+		<init-param>
+			<param-name>loggingRoot</param-name>
+			<param-value>/../logs</param-value>
+		</init-param>
+		-->
+        <!-- Following entry usefull to have the batch services started -->
+        <load-on-startup>
+            1
+        </load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>portal</servlet-name>
+    <url-pattern>/portal/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>Apache-Axis Servlet</display-name>
+    <servlet-name>AxisServlet</servlet-name>
+    <servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+ <servlet>
+ <servlet-name>restportal</servlet-name>
+ <servlet-class>com.misys.portal.webservices.apis.core.RestAPIDispatcherServlet</servlet-class>
+ <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/restapi-spring.xml</param-value>
+    </init-param>
+	<load-on-startup>3</load-on-startup> 
+</servlet>
+  <servlet-mapping>
+    <servlet-name>restportal</servlet-name>
+    <url-pattern>/restportal/*</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/servlet/AxisServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>*.jws</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  
+
+    <servlet-mapping>
+	    <servlet-name>portal</servlet-name>
+	    <url-pattern>/1fa/*</url-pattern>
+  	</servlet-mapping>
+  	<servlet-mapping>
+	    <servlet-name>portal</servlet-name>
+	    <url-pattern>/public/*</url-pattern>
+  	</servlet-mapping>
+<!--   Disallow access to protected resources -->
+<!--  <security-constraint>-->
+<!--    <web-resource-collection>-->
+<!--      <web-resource-name>mtpprotected</web-resource-name>-->
+<!--      <url-pattern>/config/*</url-pattern>-->
+<!--      <url-pattern>/content/psml/*</url-pattern>-->
+<!--      <url-pattern>/content/static/*</url-pattern>-->
+<!--      <url-pattern>/content/xml/*</url-pattern>-->
+<!--      <url-pattern>/content/xsl/*</url-pattern>-->
+<!--    </web-resource-collection>-->
+<!--    <auth-constraint>-->
+<!--      <role-name>MTPPROTECTED</role-name>-->
+<!--    </auth-constraint>-->
+<!--  </security-constraint>-->
+    <!-- <resource-ref>
+        <res-ref-name>MP</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref> -->
+</web-app>

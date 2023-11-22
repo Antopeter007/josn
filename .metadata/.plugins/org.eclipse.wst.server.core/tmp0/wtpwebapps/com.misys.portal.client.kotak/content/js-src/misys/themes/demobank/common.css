@@ -1,0 +1,504 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank
+
+	summary:
+  		Common CSS rules loaded by all *secured* and *unsecured* pages
+	
+*/
+/*Lumen Theme*/
+
+:root {
+  --main-bg-color: #00add6;
+  --sec-bg-color: #01338c;
+}
+
+#layout{
+	background:none;
+}
+.footer {
+	background: none;
+	padding: 60px 30px;
+}
+.footerDiv2{
+	font-size: 11px;
+	text-align : left;
+}
+.build-version{
+	float:right;
+}
+
+.demobank #layout{
+	background-color : #FFFFFF;
+	background : none;
+}
+
+BODY.demobank {
+	color: black;
+}
+.demobank .footer{
+	background : none;
+}
+.demobank .panel1 { 
+	background-color: #00add6;
+}
+
+.multi-select:focus > option:checked {
+	box-shadow: 0 0 10px 100px var(--main-bg-color) inset !important;
+}
+
+.base .dijitMenuBar {
+	background: #00add6;
+}
+
+.demobank .dijitMenuBar .dijitMenuItemLabel {
+	background: #00add6;
+}
+
+.demobank .bookmarkMenu .dijitDropDownButton .dijitButtonNode {
+	background-color: #00add6;
+}
+
+.demobank .dojoxGridHeader th.dojoxGridCell {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank #TradeCalendarPortlet .dijitCalendarSelectedYear,
+.demobank #TradeCalendarPortlet .dijitCalendarSelectedDate,
+.demobank #default .dijitCalendarSelectedYear,
+.demobank #default .dijitCalendarSelectedDate {
+	background-color: #00add6;
+}
+
+.demobank #MenuBuilder .dijitCalendarContainer th,
+.demobank #TradeCalendarPortlet .dijitCalendarContainer th {
+	background: #00add6;
+}
+
+.demobank .dojoxGridHeader th.dojoxGridCell  {
+	 background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .tree-product-menu-container .dijitTreeRow {
+	background-color : #00add6;
+}
+
+.demobank .toplevel-header h2 {
+	background: #00add6;
+}
+
+.demobank .attachments thead th {
+	background: #00add6;
+}	
+
+.demobank .valueaddedservice .dojoxGridCell {
+	background: none repeat scroll 0 0 #00add6 !important;
+}
+
+.demobank .entityReferencesTableCellHeader {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .userAccountsTableCellHeader {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .userAccountsTableCellSelectAll {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .valueaddedservice thead th {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .userEntityTableCellHeader{
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .factoringTableCellHeader{
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .multiSubmissionListHeader {
+	background: none repeat scroll 0 0 #00add6;
+}
+
+.demobank .panel1 {
+	background-color: #00add6;
+}
+
+.demobank .bookmarkMenu .dijitDropDownButtonActive .dijitButtonNode{
+    background-color: #00add6;
+}
+
+.demobank .bookmarkMenu .dijitDropDownButton .dijitButtonNode{
+    background-color: #00add6;
+}
+
+.demobank .dijitDialogTitleBar {
+	background: #00add6;
+}
+
+.demobank .dijitMenuBar {
+	background: #00add6;
+}
+
+.demobank .dijitMenuBar .dijitMenuItemLabel {
+	background: #00add6;
+}
+
+.demobank .dijitMenuSeparatorTop {
+    border-bottom: 1px solid #00add6;
+}
+
+.demobank .portalMenu {
+	border: 1px solid #00add6;
+}
+
+.demobank #layout,.demobank .footer{
+	background : none;
+}
+
+/* Left Menu */
+.demobank .tree-product-menu-container .dijitTreeRow {
+	background-color : #00add6;
+	color:#fff;
+	border-bottom: 1.01px solid #B9DEF4;
+	font-size: 100%;
+}
+
+.demobank .tree-product-menu-container .dijitTreeRowHover {
+	background-color: #01338c;
+	border-bottom: 1px solid #B9DEF4;
+}
+.demobank .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected {
+	border-bottom: 3px solid #01338c;
+}
+
+.demobank .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer {
+	background: none repeat scroll 0 0 #E7E9EF;
+}
+.demobank .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow{
+	background: none repeat scroll 0 0 #E7E9EF;
+	color:#333333;
+}
+.demobank .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected {
+	background-color : #01338c;
+	border-left : 0px !important;
+    color: white;
+}
+.demobank .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected.dijitTreeRowHover {
+	background-color : #01338c;
+}
+
+.demobank .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover {
+    background-color : #01338c;
+    color: #FFFFFF;
+}
+
+.demobank .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoOpened {
+	background:url("images/leftmenu-arrow-up.png") no-repeat 0px -3px;
+}
+
+.demobank .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoClosed {
+	background:url("images/leftmenu-arrow-down.png") no-repeat 0px 0px;
+}
+
+@media print {
+	body{
+	zoom: 50%;
+	}
+}
+.NoAsterik .required-field-symbol {
+	display:none!important;
+}
+
+.attachments td {
+    word-break: break-all;
+    white-space: normal;
+}
+/* MPS-56007  - The links have to be underlined*/
+.demobank table.dojoxGridRowTable a:link{
+	text-decoration : underline !important;
+}
+
+#searchInput {
+	background-image: url(images/search.png);
+	background-position: 10px 8px;
+	background-repeat: no-repeat;
+	font-size: 14px;
+	padding: 8px 20px 8px 40px;
+	border: 2px solid #00add6;
+	width: 40em;
+	font-weight: 300;
+	margin: 18px 5px 18px 0px;
+}
+
+#searchInput:focus {
+	outline: 0px;
+}
+
+#searchInput::placeholder {
+	color: #C0C0C0;
+}
+
+.menulist {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #00add6;
+	margin-top: -18px;
+	color: white;
+	font-size: 0.875em;
+	font-weight: bold;
+	margin-left: 35px;
+}
+
+#menuUL {
+	padding-right: 6px;
+	padding-left: 6px;
+	max-height: 210px;
+}
+
+#menuUL a:link {
+	color: white;
+}
+
+#menuUL a:hover {
+	font-weight: bold;
+}
+
+#menuUL a:visited {
+	color: white;
+}
+
+#transIDdiv {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #00add6;
+	margin-top: -20px;
+	color: white;
+	width: 18em;
+	font-size: 0.875em;
+	margin-left: 35px;
+}
+
+#transIDinnerdiv {
+	padding-left: 6px;
+	padding-right: 6px;
+	max-height: 175px;
+}
+
+#transIDinnerdiv a {
+	font-weight: bold;
+}
+
+#transIDinnerdiv a:hover {
+	cursor: pointer;
+	font-weight: bold;
+	color: #fff;
+}
+
+#actionUL {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #00add6;
+	margin-top: -20px;
+	color: white;
+	display: none;
+	margin-left: 35px;
+}
+
+#actionUL ul {
+	padding-right: 6px;
+	padding-left: 6px;
+	font-weight: bold;
+}
+
+#actionUL li {
+    font-size: 12.4px;
+}
+
+#actionULTrade {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #00add6;
+	margin-top: -20px;
+	color: white;
+	display: none;
+	margin-left: 35px;
+}
+
+#actionULTrade ul {
+	padding-right: 6px;
+	padding-left: 6px;
+	font-weight: bold;
+}
+
+#actionULTrade li {
+    font-size: 12.4px;
+}
+
+/* MPS-56056 - Start - Accessibility - Keyboard focus has a low visibility */
+.demobank a:focus, .demobank h2:focus, .demobank h1:focus,
+.demobank td:focus, .demobank div .dijitTextBoxFocused ,
+.demobank  .languagesImage:focus,
+.dijitButtonFocused .dijitButtonText, span.dojoxGridInactiveSwitch:focus, .dijitDownArrowButton:focus, .dijitTreeLabelFocused,
+.demobank div.collapsingImgSpan:focus{
+	outline-color : #004F9E;
+	outline-width : 1.5px;
+	outline-style: solid;
+}
+
+.demobank .dojoxGridCellFocus {
+	border:1px solid darkblue !important;
+}
+/* End - Accessibility - Keyboard focus has a low visibility */
+/** MPS-56519 **/
+.demobank .seeAllBtn {
+    top: 5px;
+    position: relative;
+    margin: 8px;    	
+   
+}
+.demobank .seeAllBtn a {
+	padding:5px 10px;
+	background:#DDD;
+	border: 1px solid #646464;
+	text-decoration:none;
+}
+.demobank #_group_label,.demobank #td-fx-section .label {
+	/*  width:170px;  */
+}
+
+#column-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar,
+#parameter-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar,
+#aggregate-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar {
+	position: sticky;
+    top: 225px;
+}
+
+.landingdashboard .ui-card {
+  background-image: url('images/landing-footer.png') !important;
+}
+
+#layout {
+	height: 100%;
+}
+
+#footerright {
+	display: none;
+}
+
+#layoutRootDiv {
+	height: 100%;
+}
+
+#layoutRetDiv {
+	height: 100%;
+}
+
+.demobank #reporting_popup #standby-narrative label.big-textarea-wrapper-label {
+    vertical-align: top;
+}
+.demobank #reporting_popup #standby-narrative .content.textareacontent.textareawordwrap {
+    display: inline;
+}
+.demobank #reporting_popup #letterofcredit-narrative label.big-textarea-wrapper-label {
+    vertical-align: top;
+}
+.demobank #reporting_popup #letterofcredit-narrative .content.textareacontent.textareawordwrap {
+    display: inline;
+}
+
+.demobank #reporting_popup #chkBoxAlignPopup .content,
+.demobank #reporting_popup #lead-bank-check-box .content {
+    margin-left: 0% !important;
+}
+.demobank #view #irrevocable .content{
+	position:relative;
+	top:5px;
+	right:40px;
+}
+.demobank #view #transferable .content,
+.demobank #view #nontransferable .content{
+	position:relative;
+	top:5px;
+	right:80px;
+}
+.demobank #view #standby .content{
+	position:relative;
+	top:5px;
+	right:100px;
+}
+.demobank #view #revolving .content{
+	position:relative;
+	top:5px;
+	right:110px;
+}
+
+.notready #attachment-filesummarybank .dojoxGrid, .notready #attachment-filesummarybank table{
+    visibility: visible !important;
+}
+
+.notready table.attachments{
+	visibility: visible !important;
+}
+
+#DefaultContent .para .icon img, #BankDefaultContent .para .icon img {
+    width: 50px;
+    height: 50px;
+}
+
+#CustomerOngoingTasksList .dojoxGridRow .dojoxGridCell {
+	white-space: nowrap !important;
+}
+
+#fee_transaction_details_div .field .dijitTextBox,
+#total_transaction_fee_details .field .dijitTextBox,
+#fee_agent_details_div .field .dijitTextBox,
+#total_agent_fee_details .field .dijitTextBox,
+#grand_total_fee_details .field .dijitTextBox
+ {
+    border: none !important;
+    color: black;
+}
+
+#fee_transaction_details_div .dijitTextBoxFocused,
+#total_transaction_fee_details .dijitTextBoxFocused,
+#fee_agent_details_div .dijitTextBoxFocused,
+#total_agent_fee_details .dijitTextBoxFocused,
+#grand_total_fee_details .dijitTextBoxFocused
+ {
+    outline-width: 0px !important;
+    outline-style: none !important;
+}
+#total_transaction_fee_details .column-wrapper label,
+#total_transaction_fee_details .column-wrapper .label {
+	 font-weight: bold !important;
+}
+
+#total_agent_fee_details .column-wrapper label,
+#total_agent_fee_details .column-wrapper .label {
+	 font-weight: bold !important;
+}
+
+#grand_total_fee_details .column-wrapper label,
+#grand_total_fee_details .column-wrapper .label {
+	 font-weight: bold !important;
+}
+
+

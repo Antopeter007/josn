@@ -1,0 +1,119 @@
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="po-expansion-panel" *ngFor='let purchaseOrder of purchaseOrders;let i = index'
+      [expanded]="expandedPanelData === purchaseOrder" (opened)="setExpandedPanelData(purchaseOrder)">
+      <mat-expansion-panel-header>
+        <!-- <div class="outer">
+          <div class="top"> -->
+            <mat-panel-title>
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+              {{poNum|translate}}<br>
+              <p class="mat-panel-title-val">
+                {{purchaseOrder.PurchaseOrderID}}
+              </p>
+            </mat-panel-title>
+            <mat-panel-title>
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+             {{poDate|translate}}
+             <br>
+              <p class="mat-panel-title-val">
+                {{purchaseOrder.PurchaseOrderDate | date: 'dd/MM/yyyy'}}
+              </p>
+            </mat-panel-title>
+            <mat-panel-title>
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+              {{noOfItems|translate}}
+              <br>
+              <p class="mat-panel-title-val">
+                {{purchaseOrder.PurchaseOrderLineItems.length}}
+              </p>
+            </mat-panel-title>
+            <mat-panel-title>
+
+              <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+                {{currencyLabel|translate}}
+                <br>
+                <p class="mat-panel-title-val">
+                  {{currency}}
+                </p>
+              </mat-panel-title>
+            <mat-panel-title>
+              
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+              {{netAmount|translate}}
+              <br>
+              <p class="mat-panel-title-val">
+                {{getNetAmount(purchaseOrder)}}
+              </p>
+            </mat-panel-title>
+            <mat-panel-title>
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+              {{taxes|translate}}
+              <br>
+              <p class="mat-panel-title-val">
+                {{getTaxes(purchaseOrder)}}
+              </p>
+            </mat-panel-title>
+            <mat-panel-title>
+
+            <!-- </mat-panel-title> id="leftbox" [ngClass]="mode === 'view' ? 'viewModePanelTitle' : 'initiateModePanelTitle'"> -->
+              {{grossAmount|translate}}
+              <br>
+              <p class="mat-panel-title-val">
+                {{getGrossAmount(purchaseOrder)}}
+              </p>
+            </mat-panel-title>
+          <!-- </div> -->
+          <!-- <div class="bot">
+            <div id="boxes">
+              <div id="leftboxVal"  matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ purchaseOrder.PurchaseOrderID }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{purchaseOrder.PurchaseOrderID}}
+              </div>
+              <div id="leftboxVal" matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ purchaseOrder.PurchaseOrderDate | date: 'dd/MM/yyyy' }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{purchaseOrder.PurchaseOrderDate | date: 'dd/MM/yyyy'}}
+              </div>
+              <div id="leftboxVal" matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ purchaseOrder.PurchaseOrderLineItems.length }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{purchaseOrder.PurchaseOrderLineItems.length}}
+              </div>
+              <div id="leftboxVal" matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getNetAmount(purchaseOrder) }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{getNetAmount(purchaseOrder)}}
+              </div>
+              <div id="leftboxVal" matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getTaxes(purchaseOrder) }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{getTaxes(purchaseOrder)}}
+              </div>
+              <div id="leftboxVal" matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getGrossAmount(purchaseOrder) }}"
+               [ngClass]="mode === 'view' ? 'viewModePanelTitleValue' : 'initiateModePanelTitleValue'">
+                {{getGrossAmount(purchaseOrder)}}
+              </div>
+            </div>
+          </div> -->
+        <!-- </div> -->
+      </mat-expansion-panel-header>
+
+      <div class="table" id="purchaseOrderTable">
+        <table mat-table [dataSource]="getDataSource(purchaseOrder)" aria-describedby="purchaseOrderTable" class="mat-elevation-z8">
+          <ng-container *ngFor="let col of tableColumns">
+            <ng-container matColumnDef="{{col.field}}">
+              <th id="headerField" mat-header-cell *matHeaderCellDef [ngStyle]="{ width: col.width }"> {{col.header|translate}} </th>
+              <td mat-cell *matCellDef="let element" style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;"
+              matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ element[col.field] }}">
+                <span>{{ element[col.field] }}</span>
+              </td>
+            </ng-container>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>

@@ -1,0 +1,467 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+$font:100% Arial, Helvetica, sans-serif;
+$font-family: Geneva, Arial, Helvetica, sans-serif;
+$fcc-font-size: 0.8750rem;
+$fcc-height: 1.875rem;
+
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+body .ui-dropdown {
+  font-size: $fcc-font-size;
+  border-width: thin;
+}
+
+body .ui-inputtext {
+  font-size: $fcc-font-size;
+}
+
+body .ui-button {
+  font-size: $fcc-font-size;
+}
+
+body .ui-calender-button {
+  font-size: $fcc-font-size;
+}
+
+body .ui-chkbox .ui-chkbox-box {
+  font-size: $fcc-font-size;
+}
+
+body .ui-radiobutton-label{
+  font-size: $fcc-font-size;
+  margin: 0.1875rem 0.5rem 0rem 0.5rem;
+}
+
+app-custom-dialog.ng-star-inserted > div {
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+}
+
+app-currency-lookup.ng-star-inserted > div {
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+  }
+
+body .ui-table .ui-table-thead > tr > th {
+  font: $font;
+  padding: 0.571rem 0.857rem;
+  border: 0.0625rem solid #c8c8c8;
+  font-family: $font-family;
+  color: #ffffff;
+  background-color: #00ADD6;
+  text-align: center;
+}
+
+
+body .ui-table .ui-table-tbody > tr:nth-child(even) {
+  background-color: #F0F7FF;
+  color: #000000;
+}
+
+body .ui-table .ui-table-tbody > tr {
+  background-color: #CBE3FF;
+  color: #000000;
+  font: $font;
+  font-family: $font-family;
+}
+
+body .ui-dialog{
+  width: 32.142rem;
+}
+
+
+body .ui-dialog .ui-dialog-titlebar {
+  border: 0.0625rem solid #c8c8c8;
+  background-color: #00ADD6;
+  color: #ffffff;
+  font: $font;
+  font-family: $font-family;
+  height: $fcc-height;
+  padding: 0.4375rem;
+}
+
+body .ui-dialog-resizable .ui-dialog-content {
+  overflow: unset;
+}
+
+.dropDownFieldError.ui-dropdown {
+  border: 0.0625rem solid #CB4335;
+}
+
+.calendarFieldError input {
+  border: 0.0625rem solid #CB4335;
+}
+
+.ui-dropdown-label {
+  text-align:left !important;
+  height: 1.4375rem !important;
+  padding: 0.2rem 0rem 0.1rem 0.2rem !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items  {
+   margin-left:0rem !important;
+}
+
+.ui-dropdown .ui-dropdown-clear-icon {
+  display: block;
+  color: #dc3545 !important;
+}
+
+.ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  font-size: 1.1rem;
+  color: black;
+}
+
+.ui-message.ui-message-error {
+  vertical-align: top;
+  height: auto !important;
+  width: 100%;
+  text-align: center;
+  padding: 0rem;
+  margin-left: 0.1875rem;
+}
+
+.ui-calendar.ui-calendar-w-btn .ui-inputtext {
+  height: $fcc-height !important;
+  width: 5.5rem !important;
+}
+
+.ui-calendar-button {
+  height: $fcc-height !important;
+  position: absolute;
+}
+
+body .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0rem !important;
+  line-height: 2.1875rem !important;
+  text-align:center !important;
+}
+
+.ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-radiobutton-icon {
+  background-color: #007ad9 !important;
+}
+
+.ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  background-color: white !important;
+}
+
+body .ui-fileupload .ui-fileupload-content {
+  width: 31.25rem;
+  border: none;
+  background-color: white;
+  word-break: break-all;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar {
+  width: fit-content;
+  border: none;
+  background-color: white;
+}
+
+.dialogCheckBox > div {
+  margin-left: 0rem !important;
+}
+body .ui-datepicker {
+  line-height: 0.09375rem;
+  padding: 0rem;
+}
+
+body .ui-datepicker table td {
+  padding: 0.2rem;
+}
+
+.fcc-width30{
+  width:14.9rem !important;
+}
+
+.fcc-width45{
+  width:24rem !important;
+}
+
+.fcc-width65{
+  width:35rem !important;
+}
+
+.fcc-amount-field{
+  width: 9.5rem !important;
+}
+
+textarea {
+  font-size: $fcc-font-size !important;
+  font-family: Courier New !important;
+  align-items: center;
+  height: auto !important;
+  resize: none !important;
+  width: 32rem;
+}
+
+body .ui-panel .ui-panel-titlebar {
+  border: 0 solid #c8c8c8;
+  padding: 0 0.25rem 0  !important;
+  background-color: #00add6 !important;
+  color: white !important;
+  height: 1.8125rem;
+  line-height: 1.7;
+  font-weight: 600;
+  margin: 0.0625rem auto 0.25rem auto;
+}
+
+body .ui-panel .ui-panel-content {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 0.571rem 1rem;
+  border: none;
+}
+
+body .inquiryDiv .ui-panel .ui-panel-content {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 0.571rem 0 !important;
+  border: none;
+}
+
+body .pi {
+  font-size: 1.25rem;
+  color: white;
+}
+
+.pi-exclamation-triangle {
+  color: #CB4335 !important;
+}
+
+.pi-info-circle {
+  color: #007ad9 !important;
+}
+.pi-plus:hover{
+  cursor: pointer;
+  font-weight: normal !important;
+}
+.pi-minus:hover{
+  cursor: pointer;
+  font-weight: normal !important;
+}
+
+.pi-upload, [type="button"] {
+  -webkit-appearance: none !important;
+}
+
+body .ui-panel .ui-panel-titlebar .ui-panel-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+::placeholder {
+  font: 100% Arial;
+  font-style:italic;
+  font-size: 0.6875rem;
+  font-weight: 100;
+  padding-left: 0.1rem;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font: 100% Arial;
+  font-style:italic;
+  font-size: 0.6875rem;
+  font-weight: 100;
+  padding-left: 0.2rem;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  font: 100% Arial;
+  font-style:italic;
+  font-size: 0.6875rem;
+  font-weight: 100;
+  padding-left: 0.2rem;
+}
+
+// Below two styles set the placeholder to center aligned in Firefox browser
+::-moz-placeholder { /* Firefox 19+ */
+  line-height: 30px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  line-height: 30px;
+}
+
+.fa-lg {
+  font-size: 1rem !important;
+  padding: 0.3125rem;
+  cursor: pointer;
+}
+
+.fa-search {
+  color: #007ad9 !important;
+}
+
+.fa-pencil-square-o {
+  color: #007ad9 !important;
+}
+
+.fa-minus-circle {
+  color: #CB4335 !important;
+}
+
+body .ui-tabview .ui-tabview-panels {
+  width: 60vw;
+  padding: 0rem;
+  margin-left: 0rem;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li{
+  background-color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+}
+
+.ui-radiobutton-label.ui-label-active {
+  font-weight: 550;
+}
+
+.ui-radiobutton-label {
+  text-align: left;
+  font-size: $fcc-font-size;
+  font-family: $font-family;
+  width: auto;
+  margin: 0rem;
+}
+
+// used for smaller dropdowns[1x]
+.ui-dropdown{
+  width: 16rem !important;
+  height: $fcc-height !important;
+}
+
+//used for larger dropdowns[1.5x]
+.fcc-dropdown-larger{
+  width: 24rem !important;
+  height: $fcc-height !important;
+}
+
+body .ui-panel .ui-panel-titlebar .ui-panel-titlebar-icon {
+  margin-top: 0.19rem !important;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
+  border-color: #a6a6a6;
+  background-color: #ffffff;
+  color: #007ad9;
+  box-shadow: 0 0 0 0.2em #ffffff;
+}
+
+.arabic-theme-align {
+  text-align: right;
+  direction: rtl;
+}
+
+.default-theme-align {
+  text-align: left;
+  direction: ltr;
+}
+.master-file-icon{
+  margin: 0rem 0.3rem 0.4rem 0rem;
+}
+.comparision-icon{
+  margin: 0rem 0.4rem 0.4rem 0rem;
+}
+.pi-collapse-icon{
+  margin-inline-end: 0.068rem;
+  padding-top: 0.2rem;
+}
+.panel-icon{
+float: right;
+}
+.panel-icon-left{
+  float: left;
+}
+
+.overlaypanel-right .ui-overlaypanel{
+  top: 20px !important;
+  right: 0.1em !important;
+  left: auto !important;
+}
+
+.overlaypanel-left .ui-overlaypanel {
+  top: 20px !important;
+  left: 0.1em !important;
+  right: auto !important;
+}
+
+body .ui-overlaypanel {
+  width: 38em;
+  height: 30em;
+}
+body .ui-overlaypanel .ui-overlaypanel-content {
+  padding: 0.571em 1em;
+  overflow-y: auto !important;
+  height: 30em;
+}
+
+.fa-tasks:before {
+  color: #007ad9 !important;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.ui-overlaypanel .ui-overlaypanel-close {
+  background-color: #007ad9;
+  color: #fff;
+  top: -.769em;
+  left: -.769em;
+}
+.ui-overlaypanel:before {
+  margin-right: 0;
+}
+.ui-overlaypanel-shifted:after, .ui-overlaypanel-shifted:before {
+  right: 1.25em;
+}
+body .ui-overlaypanel:before {
+  border-color: none !important;
+}
+.ui-overlaypanel:after, .ui-overlaypanel:before {
+  left: 0;
+  right: 1.25em;
+}
+
+.fa-comments {
+  color: #007ad9 !important;
+  font-size:2em;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+
+.fa-flag {
+  color: red !important;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.fa-check {
+  color: green !important;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+body .ui-button
+{
+  margin: 10px !important;
+  width: 100px;
+}
+
+
+.ui-datepicker-trigger.ui-calendar-button.ui-button {
+  margin: 0px !important;
+}
+
+

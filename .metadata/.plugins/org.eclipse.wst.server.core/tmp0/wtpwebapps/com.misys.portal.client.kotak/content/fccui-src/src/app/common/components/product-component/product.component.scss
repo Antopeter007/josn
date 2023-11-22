@@ -1,0 +1,711 @@
+@import './../../../../styles/variables.scss';
+
+/* Below CSS is for the Header Name */
+.horMenuCssClass {
+  margin-top: 2em;
+}
+.verMenuCssClass {
+  margin-top: 0em;
+}
+
+.sectionCol9 {
+  margin: -4em 0em 0em -2em;
+}
+
+.sectionHeader {
+  height: 1em;
+  color: #4a4a4a;
+  font-family: Futura;
+  font-size: 1em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  padding-left: 0.5em;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .sectionHeader {
+    font-size: 2vw;
+  }
+  .proBar {
+    width: 35% !important;
+  }
+}
+
+@media screen and (min-width: 680px) and (max-width: 1024px) {
+  .progressBarItem {
+    width: 18em !important;
+  }
+}
+
+.mainheader , .mainheader span {
+  height: 1em;
+  color: $GREY-05;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-left: -0.8em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  font-family: "Roboto";
+}
+
+:host ::ng-deep .removeCursorPointer .ui-state-active {
+ cursor: default !important;
+}
+
+.mainheaderArabic , .mainheaderArabic span {
+  height: 1em;
+  color: $GREY-05;
+  font-size: 1.5em;
+  font-weight: 500;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  font-family: "Roboto";
+}
+
+/* Below CSS is for the Tab Select Button Start */
+
+.tabSection {
+  padding-left: 1em;
+  padding-top: 0.3em;
+}
+
+:host ::ng-deep .tabButton .ui-button.ui-button-text-only .ui-button-text,
+:host ::ng-deep .taskButton .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.3em 1.8em !important;
+}
+
+:host ::ng-deep .tabButton.ui-selectbutton .ui-button,
+:host ::ng-deep .taskButton.ui-selectbutton .ui-button {
+  background-color: white !important;
+  border: -0.1em solid $primaryColor;
+  color: $primaryColor !important;
+}
+
+:host ::ng-deep .tabButton.ui-selectbutton .ui-button:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
+  box-shadow: 0 0 0 0.1em $secondaryColor;
+}
+
+:host ::ng-deep .tabButton.ui-selectbutton .ui-button.ui-state-active,
+:host ::ng-deep .taskButton.ui-selectbutton .ui-button.ui-state-active {
+  background-color: $primaryColor !important;
+  border: 0.0625em solid $primaryColor !important;
+  color: white !important;
+}
+
+:host ::ng-deep .tabButton.ui-selectbutton .ui-button,
+:host ::ng-deep .taskButton.ui-selectbutton .ui-button {
+  background-color: #dadada;
+  border: 1px solid $VIOLET-02 !important;
+  color: #333333;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+:host ::ng-deep .tabSection[dir=rtl] .ui-selectbutton .ui-button:first-child{
+  border-radius: 0em !important;
+  border-top-right-radius: 0.1875em !important;
+  border-bottom-right-radius: 0.1875em !important;
+}
+
+
+:host ::ng-deep .tabSection[dir=rtl] .ui-selectbutton .ui-button:last-child {
+  border-radius: 0em !important;
+  border-top-left-radius: 0.1875em !important;
+  border-bottom-left-radius: 0.1875em !important;
+}
+
+/* Below CSS is for the Tab Select Button End */
+
+.proBar {
+  width: 58%;
+}
+
+:host ::ng-deep .ui-progressbar .ui-progressbar-value {
+  background: $secondaryColor;
+}
+
+:host ::ng-deep .ui-progressbar {
+  background: #e6cae0;
+  height: 0.19em !important;
+}
+
+.progressBarItem {
+  height: 1em;
+  margin-top: 1em;
+  color: $secondaryColor;
+  width: 21em;
+  margin-bottom: 1em;
+}
+
+.progressBarValue {
+  margin-bottom: -0.2em;
+  font-size: 0.7em;
+}
+
+.progressBarWidth {
+  width: 46%;
+}
+
+.flow-right {
+  text-align: right;
+}
+
+.saveSection {
+  text-align: right;
+  padding: 1em 1.5em 0em 0em;
+  margin-top: 3.5em !important;
+}
+
+.saveSectionArabic {
+  text-align: left;
+  padding: 1em 1.5em 0em 0em;
+}
+
+.viewButton {
+  position: relative;
+  cursor: pointer !important;
+  width: 43px;
+  color: $FUCHSIA-F100;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+}
+
+.savedTimer {
+  height: 16px;
+  width: 165px;
+  color: #5c5c5c;
+  font-size: 14px;
+  line-height: 16px;
+  margin-right: 1em;
+}
+
+@keyframes ui-progress-spinner-color {
+  100%,
+  100% {
+    stroke: #950088;
+  }
+}
+.wrapper {
+  padding: 0em 1em 1em 0em;
+}
+
+.p-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0em;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+}
+
+.buttonDisplay {
+  display: flex;
+  padding: 2em 2.5em;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0em;
+  z-index: 999;
+  background-color: white;
+}
+.buttonDisplayIE {
+  display: flex;
+  padding: 2em 2.5em;
+  // position: fixed;
+  bottom: 5em;
+  z-index: 9998;
+  background-color: white;
+}
+
+.stickyDiv {
+  position: absolute;
+  bottom: 1em;
+  right: 2.5em;
+}
+
+.stickyDivArabic {
+  position: absolute;
+  bottom: 1em;
+  left: 2.5em;
+}
+.stickyDivIE {
+  position: absolute;
+  right: 4.2em;
+}
+
+.stickyDivIEArabic {
+  position: absolute;
+  left: 4.2em;
+}
+
+.stickyDivArabic .secondaryButton {
+  right: -1em;
+}
+
+button#next, button#submit {
+  margin-left: 1em;
+}
+
+.prevButtonArabic {
+  left: 1em;
+}
+
+.buttonStyle {
+  padding: 0.5em;
+}
+
+:host ::ng-deep .returnCommentsStyle .ui-inplace {
+  position: relative;
+}
+
+:host ::ng-deep .returnCommentsStyle .ui-inplace .ui-inplace-display {
+  position: absolute;
+  right: 1.7em;
+  padding: 0em;
+}
+
+:host ::ng-deep .returnCommentsStyle[dir="rtl"]  .ui-inplace .ui-inplace-display {
+  right: inherit;
+  left: 4em;
+  top: 1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-display
+  .material-icons {
+  color: $VIOLET-02;
+}
+
+:host ::ng-deep .returnCommentsStyle .ui-inplace .ui-inplace-content .mat-card {
+  padding: 2.5em 2.5em 2.1em;
+  background-color: #f9f9fd;
+  border: 1.5px solid rgb(234, 230, 249);
+  box-shadow: none;
+  margin-bottom: 2em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header-text {
+  margin-left: 0em !important;
+  color: $VIOLET-F100;
+  font-size: 1.125em;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.125em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header
+  .mat-card-title {
+  font-size: 1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card
+  .mat-card-content {
+  color: #4a4a4a;
+  letter-spacing: 0;
+  line-height: 1.4em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button {
+  position: absolute;
+  left: auto;
+  right: 2em;
+  top: 0.8em;
+  background-color: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle[dir="rtl"]
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button {
+  position: absolute;
+  left: 2em;
+  right: auto;
+  top: 0.8em;
+  background-color: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  box-shadow: 0 0 0 0.1em $VIOLET-F100;
+  width: 1.2em;
+  right: 1.1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-icon-left {
+  background-color: transparent;
+  color: $VIOLET-F100;
+}
+
+.workBreak {
+  word-break: break-all;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-text {
+  padding: 0em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p {
+  max-height: 9em;
+  overflow: auto;
+}
+
+// return comments scrollbar styles
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar-track {
+  background: transparent; // Chrome, Safari and Opera
+}
+
+/* Handle */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar-thumb {
+  background: transparent; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p:hover::-webkit-scrollbar-track {
+  background: #f1f1f1; // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+.noHover {
+  pointer-events: none;
+}
+
+.productCompGrid {
+  padding: 1.5em;
+  padding-top: 2em;
+}
+
+.mat-progress-spinner {
+  margin: 0 auto !important;
+  top: 2em;
+}
+
+.example-card1 {
+  width: -webkit-fill-available;
+  padding-top: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
+  margin-top: 1em;
+  box-shadow: none;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.card-header-style {
+  background-color: #694ed6;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  color: white;
+  padding-left: 0.3em;
+}
+
+.displayStepper{
+  display: none;
+}
+
+.leftSection[dir="ltr"] {
+  margin-right: 2em;
+}
+
+.leftSection {
+  height: 40em;
+  position: relative;
+  top: -1em;
+}
+
+.content-style {
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: #fbfbfe;
+}
+
+.sectionMessageStyle {
+  margin-right: 1em;
+}
+
+[dir = rtl].sectionMessageStyle {
+  margin-left: -3.2em;
+  margin-right: -10em;
+}
+
+.warningHeaderStyle {
+  bottom: 1em;
+  position: absolute;
+  margin-right: 10em;
+}
+
+:host ::ng-deep .tabButton.ui-selectbutton .ui-button:not(.ui-state-disabled).ui-state-focus {
+  box-shadow: $ui-tabenu-nav-itemLinkFocusBoxShadow !important;
+}
+[dir = rtl] .warningHeaderStyle {
+  bottom: 1em;
+  position: absolute;
+  margin-right: 10em;
+  margin-left: 7em;
+}
+
+:host ::ng-deep .warningHeaderStyle .ui-inplace .ui-inplace-display {
+  position: absolute;
+  right: 1.7em;
+  padding: 0em;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-display
+  .material-icons {
+  color: $VIOLET-02;
+}
+
+:host ::ng-deep .warningHeaderStyle .ui-inplace .ui-inplace-content .mat-card {
+  background-color: #FFFCF9;
+  border: 0.1em solid #CA5000;
+  box-shadow: none;
+  width: fit-content;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header-text {
+  margin-left: 0em !important;
+  color: #414141;
+  font-size: 1.1em;
+  letter-spacing: 0;
+  line-height: 1.125em;
+  padding-left: 2.5em;
+  font-family: 'Roboto-Medium';
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header
+  .mat-card-title {
+  font-size: 1em;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card
+  .mat-card-content {
+  color: #414141;
+  letter-spacing: 0;
+  line-height: 1.4em;
+  padding-left: 2.8em;
+  font-family: 'Roboto-Light';
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button {
+  position: absolute;
+  right: 1.6em;
+  top: 0.8em;
+  background-color: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  box-shadow: 0 0 0 0.2em $CHARCOAL-F50;
+  right: 1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle[dir = rtl]
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button:enabled:focus{
+  left: 1em;
+  right: inherit;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-icon-left {
+  background-color: transparent;
+  color: $CHARCOAL-F50;
+  margin: 0em;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+}
+
+.warningBodyStyle {
+  word-break: break-word;
+  padding-left: 2em;
+}
+
+[dir = rtl] .warningBodyStyle {
+  word-break: break-word;
+  padding-left: 2em;
+  padding-right: 1em;
+}
+
+:host
+  ::ng-deep
+  .warningHeaderStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-text {
+  padding: 0em;
+}
+
+.warningAmberStyle {
+  color: #CA5000;
+}
+
+[dir = rtl] .warningAmberStyle {
+  color: #CA5000;
+  bottom: 0em;
+  right: -6.9em;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+  .sectionHeader {
+    padding-bottom: 2em !important;
+  }
+  .horMenuCssClass {
+    margin-top: 6em !important;
+  }
+}
+@media screen and  (max-width: 1180px) and (min-width: 1024px) {
+  .horMenuCssClass {
+    margin-top: 3em !important;
+  }
+ }
+
+@media screen and (min-device-width: 768px) and (max-device-width: 860px) {
+  :host ::ng-deep .mainheader , .mainheader span {
+    font-size: 1.2em !important;
+  }
+}
+
+:host ::ng-deep [dir=rtl]  .ui-table-wrapper .ui-table-thead th {
+  padding-right: 1em;
+}
+
+:host ::ng-deep [dir=rtl]  .ui-table .ui-table-tbody > tr > td {
+  text-align: right !important;
+}
+

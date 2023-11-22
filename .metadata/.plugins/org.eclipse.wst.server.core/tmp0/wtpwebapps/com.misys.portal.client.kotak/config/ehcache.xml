@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="true" monitoring="autodetect"
+         dynamicConfig="true">
+         
+           
+                                          
+ 
+<!--
+CacheManager Configuration
+==========================
+   
+   
+    Cache configuration
+    ===================
+
+    The following attributes are required.
+
+    name:
+    Sets the name of the cache. This is used to identify the cache. It must be unique.
+
+    maxEntriesLocalHeap:
+    Sets the maximum number of objects that will be held on heap memory.  0 = no limit.
+
+    eternal:
+    Sets whether elements are eternal. If eternal,  timeouts are ignored and the
+    element is never expired.
+
+    The following attributes and elements are optional.
+
+
+    timeToIdleSeconds:
+    Sets the time to idle for an element before it expires.
+    i.e. The maximum amount of time between accesses before an element expires
+    Is only used if the element is not eternal.
+    Optional attribute. A value of 0 means that an Element can idle for infinity.
+    The default value is 0.
+
+    timeToLiveSeconds:
+    Sets the time to live for an element before it expires.
+    i.e. The maximum time between creation time and when an element expires.
+    Is only used if the element is not eternal.
+    Optional attribute. A value of 0 means that and Element can live for infinity.
+    The default value is 0.
+
+
+    memoryStoreEvictionPolicy:
+    Policy would be enforced upon reaching the maxEntriesLocalHeap limit. Default
+    policy is Least Recently Used (specified as LRU). Other policies available -
+    First In First Out (specified as FIFO) and Less Frequently Used
+    (specified as LFU)
+-->
+
+		
+	<!--  Below entry is needed for the  ehcache RMI replication. Please uncomment and update as needed -->
+	<!-- These are the different nodes from which the current node should be synchronized for cache --> 
+	<!-- These entrees should be repeated for all such nodes --> 
+	<!-- 
+	<cacheManagerPeerProviderFactory
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+		properties="peerDiscovery=manual,rmiUrls=//localhost:9000/RefreshableCache|//localhost:9000/PARAM_DATA_BEST_MATCH_PARAMETERS|//localhost:9000/LARGE_PARAM_DATA_BEST_MATCH_PARAMETERS|//localhost:9000/companyEntity|//localhost:9000/companyRefrenceCache|//localhost:9000/companyEntityAccountsMap|//localhost:9000/companyDetails|//localhost:9000/entityRoles|//localhost:9000/bulkObjectCacheKeys|//localhost:9000/bulkObjectCacheQuery|//localhost:9000/entityAclCache|//localhost:9000/userAccountsCache|//localhost:9000/oidcUserDetails|//localhost:9000/oidcUserDetails" />
+	-->
+	
+	<!--  Below entry is needed for the  ehcache RMI replication. Please uncomment and update as needed -->
+	<!-- 	
+	<cacheManagerPeerListenerFactory
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+		properties="hostName=localhost, peerDiscovery=manual, port=9001, socketTimeoutMillis=2000" />
+	-->
+	
+	<!-- below entry needed to be added for each and every cache element which needs to be RMI replicated --> 
+	<!-- Here the bootstrapcacheloaderfactory is not mandatory --> 
+	<!-- The port here should be internal and should not be configured for any other usage and this port should be used in other nodes for cacheManagerPeerProviderFactory configuration --> 
+	<!-- 
+	<bootstrapCacheLoaderFactory
+		class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory"
+		properties="bootstrapAsynchronously=false, maximumChunkSizeBytes=5000000" />
+		<cacheEventListenerFactory
+			class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"
+			properties="replicateUpdatesViaCopy=false" />       
+	-->		
+		
+
+	<!--
+    Default Cache configuration. These settings will be applied to caches
+    created programmatically using CacheManager.add(String cacheName).
+    This element is optional, and using CacheManager.add(String cacheName) when
+    its not present will throw CacheException
+
+    The defaultCache has an implicit name "default" which is a reserved cache name.
+    -->
+	<defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="false"
+            timeToIdleSeconds="1500"
+            timeToLiveSeconds="1800"
+            memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+  
+    
+    <!-- Refreshable Cache holds all the Roles, Permissions and Role-Permission Mappings used in Portal -->
+    <cache name="RefreshableCache"
+            maxEntriesLocalHeap="5000"
+            eternal="false"
+            timeToIdleSeconds="1500"
+            timeToLiveSeconds="1800"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <!-- End of Refreshable Cache -->
+    
+    
+	<!-- Refreshable Cache holds the parameter data for best match hits -->
+    <cache name="PARAM_DATA_BEST_MATCH_PARAMETERS"
+            maxEntriesLocalHeap="5000"
+            eternal="false"
+            timeToIdleSeconds="1000"
+            timeToLiveSeconds="1500"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>    
+    
+	<!-- Refreshable Cache holds the large parameter data for best match hits -->
+    <cache name="LARGE_PARAM_DATA_BEST_MATCH_PARAMETERS"
+            maxEntriesLocalHeap="5000"
+            eternal="false"
+            timeToIdleSeconds="1000"
+            timeToLiveSeconds="1500"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <!-- End of Refreshable Cache -->    
+    
+    <!-- Entities are cached for every Company -->
+    <cache name="companyEntity"
+            maxEntriesLocalHeap="2000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <!-- End of Entity Caching -->
+    
+    <!-- Comapany-Customer Reference Map per Company -->
+    <cache name="companyRefrenceCache"
+            maxEntriesLocalHeap="2000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <!-- End of Reference Map Caching -->
+    
+    <!-- Entity Accounts are cached for every Company -->
+     <cache name="companyEntityAccountsMap"
+            maxEntriesLocalHeap="2000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU">
+    </cache> 
+    
+    
+    <!-- Start MPS-41890 -->
+    <!-- Company Details are being cached here  -->
+     <cache name="companyDetails"
+            maxEntriesLocalHeap="2000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU">
+    </cache> 
+    
+   <!-- End MPS-41890 -->
+      <!-- Entity Roles are cached -->
+	    <cache name="entityRoles"
+	            maxEntriesLocalHeap="2000"
+	            eternal="false"
+	            timeToIdleSeconds="300"
+	            timeToLiveSeconds="600"
+	            memoryStoreEvictionPolicy="LRU">
+	    </cache>
+	    <!-- End of Entity Caching -->
+    <!-- End of Entity Accounts Caching -->
+   
+    
+    <cache name="bulkObjectCacheKeys"
+            maxEntriesLocalHeap="1000"
+            eternal="true"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    
+
+    <cache name="bulkObjectCacheQuery"
+            maxEntriesLocalHeap="5000"
+            eternal="true"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <cache name="entityAclCache"
+            maxEntriesLocalHeap="500"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LRU">
+    </cache> 
+    <cache name="userAccountsCache"
+ 			maxEntriesLocalHeap="2000"
+ 			eternal="false"
+ 			timeToIdleSeconds="300"
+ 			timeToLiveSeconds="600"
+ 			memoryStoreEvictionPolicy="LRU">
+ 	</cache>
+ 	
+  	<cache name="oidcUserDetailsWithSession"
+          maxEntriesLocalHeap="100"
+          eternal="false"
+          timeToIdleSeconds="300"
+          timeToLiveSeconds="660"
+          memoryStoreEvictionPolicy="LRU">
+  	</cache> 
+  	
+  	<cache name="productModelCache"
+          maxEntriesLocalHeap="100"
+          eternal="false"
+          timeToIdleSeconds="300"
+          timeToLiveSeconds="660"
+          memoryStoreEvictionPolicy="LRU">
+  	</cache>
+  	<cache name="actionListCache"
+          maxEntriesLocalHeap="100"
+          eternal="false"
+          timeToIdleSeconds="300"
+          timeToLiveSeconds="660"
+          memoryStoreEvictionPolicy="LRU">
+  	</cache>    	
+    <!-- This cache never refreshes, used for Portlet caching -->
+    <cache name="EternalCache"
+            maxEntriesLocalHeap="5000"
+            eternal="true"
+            memoryStoreEvictionPolicy="LRU">
+    </cache>
+    <!-- End of Eternal Caching -->
+    <cache name="API_RATE_LIMIT_CACHE"
+          maxEntriesLocalHeap="1000"
+          eternal="false"
+          timeToIdleSeconds="60"
+          timeToLiveSeconds="120"
+          memoryStoreEvictionPolicy="LFU">
+  	</cache>
+	<cache name="statusColorMap"
+          maxEntriesLocalHeap="100"
+          eternal="false"
+          timeToIdleSeconds="300"
+          timeToLiveSeconds="660"
+          memoryStoreEvictionPolicy="LRU">
+  	</cache>  
+</ehcache>

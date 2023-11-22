@@ -1,0 +1,137 @@
+<div class="{{headerObject?.params?.headerLayoutClass}}" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+  <div dir={{dir}} class="{{headerObject?.params?.headerStyleClass}}">
+  <ng-container>
+  <div *ngIf ="headerObject?.params?.menuIcon?.rendered" class="{{headerObject?.params?.menuIcon?.layoutClass}}" > 
+        <div  class="{{headerObject?.params?.menuIcon?.styleClass}}">
+            <a #skipFirst class="{{headerObject?.params?.menuIcon?.skipFirstClass}}" id="{{headerObject?.params?.menuIcon?.skipFirstId}}" tabindex="-1"></a>
+            <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="displayMenu = true; skipLink('closeSideNav')" *ngIf="commonHeader === false" href="#" onclick="return false;" aria-label="Open side navigation" id="openSideNav" tabindex="0">
+            <em class="{{headerObject?.params?.menuIcon?.piBarIconClass}}" aria-hidden="true"></em></a> 
+            <p-sidebar [ngClass]="hideForLanding == false ? 'hideforLanding' : ''"  #sideBar [(visible)]="displayMenu" position="{{headerObject?.params?.menuIcon?.position}}" [showCloseIcon]="false" class="{{headerObject?.params?.menuIcon?.sideNavClass}}">
+              <div class="{{headerObject?.params?.menuIcon?.closeIconClass}}">
+                <a (click)="hideSidebar($event); skipLink('openSideNav');" href="#" onclick="return false;" aria-label="Close side navigation" onkeypress="hideSidebar($event)" tabindex="0" id="closeSideNav"><em class="{{headerObject?.params?.menuIcon?.piBarIconStyleClass}}"></em></a>
+              </div>
+              <div class="{{headerObject?.params?.menuIcon?.corpAvClass}}">
+                <span class="{{headerObject?.params?.menuIcon?.corpAvatarClass}}">{{ 'corporatechannels' | translate  | uppercase | slice: 0:1 }}</span>
+              </div>
+              <div class="{{headerObject?.params?.menuIcon?.corpNameClass}}">{{ 'corporatechannels' | translate }}</div>
+              <div class="{{headerObject?.params?.menuIcon?.sideNavBreadCrumbClass}}" *ngIf="breadcrumbObject.length > 0">
+                <p-breadcrumb [model]="breadcrumbObject" [home]="breadcrumbHome"></p-breadcrumb>
+              </div>
+              <p-slideMenu #slideMenu [model]="menuObject" menuWidth="{{headerObject?.params?.menuIcon?.menuWidth}}" viewportHeight="{{headerObject?.params?.menuIcon?.viewportHeight}}"></p-slideMenu>
+            </p-sidebar>
+          </div> 
+    </div> 
+
+<div dir={{dir}} *ngIf ="headerObject?.params?.logo?.rendered" class="{{headerObject?.params?.logo?.layoutClass}}">
+  <a [href]="homeUrl" target="_blank" class="logo-img" tabindex="0">
+    <img [src]="logoImagePath" class="{{headerObject?.params?.logo?.styleClass}}" alt="{{headerObject?.params?.logo?.name}}"/>
+  </a>
+</div>
+
+<div dir={{dir}} *ngIf ="headerObject?.params?.homeIcon?.rendered" class="{{headerObject?.params?.homeIcon?.layoutClass}}">
+    <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" (click)="homePageRefresh()" href="#" onclick="return false;" tabindex="0">
+    <em class="{{headerObject?.params?.homeIcon?.styleClass}}"></em>
+  </a>
+</div>
+
+<div [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf ="headerObject?.params?.searchBox?.rendered" class="{{headerObject?.params?.searchBox?.layoutClass}}" >
+    <em dir={{dir}} class="{{headerObject?.params?.searchIcon?.styleClass}}" (click)="onClick()"></em>
+    <input role="textbox" dir={{dir}} type="{{headerObject?.params?.searchBox?.type}}" class="{{headerObject?.params?.searchBox?.styleClass}}" placeholder="{{headerObject?.params?.searchBox?.placeholder | translate}}"/>
+</div>
+
+<div dir={{dir}} *ngIf ="headerObject?.params?.language?.rendered && language.length !== 1" class="{{headerObject?.params?.language?.layoutClass}}" >
+    <a [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" class="globe" alt="globe" (click)="op4.toggle($event);" (keydown)="keyPressOptions($event,op4)" href="#" onclick="return false;" title="{{'changeLanguage' | translate}}" tabindex="0">
+      <span (click)="op4.toggle($event);" class="{{headerObject?.params?.language?.styleClass}}">language</span>
+    </a>
+</div>
+
+<div dir={{dir}} [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf ="headerObject?.params?.profilePic?.rendered" class="{{headerObject?.params?.profilePic?.layoutClass}}">
+    <img dir={{dir}} [src]="profileImagePath" class="{{headerObject?.params?.profilePic?.styleClass}}" alt="{{headerObject?.params?.profilePic?.name}}" (click)="updateDropList(op, $event);"/>
+    <em dir={{dir}} class="{{headerObject?.params?.profileDownArrow?.styleClass}}" aria-hidden="true" (click)="updateDropList(op, $event);"></em>
+</div> 
+  </ng-container>
+  </div>
+<div [ngClass]="hideForLanding == false ? 'hideforLanding' : 'showforLanding'" *ngIf="headerObject?.params?.topMenu?.rendered && topMenuDisplay === 'true'" class="{{headerObject?.params?.topMenu?.styleClass}} {{dirStyle}}">
+  <p-menubar [model]="topMenuObject"></p-menubar>
+</div>
+
+<div [ngClass]="hideForLanding == false ? 'hideforLanding' : ''" *ngIf="showLastLogin && headerObject?.params?.lastLogin?.rendered" dir={{dir}} class="{{headerObject?.params?.lastLogin?.layoutClass}}">
+  <span class="{{headerObject?.params?.lastLogin?.labelClass}}"><span *ngIf="isBankTime">{{'bankLastLoginLabel' | translate}}{{bankDateTime}}</span><span *ngIf="isBankTime">&#x25FE; </span>{{'userLastLoginLabel' | translate}}{{userDateTime}}</span>
+</div>
+ 
+  <p-overlayPanel #op role="dialog" aria-modal="true">
+        <div class="profile-box">
+          <div class="p-grid">
+            <div class="{{headerObject?.params?.profileOverlayPanel?.profileImageLayoutClass}}">
+              <div id="{{headerObject?.params?.profileOverlayPanel?.profileId}}" tabindex="0" aria-label="profile open" #profile>
+                <img [src]="profileImagePath" alt="ProfileImage" class="userProfileImage" />
+              </div>
+            </div>
+            <div class="{{headerObject?.params?.profileOverlayPanel?.userInfoLayoutClass}}">
+              <div class="{{headerObject?.params?.profileOverlayPanel?.userInfo1Class}}">
+                {{userFirstName}}
+              </div>
+              <div class="{{headerObject?.params?.profileOverlayPanel?.userInfo2Class}}">
+                {{userEmail}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="{{headerObject?.params?.profileOverlayPanel?.profileList1LayoutClass}}">
+          <div *ngIf="commonHeader === false" class="p-col-12">
+            <ul  class="{{headerObject?.params?.profileOverlayPanel?.profileList1StyleClass}}">
+              <button role="button"  (click)="toggleMenu();op.hide()" id="{{headerObject?.params?.profileOverlayPanel?.toggleMenuId}}" class="{{headerObject?.params?.profileOverlayPanel?.toggleMenuClass}}">
+                <li>
+                  <span><em class="{{headerObject?.params?.profileOverlayPanel?.faLargeClass}}" aria-hidden="true"></em>
+                    <span class="{{headerObject?.params?.profileOverlayPanel?.itemInfoClass}}">{{'toggleMenu' | translate}}</span>
+                  </span>
+                </li>
+              </button>
+              <li class="{{headerObject?.params?.profileOverlayPanel?.landingCheckClass}}">
+                <p-checkbox binary="true" (onChange)="checkValue($event)" [disabled]= value ></p-checkbox>
+    
+                <span class="{{headerObject?.params?.profileOverlayPanel?.itemInfoClass}}" [ngClass]="(value == true) ? 'textDisable':''">{{'showLandingPage' | translate}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="{{headerObject?.params?.profileOverlayPanel?.profileList2LayoutClass}}" >
+          <div *ngIf="commonHeader === false" class="{{headerObject?.params?.profileOverlayPanel?.layoutChangeLayoutClass}} {{dir}}">
+            <p-dropdown [options]="lay" styleClass="{{headerObject?.params?.profileOverlayPanel?.layoutChangeStyleClass}}" dir="{{dir}}" optionLabel="dashboardName" [(ngModel)]="selectedDropdownLayout"
+              (onChange)="layoutchange($event);op.hide()" name="{{headerObject?.params?.profileOverlayPanel?.layoutChangeName}}"> </p-dropdown>
+          </div>
+          <div class="{{headerObject?.params?.profileOverlayPanel?.logoutButtonLayoutClass}}">
+            <button role="button"  pButton type="{{headerObject?.params?.profileOverlayPanel?.logoutButtonType}}" (click)="logout()"
+              label="{{'logout' | translate}}"></button>
+          </div>
+          <div class="{{headerObject?.params?.profileOverlayPanel?.viewProfileLayoutClass}}">
+            <span><a (click)="switchViewProfile()" (focusout)="profileFocusOut($event, op)" href="#" onclick="return false;" tabindex="0">{{'viewProfile' | translate}}</a></span>
+          </div>
+        </div>
+      </p-overlayPanel>
+
+      <p-overlayPanel #op4 autoZIndex="true" class="{{headerObject?.params?.languageOverlayPanel?.languageLayoutClass}}" (onShow)= "loadSelectedLanguage()">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-12 p-lg-12" id="{{headerObject?.params?.languageOverlayPanel?.languagePanelStyleClass}}">
+            <div class="languageList pointer-class" *ngFor= "let lang of language" (click)="switchLanguage(lang.label);op4.hide()" (keypress)="switchLanguage(lang.label)" tabindex="0">
+              <div *ngIf = "lang.value.code.toLowerCase() === selectedLanguageValue;else notHighlightedLanguageCode">
+                <div class="{{headerObject?.params?.languageOverlayPanel?.languageCodeSelectionStyle}}">
+                  <img src="{{imagePath}}languages/{{lang.value.code.toLowerCase()}}.png" alt="{{'textualDescriptionOfCountryFlags' | translate}}"  />
+                  <span>
+                    {{lang.label}}
+                  </span>
+                </div>
+              </div>
+              <ng-template #notHighlightedLanguageCode>
+                <div class = "{{headerObject?.params?.languageOverlayPanel?.languageCodeNotSelectionStyle}}">
+                <img src="{{imagePath}}languages/{{lang.value.code.toLowerCase()}}.png" alt="{{'textualDescriptionOfCountryFlags' | translate}}"  />
+                <span>
+                  {{lang.label}}
+                </span>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </p-overlayPanel>
+</div>

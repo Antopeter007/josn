@@ -1,0 +1,38 @@
+<form [formGroup]="amendForm">
+    <p-confirmDialog id="headerDialog"></p-confirmDialog>
+    <!-- buttons for amend screen -->
+    <fcc-common-actions *ngIf ="mode !== 'UNSIGNED' && jsonContent" [bgRecord]="jsonContent"  [showTask] ="true" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <!-- Buttons for unsigned screen -->
+    <fcc-common-actions *ngIf ="mode === 'UNSIGNED' && jsonContent" [bgRecord]="jsonContent"  [showTask] ="true" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+ 
+    <fcc-iu-amend-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (resetRenewalDetails)= "resetRenewalSection($event)" (formReady)="addToForm('amendGeneraldetailsSection', $event)" (confInstructions)="setConfInstValue($event)" (expDate)="setExpDate($event)" (expiryDateExtension)="setExpiryDateForExtension()"></fcc-iu-amend-general-details>
+    <fcc-iu-common-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('applicantDetailsFormSection', $event)"></fcc-iu-common-applicant-details>
+    <fcc-iu-common-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('beneficiaryDetailsFormSection', $event)"></fcc-iu-common-beneficiary-details>
+    <fcc-iu-amend-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amendAmtForm', $event)" (amountChange)="reCalculateVariationAmount()"></fcc-iu-amend-amount-details>
+    <fcc-iu-renewal-details *ngIf="jsonContent && this.commonDataService.getExpDateType() === '02'" [bgRecord]="jsonContent" (formReady)="addToForm('renewalDetailsSection', $event)" (renewalExpDate)="setRenewalExpDate($event)"></fcc-iu-renewal-details>
+    <fcc-iu-initiate-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('redIncForm', $event)"></fcc-iu-initiate-reduction-increase>
+    <fcc-iu-payment-details *ngIf="jsonContent && this.commonDataService.getSubProdCode() === 'STBY'" [bgRecord]="jsonContent" (formReady)="addToForm('paymentDetailsForm', $event)"></fcc-iu-payment-details>
+    <fcc-iu-shipment-details  *ngIf="jsonContent && this.commonDataService.getSubProdCode() === 'STBY'" [bgRecord]="jsonContent" (formReady)="addToForm('shipmentDetailsSection', $event)"></fcc-iu-shipment-details>
+    <fcc-iu-amend-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amendBankDetailsSection', $event)"></fcc-iu-amend-bank-details>
+    <fcc-iu-amend-contract-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amendContractDetailsSection', $event)"></fcc-iu-amend-contract-details>
+    <fcc-iu-amend-narrative-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amendNarrativeSection', $event)"></fcc-iu-amend-narrative-details>
+    <fcc-iu-amend-bank-instructions *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amendBankInstructionsSection', $event)"></fcc-iu-amend-bank-instructions>
+      <h2 *ngIf="displayLUSection">{{ 'PREVIEW_CU_DETAILS' | translate }}
+        <a class="fa fa-search fa-lg {{commonService.getUserLanguage() === 'ar' ? 'icon-left' : 'icon'}}" (click)= "loadCUPreview()"></a>
+      </h2>
+     <fcc-common-fileupload-component *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('fileUploadSection', $event)"></fcc-common-fileupload-component>
+     <p-confirmDialog id="licenseFieldError" class="lf-confirm-dialog" key='amendLinkedLicenseErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+     <p-confirmDialog id="fieldError" class="lf-confirm-dialog" key='fieldErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+     <fcc-iu-common-license *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('License', $event)"></fcc-iu-common-license>
+    <div id='commentsSection' *ngIf ="mode === 'UNSIGNED' || this.commonDataService.getViewComments()">
+      <fcc-iu-common-return-comments *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+    </div>
+    <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+    <fcc-common-actions *ngIf ="mode !== 'UNSIGNED'" [isFooter]="'true'" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <fcc-common-actions *ngIf ="mode === 'UNSIGNED'" [isFooter]="'true'" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <!-- USER_SAVE, USER_SUBMIT, ACTION_USER_CANCEL, USER_HELP -->
+    <!-- (UNSIGNED) 'USER_SUBMIT', 'USER_RETURN' ,
+    'USER_PREVIEW' 'ACTION_USER_CANCEL' 'USER_HELP'  -->
+
+</form>

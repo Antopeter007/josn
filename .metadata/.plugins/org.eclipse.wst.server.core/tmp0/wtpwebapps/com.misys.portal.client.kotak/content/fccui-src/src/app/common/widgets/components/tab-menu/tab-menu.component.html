@@ -1,0 +1,45 @@
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+          <em tabindex="0" (keyup.enter)="deleteCards()" class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+      </p-header>
+
+      <div class="tab-menu" *ngIf="checkCustomise !== true else headerDiv">
+        <p-tabMenu [model]="items" [activeItem]="activeItem" [ngStyle]="{'float': setDirection()}" 
+        [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+          <ng-template pTemplate="item" let-item let-i="index" >
+              <div class="tabClass" style="position: relative; text-align: center; min-width: 7em" (click)="displayComponent($event, i)">
+                <h1>
+                  <div class="ui-menuitem-text" [ngClass]="(checkCustomise == true) ? 'pointerTabEnable':'pointerDisable'">
+                    {{item.label | translate}}
+                </div>
+                </h1>
+                
+              </div>
+          </ng-template>
+        </p-tabMenu>
+      </div>
+      <ng-template #headerDiv>
+        <h1>
+          <div *ngFor="let item of items"  class="ui-menuitem-text headerTitle" tabindex="-1" [ngClass]="(checkCustomise == true) ? 'pointerTabEnable':'pointerDisable'">
+            {{item.label | translate}}
+          </div>
+        </h1>
+       </ng-template>
+
+      <div *ngIf="transactionInProgress" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <fcc-common-transaction-in-progress dashboardName={{dashboardName}}></fcc-common-transaction-in-progress>
+      </div>
+      <div *ngIf="tasks" tabindex="0">
+        <div style="text-align: center; padding: 1em 0em" tabindex="0">{{'notAvailable' | translate}}</div>
+      </div>
+      <div *ngIf="myActivities" tabindex="0">
+        <div style="text-align: center; padding: 1em 0em" tabindex="0">{{'notAvailable' | translate}}</div>
+      </div>
+      <app-nudges [nudges] = "nudges">
+      </app-nudges>
+    </p-card>
+    </div>
+</ng-container>
+

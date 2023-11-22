@@ -1,0 +1,7 @@
+<div *ngIf="commonDataService.displayLUSection() && commonDataService.getPreviewOption() !== 'SUMMARY' && this.commonDataService.getCUExpDateType() === '02'" class = "indented-header">
+  <p-panel header="{{ 'COUNTER_EXTENSION_DETAILS_LABEL' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+    <div [formGroup]="cuRenewalDetailsSection">
+      <fcc-iu-common-renewal-details  *ngIf="bgRecord" [showUndertakingType]="'cu'" [bgRecord]="bgRecord" [sectionForm]="cuRenewalDetailsSection" (finalRenewalExpDate)="emitFinalRenewalExpDate($event)"></fcc-iu-common-renewal-details>
+    </div>
+  </p-panel>
+</div>

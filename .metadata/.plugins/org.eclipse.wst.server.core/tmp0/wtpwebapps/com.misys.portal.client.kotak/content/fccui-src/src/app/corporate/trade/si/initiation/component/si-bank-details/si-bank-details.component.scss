@@ -1,0 +1,189 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .bankHeader {
+    height: 1.625em;
+    width: 8.4375em;
+    color: $GREY-05 !important;
+    font-size: 1.5vw;
+    font-weight: bold;
+    line-height: 1.6875em;
+  }
+  
+  /* selected button css start */
+  
+  :host ::ng-deep .ui-selectbutton .ui-button {
+    background-color: $WHITE !important;
+    color: $VIOLET-02 !important;
+    border: 1px solid $VIOLET-02 !important;
+  }
+  
+  :host ::ng-deep .ui-selectbutton .ui-button.ui-state-active {
+    background-color:$VIOLET-02 !important;
+    color: $WHITE !important;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-selectbutton
+    .ui-button.ui-button-text-only
+    .ui-button-text {
+    padding: 0.429em 0em !important;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1vw;
+    word-spacing: 0.08em;
+  }
+  
+  /* selected button css end */
+  
+:host ::ng-deep .bank-select {
+    margin-top: 2em;
+  }
+:host ::ng-deep .select-button-pd {
+    padding-left: .5em !important;
+  }
+  
+:host ::ng-deep .infoDropDownIcon {
+    color: $GRAY-TROLLEYGREY-01 !important;
+    position: absolute !important;
+    top: 5em !important;
+    right: 3em !important;
+  }
+  
+:host ::ng-deep .bankName {
+    height: 1.25em;
+    color: $VIOLET-F100 !important;
+    font-size: 1vw;
+    font-weight: 500;
+    line-height: 1.25em;
+    /* margin-left: 0.6em; */
+    margin-top: 0.5em;
+    word-spacing: 0.08em;
+  }
+  
+:host ::ng-deep .issueReference {
+    height: 1.25em;
+    color: $VIOLET-F100 !important;
+    font-size: 1vw;
+    font-weight: 500;
+    line-height: 1.25em;
+    /* margin-left: 0.5em; */
+    margin-top: 0.5em;
+    word-spacing: 0.08em;
+  }
+  
+  :host ::ng-deep .ui-dropdown,
+  :host ::ng-deep .ui-inputtext {
+    background: transparent !important;
+  }
+  
+  :host ::ng-deep .ui-float-label .ui-widget {
+    margin-left: 2px;
+  }
+  
+  :host ::ng-deep .ui-dropdown-items-wrapper {
+    overflow-x: hidden !important;
+  }
+  
+  :host ::ng-deep .ui-float-label > label {
+    height: 20px;
+    width: 17.5625em;
+    color: $GREY-A0;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .margin-all-side {
+    margin: 0.9375em 1.25em 0px 0px;
+  }
+  
+  .swiftCodeField {
+    margin: 0.9375em 0em 0em 0em;
+  }
+  
+  .iconStyle {
+    position: absolute;
+    top: 2.7em;
+    right: 2.8em;
+    }
+  
+  .iconStyleConfirm {
+    cursor: pointer;
+    color: $ICONS !important;
+    position: absolute;
+    top: 1.7em;
+    right: 1.4em;
+    }
+  
+  
+  .parentIconStyle {
+    height: 100%;
+    position: relative;
+  }
+  
+  .layoutIcon {
+    margin-left: -0.99em;
+  }
+  
+  :host ::ng-deep .readmode > div.layoutIcon {
+    width: auto !important;
+  }
+  
+:host ::ng-deep .iconStyle span {
+    cursor: pointer;
+    color: $ICONS !important;
+  }
+  
+  :host ::ng-deep .ui-float-label.issueBankName > .ui-inputwrapper-filled ~ label,
+  :host ::ng-deep .ui-float-label.issuerRef > .ui-inputwrapper-filled ~ label {
+    top: 0% !important;
+    display: none !important;
+  }
+  
+  :host ::ng-deep .issueBankName .ui-inputtext,
+  :host ::ng-deep .issueReference .ui-inputtext {
+    font-size: 1em;
+  }
+  
+  :host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+    background-image: linear-gradient(to right, rgb(0, 0, 0, 0.42), rgb(0, 0, 0, 0.42)) !important;
+  }
+  
+:host ::ng-deep .bankViewOptions{
+    font: 100% Roboto, sans-serif !important;
+    margin-left: 0em;
+    color: $BLACK;
+    margin-top: -1em;
+  }
+  
+  // MAT TAB CSS
+  :host ::ng-deep .mat-tab-body-content{
+    overflow: hidden !important;
+  }
+  :host ::ng-deep .mat-ink-bar {
+    background: $VIOLET-F100 !important;
+  }
+  ::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+  ::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    color: $VIOLET-F100 !important;
+    opacity: 1 !important;
+  }
+  :host ::ng-deep .mat-tab-label-container{
+    margin-top: 2em !important;
+  }
+  
+  :host ::ng-deep .mat-tab-label:focus {
+    border: 0.071em solid $BLACK !important;
+  }
+  
+  :host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    margin-left: 0.8em !important;
+  }
+  
+  
+  @media screen and (min-width: 992px) {
+    :host ::ng-deep .p-lg-6 {
+      width: 50% !important;
+   }
+  }
+    

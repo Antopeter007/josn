@@ -1,0 +1,22 @@
+
+@import '../../../variables.scss';
+
+
+@mixin common_class_selectBtn_mixin($bgStepperColor, $textColor, $progressBarColor) {
+    fcc-product-component .tabButton.ui-selectbutton .ui-button.ui-state-active, .taskButton.ui-selectbutton .ui-button.ui-state-active {
+        background-color: $bgStepperColor !important;
+        border: 0.0625em solid $bgStepperColor !important;
+        color: $textColor !important;
+    }
+    .mat-progress-bar-fill::after {
+        background-color: $progressBarColor !important;
+    }
+}
+
+.finastra {
+    // primary color
+    $bgStepperColor: $GRASS-G100;
+    $textColor: $WHITE;
+    $progressBarColor: $GRASS-G100;
+    @include common_class_selectBtn_mixin($bgStepperColor, $textColor, $progressBarColor);
+}

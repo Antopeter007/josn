@@ -1,0 +1,196 @@
+<ng-container *ngIf="(externalNewsPermission == true || internalNewsPermission == true)">
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+      </p-header>
+      <div class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <div *ngIf="internalNewsPermission" class="p-col-12 news-width internalnews">
+          <h1 class="headerTitle">
+            {{'InternalNews' | translate}}
+          </h1>
+          <div *ngIf="newsPresentInternal">
+            <p-carousel dir="ltr" [value]="internalnews" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2"
+              [responsiveOptions]="responsiveOptions">
+              <ng-template let-intrnws pTemplate="item">
+                <div *ngIf="intrnws.index ; else index" class="news" dir="{{dir}}">
+                  <div  (keyup.enter)="showPopUp(intrnws?.titleLink)" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" *ngIf="intrnws?.titleLink.length>0 ; else titleLink">
+                    <a class="news-title" (click)="showPopUp(intrnws?.titleLink)"
+                      attr.aria-label="{{ 'viewDetails' | translate }}">
+                      <h3 class="news-header">{{intrnws.title| uppercase }}</h3>
+                    </a>
+                  </div>
+
+                  <ng-template #titleLink>
+                    <h3 class="news-header">{{intrnws.title| uppercase }}</h3>
+                  </ng-template>
+
+                  <div (keyup.enter)="showPopUp(intrnws?.imageLink)" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" *ngIf="intrnws?.imageLink.length>0; else imageLink">
+                    <a class="cursor-class" (click)="showPopUp(intrnws?.imageLink)">
+                      <img src="data:image/jpg;base64,{{intrnws.image}}"
+                        alt="">
+                    </a>
+                  </div>
+
+                  <ng-template #imageLink>
+                    <img src="data:image/jpg;base64,{{intrnws.image}}"
+                      alt="">
+                  </ng-template>
+
+
+                  <div class="news-description" *ngIf="intrnws.desc.length>150; else description"
+                    (mouseover)="intrnws.readmore=true" (mouseleave)="intrnws.readmore=false">
+                    <span class="news-content"
+                    (focus)="intrnws.readmore=true"
+                    (blur)="intrnws.readmore=false"
+                   >
+                    <div class="news-description news-content" innerHtml="{{(intrnws.completeDesc| customSlice:150)}}" id="newsDisplay">
+                    </div>
+                      <div>
+                        <span tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (keyup.enter)="detailedNews('internal',intrnws)"
+                        (click)="detailedNews('internal',intrnws)" class="view-all-links pointer-class focus"><a [routerLink]="[]"
+                          attr.aria-label="{{'readMore' | translate}}" >{{'readMore' | translate}}</a></span>
+                      </div>
+                    </span>
+
+                  </div>
+
+                  <ng-template #description>
+                    <div class="news-description news-content" innerHtml="{{intrnws.completeDesc}}" id="newsDisplay">
+                    </div>
+                  </ng-template>
+                </div>
+
+                <ng-template #index class="news">
+                  <div class="news-img"><img src="{{contextPath}}/content/FCCUI/assets/images/morenews.png"
+                      alt="">
+                  </div>
+                  <h3 class="news-header">{{intrnws.title| uppercase }}</h3>
+                  <div class="more-news">
+                    <p class="more-news-link">
+                      <a class="cursor-class" [routerLink]="[]" (click)="moreNews('internal')" attr.aria-label="{{ 'moreNews' | translate }}">
+                        {{intrnws.desc}}
+                      </a>
+                    </p>
+                  </div>
+                </ng-template>
+
+                <div class="attachment-details">
+                  <div class="p-grid p-col-12">
+                    <div *ngFor="let attachments of intrnws.attachment; let i = index" class="p-col-2">
+                      <div *ngIf="attachments.attachmentId!=null">
+                        <div class="attachment" *ngIf="i==0">
+                          <Span *ngIf="intrnws.readmore==true"> <em class="pi pi-paperclip"
+                              icon="pi pi-paperclip"></em></Span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </p-carousel>
+          </div>
+
+          <div class="no-news" *ngIf="!newsPresentInternal && internalNewsPermission">
+            <p class="noNews-title">{{'NoNews' | translate}}</p>
+          </div>
+        </div>
+        <div *ngIf="externalNewsPermission" class="p-col-12 ext-news-border news-width externalnews">
+          <h1 class="headerTitle">
+            {{'ExternalNews' | translate}}
+          </h1>
+          <div *ngIf="newsPresentExternal">
+            <p-carousel dir="ltr" [value]="syndicatedNews" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2"
+              [circular]="false" [responsiveOptions]="responsiveOptions">
+              <ng-template let-extrnws pTemplate="item">
+                <div *ngIf="extrnws.index;else extIndex" class="news" dir="{{dir}}" id="extrnws_{{extrnws.itemId}}" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+                  <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (keyup.enter)="showPopUp(extrnws?.titleLink)" *ngIf="extrnws?.titleLink.length>0;else extNewsLink">
+                    <a class="news-title" (click)="showPopUp(extrnws?.titleLink)"
+                      attr.aria-label="{{ 'viewDetails' | translate }}">
+                      <p class="news-header">{{extrnws.title|uppercase }}</p>
+                    </a>
+                  </div>
+                  <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (keyup.enter)="showPopUp(extrnws?.imageLink)" *ngIf="extrnws?.imageLink.length>0; else extImageLink">
+                    <a class="cursor-class" (click)="showPopUp(extrnws?.imageLink)"
+                      attr.aria-label="{{ 'viewDetails' | translate }}">
+                      <img src="data:image/jpg;base64,{{extrnws.image}}"
+                        alt="">
+                    </a>
+                  </div>
+
+                  <ng-template #extImageLink>
+                    <img src="data:image/jpg;base64,{{extrnws.image}}"
+                      alt="">
+                  </ng-template>
+
+
+
+                  <ng-template #extNewsLink>
+                    <p class="news-header">{{extrnws.title|uppercase }}</p>
+                  </ng-template>
+                  <div class="news-description" *ngIf="extrnws.desc.length>150; else extNewsDescription">
+                    <span class="news-content"
+                    (focus)="extrnws.readmore=true"
+                    (blur)="extrnws.readmore=false"
+                    (mouseover)="extrnws.readmore=true"
+                    (mouseleave)="extrnws.readmore=false"
+                    >
+                      {{(extrnws.desc| customSlice:150)}}
+                      <div>
+                        <span tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="detailedNews('external',extrnws)" (keyup.enter)="detailedNews('external',extrnws)" class="view-all-links pointer-class focus">
+                         <a attr.aria-label="{{'readMore' | translate}}"
+                          >{{'readMore' | translate}}</a></span>
+                      </div>
+                    </span>
+
+                  </div>
+
+                  <ng-template #extNewsDescription>
+                    <div class="news-description news-content">
+                      {{extrnws.desc}}
+                    </div>
+                  </ng-template>
+
+                </div>
+
+                 <ng-template #extIndex class="news">
+                  <img src="{{contextPath}}/content/FCCUI/assets/images/morenews.png"
+                    alt="">
+                  <p class="news-header">{{extrnws.title|uppercase }}</p>
+                  <div class="more-news">
+                    <p class="news-content"></p>
+                    <p class="more-news-link">
+                      <a class="cursor-class" [routerLink]="[]" (click)="moreNews('external')"
+                        attr.aria-label="{{ 'moreNews' | translate }}">
+                        {{extrnws.desc}}
+                      </a>
+                    </p>
+                  </div>
+                 </ng-template>
+
+              </ng-template>
+            </p-carousel>
+          </div>
+          <div class="no-news" *ngIf="!newsPresentExternal && externalNewsPermission">
+            <p class="noNews-title">{{'NoNews' | translate}}</p>
+          </div>
+        </div>
+      </div>
+      <app-nudges [nudges] = "nudges">
+      </app-nudges>
+    </p-card>
+  </div>
+
+  <div *ngIf="showDialog" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <p-dialog class="dialogAWB" header="{{ 'LBL_CONFIRM' | translate }}" [(visible)]="showDialog" [modal]="true"
+      [responsive]="true" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+      <p>{{ "externalLinkWarningMessage" | translate }}</p>
+      <p-footer>
+        <a class="cursor-class" href={{newsLink}} target="_blank">
+          <button role="button"  class="primaryButton" type="button" pButton (click)="closeDialog()" label="{{'proceed' | translate}}" aria-label="Close"> </button>
+        </a>
+        <button role="button"  type="button" pButton (click)="showDialog = false" label="{{'cancel' | translate}}" aria-label="Cancel" class="tertiaryButton"></button>
+      </p-footer>
+    </p-dialog>
+  </div>
+</ng-container>

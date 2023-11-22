@@ -1,0 +1,42 @@
+<div [formGroup]="reauthForm">
+  <p-dialog header="Re-authentication" [(visible)]="enableReauthPopup" [closable]="false" [modal]="true">
+    <br>
+    <div>{{'MESSAGE_REAUTH' | translate}}</div>
+    <div class="field">
+      <input formControlName="reauthPerform" name="reauthPerform" type="hidden" pInputText>
+      <input formControlName="clientSideEncryption" name="clientSideEncryption" type="hidden" pInputText>
+      <span class="required-field-symbol">*</span>
+     <!-- [feedback]=false is added to hide the password strength meter suggestions(strong,weak)  -->
+      <input type="password" formControlName="reauthPassword" name="reauthPassword" maxLength="35" size="40" [feedback]=false pPassword />
+    </div>
+    <p-footer>
+      <button pButton type="button" label="{{ 'USER_SUBMIT' | translate }}" class="primary-button" (click)="onReauthSubmit()"></button>
+      &nbsp;
+      <button pButton type="button" label="{{ 'ACTION_USER_CANCEL' | translate }}" class="tertiary-button" (click)="enableReauthPopup=false"></button>
+    </p-footer>
+  </p-dialog>
+  <p-dialog header="Alert" [(visible)]="showReauthFailureAlert" [modal]="true">
+      <br>
+      <div>{{'REAUTH_INVALID_PASSWORD' | translate}}</div>
+      <br>
+      <p-footer>
+        <button pButton type="button" label="{{ 'USER_ACTION_OK' | translate }}" class="primary-button" (click)="showReauthFailureAlert=false"></button>
+      </p-footer>
+  </p-dialog>
+  <p-dialog header="Alert" [(visible)]="showPasswordAlert" [modal]="true">
+      <br>
+      <div>{{'REAUTH_PASSWORD_REQUIRED' | translate}}</div>
+      <br>
+      <p-footer>
+        <button pButton type="button" label="{{ 'USER_ACTION_OK' | translate }}" class="primary-button" (click)="showPasswordAlert=false"></button>
+      </p-footer>
+  </p-dialog>
+  <p-dialog header="Alert" [(visible)]="enableErrorPopup" [modal]="true">
+    <br>
+    <div>{{'REAUTH_TYPE_ERROR' | translate}}</div>
+    <br>
+    <p-footer>
+      <button pButton type="button" label="{{ 'USER_ACTION_OK' | translate }}" class="primary-button" (click)="enableErrorPopup=false"></button>
+    </p-footer>
+</p-dialog>
+</div>

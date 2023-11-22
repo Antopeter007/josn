@@ -1,0 +1,395 @@
+{
+    "accountRelated": [
+      {
+        "subcategory": "Account Statement",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Account_Statements.svg"
+      },
+      {
+        "subcategory": "Balance confirmation",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Balance_Confirmation.svg"
+      },
+      {
+        "subcategory": "Interest Certificate",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Interest_Certificate.svg"
+      },
+      {
+        "subcategory": "Temporary Over Draft (TOD) inquiry",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Temporary_Overdraft.svg"
+      },
+      {
+        "subcategory": "Lien Inquiry",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Lien_Enquiry.svg"
+      },
+      {
+        "subcategory": "Upgrade Account variant",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/UpgradeAccountVariant.svg"
+      },
+      {
+        "subcategory": "Statement registration",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/StatementRegistration.svg"
+      },
+      {
+        "subcategory": "Deregistration of Printed Paper Statement",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/StatementDeregistration.svg"
+      },
+      {
+        "subcategory": "Link Debit Card: Redirection",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/LinkDebitCard.svg"
+      },
+      {
+        "subcategory": "NACH cancellation",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/nach_cancellation.svg"
+      },
+      {
+        "subcategory": "Activation/Deactivation of Passbook",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/Activation_DeactivationOfPassbook.svg"
+      },
+      {
+        "subcategory": "Home Branch change",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/HomeBranchChange.svg"
+      },
+      {
+        "subcategory": "Nominee Update",
+        "redirectionurl": "ILF",
+        "icon": "../../../../../../../assets/icons/NomineeUpdate.svg"
+      }
+    ],
+    "statementRelated": [
+        {
+            "subcategory": "Interest Certificate",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "TDS Enquiry",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Deposit interest certificate",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "CCOD account interest report",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Balance confirmation",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Deposit statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Acount Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Statement registration",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Deregistration of Printed Paper Statement",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/Account_Balance.jpg"
+        },
+        {
+          "subcategory": "TDS Certificate",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },   
+        {
+          "subcategory": "Credit Card Statement",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Tax Credit Statement (Form 26AS)",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Loan Statement",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "NPS Statement",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Mutual Fund Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Demat Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+      ],
+      "deposits": [
+        {
+            "subcategory": "Premature Withdrawal",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Premature Withdrawal",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Submit Form 15 G/H ",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Account Activity - Status- Redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Deposit Schedule- Redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Simulate Preclosure- Redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Regularize Recurring Deposit - remove as RD is not offered to Non Individual clients",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Lien Inquiry- Redirect to the existing page",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "Nominee update",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/Account_Balance.jpg"
+        },
+        {
+          "subcategory": "Deposit Advice",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },   
+        {
+          "subcategory": "Deposit Advice",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "TD Statement - add (wish list)",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "TD Interest Certificate - add (wish list)",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+          "subcategory": "TD Interest Certificate - add (wish list)",
+          "redirectionurl": "ILF",
+          "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "TD Advice",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+      ],
+      "chequeBook": [
+        {
+            "subcategory": "Request Cheque book",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Stop Cheque",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Issued Cheque status",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Deposited Cheque status (cashless deposit )",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+    ],
+
+    "debitCard": [
+        {
+            "subcategory": "Block Card - redirect to the Block Card page   ",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Image Card - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Add on card request - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Physical Pin request - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+    ],
+
+    "creditCard": [
+        {
+            "subcategory": "Replacement Card - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Add on card request - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Block Card - redirect to the Block Card page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+    ],
+    "forexCard": [
+        {
+            "subcategory": "Refund Money - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Block Card - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Backup Card - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Replacement Card - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        }
+    ],
+    "homeBanking": [
+        {
+            "subcategory": "Cash Pickup - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Cheque Pickup - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Cash Delivery - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Demand Draft Delivery - redirect to the existing page",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        }
+    ],
+    "demat": [
+        {
+            "subcategory": "Transaction Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Holding Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Billing Statement",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Client Master List",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Pledge Form",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Nomination Form",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        }
+    ],
+    "deliverables": [
+        {
+            "subcategory": "Debit Card",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Credit Card",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/recharge.jpg"
+        },
+        {
+            "subcategory": "Physical PIN",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        },
+        {
+            "subcategory": "Chequebook",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/interest_certificate.jpg"
+        },
+        {
+            "subcategory": "Welcome Kit",
+            "redirectionurl": "ILF",
+            "icon": "../../../../../../../assets/icons/baseline-account_balance.jpg"
+        }
+    ]
+
+  }

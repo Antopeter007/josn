@@ -1,0 +1,28 @@
+@import '../../../variables.scss';
+
+@mixin customclass_styling($ui-cornerright-border-top-right-radius,$ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,
+$ui-cornerright-border-left,$ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius) {
+    fcc-common-productlisting .ui-corner-right {
+        border-top-right-radius: $ui-cornerright-border-top-right-radius !important;
+        border-bottom-right-radius: $ui-cornerright-border-bottom-right-radius !important;
+        border: $ui-cornerright-border !important;
+        border-left: $ui-cornerright-border-left !important;
+      }
+      fcc-common-productlisting .ui-corner-top {
+        border-top-left-radius: $ui-cornerTop-border-top-left-radius !important;
+        border-top-right-radius: $ui-cornerTop-border-top-right-radius !important;
+      }
+}
+
+
+.FCC{
+$ui-cornerright-border-top-right-radius: 20rem;
+$ui-cornerright-border-bottom-right-radius: 20rem;
+$ui-cornerright-border: $borderNone;
+$ui-cornerright-border-left: $borderNone;
+$ui-cornerTop-border-top-left-radius: 0px;
+$ui-cornerTop-border-top-right-radius:0px;
+
+    @include customclass_styling($ui-cornerright-border-top-right-radius,$ui-cornerright-border-bottom-right-radius,$ui-cornerright-border,
+    $ui-cornerright-border-left,$ui-cornerTop-border-top-left-radius,$ui-cornerTop-border-top-right-radius);
+}

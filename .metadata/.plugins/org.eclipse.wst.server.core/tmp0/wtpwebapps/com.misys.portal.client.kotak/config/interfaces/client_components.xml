@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2014 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	<!-- Placeholder file for clients to define their own components -->
+	<component name="Dummy">
+		<description>fetching Account Summary from dummy response</description>
+		<classname>com.misys.portal.interfaces.incoming.Dummy</classname>
+	</component>
+	<component name="MostFavouriteAccountsService">
+		<description>fetching Account Summary from DWS database</description>
+		<classname>com.misys.portal.interfaces.incoming.MostFavouriteAccountsService</classname>
+	</component>
+	<component name="CreateGroupAccountsService">
+		<description>fetching CreateGroupAccountsService from response</description>
+		<classname>com.misys.portal.interfaces.incoming.CreateGroupAccountsService</classname>
+	</component>
+	<component name="AccountSummaryGraph">
+		<description>fetching Account Summary from DWS database</description>
+		<classname>com.finastra.internal.api.client.listdef.AccountSummaryGraph</classname>
+	</component>
+	<component name="MostActiveAccountsComponent">
+		<description>Fetching Most Active Accounts from DWH database</description>
+		<classname>com.misys.portal.interfaces.incoming.MostActiveAccountsComponent</classname>
+	</component>
+	<component name="yourRecentTransactionService">
+		<description>fetching Account yourRecentTransaction from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.yourRecentTransactionService</classname>
+	</component>
+	<component name="RecentTransactionService">
+		<description>fetching Account yourRecentTransaction from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.RecentTransactionService</classname>
+	</component>
+	<component name="BalanceConfirmationCertificateComponent">
+		<description>fetching Balance Confirmation from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.BalanceConfirmation</classname>
+	</component>
+	<!-- PaymentGate'Way Summary Graph on Dash board -->
+	<component name="PaymentGateWayGraph">
+		<description>Fetching PaymentGateWay Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.PaymentGatewaySummaryGraph
+		</classname>
+	</component>
+	<component name="UpiSummaryGraph">
+		<description>Fetching PaymentGateWay Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.UpiSummaryGraph
+		</classname>
+	</component>
+	<component name="VirtualAccountSummaryGraph">
+		<description>Fetching PaymentGateWay Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.VirtualAccountSummaryGraph
+		</classname>
+	</component>
+	<component name="BbpsSummaryGraph">
+		<description>Fetching PaymentGateWay Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.BbpsSummaryGraph
+		</classname>
+	</component>
+	<component name="CollectionSummaryGraph">
+		<description>Fetching CollectionSummaryGraph Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.CollectionSummaryGraph
+		</classname>
+	</component>
+	<component name="DepositsService">
+		<description>fetching Account yourRecentTransaction from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.DepositsService</classname>
+	</component>
+	<component name="ClientPaymentGateWayGraph">
+		<description>fetching Account yourRecentTransaction from  response</description>
+		<classname>com.finastra.internal.api.client.listdef.PaymentGateWaySummaryGraph</classname>
+	</component>
+	<component name="yoursummaryComponent">
+		<description>fetching Account yourRecentTransaction from  response</description>
+		<classname>com.finastra.internal.api.client.listdef.YourSummary</classname>
+	</component>
+	<component name="YourLoansService">
+		<description>Fetching Your Loan Details from Finacle Database</description>
+		<classname>com.misys.portal.interfaces.incoming.YourLoansService</classname>
+	</component>
+	<component name="PaymentAndCollectionService">
+		<description>fetching Account PaymentAndCollectionService from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.PaymentAndCollectionService</classname>
+	</component>
+	<component name="LoanSummaryService">
+		<description>Fetching Loan Summary from Finacle Database</description>
+		<classname>com.misys.portal.interfaces.incoming.LoanSummaryService</classname>
+	</component>
+	<component name="OpenFixedDepositComponent">
+		<description>fetching OpenFixedDeposit from  response</description>
+		<classname>com.misys.portal.interfaces.incoming.OpenFixedDeposit</classname>
+	</component>
+	<component name="StopChequeComponent">
+		<description>fetching Stop Cheque Status from response</description>
+		<classname>com.misys.portal.interfaces.incoming.StopChequeComponent
+		</classname>
+	</component>
+	<component name="ChequeStatusListingComponent">
+		<description>fetching Stop Cheque Status from response</description>
+		<classname>com.misys.portal.interfaces.incoming.ChequeStatusListingComponent
+		</classname>
+	</component>
+	<component name="DepositInterestCertificateService">
+		<description>Fetching data for Deposit Interest Certificate from Finacle Database </description>
+		<classname>com.misys.portal.interfaces.incoming.DepositInterestCertificateService</classname>
+	</component>
+	<component name="DepositSummaryService">
+		<description>Fetching data for Deposit Summary data from Finacle API </description>
+		<classname>com.misys.portal.interfaces.incoming.DepositSummaryService</classname>
+	</component>
+	<!-- Interfaces to trigger Email and SMS when the user gets locked -->
+	<component name="lockedusermailformatter">
+		<description>Send email to customer user with the locked user information</description>
+		<classname>com.misys.portal.interfaces.components.UserEmailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender email">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"/>
+			<property name="message.subjectkey" description="Key of localized title">LOCKED_USER_EMAIL_NOTIFICATION_SUBJECT</property>
+			<property name="message.bodykey" description="Key of localized body">LOCKED_USER_EMAIL_NOTIFICATION_TEXT</property>
+		</properties>
+	</component>
+	<component name="lockedusersmsformatter">
+		<description>Send email to customer user with the locked user information</description>
+		<classname>com.misys.portal.interfaces.components.UserSMSFormatter</classname>
+		<properties>
+			<property name="messsage.notificationText" description="key of localized text for sms">LOCKED_USER_SMS_NOTIFICATION_TEXT</property>
+		</properties>
+	</component>
+	<!-- On Boarding Interfaces -->
+	<!-- Company User Provisioning Component -->
+	<component name="companyuserprovisioningprocessor">
+		<description>To provision the Company User details</description>
+		<classname>com.misys.portal.daemon.impl.CompanyUserProvisioningDaemon</classname>
+	</component>
+	<!-- Account Provisioning Component -->
+	<component name="accountdetailsfetchprocessor">
+		<description>To provision the Account details</description>
+		<classname>com.misys.portal.daemon.impl.AccountSyncFetchDaemon</classname>
+	</component>
+	<!-- User Account Provisioning Component -->
+	<component name="useraccountdetailsupdateprocessor">
+		<description>To provision the User Account details</description>
+		<classname>com.misys.portal.client.interfaces.components.UserAccountDetailsInserter</classname>
+	</component>
+	<!-- Component to process the Unprocessed roles -->
+	<component name="unprocessedrolesupdateprocessor">
+		<description>Component to process the Unprocessed roles</description>
+		<classname>com.misys.portal.client.interfaces.components.UnprocessedRolesUpdator</classname>
+	</component>
+	<component name="DirectCollection">
+		<description>Fetching Loan Summary from Finacle Database</description>
+		<classname>com.finastra.internal.api.client.listdef.DirectCollectionSummaryGraph</classname>
+	</component>
+	<component name="applyforproductemailformatter">
+		<description>Send email to customer user with the apply for product information</description>
+		<classname>com.misys.portal.interfaces.components.UserEmailFormatter</classname>
+		<properties>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender email">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"/>
+			<property name="message.subjectkey" description="Key of localized title">APPLY_FOR_PRODUCT_EMAIL_NOTIFICATION_SUBJECT</property>
+			<property name="message.bodykey" description="Key of localized body">APPLY_FOR_PRODUCT_EMAIL_NOTIFICATION_TEXT</property>
+		</properties>
+	</component>
+	<!-- On-Boarding Account Components -->
+	<component name="CashChequeNachSummaryGraph">
+		<description>Fetching Summary Cash, Cheque and Nach Graph details from Database</description>
+		<classname>com.finastra.internal.api.client.listdef.CashChequeNachSummaryGraph
+           </classname>
+	</component>
+	<!-- Do not change the standard interface files. Instead, put you own components in this file to override the standard values. -->
+	<!-- Phase1 components Start. -->
+	<component name="clientdatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientUpdatedatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientUpdateDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientXmlOutToNostro">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientDisposalInstructionXmlOut</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientRejectdatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientRejectInstructionSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientApplicationDateAddedSerializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientApplicationDateAddedSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientecdatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.client.interfaces.incoming.ClientECDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clienttfdatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.client.interfaces.incoming.ClientTFDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<!-- EL Hyperlink -->
+	<component name="clientelUpdatedatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientELUpdateDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<!-- IR-Default Hyperlink -->
+	<component name="ClientirUpdateDatabaseSerializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientIRUpdateDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<!-- IR-Nostro XML Incoming Handler -->
+	<component name="irNostroIncomingHandler">
+		<description>Check the data take on xml for duplication</description>
+		<classname>com.misys.portal.client.interfaces.components.IRNostroIncomingHandler</classname>
+		<properties>
+			<property name="nostro.backup.directory" description="nostro xml backup file creation directory">${nostro_backup_directory}</property>
+			<property name="nostro.error.directory" description="nostro xml error file creation directory">${nostro_error_directory}</property>
+		</properties>
+	</component>
+	<!-- Calender Alert -->
+	<component name="calendareventmailformatter">
+		<description>Build message from event. 0: Reference Id, 1: Product
+			code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6:
+			Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10:
+			Receiver name</description>
+		<classname>com.misys.portal.client.interfaces.components.CalendarEventMailFormatter</classname>
+		<properties>
+			<property name="destination" description="00: Customer, 01: Bank">00</property>
+			<property name="message.from.isDynamic" description="Dynamic Sender email address">false</property>
+			<property name="message.from.address" description="Sender email address">${alert.email.from.address}</property>
+			<property name="message.from.personal" description="Sender name">${alert.email.from.personal}</property>
+			<property name="message.replyTo" description="Environment property containing Reply-to email address"/>
+			<property name="message.to" description="Environment property containing Recipient email address">message.to</property>
+			<property name="message.cc" description="Environment property containing CC'ed address"/>
+			<property name="message.bcc" description="Environment property containing BCC'ed address"/>
+			<property name="message.subjectkey" description="Key of localized title">CALENDAR_EVENT_ALERT_SUBJECT</property>
+		</properties>
+	</component>
+	<!-- Component to insert the xml in the FG stagging table -->
+	<component name="fgNostroIncomingMsgInserter">
+		<description>insert the nostro incoming xml in FG stagging table</description>
+		<classname>com.misys.portal.client.interfaces.components.FgNostroIncomingMsgInserter</classname>
+	</component>
+	<component name="clientTFPreShipDatabaseSerializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.client.interfaces.incoming.ClientTFPreShipDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="clientmbiupdatedatabaseserializer">
+		<description>Save BulkObjects into Database</description>
+		<classname>com.misys.portal.interfaces.incoming.ClientMBIUpdateDatabaseSerializer</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<!-- Phase1 components END. -->
+	<!-- Phase 3 Start -->
+	<component name="ExternalFCMAPIHandler">
+		<description>Process the API invocation</description>
+		<classname>com.misys.portal.client.interfaces.components.ClientExternalFCMAPIHandler</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="jdbcjsonreader">
+		<description>Runs a query on the database</description>
+		<classname>com.misys.portal.client.interfaces.components.ClientJDBCJsonReader</classname>
+		<properties>
+			<property name="jdbc.query" description="The query to be run"/>
+			<property name="hasPamameters" description="If true, the query can have parameters"/>
+			<property name="parameter.isDynamic" description="If true, the parameters for query is available in the environment"/>
+			<property name="pamameter.parameter_1" description="Parameter 1 for the query"/>
+			<property name="pamameter.parameter_2" description="Parameter 2 for the query"/>
+		</properties>
+		<consumer type="ObjectConsumer" object="Any object"/>
+		<producer type="ObjectProducer" object="com.misys.portal.interfaces.components.JDBCJsonValues"/>
+	</component>
+	<component name="FCMPaymentsSummaryGraph">
+		<description>Fetching FCM Payments Summary from DWH Database
+		</description>
+		<classname>com.finastra.internal.api.client.listdef.FCMPaymentsSummaryGraph
+		</classname>
+	</component>
+	<component name="fcmcompanyrolesprocessor">
+		<description>Save FCM company roles to FCC Staging Table DM_JARVIS_OB_COMPANY_ROLES
+		</description>
+		<classname>com.misys.portal.client.interfaces.components.FCMCompanyRolesProcessor
+		</classname>
+	</component>
+	<component name="fcmuserrolesprocessor">
+		<description>Save FCM user roles to FCC Staging Table DM_JARVIS_OB_USER_ROLES
+		</description>
+		<classname>com.misys.portal.client.interfaces.components.FCMUserRolesProcessor
+		</classname>
+	</component>
+<!-- Do not change the standard interface files. Instead, put you own components in this file to override the standard values. -->
+</components>

@@ -1,0 +1,94 @@
+<div *ngIf ="!viewMode  ;else view_content">
+		<div [formGroup]="sectionForm">
+		 <div class="toplevel-header"><h2>{{ 'UNDERTAKING_DETAILS_LABEL' | translate }}</h2>	</div>
+		   <!-- Type Of Undertaking -->
+		   <div class="field">
+				<label for="type_code">
+					{{'UNDERTAKING_DETAILS_TYPE' | translate }}&nbsp;<span class="required-field-symbol">*</span></label>
+				<p-dropdown [style]="{'width':'250px'}" placeholder=" " [options]="typeOfUndertakingObj"
+					[showClear]="false" formControlName="type_code">
+				</p-dropdown>
+			  <fcc-common-error-message [control]="sectionForm.get('type_code')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+			</div>
+
+			<!-- Rules Applicable -->
+			<div class="field">
+					<label for="rule">
+					  {{'GTEEDETAILS_RULES_LABEL' | translate }}&nbsp;
+					</label>
+					<p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="rulesApplicableObj"
+					  [showClear]="true" formControlName="rule">
+					</p-dropdown>
+			</div>
+
+			<!-- Text Of Undertaking -->
+			<div class="field">
+					<label for="text_type_code">{{'GTEEDETAILS_TEXT_UNDERTAKING_LABEL' | translate }}&nbsp;<span class="required-field-symbol">*</span></label>
+					<p-dropdown placeholder=" " [options]="undertakingTextObj" [showClear]="false"
+						formControlName="text_type_code">
+					</p-dropdown>
+					<fcc-common-error-message [control]="sectionForm.get('text_type_code')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+			</div>
+		</div>
+
+		</div>
+		<ng-template #view_content>
+			<p-panel header="{{ 'UNDERTAKING_DETAILS_LABEL' | translate }}" [toggleable]="true" [collapsed]="false">
+			<div id =  "undertakingDetails">
+
+	<div id =  "bg_rule_view_row" *ngIf ="bgRecord['bgRule'] && bgRecord['bgRule'] != null && bgRecord['bgRule'] != ''">
+		<label for =  "bgRule" id =  "bg_rule_label">{{ 'GTEEDETAILS_RULES_LABEL' | translate }}&nbsp;</label>
+		<label class="label-left">{{tradeCommonDataService.getRulesApplicable(bgRecord['bgRule']) | translate}}</label>
+    </div>
+
+      <div id =  "govern_view_row" *ngIf ="bgRecord['bgGovernCountry'] && bgRecord['bgGovernCountry'] != null && bgRecord['bgGovernCountry'] != ''">
+        <label for =  "bg_govern" id =  "bg_govern_label">{{ 'PLACE_OF_JURISDICTION_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgGovernCountry']}}</label>
+    </div>
+    <div id =  "govern_view_row" *ngIf ="bgRecord['bgGovernText'] && bgRecord['bgGovernText'] != null && bgRecord['bgGovernText'] != ''">
+        <label for =  "bg_govern" id =  "bg_govern_label">{{ 'GTEEDETAILS_GOVERNING_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgGovernText']}}</label>
+    </div>
+    <div id =  "bg_demand_indicator_view_row" *ngIf ="bgRecord['bgDemandIndicator'] && bgRecord['bgDemandIndicator'] != null && bgRecord['bgDemandIndicator'] != ''">
+        <label for =  "bgDemandIndicator" id =  "bg_demand_indicator_label">{{ 'GTEEDETAILS_DEMAND_INDICATOR_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getDemandIndicator(bgRecord['bgDemandIndicator']) | translate}}</label>
+	</div>
+	<div id =  "bg_text_type_code_view_row" *ngIf ="bgRecord['bgTextTypeCode'] && bgRecord['bgTextTypeCode'] != null && bgRecord['bgTextTypeCode'] != ''">
+		<label for =  "bgTextTypeCode" id =  "bg_text_type_code_label">{{ 'GTEEDETAILS_TEXT_UNDERTAKING_LABEL' | translate }}&nbsp;</label>
+		<label class="label-left">{{tradeCommonDataService.getUndertakingText(bgRecord['bgTextTypeCode']) | translate}}</label>
+	</div>
+	<div id =  "bg_text_type_details_view_row" *ngIf ="bgRecord['bgTextTypeDetails'] && bgRecord['bgTextTypeDetails'] != null && bgRecord['bgTextTypeDetails'] != ''">
+		<label for =  "bgTextTypeDetails" id =  "bg_text_type_details_label">&nbsp;</label>
+		<label class="label-left">{{bgRecord['bgTextTypeDetails']}}</label>
+	</div>
+	<div id =  "text_language_view_row" *ngIf ="bgRecord['bgTextLanguage'] && bgRecord['bgTextLanguage'] != null && bgRecord['bgTextLanguage'] != ''">
+		<label for =  "bgTextLanguage" id =  "text_language_label">{{ 'GTEEDETAILS_TEXT_LANGUAGE_LABEL' | translate }}&nbsp;</label>
+		<label class="label-left">{{commonDataService.getTextLanguage(bgRecord['bgTextLanguage']) | translate}}</label>
+	</div>
+	<div id =  "text_language_other_view_row" *ngIf ="bgRecord['bgTextLanguageOther'] && bgRecord['bgTextLanguageOther'] != null && bgRecord['bgTextLanguageOther'] != ''">
+		<label for =  "bgTextLanguageOther" id =  "text_language_other_label">&nbsp;</label>
+		<label class="label-left">{{bgRecord['bgTextLanguageOther']}}</label>
+	</div>
+
+  <div id =  "narrative_text_undertaking_view_row" *ngIf ="bgRecord['bgNarrativeTextUndertaking'] && bgRecord['bgNarrativeTextUndertaking'] != null && bgRecord['bgNarrativeTextUndertaking'] != ''">
+    <label for =  "bgNarrativeTextUndertaking" id =  "narrative_text_undertaking_label">{{ 'GTEEDETAILS_TEXT_OF_UNDERTAKING_LABEL' | translate }}&nbsp;</label>
+    <label class="label-left">{{bgRecord['bgNarrativeTextUndertaking']}}</label>
+  </div>
+
+  <div id =  "narrative_undertaking_terms_and_conditions_view_row" *ngIf ="bgRecord['narrativeUndertakingTermsAndConditions'] && bgRecord['narrativeUndertakingTermsAndConditions'] != null && bgRecord['narrativeUndertakingTermsAndConditions'] != ''">
+    <label for =  "narrativeUndertakingTermsAndConditions" id =  "narrative_undertaking_terms_and_conditions_label">{{ 'CU_UNDERTAKING_TERMS_AND_CONDITIONS' | translate }}&nbsp;</label>
+    <label class="label-left">{{bgRecord['narrativeUndertakingTermsAndConditions']}}</label>
+  </div>
+
+  <div id =  "narrative_underlying_transaction_details_view_row" *ngIf ="bgRecord['bgNarrativeUnderlyingTransactionDetails'] && bgRecord['bgNarrativeUnderlyingTransactionDetails'] != null && bgRecord['bgNarrativeUnderlyingTransactionDetails'] != ''">
+    <label for =  "bgNarrativeUnderlyingTransactionDetails" id =  "narrative_underlying_transaction_details_label">{{ 'GTEEDETAILS_UNDERLAYING_TRAN_DETAILS_LABEL' | translate }}&nbsp;</label>
+    <label class="label-left">{{bgRecord['bgNarrativeUnderlyingTransactionDetails']}}</label>
+  </div>
+
+  <div id =  "narrative_presentation_instructions_view_row" *ngIf ="bgRecord['bgNarrativePresentationInstructions'] && bgRecord['bgNarrativePresentationInstructions'] != null && bgRecord['bgNarrativePresentationInstructions'] != ''">
+    <label for =  "bgNarrativePresentationInstructions" id =  "narrative_presentation_instructions_label">{{ 'GTEEDETAILS_PRESENTATION_INSTRUCTIONS' | translate }}&nbsp;</label>
+    <label class="label-left">{{bgRecord['bgNarrativePresentationInstructions']}}</label>
+  </div>
+ </div>
+</p-panel>
+</ng-template>

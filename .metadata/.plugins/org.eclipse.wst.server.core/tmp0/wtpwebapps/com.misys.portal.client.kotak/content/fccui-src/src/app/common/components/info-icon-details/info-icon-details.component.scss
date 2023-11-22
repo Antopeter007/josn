@@ -1,0 +1,34 @@
+@import './../../../../styles/variables.scss';
+
+.host ::ng-deep .infoIcon {
+  line-height: 1em !important;
+  color: $infoIconColor !important;
+  position: inherit !important;
+  top: 0.7em !important;
+  right: -0.1em !important;
+  z-index: 10 !important;
+}
+
+::ng-deep .tooltip-style {
+  max-width: 25em !important;
+  white-space: pre-wrap !important;
+  font-size: 0.8em !important;
+  background-image: linear-gradient($VIOLET-F100, $FUCHSIA-F100) !important;
+  color: $WHITE !important;
+}
+
+::ng-deep .customize-tooltip {
+  max-width: 25em !important;
+  white-space: pre-wrap !important;
+  font-size: 1.2em !important;
+  background-color: $BLACK !important;
+  color: $WHITE !important;
+}
+
+::ng-deep .customizeIcon {
+  position: relative !important;
+  top: 0.2em !important;
+  font-size: 1.2em !important;
+  font-family: 'Material Icons' !important;
+  cursor: pointer;
+}

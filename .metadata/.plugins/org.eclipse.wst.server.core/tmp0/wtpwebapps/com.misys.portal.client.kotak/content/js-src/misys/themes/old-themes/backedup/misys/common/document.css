@@ -1,0 +1,19 @@
+/**
+ Refer to /themes/base/common/document.css
+**/
+
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #6B8F00;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #616265;
+	text-decoration: none;
+}
+

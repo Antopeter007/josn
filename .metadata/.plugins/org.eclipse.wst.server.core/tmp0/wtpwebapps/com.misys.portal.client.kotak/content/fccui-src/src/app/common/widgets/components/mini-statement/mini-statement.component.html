@@ -1,0 +1,63 @@
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard">
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+      </p-header>
+      <div class="flexRow">
+        <h1 class="headerTitle p-col-6">
+          {{ 'miniStatementTitle' | translate }}
+        </h1>
+        <div class="p-col-6" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+          <mat-form-field *ngIf="entityDataArray.length>1" class="input-mat-width" appearance="fill">
+            <mat-label>{{ 'entity' | translate }}</mat-label>
+            <mat-select disableOptionCentering [value]="selectedEntity" 
+            panelClass="dropdown-panel" id="entityTitle" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"
+              (selectionChange)="onMatSelectEventRaised($event)">
+              <mat-option *ngFor="let opt of entityDataArray" [value]="opt.value"
+                [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+                {{opt.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="!fetching" class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <app-mini-statement-child ngClass="MinChdwidth" [entityId]="selectedEntity"
+          (selectedTransactionType)="setTransationType($event)" (accountNumber)="accountChange($event)"
+          (accountDataPresent)="isAccountDataPresent($event)"></app-mini-statement-child>
+      </div>
+      <div *ngIf="isaccountDataPresent">
+        <div class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+          <app-mini-statment-table style="width: 100%;" [entityId]="SelectedEntityName"
+            [selectedTransactionType]='selectedtransactionType' [accountNumber]='accountNumber'
+            (tableDataPresent)="isTableDataPresent($event)"></app-mini-statment-table>
+        </div>
+        <!-- <div class="p-grid" *ngIf="istableDataPresent">
+                <div class="p-col-12 finishMsg"> {{'miniStatmentMessage' | translate : { rowCount: rowCount } }}
+
+                  <img class = "Dlogo" alt="{{'debit' | translate}}" src = {{debitImage}}>{{'debit' | translate}}
+                  <img class = "Clogo" alt="{{'credit' | translate}}" src = {{creditImage}}>{{'credit' | translate}}
+
+                </div>
+              </div> -->
+        <div *ngIf="!istableDataPresent">
+          <div class="p-grid p-align-center vertical-container">
+            <div class="p-col-12">
+              <span class="authMsg1">{{'miniStatmentNoData' | translate}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isaccountDataPresent">
+        <div class="p-grid p-align-center vertical-container">
+          <div class="p-col-12">
+            <span class="authMsg1">{{'miniStatmentNoAccount' | translate}}</span>
+          </div>
+        </div>
+      </div>
+      <app-nudges [nudges] = "nudges">
+      </app-nudges>
+    </p-card>
+  </div>
+</ng-container>

@@ -1,0 +1,44 @@
+<ng-container [formGroup]="form">
+  <div  class="p-col-12" dir={{dir}}>
+    <!-- amend edit -->
+    <div class="{{control.params.styleClass}}" *ngIf="control.params.rendered && mode === 'edit'">
+      <mat-form-field appearance="outline">
+        <!-- <textarea style="font-family: monospace; overflow-wrap: initial;"  matInput class="{{control.params.textAreaClass}} {{control.params.start}}"
+        rows="{{control.params.rows}}" cols="{{control.params.cols}}"
+        (click)="onEventRaised($event,control.key)"  (blur)="onCountEventRaised($event,control.key)"
+        (keyup)="onCountEventRaised($event,control.key)" (focus)="onCountEventRaised($event,control.key)" formControlName={{control.key}} maxlength="{{control.params.maxlength}}"
+        matAutosizeMinRows="4" matAutosizeMaxRows="10" matTextareaAutosize>{{control.value}}</textarea> -->
+        <span class="{{control.params.startClass}} {{control.params.start}}">/{{control.params.start}}/</span>
+        <fcc-highlight-editor
+          style="font-family: monospace"
+          #fccCommonTextAreaId
+          matInput
+          [value]="control.value"
+          class="fcc-ui-inputtextarea fcc-textarea-width"
+          id="{{ control.key }}"
+          (click)="onEventRaised($event, control.key)"
+          (blur)="customEventRaised($event, control.key)"
+          (keyup)="onCountEventRaised($event, control.key)"
+          (focus)="onCountEventRaised($event, control.key)"
+          (change)="onCustomEventRaised($event, control.key, control)"
+          formControlName="{{ control.key }}"
+          maxlength="{{ control.params.maxlength }}"
+          [required]="control.params.required"
+          [ngClass]="{ 'resize-none': control.params.resize === false }"
+          (data)="getHighlightEditorData($event)"
+          [properties]="highlightEditorProperties"
+          [typeOfRegex]="typeOfRegex"
+        ></fcc-highlight-editor>
+        <mat-icon *ngIf="control.params.start !== 'Repall'" (click)="onCounterEventRaised($event,control.key)">delete</mat-icon>
+        <mat-error *ngIf="errorCount > 0">
+          {{ ErrorCountLabel }}: {{ errorCount }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- amend view -->
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{control.key}}" class="form-header" tabindex="0">{{ control.params.label }}</label>
+      <div class="{{control.params.styleClass}}" *ngIf="mode === 'view'" id="{{control.key}}">{{control.value}}</div>
+    </div>
+  </div>
+</ng-container>

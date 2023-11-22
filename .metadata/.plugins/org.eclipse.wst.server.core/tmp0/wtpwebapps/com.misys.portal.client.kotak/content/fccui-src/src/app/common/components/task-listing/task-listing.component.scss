@@ -1,0 +1,181 @@
+@import "./../../../../styles/variables.scss";
+
+.p-grid {
+  margin: 0em !important;
+  padding-bottom: 0em !important;
+  padding-top: 0em !important;
+}
+
+.tasksCardInput {
+  width: 100%;
+}
+
+.mat-card:hover {
+  box-shadow: 0 0.3125em 0.3125em -0.1875em rgba(0, 0, 0, 0.2),
+    0 0.5em 0.625em 0.0625em rgba(0, 0, 0, 0.14),
+    0 0.1875em 0.875em 0.125em rgba(0, 0, 0, 0.12);
+}
+
+.wordBreak {
+  word-break: break-all;
+  white-space: pre-line;
+  color: $CHARCOAL-F100;
+}
+
+.completedButton {
+  color: $GREEN-01;
+  border-color: $GREEN-01;
+}
+
+.pendingButton {
+  color: $CHARCOAL-F100;
+  border-color: $CHARCOAL-F100;
+}
+
+.cardPadding {
+  margin-bottom: 1em;
+  width: auto;
+  border: solid;
+  border-width: 0.01em;
+  border-color: lightgrey;
+  box-shadow: none;
+}
+
+.side_bar {
+  padding: 1em 0em 1em 1em;
+  position: relative;
+  top: 0;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.side_bar:hover {
+  overflow-y: auto;
+}
+
+.side_bar::-webkit-scrollbar {
+  width: 0.3125em;
+  height: 0.0625em;
+}
+
+.side_bar::-webkit-scrollbar-thumb {
+  background: #a3a1a1 !important;
+  border-radius: 0.3125em;
+}
+
+.side_bar::-webkit-scrollbar-thumb:hover {
+  background: #009eb3;
+}
+
+.viewMoreButton {
+  position: relative;
+  cursor: pointer !important;
+  color: $VIOLET-F100;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 1em;
+}
+
+.mat-card .mat-card-content {
+  color: $GREY-05;
+  letter-spacing: 0;
+  line-height: 1.4em;
+}
+
+.mat-card-actions, .mat-card-subtitle, .mat-card-content {
+  margin-bottom: 0em !important;
+}
+
+.commentsButton {
+  position: relative;
+  cursor: pointer !important;
+  color: $CHARCOAL-F100;
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding-left: 0em;
+}
+
+.mat-card-header {
+  color: $CHARCOAL-F100-dark;
+}
+
+.descHeader {
+  color: $VIOLET-F100;
+}
+
+.mat-card::ng-deep.mat-card-header-text {
+  width: 100%;
+}
+
+.mat-card-subtitle, .mat-card-content {
+  font-size: 0.8em !important;
+}
+
+
+#accountCircle, #event {
+  position: relative !important;
+  top: 0.22em;
+  pointer-events: none;
+}
+
+#editIcon {
+  position: relative !important;
+}
+
+// task action button
+.TaskActionButton {
+  border-radius: 1.125em !important;
+  min-width: auto;
+  line-height: 2.25em !important;
+  font-size: 0.725em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $WHITE !important;
+  // border: 0.0625em solid #d9d9d9 !important;
+  position: relative;
+  top: 1em;
+}
+@media only screen and (max-width: 56.25em) {
+  .TaskActionButton {
+    min-width: fit-content !important;
+  }
+  .TaskActionButton.pendingButton {
+    margin:-2em;
+
+  }
+}
+@media only screen and (max-width: 50em) {
+  .TaskActionButton {
+    min-width: fit-content !important;
+    margin: -2em;
+    top: -0.9375em;
+    left: -0.3125em;
+  }
+}
+
+.TaskActionButton:hover {
+  background-color: #f5f3fe !important;
+  color: #414141 !important;
+}
+.TaskActionButton:active {
+  background-color: #f1eeff !important;
+  box-shadow: none !important;
+}
+
+.posRel {
+  position: relative !important;
+}

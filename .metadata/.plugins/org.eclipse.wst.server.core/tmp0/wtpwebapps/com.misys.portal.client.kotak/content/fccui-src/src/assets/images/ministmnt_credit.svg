@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>icon/action/trending_up_24px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="510.59 409 512.88 411.29 508 416.17 509.599094 417.70166 514.3 412.71 516.59 415 516.59 409"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-508.000000, -409.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="icon/action/trending_up_24px" fill="#367940" fill-rule="nonzero" transform="translate(512.295000, 413.350830) scale(-1, 1) translate(-512.295000, -413.350830) " xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

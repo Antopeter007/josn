@@ -1,0 +1,16 @@
+{"code":200,"type":"OK","message":null,
+"data":{"details":
+[
+{"crnNumber":"13402308","amount":100000,"schemeCode":"BAJAJFIN","userNumber":"KKBKKLI00000000001",
+"mandateId":4129990,"mbPrimekey":"MMSKKBK000413742820210824"},
+{"crnNumber":"13402308","amount":100000,"schemeCode":"BAJAJFIN","userNumber":"KKBKKLI00000000001","mandateId":4129467,
+"mbPrimekey":"MMSKKBK000413705820210824"},
+{"crnNumber":"13402308","amount":100000,"schemeCode":"BAJAJFIN",
+"userNumber":"KKBKKLI00000000001","mandateId":4129466,"mbPrimekey":"MMSKKBK000413705720210824"},
+{"crnNumber":"13402308",
+"amount":100000,"schemeCode":"BAJAJFIN","userNumber":"KKBKKLI00000000001","mandateId":4129465,"mbPrimekey":"MMSKKBK000413705620210824"},
+{"crnNumber":"13402308",
+"amount":200000,"schemeCode":"BAJAJFIN","userNumber":"KKBKKLI0000000056789","mandateId":412946556,"mbPrimekey":"MMSKKBK000413705620210824rt"},
+{"crnNumber":"1340230","amount":600000,"schemeCode":"BAJAJ","userNumber":"KKBKKLI00000000001567","mandateId":412946467,"mbPrimekey":"MMSKKBK000413705520210824ghjk"}
+],
+"totalMandateCount":5,"responseCode":"00","description":"Operation perform successfully","requestId":null},"timeStamp":"190120221442033"}

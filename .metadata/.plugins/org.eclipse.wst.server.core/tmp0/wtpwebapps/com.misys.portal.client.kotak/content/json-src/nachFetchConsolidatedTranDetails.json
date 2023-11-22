@@ -1,0 +1,21 @@
+{
+    "code": 200,
+    "type": "OK",
+    "message": null,
+    "data": {
+        "details": [
+            {
+                "crnNumber": "13402308",
+                "amount": 600000,
+                "schemeCode": "BAJAJFIN",
+                "userNumber": "KKBKKLI00000000001",
+                "count": 1
+            }
+        ],
+        "totalCount": 1,
+        "responseCode": "00",
+        "description": "Operation perform successfully",
+        "requestId": ""
+    },
+    "timeStamp": "200120221728015"
+}

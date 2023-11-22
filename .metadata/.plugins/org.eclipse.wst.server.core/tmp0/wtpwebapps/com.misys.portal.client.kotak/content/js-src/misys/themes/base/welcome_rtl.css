@@ -1,0 +1,271 @@
+/*
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		CSS rules loaded by all *unsecured* pages (RTL version)
+  		
+	description:
+	  	This CSS file is loaded by all pages accessible by unsecured users. In practice, this
+	  	means the "Welcome" page, the login page and the "change password" page. This file
+	  	should contain *only* those rules and imports required to correctly load these pages.
+
+  		Hence DONT put anything in this file that could be considered sensitive
+  		or that would assist a malicious user in guessing page elements or functionality of
+  		the secured pages.
+  		
+  		Note that a few of the styles below are copied from forms.css, but we don't import the
+  		entire stylesheet for security reasons.
+
+	version:   1.0
+	date:      11/04/2014
+	author:    Gurudath JC
+	email:     gurudath.reddy@misys.com
+*/
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dijit/themes/dijit_rtl.css";
+@import "../../../dijit/themes/claro/Common.css";
+@import "../../../dijit/themes/claro/form/Common.css";
+@import "../../../dijit/themes/claro/form/Common_rtl.css";
+@import "../../../dijit/themes/claro/form/Button.css";
+@import "../../../dijit/themes/claro/form/Button_rtl.css";
+@import "../../../dijit/themes/claro/form/Checkbox.css";
+@import "../../../dijit/themes/claro/form/RadioButton.css";
+@import "../../../dijit/themes/claro/Dialog.css";
+@import "../../../dijit/themes/claro/Dialog_rtl.css";
+
+@import "common/document_rtl.css";
+@import "common/layout_rtl.css";
+@import "common/portlets_rtl.css";
+
+/** 
+	Many of the following rules have been copied from forms_rtl.css (which shouldn't be loaded
+    by unsecured pages 
+**/
+
+.portlet-section-header {
+	display: none;
+}
+
+#DefaultContent, #TradeApplicationsDefault {
+	border: none;
+}
+
+/** Portlet that displays the "Welcome to Misys" message **/
+#Welcome {
+	margin: 12px 4px 4px 0;
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/** Portlet that lists the "transactional features" of MTP **/
+#TradeApplicationsDefault li {
+	margin: 4px 8px 4px 0;
+	font-weight: normal;
+}
+
+#TradeApplicationsDefault {
+	margin: 12px 4px 4px 0;
+	padding: 0px;
+	font-size: 0.75em;  /** 12px **/
+}
+
+#TradeApplicationsDefault p {
+	margin-bottom: 12px;
+}
+
+/** Login / Change Password form **/
+
+#loginForm
+ {
+	margin: 100px auto;
+	width: 20em;  /** About 320px **/
+}
+
+/** Mask the form while the page is loading **/
+.notready #loginForm {
+	visibility: hidden;
+}
+
+#login_fields {
+	padding: 1em;
+}
+
+#changePassword label,
+#changePassword .label {
+	width: 10em;
+}
+
+.toplevel-header {
+	font-size: 0.75em;
+}
+
+.toplevel-header h2 {
+	font-weight: bold;
+	padding: 2px 4px 0 4px;
+	height: 20px;
+	overflow: hidden;
+	font-size: 1.0833em;
+}
+
+.field {
+	clear: none;
+	margin: 0.5em 0;
+}
+
+label, .label {
+	width: 8em;
+	text-align: left;
+	line-height: 1.5em;
+	display: inline-block;
+	margin-left: 0.5em;
+}
+
+.dj_ie7  label, 
+.dj_ie7  .label {
+	zoom: 1;
+	display:inline;
+}
+
+.content {
+    text-align: right;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: inline;
+}
+
+/** Add some spacing to the inside of the input box **/
+.base .dijitTextBox {
+	 padding: 0 0.1em 0 0;
+}
+
+.small {
+	width: 10em;
+}
+
+.para .icon {
+	float: right;
+	width: 55px;
+}
+
+.para-quote {
+	font-style: italic;
+}
+
+.message {
+	margin-right: 6px;
+}
+
+/**
+ * Bug fix for IE to push enter in forms
+*/
+.dj_ie .notready .dijitButton {
+	visibility: visible;
+}
+
+/*------------------ Client Code ----------------*/
+
+.panel1 {
+	height: 18px;
+	padding: 6px 0 4px 0;
+}
+
+#loginForm .toplevel-header,
+#loginFormQA .toplevel-header {
+	border:0;	
+}
+
+#loginForm .toplevel-header h2,
+#loginFormQA .toplevel-header h2 {
+	background: transparent;	
+	color: #666;
+	border-bottom: 2px solid #004F9E;
+}
+
+#loginLanguages {
+	text-left;
+	clear:both;
+}
+
+.loginLanguagesCell {
+	margin-right : 5px; 
+}
+
+#changePasswordQA label,
+#changePasswordQA .label{
+	 width: 340px;
+	margin-right: 1px;
+}
+
+.loginFormSmall #changePasswordQA  label,
+.loginFormSmall #changePasswordQA .label {
+	width: 6em;
+	margin-right: 1px;
+}
+
+#password-reset {
+	margin-bottom: 6px;
+	font-size: 0.916em;
+	text-align: left;
+}
+
+#buttonsdiv {
+	text-align: left;
+}
+
+/**------------ Logout Page---------------------------**/
+.logoutHeade1 {
+	color: #30307E;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 5px;	
+}
+
+.logoutHeade2 {
+	color: #5E5E9B;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 7px;	
+}
+
+.logoutContent1{
+	clear: both;
+	margin: 10px;
+	margin-top: 40px;
+}
+
+.logoutContent2{
+	clear : both;
+	border: 1px solid #CCC;
+	box-shadow: 1px 1px 2px 0px #CCC;
+	margin-top: 15px;
+	width: 350px;
+	padding: 10px;
+}
+
+.logoutTable {
+	clear : both;
+}
+
+.goToHomePageButton{
+	float: left;
+	margin: 12px;
+}
+
+.logoutTable {
+	width : 1000px;
+	height:70px;
+}
+.logoutTable .tableHeadLogout td{
+	font-weight : bold;	
+	background-color: #EEE;
+}
+.logoutTable td{
+	border: 1px solid #CCC;
+	box-shadow: 1px 1px 2px 0px #CCC;
+	text-align: center;
+}

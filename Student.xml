@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+   <Student>
+      <name>Anto</name>
+      <marks>515</marks>
+      <name>Arun</name>
+      <marks>590</marks>
+      <name>Maran</name>
+      <marks>555</marks>
+   </Student>
+</class>

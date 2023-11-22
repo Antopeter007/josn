@@ -1,0 +1,108 @@
+<div *ngIf ="!unsignedMode && !viewMode  ;else unsigned_content">
+  <div [formGroup]="formName">
+      <div class="field">
+          <label for="{{undertakingType}}DelvOrgUndertaking" >{{'INSTRUCTIONS_DELIVERY_OF_ORG_UNDERTAKING' | translate }}&nbsp;</label>
+          <p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="deliveryModeDropdown" [showClear]="true"
+          id = "{{undertakingType}}DelvOrgUndertaking" formControlName = "{{undertakingType}}DelvOrgUndertaking" (onChange)="changeOriginalUndertakingDel();">
+          </p-dropdown>
+      </div>
+
+      <div class="field" *ngIf="this.formName.get(undertakingType + 'DelvOrgUndertaking').value === '99' || this.formName.get(undertakingType + 'DelvOrgUndertaking').value === '02'">
+          <label for="{{undertakingType}}DelvOrgUndertakingText">
+            <span class="required-field-symbol" *ngIf="this.formName.get(undertakingType + 'DelvOrgUndertaking').value === '99'">*</span>&nbsp;
+          </label>
+          <input pInputText type="text" id="{{undertakingType}}DelvOrgUndertakingText" formControlName="{{undertakingType}}DelvOrgUndertakingText">
+          <fcc-common-error-message [control]="formName.get(undertakingType + 'DelvOrgUndertakingText')" ></fcc-common-error-message>
+      </div>
+
+      <div class="field" *ngIf="!this.isBankUser">
+          <label for="{{undertakingType}}PrincipalActNo" >{{'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <input pInputText type="text" id="{{undertakingType}}PrincipalActNo" formControlName="{{undertakingType}}PrincipalActNo" (click)="openAccountDialog('bgPrincipalActNo')" [readonly]="true" pInputText>
+          <a *ngIf="!(commonDataService.disableTnx)" class="fa fa-search fa-lg" (click)="openAccountDialog('bgPrincipalActNo')"></a>
+          <a *ngIf="!(commonDataService.disableTnx) && hasPrincipalAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearPrincipalAcc($event);"></a>
+          <fcc-common-error-message [control]="formName.get(undertakingType + 'PrincipalActNo')" ></fcc-common-error-message>
+      </div>
+
+      <div class="field" *ngIf="!this.isBankUser">
+          <label for="{{undertakingType}}FeeActNo" >{{'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <input pInputText type="text" id="{{undertakingType}}FeeActNo" formControlName="{{undertakingType}}FeeActNo" [readonly]="true" (click)="openAccountDialog('bgFeeActNo')">
+          <a *ngIf="!(commonDataService.disableTnx)" class="fa fa-search fa-lg" (click)="openAccountDialog('bgFeeActNo')"></a>
+          <a *ngIf="!(commonDataService.disableTnx) && hasFeeAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearFeeAcc($event);"></a>
+          <fcc-common-error-message [control]="formName.get(undertakingType + 'FeeActNo')" ></fcc-common-error-message>
+      </div>
+
+      <div id = "principal_act_no_view_row" *ngIf ="this.isBankUser && bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+        <label for =  "bgPrincipalActNo" id =  "principal_act_no_label">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+      </div>
+       <div id = "fee_act_no_view_row" *ngIf ="this.isBankUser && bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+        <label for =  "bgFeeActNo" id =  "fee_act_no_label">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+      </div>
+
+      <div class="field">
+          <label for="{{undertakingType}}DeliveryTo" >{{'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+          <p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="deliveryToDropdown" [showClear]="true"
+            formControlName = "{{undertakingType}}DeliveryTo" id = "{{undertakingType}}DeliveryTo" (ngModelChange)="changeDeliveryTo();">
+        </p-dropdown>
+      </div>
+
+      <div class="field" *ngIf="this.deliveryToOtherApplicableCode.indexOf(this.formName.get(undertakingType + 'DeliveryTo').value) > -1">
+          <label for="{{undertakingType}}DeliveryToOther"></label>
+          <textarea fccCommonTextArea [controlName]="formName.get(undertakingType + 'DeliveryToOther')" pInputTextarea [rows]="isSwiftVersion2023Enable ? 12 : 6" [cols]="isSwiftVersion2023Enable ? 65 : 35" formControlName="{{undertakingType}}DeliveryToOther"
+          id="{{undertakingType}}DeliveryToOther">
+          </textarea>
+      <fcc-common-narrative-character-count [enteredCharCount]="formName.get(undertakingType + 'DeliveryToOther').value ? formName.get(undertakingType + 'DeliveryToOther').value.length : 0" [allowedCharCount]="isSwiftVersion2023Enable ? 780 : 210" [fieldSize]="isSwiftVersion2023Enable ? 'L' : 'S'"></fcc-common-narrative-character-count>
+      <fcc-common-error-message [control]="formName.get(undertakingType + 'DeliveryToOther')"></fcc-common-error-message>
+      </div>
+      <div class="field" *ngIf="!this.isBankUser">
+            <label for="{{undertakingType}}FreeFormatText" >{{'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+            <textarea fccCommonTextArea [controlName]="formName.get(undertakingType + 'FreeFormatText')" pInputTextarea [rows]="6" [cols]="35" formControlName="{{undertakingType}}FreeFormatText"
+            id="{{undertakingType}}FreeFormatText">
+            </textarea>
+            <a class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgFreeFormatText')"></a>
+            <fcc-common-error-message [control]="formName.get(undertakingType + 'FreeFormatText')" ></fcc-common-error-message>
+        <fcc-common-narrative-character-count [enteredCharCount]="formName.get(undertakingType + 'FreeFormatText').value ? formName.get(undertakingType + 'FreeFormatText').value.length : 0" [allowedCharCount]="210" [fieldSize]="'S'"></fcc-common-narrative-character-count>
+      </div>
+      <div id = "free_format_text_view_row" *ngIf ="this.isBankUser && bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+        <label for =  "bgFreeFormatText" id =  "free_format_text_label">{{ 'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+        <label class="label-left-narrative">{{bgRecord['bgFreeFormatText']}}</label>
+    </div>
+    <p-confirmDialog id="entityWarningPhraseInst" appendTo="body" class="lf-confirm-dialog" key='entityWarningPhraseInst' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+  </div>
+  <!--unsigned-->
+  <ng-template #unsigned_content>
+    <div *ngIf = "iuCommonDataService.getMode() === 'UNSIGNED' || viewMode">
+        <div *ngIf ="undertakingType == '' || undertakingType == null || undertakingType == 'bg'" id="bankInstructions">
+            <div id = "delv_org_undertaking_view_row" *ngIf ="bgRecord['bgDelvOrgUndertaking'] && bgRecord['bgDelvOrgUndertaking'] != null && bgRecord['bgDelvOrgUndertaking'] != ''">
+                <label for =  "bgDelvOrgUndertaking" id =  "delv_org_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_ORG_UNDERTAKING' | translate }}&nbsp;</label>
+                <label class="label-left">{{iuCommonDataService.getOriginalUndertakingDel(bgRecord['bgDelvOrgUndertaking']) | translate}}</label>
+            </div>
+            <div id = "delv_org_undertaking_text_view_row" *ngIf ="bgRecord['bgDelvOrgUndertaking'] && (bgRecord['bgDelvOrgUndertaking'] == '99' || bgRecord['bgDelvOrgUndertaking'] == '02') && bgRecord['bgDelvOrgUndertakingText'] && bgRecord['bgDelvOrgUndertakingText'] != null && bgRecord['bgDelvOrgUndertakingText'] != ''">
+                <label for =  "bgDelvOrgUndertakingText" id =  "delv_org_undertaking_text_label">&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgDelvOrgUndertakingText']}}</label>
+            </div>
+            <div id = "principal_act_no_view_row" *ngIf ="bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+                <label for =  "bgPrincipalActNo" id =  "principal_act_no_label">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+            </div>
+            <div id = "fee_act_no_view_row" *ngIf ="bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+                <label for =  "bgFeeActNo" id =  "fee_act_no_label">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+            </div>
+            <div id = "delivery_to_view_row" *ngIf ="bgRecord['bgDeliveryTo'] && bgRecord['bgDeliveryTo'] != null && bgRecord['bgDeliveryTo'] != ''">
+                <label for =  "bgDeliveryTo" id =  "delivery_to_label">{{ 'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{iuCommonDataService.getDeliveryTo(bgRecord['bgDeliveryTo']) | translate}}</label>
+            </div>
+            <div id =  "delivery_to_other_view_row" *ngIf ="bgRecord['bgDeliveryTo'] && this.deliveryToOtherApplicableCode.indexOf(bgRecord['bgDeliveryTo']) > -1 && bgRecord['bgDeliveryToOther'] && bgRecord['bgDeliveryToOther'] != null && bgRecord['bgDeliveryToOther'] != ''">
+                <label for =  "bgDeliveryToOther" id =  "delivery_to_other_label">&nbsp;</label>
+                <label class="label-left-narrative">{{bgRecord['bgDeliveryToOther']}}</label>
+            </div>
+            <div id = "free_format_text_view_row" *ngIf ="bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+                <label for =  "bgFreeFormatText" id =  "free_format_text_label">{{ 'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+                <label class="label-left-narrative">{{bgRecord['bgFreeFormatText']}}</label>
+            </div>
+        </div>
+    </div>
+  </ng-template>

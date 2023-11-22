@@ -1,0 +1,12 @@
+  :host ::ng-deep .messageStyle {
+    width: 72% !important;
+    font-family: monospace !important;
+  }
+  :host ::ng-deep .messageStyle textarea {
+    resize: none;
+  }
+
+  :host ::ng-deep textarea.mat-input-element {
+    resize: none;
+  }
+  

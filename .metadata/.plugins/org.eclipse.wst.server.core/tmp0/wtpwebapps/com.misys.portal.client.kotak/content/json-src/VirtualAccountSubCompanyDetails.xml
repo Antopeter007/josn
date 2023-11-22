@@ -1,0 +1,53 @@
+<Response xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd"> 
+
+              <header> 
+
+              <sourceappcode>JARVIS</sourceappcode> 
+
+              <RqUID>2</RqUID> 
+
+              <action_type>FETCH_SUBCOMP_MS_DET</action_type> 
+
+              <company_code>TEST</company_code> 
+
+              </header><sub_comp_det> 
+
+                                    <company_code>TEST</company_code>                   
+
+                                    <sub_company_code>SubCom</sub_company_code> 
+
+                                      <sub_company_name>TESTSubCom</sub_company_name>                   
+
+                                    <account_no></account_no> 
+
+                                      <email_conf_flag></email_conf_flag>                   
+
+                                    <email_advise_flag>Y</email_advise_flag> 
+
+                                    <netbanking_flag></netbanking_flag> 
+
+                                    <active_flag>Y</active_flag> 
+
+                    <activation_date>23-10-20</activation_date> 
+
+                    <inactivation_date></inactivation_date> 
+
+                                    <number_of_approver>1</number_of_approver> 
+
+                    <created_by>KMBL101992</created_by> 
+
+                    <created_date>21-10-20</created_date> 
+
+                                    <authorized_by>MANISH.SHRIVASTAVA</authorized_by> 
+
+                    <authorized_date>23-10-20</authorized_date> 
+
+                                     </sub_comp_det><request_status> 
+
+                <error_flag>N</error_flag> 
+
+                <error_desc>Sub Company code Found</error_desc> 
+
+              </request_status> 
+
+          </Response>

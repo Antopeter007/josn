@@ -1,0 +1,48 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="fcc-input {{ control.params.styleClass }}"
+    >
+      <label for="{{ control.key }}">
+        {{ control.params.placeholder
+        }}<a *ngIf="control.params.required"
+          ><em class="fa fa-asterisk fa-sm"></em
+        ></a>
+      </label>
+      <span [id]="labelId" class="hidden"></span> 
+      <p-multiSelect
+        [options]="control.options"
+        formControlName="{{ control.key }}"
+        defaultLabel="{{ 'selectcol' | translate}} {{ control.params.placeholder}}"
+        id="{{ control.key }}"
+        (keydown.enter)="onEventRaised($event, control.key)"
+        (keydown.Space)="onEventRaised($event, control.key)"
+        styleClass="fcc-multiselect"
+        (onClick)="onEventRaised($event, control.key)"
+        (onChange)="onChangeEventRaised($event, control.key)"
+        [required]="control.params.required"
+        [maxSelectedLabels]="
+          control.params.maxSelectLabels ? control.params.maxSelectLabels : 3
+        "
+        ariaFilterLabel = "{{ 'search' | translate }}"
+        [ariaLabelledBy]="labelId"
+        (onPanelShow) = "onPanelShowHandler()"
+        selectedItemsLabel="{0} {{ 'selectedItemsLabel' | translate}}"
+      ></p-multiSelect>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

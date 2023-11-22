@@ -1,0 +1,121 @@
+@import './../../../../../../styles/variables.scss';
+
+.with-background {
+  display: flex;
+  flex-direction: column;
+  color: $WHITE;
+  padding: 0 1.5em;
+  cursor: pointer;
+}
+
+.without-background {
+  display: flex;
+  flex-direction: column;
+  color: $BLACK;
+  padding: 0 1.5em;
+  cursor: pointer;
+
+  .product-amount-currency {
+    color: $VIOLET-F100;
+  }
+
+  .product-category {
+    color: $GREY-08;
+  }
+}
+
+:host ::ng-deep .ui-carousel-items-container {
+  margin: 1em;
+  height: auto;
+}
+
+:host ::ng-deep .ui-carousel-item {
+  margin: 0 1em;
+  flex: 1 0 23% !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  :host ::ng-deep .ui-carousel-item {
+    width: 100% !important;
+    flex: 1 0 22.2% !important;
+ }
+}
+
+:host ::ng-deep .carousel-item {
+  border-radius: 0.3em;
+  border: 0.11em solid rgba($BLACK,0.12);
+}
+
+:host ::ng-deep .product-category {
+  display: flex;
+  justify-content: end;
+  margin-top: 1em;
+}
+
+:host ::ng-deep .product-amount-currency {
+  display: flex;
+  justify-content: end;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  align-items: baseline;
+}
+
+:host ::ng-deep .no-carousel-item {
+  margin: 0.5em 1em;
+  width: 24%;
+  border-radius: 0.3em;
+  border: 0.11em solid rgba($BLACK,0.12);
+}
+
+:host ::ng-deep .no-carousel-item:first-child {
+  margin-left: 0.5em !important;
+}
+
+:host ::ng-deep .no-carousel-item:last-child {
+  margin-right: 0.5em !important ;
+}
+
+:host ::ng-deep .no-carousel-container {
+  display: flex;
+}
+
+:host ::ng-deep .ui-carousel-dots-container {
+  margin: 0 !important;
+
+  button {
+    margin: 0 !important;
+  }
+}
+
+:host ::ng-deep .product-amount {
+  font-size: 1em;
+  margin-left: 0.5em;
+}
+
+[dir="rtl"] :host ::ng-deep .product-amount {
+  margin-right: 0.5em;
+  margin-left: 0 !important;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item .ui-carousel-dot-icon{
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+}
+
+:host ::ng-deep .ui-carousel .ui-carousel-dots-container .ui-carousel-dot-item.ui-state-highlight .ui-carousel-dot-icon{
+  background-color: $VIOLET-F100-dark;
+  opacity: none !important;
+}
+
+:host ::ng-deep .ui-carousel-next:hover span {
+  background-color: transparent;
+  color: $Purple;
+  border: none !important;
+}
+
+:host ::ng-deep .ui-carousel-prev:hover span {
+  background-color: transparent;
+  color: $Purple;
+  border: none !important;
+}

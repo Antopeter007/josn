@@ -1,0 +1,4 @@
+<div class="textarea characterCountDivfield">
+  <span class="label"></span>
+  <textarea class="characterCountValueField" *ngIf="allowedCharCount !== ''" pInputTextarea tabindex="-1" [rows]="1" [cols]="fieldWidth" readonly  attr.aria-label="Entered {{enteredCharCount}} out of {{allowedCharCount}} characters">{{ enteredCharCount }}/{{allowedCharCount}}</textarea>
+</div>

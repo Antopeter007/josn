@@ -1,0 +1,4696 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/theming';
+@import './../src/assets/all-theme.css';
+@import './styles/roboto-fonts.css';
+//@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@import './styles/material-icons.css';
+//@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import './styles/variables.scss';
+
+@import './styles/themes/main.scss';
+html {
+  height: 100% !important;
+}
+
+body {
+  height: 100% !important;
+  font: 100% Roboto, sans-serif !important;
+  line-height: 1.125em !important;
+  background: $bodyBackground !important;
+  color: $bodyColor !important;
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  margin: 0em !important;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+}
+
+label {
+  margin-right: 0em;
+}
+
+a:focus {
+  outline-color: transparent !important;
+  outline-width: 0.09375em !important;
+  outline-style: solid !important;
+}
+
+#childRef:focus {
+  outline: 0.2em black solid !important;
+}
+
+.ui-widget {
+  font-family: Roboto, sans-serif !important;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  @media screen and (max-width: 834px) and (min-width: 768px){
+    .ui-widget {
+      font-size: 13px !important;
+    }
+  }
+}
+
+body .ui-datepicker {
+  z-index: 99999 !important;
+}
+
+
+body {
+  margin: 0;
+  padding: 0em;
+  font-family: Roboto, sans-serif;
+}
+
+.ng-header {
+  position: fixed;
+  top: 0em;
+  left: 0em;
+  right: 0em;
+  height: 5em;
+  z-index: 9999;
+  background: $ngheaderBackground;
+  border-bottom: 0.0625em solid $ngheaderBorderBottom;
+}
+
+.ng-menu {
+  padding: 0em;
+  z-index: 555;
+  background: $ngmenuBackground;
+}
+
+.dropdown-panel {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.input-mat-width {
+  width: 100%;
+}
+
+.input-medium-width {
+  width: 50%;
+}
+
+.button-filter-width-8 {
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.button-filter-width-2 {
+  margin-right: 1em;
+}
+
+.button-filter-width-11 {
+  margin-left: 1em;
+}
+
+.button-filter-width-14 {
+  margin-left: 1em;
+}
+
+.toggle-chip .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content {
+  line-height: 30px;
+  padding: 0 28px 0 28px;
+}
+.toggle-chip .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  border-radius: 16px;
+}
+
+.toggle-chip .mat-button-toggle-checked .mat-button-toggle-focus-overlay,
+.bank-select .mat-button-toggle-checked .mat-button-toggle-focus-overlay,
+.indented-Field .mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+  border-bottom: none;
+}
+.toggle-chip .mat-button-toggle-ripple.mat-ripple {
+  border-radius: 16px;
+}
+
+.toggle-chip .material-icons:hover {
+  color: transparent;
+}
+.toggle-chip .material-icons{
+  color: transparent;
+}
+.toggle-chip .mat-button-toggle.mat-button-toggle-checked .material-icons {
+  color: #56c271;
+}
+
+.transmission .mat-button-toggle-label-content > *,
+.transmission-2 .mat-button-toggle-label-content > * {
+  padding-top: 0.4em;
+  font-size: 28px;
+  right: 4.5em;
+}
+
+.transmission .material-icons:hover,
+.transmission-2 .material-icons:hover {
+  color: transparent;
+}
+.transmission .material-icons,
+.transmission-2 .material-icons {
+  color: transparent;
+}
+.transmission .mat-button-toggle.mat-button-toggle-checked .material-icons,
+.transmission-2 .mat-button-toggle.mat-button-toggle-checked .material-icons {
+  color: #56c271;
+}
+.uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  padding-bottom: 0em;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content {
+  line-height: 50px;
+  color: #2a2a2a;
+}
+@media only screen and (min-width: 1530px) {
+  .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+  .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+    border-radius: 2px;
+    width: 275px;
+    border: none;
+    box-shadow: 0 0 2px 0 #a0a0a0;
+  }
+  .login-img{
+    width: 64.5em;
+    height: 39.5625em;
+  }
+}
+
+@media only screen and (max-width: 1529px) {
+  .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+  .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+    border-radius: 2px;
+    width: 14.8em;
+    border: none;
+    box-shadow: 0 0 2px 0 #a0a0a0;
+  }
+}
+
+.transmission[dir="rtl"] .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  border-radius: 2px;
+  width: 275px;
+  border: none;
+  box-shadow: 0 0 2px 0 #a0a0a0;
+  margin-left: 3em;
+}
+
+.fcc-input .ui-multiselect-panel .ui-multiselect-header {
+  display: flex;
+  align-items: center;
+}
+
+.fcc-input[dir="rtl"] .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item {
+  text-align: right;
+}
+
+.fcc-input[dir="rtl"] .ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item .ui-chkbox {
+  margin: 0 0 0 0.5em;
+}
+
+.fcc-input[dir="rtl"] .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-close {
+  right: auto;
+  left: 0.375em;
+}
+
+.fcc-input[dir="rtl"]  .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-multiselect-filter-icon {
+  right: auto;
+  left: 0.5em;
+}
+
+.fcc-input.triggerIcon[dir="rtl"] .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+  width: 80% !important;
+  margin-right: 0.5em;
+}
+
+.fcc-input.triggerIcon[dir="rtl"] .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-inputtext {
+  padding: 0.429em;
+  padding-right: 0em;
+}
+
+.fcc-input.triggerIcon[dir="rtl"] .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+  float: right;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
+.fcc-input.triggerIcon[dir="rtl"] .ui-multiselect-panel .ui-multiselect-header .ui-chkbox {
+  margin-right: unset;
+  float: right;
+  vertical-align: middle;
+}
+
+[dir="rtl"] .mat-option.mat-active {
+  background-color: transparent !important;
+  color: $primaryColor !important;
+  border-right: 0.4em solid $primaryColor !important;
+  border-left: none !important;
+  font-weight: 500 !important;
+}
+
+[dir="rtl"] .mat-option.mat-active:hover:not(.mat-option-disabled), .mat-option.mat-active:focus:not(.mat-option-disabled) {
+  border-left: none !important;
+  border-right: 0.4em solid $primaryColor !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+[dir="rtl"] .mat-option.mat-active {
+  background-color: transparent !important;
+  color: $primaryColor !important;
+  border-right: 0.4em solid $primaryColor !important;
+  border-left: none !important;
+  font-weight: 500 !important;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover {
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px 1px #6948d9;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay {
+  background-color: white;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked {
+  background-color: #ffffff;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-focus-overlay,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+  border-bottom: none;
+}
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-label-content,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-label-content {
+  font-weight: 500;
+}
+
+.indented-Field .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+.bank-select .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  border-radius: 0px;
+  margin-top: -0.5px;
+  border: 1px solid $tabActiveBackgroundcolor;
+}
+.indented-Field .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content {
+  line-height: 35px;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+.bank-select .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content {
+  line-height: 30px;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.indented-Field .uxg-filtering-toggle-group.mat-button-toggle-group,
+.bank-select .uxg-filtering-toggle-group.mat-button-toggle-group {
+  padding-bottom: 0em;
+  width: 100%;
+  border-radius: 3px;
+  line-height: 2em;
+}
+.bank-select.time-frame .uxg-filtering-toggle-group.mat-button-toggle-group {
+  padding-bottom: 0em;
+  width: auto;
+  border-radius: 3px;
+  line-height: 2em;
+}
+.indented-Field .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked,
+.bank-select .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked {
+  background-color: $tabActiveBackgroundcolor;
+}
+
+.indented-Field .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-button,
+.bank-select .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-button {
+  color: #ffffff;
+}
+
+.indented-Field .mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button,
+.bank-select .mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button {
+  color: $Tabcolor;
+}
+.indented-Field .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle + .mat-button-toggle,
+.bank-select .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle + .mat-button-toggle {
+  margin-left: 0px;
+}
+
+.transmission .uxg-filtering-toggle-group .mat-button-toggle + .mat-button-toggle,
+.transmission-2 .uxg-filtering-toggle-group .mat-button-toggle + .mat-button-toggle {
+  margin-left: 3em !important;
+}
+
+.toggle-chip .uxg-filtering-toggle-group .mat-button-toggle + .mat-button-toggle {
+  margin-left: 0.8em !important;
+}
+
+// Global css for disabled material underline for mat-form-field (Not working)
+:host ::ng-deep .mat-form-field-disabled .mat-form-field-underline {
+  background-image: linear-gradient(to right, rgb(0, 0, 0, 0.42), rgb(0, 0, 0, 0.42)) !important;
+}
+
+.ng-menu .ui-submenu-list::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ng-menu .ui-submenu-list::-webkit-scrollbar-track {
+  background: #fff; // Chrome, Safari and Opera
+}
+
+/* Handle */
+.ng-menu .ui-submenu-list::-webkit-scrollbar-thumb {
+  background: #fff; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ng-menu .ui-submenu-list:hover::-webkit-scrollbar-track {
+  background: #f1f1f1; // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+.ng-menu .ui-submenu-list:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+}
+
+.ng-menu .ui-submenu .ui-submenu-list {
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // Edge, IE 10
+}
+
+.ng-menu .ui-submenu .ui-submenu-list:hover {
+  scrollbar-width: thin; // Firefox
+  -ms-overflow-style: scrollbar; // Edge, IE 10
+  -ms-scrollbar-track-color: #f1f1f1; // Edge, IE 10
+  -ms-scrollbar-base-color: #888; // Edge, IE 10
+  scrollbar-base-color: #888;
+  scrollbar-track-color: #f1f1f1;
+}
+
+.demobank .bookmarkMenu .dijitDropDownButton .dijitButtonNode {
+  background-color: transparent !important;
+}
+
+/* to hide core application css for header and footer */
+#layout {
+  padding: 0 0 0 0 !important;
+}
+
+.footer.inside {
+  display: none;
+}
+/* End css for display none for header and footer */
+
+/* css for label text-align left [welcome.css] 118 . mention label as right align */
+label,
+.label {
+  width: auto;
+  text-align: left;
+  line-height: 1.5em;
+  display: inline-block;
+}
+
+.fcc-dropdown span {
+  text-align: left;
+  line-height: 1.5em !important;
+  top: 30% !important;
+}
+
+.mat-radio-checked .mat-radio-label {
+  font-weight: bold !important;
+}
+.mat-checkbox-checked .mat-checkbox-layout {
+  font-weight: bold;
+}
+
+/* To make the container of label span inside filter dropdown occupy full width.
+Not working from styles.scss, works if added to specific section components. */
+:host ::ng-deep .ui-dropdown-label-container {
+  width: 100%;
+}
+/* end of lable alignment css */
+
+/* customise widgets */
+.showWidgetIcons {
+  display: block;
+  float: right;
+  cursor: pointer;
+  padding-left: 0.6em !important;
+  padding-right: 0.6em !important;
+  width: auto !important;
+}
+
+.showWidgetIcons em {
+  color: $GREY-01;
+}
+
+
+.ftIconLayout {
+  height: 0em !important;
+  width: auto !important;
+}
+
+.showPlusIcon {
+  display: block;
+}
+
+.hideWidgetIcons {
+  display: none !important;
+}
+.hideCard {
+  display: none;
+}
+.showCard {
+  display: block;
+}
+.pointerDisable {
+  pointer-events: visible;
+}
+.pointerEnable {
+  pointer-events: none;
+}
+.pointerTabEnable {
+  pointer-events: none !important;
+}
+.customiseON {
+  border: 0.09375em dashed $FUCHSIA-F75;
+  border-radius: 0.3125em;
+  margin-left: 0.0625em;
+}
+
+.customiseON .ui-card {
+  opacity: 0.4;
+}
+
+.customiseON .ui-card:hover {
+  opacity: 1;
+}
+
+.panelDescribtion {
+  margin-left: -65em;
+}
+
+.panelAmount {
+  margin-left: 56em;
+}
+
+.customiseON mat-card {
+  opacity: 0.4;
+}
+
+.customiseON mat-card:hover {
+  opacity: 1;
+}
+
+.ui-button-icon-only .ui-button-icon-left {
+  background-color: $uibuttonicononlyBackgroundColor;
+}
+
+.customiseON .ui-card:hover .ui-card-header em {
+  color: $FUCHSIA-F75 !important;
+}
+
+.customiseOFF {
+  border: none;
+  border-radius: 0em;
+  margin-left: 0em;
+}
+.overlayON {
+  display: block;
+}
+.overlayOFF {
+  display: none;
+}
+/* end customise widgets */
+
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.eot");
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.svg#Roboto")
+      format("svg");
+}
+
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: italic;
+  font-weight: 300;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.eot");
+  src: local("Roboto Light Italic"), local("Roboto-LightItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.eot");
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: italic;
+  font-weight: 400;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.eot");
+  src: local("Roboto Italic"), local("Roboto-Italic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.eot");
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: italic;
+  font-weight: 500;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.eot");
+  src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.eot");
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: italic;
+  font-weight: 700;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.eot");
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: normal;
+  font-weight: 900;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.eot");
+  src: local("Roboto Black"), local("Roboto-Black"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: $standardFontFamily;
+  font-style: italic;
+  font-weight: 900;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.eot");
+  src: local("Roboto Black Italic"), local("Roboto-BlackItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.svg#Roboto")
+      format("svg");
+}
+
+/* PRODUCT CODE COLOR */
+.LC {
+  color: $LCColor !important;
+}
+.BG {
+  color: $BGColor !important;
+}
+.SR {
+  color: $SRColor !important;
+}
+.EC {
+  color: $ECColor !important;
+}
+
+/* TNX STAT CODE COLOR */
+.N004_01 {
+  color: $N004_01Color;
+}
+.N004_02 {
+  color: $N004_02Color;
+}
+
+.N004_01_leftBorder {
+  border-left: 0.5em solid $N004_01_leftBorderColor !important;
+}
+.N004_02_leftBorder {
+  border-left: 0.5em solid $N004_02_leftBorderColor !important;
+}
+
+/* EVENT BACKGROUND COLOR */
+.N002_01 {
+  background: $N002_01BackgroundColor !important;
+}
+.N002_02 {
+  background: $N002_02BackgroundColor !important;
+}
+.N002_03 {
+  background: $N002_03BackgroundColor !important;
+}
+.N002_13 {
+  background: $N002_13BackgroundColor !important;
+}
+
+/* PRODUCT CODE BACKGROUND COLOR */
+.LC_background {
+  background: $LC_backgroundColor !important;
+}
+.BG_background {
+  background: $BG_backgroundColor !important;
+}
+.SR_background {
+  background: $SR_backgroundColor !important;
+}
+.EC_background {
+  background: $EC_backgroundColor !important;
+}
+
+/* Portlets Header css Start */
+
+.headerTitle {
+  color: $widgetHeaderColor;
+  font-size: $widgetHeaderFontSize;
+  font-weight: bold;
+  line-height: 1.1875em;
+  padding-bottom: 1em;
+  /* opacity: 0.75; */
+}
+
+/* check box css (To be deleted in future) */
+.ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: $formCheckboxColor !important;
+  background-color: $formCheckboxColor !important;
+  color: $WHITE !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: $formCheckboxColor !important;
+  background-color: $formCheckboxColor !important;
+  color: $WHITE !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: $formCheckboxColor !important;
+  background-color: $formCheckboxColor !important;
+  color: $WHITE !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  background-color: $VIOLET-PRIMARY-COLOR !important;
+  color: $WHITE !important;
+}
+
+.ui-chkbox-box .ui-widget .ui-corner-all .ui-state-active .ui-state-active {
+  border-color: $formCheckboxColor !important;
+  background-color: $formCheckboxColor !important;
+  color: $WHITE !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-focus {
+  color: $WHITE !important;
+  box-shadow: none !important;
+  border-color: 0.125em solid $formCheckboxColor !important;
+  background-color: $WHITE !important;
+}
+/* end css check box */
+
+/* check box css */
+.fcc-ui-chkbox .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: $fccUIChkboxStateActiveFocusBorderColor !important;
+  background-color: $fccUIChkboxStateActiveFocusBackgroundColor !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-chkbox .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: $fccUIChkboxStateActiveBackgroundColor !important;
+  background-color: $fccUIChkboxStateActiveBorderColor !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-chkbox .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color:  $fccUIChkboxStateActiveFocusBorderColor !important;
+  background-color: $fccUIChkboxStateActiveFocusBackgroundColor !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-chkbox
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  background-color: $VIOLET-PRIMARY-COLOR !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-chkbox
+  .ui-chkbox-box
+  .ui-widget
+  .ui-corner-all
+  .ui-state-active
+  .ui-state-active {
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  background-color: $VIOLET-PRIMARY-COLOR !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-chkbox .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  color: $fccUIChkboxStateFocusColor !important;
+  box-shadow: none !important;
+  border-color: 0.125em solid $fccUIChkboxStateFocusBorderColor !important;
+  background-color: $fccUIChkboxStateFocusBackgroundColor !important;
+}
+.fcc-chkbox-label.ui-chkbox-label.ui-label-active {
+  font-weight: 500;
+}
+/* end css check box */
+
+/* Start toaster css (To be deleted in future) */
+.ui-toast .ui-toast-message.ui-toast-message-success {
+  background-color: $WHITE !important;
+  border-left: 0.6875em solid $primaryColor !important;
+  color: $primaryColor !important;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-success .ui-toast-close-icon {
+  color: $FUCHSIA-F75 !important;
+  visibility: hidden;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-warn {
+  background-color: $WHITE !important;
+  border-left: 0.6875em solid $primaryColor !important;
+  color: $primaryColor !important;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-warn .ui-toast-close-icon {
+  color: $FUCHSIA-F75 !important;
+  visibility: hidden;
+}
+
+.ui-toast .ui-toast-close-icon {
+  top: 0.55em !important;
+  font-size: 1.5em !important;
+}
+
+[dir="rtl"] .ui-toast .ui-toast-close-icon {
+  top: 0.1em !important;
+  font-size: 1.5em !important;
+  float: left !important;
+  position: relative;
+}
+
+.ui-toast .ui-toast-icon {
+  top: 0.08em !important;
+}
+
+[id='Maturity date'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -3em !important;
+   margin-bottom: 3em !important;
+}
+
+[dir="rtl"] .ui-toast .ui-toast-icon {
+  top: 0.1em !important;
+  float: right !important;
+  position: relative;
+}
+/* End toaster css */
+
+/* Start toaster css */
+.fcc-ui-toast .ui-toast .ui-toast-message.ui-toast-message-success {
+  background-color: $WHITE !important;
+  border-left: 0.6875em solid $VIOLET-PRIMARY-COLOR !important;
+  color: $VIOLET-PRIMARY-COLOR !important;
+}
+
+.fcc-ui-toast
+  .ui-toast
+  .ui-toast-message.ui-toast-message-success
+  .ui-toast-close-icon {
+  color: $FUCHSIA-F75 !important;
+}
+
+.fcc-ui-toast .ui-toast .ui-toast-close-icon {
+  top: 0.55em !important;
+  font-size: 1.5em !important;
+}
+/* End toaster css */
+
+/* Start Select box(input box and dropdown) css (To be deleted in future) */
+.ui-dropdown {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ui-float-label .ui-dropdown .ui-widget {
+  padding-right: 0em !important;
+}
+
+.ui-dropdown span.ui-dropdown-label {
+  border-radius: 0em !important;
+  border-bottom: 0.06em solid $primaryColor;
+  background: transparent !important;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+fcc-common-header .ui-overlaypanel .ui-dropdown span.ui-dropdown-label {
+  border: none;
+}
+
+.ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+  outline: 0.125em solid $primaryColor !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-left: 0.4em solid transparent !important;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-left: none !important;
+  border-right: 0.4em solid transparent !important;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  border-left: none !important;
+  border-right: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  // border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  border-left: 0.4em solid $dropdown-left-border-hover !important;
+  background-color: $dropdown-left-background-hover !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: $primaryColor !important;
+  border-left: 0.4em solid $primaryColor !important;
+  font-weight: 500 !important;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: $primaryColor !important;
+  border-left: none !important;
+  border-right: 0.4em solid $primaryColor !important;
+  font-weight: 500 !important;
+}
+
+/*
+  direction change dropdown css changesd---------
+*/
+.pref-list2 .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: $VIOLET-PRIMARY-COLOR !important;
+  border-left: none !important;
+  font-weight: 500 !important;
+}
+.pref-list2 .rtl .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  border-right: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  border-left: none !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.pref-list2 .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-right: 0.4em solid transparent !important;
+}
+/*
+End ----------------------------
+*/
+
+.ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight:hover,
+.applicant_bene_entity_class[dir="rtl"]
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight:hover {
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter {
+  border: none;
+  border-bottom: 1px solid $GREY-02;
+  border-radius: 0em !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
+  color: $primaryColor !important;
+}
+
+.ui-dropdown-label {
+  background-color: $uiDropdownLabelBackgroundColor;
+  padding-top: 0.71875em !important;
+}
+
+.ui-dropdown .ui-dropdown-trigger {
+  background-color: transparent !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items-wrapper {
+  background-color: $WHITE !important;
+  overflow-x: hidden;
+}
+
+.ui-dropdown-panel .ui-dropdown-list {
+  border-bottom: none !important;
+  background-color: $WHITE !important;
+}
+
+.ui-float-label .ui-dropdown.ui-widget {
+  display: block;
+  border-bottom: none !important;
+}
+
+/* End Select box(input box and dropdown) css */
+
+/* Start Select box(input box and dropdown) css */
+.fcc-ui-dropdown .ui-dropdown {
+  background: transparent !important;
+  border: none !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown span.ui-dropdown-label {
+  border-radius: 0em !important;
+  border-bottom: 0.06em solid $GREY-02;
+  background: transparent !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-left: 0.4em solid transparent !important;
+}
+
+.fcc-ui-dropdown
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.fcc-ui-dropdown
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: $VIOLET-PRIMARY-COLOR !important;
+  border-left: 0.4em solid $VIOLET-PRIMARY-COLOR !important;
+  font-weight: 500 !important;
+}
+
+.fcc-ui-dropdown
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight:hover {
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.fcc-ui-dropdown
+  .ui-dropdown-panel
+  .ui-dropdown-filter-container
+  .ui-dropdown-filter {
+  border: none;
+  border-bottom: 0.0625em solid $GREY-02;
+  border-radius: 0em !important;
+}
+
+.fcc-ui-dropdown
+  .ui-dropdown-panel
+  .ui-dropdown-filter-container
+  .ui-dropdown-filter-icon {
+  color: $VIOLET-PRIMARY-COLOR !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown-label {
+  background-color: $WHITE-05;
+  padding-top: 0.71875em !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown .ui-dropdown-trigger {
+  background-color: transparent !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown-panel .ui-dropdown-items-wrapper {
+  background-color: $WHITE !important;
+}
+
+.fcc-ui-dropdown .ui-dropdown-panel .ui-dropdown-list {
+  border-bottom: none !important;
+  background-color: $WHITE !important;
+}
+
+.fcc-ui-dropdown .ui-float-label .ui-dropdown.ui-widget {
+  border-bottom: none !important;
+}
+
+/* End Select box(input box and dropdown) css */
+
+pre {
+  white-space: pre-wrap;
+  border-width: 0.0625em 0;
+  padding: 1em;
+  background-color: $WHITE-06;
+  border: 0.0625em solid $GREY-03;
+  margin: 1em 0em;
+}
+
+/* Start Table css */
+td:focus {
+  outline: none !important;
+}
+/* End Table css */
+
+#footerHtml {
+  display: none !important;
+}
+
+/* Root level css for dynamic rendering forms */
+
+/* Below CSS are for Input Text start*/
+.fcc-ui-inputtext {
+  width: 100% !important;
+}
+/*input  end */
+
+/* input text area css */
+.fcc-textarea-width {
+  width: 100%;
+  overflow: auto;
+}
+/*Root level css end */
+
+/* DropdownComponent CSS start */
+.pi-search:before {
+  font-size: 1em;
+  float: right !important;
+}
+
+[dir = rtl] .pi-search:before {
+  font-size: 1em;
+  float: left !important;
+  margin-left: -4em;
+}
+/* DropdownComponent CSS end */
+
+/* End */
+
+/* Common header and title css for form Start */
+.fcc-form-header , .fcc-form-header h3 {
+  color: $GREY-05;
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 1.6875em;
+  margin-top: 0.5em;
+  font-family: $standardFontFamily;
+}
+
+.summarySection , .subheader-title {
+  font-family: $standardFontFamily;
+  font-size: 1.125em;
+  font-weight: 500;
+  color: $VIOLET-F100;
+  margin-bottom: 1.2em;
+}
+
+.summarySection:first-child {
+  margin-top: 0.4em;
+}
+
+.summaryField {
+  margin-bottom: 0.5em !important;
+}
+
+.form-header {
+  color: $primaryColor;
+  font-weight: 500;
+  line-height: 1.25em;
+  padding: 0;
+}
+.viewmode {
+  margin-top: 22px !important;
+  padding-left: 3px;
+}
+.viewmode .form-header {
+  padding: 0 !important;
+}
+
+.section-top {
+  padding: 1em 3.125em 0.3em 3.125em;
+  height: auto;
+  background-color: $form-Wrapper-background;
+}
+
+.section-top .viewmode label {
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+.viewmode div {
+  padding: 0;
+  margin: 0 !important ;
+  font-weight: 400;
+}
+.selectLCBackToBack {
+  margin-bottom: 2em;
+}
+.mat-card-fields {
+  margin-bottom: 1em;
+  // margin-left: 0.8em;
+}
+.viewModeSubHeader {
+  font-size: 1.14em;
+  color: $viewmodeHeaderColor;
+  font-weight: bold;
+}
+.mat-card-header-text {
+  margin: 0 0.4em !important;
+}
+.viewModeBackground {
+  background-color: #f7f7ff;
+}
+.select-msg-width {
+  width: 28% !important;
+  margin-left: 0.5em !important;
+  .hintForBackToBack {
+    background: rgba(105, 78, 214, 0.08);
+    padding: 0.8em;
+    margin-top: -0.8em;
+    margin-left: -0.65em;
+  }
+}
+
+.infoicon .material-icons {
+  margin-left: 1em;
+  margin-top: -0.15em;
+  color: $information-icon-background;
+}
+
+[dir="rtl"] .infoicon .material-icons {
+  margin-right: 0.8em;
+  margin-top: -0.15em;
+  color: $information-icon-background;
+}
+
+.text-with-icon {
+  background: rgba(105, 78, 214, 0.08);
+}
+.mat-dialog-container {
+  padding: 0em !important;
+  overflow: hidden !important;
+}
+.browse-button-margin {
+  margin-left: 0.5em !important;
+}
+
+.label-header {
+  font-size: 1em;
+  color: $labelHeaderColor;
+  font-weight: 500;
+  line-height: 1.25em;
+  padding-top: 0em !important;
+  padding-left: 0em !important;
+}
+
+.mat-card-width {
+  width: 40em;
+}
+.labelStyle {
+  color: $labelstyleColor;
+  font-family: Roboto;
+  font-size: 0.975em;
+  letter-spacing: 0.0125em;
+  line-height: 1em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+.labelStyleInRed {
+  color: red !important;
+  font-family: Roboto;
+  font-size: 0.975em;
+  letter-spacing: 0.0125em;
+  line-height: 1em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+.table-data-highlight {
+  background-color: rgba(var(--color-warn),.08) !important;
+}
+
+// CSS for tab label error highlight
+.tab-highlight-error {
+  color: rgba(var(--color-warn), 1) !important;
+}
+
+.valStyle {
+  color: #2a2a2a;
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.03125em;
+  line-height: 1.1875em;
+}
+
+.fieldvalue {
+  color: $GREY-01;
+  font-weight: 500;
+  padding-left: 0em !important;
+  white-space: pre-wrap;
+}
+/* Common header and title css for form End */
+
+/* Dropdown for listing screen */
+p-dropdown.view-drp .ui-dropdown span {
+  border-radius: 3rem !important;
+  border: 0.0625em solid $WHITE-07;
+}
+/* text-area field-width for 65 character*/
+.indented-text-area-field-65 {
+  width: 37.9rem;
+  word-break: break-all;
+}
+/* end */
+
+/* text-area field-width for 65 character with scrollbar*/
+.indented-text-area-field-65-with-scrollbar {
+  width: 37.9rem;
+  word-break: break-all;
+}
+/* end */
+
+/* text-area field-width for 64 character*/
+.indented-text-area-field-64 {
+  width: 37.4rem;
+  word-break: break-all;
+}
+/* end */
+
+/* text-area field-width for 65 character with scrollbar*/
+.indented-text-area-field-64-with-scrollbar {
+  width: 37.4rem;
+  word-break: break-all;
+}
+/* end */
+
+/* text-area field-width for 35 character*/
+.indented-text-area-field-35 {
+  margin: 0.0em  1.25em 0em -1.0625em  !important;
+  width: 22.5rem !important;
+  word-break: break-all;
+}
+/* end */
+
+/* text-area field-width for 35 character with scrollbar*/
+.indented-text-area-field-35-with-scrollbar {
+  margin: 0.9375em 1.25em 0em 0.9375em !important;
+  width: 24rem !important;
+  word-break: break-all;
+}
+/* end */
+
+/* input-switch color */
+.ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider {
+  background-color: $InputSwitchBackgroundColor !important;
+}
+/* end */
+
+/* css for error message */
+/* to hide the close icon */
+.fcc-field-message .ui-message-icon {
+  display: none;
+}
+
+.fcc-field-message .ui-message .ui-message-text {
+  font-size: 0.8em;
+  color: $RED-100;
+  height: 0.875em;
+  width: 12.375em;
+  font-size: 0.9em;
+  font-weight: 300;
+  letter-spacing: 0.00625em;
+  line-height: 0.875em;
+  word-break: break-word;
+}
+
+.fcc-error-message {
+  padding: 1em;
+  color: $fccErrorMessageColor;
+  height: 0.875em;
+  font-size: 0.75em;
+  font-weight: 300;
+  letter-spacing: 0.00625em;
+  padding-left: 0em;
+  padding-top: 0.5em;
+}
+
+.otpErrorMsg {
+  font-size: 0.875em !important;
+  font-weight: 400 !important;
+  padding: 0em !important;
+  margin: 0em !important;
+  color: $errorMessageColor !important;
+}
+
+.ui-message.ui-message-error {
+  background-color: transparent !important;
+  border: 0 none;
+}
+
+.leftwrapper {
+  // befor it was 1.5 em i changed to 0.5em. Dated 19/9/2020
+  padding-left: 0.5em !important;
+}
+.rightwrapper {
+  padding-left: 1.5em !important;
+}
+
+.fcc-input-checkbox .ui-fluid label {
+  // margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* end */
+
+.nextSectionDiv,
+.prevSectionDiv {
+  position: sticky;
+  bottom: 2.5em;
+  z-index: 999;
+}
+
+.nextSectionDivIE,
+.prevSectionDivIE {
+  position: fixed;
+  bottom: 8em;
+  z-index: 999;
+}
+
+.previousIE {
+  position: fixed;
+  bottom: 8em;
+  right: 7em;
+  z-index: 999;
+}
+
+.previous {
+  position: absolute;
+  right: 6em;
+  bottom: 0%;
+  top: 0%;
+  height: 31px;
+  z-index: 999;
+}
+
+.cancelButtonAlign {
+  position: absolute;
+  right: 69em;
+  z-index: 9999;
+}
+
+.cancelButtonAlignIE {
+  position: fixed;
+  bottom: 8em;
+  right: 1em;
+  z-index: 9999;
+}
+
+.submitButtonAlign {
+  position: absolute;
+  right: 62em;
+  z-index: 9999;
+  height: 2.2em;
+}
+
+.submitButtonAlignIE {
+  position: absolute;
+  right: 63.25em;
+  z-index: 9999;
+  height: 2.2em;
+}
+
+.nextButtonIE {
+  position: fixed;
+  bottom: 8em;
+  right: 1.25em;
+  z-index: 999;
+}
+
+.nextButton {
+  position: absolute;
+  right: 0em;
+  z-index: 999;
+}
+.nextButtonArabic {
+  position: absolute;
+  left: 1em;
+  bottom: 0%;
+  z-index: 999;
+}
+.previousArabic {
+  position: absolute;
+  left: 7em;
+  bottom: 0%;
+  z-index: 999;
+}
+
+.submitButtonIE {
+  position: fixed;
+  bottom: 8em;
+  right: 1.25em;
+  z-index: 9999;
+}
+
+.submitButton {
+  right: 0em;
+  z-index: 9999;
+}
+
+.cancelButtonIE {
+  position: fixed;
+  bottom: 8em;
+  right: 7em;
+  z-index: 9999;
+}
+
+.cancelButton {
+  position: absolute;
+  right: 6em;
+  bottom: 0%;
+  top: 0%;
+  height: 31px;
+  z-index: 9999;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .nextSectionDivIE,
+  .prevSectionDivIE,
+  .nextButtonIE,
+  .previousIE {
+    bottom: 16em;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .nextSectionDivIE,
+  .prevSectionDivIE,
+  .nextButtonIE,
+  .previousIE {
+    bottom: 22em;
+  }
+}
+
+/* MultiSelect CSS Start (To be deleted in future) */
+
+.ui-multiselect {
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  border-bottom: 0.0625em solid $GREY-02 !important;
+  border-radius: 0em !important;
+}
+
+.ui-multiselect .ui-multiselect-trigger {
+  background-color: transparent !important;
+}
+
+.ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+  width: 85% !important;
+}
+
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-inputtext {
+  border: none;
+  border-bottom: 0.0625em solid $CHARCOAL-F50 !important;
+  font-size: 1em;
+  line-height: 0.9375em;
+  border-radius: 0em;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: $GREY-100;
+  font-weight: 400;
+}
+
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: $primaryColor !important;
+  outline: 0 none;
+  box-shadow: none;
+  border-bottom: 0.08em solid $primaryColor !important;
+}
+
+.ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight {
+  color: $BLACK-01 !important;
+  background-color: $WHITE !important;
+}
+
+.ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight:focus,
+.ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item:not(.ui-state-highlight):not(.ui-state-disabled):focus {
+  outline: none !important;
+}
+.ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item:not(.ui-state-disabled):focus {
+  box-shadow: inset 0 0 0 0.1rem $formCheckboxColor !important;
+}
+
+a.ui-multiselect-close:focus {
+  outline: 0.125em solid $primaryColor !important;
+}
+
+.widget-listing .ui-multiselect-panel {
+  top: 39px !important;
+}
+
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
+  color: $advanced-filter-search !important;
+}
+
+/* MultiSelect CSS End */
+
+/* MultiSelect CSS Start */
+
+.fcc-ui-multiselect .ui-multiselect {
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  border-bottom: 0.0625em solid $GREY-02 !important;
+  border-radius: 0em !important;
+}
+
+.fcc-ui-multiselect .ui-multiselect .ui-multiselect-trigger {
+  background-color: transparent !important;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container {
+  width: 90% !important;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-inputtext {
+  border: none;
+  border-bottom: 0.0625em solid $CHARCOAL-F50 !important;
+  font-size: 1em;
+  line-height: 0.9375em;
+  border-radius: 0em;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: $GREY-100;
+  font-weight: 400;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  outline: 0 none;
+  box-shadow: none;
+  border-bottom: 0.08em solid $VIOLET-PRIMARY-COLOR !important;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight {
+  color: $BLACK-01 !important;
+  background-color: $WHITE !important;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight:focus,
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item:not(.ui-state-highlight):not(.ui-state-disabled):focus {
+  outline: none !important;
+}
+
+.fcc-ui-multiselect
+  .ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
+  color: $VIOLET-PRIMARY-COLOR !important;
+}
+
+/* MultiSelect CSS End */
+
+/* Radio Button Start (To be deleted in future) */
+
+.fcc-radio-label.ui-label-active {
+  font-weight: 500;
+}
+
+.fcc-radio-button .ui-fluid label,
+.fcc-radio-button label {
+  line-height: 2.5em !important;
+  // padding-left: 1em;
+  // margin: 0em;
+}
+
+.fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: $WHITE !important;
+  border-color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: $VIOLET-PRIMARY-COLOR;
+  background-color: $WHITE !important;
+  color: $WHITE;
+  box-shadow: none;
+}
+.fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active
+  .ui-radiobutton-icon {
+  background-color: $VIOLET-PRIMARY-COLOR;
+  border-color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-radio-button .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border: 0.1em solid $uiradioButtonBorderColor;
+  background-color: $uiRadiobuttonBackgroundcolor;
+  color: $uiRadiobuttonColor;
+}
+
+p-radiobutton.leftwrapper {
+  padding-left: 0em !important;
+}
+
+/* Radio Button End */
+
+/* Radio Button Start */
+
+.fcc-ui-radiobutton .fcc-radio-label.ui-label-active {
+  font-weight: 500;
+}
+
+.fcc-ui-radiobutton .fcc-radio-button .ui-fluid label,
+.fcc-ui-radiobutton .fcc-radio-button label {
+  line-height: 1.8em !important;
+  padding-left: 1em;
+  margin: 0em;
+}
+
+.fcc-ui-radiobutton
+  .fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: $WHITE !important;
+  border-color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-ui-radiobutton
+  .fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: $VIOLET-PRIMARY-COLOR;
+  background-color: $WHITE !important;
+  color: $WHITE;
+  box-shadow: none;
+}
+.fcc-ui-radiobutton
+  .fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active
+  .ui-radiobutton-icon {
+  background-color: $VIOLET-PRIMARY-COLOR;
+  border-color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-ui-radiobutton
+  .fcc-radio-button
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active {
+  border: 0.1em solid $VIOLET-PRIMARY-COLOR;
+  background-color: $WHITE-10;
+  color: $WHITE;
+}
+
+.fcc-ui-radiobutton p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+.fcc-ui-radiobutton p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+/* Radio Button End */
+
+/* Input text field with floating label css Start (To be deleted in future) */
+.ui-float-label > .ui-inputwrapper-filled ~ label {
+  font-size: 0.75em !important;
+}
+.ui-float-label .ui-widget {
+  border: none;
+  border-bottom: 0.0625em solid $formFieldBorderBottom;
+  font-size: 1em !important;
+  letter-spacing: 0.0081em;
+  line-height: 1.5em;
+  font-weight: normal;
+  border-radius: 0em;
+  background-color: transparent !important;
+  width: 100%;
+  color: $GREY-100;
+  padding-right: 1.6em !important;
+}
+.ui-float-label > label {
+  left: 0.5em;
+  color: $formLabelColor;
+  font-size: 16px;
+  line-height: 24px;
+}
+.ui-inputtext {
+  padding: 0.429em 0.429em 0.429em 0em;
+  width: 100%;
+}
+.ui-inputtext:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  box-shadow: none !important;
+  border: none !important;
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  border-bottom: 0.08em solid $formFieldfocusedBorderBottom !important;
+}
+
+.ui-inputtext.ng-dirty.ng-invalid,
+p-calendar.ng-dirty.ng-invalid > .ui-calendar > .ui-inputtext {
+  border: none !important;
+  border-bottom: 1.2px solid $RED-100 !important;
+}
+/* Input text field with floating label css End */
+
+/* Input text field with floating label css Start */
+.fcc-ui-inputfield .ui-float-label > .ui-inputwrapper-filled ~ label {
+  font-size: 0.75em !important;
+}
+.fcc-ui-inputfield .ui-float-label .ui-widget {
+  border: none;
+  border-bottom: 0.0625em solid $CHARCOAL-F50;
+  font-size: 1em !important;
+  letter-spacing: 0.0081em;
+  line-height: 0.9375em;
+  font-weight: normal;
+  border-radius: 0em;
+  background-color: transparent !important;
+  width: 100%;
+  color: $GREY-100;
+}
+.fcc-ui-inputfield .ui-float-label > label {
+  left: 0.5em;
+  color: $GREY-100;
+  font-size: 16px;
+  line-height: 24px;
+}
+.fcc-ui-inputfield .ui-inputtext {
+  padding: 0.429em 0.429em 0.429em 0em;
+  width: 100%;
+}
+.fcc-ui-inputfield .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  box-shadow: none;
+  border: none !important;
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  border-bottom: 0.08em solid $VIOLET-PRIMARY-COLOR !important;
+}
+
+.fcc-ui-inputfield .ui-inputtext.ng-dirty.ng-invalid,
+.fcc-ui-inputfield
+  p-calendar.ng-dirty.ng-invalid
+  > .ui-calendar
+  > .ui-inputtext {
+  border: none !important;
+  border-bottom: 1.2px solid $RED-100 !important;
+}
+/* Input text field with floating label css End */
+
+.textarea.characterCountDivfield {
+  margin-top: -2em;
+}
+
+.textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0.429em !important;
+  margin-left: 0.13em !important;
+}
+
+.characterCountDivfield .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  box-shadow: none;
+  border: none !important;
+  border-color: $VIOLET-PRIMARY-COLOR !important;
+  border-bottom: none !important;
+}
+
+.characterCountDivfield .ui-inputtext {
+  overflow: hidden;
+}
+
+fcc-select-with-checkbox {
+  min-width: 26% !important;
+}
+.fileUploadClass .ui-button.ui-button-icon-only {
+  visibility: hidden;
+}
+.fileUploadClass .pi-times:before {
+  color: $WHITE;
+}
+.fileUploadClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $fileuploadclassBackgroundColor !important;
+  color: $fileUploadColor !important;
+  border: none !important;
+}
+
+.fileUploadClass .ui-dialog .ui-dialog-titlebar a.ui-dialog-titlebar-icon.ui-dialog-titlebar-close:focus {
+  outline: 0 none;
+  box-shadow: 0 0 0 0.2em #c137a2;
+}
+
+.fileUploadClass .ui-fileupload:focus {
+  outline: none;
+}
+
+.fileUploadClass[style*="direction: rtl"] .ui-dialog-titlebar.ui-widget-header {
+  background-color: $fileuploadclassBackgroundColor !important;
+  color: $fileUploadColor !important;
+  border: none !important;
+  text-align: right;
+}
+.fa-asterisk:before {
+  color: $RED-100;
+  font-size: 0.5em;
+  top: 0.8375em;
+  right: -1em;
+  position: absolute;
+}
+span.mat-placeholder-required.mat-form-field-required-marker {
+  color: $RED-100 !important;
+  font-size: 1em !important;
+  top: 0 !important;
+  position: absolute !important;
+  font-weight: 900 !important;
+}
+
+.reauthClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $reauthBackgroundColor !important;
+  color: $uiDialogTilebarColor !important;
+  padding: 1.5em 1em !important;
+  font-size: 1.5em !important;
+  border: none !important;
+  vertical-align: middle;
+}
+
+.reauthClass[style*="direction: rtl"] .ui-dialog-titlebar.ui-widget-header {
+  background-color: $reauthBackgroundColor !important;
+  color: $reauthColor !important;
+  padding: 1.5em 1em !important;
+  font-size: 1em !important;
+  text-align: right !important;
+}
+.reauthClass .ui-dialog-content {
+  background-color: $reauthBackgroundColor;
+  border: none !important;
+  padding: 1em !important;
+  border-bottom-left-radius: 0.1875em !important;
+  border-bottom-right-radius: 0.1875em !important;
+}
+
+.reauthClass[style*="direction: rtl"] .ui-dialog-titlebar.ui-widget-header {
+  background-color: $reauthBackgroundColor !important;
+  color: $reauthColor !important;
+  border: none !important;
+  padding: 1.5em 1em !important;
+  font-size: 1em !important;
+  text-align: left;
+}
+
+.sessionClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $sessionBackgroundColor !important;
+  color: #0c0c0c !important;
+  border: none !important;
+  padding: none !important;
+  font-size: 1em !important;
+}
+.sessionClass .ui-dialog-content {
+  background-color: $sessionBackgroundColor;
+  border: none !important;
+  padding: none !important;
+  border-bottom-left-radius: 0.1875em !important;
+  border-bottom-right-radius: 0.1875em !important;
+}
+
+.sessionClass .form-header {
+  font-size: 1.125em;
+  color: #838282;
+  font-weight: 700;
+}
+
+.sessionClass .fcc-form-header {
+  margin-top: 0em;
+}
+
+.sessionClass .dialogMessage {
+  font-size: 0.875em !important;
+  padding: 0em !important;
+  margin: 0em !important;
+}
+
+.searchLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $WHITE !important;
+  color: $primaryColor !important;
+  border: none !important;
+  padding: 1.5em 1.5em !important;
+  /* font-size: 1.5em !important; */
+}
+.searchLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 1.5em !important;
+}
+
+.searchLayoutClass[style*="direction: rtl"] .ui-dialog-titlebar .ui-dialog-title {
+  float: right;
+}
+
+.searchLayoutClass[style*="direction: rtl"] .ui-dialog-titlebar .ui-dialog-titlebar-icons {
+  float: left;
+}
+
+.fileUploadClass[style*="direction: rtl"] .ui-dialog-titlebar .ui-dialog-titlebar-icons {
+  float: left;
+}
+
+.searchLayoutClass .ui-dialog-content {
+  background-color: $sessionLayoutDialogBackgroundColor;
+  border: none !important;
+  padding: 1em !important;
+  border-bottom-left-radius: 0.1875em !important;
+  border-bottom-right-radius: 0.1875em !important;
+  padding-top: 0em !important;
+  margin-top: -0.0625em !important;
+}
+.searchLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  padding-bottom: 0.5em !important;
+}
+
+.readonly-input {
+  color: $GREY-01;
+  pointer-events: none;
+}
+
+.interestDetailsPopup {
+   .ui-dialog-titlebar.ui-widget-header {
+    background-color: $WHITE !important;
+    color: $primaryColor !important;
+    border: none !important;
+    padding: 1.5em 1.5em !important;
+    /* font-size: 1.5em !important; */
+  }
+   .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 1.5em !important;
+  }
+
+  &[style*="direction: rtl"] .ui-dialog-titlebar .ui-dialog-title {
+    float: right;
+  }
+
+  &[style*="direction: rtl"] .ui-dialog-titlebar .ui-dialog-titlebar-icons {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 40rem) {
+  .p-column-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .ui-table.ui-table-responsive .ui-table-tbody > tr td {
+    text-align: left !important;
+    display: block;
+    width: 100%;
+    float: left;
+    clear: left;
+    border: 0 none;
+
+    .p-column-title {
+      padding: 0.4rem;
+      min-width: 30%;
+      display: inline-block;
+      margin: -0.4em 1em -0.4em -0.4rem;
+      font-weight: bold;
+    }
+  }
+}
+
+
+/* Select button / Chips CSS Start (To be deleted in future) */
+
+.ui-selectbutton .ui-button.ui-state-default {
+  background-color: $selectbuttonBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-Border !important;
+  color: $selectButtonColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-default:hover {
+  background-color: $selectButtonDefaultHoverBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $selectButtonDefaultHoverColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-disabled {
+  background-color: $selectButtonDisabledBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-disabled-Border !important;
+  color: $selectButtonDisabledColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-disabled:hover {
+  background-color: $selectButtonDisabledHoverBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-disabled-Border !important;
+  color: $selectButtonDisabledHoverColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-active.ui-state-disabled:hover {
+  background-color: $selectButtonActivedisabledHoverBackGroundC !important;
+  border: 0.0625em solid $selectButtonActivedisabledHoverBorder !important;
+  color: $selectButtonActivedisabledColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-active {
+  background-color: $selectButtonActiveBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $selectButtonActiveColor !important;
+}
+
+.ui-selectbutton .ui-button.ui-state-active:hover {
+  background-color: $selectButtonActiveHoverBackgroundColor !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $selectButtonActiveHoverColor !important;
+}
+
+.ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.429em 2em !important;
+}
+
+/* Select button / Chips CSS Start */
+.fcc-ui-selectbutton .ui-selectbutton .ui-button.ui-state-default {
+  background-color: $WHITE !important;
+  border: $ui-selectbutton-DefaultState-Border !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+}
+
+.fcc-ui-selectbutton .ui-selectbutton .ui-button.ui-state-default:hover {
+  background-color: $WHITE-09 !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $VIOLET-03 !important;
+}
+
+.fcc-ui-selectbutton .ui-selectbutton .ui-button.ui-state-disabled {
+  background-color: $WHITE-11 !important;
+  border: $ui-selectbutton-DefaultState-disabled-Border !important;
+  color: $GREY-06 !important;
+}
+
+.fcc-ui-selectbutton .ui-selectbutton .ui-button.ui-state-active {
+  background-color: $WHITE-09 !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $VIOLET-03 !important;
+}
+
+.fcc-ui-selectbutton .ui-selectbutton .ui-button.ui-state-active:hover {
+  background-color: $VIOLET-04 !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $VIOLET-03 !important;
+}
+
+.fcc-ui-selectbutton .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.429em 2em !important;
+}
+/* Select button / Chips CSS End */
+
+/* Select button for tabmenu CSS Start */
+.fcc-ui-tabbtn .ui-selectbutton .ui-button.ui-state-active,
+.fcc-ui-tabbtn
+  .ui-selectbutton
+  .ui-button.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: $VIOLET-02 !important;
+  border: $ui-selectbutton-filterSection-button-Border !important;
+  color: $WHITE !important;
+}
+
+.fcc-ui-tabbtn .ui-selectbutton .ui-button {
+  background-color: $WHITE !important;
+  border: $ui-selectbutton-filterSection-button-Border !important;
+  color: $VIOLET-02 !important;
+}
+
+.fcc-ui-tabbtn .ui-selectbutton .ui-button.ui-state-default:hover {
+  background-color: $WHITE-09 !important;
+  border: $ui-selectbutton-DefaultState-hover-Border !important;
+  color: $VIOLET-03 !important;
+}
+
+.fcc-ui-tabbtn .ui-selectbutton .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.429em 0em !important;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1vw;
+  word-spacing: 0.08em;
+}
+/* Select button for tabmenu CSS End */
+
+.saveTabButton {
+  cursor: pointer !important;
+  height: 16px;
+  width: 43px;
+  color: $secondaryColor;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.saveTabButton:hover {
+  box-shadow:0 0 0 0.5em #fbf0f8 !important;
+  background-color: #fbf0f8;
+  border-radius: 1.125em !important;
+  outline: none;
+}
+.saveTabButton:focus {
+  border-radius: 1.125em !important;
+  padding: 0.4em;
+  outline: 3px solid $BLACK;
+}
+
+/* toaster css */
+.custom-toast .ui-toast-message.ui-shadow.ui-toast-message-success {
+  margin-top: 3em;
+  margin-right: 0.3em;
+}
+
+/* end */
+/* form render padding left 0px input text */
+.readmode > div {
+  padding-left: 0em !important;
+}
+.readmode .select-button-pd {
+  padding-left: 1em !important;
+}
+
+/* end */
+
+/* Form Date/Calendar CSS Start */
+
+.fcc-form-ui-calendar .ui-float-label {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+}
+
+.fcc-form-ui-calendar .ui-inputtext:enabled:hover {
+  border-color: $GREY-100;
+}
+
+.fcc-form-ui-calendar p-calendar {
+  width: 100%;
+}
+
+.fcc-form-ui-calendar .ui-calendar {
+  position: relative !important;
+  display: -webkit-box !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+.fcc-form-ui-calendar .ui-calendar .ui-datepicker.ui-widget {
+  background-color: $WHITE !important;
+}
+
+.fcc-form-ui-calendar .ui-datepicker {
+  background-color: $WHITE !important;
+}
+
+.fcc-form-ui-calendar
+  .ui-datepicker
+  .ui-datepicker-header
+  .ui-datepicker-title
+  select {
+  border: none;
+  font-weight: 500;
+}
+
+.fcc-form-ui-calendar .ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.fcc-form-ui-calendar .ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  top: 0.313em;
+  color: $BLACK;
+  font-size: 0.8em;
+}
+
+.fcc-form-ui-calendar
+  .ui-datepicker:not(.ui-state-disabled)
+  .ui-datepicker-header
+  .ui-datepicker-next:hover,
+.fcc-form-ui-calendar
+  .ui-datepicker:not(.ui-state-disabled)
+  .ui-datepicker-header
+  .ui-datepicker-prev:hover {
+  color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-form-ui-calendar .ui-button:enabled:hover {
+  background-color: transparent;
+  border-color: $BLACK-02;
+}
+
+.fcc-form-ui-calendar .ui-datepicker table td > a.ui-state-active,
+.fcc-form-ui-calendar .ui-datepicker table td > span.ui-state-active,
+.fcc-form-ui-calendar
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > a.ui-state-active,
+.fcc-form-ui-calendar
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > span.ui-state-active {
+  color: $WHITE;
+  background-color: $VIOLET-PRIMARY-COLOR;
+}
+
+.fcc-form-ui-calendar .ui-button:enabled:focus {
+  box-shadow: none;
+}
+
+.fcc-form-ui-calendar
+  .ui-calendar.ui-calendar-w-btn
+  .ui-datepicker-trigger.ui-button {
+  color: $WHITE;
+}
+
+.fcc-form-ui-calendar
+  .ui-datepicker:not(.ui-state-disabled)
+  table
+  td
+  a:not(.ui-state-active):not(.ui-state-highlight):hover {
+  font-weight: normal;
+}
+
+.fcc-form-ui-calendar
+  .ui-datepicker
+  .ui-button.ui-state-default.ui-button-secondary {
+  width: auto;
+}
+
+// Primeng Calendar year and month dropdown color changes
+body .ui-datepicker table td > a.ui-state-active, 
+body .ui-datepicker table td > span.ui-state-active {
+  color: $WHITE;
+  background-color: $calenderActiveTabColor;
+}
+
+body .ui-datepicker .ui-datepicker-title {
+  position: relative;
+}
+
+body .ui-datepicker .ui-datepicker-month {
+  position: absolute;
+  left: 3em;
+  border-radius: 0;
+}
+
+body .ui-datepicker .ui-datepicker-year {
+  position: absolute;
+  right: 3em;
+  border-radius: 0;
+  z-index: 9999;
+}
+
+body .ui-datepicker .ui-datepicker-month:focus > option:checked,
+body .ui-datepicker .ui-datepicker-month:focus > option:hover {
+  color: $WHITE;
+  box-shadow: 0 0 10px 100px $calenderActiveTabColor inset !important;
+}
+
+body .ui-datepicker .ui-datepicker-year:focus > option:checked,
+body .ui-datepicker .ui-datepicker-year:focus > option:hover {
+  color: $WHITE;
+  box-shadow: 0 0 10px 100px $calenderActiveTabColor inset !important;
+}
+
+/* Form Date/Calendar CSS End */
+
+/* To remove outline for the widget during focus Start */
+.dynamicCompStyle {
+  outline: none !important;
+}
+/* To remove outline for the widget during focus End */
+
+/* Accessability css*/
+.outline-border li a:focus {
+  outline: 1px solid blue !important;
+}
+h:focus {
+  outline: 1px solid blue !important;
+}
+
+/* End Accessability */
+.viewmodeheader h3 {
+  margin-left: -0.25em;
+}
+
+.arabicRtl {
+  text-align: right;
+}
+
+.arabicLtr {
+  text-align: left;
+}
+
+.dirDropDownStyle .ui-dropdown .ui-dropdown-label {
+  padding-right: 0.429em;
+  padding-left: 2em;
+}
+
+.dirDropDownStyle .ui-dropdown .ui-dropdown-trigger {
+  right: auto;
+  left: 0em;
+}
+
+.dirDropDownStyle
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item.ui-state-highlight {
+  border-left: 0em solid $primaryColor !important;
+  border-right: 0.4em solid $primaryColor !important;
+}
+
+.dirDropDownStyle .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-left: 0em solid transparent !important;
+  border-right: 0.4em solid transparent !important;
+}
+
+.dirDropDownStyle
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  border-left: 0em solid rgba(105, 78, 214, 0.2) !important;
+  border-right: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+}
+
+/* Mini Statment Date  */
+.miniStmtDate {
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 0.75em;
+  font-size: 0.9em;
+}
+
+.widthForCur {
+  width: 25% !important;
+}
+.chargeAmt {
+  margin-top: 1.1em !important;
+}
+
+.previous-info {
+  font: 100% Roboto, sans-serif !important;
+  font-size: 1em !important;
+  color: $VIOLET-03 !important;
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep .previosInfoOLPanel .ui-overlaypanel {
+  border-radius: 1em !important;
+  padding: 0.3em !important;
+  width: 400px !important;
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+  position: absolute !important;
+  cursor: pointer;
+}
+
+.infodisplaylabel {
+  margin-top: 2em;
+  font-size: 1em;
+  color: $primaryColor;
+  font-weight: 500;
+  line-height: 1.25em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+}
+
+.infoLabel {
+  background-color: #a77c18;
+  font-size: 0.75em;
+  font-weight: bold;
+  border: solid;
+  color: $infoLabelColor;
+  margin-left: 0.8em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.2em;
+}
+
+.infoLabel:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.infoLabel:hover {
+  color: $infolabelHoverColor !important;
+}
+
+a.infoLabel:hover {
+  text-decoration: none !important;
+}
+
+.infoIcon {
+  color: $infoIconColor;
+  position: absolute;
+  top: 0.3em;
+  right: -0.1em;
+  z-index: 10;
+}
+
+.infoIcon:hover {
+  color: $Tabcolor;
+}
+
+.infoDropDownIcon {
+  color: $infoIconColor;
+  float: right;
+}
+
+.infoIconMultiSelect {
+  color: $infoIconColor;
+  left: -10em;
+  top: 0.7em;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .infoIconMultiSelect {
+    left: -7em !important;
+  }
+}
+
+[dir="rtl"] .infoDropDownIcon {
+  color: $infoIconColor;
+  float: left;
+}
+
+[dir="rtl"] .infoIconMultiSelect {
+  color: $infoIconColor;
+  left: -10em;
+  top: 0.7em;
+  position: relative;
+  float: right;
+}
+
+[dir="rtl"] .infoIcon {
+  color: $infoIconColor;
+  position: absolute;
+  top: 0.7em;
+  right: 100%;
+  z-index: 10;
+}
+.margin-top-size {
+  margin-top: 2em;
+}
+
+:host ::ng-deep .rtl .ui-tabview .ui-tabview-nav li {
+  float: right;
+}
+
+.margin-for-tab {
+  margin-top: 1.5em;
+  margin-left: -0.5em;
+}
+
+.revolveStyle {
+  position: relative;
+  top: 0.6em;
+}
+
+.previousInfoDivClass {
+  max-width: 350px;
+}
+
+.gridStyle {
+  position: relative !important;
+}
+
+.iconStyle {
+  position: relative;
+  top: 1.7em;
+  right: 3.9em;
+}
+.iconStyleFtTransfer {
+  position: relative;
+  top: 0.8em;
+  margin-left: -2em;
+  height: 0em !important;
+}
+
+.iconStyleClearFtTransfer {
+  position: relative;
+  top: 0.8em;
+  height: 0em !important;
+}
+
+.iconStyle[dir="rtl"] {
+  position: relative;
+  top: 1.7em;
+  right: -3.5em;
+}
+
+.fcc-input[dir="rtl"] .mat-button-toggle {
+  margin-left: 0em;
+}
+
+.iconStyleConfirm {
+  color: $iconstyleConfirmColor !important;
+  position: relative;
+  top: 1.7em;
+  right: 1.9em;
+}
+.periodOfPresentation {
+  margin: 0em 1.25em 0em 0.9375em !important;
+  width: 22.5rem !important;
+  word-break: break-all !important;
+}
+
+.siPeriodOfPresentation {
+  margin: 0em 1.25em 0em 0.9375em !important;
+  width: 22.5rem !important;
+  word-break: break-all !important;
+}
+
+/* Message to bank Free format styling */
+.messageStyle {
+  width: 70%;
+}
+
+.customerInstruction {
+  margin-top: 0em;
+  font-size: 1.1em;
+}
+
+.settlementAmount {
+  margin-top: 0em;
+}
+
+.consentResponse {
+  margin-top: 0em;
+}
+#respond .ui-button-text {
+  font-weight: bold !important;
+  letter-spacing: 0.06875em !important;
+}
+.transactionTab .p-col-12 {
+  margin-left: 0.2em !important;
+}
+.mat-tooltip {
+  background-color: $mattooltipBackgroundColor !important;
+  color: $mattooltipcolor !important;
+  border: 0.0625em solid $mattooltipBordercolor !important;
+  border-radius: 0 !important;
+}
+
+/* CSS is for the view detail dialog */
+.viewLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $WHITE !important;
+  // color: $GREY-06 !important;
+  color: $VIOLET-PRIMARY-COLOR !important;
+  border: none !important;
+  font-size: 1em !important;
+  font-weight: 500 !important;
+}
+.viewLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 1.5em !important;
+}
+.viewLayoutClass .ui-dialog-content {
+  background-color: $WHITE;
+  border: none !important;
+  padding: 1em !important;
+  border-bottom-left-radius: 0.1875em !important;
+  border-bottom-right-radius: 0.1875em !important;
+}
+
+.fileViewLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: #000000 !important;
+  color: $WHITE !important;
+  border: none !important;
+  height: 2.5em;
+  padding-top: 0.75em !important;
+}
+.fileViewLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 1em !important;
+  font-weight: 300 !important;
+}
+.fileViewLayoutClass .ui-dialog-content {
+  border: none !important;
+  background: #404040 !important;
+  opacity: 0.95 !important;
+  height: 100% !important;
+}
+
+.fileViewLayoutClass.ui-dialog {
+  height: 100% !important;
+  width: 100% !important;
+  max-height: 100% !important;
+}
+
+
+:host ::ng-deep .fileViewLayoutClass .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon {
+  color: $WHITE !important;
+}
+.eventFilterPopup [style*="direction: rtl"] .primaryButton{
+  margin-right: 10px !important;
+}
+.eventFilterPopup .primaryButton{
+  margin-left: 10px !important;
+}
+.eventFilterPopup .dateStyle{
+  margin-right: 0px !important;
+}
+
+.eventFilterPopup [style*="direction: ltr"] .p-grid.form-render-wrapper,
+.eventFilterPopup [style*="direction: rtl"] .p-grid.form-render-wrapper{
+  justify-content: flex-end;
+}
+
+.eventFilterPopup.ui-dialog-rtl .ui-dialog-title {
+  float: right !important;
+}
+.eventFilterPopup.ui-dialog-rtl .ui-dialog-titlebar-icons {
+  float: left !important;
+}
+
+textarea#customerInstructionText {
+  resize: none;
+}
+
+// dashboard view all link properties
+.view-all-links {
+  text-align: right;
+  padding-top: 0.5em;
+}
+
+.view-all-links a {
+  color: $secondaryColor !important;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+}
+
+[dir="rtl"] .view-all-links a {
+  color: #c139a3 !important;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+  float: left;
+}
+
+.view-all-links a:hover {
+  color: $secondaryColor;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.view-all-links a:focus {
+  outline: none !important;
+}
+
+.pointer-class {
+  cursor: pointer;
+  cursor: hand;
+}
+
+// global css for froms----------------------------->>>>>>>>>>>>
+
+.applicant_bene_entity_class {
+  padding-top: 1em !important;
+  background-color: $formFieldbackground !important;
+  border-radius: 4px 4px 0em 0em !important;
+  word-break: break-all;
+  line-height: 2.25em;
+  margin-bottom: 1.34375em;
+}
+.no-margin-multiselect {
+  background-color: $formFieldbackground;
+  border-radius: 4px 4px 0em 0em;
+  margin-top: -1em;
+  padding-top: 1em;
+}
+
+.no-margin-multiselect-ft {
+  margin-top: 0em !important;
+}
+.no-margin-multiselect-sg {
+  background-color: #e9e5f9c9;
+  border-radius: 4px 4px 0em 0em;
+  padding-top: 1.6em;
+}
+
+.applicant_bene_entity_class.ui-float-label[dir="rtl"] .ui-dropdown.ui-widget,
+.no-margin-multiselect.ui-float-label[dir="rtl"] .ui-dropdown.ui-widget {
+  padding-left: 1.6em !important;
+  padding-right: 0em !important;
+}
+
+.applicant_bene_entity_class .ui-dropdown span.ui-dropdown-label,
+.no-margin-multiselect .ui-dropdown span.ui-dropdown-label {
+  padding-left: 1.2em;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 0.429em !important;
+}
+
+.ui-paginator-bottom {
+  .ui-dropdown span.ui-dropdown-label {
+  margin-top: 0;
+  font-size: 14px;
+  }
+  .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+    margin-top: 0;
+    margin-left: 0;
+      transform: translate(-50%,-50%);
+  }
+}
+
+.applicant_bene_entity_class .ui-dropdown .ui-dropdown-trigger,
+.no-margin-multiselect .ui-dropdown .ui-dropdown-trigger {
+  left: auto;
+  right: 0em;
+}
+
+.applicant_bene_entity_class
+  .ui-dropdown
+  .ui-dropdown-trigger
+  .ui-dropdown-trigger-icon,
+.no-margin-multiselect
+  .ui-dropdown
+  .ui-dropdown-trigger
+  .ui-dropdown-trigger-icon {
+  top: 33%;
+  left: 35%;
+  font-size: 14px;
+  color: #696969;
+}
+
+.ui-float-label[dir="rtl"] .ui-dropdown span.ui-dropdown-label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 0.429em !important;
+  text-align: right;
+  padding-right: 0em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown span.ui-dropdown-label,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown span.ui-dropdown-label {
+  padding-right: 0.75em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
+  right: auto;
+  left: 1.375em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown .ui-dropdown-trigger,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown .ui-dropdown-trigger {
+  right: auto;
+  left: 0em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  top: 33%;
+  left: 66%;
+  font-size: 14px;
+  color: #696969;
+}
+
+.applicant_bene_entity_class.ui-float-label .dropdownlabel,
+.no-margin-multiselect.ui-float-label .dropdownlabel {
+  font-weight: 300;
+  left: 1em;
+}
+
+.applicant_bene_entity_class .ui-dropdown:not(.ui-state-disabled).ui-state-focus,
+.no-margin-multiselect .ui-dropdown:not(.ui-state-disabled).ui-state-focus,
+.ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.applicant_bene_entity_class.ui-float-label > .ui-inputwrapper-filled ~ label,
+.applicant_bene_entity_class.ui-float-label > .ui-inputwrapper-focus ~ label,
+.applicant_bene_entity_class.ui-float-label > input.ui-state-filled ~ label,
+.applicant_bene_entity_class.ui-float-label > input:focus ~ label,
+.no-margin-multiselect.ui-float-label > .ui-inputwrapper-filled ~ label,
+.no-margin-multiselect.ui-float-label > .ui-inputwrapper-focus ~ label,
+.no-margin-multiselect.ui-float-label > input.ui-state-filled ~ label,
+.no-margin-multiselect.ui-float-label > input:focus ~ label {
+  top: 0.8em;
+  left: 1.4em;
+}
+
+.dropdownlabel[dir="rtl"] {
+  left: 1.4em;
+  text-align: right;
+  right: 1em;
+}
+
+.toggle-chip .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content {
+  line-height: 24px;
+  padding: 0em 22px 0em 22px;
+}
+
+.p-col-6.padding_zero.ng-star-inserted {
+  flex: 0 0 auto;
+  padding: 0em 0.2em 0.2em 0.5em;
+}
+.p-col-3.padding_zero.ng-star-inserted {
+  flex: 0 0 auto;
+  padding: 0em 0.2em 0.2em 0.5em;
+}
+
+.p-col-12.padding_zero {
+  padding: 0em 0em 0em 0.5em;
+}
+
+.p-sm-12.leftMargin {
+  margin-left: 1em;
+}
+.p-col-12.padding_bank_zero {
+  padding: 2em 0em 2em 0.5em;
+}
+
+.ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -1em !important;
+}
+
+.p-col-6.padding_zero.revolving_flag_style {
+  margin-bottom: 0.5em;
+}
+
+.globalPadding .ui-dropdown .ui-dropdown-trigger {
+  background-color: #ffffff;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid $uiDropdownBorderBottom;
+}
+
+.fcc-dropdown .ui-dropdown-trigger.ui-state-default.ui-corner-right {
+  border-bottom: 1px solid $formFieldfocusedBorderBottom;
+  border-radius: 0em;
+}
+
+.fcc-dropdown .ui-dropdown-label-container {
+  width: 100%;
+}
+
+.mat-option {
+  border-left: 0.4em solid transparent !important;
+  border-right: none !important;
+}
+
+[dir="rtl"] .mat-option {
+  border-left: none !important;
+  border-right: 0.4em solid transparent !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+  border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  border-right: none !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.mat-option.mat-active:hover:not(.mat-option-disabled),
+.mat-option.mat-active:focus:not(.mat-option-disabled) {
+  border-left: 0.4em solid #694ed6 !important;
+  border-right: none !important;
+}
+
+[dir="rtl"] .mat-option:hover:not(.mat-option-disabled),
+[dir="rtl"] .mat-option:focus:not(.mat-option-disabled) {
+  border-left: none !important;
+  border-right: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+[dir="rtl"] .mat-option.mat-active:hover:not(.mat-option-disabled),
+[dir="rtl"] .mat-option.mat-active:focus:not(.mat-option-disabled) {
+  border-left: none !important;
+  border-right: 0.4em solid #694ed6 !important;
+}
+
+.mat-option.mat-active {
+  background-color: transparent !important;
+  color: $primaryColor !important;
+  border-left: 0.4em solid $primaryColor !important;
+  font-weight: 500 !important;
+}
+
+.mat-tab-label .mat-tab-label-content {
+  display: $mat-tab-label-content-display;
+  justify-content: $mat-tab-label-content-justifyContent;
+  align-items: $mat-tab-label-content-alignitems;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.mat-tab-label, .mat-tab-link {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.p-col-12.padding_bottom_zero {
+  padding-bottom: 0em;
+}
+// global css for from ------------------------------>>>>>>>>>>>>>
+
+// Group Headers in Accordion
+.panelHeadStyle {
+  font-family: "Roboto";
+  font-weight: 500;
+  color: $primaryColor;
+  line-height: 2.125em;
+  padding: 0;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  // margin-bottom: 0.6em;
+}
+
+.tableHeaderStyles {
+  font-family: Roboto;
+  font-weight: 500;
+  color: $primaryColor;
+  line-height: 2.125em;
+  padding-bottom: 0.5em;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+.blockLevel {
+  display: inline-block !important;
+}
+
+.subHeaderPad {
+  padding-bottom: 0.5em;
+}
+
+.valueStyle.preValueStyle.ng-star-inserted {
+  top: 1em;
+  margin-left: -0.2em;
+  margin-top: 0em;
+}
+.preValueStyle {
+  white-space: pre-wrap;
+  border-width: 0 !important;
+  padding: 0.1em !important;
+  background-color: transparent !important;
+  border: none !important;
+  line-height: 1.6 !important;
+  word-break: break-word !important;
+}
+
+.rightSideForm {
+  margin-left: 0em !important;
+  position: relative;
+}
+
+.sysID {
+  margin-top: 0.7em;
+  margin-right: 0.7em;
+  float: right;
+  font-size: 0.75em;
+  color: $GRAY-35;
+}
+
+.sysIDarabic {
+  margin-top: 0.7em;
+  margin-right: 0.7em;
+  float: left;
+  font-size: 0.75em;
+  color: $GRAY-35;
+}
+
+.phraseIcon {
+  top: -1em !important;
+  right: 0em !important;
+  border: 0.1em solid $GREY-01;
+  color: $GREY-01;
+  background-color: white;
+  font-size: 1.3em;
+  left: auto !important;
+  border-radius: 0.2em;
+}
+
+.phraseIcon:hover {
+  color: $VIOLET-F100-dark;
+  border: 0.1em solid $VIOLET-F100-dark;
+}
+
+.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle {
+  flex: 1 !important;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .ui-table table {
+    table-layout: auto !important;
+  }
+}
+
+.fcc-ui-inputtextarea {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.licenseUploadError {
+  font-size: 1em !important;
+  font-weight: normal !important;
+  color: $RED-01 !important;
+  margin: 0em !important;
+  padding-top: 0.1em !important;
+}
+
+.coverLetterTable a:focus {
+  outline-color: $VIOLET-F100 !important;
+  outline-width: 0.25em !important;
+}
+
+.coverLetterTable em {
+  color: $GREY-08 !important;
+}
+
+.coverLetterTable {
+  padding-left: 0.5em !important;
+}
+
+[dir="rtl"].coverLetterTable {
+  padding-left: 0.5em !important;
+  text-align: left;
+}
+
+.descgoods {
+  width: 37.4rem;
+  resize: none;
+}
+
+.Channel {
+  // width: 11em;
+}
+
+.pi-download:before {
+  color: $GRAY-35;
+}
+
+.pi-trash:before {
+  color: $GRAY-35;
+}
+
+.pi-pencil:before {
+  color: $GRAY-35;
+}
+.helpIcon {
+  position: relative;
+  height: 0.95em;
+  width: 1.2em;
+}
+
+.fccHelp {
+  overflow-y: scroll;
+  height: 34.375em;
+  width: 54.6875em;
+}
+
+.helpbutton {
+  width: 20em;
+  margin-left: 17em !important;
+  margin-right: 17em !important;
+  content: "" !important;
+}
+
+.helpTitle {
+  border: 0.0625em;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+  font-weight: 1000;
+  text-transform: capitalize;
+  float: none !important;
+  color: #6948d9 !important;
+  opacity: 1 !important;
+  font-size: 1.2em !important;
+}
+.helpContent {
+  margin-top: 0em !important;
+  color: black;
+  text-align: justify;
+  word-break: break-word;
+  padding-right: 0.4em;
+  font-weight: normal;
+  font-size: 1em;
+}
+
+tr > td .ellipisis .threeDotsMenu .ui-menu a.ui-menuitem-link:focus,
+.ui-paginator .ui-paginator-pages .ui-paginator-page:focus,
+.ui-paginator .ui-paginator-first:not(.ui-state-disabled):focus,
+.ui-paginator .ui-paginator-prev:not(.ui-state-disabled):focus,
+.ui-paginator .ui-paginator-next:not(.ui-state-disabled):focus,
+.ui-paginator .ui-paginator-last:not(.ui-state-disabled):focus {
+  outline: 0 none !important;
+  outline-offset: 0 !important;
+  box-shadow: inset 0 0 0 0.1rem #694ed6 !important;
+}
+
+.horMenuCssClass {
+  width: 99.5%
+}
+
+fcc-trade-narrative-details .readmode > div, fcc-trade-bank-details .readmode > div {
+  width: 100% !important;
+}
+
+.ui-dialog .ui-dialog-titlebar a.ui-dialog-titlebar-icon.ui-dialog-titlebar-close:focus,
+.parentIconStyle .iconStyle span.material-icons:focus {
+  outline: 0.125em solid $primaryColor !important;
+}
+
+.smallWidth {
+  width: 25% !important;
+}
+
+.mediumWidth {
+  width: 50% !important;
+}
+
+.browseButton {
+  color: $secondaryColor;
+  border-radius: 1.125em !important;
+  padding: 0 1em !important;
+  min-width: 4em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border: 0.0625em solid #c137a2 !important;
+  border-color: #c137a2 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: #fff !important;
+  margin-left: 0.5em !important;
+}
+
+.browseButton:focus {
+  border: 3px solid $BLACK !important;
+  background-color: $secondaryButtonHoverBackgroundcolor !important;
+}
+
+.dropdownClass-ltr {
+  text-align: left;
+}
+.dropdownClass-rtl {
+  text-align: right;
+}
+
+[dir="rtl"] .mat-form-field-label {
+  text-align: right !important;
+}
+
+.ui-float-label.margin-side[dir="rtl"] {
+  margin-right: 0em;
+}
+
+[dir="rtl"] .phraseIcon {
+  top: -1em !important;
+  left: 0em !important;
+  border: 0.1em solid black;
+  background-color: white;
+  font-size: 1.3em;
+  right: auto !important;
+}
+
+[dir="rtl"] .label-header {
+  font-size: 1em;
+  color: #694ed6;
+  font-weight: 500;
+  line-height: 1.25em;
+  padding-top: 0em !important;
+  padding-left: 0em !important;
+  text-align: right;
+}
+
+[dir="rtl"] .textarea.characterCountDivfield .characterCountValueField {
+  text-align: left;
+  padding-left: 0.429em !important;
+}
+
+.change.ui-dialog {
+  z-index: 1000 !important;
+}
+
+.bgTransmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  border-radius: 2px;
+  width: 200px;
+  border: none;
+  box-shadow: 0 0 2px 0 #a0a0a0;
+  background-color: white;
+}
+
+.bgTransmission .mat-button-toggle-label-content > *,
+.transmission-2 .mat-button-toggle-label-content > * {
+  padding-top: 0.6em;
+  font-size: 28px;
+  right: 2.5em;
+}
+
+.bgTransmission .material-icons,
+.transmission-2 .material-icons {
+  color: transparent;
+}
+
+.bgTransmission .mat-button-toggle.mat-button-toggle-checked .material-icons,
+.transmission-2 .mat-button-toggle.mat-button-toggle-checked .material-icons {
+  color: #56c271;
+}
+
+.taskTabButton {
+  margin-left: 0.5em !important;
+}
+.createTaskButton {
+  border-radius: 1.125em !important;
+  padding: 0 1.5em !important;
+  min-width: 4em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $WHITE !important;
+  color: #694ed6 !important;
+  border: 0.0625em solid #d9d9d9 !important;
+  margin-left: 1em !important;
+  position: relative;
+  top: -2.625em;
+  border: 0.0625em solid #6948d9 !important;
+}
+.createTaskButton:focus {
+  border: 3px solid $BLACK !important;
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .createTaskButton {
+    min-width: fit-content !important;
+  }
+  .createTaskButton.ui-button.ui-button-text-only .ui-button-text {
+    padding: 0.429em 1em !important;
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .createTaskButton {
+    min-width: fit-content !important;
+    padding: 0 0.5em !important;
+  }
+  .createTaskButton.ui-button.ui-button-text-only .ui-button-text {
+    padding: 0.429em 0em !important;
+  }
+}
+.createTaskButton:before {
+  content: '\002B';
+  float: left;
+}
+.createTaskButton:hover {
+  background-color: #f5f3fe !important;
+}
+.createTaskButton:active {
+  background-color: #f1eeff !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .createTaskButton.ui-button.ui-button-text-only .ui-button-text {
+  color: #694ed6 !important;
+}
+.mat-drawer.mat-drawer-end {
+  width: 23em;
+  top: 1.9em;
+  height: -webkit-fill-available;
+}
+
+a.mat-button .mat-icon, a.mat-raised-button .mat-icon,
+a.mat-stroked-button .mat-icon, a.mat-flat-button .mat-icon,
+button.mat-button .mat-icon, button.mat-raised-button .mat-icon,
+button.mat-stroked-button .mat-icon, button.mat-flat-button .mat-icon {
+  right: -12em;
+}
+
+.labelValueNav {
+  color: $BLACK_03 !important;
+  margin-left: 0.28em !important;
+  margin-top: -1em !important;
+  font-family: 'Roboto-Medium' !important;
+  font-size: 1em !important;
+}
+
+.labelHeaderNav {
+  color: $BLACK_03 !important;
+  margin-left: 0.28em !important;
+  margin-bottom: -2em !important;
+  font-family: 'Roboto-Regular' !important;
+  font-size: 0.875em !important;
+  margin-top: -0.5em !important
+}
+
+.set-entity-header {
+  margin-left: 1em;
+  color: $GREY-05 !important;
+  font-family: 'Roboto-Medium' !important;
+  font-size: 1.2em !important;
+  font-weight: 300;
+}
+
+.set-entity-header[dir="rtl"] {
+  margin-right: 0.75em;
+  color: $GREY-05 !important;
+  font-family: 'Roboto-Medium' !important;
+  font-size: 1.2em !important;
+  font-weight: 300;
+}
+
+.set-entity-sub-header {
+  margin-left: 1.25em;
+  color: $CHARCOAL-F100 !important;
+  font-family: 'Roboto-Regular' !important;
+  font-size: 0.9375em !important;
+  font-weight: 300;
+  display: inline-block;
+}
+
+.set-entity-sub-header[dir="rtl"] {
+  margin-right: 1em;
+  color: $CHARCOAL-F100 !important;
+  font-family: 'Roboto-Regular' !important;
+  font-size: 0.9375em !important;
+  font-weight: 300;
+  display: inline-block;
+}
+
+.fieldClass {
+  padding-top: 0.75em !important;
+  padding-bottom: 0.75em !important;
+}
+
+.taskLayoutClass {
+  background-color: $WHITE !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding: 1em !important;
+  top: 3em;
+  font-size: 1em !important;
+}
+@media only screen and (max-width: 68.75em) {
+  .taskLayoutClass.ui-dialog {
+    height: 63vh !important;
+    width: 63vw !important;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  .taskLayoutClass.ui-dialog {
+    height: 48vh !important;
+    width: 63vw !important;
+  }
+}
+.taskLayoutClass.ui-dialog .ui-dialog-content::-webkit-scrollbar {
+  width: 0.3125em;
+  height: 0.0625em;
+}
+.taskLayoutClass.ui-dialog .ui-dialog-content::-webkit-scrollbar-thumb {
+  background: #a3a1a1 !important;
+  border-radius: 0.3125em;
+}
+
+.taskLayoutClass.ui-dialog .ui-dialog-content::-webkit-scrollbar-thumb:hover {
+  background: #009eb3;
+}
+.taskLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $WHITE !important;
+  color: #4a4a4a !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding-top: 1.35em;
+  padding-left: 1.75em;
+  max-height: 48em;
+}
+.taskLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 1.5em !important;
+}
+:host ::ng-deep .taskLayoutClass .ui-dialog .ui-dialog-content {
+  border: none !important;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: transparent !important;
+}
+
+.confirmDialogClass .ui-button.ui-button-icon-only {
+  visibility: hidden;
+}
+.confirmDialogClass .pi-times:before {
+  color: $WHITE;
+}
+.confirmDialogClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: $VIOLET-PRIMARY-COLOR !important;
+  color: $WHITE !important;
+  border: none !important;
+}
+/* Add spacing between the form acoordion panels.*/
+.mat-accordion .mat-expansion-panel:not(.mat-expanded),
+.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+  margin-bottom: 15px;
+}
+
+/* Add background color to the form accordion header */
+.mat-accordion .mat-expansion-panel-header {
+  height: 40px !important;
+  background: #f7f5fc 0% 0% no-repeat padding-box !important;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.accordionIcons {
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 0 !important;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  line-height: 1.125em;
+  margin-top: 0 !important;
+}
+.task-padding {
+  padding: 0rem !important;
+}
+.task-paddingCheckbox {
+  padding: 0rem 0rem 0rem 0.5rem !important;
+  color: #000000;
+  position: relative;
+  top: -0.125em;
+}
+:host ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+:host ::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color:#414141 !important;
+}
+
+
+.taskLayoutClass.ui-dialog {
+  max-height: 38em !important;
+}
+.taskLayoutClass.ui-dialog .ui-dialog-content {
+  border: none !important;
+  margin-bottom: 1.35em;
+}
+.taskLayoutClass.ui-dialog .ui-dialog-titlebar-icons {
+  float: right;
+  position: relative;
+  top: -1.25em;
+  right: -0.6875em;
+}
+.taskDescription textarea.mat-input-element {
+  resize: none;
+  font-weight: 500;
+  font-family: Roboto !important;
+}
+
+.dirTaskDescription textarea.mat-input-element {
+  resize: none;
+  font-weight: 500;
+  font-family: Roboto !important;
+  text-align: right;
+}
+
+.dirTaskDescription {
+  position: relative;
+  line-height: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.dirTaskDescription .mat-form-field-label-wrapper .mat-form-field-label {
+  text-align: right;
+}
+
+// for changes start here
+
+.mat-form-field-appearance-fill .mat-form-field-flex, .applicant_bene_entity_class{
+  background: $formFieldbackground;
+}
+
+.taskDescription {
+  position: relative;
+  line-height: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.consent-resposne-radio.fcc-radio-button.ng-star-inserted.p-grid {
+  margin-bottom: -2rem;
+}
+
+.viewTaskLayoutClass .ui-dialog-titlebar.ui-widget-header {
+  background-color: #ffffff !important;
+  border: none !important;
+  padding-left: 1.5em;
+  padding-top: 1.5em;
+}
+
+.viewTaskLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+  font-size: 1.5em;
+}
+
+.viewTaskLayoutClass .ui-dialog-content {
+  border: none !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: $formFieldfocusedBorderBottom;
+}
+.taskLayout {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  z-index: 999;
+}
+.createButton-Parent {
+  position: absolute;
+  bottom: 0em;
+}
+.createRight {
+  right: 0em;
+}
+.createLeft {
+  left: 0em;
+}
+
+.filterButtonPosition {
+  float: right;
+}
+
+.imageIcon {
+  margin-top: -4em;
+  margin-left: 35em;
+}
+.saveBeneStyle{
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+}
+
+[dir="rtl"] .filterButtonPosition {
+  float: left;
+}
+
+.cancelRight {
+  right: 1em;
+}
+@media only screen and (max-width: 1250px) {
+  .cancelRight {
+    padding-right: 30px;
+  }
+}
+.cancelLeft {
+  left: 0em;
+}
+@media only screen and (max-width: 1030px) {
+  .cancelLeft {
+    padding-left: 30px;
+  }
+}
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: $formFieldfocusedBorderBottom;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar, .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $activeToggle;
+}
+
+.mat-checkbox-checked .mat-checkbox-checkmark {
+  background: $formCheckboxColor;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar, .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $activeToggle;
+}
+
+.mat-checkbox-checked .mat-checkbox-checkmark {
+  background: $formCheckboxColor;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+  background-color: $form-radioButton-active;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $form-radioButton-active;
+}
+
+.mat-form-field-appearance-fill:not(.mat-form-field-disabled) .mat-form-field-flex:hover~.mat-form-field-underline .mat-form-field-ripple {
+  background-color: $formFieldfocusedBorderBottom;
+}
+.mat-calendar-body-selected {
+  background-color: $calenderActiveTabColor;
+}
+.mat-datepicker-toggle-active .mat-datepicker-toggle-default-icon {
+  color: $calenderActiveTabColor;
+}
+.mat-form-field.mat-focused .mat-form-field-ripple
+{
+  background-color: $formFieldfocusedBorderBottom;
+}
+//form changes ends here
+
+// Dropdown scrollbar styles
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar,
+.mat-select-panel.dropdown-panel::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar-track,
+.mat-select-panel.dropdown-panel::-webkit-scrollbar-track {
+  background: #fff; // Chrome, Safari and Opera
+}
+
+/* Handle */
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar-thumb,
+.mat-select-panel.dropdown-panel::-webkit-scrollbar-thumb {
+  background: #fff; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ui-dropdown-panel .ui-dropdown-items-wrapper:hover::-webkit-scrollbar-track,
+.mat-select-panel.dropdown-panel:hover::-webkit-scrollbar-track {
+  background: #f1f1f1; // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+.ui-dropdown-panel .ui-dropdown-items-wrapper:hover::-webkit-scrollbar-thumb,
+.mat-select-panel.dropdown-panel:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+.mat-select-panel {
+  margin-top: 2em !important;
+}
+
+.cdk-overlay-coloured-backdrop {
+  background-color: black;
+  opacity: 0.6 !important;
+}
+
+.cdk-global-scrollblock {
+  top: 0px !important;
+}
+
+// Dropdown scrollbar styles
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar,
+.mat-select-panel::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar-track,
+.mat-select-panel::-webkit-scrollbar-track {
+  background: $WHITE; // Chrome, Safari and Opera
+}
+
+/* Handle */
+.ui-dropdown-panel .ui-dropdown-items-wrapper::-webkit-scrollbar-thumb,
+.mat-select-panel::-webkit-scrollbar-thumb {
+  background: $WHITE; // Chrome, Safari and Opera
+}
+
+/* Track */
+.ui-dropdown-panel .ui-dropdown-items-wrapper:hover::-webkit-scrollbar-track,
+.mat-select-panel:hover::-webkit-scrollbar-track {
+  background: $WHITE-05 // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+.ui-dropdown-panel .ui-dropdown-items-wrapper:hover::-webkit-scrollbar-thumb,
+.mat-select-panel:hover::-webkit-scrollbar-thumb {
+  background: $GREY-22; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+.templateSelectionStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 1em;
+  margin-top: 0.4em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+
+.templateSelectionValueStyle
+  .mat-form-field-appearance-fill
+  .mat-form-field-flex,
+.fetchedRefValueStyle
+  .mat-form-field-appearance-fill
+  .mat-form-field-flex {
+  background-color: transparent;
+}
+
+.templateSelectionValueStyle
+  .mat-form-field-wrapper
+  .mat-form-field-underline,
+.fetchedRefValueStyle
+  .mat-form-field-wrapper
+  .mat-form-field-underline {
+  width: 0;
+}
+
+.mat-content {
+  display: flex !important;
+  flex: 1 !important;
+  flex-direction: row !important;
+  overflow: inherit !important;
+}
+
+#fetchedTemplate {
+  max-width: 13em;
+  border: none;
+  font-size: 0.65em !important;
+  pointer-events: none;
+  position: relative;
+  right: 1em;
+  left: 1em;  
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+  display: inline;
+}
+.removeLabelTemplateStyle {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.4em 0 0 -17em;
+  max-width: 5em;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  right: 0.5em;
+  left: 18em;
+}
+.arabicTemplateSelection {
+  right: 1em;
+  position: relative;
+  color: #6f6f6f !important;
+  margin-top: 0;
+  z-index: 0;
+}
+.arabicFetchedTemplate {
+  left: 12em;
+  z-index: 1;
+  pointer-events: none;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $primaryColor;
+}
+.arabicRemoveLabelTemplate {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0;
+  left: 11em;
+  position: relative;
+  z-index: 2;
+}
+
+body .ui-table .ui-table-thead > tr > th {
+  background-color: #f7f5fc !important;
+}
+
+body .ui-table .ui-table-tbody > tr > td {
+  word-break: break-word !important;
+}
+
+#uiIncDecDialog.mat-dialog-container {
+  overflow-y: auto !important;
+  padding: 1em !important;
+}
+
+#uiCuIncDecDialog.mat-dialog-container {
+  overflow-y: auto !important;
+  padding: 1em !important;
+}
+
+#uiCreateLoanDialog.mat-dialog-container {
+  overflow-y: auto !important;
+  padding: 1em 3em 1em 1em !important;
+}
+
+
+/* Common Dialog header and title css for Dialog */
+.fcc-dialog-header , .fcc-dialog-header h3 {
+  color: $GREY-05;
+  font-size: 1.05em;
+  line-height: 24px;
+  margin-top: 0.25em;
+  font-family: $standardFontFamily;
+}
+
+.formAccordionPanel .mat-accordion .mat-expansion-panel {
+  background: transparent;
+  box-shadow: none;
+}
+
+.formAccordionPanel .mat-expansion-panel-body {
+  background-color: transparent;
+  padding: 0 0 16px;
+}
+
+.formAccordionPanel .mat-accordion .mat-expansion-panel-header {
+  background: #edeafa 0% 0% no-repeat padding-box !important;
+  margin-bottom: 25px;
+  padding: 0 11px;
+}
+
+.contractCurCodeLayout {
+  margin-top: 0em !important;
+  padding-top: 0.2em !important;
+}
+
+.contractCurCodeLayout .no-margin-multiselect,
+.bgGovernCountryLayout .no-margin-multiselect,
+.cuGovernCountryLayout .no-margin-multiselect {
+  margin-top: 0em !important;
+}
+
+.contractAmtLayout, .bgGovernTextLayout, .cuGovernTextLayout {
+  padding-top: 0em !important;
+}
+
+.bgGovernTextLayout .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix,
+.cuGovernTextLayout .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix {
+  padding-bottom: 0.25em;
+}
+
+/* File upload section css start */
+.fileMaxLimits {
+  font-size: 0.75em !important;
+  margin-top: 0em !important;
+  color: $BLACK !important;
+  font-weight: 400 !important;
+  padding-top: 1em !important;
+}
+
+.DragDropArea {
+  width: 22em !important;
+  font-size: 0.875em !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+}
+
+.DragDropArea .ui-fileupload-content {
+  min-height: 10em;
+  border: 0.15625em dashed $GREY-07 !important;
+  border-radius: 1em;
+  display: block;
+  word-break: break-word;
+}
+
+.DragDropArea .ui-fileupload .ui-fileupload-buttonbar {
+  display: none;
+}
+
+.DragDropArea .ui-fileupload-content .ui-progressbar {
+  display: none;
+}
+
+.DragDropArea .ui-fileupload-content .pi.pi-cloud-upload {
+  color: $secondaryColor;
+  font-size: 5em;
+}
+
+.fileUploadError {
+  text-align: center !important;
+  font-size: 1em !important;
+  font-weight: normal !important;
+  color: $RED-01 !important;
+  margin: 0em !important;
+  padding-top: 0.1em !important;
+}
+
+.fileUploadTable a:focus {
+  outline-color: #694ed6 !important;
+  outline-width: 0.2em !important;
+}
+
+.fileUploadClass.ui-dialog .ui-dialog-titlebar a.ui-dialog-titlebar-icon.ui-dialog-titlebar-close:focus {
+  outline: 0 none !important;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2em #c137a2;
+}
+
+#file-upload-icons-font {
+  font-size: 1.46939em;
+}
+/* File upload section css end */
+
+.fcc-radio-button .ui-fluid {
+  width:100%
+}
+
+.creditAvailableUndertaking {
+  margin-top: 3em;
+}
+
+.viewTaskLayoutClass{
+  max-height: 65%;
+}
+
+.autoCompleteIcon {
+  font-family: 'Material Icons' !important;
+    position: relative !important;
+    cursor: pointer;
+    color: grey;
+}
+.mat-form-field-flex{
+display: inline-flex !important;
+align-items: baseline !important;
+box-sizing: border-box !important;
+width: 100%;
+border: $mat-form-field-flex-border !important;
+
+}
+.taskType{
+  float: right;
+  font-size: 0.8em;
+  color: $CHARCOAL-A30;
+}
+
+.taskRefId{
+  font-size: 0.9125em;
+  color: $CHARCOAL-A30;
+}
+.taskName {
+  color: $primaryColor;
+  font-weight: 500;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  word-break: break-word !important;
+  cursor: pointer;
+}
+.taskPadding{
+  padding-right: 0.25em;
+}
+
+.checkboxMargin {
+  margin-bottom: -1.5em;
+}
+
+@media only screen and (max-width: 64em) {
+  .taskRefId {
+    margin-left: 0.2em;
+  }
+}
+@media only screen and (max-width: 64em) {
+  .taskName {
+    margin-top: 1.8em !important;
+  }
+}
+[dir="rtl"] .taskType {
+  float: left !important;
+}
+
+.remittanceInstLayout .ui-accordion-header-text {
+  font-size: $font-size-1_0 !important;
+  font-weight: 500 !important;
+}
+
+[dir="rtl"] .taskRefId {
+  float: right !important;
+}
+[dir="rtl"] .taskName {
+  margin-top: 2.5em !important;
+  margin-right: 0.5em;
+}
+
+.mat-step-label {
+  white-space: normal !important;
+}
+
+// Facility-fee-screen-style--
+.facility-fee-listing-main .radioButtonStyle p-tableradiobutton.radioButton {
+	margin-left: 20px;
+}
+
+.facility-fee-tab .ui-tabview-panel {
+  display: inline-block;
+}
+
+.hintForExpiryDate {
+    color: $primaryColor;
+    font-size: 0.9em;
+    text-align: left;
+    position: absolute;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-top: -0.8em;
+  }
+
+  .w-full{
+    width: 100%;
+}
+.ui-overlaypanel {
+  z-index: 9999 !important;
+}
+
+  // interestPayments ---- CSS------------------
+  .interestPaymentLayout .ui-table .ui-table-thead > tr > th {
+    padding: 1.00em 0.857em;
+    border: 0px solid #c8c8c8 !important;
+    border-bottom: 1px solid #c8c8c8 !important;
+    font-weight: bold;
+    background-color: transparent;
+    color: #414141;
+    text-align: left;
+    font-size: 1em;
+}
+
+
+.interestPaymentLayout .ui-table .ui-table-tbody > tr > td {
+    background-color: #fff;
+    border: none !important;
+    line-height: 1em;
+    word-break: break-word;
+    text-align: left;
+    font-size: 0.875em;
+    padding-right: 2em;
+    height: 3em;
+}
+
+.interestPaymentLayout table {
+  border: 1px solid #c8c8c8 !important;
+}
+.hintForAttachments {
+    color: $primaryColor;
+    font-size: 0.1em;
+    text-align: left;
+    letter-spacing: 0.01em;
+    padding-left:0em !important;
+  }
+.docCurMar{
+    margin-top: 0.75em;
+  }
+.amtHeaderMargin{
+    margin-bottom: -1em;
+  }
+.appl-detail-header .mat-slide-toggle.mat-checked .mat-slide-toggle-bar,
+.appl-detail-header .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $primaryColor;
+}
+
+.FCC .interestPaymentCBLayout .mat-checkbox-checked .mat-checkbox-checkmark {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: $WHITE !important;
+  visibility: visible;
+}
+
+.FCC #interestPayments .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: $primaryColor !important;
+  background-color: $primaryColor !important;
+  color: $WHITE !important;
+}
+.cdk-overlay-container, .cdk-overlay-pane {
+  z-index: 99999 !important;
+}
+.cdk-overlay-container-threedots-popup{
+  z-index: 999 !important;
+}
+
+.floating-panel-z-index{
+  z-index: 999 !important;
+}
+.readmode .billIdLayoutClass,
+.readmode .billContentHeaderLayoutClass,
+.readmode .billContentStyleClass {
+  padding: 1.3em !important;
+  padding-bottom: 0 !important;
+}
+
+.readmode .billContentStyleClass {
+  font-weight: normal !important;
+}
+.readmode .billContentStyleClass {
+  padding: 1.3em !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.readmode .billContentHeaderLayoutClass {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.readmode .billContentLayoutClass pre {
+  font-family: monospace !important;
+  word-break: break-all;
+}
+
+.creditAvailableWith {
+  margin-bottom: 1.2em !important;
+  margin-top: 1.2em !important;
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+}
+
+.filterButton[style*="direction: rtl"].ui-dialog .ui-dialog-titlebar-icons {
+  float: left !important;
+  margin-left: -0.5em;
+}
+
+.p-col-2.padding_zero, .p-lg-2.padding_zero  {
+  flex: 0 0 auto;
+  padding: 0em 0.2em 0.2em 0.5em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  :host ::ng-deep .sameAccountCheckbox {
+    width: 100% !important;
+    margin-left: 3.8em !important;
+ }
+}
+
+[dir="rtl"] .ui-multiselect-trigger-icon{
+  top: 33% !important;
+  left: 66% !important;
+  font-size: 14px;
+  color: #696969;
+}
+
+[dir="rtl"] .ui-multiselect-trigger.ui-state-default {
+  right: auto;
+  left: 0em;
+}
+.entity-sub-header {
+  margin-left: 1.25em;
+  color: $CHARCOAL-F100 !important;
+  font-family: 'Roboto-Regular' !important;
+  font-size: 0.9375em !important;
+  font-weight: 400;
+}
+
+// product-component - 100%
+fcc-product-component.transactionTab {
+  width: 100%;
+}
+.failedMessage{
+  color: red !important;
+  text-align: center;
+}
+.successMessage{
+  text-align: center;
+}
+.viewBtn{
+  margin-top: 0em !important;
+}
+
+.viewBtnSummary{
+  margin-top: 0em !important;
+  margin-left: 20em !important;
+}
+#validateMT700Button{
+  margin-left: 0.6em;
+}
+.highlight {
+  background-color: $LightRed !important;
+}
+.color-highlight {
+  color: $DarkRed !important;
+  font-weight: bold !important;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+
+[id='Maturity date'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -3em !important;
+   margin-bottom: 3em !important;
+}
+
+[id='Additional Details'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -3em !important;
+   margin-bottom: 3em !important;
+}
+
+[id="Requested Percentage(%)"] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  position: relative;
+  top: -2px;
+}
+
+[id='Pourcentage demandé (%)'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  position: relative;
+  top: -2px;
+}
+
+[id='النسبة المطلوبة (٪)'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  position: relative;
+  top: -2px;
+}
+
+[id='Amount'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -1em !important;
+  margin-bottom: 1.5em !important;
+}
+
+body .ui-multiselect-panel {
+  z-index: 99999 !important;
+  .ui-multiselect-items-wrapper::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+    overflow-y: auto;
+  }
+  .ui-multiselect-items-wrapper::-webkit-scrollbar-thumb {
+    background: $GREY-22;
+    border-radius: 0.625em;
+  }
+}
+.width-auto {
+  width: auto !important;
+}
+span.highlight {
+  color: $BLACK !important;
+  text-decoration: none !important;
+}
+
+.hidden {
+  display: none;
+}
+.focusClass .cdk-keyboard-focused .mat-ripple{
+  background-color: $FUCHSIA-F100 !important;
+   border-radius: 50%;
+   opacity:.12;
+}
+.mat-checkbox:hover .mat-ripple {
+   background-color: $FUCHSIA-F100!important;
+   border-radius: 50%;
+   opacity:.12;
+}
+.mat-slide-toggle:hover .mat-ripple {
+  background-color: $FUCHSIA-F100!important;
+  border-radius: 50%;
+  opacity:.12;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+  .taskDescription {
+    width: 98% !important;
+  }
+  .transmission .uxg-filtering-toggle-group .mat-button-toggle + .mat-button-toggle {
+    margin-left: 2em !important;
+  }
+  .transmission .mat-button-toggle-label-content > * {
+    padding-top: 0.9em !important;
+    font-size: 1.3em !important;
+  }
+body .ui-multiselect-panel {
+z-index: 99999 !important;
+}
+.helpContent {
+  padding-right: 2.4em !important;
+}
+.removeLabelTemplateStyle {
+  position: relative !important;
+  margin: -8em 0px 0px 22em !important;
+ }
+}
+
+:host ::ng-deep .ui-rtl .ui-accordion .ui-accordion-header a {
+  padding: 0.5em 3em 0.5em 0.5em;
+}
+
+fcc-summary-details .mat-card-content .p-grid.p-col-12 {
+  padding: 0.9em !important;
+}
+.height_zero {
+  height: 0em !important;
+}
+.chipMargin {
+  margin-top: -2em !important;
+}
+
+.date-range-tooltip{
+  background-color: $WHITE !important;
+  color: $GRAY-HEX-20 !important ;
+  min-width: 22em !important;
+
+  .ui-tooltip-text {
+    background-color: $WHITE !important;
+    .tooltip-container {
+      padding: 0em 1em 1em 1em;
+      font-size: $font-size-10;
+      line-height: 1em;
+      color: $GRAY-HEX-20;
+
+      .tooltip-header {
+          font-weight: bold;
+          color: $VIOLET-F100-dark;
+      }
+    }
+  }
+}
+
+.ui-overflow-hidden {
+  overflow-y: hidden !important;
+}
+[id='Maturity date'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -3em !important;
+   margin-bottom: 3em !important;
+}
+[id='Additional Details'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -3em !important;
+   margin-bottom: 3em !important;
+}
+
+[id='Amount'] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -1em !important;
+  margin-bottom: 1.5em !important;
+
+}
+
+.eventFilterPopup.ui-dialog .ui-dialog-content {
+  height: 41em !important;
+  width: 30.5em !important;
+}
+
+.margin-top-0-5{
+  margin-top: -0.5em !important;
+
+}
+.toast-full-width > div{
+  width: 98% !important;
+  white-space: pre-line !important;
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and  (max-width: 1180px) and  (min-width: 820px) {
+  //ipad dashboard
+  #subDashboardLayout .dashboard-background .p-col-3 {
+    width: 30%;
+  }
+
+  #subDashboardLayout .dashboard-background .p-col-9 {
+    width: 70% !important;
+  }
+
+  fcc-common-tab-menu .ui-card .ui-card-body .ui-card-content .pointerDisable {
+    overflow: scroll;
+    display: -webkit-flex;
+  }
+
+  #iPad-specific-auth-limit .amtDetailsLtr {
+    padding: 0.5em 0em;
+    width: 106%;
+    position: relative;
+    right: 5px;
+  }
+
+  #toggleCurrency1 img {
+    width: 17px;
+  }
+
+  fcc-common-currency-converter .pointerDisable .p-grid:first-child {
+    width: 90%;
+  }
+
+  fcc-common-currency-converter .pointerDisable .p-grid:last-child {
+    width: 100%;
+    position: relative;
+    right: 8px;
+  }
+
+  #iPad-specific-auth-limit .totalAmt{
+    font-size: 19px !important;
+  }
+
+  //form related style changes
+
+  fcc-product-component .productCompGrid[pbutton] {
+    font-size: 14px !important;
+  }
+  fcc-product-component .p-col-3.sectionHeader span {
+    bottom: 10px;
+    position: relative;
+  }
+  fcc-product-component .progressBarItem {
+    width: 16em;
+  }
+  .p-grid {
+    font-size: 13px;
+  }
+  .ui-paginator-right-content {
+    font-size: 9px;
+  }
+  .custom-paginator-container[_ngcontent-iln-c357]
+    .row-per-table[_ngcontent-iln-c357] {
+    margin-right: 0em !important;
+  }
+  #Sight {
+    width: 5em !important;
+  }
+  body .ui-button {
+    font-size: 12px;
+  }
+  .skip-link {
+    display: none;
+  }
+  .mat-stepper-vertical {
+    width: 117%;
+  }
+  .mat-stepper-vertical .mat-step {
+    height: 85px;
+  }
+  .mat-stepper-vertical .mat-step-header.cdk-keyboard-focused,
+  .mat-step-header.cdk-program-focused,
+  .mat-step-header:hover:not([aria-disabled]),
+  .mat-step-header:hover[aria-disabled="false"] {
+    height: 5px;
+  }
+  .app-highlight-texteditor .indented-text-area-field-65 {
+    width: 18.6rem;
+  }
+
+  .ui-table-scrollable-body{
+    overflow: scroll;
+  }
+  .stickyDiv #previous,.stickyDiv #next{
+    font-size: 14px !important;
+  }
+
+  .indented-text-area-field-65{
+     width: inherit;
+  }
+  fcc-common-narrative-character-count .textarea.characterCountDivfield .characterCountValueField{
+    width: 98% !important;
+  }
+  .custom-paginator-container .row-per-table .pagination-rows {
+    width:4em;
+  }
+
+  fcc-trade-narrative-details .readmode > div, fcc-trade-bank-details .readmode > div {
+    width: 96% !important;
+  }
+
+  fcc-list-box:first-child {
+      width: 130%;
+  }
+
+  body .ui-widget {
+    padding-top: 4%;
+  }
+
+  .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content, 
+  .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle-label-content{
+    position: relative !important;
+    display: block;
+  }
+
+  .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard 
+  .mat-button-toggle .mat-button-icon{
+    padding-right: 10%;
+  }
+
+
+  .successTick{
+    padding-top: 6% !important;
+  }
+
+  .advanceSearchContainer .mat-form-field {
+    width: 61%;
+    left: 16%;
+  }
+}

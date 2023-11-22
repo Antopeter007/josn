@@ -1,0 +1,47 @@
+@import '../responsiveStyle//breakpoints.scss';
+
+.entirePage , .verMenuCssClass , .dashboradWrapper, fcc-common-transactions-listdef  {
+  @include mobile {
+    width:$small-tablet-size-up !important;
+    overflow-x: scroll;
+  }
+}
+
+ .dashboradWrapper {
+  @include mobile {
+    width: $desktop-size-up !important;
+    overflow-x: scroll;
+  }
+}
+
+
+.ng-header a
+{
+  @include mobile {
+    float: left !important;
+
+  }
+}
+
+
+ fcc-common-transactions-listdef  {
+  @include mobile {
+    width: $desktop-size-down !important;
+    overflow-x: scroll;
+  }
+}
+
+
+@media screen and (max-width: 500px){
+  .ng-header a {
+    float: left
+}
+}
+
+
+
+.horMenuCssClass{
+  @include mobile {
+    margin-top: 9em !important;
+  }
+}

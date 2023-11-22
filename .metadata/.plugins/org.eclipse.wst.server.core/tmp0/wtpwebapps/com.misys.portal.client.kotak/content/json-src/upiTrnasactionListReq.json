@@ -1,0 +1,22 @@
+{
+ "head": {
+ "requestId": "loyytf1a31d711ea8cba005056bslfedc2d",
+ "ts": "2020-07-25 10:55:23",
+ "crn": "SETU004"
+ },
+ "txnListReq": {
+"fromDate": "2020-07-24 00:00:00",
+"toDate": "",
+ "payeeVPA": "KKBK00000DELSS",
+ "payerVPA": "godwinA123@upi",
+"orderId": "",
+"status": "",
+"txnType": ""
+ },
+ "pagination": {
+ "count": "10",
+"pageNo": "1",
+"sortColumn": "",
+"sortOrder": ""
+ }
+}

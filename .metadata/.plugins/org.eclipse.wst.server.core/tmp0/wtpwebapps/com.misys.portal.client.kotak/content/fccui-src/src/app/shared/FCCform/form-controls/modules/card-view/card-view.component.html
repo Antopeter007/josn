@@ -1,0 +1,33 @@
+<ng-container [formGroup]="form">
+    <p-card>
+        <div class="banner-top-wrapper" *ngIf="control.params.inputData">
+            <div class="p-grid textalign">
+                <div class="p-col-12 p-md-12 p-lg-12 p-sm-12">
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                          <div class="p-grid padd-lft" >
+                              <ng-container *ngFor="let data of control.params.inputData let i = index">
+                                  <div class="p-col-4">
+                                      <div [ngClass]="((control.params.inputData.length) > i+1) &&  (dir === 'ltr') ? 'banner-border-class' : ((control.params.inputData.length) > i+1) &&  (dir === 'rtl') ? 'banner-border-class-left' : ''">
+                                          <div>
+                                              <span tabindex="0" class="banner-small-text">{{data.key | translate}}</span>
+                                          </div>
+
+                                          <div>
+                                            <span tabindex="0" class="banner-small-text-currency" *ngIf="data.fieldType ==='amount'">
+                                              {{data.currency}}
+                                          </span>
+                                              <span tabindex="0" class="banner-medium-text">{{data.value}}
+                                          </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+      </p-card>
+</ng-container>

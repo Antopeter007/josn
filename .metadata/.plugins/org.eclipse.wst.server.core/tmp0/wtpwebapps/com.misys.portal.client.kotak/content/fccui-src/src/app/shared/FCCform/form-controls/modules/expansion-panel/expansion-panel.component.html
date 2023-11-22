@@ -1,0 +1,33 @@
+<ng-container [formGroup]="form">
+  <div>
+    <div *ngIf="control.params.rendered && mode === 'edit'" class="{{control.params.styleClass}}" >
+      <div *ngIf="control.params.options.length > 0" class="{{control.params.buttonDivClass}}">
+        <span *ngIf="control.params.openAll" class="{{control.params.openAllClass}}">
+          <button role="button"  mat-button (click)="accordion.openAll()" class="{{control.params.openAllIcon}}">
+            <img src="{{control.params.openAllSvg}}" id="{{control.params.imgID}}" alt="{{control.params.openAllAltText}}"/>{{ control.params.expandLabel }}
+          </button>
+        </span>
+        <span *ngIf="control.params.closeAll" class="{{control.params.closeAllClass}}">
+          <button role="button"  mat-button (click)="accordion.closeAll()" class="{{control.params.closeAllIcon}}">
+            <img src="{{control.params.closeAllSvg}}" id="{{control.params.imgID}}" alt="{{control.params.closeAllAltText}}"/>{{ control.params.collapseLabel }}</button>
+        </span>
+      </div>
+      <mat-accordion class="{{control.params.accordionClass}}" *ngIf="control.params.options.length > 0" multi="{{control.params.multi}}">
+        <mat-expansion-panel *ngFor="let opt of control.params.options" disabled="{{control.params.disabled}}">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{opt.label}}</mat-panel-title>
+            <mat-panel-description>{{opt.headerDesc}}</mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="optionContent" [innerHTML]="opt.value"></div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p class="info-text mat-body-1" *ngIf="control.params.options.length <= 0">{{ control.params.noPanelMsg }}</p>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{control.key}}" class="form-header" tabindex="0">{{ control.params.label }}</label>
+      <div class="{{control.params.styleClass}}" *ngIf="mode === 'view'" id="{{control.key}}">{{control.value}}</div>
+    </div>
+  </div>
+</ng-container>

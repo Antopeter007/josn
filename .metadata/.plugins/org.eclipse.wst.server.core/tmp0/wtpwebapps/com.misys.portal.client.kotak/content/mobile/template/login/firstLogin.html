@@ -1,0 +1,50 @@
+<ion-content padding="true" class="has-header">
+	<form name="vm.changePasswordForm" ng-submit="vm.login()" novalidate>
+	  <ion-list>
+		<div ng-model="vm.user.username"></div>
+		<div ng-model="vm.user.company"></div>
+		<div>{{'CHANGE_USER_NAME_MSG1' | translate}} <strong>{{vm.user.username}}</strong> {{'CHANGE_USER_NAME_MSG2' | translate}}</div>
+		<ion-input class="item item-input item-floating-label">
+  			<ion-label>{{'NEW_USER_ID' | translate}}</ion-label>
+   			<input type="text" name="new_user_name" placeholder="{{'NEW_USER_ID' | translate}}" maxlength="32" ng-required="false" ng-model="vm.user.new_user_name" ng-change="vm.validateNewUserName()" capitalize> 
+		</ion-input>
+		<span ng-show="vm.changePasswordForm.new_user_name.$error" ng-messages="vm.changePasswordForm.new_user_name.$error" style="color:red" role="alert">
+   			<span ng-messages-include="error-messages"></span>
+		</span>
+		
+		<div class="spacer" style="width: 100%; height: 30px;"></div>
+	   	<!-- <div class="spacer" style="width: 100%; height: 46px;"></div> -->
+	    <ion-input class="item item-input item-floating-label">
+	      <ion-label>{{'CURRENT_PASSWORD' | translate}}</ion-label>
+	      <input type="password" name="password" placeholder="{{'CURRENT_PASSWORD' | translate}}" ng-model="vm.user.password" ng-init="vm.user.password=''" maxlength="{{vm.pbMax}}" ng-change="vm.compareOldAndNewPassword()">
+	    </ion-input>
+	    <span ng-show="vm.changePasswordForm.password.$error" ng-messages="vm.changePasswordForm.password.$error" style="color:red" role="alert">
+	      <span ng-messages-include="error-messages"></span>
+	    </span>
+	    
+	    <ion-input class="item item-input item-floating-label">
+	      <ion-label>{{'NEW_PASSWORD' | translate}}</ion-label>
+	      <input type="password" name="password_value"  placeholder="{{'NEW_PASSWORD' | translate}}" ng-model="vm.user.password_value" ng-minlength="vm.pbMin" maxlength="{{vm.pbMax}}" ng-pattern="vm.pbPattern" ng-change="vm.compareOldAndNewPassword();vm.compareNewAndConfirmPassword()">
+	    </ion-input>
+	    <span ng-show="vm.changePasswordForm.password_value.$error" ng-messages="vm.changePasswordForm.password_value.$error" style="color:red" role="alert">
+	      <span ng-messages-include="error-messages"></span>
+	    </span>
+	    
+		<ion-input class="item item-input item-floating-label">
+	      <ion-label>{{'CONFIRM_PASSWORD' | translate}}</ion-label>
+	      <input type="password" name="password_confirm"  placeholder="{{'CONFIRM_PASSWORD' | translate}}" ng-model="vm.user.password_confirm" maxlength="{{vm.pbMax}}" ng-change="vm.compareNewAndConfirmPassword()" ng-disabled="vm.changePasswordForm.password_value.$error && vm.changePasswordForm.password_value.$error.samepassword || !vm.user.password_value || vm.user.password_value && vm.user.password_value === ''">
+	    </ion-input>
+	    <span ng-show="vm.changePasswordForm.password_confirm.$error" ng-messages="vm.changePasswordForm.password_confirm.$error" style="color:red" role="alert">
+	      <span ng-messages-include="error-messages"></span>
+	    </span>
+	    
+	    <ion-list>
+	    <div class="row row-full">
+	      <div class="col col-full">
+	        <button type="submit" class="button button-block button-positive misys-large-button" ng-disabled="vm.checkAllFields()">{{'SUBMIT' | translate}}</button>
+	      </div>
+	  		</div>
+	</form>
+ </ion-content>
+
+

@@ -1,0 +1,24 @@
+<ng-container>
+    <div class="indented-header"><h2>{{ module }} </h2></div>
+    <pre>
+      {{ formValue |json }}
+    </pre>
+    <form class="m-2" novalidate [formGroup]="form">
+    <div *ngIf="formSubmitted && form.invalid">
+        There are problems with the form
+        <ng-container *ngFor="let error of form.getFormValidationMessages()">
+          <div class="fcc-message">
+            <p-message severity="error" text="{{error}}"></p-message>
+          </div>
+        </ng-container>
+    </div>
+    <div class="form-group p-grid" *ngFor="let control of form.productControls">
+      <ng-container [ngSwitch]="control.type">
+          <div  *ngSwitchCase="'template'" class="p-col-12">
+              <dynamic-content type="{{control.params.templateName}}"></dynamic-content>
+          </div>
+          </ng-container>
+    </div>
+    <p-button role="button"  label="Submit Form" (click)="submit($event)" class="fcc-button"></p-button>
+   </form>
+  </ng-container>

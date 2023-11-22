@@ -1,0 +1,167 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="ui-float-label  {{ control.params.styleClass }}"
+    >
+      <p-calendar
+        #calendar
+        *ngIf="control.params.selectionMode === 'range'"
+        tabindex="0"
+        [showIcon]="true"
+        [appendTo]="control.params.appendTo?control.params.appendTo:'body'"
+        inputId="{{ control.key }}"
+        [monthNavigator]="true"
+        [yearNavigator]="true"
+        [yearRange]="getYearRange(control.params.yearRange)"
+        showButtonBar="false"
+        disabledDays="{{ control.params.disabledDays }}"
+        [disabled]="control.params.readonly"
+        disabledDates="{{ control.params.disabledDates }}"
+        showTime="{{ control.params.showTime }}"
+        (onBlur)="onCustomEventRaised($event, control.key, control)"
+        (click)="onEventRaised($event, control.key)"
+        (onClose)="onClose()"
+        (onSelect)="calendar.overlayVisible = false"
+        [showOtherMonths]="control.params.showOtherMonths"
+        [locale]="control.params.langLocale"
+        [dateFormat]="control.params.dateFormat"
+        (focus)="onEventRaised($event, control.key)"
+        formControlName="{{ control.key }}"
+        [required]="control.params.required"
+        [minDate]="control.params.minDate"
+        [selectionMode]="
+          control.params.selectionMode ? control.params.selectionMode : 'single'
+        "
+        (onMonthChange)="getSelectedMonthEvents($event)"
+        (onYearChange)="getSelectedMonthEvents($event)"
+      >
+      </p-calendar>
+      <label
+        *ngIf="control.params.selectionMode === 'range'"
+        for="{{ control.key }}"
+      >
+        {{ control.params.label
+        }}<a *ngIf="control.params.required"
+          ><em class="fa fa-asterisk fa-sm"></em
+        ></a>
+        <a
+          class="infoLabel"
+          *ngIf="control.params.infoIcon && !control.params.groupLabel"
+        >
+          {{ control.params.infolabel | translate }}</a
+        >
+      </label>
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <mat-form-field
+        *ngIf="control.params.selectionMode !== 'range'"
+        appearance="fill"
+        class="input-mat-width"
+      >
+        <mat-label
+          >{{ control.params.label
+          }}<a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          ></mat-label
+        >
+        <input role="textbox"
+          matInput
+          [matDatepicker]="picker"
+          formControlName="{{ control.key }}"
+          #pickerInput
+          maxlength="{{ control.params.maxlength }}"
+          [min]="control.params.minDate"
+          [max]="control.params.maxDate"
+          [required]="control.params.required"
+          [matDatepickerFilter]="holidayDateFilter"
+          [disabled]="control.params.readonly"
+          (dateChange)="
+            onMatDateEventRaised(
+              $event,
+              control.key,
+              control,
+              pickerInput.value
+            )
+          "
+          [placeholder]="control.params.placeholder"
+          (inputChange)="
+            onMatDateEventRaised(
+              $event,
+              control.key,
+              control,
+              pickerInput.value
+            )
+          "
+          (click)="picker.opened = true"
+          (blur)="onMatDateEventRaised(
+            $event,
+            control.key,
+            control,
+            pickerInput.value
+          )"
+          id="{{ control.key }}"
+          (keydown.Tab) = "onMatDateEventRaised($event,
+          control.key,
+          control,
+          pickerInput.value)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker
+          #picker
+          (opened)="onOpenClosedMatDateCalender(picker, control.key);calendarOpened($event)"
+          panelClass="endDate"
+        ></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div *ngIf="control.params.warning">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value | date }}
+      </div>
+    </div>
+  </div>
+</ng-container>

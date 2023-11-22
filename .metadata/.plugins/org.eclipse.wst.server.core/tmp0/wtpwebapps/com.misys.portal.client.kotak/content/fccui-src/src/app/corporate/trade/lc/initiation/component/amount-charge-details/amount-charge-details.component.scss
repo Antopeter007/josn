@@ -1,0 +1,226 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep.form-header {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .ui-float-label label {
+  font-weight: $uiFloatLabelFontWeight;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  min-width: 100%;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+:host ::ng-deep .ui-radiobutton-label {
+  color: $uiRadiobuttonLabel;
+  font-size: $uiRadiobuttonLabelSize;
+  line-height: $uiRadiobuttonLabelLineHeight;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: none;
+  border-bottom: $uiInputTextBorderBottom;
+}
+
+:host ::ng-deep .ui-dropdown,
+:host ::ng-deep .ui-inputtext {
+  background: transparent !important;
+}
+
+:host ::ng-deep .ui-dropdown-label-container {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-checkbox {
+  padding-left: 0em;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: $uiRadioButtonActiveHoverBackgroundColor !important;
+  border-color: $primaryColor;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: $primaryColor;
+  background-color: $uiRadioButtonActiveBackgroundColor !important;
+  color: $uiRadioButtonActiveColor;
+  box-shadow: $uiRadioButtonActiveBoxShadow;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active
+  .ui-radiobutton-icon {
+  background-color: $primaryColor;
+  border-color: $primaryColor;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border: 0.1em solid $primaryColor;
+  background-color: $uiRadiobuttonBackgroundcolor;
+  color: $uiRadiobuttonColor;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box {
+  background-color: $uiRadioButtonBoxBackgroundColor;
+}
+
+:host ::ng-deep.issuance_radio.p-grid,
+:host ::ng-deep.issuance_radio .p-grid,
+:host ::ng-deep.corresponding_radio.p-grid,
+:host ::ng-deep.corresponding_radio .p-grid,
+:host ::ng-deep.confirm_radio.p-grid,
+:host ::ng-deep.confirm_radio .p-grid {
+  width: 100%;
+}
+
+:host ::ng-deep.tolplus {
+  color: $tolpluscolor;
+  font-size: $tolplusFontSize-12-1;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep.tolminus {
+  color: $tolminusColor;
+  font-size: $tolminusFontSize-12-1;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items-wrapper {
+  overflow-x: hidden;
+  background-color: $uidropdownPanelBackgroundColor !important;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item,
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
+  margin: 0;
+  padding: 0.429em 0.857em;
+  border: 0 none;
+  color: $uidropdownPanelColor;
+  border-radius: 0;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+:host ::ng-deep.indented-text-area-field-35 textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+  font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+:host ::ng-deep.infoDropDownIcon {
+  position: absolute;
+  right: -0.2em;
+  top: 0.2em;
+}
+
+:host ::ng-deep.fcc-radio-button .infodisplaylabel {
+  margin-top: 1em !important;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger {
+  border-bottom: 0.06em solid $uiDropdownBorderBottom;
+  border-radius: 0em;
+}
+
+:host ::ng-deep.currencyView .fieldvalue {
+  margin-top: 0em;
+}
+:host ::ng-deep.label-header.p-col-12.ng-star-inserted {
+  color:$CHARCOAL-F75;
+}
+:host ::ng-deep.incDecAmt {
+  padding-right: 0.7em !important;
+}
+
+:host ::ng-deep.incDecAmt > div {
+  padding-left: 0em;
+  margin-left: -1.3em;
+  padding-right: 0em;
+}
+
+:host ::ng-deep.orgLCAmtStyle {
+  padding-top: 0em;
+}
+
+:host ::ng-deep.orgLCAmtStyle .label-header {
+  padding-bottom: 0em;
+  color: $orgLCAmtStyleColor;
+}
+
+:host ::ng-deep.orgLCAmtStyle .fieldvalue {
+  padding-top: 0.9em;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0em 0;
+}
+
+:host ::ng-deep .newLCAmtStyle input.mat-input-element {
+  font-weight: 500;
+  color: $primaryColor;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-label {
+  color: $primaryColor;
+}
+
+:host ::ng-deep.incDecAmt .fcc-field-message {
+  margin-top: -2em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: $primaryColor;
+}
+
+:host ::ng-deep.revolveStyle{
+  position: relative;
+  top: 0 !important;
+}
+:host ::ng-deep.subheader-title{
+  margin-top:0 !important;
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep .mat-input-element{
+  color: $mat-inputElementColor !important;
+}
+
+:host ::ng-deep .p-col-12{
+  width : 98% !important;
+}
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  width: 100%; 
+  padding-right: 0.159em;
+}

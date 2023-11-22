@@ -1,0 +1,54 @@
+/*
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Ceylan (Welcome Page)
+
+	summary:
+  		CSS rules loaded by all *unsecured* pages
+  		
+	description:
+	  	Refer to themes/base/welcome.css
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Cormac Flynn
+	email:     cormac.flynn@misys.com
+*/
+
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dijit/themes/claro/Common.css";
+@import "../../../dijit/themes/claro/form/Common.css";
+@import "../../../dijit/themes/claro/form/Button.css";
+@import "../../../dijit/themes/claro/Dialog.css";
+@import "../base/welcome.css";
+
+/** Override with our own styles **/
+@import "common/document.css";
+@import "common/layout.css";
+@import "common/portlets.css";
+
+#Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.toplevel-header {
+	border: 1px solid #0079a7;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.toplevel-header h2 {
+    background-color: #7AA1FF;
+    color: #FFFFFF;
+}
+
+#TradeApplicationsDefault .portlet-section-body {
+	background: none;
+}

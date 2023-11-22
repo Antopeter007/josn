@@ -1,0 +1,32 @@
+{
+    "list": [
+        {
+            "accountNo": {
+                "count": "25",
+                "totalAmount": "27.78",
+                "accountNumber": "06460050001139"
+            }
+        },
+        {
+            "accountNo": {
+                "count": "2",
+                "totalAmount": "1011.00",
+                "accountNumber": "06530050002165"
+            }
+        },
+        {
+            "accountNo": {
+                "count": "0",
+                "totalAmount": "0.0",
+                "accountNumber": "2221235"
+            }
+        },
+        {
+            "accountNo": {
+                "count": "0",
+                "totalAmount": "0.0",
+                "accountNumber": "06460050001130"
+            }
+        }
+    ]
+}

@@ -1,0 +1,177 @@
+<div *ngIf ="!viewMode  ;else viewContent">
+  <div class="indented-header">
+    <h3 class="sub-header">{{'HEADER_CREDIT_AVAILABLE_WITH' | translate }}</h3>
+  </div>
+  <div [formGroup]="sectionForm">
+    <div class="field">
+        <label for="{{undertakingType}}CreditAvailableWithBank"> {{'LABEL_BANK_TYPE' | translate }}&nbsp;</label>
+        <p-dropdown placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="crediAvailwithBankDropDown" [showClear]="true"
+        id = "{{undertakingType}}CreditAvailableWithBank" formControlName = "{{undertakingType}}CreditAvailableWithBank"
+        (onChange)="changeCreditAvailableWithBank();" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'CreditAvailableWithBank')) ? 'dropDownFieldError' : 'inherit'">
+      </p-dropdown>
+      <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'CreditAvailableWithBank')"></fcc-common-error-message>
+    </div>
+
+    <div *ngIf="sectionForm.get(undertakingType+ 'CreditAvailableWithBank').value === '99'" id="{{undertakingType}}AnyBankNameRow" class="field">
+      <label id="{{undertakingType}}AnyBankNameLabel"><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>
+      <input pInputText type="text" id="{{undertakingType}}AnyBankName" formControlName="{{undertakingType}}AnyBankName" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AnyBankName'))">&nbsp;
+      <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'AnyBankName')"></fcc-common-error-message>
+    </div>
+
+    <div *ngIf="sectionForm.get(undertakingType+ 'CreditAvailableWithBank').value === '99'" id="{{undertakingType}}AnyBankAddressLine1Row" class="field">
+      <label id="{{undertakingType}}AnyBankAddressLine1Label"><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_ADDRESS' | translate }}</label>
+       <input pInputText type="text" id="{{undertakingType}}anyBankAddressLine1" formControlName="{{undertakingType}}AnyBankAddressLine1" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AnyBankAddressLine1'))">
+       <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'AnyBankAddressLine1')"></fcc-common-error-message>
+    </div>
+
+    <div  *ngIf="sectionForm.get(undertakingType+ 'CreditAvailableWithBank').value === '99'" id="{{undertakingType}}AnyBankAddressLine2Row" class="field">
+      <label id="{{undertakingType}}AnyBankAddressLine2Label">&nbsp;</label>
+       <input pInputText type="text" id="{{undertakingType}}anyBankAddressLine2" formControlName="{{undertakingType}}AnyBankAddressLine2" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AnyBankAddressLine2'))">
+       <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'AnyBankAddressLine2')" ></fcc-common-error-message>
+     </div>
+
+     <div *ngIf="sectionForm.get(undertakingType+ 'CreditAvailableWithBank').value === '99'" id="{{undertakingType}}AnyBankDomRow" class="field">
+      <label id="{{undertakingType}}AnyBankDomLabel">&nbsp;</label>
+       <input pInputText type="text" id="{{undertakingType}}AnyBankDom" formControlName="{{undertakingType}}AnyBankDom" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AnyBankDom'))">
+       <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'AnyBankDom')"></fcc-common-error-message>
+     </div>
+
+     <div  *ngIf="sectionForm.get(undertakingType+ 'CreditAvailableWithBank').value === '99'" id="{{undertakingType}}AnyBankAddressLine4Row" class="field">
+      <label id="{{undertakingType}}AnyBankAddressLine4Label">&nbsp;</label>
+       <input pInputText type="text" id="{{undertakingType}}AnyBankAddressLine4" formControlName="{{undertakingType}}AnyBankAddressLine4" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AnyBankAddressLine4'))">
+       <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'AnyBankAddressLine4')" ></fcc-common-error-message>
+     </div>
+
+    <div  *ngIf="undertakingType === 'bg'" class="field">
+      <label class="label-radiobutton">{{'LABEL_CREDIT_AVAILABLE_BY' | translate }}&nbsp;</label>
+
+        <p-radioButton id="bgCrAvlByCode" value="06" label="{{'LABEL_ON_DEMAND' | translate}}" formControlName="bgCrAvlByCode" [(ngModel)]="selected"
+          name="bgCrAvlByCode" (onClick)="this.commonDataService.setCreditAvailBy(sectionForm.get(undertakingType + 'CrAvlByCode').value, undertakingType);">
+        </p-radioButton>
+
+        <p-radioButton id="bgCrAvlByCode" value="01" label="{{'LABEL_PAYMENT' | translate }}" formControlName="bgCrAvlByCode" [(ngModel)]="selected"
+          name="bgCrAvlByCode" (onClick)="this.commonDataService.setCreditAvailBy(sectionForm.get(undertakingType + 'CrAvlByCode').value, undertakingType);">
+        </p-radioButton>
+
+    </div>
+    <div *ngIf="undertakingType === 'cu'" class="field">
+        <label class="label-radiobutton">{{'LABEL_CREDIT_AVAILABLE_BY' | translate }}&nbsp;</label>
+        <p-radioButton id="cuCrAvlByCode" value="06" label="{{'LABEL_ON_DEMAND' | translate}}" formControlName="cuCrAvlByCode" [(ngModel)]="cuSelected"
+          name="cuCrAvlByCode" (onClick)="this.setValueFromField('cuCrAvlByCode', undertakingType);">
+        </p-radioButton>
+
+        <p-radioButton id="cuCrAvlByCode" value="01" label="{{'LABEL_PAYMENT' | translate }}" formControlName="cuCrAvlByCode" [(ngModel)]="cuSelected"
+          name="cuCrAvlByCode" (onClick)="this.setValueFromField('cuCrAvlByCode', undertakingType);">
+        </p-radioButton>
+        <div *ngIf="sectionForm.get(undertakingType + 'CrAvlByCode') && sectionForm.get(undertakingType + 'CrAvlByCode').value && sectionForm.get(undertakingType + 'CrAvlByCode').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+    </div>
+  </div>
+</div>
+<ng-template #viewContent>
+  <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'">
+    <div *ngIf="undertakingType === 'bg'" id="bgPaymentDetailsSection">
+      <div class="indented-header">
+        <h3 class="sub-header">{{'HEADER_CREDIT_AVAILABLE_WITH' | translate }}</h3>
+      </div>
+      <div id="bgCreditAvailableWithBank" *ngIf="bgRecord['bgCreditAvailableWithBank'] && bgRecord['bgCreditAvailableWithBank']['name'] &&
+              bgRecord['bgCreditAvailableWithBank']['name'] !== null && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+              bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for="bgCreditAvailableWithBank" id="bgCreditAvailableWithBankLabel">{{ 'LABEL_BANK_TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{'PAYMENT_DETAILS_SECTION_OTHER' | translate}}</label>
+      </div>
+      <div id="bgCreditAvailableWithBank" *ngIf="bgRecord['bgCreditAvailableWithBank'] && bgRecord['bgCreditAvailableWithBank']['name'] &&
+              bgRecord['bgCreditAvailableWithBank']['name'] !== null && bgRecord['bgCreditAvailableWithBank']['name'] === 'Advising Bank' ||
+              bgRecord['bgCreditAvailableWithBank']['name'] === 'Issuing Bank' || bgRecord['bgCreditAvailableWithBank']['name'] === 'Any Bank'">
+        <label for="bgCreditAvailableWithBank" id="bgCreditAvailableWithBankLabel">{{ 'LABEL_BANK_TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgCreditAvailableWithBank']['name']}}</label>
+      </div>
+      <div id = "bgAnyBankName_view_row" *ngIf="bgRecord['bgCreditAvailableWithBank']['name'] && bgRecord['bgCreditAvailableWithBank']['name'] !== null &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== '' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "bgAnyBankName" id =  "bgAnyBankName_label">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['bgCreditAvailableWithBank']['name']}}</label>
+      </div>
+      <div id = "bgAnyBankAddressLine1_view_row" *ngIf="bgRecord['bgCreditAvailableWithBank']['addressLine1']  && bgRecord['bgCreditAvailableWithBank']['addressLine1'] != null
+      && bgRecord['bgCreditAvailableWithBank']['addressLine1'] != '' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "bgAnyBankAddressLine1" id =  "bgAnyBankAddressLine1_label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['bgCreditAvailableWithBank']['addressLine1']}}</label>
+      </div>
+      <div id = "anyBankAddressLine2_view_row" *ngIf="bgRecord['bgCreditAvailableWithBank']['addressLine2'] && bgRecord['bgCreditAvailableWithBank']['addressLine2'] != null &&
+      bgRecord['bgCreditAvailableWithBank']['addressLine2']!= '' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "bgAnyBankAddressLine2" id =  "bgAnyBankAddressLine2_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['bgCreditAvailableWithBank']['addressLine2']}}</label>
+      </div>
+      <div id = "anyBankDom_view_row" *ngIf="bgRecord['bgCreditAvailableWithBank']['dom'] && bgRecord['bgCreditAvailableWithBank']['dom'] != null
+      && bgRecord['bgCreditAvailableWithBank']['dom'] != '' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "bgAnyBankDom" id =  "bgAnyBankDom_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['bgCreditAvailableWithBank']['dom']}}</label>
+      </div>
+      <div id = "anyBankAddressLine4_view_row" *ngIf="bgRecord['bgCreditAvailableWithBank']['addressLine4'] && bgRecord['bgCreditAvailableWithBank']['addressLine4'] != null &&
+      bgRecord['bgCreditAvailableWithBank']['addressLine4']!= '' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Advising Bank' &&
+      bgRecord['bgCreditAvailableWithBank']['name'] !== 'Issuing Bank' && bgRecord['bgCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "bgAnyBankAddressLine4" id =  "bgAnyBankAddressLine4_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['bgCreditAvailableWithBank']['addressLine4']}}</label>
+      </div>
+      <div id="bgCrAvlByCode" *ngIf="bgRecord['bgCrAvlByCode'] && bgRecord['bgCrAvlByCode'] != null && bgRecord['bgCrAvlByCode'] != ''">
+        <label for="bgCrAvlByCode" id="bgCrAvlByCodeLabel">{{ 'LABEL_CREDIT_AVAILABLE_BY' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getCreditAvailBy(bgRecord['bgCrAvlByCode']) | translate}}</label>
+      </div>
+    </div>
+    <div *ngIf="undertakingType === 'cu'" id="cuPaymentDetailsSection">
+      <div class="indented-header">
+        <h3 class="sub-header">{{'HEADER_CREDIT_AVAILABLE_WITH' | translate }}</h3>
+      </div>
+      <div id="cuCreditAvailableWithBank" *ngIf="bgRecord['cuCreditAvailableWithBank'] && bgRecord['cuCreditAvailableWithBank']['name'] &&
+      bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== null && bgRecord['cuCreditAvailableWithBank']['name'] !== ''">
+        <label for="cuCreditAvailableWithBank" id="cuCreditAvailableWithBankLabel">{{ 'LABEL_BANK_TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{'PAYMENT_DETAILS_SECTION_OTHER' | translate}}</label>
+      </div>
+      <div id="cuCreditAvailableWithBank" *ngIf="bgRecord['cuCreditAvailableWithBank'] && bgRecord['cuCreditAvailableWithBank']['name']
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== null && bgRecord['cuCreditAvailableWithBank']['name'] !== '' && 
+      (bgRecord['cuCreditAvailableWithBank']['name'] === 'Any Bank' || bgRecord['cuCreditAvailableWithBank']['name'] === 'Issuing Bank' || bgRecord['cuCreditAvailableWithBank']['name'] === 'Advising Bank')">
+        <label for="cuCreditAvailableWithBank" id="cuCreditAvailableWithBankLabel">{{ 'LABEL_BANK_TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['cuCreditAvailableWithBank']['name']}}</label>
+      </div>
+      <div id = "cuAnyBankName_view_row" *ngIf="bgRecord['cuCreditAvailableWithBank']['name'] && bgRecord['cuCreditAvailableWithBank']['name'] !== null &&
+      bgRecord['cuCreditAvailableWithBank']['name'] !== '' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "cuAnyBankName" id =  "cuAnyBankName_label">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['cuCreditAvailableWithBank']['name']}}</label>
+      </div>
+      <div id = "cuAnyBankAddressLine1_view_row" *ngIf="bgRecord['cuCreditAvailableWithBank']['addressLine1']  && bgRecord['cuCreditAvailableWithBank']['addressLine1'] != null
+      && bgRecord['cuCreditAvailableWithBank']['addressLine1'] != '' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "cuAnyBankAddressLine1" id =  "cuAnyBankAddressLine1_label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['cuCreditAvailableWithBank']['addressLine1']}}</label>
+      </div>
+      <div id = "cuAnyBankAddressLine2_view_row" *ngIf="bgRecord['cuCreditAvailableWithBank']['addressLine2'] && bgRecord['cuCreditAvailableWithBank']['addressLine2'] != null &&
+      bgRecord['cuCreditAvailableWithBank']['addressLine2']!= '' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "cuAnyBankAddressLine2" id =  "cuAnyBankAddressLine2_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['cuCreditAvailableWithBank']['addressLine2']}}</label>
+      </div>
+      <div id = "cuAnyBankDom_view_row" *ngIf="bgRecord['cuCreditAvailableWithBank']['dom'] && bgRecord['cuCreditAvailableWithBank']['dom'] != null
+      && bgRecord['cuCreditAvailableWithBank']['dom'] != '' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "cuAnyBankDom" id =  "cuAnyBankDom_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['cuCreditAvailableWithBank']['dom']}}</label>
+      </div>
+      <div id = "cuAnyBankAddressLine4_view_row" *ngIf="bgRecord['cuCreditAvailableWithBank']['addressLine4'] && bgRecord['cuCreditAvailableWithBank']['addressLine4'] != null &&
+      bgRecord['cuCreditAvailableWithBank']['addressLine4']!= '' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Advising Bank' && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Issuing Bank'
+      && bgRecord['cuCreditAvailableWithBank']['name'] !== 'Any Bank'">
+        <label for =  "cuAnyBankAddressLine4" id =  "cuAnyBankAddressLine4_label">&nbsp;</label>
+        <label class = 'label-left'>{{bgRecord['cuCreditAvailableWithBank']['addressLine4']}}</label>
+      </div>
+      <div id="cuCrAvlByCode" *ngIf="bgRecord['cuCrAvlByCode'] && bgRecord['cuCrAvlByCode'] != null && bgRecord['cuCrAvlByCode'] != ''">
+        <label for="cuCrAvlByCode" id="cuCrAvlByCodeLabel">{{ 'LABEL_CREDIT_AVAILABLE_BY' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getCreditAvailBy(bgRecord['cuCrAvlByCode']) | translate}}</label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+

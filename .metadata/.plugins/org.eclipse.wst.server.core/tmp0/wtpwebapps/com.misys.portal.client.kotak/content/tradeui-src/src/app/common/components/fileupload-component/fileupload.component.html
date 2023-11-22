@@ -1,0 +1,245 @@
+<div *ngIf="!viewMode  ;else view_content">
+<p-panel *ngIf= "this.commonData.getOption() !== 'SUMMARY' " id="fileUploadPanel" header="{{ 'KEY_HEADER_FILE_UPLOAD' | translate }}" [toggleable]="true" [collapsed] ="false">
+  <p *ngIf="commonData.getDisplayMode() !== 'view' && filelist.length == 0 && (commonService.getAttachmentDataResolver() | async) "class="empty-list-notice">
+    {{'FILE_UPLOAD_LIMIT' | translate : {valueOfMaxFiles: commonService.getFileuploadMaxLimit(), maxFileSize: parseSizeToMb(this.commonService.getMaxUploadSize())} }}&emsp;({{'NO_FILES_ATTACH' | translate}})</p>
+  <p *ngIf="commonData.getDisplayMode() !== 'view' && filelist.length !== 0 && (commonService.getAttachmentDataResolver() | async)"class="empty-list-notice">
+    {{'FILE_UPLOAD_LIMIT' | translate : {valueOfMaxFiles: commonService.getFileuploadMaxLimit(), maxFileSize: parseSizeToMb(this.commonService.getMaxUploadSize())} }}&emsp;({{getNoOfFileMessage()}})</p>
+    <p-table id="fileUploadTable" #fileUpload [value] = filelist *ngIf="filelist.length !== 0">
+      <ng-template pTemplate="header">
+        <tr>
+          <th id = "keyfiletype">{{ 'KEY_FILE_TYPE' | translate}}</th>
+          <th id = "keyfilename">{{ 'KEY_FILE_NAME' | translate}}</th>
+          <th id = "keyfiletitle">{{ 'KEY_FILE_TITLE' | translate}}</th>
+          <th id = "keyfileactions">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+        </tr>
+        </ng-template>
+      <ng-template pTemplate="body" let-fileObj>
+          <tr>
+            <td [ngSwitch]="true">
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'doc'"><img src="{{imagePath}}file_doc.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'docx'"><img src="{{imagePath}}file_docx.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'gif'"><img src="{{imagePath}}file_gif.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'png' || getFileExt(fileObj.fileName) === 'PNG'"><img src="{{imagePath}}file_png.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'jpg' || getFileExt(fileObj.fileName) === 'jpeg'"><img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'zip'"><img src="{{imagePath}}file_zip.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'txt'"><img src="{{imagePath}}file_txt.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'pdf'"><img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'csv'"><img src="{{imagePath}}file_csv.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'xls'"><img src="{{imagePath}}file_xls.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'xlsx'"><img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchCase="getFileExt(fileObj.fileName) === 'rtf'"><img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download"></div>
+              <div *ngSwitchDefault><img src="{{imagePath}}file_ext.gif" class="cursor" alt="download"></div>
+            </td>
+            <td class="word-wrap">{{ fileObj.fileName }}</td>
+            <td class="word-wrap">{{ fileObj.title }}</td>
+            <td>
+              <img src="{{imagePath}}download.png"  id="downloadAttachment" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(fileObj.attachmentId, fileObj.fileName)">
+              <ng-container *ngIf="!hideUploadButton">
+                <img src="{{imagePath}}delete.png" id="deleteAttachment" class="cursor" alt="Delete" type="remove" (click)="deleteRow(fileObj.attachmentId)">
+              </ng-container>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+  <div>&nbsp;</div>
+  <div *ngIf="!hideUploadButton && !hideAddbutton()">
+    <button pButton type="button" id="fileUpload" class="secondary-button-larger" (click) = "showFileUploadSection()" label="{{ 'KEY_ADD_FILE_BUTTON' | translate}}"></button>
+  </div>
+  <div *ngIf="filelist.length !== 0 && this.commonService.getTnxType()!='13' && !hideSendAttachment;">
+    <form [formGroup]="fileUploadSection">
+      <div id="bgSendAttachmentsByRow"class="field">
+        <label id="sendAttachmentsByLabel" for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}
+            <span class="required-field-symbol">*</span> &nbsp;
+        </label>
+        <p-dropdown  placeholder=" " [options]="sendAttachmentsObj" [showClear]="false"
+        id = "bgSendAttachmentsBy" formControlName = "bgSendAttachmentsBy" (ngModelChange)="changeSendAttachmentsBy();"
+        [styleClass]="validationService.isFieldInvalid(fileUploadSection.get('bgSendAttachmentsBy')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+        <fcc-common-error-message [control]="fileUploadSection.get('bgSendAttachmentsBy')"></fcc-common-error-message>
+      </div>
+
+      <div id="bgSendAttachmentsByOtherRow" class="field" *ngIf="this.fileUploadSection.get('bgSendAttachmentsBy').value === 'OTHR'">
+        <label for="bgSendAttachmentsByOther">
+          <span class="required-field-symbol">*</span>&nbsp;
+        </label>
+        <input pInputText type="text" id="bgSendAttachmentsByOther" formControlName="bgSendAttachmentsByOther"
+        [class.fieldError]="validationService.isFieldInvalid(fileUploadSection.get('bgSendAttachmentsByOther'))">
+        <fcc-common-error-message [control]="fileUploadSection.get('bgSendAttachmentsByOther')"></fcc-common-error-message>
+      </div>
+    </form>
+  </div>
+    <div *ngIf="this.commonData.getIsBankUser()">
+     <br><br><br><br><br>
+    </div>
+
+  <p-confirmDialog id="maxFilesErrorDialog" class="lf-confirm-dialog" key='maxFilesError' header="Error" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  <p-confirmDialog id="deleteConfirmDialog" class="lf-confirm-dialog" key='deleteConfirmDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+  <div *ngIf="commonData.getIsBankUser() && bgRecord['productCode']==='BR' && bgRecord['tnxTypeCode']==='01' && commonData.getDisplayMode() === 'view' ">
+    <div id="sendAttachmentsByRow" *ngIf="bgRecord['bgSendAttachmentsBy'] && bgRecord['bgSendAttachmentsBy'] != null && bgRecord['bgSendAttachmentsBy'] != ''">
+      <label id="bgSendAttachmentsByViewLabel" for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}&nbsp;</label>
+      <label id="bgSendAttachmentsByView" class="label-left">{{commonDataService.getSendAttachments(bgRecord['bgSendAttachmentsBy']) | translate}}</label>
+    </div>
+    <div id="sendAttachmentsByOtherRow" *ngIf="bgRecord['bgSendAttachmentsByOther'] && bgRecord['bgSendAttachmentsByOther'] != null && bgRecord['bgSendAttachmentsByOther'] != ''">
+      <label id="bgSendAttachmentsByOtherViewLabel" for="bgSendAttachmentsByOther">&nbsp;</label>
+      <label id="bgSendAttachmentsByOtherView" class="label-left">{{bgRecord['bgSendAttachmentsByOther']}}</label>
+    </div>
+  </div>
+</p-panel>
+</div>
+
+<ng-template #view_content>
+<div *ngIf ="((bgRecord['productCode'] === 'BG' || bgRecord['productCode'] === 'BR') && (commonData.isBankUser ||
+ (bgRecord['productCode'] === 'BR' && bgRecord['tnxTypeCode'] === '13')))">
+<p-panel header="{{ 'KEY_HEADER_FILE_UPLOAD' | translate }}" [toggleable]="true" [collapsed] ="false" *ngIf ="this.commonData.getmasterorTnx() !== 'master'">
+<div *ngIf="bgRecord['attachments'] && bgRecord['attachments'] !== ''">
+ <div *ngIf="hasCustomerAttach && (commonData.isBankUser ||
+ (bgRecord['productCode'] === 'BR' && bgRecord['tnxTypeCode'] === '13'))" id="fileAttachment">
+  <div *ngIf="hasCustomerAttach && commonData.isBankUser" class="indented-header">
+    <h3>{{'CUSTOMER_FILES_UPLOAD' | translate }}</h3>
+  </div>
+  <p-table [value]="bgRecord['attachments']['attachment']" sortMode="single">
+    <ng-template pTemplate="header">
+      <tr>
+        <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+        <th id="file_name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+          <p-sortIcon [field]="'file_name'"></p-sortIcon>
+        </th>
+        <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+          <p-sortIcon [field]="'title'"></p-sortIcon>
+        </th>
+        <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rec>
+      <tr *ngIf="rec.type === '01'">
+        <td [ngSwitch]="true">
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'doc' || getFileExt(rec.fileName) === 'docx'">
+            <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'pdf'">
+            <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'gif'">
+            <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'txt'">
+            <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'csv'">
+            <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'xls'">
+            <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'xlsx'">
+            <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'png' || getFileExt(rec.fileName) === 'PNG' ">
+            <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'jpg' || getFileExt(rec.fileName) === 'jpeg' ">
+            <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'zip'">
+            <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'rtf'">
+            <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchDefault>
+            <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+          </div>
+        </td>
+        <td class="word-break-all">{{rec.fileName}}</td>
+        <td class="word-break-all">{{rec.title}}</td>
+        <td>
+          <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachmentId, rec.fileName)">
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div *ngIf="hasBankAttach && commonData.getIsBankUser()" id="fileAttachment">
+  <div class="indented-header">
+    <h3>{{'BANK_FILES_UPLOAD' | translate }}</h3>
+  </div>
+  <p-table [value]="bgRecord['attachments']['attachment']" sortMode="single">
+    <ng-template pTemplate="header">
+      <tr>
+        <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+        <th id="file-name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+          <p-sortIcon [field]="'file_name'"></p-sortIcon>
+        </th>
+        <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+          <p-sortIcon [field]="'title'"></p-sortIcon>
+        </th>
+        <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rec>
+      <tr *ngIf="rec.type === '02'">
+        <td [ngSwitch]="true">
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'doc' || getFileExt(rec.fileName) === 'docx'">
+            <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'pdf'">
+            <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'gif'">
+            <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'txt'">
+            <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'csv'">
+            <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'xls'">
+            <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'xlsx'">
+            <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'png' || getFileExt(rec.fileName) === 'PNG' ">
+            <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'jpg' || getFileExt(rec.fileName) === 'jpeg' ">
+            <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'zip'">
+            <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchCase="getFileExt(rec.fileName) === 'rtf'">
+            <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+          </div>
+          <div *ngSwitchDefault>
+            <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+          </div>
+        </td>
+        <td class="word-break-all">{{rec.fileName}}</td>
+        <td class="word-break-all">{{rec.title}}</td>
+        <td>
+          <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachmentId, rec.fileName)">
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div>
+<div id="sendAttachmentDetails" *ngIf="this.commonService.getTnxType()!='13'">
+  <div id="sendAttachmentsByRow" *ngIf="bgRecord['bgSendAttachmentsBy'] && bgRecord['bgSendAttachmentsBy'] != null && bgRecord['bgSendAttachmentsBy'] != ''">
+    <label for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}&nbsp;</label>
+    <label class="label-left">{{commonDataService.getSendAttachments(bgRecord['bgSendAttachmentsBy']) | translate}}</label>
+  </div>
+
+  <div id="sendAttachmentsByOtherRow" *ngIf="bgRecord['bgSendAttachmentsByOther'] && bgRecord['bgSendAttachmentsByOther'] != null && bgRecord['bgSendAttachmentsByOther'] != ''">
+    <label for="bgSendAttachmentsByOther">&nbsp;</label>
+    <label class="label-left">{{bgRecord['bgSendAttachmentsByOther']}}</label>
+  </div>
+</div>
+</div>
+</div>
+</p-panel>
+</div>
+</ng-template>

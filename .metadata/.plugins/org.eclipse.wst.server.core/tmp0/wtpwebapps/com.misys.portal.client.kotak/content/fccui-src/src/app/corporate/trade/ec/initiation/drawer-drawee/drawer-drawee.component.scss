@@ -1,0 +1,14 @@
+
+:host ::ng-deep .applicant_bene_entity_class.singleBeneficiary .ui-dropdown span.ui-dropdown-label, .no-margin-multiselect .ui-dropdown span.ui-dropdown-label{
+  color: transparent !important;
+}
+
+.applicant_bene_entity_class.singleBeneficiary .dropdownlabel {
+  font-size: 1em !important;
+  top: 1.5em !important;
+  left: 1em !important;
+}
+
+:host ::ng-deep .p-col-12{
+  width : 98% !important;
+}

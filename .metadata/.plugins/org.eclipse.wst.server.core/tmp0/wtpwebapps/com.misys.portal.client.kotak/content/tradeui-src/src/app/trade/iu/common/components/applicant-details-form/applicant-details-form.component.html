@@ -1,0 +1,56 @@
+<div class="indented-header">
+  <div *ngIf="!viewMode  ;else view_content">
+    <form [formGroup]="applicantDetailsFormSection">
+      <p-panel *ngIf="mode !== 'initiateAmend'" header="{{ 'HEADER_APPLICANT_DETAILS' | translate }}"
+        [toggleable]="true" [collapsed]="false">
+        <div *ngIf="!commonData.getIsBankUser() && mode !== 'initiateAmend'">
+          <div *ngIf="displayEntity || displayEntityBank">
+            <div *ngIf="(mode === 'initiateAmend'); else initiate_template" class="field">
+              <label for="entity" id="entity_label">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+              <span class="content">{{bgRecord['entity']}}&nbsp;</span>
+            </div>
+            <ng-template #initiate_template>
+              <div *ngIf="(numberOfEntities === 1); else select_entity" class="field">
+                <label for="entity" id="entity_label">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+                <span class="content">{{entity}}&nbsp;</span>
+              </div>
+              <ng-template #select_entity>
+                <div *ngIf="numberOfEntities !== 0" class="field">
+                  <label for="entity" id="entity_label">{{ 'PARTIESDETAILS_ENTITY' | translate }}<span
+                      class="required-field-symbol">*</span>&nbsp;</label>
+                  <input formControlName="entity" (click)="updateLicenseList()" type="text" readonly pInputText />
+                  <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="entity_search" (click)="updateLicenseList()"></a>
+                </div>
+              </ng-template>
+            </ng-template>
+          </div>
+          <fcc-trade-party-details [bankType]="'applicant'" *ngIf="bgRecord" [bgRecord]="bgRecord"
+            [genericBankDetails]="applicantDetailsFormSection" [labelName]="'PARTIESDETAILS_NAME'"
+            [labelAddress]="'PARTIESDETAILS_ADDRESS'" [labelCountry]="'PARTIESDETAILS_CONTRY'">
+          </fcc-trade-party-details>
+        </div>
+        <fcc-iu-common-alt-applicant-details *ngIf="bgRecord" [bgRecord]="bgRecord" (formReady)="addToForm('altApplicantDetailsFormSection', $event)">
+        </fcc-iu-common-alt-applicant-details>
+      </p-panel>
+      <p-confirmDialog id="deleteConfirmDialogEnt" class="lf-confirm-dialog" key='deleteLicenseConfirmDialogEnt'
+        icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    </form>
+  </div>
+  <ng-template #view_content>
+    <div *ngIf="iuCommonDataService.getPreviewOption() !== 'SUMMARY'">
+      <p-panel *ngIf="mode !== 'initiateAmend'" header="{{ 'HEADER_APPLICANT_DETAILS' | translate }}"
+        [toggleable]="true" [collapsed]="false">
+        <!-- Entity: -->
+        <div id="entity_view_row" *ngIf="bgRecord['entity'] !== null && bgRecord['entity'] != ''">
+          <label for="entity" id="entity_label">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['entity']}}</label>
+        </div>
+        <!--Applicant Details View-->
+        <fcc-trade-party-details [bankType]="'applicant'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord"
+          [viewMode]="true"></fcc-trade-party-details>
+        <fcc-iu-common-alt-applicant-details *ngIf="bgRecord" [bgRecord]="bgRecord">
+        </fcc-iu-common-alt-applicant-details>
+      </p-panel>
+    </div>
+  </ng-template>
+</div>

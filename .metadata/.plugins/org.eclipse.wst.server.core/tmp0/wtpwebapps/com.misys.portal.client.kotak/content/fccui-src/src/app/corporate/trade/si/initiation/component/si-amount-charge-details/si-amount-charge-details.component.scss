@@ -1,0 +1,234 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .form-header {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .ui-float-label label {
+  font-weight: 400;
+}
+
+:host ::ng-deep .mat-radio-checked .mat-radio-label {
+  font-weight: bold;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  min-width: 100%;
+  resize: none;
+}
+
+:host ::ng-deep .ui-radiobutton-label {
+  color: $CHARCOAL-F100;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: none;
+  border-bottom: 0.06em solid $GREY-02;
+}
+:host ::ng-deep .mat-checkbox {
+  padding-left: 0em;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  background-color: $WHITE !important;
+  border-color: $VIOLET-F100;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: $VIOLET-F100;
+  background-color: $WHITE !important;
+  color: $WHITE;
+  box-shadow: $WHITE;
+}
+
+:host
+  ::ng-deep
+  .ui-radiobutton
+  .ui-radiobutton-box.ui-state-active
+  .ui-radiobutton-icon {
+  background-color: $VIOLET-F100;
+  border-color: $VIOLET-F100;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border: 0.1em solid $VIOLET-F100;
+  background-color: $WHITE-10;
+  color: $WHITE;
+}
+
+:host ::ng-deep .ui-radiobutton .ui-radiobutton-box {
+  background-color: none;
+}
+
+:host ::ng-deep .issuance_radio.p-grid,
+:host ::ng-deep .issuance_radio .p-grid,
+:host ::ng-deep .corresponding_radio.p-grid,
+:host ::ng-deep .corresponding_radio .p-grid,
+:host ::ng-deep .confirm_radio.p-grid,
+:host ::ng-deep .confirm_radio .p-grid {
+  width: 100%;
+}
+
+:host ::ng-deep .tolplus {
+  color: $CHARCOAL-F100;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep .tolminus {
+  color: $CHARCOAL-F100;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items-wrapper {
+  overflow-x: hidden;
+  background-color: $WHITE !important;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item,
+:host ::ng-deep body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group {
+  margin: 0;
+  padding: 0.429em 0.857em;
+  border: 0 none;
+  color: $GRAY-HEX-20;
+  border-radius: 0;
+}
+
+:host ::ng-deep p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+:host ::ng-deep p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+:host ::ng-deep .infoDropDownIcon {
+  position: absolute;
+  right: -0.2em;
+  top: 0.2em;
+}
+
+:host ::ng-deep .fcc-radio-button .infodisplaylabel {
+  margin-top: 1em !important;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger {
+  border-bottom: 0.06em solid $VIOLET-03;
+  border-radius: 0em;
+}
+
+:host ::ng-deep .currencyView .fieldvalue {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .incDecAmt {
+  padding-right: 0.7em !important;
+}
+
+:host ::ng-deep .incDecAmt > div {
+  padding-left: 0em;
+  margin-left: -1.3em;
+  padding-right: 0em;
+}
+
+:host ::ng-deep .orgLCAmtStyle {
+  padding-top: 0em;
+}
+
+:host ::ng-deep .orgLCAmtStyle .label-header {
+  padding-bottom: 0em;
+  color: $CHARCOAL-F75;
+}
+
+:host ::ng-deep .orgLCAmtStyle .fieldvalue {
+  padding-top: 0.4em;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0em 0;
+}
+
+:host ::ng-deep .newLCAmtStyle input.mat-input-element {
+  font-weight: 500;
+  color: $VIOLET-F100;
+}
+
+:host ::ng-deep .newLCAmtStyle .mat-form-field-label {
+  color: $VIOLET-F100;
+}
+
+:host ::ng-deep .incDecAmt .fcc-field-message {
+  margin-top: -2em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: $VIOLET-F100;
+}
+
+:host ::ng-deep .revolveStyle{
+  position: relative;
+  top: 0 !important;
+}
+:host ::ng-deep .subheader-title{
+  margin-top:0 !important;
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep .mat-input-element{
+  color: $BLACK !important;
+}
+
+:host ::ng-deep .siIssuingBankCharges {
+    margin-top: 0.8em !important;
+  }
+
+  :host ::ng-deep .siOutStdcurCharges {
+    margin-top: 0.8em !important;
+  }
+
+  :host ::ng-deep .siOutStdCurOptions {
+    margin-top: 0.8em !important;
+  }
+
+  :host ::ng-deep .variation {
+    padding-top: 1.5em !important;
+  }
+
+  :host ::ng-deep .indented-text-area-field-35 {
+    width: 100% !important;
+    margin-top: 2em;
+    margin: 0em !important;
+  }
+
+  :host ::ng-deep .indented-text-area-field-35 textarea {
+    line-height: 1.4em;
+    font-size: 1em !important;
+    resize: none;
+    font-family: Roboto !important;
+  }
+
+  :host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+    width: 100% !important;
+    margin-top: 2em;
+    margin: 0em !important;
+  }
+
+  :host ::ng-deep .lcAmountheader {
+    margin-top: 38px !important;
+    margin-bottom: 0 !important;
+  }
+
+  :host ::ng-deep .characterCountDivfield .ui-widget {
+    width: 100%; 
+    padding-right: 0.159em;
+  }

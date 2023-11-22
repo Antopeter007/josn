@@ -1,0 +1,1203 @@
+A:Link  {
+	text-decoration : none;
+	color : #626264;
+	font-size: 11px;
+}
+
+A:Active  {
+	text-decoration : none;
+	color : #626264;
+	font-size: 11px;
+}
+
+A:Visited  {
+	text-decoration : none;
+	font-size: 11px;
+}
+
+A:Hover  {
+	text-decoration : underline;
+	color : #6b8f00;
+}
+
+A.siteMap:link {
+color: #ffffff; 
+font-size: 11px;
+font-weight: bold;
+padding-left: 5px;
+height: 15px;
+}
+
+A.siteMap:visited {
+color: #ffffff; 
+font-size: 11px;
+font-weight: bold;
+padding-left: 5px;
+height: 15px;
+}
+
+A.headingRmBold:link {
+	color: #ffffff;
+}
+
+A.headingRmBold:visited {
+	color: #ffffff;
+}
+
+A.rm {color: #993300; 
+font-size: 10px;
+font-weight: bold;
+}
+A.whiteFont_Bold{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	font-size: 11px;
+}
+
+A.fxLink:link{
+	color: #6A995C;
+}
+
+A.markLink:link{
+	color: #B31400
+	}
+
+A.NetscapenavBar{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #FFFFFF;
+font-weight: bold;
+font-size: 10px;
+text-decoration: none; 
+}
+
+A.IEnavBar:link{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #FFFFFF ;
+font-weight: bold;
+font-size: 7pt;
+text-decoration: none; 
+}
+A.IEnavBar:active{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #FFFFFF ;
+font-weight: bold;
+font-size: 7pt;
+text-decoration: none; 
+}
+A.IEnavBar:visited{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #FFFFFF ;
+font-weight: bold;
+font-size: 7pt;
+text-decoration: none; 
+}
+A.IEnavBar:hover{color: #EEEEEE;}
+
+
+
+A {color: #626264; }
+
+A.fxLink:link{
+	color: #6A995C;
+}
+
+A.markLink:link{
+	color: #B31400
+	}
+
+A.actuateLeftSidebar:link, A.actuateLeftSidebar:active, A.actuateLeftSidebar:visited  {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #3A2B7C;
+	font-size: 11px;
+	}
+	
+A.smallLink:link {
+font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #000000; 
+font-size: 7.5pt;
+font-weight: bold;
+text-decoration: none; 
+}	
+
+A.smallLink:active{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #000000 ;
+font-weight: bold;
+font-size: 7.5pt;
+text-decoration: none; 
+}
+A.smallLink:visited{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #000000 ;
+font-weight: bold;
+font-size: 7.5pt;
+text-decoration: none; 
+}
+
+A.smallLink:hover{
+color: #000000 ;
+font-weight: bold;
+text-decoration: underline; 
+}
+
+B {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	font-size: 11px;	
+	}
+
+.clickPath {
+	font-family:  Arial, Verdana, Geneva, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 10px;
+}
+
+.clickPath:link {
+	font-family:  Arial, Verdana, Geneva, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 10px;
+}
+
+.clickPath:visited {
+	font-family:  Arial, Verdana, Geneva, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 10px;
+}
+
+.groupHeader {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	color: #993300;
+	font-size: 16px;
+}
+
+.sectionHeader {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #5E432A;
+	font-size: 11pt;
+}
+
+.sectionHeaderMain {
+	font-family:  Verdana;
+	font-weight: normal;
+	color: #666665;
+	font-size: 24px;
+}
+
+.sectionHeaderMod {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #5E432A;
+	font-size: 10pt;
+}
+
+.insideArtArchive {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	font-size: 11px;
+}
+
+.insideArtTable {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 16px;
+}
+
+.sectionBlurb {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 11px;
+}
+.smallTable{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 6.5pt;
+}
+
+.smallTableBold{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	font-size: 6.5pt;
+}
+.underline {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 11px;
+	text-decoration : underline;
+}
+
+.bodyText {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 11px;
+	}
+	
+.ALTbodyText {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #9C5400;
+	font-size: 10px;
+	}	
+
+.JVbodyText {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 10px;
+	font-weight: bold;
+	}	
+	
+.list	{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color:  #000000;
+	type: disk;
+
+}
+.articleHead {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #993300;
+	font-size: 16px;
+}
+.moreFrom {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 10px;
+}
+.indent{
+	margin-left : 5%;
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 11px;
+}
+.italic_indent{ 
+	margin-left : 5%;
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	color: #000000;
+	font-size: 11px; 
+	}
+	
+.table_Indent{
+	margin-left : 5%;
+}	
+.heading{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #000000;
+}
+.headingRm{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	color: #000000;
+}
+.headingRmBold{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #ffffff;
+}
+.italic_heading{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 10px;
+	color: #000000;
+	
+}
+.underline_heading{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #000000;
+	text-decoration : underline;
+}
+.table_heading{
+	margin-left : 5%;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #000000;
+}	
+.barHeading{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	font-size: 10px;
+}	
+
+.whiteFont{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #ffffff;
+	font-size: 10px;
+}
+.whiteFont_Bold{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.body, .body p, .body ul, .body ol, .body ul li, .body ol li {
+	font-family:		Verdana;
+	font-size:			8pt;
+}
+
+.body h3, .body h4, .body h5, .body h6 {
+	font-family:		Arial;
+}
+
+.body h3 {	font-size:		12pt;	}
+.body h4 {	font-size:		10.5pt;	}
+.body h5 {	
+	font-size:			10pt;
+	font-weight:		normal;
+	font-style:			italic;
+}
+.body h6 {
+	font-size:			8pt;
+	font-weight:		normal;
+	font-style:			italic;
+}
+
+.body table {
+	font-family:		Verdana;
+	font-size:			8pt;
+	border-collapse:	collapse;
+	empty-cells:		show;
+}
+
+.body td {
+	font-family:		Verdana;
+	font-size:			8pt;
+}
+
+.body th {
+	font-family:		Verdana;
+	font-size:			8pt;
+	font-weight:		bold;
+}
+
+
+	.custom_TR{
+	background: #9E8F6C; 
+	}
+	.custom_TD_LT{
+	background: #B3BCA5; 
+	}
+	.custom_Table_BK{
+	background: #F7F7F7; 
+	}
+	.customTR{
+	background: #9E8F6C; 
+	}
+	.customTDLT{
+	background: #C3B89F;
+	}
+	.pimcoCustomTDLT{
+		background: #9E8F6C;
+	}
+	.customTableBK{
+	background: #F7F7F7; 
+	}
+	
+	.customHighlight{
+	background: #F5F5F5; 
+	}	
+	
+	.customNavDiv{
+	background: #606A33; 
+	}
+	.GenTblBkgrnd {  color: #000000; background-color: #EFEFEF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+.GenHeadText {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #003366; font-weight: bold}
+.GenBarHead { background-color: #003366; font-family: Verdana, Arial; font-size: 10pt; color: #ffffff; font-style: normal; font-weight: bold }
+.GenSmTextDk {  font-family: Verdana, Arial; font-size: 7pt; color: #003366}
+.GenSmTextLt { font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF; background-position: center; font-weight: bold}
+.GenBarDk { background-color: #003366 }
+.GenNavTextDk { font-family: Verdana, Arial; font-size: 7pt; color: #003366 }
+.GenNavTextLt { font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF }
+.GenBarLt { background-color: #B8B8B8}
+.GenHeadTextBlk { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; font-weight: bold}
+.GenSmTextBlk { font-family: Verdana, Arial; font-size: 7pt; color: #000000; font-weight: bold}
+.GenTextRed { font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF }
+
+.verticalDivider{ 
+	background: #666666;
+ }
+ 
+.ActuateLinkOff {
+	color: #339933;
+}
+
+.ActuateLinkOn {
+	color: #993300;
+}
+
+.ActuateLinkOver {
+	color: #CCCCCC;
+}
+
+.ActuateLinkDisable {
+	color:  #aaaaaa;
+}
+
+.ActuateLinkDown {  
+	color: #CCCCCC;;
+}
+
+.footer {  
+	color: #6b636b;;
+	font-family:  Arial;
+	font-weight: normal;
+	font-size: 10px;
+}
+
+.rmChartText{
+	font-family: Arial;
+	font-weight: normal;
+	color: #000000;
+	font-size: 7.5pt;
+}
+
+.rmChartHeader{
+	font-family: Arial;
+	font-weight: normal;
+	color: #9C5400;
+	font-size: 7.5pt;
+}
+
+.rmChartLink{
+	font-family: Arial;
+	font-weight: normal;
+	color: #9C5400;
+	font-size: 7.5pt;
+}
+
+.bodyTextGreen {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #008000;
+	font-size: 11px;
+	}
+
+.bodyTextRed {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #ff0000;
+	font-size: 11px;
+	}
+
+.bodyTextBlue {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #0000ff;
+	font-size: 11px;
+	}
+
+.bodyTextPurple {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #800080;
+	font-size: 11px;
+	}
+	
+.bodyTextPad {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 11px;
+	padding-left:6px;
+	padding-right:6px;
+	padding-top:15px;
+}
+
+/******* begin banner and navbar ********/
+
+#banner {
+	width: 100%;
+	height: 60px;
+}
+
+#banner #jv_logo img {
+	float: left;
+	margin: 5px 0 0 10px;
+	background-color: white;
+}
+
+#banner #wb_logo {
+	float: right;
+	background-image: url('/images/jv_specific/MELLON/Workbench_logoExt.gif');	
+	width: 146px;
+	height: 60px;
+}
+
+#navbar {
+	width: 100%;
+	font-size: 10px;
+	height: 33px;
+	background-color: #DCDCDC;
+}
+
+#navbar a {
+	color: #000000;	
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#nav_main div {	
+	border-left: 1px white solid;
+	/*height: 33px;*/
+	float: left;
+	text-align: center;
+	/* padding: 10px 15px 10px 15px; */
+	list-style: none;
+	display: inline;
+	line-height: 33px;
+	border-right: 1px #ffffff solid;
+
+}
+
+#nav_main div a {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	/*display: block;*/
+	font-size: 9px;
+	font-weight: bold;
+	padding: 10px 15px 10px 15px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#nav_main div a:hover {
+	color: #ffffff;
+	background: #8599a8;
+	margin: 0;
+}
+
+#nav_main div a.currentPage {
+	color: #ffffff;
+	background: #8599a8;
+	margin: 0;
+}
+
+#navbar #date {
+	text-align: left;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+
+#navbar #nav_date {	
+	background-repeat: repeat-x;
+	background-position-y:100%;	
+	font-weight:normal;
+	text-decoration: none;
+}
+
+#navbar a#nav_date:hover  {	
+	background-repeat: repeat-x;
+	background-position-y:100%;	
+	font-weight:normal;
+	text-decoration: underline;	
+	background-color:#DCDCDC;
+	color:#000000;
+}
+
+
+#navbar #nav_main {
+	float: left;
+	border-right: 1px white solid;
+	
+}
+
+#navbar #nav_serv {
+	padding-top: 7px;
+    padding-right: 5px;
+    float: right;
+	text-align: right;
+	height: 33px;
+}
+
+#navbar form {
+	margin: 0;
+	display: inline;
+}
+
+#navbar select, option {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+#navbar optgroup {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;	
+}
+
+/******* end banner and navbar ********/
+#footer {
+	border-top: 2px #CCCCCC solid;
+	font-size: 10px;
+	font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+	padding: 10px;
+	height: 15px;
+	clear: both;
+	background-color: #EEEEEE;
+	color: #6b636b;
+}
+
+#footer #copyright {
+	float: left;
+}
+
+#footer #privacy {
+	float: right;
+}
+
+/*Workbook*/
+.wrkTableHeader, .wrkTableHeaderCheckBox  {
+	font-weight:bold;
+	padding: 2px;
+	background-image: url("/images/jv_specific/MELLON/tableHeaderBack2.jpg");
+	height:20px;	
+	border-bottom:solid 1px #CCCCCC;
+	border-top:solid 1px #CCCCCC;
+	font-size: 11px;
+	white-space: nowrap;
+}
+
+.wrkTableHeaderCheckBox{ padding:0px;}
+
+.wrkTableHeaderCenter {
+	text-align: center;
+	font-weight:bold;	
+	padding: 2px;
+	background-image: url("/images/jv_specific/MELLON/tableHeaderBack2.jpg");
+	height:20px;	
+	border-bottom:solid 1px #CCCCCC;
+	border-top:solid 1px #CCCCCC;
+	font-size: 11px;	
+	color:#FFFFFF;
+	white-space: nowrap;
+}
+
+#wrkInfoBoxTop {
+	background-image: url("/images/jv_specific/MELLON/tableHeaderBack2.jpg");
+	height: 18px;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-left: 4px;
+	padding-top: 1px;
+}
+
+#popupJVTop {
+	background-color: #9E8F6C;
+	height: 28px;
+	border-bottom: solid 1px #FFFFFF;
+	padding-bottom: 2px;
+}
+
+
+/* Begining of Generator styles */
+
+.GenTblBkgrnd {color: #000000; background-color: #faf6e3; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+
+.GenHeadText {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #003366; font-weight: bold}
+
+.GenBarHead { background-color: #003366; font-family: Verdana, Arial; font-size: 10pt; color: #ffffff; font-style: normal; font-weight: bold }
+
+.GenSmTextDk {  font-family: Verdana, Arial; font-size: 7pt; color: #003366}
+
+.GenSmTextLt { font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF; background-position: center; font-weight: bold}
+
+.GenSmText {font-family: Verdana, Arial; font-size: 7pt; color: #000000}
+
+.GenBarDk { background-color: #003366 }
+
+.GenNavTextDk { font-family: Verdana, Arial; font-size: 7pt; color: #003366 }
+
+.GenNavTextLt { font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF }
+
+.GenNavBkgrdDk {	background-color: #00406E }
+
+.GenBarLt { background-color:  #faf6e3}
+
+.GenHeadTextBlk { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; font-weight: bold}
+
+.GenSmTextBlk { font-family: Verdana, Arial; font-size: 7pt; color: #000000; font-weight: bold}
+
+.GenRedMsgItalic { font-family: Verdana, Arial; font-size: 7pt; font-style: italic; color: #FF0000 }
+.GenTextRed { font-family: Verdana, Arial; font-size: 7pt; color: #FF0000 }
+.GenGrMsgBold { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: green }
+.GenGrMsgItalic { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: italic; color: green }
+
+.GenTbl2Back { border: 0px solid; color: #000000; background-color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+.GenTbl2Row1 { background-color: #FFFFFF }
+.GenErrorMsg{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #FF0000;}
+
+A.GenSmTextLt:link{font-family: Verdana, Arial; color: #cc9900; font-weight: bold; font-size: 7pt; text-decoration : underline;}
+
+.indent1 {margin-left: 2em;}
+.indent2 {margin-left: 4em;}
+.indent3 {margin-left: 6em;}
+
+.fivePxDarkBar {height: 5px; width: 100%; background-color:#003366 }
+.onePxLightBar {height: 1px; width: 100%; background-color:#FFFFFF}
+.dateHeader {height: 40px; width: 100%; background-color: #FFFFFF}
+
+.bodyTextAlignCenter {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 10px;
+	text-align: center;
+	}	
+
+/* Show Sample links in the Report Output screen */
+a.prefLink {
+  font-weight: normal;
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+/* For preferences, centering form tables */
+.alignCenter {
+  text-align: center;
+}
+
+/* For preferences, vertically aligning the checkboxes in the middle of the table cell */
+.alignMiddle {
+  vertical-align: middle;
+}
+
+/* For preferences, aligning the submit button to the right of the table cell */
+.alignRight {
+  text-align: right;
+}
+
+/* For preferences, vertically aligning the selection arrows and boxes at the top of the table cell */
+.alignTop {
+  vertical-align: top;
+}
+
+/* Error messages */
+.error {
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 8pt; 
+  font-style: normal; 
+  color: red;
+  text-align: left;
+}
+
+/* Eliminating the borders and allocate spacing around the selection arrows */
+.prefArrow {
+  border: 0px;
+  margin: 2px 5px;
+  vertical-align: top;
+}
+
+/* Field labels used in the Columns, Report Output and Time Zone preferences screen */
+.prefLabel {
+  font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  font-size: 7pt;
+  text-align: right;
+  vertical-align: top;
+}
+
+/* For the bigger selection boxes on the Accounts/Indices, Columns and Time Zone screens */
+.prefSelect {
+  background-color: white;
+  font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #000000;
+  font-size: 7pt;
+  width: 250px;
+}
+
+/* For the smaller selection boxes on the Report Output screens */
+.prefSmSelect {
+  font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #000000;
+  font-size: 7pt;
+  width: 150px;
+}
+
+/* Allocating spaces around the table cells in all forms */
+.prefTable {
+  border: 0px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* For preferences, in the Accounts/Indices and Time Zone screen headers */
+.prefsHeader {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #00406e;
+	font-size: 8pt;
+	text-align: left;
+}
+
+.prefsBlurb {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 8pt;
+	text-align: left;
+}
+
+/* For preferences, in the detail even and odd row sub-headers in the Report Output screen */
+.prefsSubHeader {
+  font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #993300;
+  font-size: 8pt;
+  text-align: center;
+}
+
+.GenTblOutline 
+{
+	background-color: #FFFFFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #a9c6e2;
+	border-right-color: #a9c6e2;
+	border-bottom-color: #a9c6e2;
+	border-left-color: #a9c6e2;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	text-align: left;
+	height: auto;
+	padding: 2px 10px;
+
+}
+.GenTblOutlineNoBorder 
+{
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #000000;
+	font-size: 10px;
+	background-color: #FFFFFF;
+	text-align: left;
+	height: auto;
+	padding: 2px 4px 0px 0px;
+}
+
+.GenTblTopBrdr {
+	width: 100%;
+	border-top-color: black;
+	border-top-style: solid;
+	border-top-width: 2px;
+}
+
+.GenGoldHeading{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #cc9900;
+}
+	/* END of Generator styles */
+	
+/*Custom Content Styles */
+	
+.customContainer {
+	margin-top:20px;
+	border: 1px solid #999999;
+	padding: 1px; 
+	position: relative; 
+	width: 100%; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.customList {
+	background: url('/images/jv_specific/MELLON/bullettype1.gif') no-repeat;
+	background-position: left top;
+	padding-left:20px;
+	margin:5px 0 5px 0;
+	
+}
+
+.customIndBox { border: solid 1px #B8B8B8; margin:20px; }
+
+.customIndBoxSub { margin:10px; }
+
+.customIndBox ul { list-style-image: url('/images/jv_specific/MELLON/bullettype1.gif'); margin-top:5px; margin-bottom:5px;}
+
+.customIndTitle {
+	background:url('/images/main/customHeaderBG.jpg');
+	height:18px;
+	font-weight:bold;
+	padding:2px 0 0 5px;
+	border-bottom:solid 1px #B8B8B8;
+}
+
+.colHeader { 
+	border: solid 1px #B8B8B8;
+	color:#FFF;
+	margin:20px; 
+	padding: 2px;
+	background-color:#799BC4;
+	background-position: right center;
+	background-image:url(/images/main/ccColHeader.gif);
+	background-repeat: no-repeat;
+	font-family: arial;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.Gen52NavSectionHeading
+{
+	background-color: #F7F3F7;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCCCCC;
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: #CCCCCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #9C8A7B;
+	text-align: left;
+	height: 16px;
+	text-transform: uppercase;
+}
+
+.Gen52NavGreen
+{
+  font-family: Verdana, Arial; 
+  font-size: 7pt;
+  color: green;			
+  font-weight: normal;						   	   
+}
+
+.Gen52NavRed
+{
+  font-family: Verdana, Arial; 
+  font-size: 7pt;
+  font-weight:bold;
+  color: #990000;								
+  font-weight: normal; 
+}
+
+.Gen52NavLink
+{
+  font-family: Verdana, Arial; font-size: 6pt; color: #003366; font-weight: normal 
+}
+
+
+.Gen52NavLinkBold
+{
+  font-family: Verdana, Arial; font-size: 6pt; color: #CC6600; font-weight: bold 
+}
+
+
+A.Gen52NavLinkBold:link
+{
+  font-weight: bold;
+  color: #CC6600;
+  text-decoration: none; 
+}
+
+A.Gen52NavLinkBold:hover
+{
+  font-weight: bold;
+  color: #CC6600;
+  text-decoration: underline; 
+}
+
+A.Gen52NavLink:hover
+{
+  font-weight: normal;
+  text-decoration: underline; 
+}
+
+A.Gen52NavGreen:hover
+{
+  font-weight: normal;
+  text-decoration: underline; 
+}
+
+A.Gen52NavRed:hover
+{
+  font-weight: normal;
+  text-decoration: none; 
+}
+
+
+
+/*********THE FOLLOWING STYLES WERE MODIFIED FOR GENERATOR SRO *************/
+/***Notes: Changed yellow in GenTbl2Row2 from ffffcc to fcfbe8.            */
+/***Changed blue in GenBarWText and GenBarMed from a9c6e2 to 6d81a4.       */
+/***Changed font-size to 8pt in GenErrorMsg                                */
+/***Changed border_bottom_color in GenBarMed2 from 003366 to a9c6e2        */
+/**************************************************************************/
+
+.GenTbl2Row2 { background-color: #FCFBE8 }
+.GenBarWText {  font-family: Verdana, Arial; font-size: 7pt; color: #FFFFFF; background-color: #6D81A4}
+.GenBarMed { background-color: #6D81A4}
+.GenErrorMsg{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8pt;
+	color: #FF0000;}
+.GenBarMed2 {
+	background-color: #FFFFFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 3px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #a9c6e2;
+	border-right-color: #a9c6e2;
+	border-bottom-color: #a9c6e2;
+	border-left-color: #a9c6e2;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+	text-align: left;
+	height: 16px;
+	text-transform: uppercase;
+}  
+
+
+/*********END SRO *********************************************************/
+
+
+/*JD:02/28/06 Customize help info*/
+DIV.helpSectionOrderedList, DIV.helpSectionUnOrderedList, DIV.helpSectionNote, DIV.helpSectionTitle, DIV.helpSectionOrderedListName, DIV.helpSectionOrderedListDesc{font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;font-weight: normal;color: #000000;font-size: 11px;}
+LI.helpBullet, LI.helpBulletOrdered{list-style-position:outside;}
+	LI.helpBulletOrdered {margin-bottom:12px;}
+DIV.helpContentSectionWrapper {margin-top:15px;}
+DIV.helpSectionOrderedList {}
+DIV.helpSectionUnOrderedList {margin-left:30px;margin-bottom:12px;}
+	DIV.helpSectionOrderedListName {float:left;font-weight:bold;}
+	DIV.helpSectionOrderedListDesc {float:left; margin-left:10px;}
+DIV.helpSectionNote {margin-bottom:12px;}
+DIV.helpSectionTitle {margin-bottom:12px;}
+
+
+/*Password Change Page*/
+.greybox {
+		background: #f8f8f8; 
+        margin: 12px 12px 12px 12px;
+        padding: 3px 3px 3px 3px;
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-weight: normal;
+		color: #4C4C4C;
+		font-size: 10px;
+		text-align: left;
+		list-style-type: square;
+}
+
+
+#services_menu {
+	background-color: #E9E9E9;
+}
+
+#side_content h2 {
+	background-color: #9E8F6C;
+}
+
+#side_content h2 span {
+	color: #FFFFFF;
+}
+
+/* ****************************************** */
+/* The next four styles are needed by BenPay. */
+/* They share our styles.  DO NOT REMOVE.     */
+/* ****************************************** */
+A.contentHeading:link {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #626264;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none; 
+}	
+
+A.contentHeading:active {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #626264;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none; 
+}
+
+A.contentHeading:visited {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #626264;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none; 
+}
+
+A.contentHeading:hover {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #6B8F00;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: underline; 
+}
+
+
+#tagBNYM01{
+	BORDER-RIGHT: #959f55 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #959f55 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 10px; PADDING-BOTTOM: 2px; BORDER-LEFT: #959f55 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #959f55 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #e5e8d4
+}
+
+.sectionHeaderSmall {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 11px;
+}
+
+.myLoginHeader{
+	font-family:Myriad Pro,Verdana,Geneva,Arial,Helvetica,sans-serif;
+	color:#000000;
+	font-size:13px;
+	font-weight:bold;
+	padding-left: 6px;
+}
+.sectionHeaderGold {
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #AB8433;
+	font-size: 11pt;
+}

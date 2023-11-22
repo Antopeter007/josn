@@ -1,0 +1,30 @@
+.finishMsg {
+  font-size: 0.8em;
+}
+
+.Dlogo {
+  padding-left: 6.5em;
+  padding-right: .3em;
+}
+
+.Clogo {
+  padding-left: 1.6em;
+  padding-right: .3em;
+}
+
+.MinChdwidth {
+  width: 100%;
+}
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em;
+  margin-top: 1em;
+}
+
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent !important; 
+}

@@ -1,0 +1,99 @@
+:host ::ng-deep .form-header {
+  font-size: 1.125em;
+  margin-top: 1.25em;
+  color: rgb(81, 81, 201);
+  font-weight: 700;
+}
+:host ::ng-deep .ui-inputtext {
+  font-size: 0.875em;
+  color: #333333;
+  padding: 0.429em 0.429em 0.429em 0em;
+  border-bottom: 0.06em solid #a6a6a6;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-fileupload .ui-fileupload-buttonbar {
+    background-color: #fff !important;
+    border: none !important;
+}
+:host ::ng-deep .ui-fileupload .ui-fileupload-content{
+    border: none !important;
+    max-width: 27.8em !important;
+}
+:host ::ng-deep .UploadButton{
+      width: 100%;
+      color: #c137a2  !important;
+      border-radius: 1.125em !important;
+      padding: 0 1em !important;
+      min-width: 4em !important;
+      line-height: 2.25em !important;
+      font-size: 0.875em !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+      outline: 0 !important;
+      border-color: #c137a2  !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      vertical-align: baseline !important;
+      text-align: center !important;
+      background-color: #fff !important;
+
+}
+:host ::ng-deep .ui-inputtext.ng-dirty.ng-invalid {
+  border: none;
+  border-bottom: 0.075em solid #ff0000;
+}
+:host ::ng-deep .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: #694ed6;
+  outline: 0 none;
+  box-shadow: none;
+  border-bottom: 0.08em solid #694ed6;
+}
+:host ::ng-deep .ui-inputtext {
+  font-size: 0.875em;
+  color: #333333;
+  padding: 0.429em 0.429em 0.429em 0em;
+  border-bottom: 0.06em solid #a6a6a6 !important;
+  width: 100%;
+  border: none;
+  border-radius: 0em !important;
+}
+:host ::ng-deep .ui-button{
+  background-color: #c137a2 !important;
+  border-radius: 1.125em !important;
+  border: 0px solid #007ad9 !important;
+}
+:host ::ng-deep .ui-corner-right {
+  border-bottom-right-radius: 0em !important;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  background-color: #694ed6 !important;
+  color: #fff !important;
+}
+:host ::ng-deep .ui-fileupload-row>div {
+  display: block !important;
+  overflow-wrap: break-word;
+  max-width: 27.8em !important;
+  text-align: center;
+  padding-bottom: 0em !important;
+}
+:host ::ng-deep .ui-button-icon-only .ui-button-icon-left {
+   background-color: #c137a2 !important;
+}
+:host ::ng-deep .ui-fileupload .ui-progressbar{
+  display: none !important;
+}
+
+:host ::ng-deep .fileUploadError {
+  text-align: center !important;
+  font-size: 1em !important;
+  font-weight: normal !important;
+  color: #bb0000 !important;
+  margin: 0em !important;
+  padding-top: 0.1em !important;
+}

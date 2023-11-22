@@ -1,0 +1,82 @@
+{
+    "accounts": [
+        {
+            "subcategory": "Accounts",
+            "icon": "content/FCCUI/assets/icons/StatementRegistration.svg"
+        }
+      ],
+      "paymentGateway": [
+        {
+            "subcategory": "Payment Gateway OTP below Rs.2000",
+            "icon": "content/FCCUI/assets/icons/Premature_Withdrawal.svg"
+        },
+        {
+            "subcategory": "Client ID registration for online trading",
+            "icon": "content/FCCUI/assets/icons/Submit_Form_15G_H.svg"
+        },
+        {
+            "subcategory": "Register for Payment Gateway",
+            "icon": "content/FCCUI/assets/icons/Simulate_Preclosure.svg"
+        }
+      ],
+     "profile": [
+        {
+            "subcategory": "Username",
+            "icon": "content/FCCUI/assets/icons/Block_Card.svg"
+        },
+        {
+            "subcategory": "Update mobile number",
+            "icon": "content/FCCUI/assets/icons/Image_Card.svg"
+        },
+        {
+            "subcategory": "Update Email ID",
+            "icon": "content/FCCUI/assets/icons/Add_onCardRequest.svg"
+        },
+        {
+            "subcategory": "Communication address",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        },
+        {
+            "subcategory": "Home branch name",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        },
+        {
+            "subcategory": "Your Relationship Manager",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        },
+        {
+            "subcategory": "PAN",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        },
+        {
+            "subcategory": "DNC",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        },
+        {
+            "subcategory": "Amount format",
+            "icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg"
+        }
+    ],
+    "security": [
+        {
+            "subcategory": "NB Password",
+            "icon": "content/FCCUI/assets/icons/Replacement_Card.svg"
+        },
+        {
+            "subcategory": "Security questions",
+            "icon": "content/FCCUI/assets/icons/Add_onCardRequest.svg"
+        },
+        {
+            "subcategory": "Mother's Maiden Name",
+            "icon": "content/FCCUI/assets/icons/Block_Card.svg"
+        },
+        {
+            "subcategory": "Noticed something strange?",
+            "icon": "content/FCCUI/assets/icons/Block_Card.svg"
+        },
+        {
+            "subcategory": "2 step verification",
+            "icon": "content/FCCUI/assets/icons/Block_Card.svg"
+        }
+    ]
+  }

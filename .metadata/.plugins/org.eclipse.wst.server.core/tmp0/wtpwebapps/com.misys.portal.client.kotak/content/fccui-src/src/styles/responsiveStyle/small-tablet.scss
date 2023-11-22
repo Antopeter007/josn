@@ -1,0 +1,9 @@
+
+@import '../responsiveStyle//breakpoints.scss';
+
+.entirePage , .verMenuCssClass {
+    @include smallTablet {
+    //  width:$large-tablet-size-up !important;
+     // overflow-x: scroll;
+    }
+  }

@@ -1,0 +1,54 @@
+<div [ngClass]="menuToggleFlag === 'true' ? 'parentContainerToggle' : 'parentContainer'" dir={{dir}} tabindex="0">
+    <div class="headerContainer" dir={{dir}}>
+        <br>
+        <strong id ="entityHeader" dir={{dir}} class="set-entity-header">{{'setEntity' | translate}}</strong> 
+        <button role="button"  mat-button (click)="onCloseMatDrawer($event)" [ngClass]="dir === 'rtl' ? 'icon-close-left' : 'icon-close'"  attr.aria-label="{{'close' | translate}}" title="{{'close' | translate}}">
+            <mat-icon aria-hidden="false" tabindex="0" aria-label="Close" [ngClass]="dir === 'rtl' ? 'left-align' : 'right-align'">close</mat-icon>
+        </button>
+        <br>
+        <br>
+        <strong dir={{dir}} class="set-entity-sub-header">{{'change' | translate}} {{productCode | translate}} {{'entity' | translate}}</strong>
+        <br>
+        <br>
+    </div>
+    <div class="bodyContainer" dir={{dir}}>
+        <div *ngFor="let field of fields" class="p-col-12 fieldClass">
+            <div class="p-col-12" style="padding-bottom: 0em; padding-top: 0.0625em;">
+                <mat-label class="labelHeaderNav">{{ field.label }}</mat-label>
+            </div>
+            <div class="p-col-12" style="padding-top: 0.3125em; padding-bottom: 0em;">
+                <mat-label class="labelValueNav">{{ field.value }}</mat-label>
+            </div>
+        </div>
+    </div>
+    <div class="footerContainer" dir={{dir}}>
+        <form [formGroup]="setEntityForm" (ngSubmit)="onSubmit()" autocomplete="off">
+            <div class="p-col-10 ui-float-label applicant_bene_entity_class setEntityDropdown" dir={{dir}}>
+                <p-dropdown [options]=options formControlName="entityDropdown" id="entityDropdown" [autoDisplayFirst]="false"
+                        dropdownIcon="pi pi-caret-down" [filter]="true" [required]="true" styleClass="fcc-dropdown"
+                        (onBlur)="onBlurEntityDropdown()" (onChange)="onChangeDropdown($event.value)" ariaFilterLabel = "{{ 'search' | translate }}">
+                        <ng-template let-item pTemplate="item">
+                            <div class="p-grid" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+                                <div class="p-col-6">{{item.value.label}} </div>
+                                <div class="p-col-6">{{item.value.name}}</div>
+                            </div>
+                        </ng-template>
+                </p-dropdown>
+                <label class="dropdownlabel" dir="{{dir}}" for="entityDropdown">
+                    {{ 'entity' | translate }}<a><em class='fa fa-asterisk fa-sm'></em></a>
+                </label>
+            </div>
+            <div aria-live="polite">
+              <span *ngIf = "hasError" id="invalid-error-text" class="invalid-error-text">{{errorHeader | translate}}: {{errorMsg}}</span>
+             </div>
+            <br>
+            <div class="p-col-12 margi-top">
+                <div class="p-grid">
+                  <div class="p-col-12">
+                    <p-button role="button"  type="submit" label="{{'submit' | translate}}" class="p-col-12 submitBtn" styleClass="primaryButton"></p-button>
+                  </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

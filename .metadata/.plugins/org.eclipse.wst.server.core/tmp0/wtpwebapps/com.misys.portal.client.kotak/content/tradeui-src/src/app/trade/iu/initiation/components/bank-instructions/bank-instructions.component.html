@@ -1,0 +1,15 @@
+  <div *ngIf="!this.commonDataService.getIsBankUser() && (iuCommonDataService.getDisplayMode() !== 'view' || iuCommonDataService.getMode() === 'UNSIGNED')">
+   <p-panel header="{{'HEADER_INSTRUCTIONS' | translate}}" [toggleable]="true" [collapsed] ="!this.collapsible">
+    <div [formGroup]="bankInstructionsForm">
+      <fcc-iu-common-bank-instructions [undertakingType]="'bg'" *ngIf="bgRecord" [bgRecord]="bgRecord" [formName]="bankInstructionsForm"></fcc-iu-common-bank-instructions>
+      </div>
+   </p-panel>
+  </div>
+
+  <div *ngIf="this.commonDataService.getIsBankUser()">
+    <p-panel header="{{'HEADER_INSTRUCTIONS_FROM_CUST' | translate}}" [toggleable]="true" [collapsed] ="false">
+     <div [formGroup]="bankInstructionsForm">
+       <fcc-iu-common-bank-instructions [undertakingType]="'bg'" *ngIf="bgRecord" [bgRecord]="bgRecord" [formName]="bankInstructionsForm"></fcc-iu-common-bank-instructions>
+       </div>
+    </p-panel>
+   </div>

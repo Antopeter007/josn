@@ -1,0 +1,70 @@
+<span class="sticky-button">
+  <em id= "taskIconId" class="fa fa-tasks "(click)="showPanel($event, taskPanel)"></em>
+  <span *ngIf="taskCount != 0" class="tasks-count">{{taskCount}}</span>
+
+  <p-overlayPanel class="{{commonService.getUserLanguage() === 'ar' ? 'overlaypanel-left' : 'overlaypanel-right'}}"id="taskOverLayPanel" #taskPanel [showCloseIcon]="true" [dismissable]="false" (mouseout)="taskPanel.show($event)"
+  (mouseleave)="taskPanel.show($event)">
+    <div>
+        <p-panel id="taskPanel" class="{{commonService.getUserLanguage() === 'ar' ? 'text-right-task' : 'text-left-task'}}"  header="{{ 'Tasks' | translate }}" [toggleable]="false" [collapsed]="false">
+            <div id="addTaskId" class="task-section">
+                <div>
+                    <h5>{{ 'Tasks' | translate }}</h5>
+                </div>
+                <div *ngIf="this.commonService.getPublicTasks().length == 0">
+                    {{'No Tasks' | translate}}
+                </div>
+                <div *ngIf ="this.commonService.getPublicTasks().length != 0">
+                    <div *ngFor="let task of publicTask; index as i">
+                      <div *ngIf="this.commonData.getIsBankUser() && task.type === '03' && task.assigneeType === '02'">
+                        <div id="publicTaskDetails" class="task-info">
+                        <span><em id= "taskIconId" class="{{(task.performed != null && task.performed === 'Y') ? 'fas fa-check' : 'fas fa-flag'}}"
+                         title="{{(task.performed != null && task.performed === 'Y') ? 'Completed' : 'Incomplete'}}" (click)="onCheckTaskCheckBox(task, i)"></em></span>
+                        <span class="word-wrap">&nbsp;{{task.description}}&nbsp;{{getTaskMessage(task)}}</span>
+                        <span class="word-wrap" *ngIf="task.issueUserId === this.commonService.getSessionData().userId && task.performed === 'N'"><a class="cursor" (click) ="editTask('Public', task, i)"><strong>{{' | '}}{{'USER_MODIFY' |translate}}</strong></a></span>
+                        <span><em id= "taskIconId" class="{{(task.comments != null && task.comments.length > 0) ? 'fas fa-comments' : 'far fa-comments'}}" title="Comments" (click)="addTaskComment(task, i)"></em></span>
+                        </div>
+                      </div>
+                      <div *ngIf="!this.commonData.getIsBankUser()">
+                        <div *ngIf="(task.issueUserId === this.commonService.getSessionData().userId) || (task.type === '02') || (task.type === '03' && task.assigneeType === '02')
+                        || (task.type === '03' && task.assigneeType === '01' && (task.destUserId === this.commonService.getSessionData().userId))" id="publicTaskDetails" class="task-info">
+                        <span><em id= "taskIconId" class="{{(task.performed != null && task.performed === 'Y') ? 'fas fa-check' : 'fas fa-flag'}}"
+                         title="{{(task.performed != null && task.performed === 'Y') ? 'Completed' : 'Incomplete'}}" (click)="onCheckTaskCheckBox(task, i)"></em></span>
+                        <span class="word-wrap">&nbsp;{{task.description}}&nbsp;{{getTaskMessage(task)}}</span>
+                        <span class="word-wrap" *ngIf="task.issueUserId === this.commonService.getSessionData().userId && task.performed === 'N'"><a class="cursor" (click) ="editTask('Public', task, i)"><strong>{{' | '}}{{'USER_MODIFY' |translate}}</strong></a></span>
+                        <span><em id= "taskIconId" class="{{(task.comments != null && task.comments.length > 0) ? 'fas fa-comments' : 'far fa-comments'}}" title="Comments" (click)="addTaskComment(task, i)"></em></span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div *ngIf="!this.commonData.getIsBankUser()">
+                    <button id="addTaskButtonId" type="button" class="primary-button" pButton label="{{'CREATE_TASK' | translate}}"
+                        (click)="addTask('Public')"></button>
+                </div>
+            </div>
+            <div id="myTasksId" class="task-section" *ngIf="!this.commonData.getIsBankUser()">
+                <div>
+                    <h5>{{ 'My Task' | translate }}</h5>
+                </div>
+                <div *ngIf="this.commonService.getPrivateTasks().length == 0">
+                    {{'No Tasks' | translate}}
+                </div>
+                <div *ngIf ="this.commonService.getPrivateTasks().length != 0 && !this.commonData.getIsBankUser()">
+                    <div *ngFor="let task of privateTask; index as i">
+                        <div *ngIf="task.issueUserId === this.commonService.getSessionData().userId" id="privateTaskDetail" class="task-info">
+                        <span><em id= "taskIconId" class="{{(task.performed != null && task.performed === 'Y') ? 'fas fa-check' : 'fas fa-flag'}}"
+                        title="{{(task.performed != null && task.performed === 'Y') ? 'Completed' : 'Incomplete'}}"  (click)="onCheckTaskCheckBox(task, i)"></em></span>
+                        <span class="word-wrap">&nbsp;{{task.description}}&nbsp;{{getTaskMessage(task)}}</span>
+                        <span class="word-wrap" *ngIf="task.issueUserId === this.commonService.getSessionData().userId && task.performed === 'N'" ><a class="cursor" (click) ="editTask('Private', task, i)"><strong>{{' | '}}{{'USER_MODIFY' |translate}}</strong></a></span>
+                        <span><em id= "taskIconId" class="{{(task.comments != null && task.comments.length > 0) ? 'fas fa-comments' : 'far fa-comments'}}" title="Comments" (click)="addTaskComment(task, i)"></em></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="myTaskButtonId" type="button" class="secondary-button" pButton label="{{'CREATE_TASK' | translate}}"
+                        (click)="addTask('Private')"></button>
+                </div>
+            </div>
+        </p-panel>
+  </div>
+  </p-overlayPanel>
+  </span>

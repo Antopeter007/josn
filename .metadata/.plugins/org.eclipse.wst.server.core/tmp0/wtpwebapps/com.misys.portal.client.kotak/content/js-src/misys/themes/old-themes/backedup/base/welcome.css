@@ -1,0 +1,151 @@
+/*
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		CSS rules loaded by all *unsecured* pages
+  		
+	description:
+	  	This CSS file is loaded by all pages accessible by unsecured users. In practice, this
+	  	means the "Welcome" page, the login page and the "change password" page. This file
+	  	should contain *only* those rules and imports required to correctly load these pages.
+
+  		Hence DONT put anything in this file that could be considered sensitive
+  		or that would assist a malicious user in guessing page elements or functionality of
+  		the secured pages.
+  		
+  		Note that a few of the styles below are copied from forms.css, but we don't import the
+  		entire stylesheet for security reasons.
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Cormac Flynn
+	email:     cormac.flynn@misys.com
+*/
+
+@import "common/document.css";
+@import "common/layout.css";
+@import "common/portlets.css";
+
+/** 
+	Many of the following rules have been copied from forms.css (which shouldn't be loaded
+    by unsecured pages 
+**/
+
+.portlet-section-header {
+	display: none;
+}
+
+#DefaultContent, #TradeApplicationsDefault {
+	border: none;
+}
+
+/** Portlet that displays the "Welcome to Misys" message **/
+#Welcome {
+	margin: 12px 0 4px 4px;
+}
+
+/** Portlet that lists the "transactional features" of MTP **/
+#TradeApplicationsDefault li {
+	margin: 4px 0 4px 8px;
+	font-weight: normal;
+}
+
+#TradeApplicationsDefault {
+	margin: 12px 0 4px 4px;
+	padding: 0px;
+	font-size: 0.75em;  /** 12px **/
+}
+
+#TradeApplicationsDefault p {
+	margin-bottom: 12px;
+}
+
+/** Login / Change Password form **/
+
+#loginForm
+ {
+	margin: 100px auto;
+	width: 20em;  /** About 320px **/
+}
+
+/** Mask the form while the page is loading **/
+.notready #loginForm {
+	visibility: hidden;
+}
+
+#login_fields {
+	padding: 1em;
+}
+
+#changePassword label,
+#changePassword .label {
+	width: 10em;
+}
+
+.toplevel-header {
+	font-size: 0.75em;
+}
+
+.toplevel-header h2 {
+	font-weight: bold;
+	padding: 2px 4px 0 4px;
+	height: 20px;
+	overflow: hidden;
+	font-size: 1.0833em;
+}
+
+.field {
+	clear: none;
+	margin: 0.5em 0;
+}
+
+label, .label {
+	width: 8em;
+	text-align: right;
+	line-height: 1.5em;
+	display: inline-block;
+	margin-right: 0.5em;
+}
+
+.dj_ie7  label, 
+.dj_ie7  .label {
+	zoom: 1;
+	display:inline;
+}
+
+.content {
+    text-align: left;
+    font-family: "Courier New";
+    font-weight: bold;
+    display: inline;
+}
+
+/** Add some spacing to the inside of the input box **/
+.base .dijitTextBox {
+	 padding: 0.1em 0em 0.1em 0.1em;
+}
+
+.small {
+	width: 10em;
+}
+
+.para .icon {
+	float: left;
+	width: 55px;
+}
+
+.para-quote {
+	font-style: italic;
+}
+
+.message {
+	margin-left: 6px;
+}
+
+/**
+ * Bug fix for IE to push enter in forms
+*/
+.dj_ie .notready .dijitButton {
+	visibility: visible;
+}

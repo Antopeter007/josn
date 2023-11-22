@@ -1,0 +1,963 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+$fcc-font-family: Arial, Helvetica, sans-serif;
+$fcc-font-size: 0.8750rem;
+$fcc-height: 1.875rem;
+
+label{
+  width: 17rem;
+  text-align: right;
+  line-height: $fcc-height;
+  display: inline-block;
+  margin:0.5rem 0.5rem 0.5rem 0rem;
+  font: 100% Arial;
+  font-size: $fcc-font-size;
+  word-wrap: break-word;
+  font-family: $fcc-font-family;
+  vertical-align: top;
+  color:#2A2A2A;
+  }
+
+.hint {
+    width: 15rem;
+    text-align: right;
+    line-height: 1.6rem;
+    display: inline-block;
+    margin:0.5rem 0.5rem 0rem 0rem;
+    font: 100% Arial;
+    font-size: 0.750rem;
+    word-wrap: break-word;
+    font-family: $fcc-font-family;
+    vertical-align: top;
+    color:rgb(250, 165, 7);
+}
+
+.date-notice {
+  width: 20rem;
+  text-align: right;
+  line-height: 1.6rem;
+  display: inline-block;
+  margin:0.5rem 0.5rem 0rem 0rem;
+  font: 100% Arial;
+  font-size: 0.750rem;
+  word-wrap: break-word;
+  font-family: $fcc-font-family;
+  vertical-align: top;
+  color:rgb(250, 165, 7);
+}
+
+.alignment-left {
+  text-align: left;
+}
+
+.alignment-right {
+  text-align: right !important;
+}
+
+.alignment-center {
+  text-align: center;
+}
+
+.alignment-vertical-top {
+  vertical-align: top;
+}
+
+.label-left {
+  text-align: left;
+  font-size: 1rem;
+  }
+
+.label-right {
+  text-align: right !important;
+  font-size: 1rem;
+}
+
+// used for displaying refId for amend release and message to bank screen
+.label-left-field {
+  text-align: left;
+  font-size: 1rem;
+  color:#0078D9;
+  margin-top: 0.350rem;
+}
+
+.label-right-field {
+  text-align: right !important;
+  font-size: 1rem;
+  color:#0078D9;
+  margin-top: 0.350rem;
+}
+
+// used for purpose value in amend
+.label-left-max {
+  text-align: left;
+  width: 25rem;
+  font-size: 1rem;
+}
+
+.label-right-max {
+  text-align: right !important;
+  width: 25rem;
+  font-size: 1rem;
+}
+
+.label-left-narrative {
+  text-align: left;
+  white-space: pre;
+  font-size: 1rem;
+  white-space: normal !important;
+  width: 55em;
+}
+
+// used for amend two column view only
+.label-amend{
+  width: 10.625rem;
+}
+// used for amend two column view only
+.label-left-amend{
+  width: 22rem;
+  text-align: left;
+  font-size: 1rem;
+}
+// used for amend two column view to show the master details(grayed content)
+.label-left-master{
+  width: 22rem;
+  text-align: left;
+  font-size: 1rem;
+  color: lightgrey;
+}
+
+.label-left-text {
+  text-align: left;
+  font-size: 1rem;
+  width: 465px;
+  }
+// used for radio label and checkbox labels
+.label-radiobutton {
+  margin:0.35rem 0.5rem 0.1875rem 0rem;
+}
+
+.label-checkbox {
+  margin:0.1rem 0.5rem 0.1875rem 0rem;
+}
+
+input.ng-dirty.ng-invalid {
+    color: red
+  }
+
+.indented-header {
+	border-color: #d7d2cb;
+  background-color: #fffa;
+  border-radius: 0.1875rem;
+ }
+
+.indented-header h3 {
+  background-image: none;
+  background-color: #C5E5F0;
+  color: #00236a;
+  padding: 0.125rem 0.25rem;
+  border-top-right-radius: 0.125rem;
+  border-top-left-radius: 0.125rem;
+  margin: 0.625rem 0rem 0.25rem;
+  font: 100% Arial;
+  font-family: $fcc-font-family;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: normal;
+}
+
+@media print {
+  .indented-header h3 {
+    color: #ffffff !important;
+  }
+}
+
+.fieldset-content {
+    padding: 0.375rem 0.375rem 0.75rem 0.375rem;
+}
+
+.contentGray{
+  color: lightgrey;
+}
+
+.highlight
+{
+    color: blue;
+    text-decoration: underline ;
+    font-weight: bold;
+    background-color: #F0F0F0;
+}
+
+.link-highlight
+{
+  color: blue;
+    text-decoration: underline ;
+}
+
+.fieldset-content .content {
+	text-align: left;
+  font-family: $fcc-font-family;
+  font-weight: bold;
+  display: inline;
+}
+
+.fieldset-content .static-content {
+	text-align: left;
+  font-family: $fcc-font-family;
+  font-weight: bold;
+  display: inline;
+  border-style: none;
+  outline: none;
+}
+
+.static-content {
+	text-align: left;
+  font-family: $fcc-font-family;
+  font-weight: bold;
+  font-size: 0.8125rem;
+  display: inline;
+  border-style: none;
+  outline: none;
+  background: #CBE3FF;
+}
+
+.sub-header {
+  font-size: 0.85rem !important;
+  margin: 0 0 0.5000rem !important;
+}
+
+.error{
+  color: rgba(184, 26, 26, 0.788);
+  font-size: 0.8125rem;
+}
+
+.fieldError{
+  border: 0.0625rem solid #CB4335;
+}
+
+.toplevel-header h2 {
+	font-weight: bold;
+	padding: 0.4rem 0.25rem 0 0.25rem;
+	height: 1.8125rem;
+	overflow: hidden;
+	font-size: 0.875rem;
+	background: #00add6;
+  color: white;
+  line-height: normal;
+  font-family: $fcc-font-family;
+}
+
+h2 {
+  font-weight: 600;
+	padding: 0.4rem 0.25rem 0 0.25rem;
+	height: 1.8125rem;
+	overflow: hidden;
+	font-size: 0.9rem;
+	background: #00add6;
+  color: white;
+  line-height: normal;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0.0625rem auto 0.3rem auto;
+}
+
+.icon{
+  float: right;
+  margin: -0.1875rem -0.1875rem 0rem 0rem;
+}
+
+.icon-left{
+  float: left;
+  margin: -0.1875rem -0.1875rem 0rem 0rem;
+}
+
+/** Required field symbol **/
+.required-field-symbol {
+	color: #eb6e1f;
+	display: inline-block;
+  padding-right: 0.125rem;
+}
+
+.field {
+  clear: none;
+  margin: 0.9375rem 0;
+  padding-bottom: 0.125rem !important;
+}
+
+.field-right {
+  clear: none;
+  margin: 0.9375rem 0;
+  padding-bottom: 0.125rem !important;
+  text-align: right !important;
+  direction: rtl;
+}
+
+.empty-list-notice{
+	padding: 0 0 0 0.2rem;
+  margin: 0 0 0 0.2rem;
+  font-size: .75rem;
+	margin-bottom: 0.6250rem;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.margin-left{
+  margin-left: 25%;
+}
+.margin-left-inquiry-icons{
+  margin-left: 0.39em;
+}
+table.custom-class {
+  width: 70vw !important;
+  margin-left:2% !important;
+  margin-bottom: 1.2500rem !important;
+  margin-top: 0rem;
+  margin-right: 0rem;
+  text-align: center;
+  padding: 0.375rem 0.375rem 0.75rem 0.375rem;
+  border:solid 0.3125rem white;
+  padding:0rem;
+  border-spacing:0rem;
+  border-collapse:collapse;
+  line-height:0.0625rem;
+  border-width: 0.0625rem 0 0 0;
+  font-size: $fcc-font-size;
+  font-family: $fcc-font-family;
+  font-weight:400;
+  text-decoration:none;
+  white-space:pre-wrap;
+}
+table.custom-class thead {
+  padding: 0.9375rem;
+  background: #00add6;
+  border-bottom: 0.0625rem solid white;
+  border-left: 0.0625rem solid white;
+  border-top: 0.0625rem solid white;
+  height: 0.6250rem;
+  color: white;
+  border:solid 0.125rem white;
+}
+table.custom-class td {
+  padding: 0.9375rem;
+  border:solid 0.0625rem white;
+}
+table.custom-class tr {
+  margin:0;
+  padding:0.125rem;
+  font: 100% Arial, Helvetica, sans-serif;
+  height: 0.125rem;
+  border-collapse:collapse;
+  line-height: 1.125rem;
+  background-color: #CBE3FF;
+}
+
+.required-field::before {
+  content: "*";
+  color: rgb(173, 10, 10);
+  float: left;
+}
+
+.search-btn{
+  border:0 none;
+  background-color: white;
+}
+
+//  used for percentage, currency, country and 3 digit fields
+.input-three-digit {
+  width: 2.31255rem;
+  margin:0.125rem 0.1875rem 0.125rem 0rem;
+  text-align: left;
+  padding-left: 0.25em !important;
+}
+
+//  used for percentage, currency, country and 3 digit fields readonly
+.input-three-digit-readonly {
+  width: 2.31255rem;
+  text-align: left;
+  padding-left: 0.25em !important;
+}
+
+.content {
+  text-align: left;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline;
+}
+
+.content-right {
+  text-align: right !important;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline;
+}
+
+.disclaimer {
+	margin: 0.375rem;
+	padding: 0.375rem;
+	font-weight: bold;
+	clear: both;
+	font-size: 0.875rem;
+}
+
+.read-only-field {
+  border: none;
+  outline: none;
+  color:#0078D9;
+  font-size: 1rem;
+  margin-top: 0.0625rem;
+  padding-left: 0rem !important;
+}
+
+.read-field {
+  border: none;
+  outline: none;
+  color:#0078D9;
+  font-size: 1rem;
+}
+
+.free-format-text-data{
+  position: relative;
+  max-width: 40vw;
+  white-space: pre-line;
+  display: inline-table;
+  word-break: break-word;
+}
+
+.free-format-text-label{
+  float: left;
+}
+
+/* Should be removed after dojo css is eliminated.*/
+input {
+  font-size: $fcc-font-size;
+  border-radius: 0.21428rem;
+  box-shadow: none;
+  border-width: thin;
+  border-color: #8989898f;
+  height: $fcc-height;
+  width: 16rem;
+  padding-left: 0.429em !important;
+}
+
+.character-count-div-field {
+  margin-top:-0.5625rem !important;
+  clear: none;
+  margin: 0.4rem 0;
+  padding-bottom: 0.125rem !important;
+  margin: 0
+}
+
+.character-count-value-field {
+  height: 1.5rem !important;
+  text-align: right;
+  font-weight: bold;
+  border: none;
+  overflow: hidden;
+  resize: none;
+  border-radius: 0;
+  margin-top: 0.6rem;
+}
+
+.primary-button {
+  width: 6.25rem !important;
+  margin-right:1.2500rem !important;
+  border-radius: 0.3125rem;
+}
+
+.secondary-button:hover {
+  color: white !important;
+  background-color: #0078D9 !important;
+  box-shadow: none !important;
+}
+
+.secondary-button {
+  width: 6.25rem !important;
+  color: #0078D9 !important;
+  background-color: white !important;
+  margin-right:1.2500rem !important;
+  border-radius: 0.3125rem;
+}
+
+.tertiary-button {
+  width: 6.25rem !important;
+  color: #0078D9 !important;
+  background-color: white !important;
+  border: none !important;
+  outline:0 !important;
+  margin-right:1.2500rem !important;
+}
+
+.tertiary-button:hover {
+  color: white !important;
+  background-color: #0078D9 !important;
+  box-shadow: none !important;
+  border-radius: 0.3125rem;
+}
+
+//used for larger text areas
+.textarea-fixed-height {
+  height: 16rem !important;
+  overflow-y: scroll;
+}
+
+.td-error-grid{
+  background-color: white;
+}
+
+.grid-error {
+  border-style : inset;
+  border-color: red !important;
+}
+
+.grid-style {
+  background-color: white;
+  border-style: hidden !important;
+  border-left-style: inset !important;
+  border-left-color: red !important;
+}
+
+.grid-row {
+  border-right-style: double !important;
+  border-color: red !important;
+  border-left-style: solid !important;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.release-cursor {
+  cursor: pointer;
+}
+
+.release-cursor:hover {
+  color: #0078D9 !important;
+}
+
+.inquiry-image-height {
+  height: 1.4em;
+}
+
+.icon-style {
+  color: #d93025;
+  font-size: 1.4rem;
+}
+
+.fieldContent
+{
+  width: 10.625rem;
+  text-align: left;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.compact-error-message {
+  display:inline-flex;
+  vertical-align: top;
+  width: 50%;
+  font: 400 0.75rem Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  margin-top: 0.25rem;
+}
+
+// used for the help image
+.help {
+  margin: -0.3125rem 2.4rem 0rem -0.3125rem;
+}
+
+.ccy-dialog{
+  width:100%;
+  background-color: #DBE7EB;
+}
+
+.country-dialog{
+  width:100%;
+  background-color: #DBE7EB;
+}
+
+.ui-state-highlight {
+  background-color: #0586A5 !important;
+}
+
+.ui-sortable-column:hover {
+  background-color: #2DB6D6 !important;
+}
+
+.file-upload-dialog{
+  margin-top: 0.9375rem;
+  margin-left: 3.125rem;
+}
+
+.upload-button-panel{
+  margin-top: 0.625rem;
+}
+
+.user-dialog{
+  font-weight: bold;
+}
+
+.primary-button-larger{
+  width: 14rem !important;
+  margin-right:1.2500rem !important;
+  border-radius: 0.3125rem;
+}
+
+.master-icon{
+  float: right;
+  margin: 0.1875rem 0rem 0rem 0rem;
+}
+
+.master-icon-mo{
+  margin: 0.1875rem 0rem 0rem 60%;
+}
+
+.master-icon-mo-2nd{
+  margin: 0.1875rem 0rem 0rem 3%;
+}
+
+.master-icon-left{
+  float: left;
+  margin: 0.1875rem 0rem 0rem 0rem;
+}
+
+//master icon for amend release and message to bank
+.master-icon-new{
+  float: right;
+  margin: -0.1875rem 0rem 0rem 0rem;
+}
+
+.master-icon-new-left{
+  float: left;
+  margin: -0.1875rem 0rem 0rem 0rem;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+ul{
+  color: #666;
+  font-weight: bold;
+  font-size: 1em;
+  list-style-type: circle;
+  cursor: pointer;
+}
+
+.actions{
+  width: 35%;
+}
+
+.label-upload-dialog {
+  text-align: left;
+  margin-left:16.60rem;
+  width: 25rem;
+}
+
+.label-upload-dialog-right{
+  margin-left: 14.6rem;
+  width: 25rem;
+  direction: rtl;
+}
+
+.chartTitle {
+  color: #666;
+  border-bottom: 0.18em solid #004F9E;
+  float: left;
+  width: 29vw;
+  font-size: 0.8rem;
+}
+
+.tableSectionHeader {
+  height: 1.3em;
+  padding: 2px 2px 2px 4px;
+  margin-bottom: 2px;
+}
+.tableSectionBody {
+  padding: 0;
+}
+.tableView {
+  margin: 0.5em 0 0.5em 0;
+  padding: 0;
+  font-size: 0.75em;
+}
+.tableMenu {
+  float: right;
+}
+.list-section{
+  float: left;
+  padding-left: 1em;
+  position: relative;
+  z-index: 12;
+  width: 29vw;
+}
+.list-section-bank{
+  float: right;
+  position: relative;
+  z-index: 12;
+  width: 29vw;
+}
+.transaction-list{
+  clear: both;
+}
+ul{
+  color: #666;
+  font-weight: bold;
+  font-size: 1em;
+  list-style-type: circle;
+  cursor: pointer;
+}
+.tableTitle {
+  color: #666;
+  border-bottom: 0.18em solid #004F9E;
+  float: left;
+  width: 29vw;
+  font-size: 1em;
+}
+::ng-deep .icons {
+  float: left;
+  padding-right: 5px;
+}
+
+.icon-centered{
+  text-align: center;
+}
+
+.consolidated-inquiry-body {
+  width: 75vw;
+}
+
+.inquiry-header-style-right {
+  width: 44vw;
+  float:right;
+  border: none;
+}
+
+.inquiry-header-style-left {
+  width: 44vw;
+  float:left;
+  border: none;
+}
+.label-left-inquiry {
+  text-align: left;
+  width: 12vw;
+  font-size: 1rem;
+}
+
+
+.word-break-all {
+  word-break: break-all;
+}
+
+.tablecol-width-8 {
+  width: 8%;
+}
+
+.tablecol-width-10 {
+  width: 10%;
+}
+.tablecol-width-14 {
+  width: 14%;
+}
+.tablecol-width-15 {
+  width: 15%;
+}
+.tablecol-width-16 {
+  width: 16%;
+}
+.tablecol-width-18 {
+  width: 18%;
+}
+.tablecol-width-19 {
+  width: 19%;
+}
+.tablecol-width-20 {
+  width: 20%;
+}
+.tablecol-width-21 {
+  width: 21%;
+}
+.tablecol-width-23 {
+  width: 23%;
+}
+.tablecol-width-25 {
+  width: 25%;
+}
+.tablecol-width-35 {
+  width: 35%;
+}
+.tablecol-width-40 {
+  width: 40%;
+}
+
+.tablecol-width-7 {
+  width: 7%;
+}
+
+.tablecol-width-17 {
+  width: 17%;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.word-wrap-right {
+  word-wrap: break-word;
+  text-align: right !important;
+}
+
+.word-wrap-license-long {
+  word-wrap: break-word;
+  width: 10rem;
+}
+
+.word-wrap-license-long-right {
+  word-wrap: break-word;
+  width: 10rem;
+  text-align: right !important;
+}
+
+.word-wrap-license-short {
+  word-wrap: break-word;
+  width: 4rem;
+}
+
+.word-wrap-license-short-right {
+  word-wrap: break-word;
+  width: 4rem;
+  text-align: right;
+}
+
+.content-readonly {
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline;
+}
+
+.content-readonly-right {
+  text-align: right !important;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline;
+}
+
+.extendedview-amdnarrative-wrap {
+  width:74vw;
+  word-wrap: break-word;
+  font-size: 1rem;
+  white-space: pre-line;
+}
+
+.extendedview-amdnarrative-wrap-swift {
+  width:40vw;
+  word-wrap: break-word;
+  font-size: 1rem;
+  margin-left: 0.55em;
+  white-space: pre-line;
+}
+
+.amdnarrative-wrap {
+  width:30vw;
+  word-wrap: break-word;
+  font-size: 1rem;
+  white-space: pre-line;
+}
+
+.inquiryDiv {
+  padding-top: 20px;
+}
+
+.secondary-button-larger{
+  width: 8.25rem !important;
+  color: #0078D9 !important;
+  background-color: white !important;
+  margin-right:1.2500rem !important;
+  border-radius: 0.3125rem;
+}
+
+.label-right-narrative {
+  text-align: right !important;
+  white-space: pre;
+  font-size: 1rem;
+}
+
+.tasks-count {
+  padding: 0 4px;
+  font-size: 1rem;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 15px;
+  background: orange;
+  color: white;
+  vertical-align: top;
+  margin-left: -0.2px;
+}
+
+.task-section{
+  margin-top: 1rem;
+}
+.text-left-task{
+  text-align:left;
+}
+.text-right-task{
+  text-align:right;
+}
+.task-info{
+  font-size: 0.916em;
+}
+
+.pop-up-left{
+  direction: ltr;
+}
+.pop-up-left{
+  direction: rtl;
+}
+
+.sticky-button {
+  position: fixed;
+  top: auto;
+  margin: 0.1rem 1.25rem 0 -1.95rem;
+}
+
+.comment-block {
+  display: block;
+  width: 53vw;
+  height: 30vh;
+  overflow: auto;
+  margin-bottom: 3em;
+}
+
+.comment-section-right {
+ direction: rtl;
+ text-align: right;
+}
+
+.comment-section-left {
+  direction: left;
+  text-align: left;
+}
+
+.menu-right {
+direction: rtl;
+float: left;
+}
+
+.task-icon-left {
+  float: left !important;
+  margin-left: 5em;
+}
+
+.task-icon-right {
+  float: right !important;
+}
+
+.vertical-top-align {
+  vertical-align: top;
+}
+.release-task-alignment {
+  margin-bottom: 3em;
+}
+
+#approxExpDateFormLabel .approx-exp-date ,
+#delvOrgUndertakingFormLabel .delv-org-undertaking  {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+

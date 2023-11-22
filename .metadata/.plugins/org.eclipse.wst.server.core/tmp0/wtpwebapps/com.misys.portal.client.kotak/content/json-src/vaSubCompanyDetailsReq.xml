@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+	<sourceappcode>JARVIS</sourceappcode>
+	<RqUID>2</RqUID>
+	<action_type>FETCH_SUBCOMP_MS_DET</action_type>
+	<company_code>TEST</company_code>
+	<sub_company_code>SubCom</sub_company_code>
+</Request>

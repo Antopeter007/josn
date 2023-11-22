@@ -1,0 +1,15 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="control.params.rendered && mode === 'edit'"
+      class="ui-float-label {{ control.params.styleClass }}"
+    >
+      <re-captcha
+        formControlName="{{ control.key }}"
+        (resolved)="onClickCaptcha($event)"
+        [required]="control.params.required"
+      >
+      </re-captcha>
+    </div>
+  </div>
+</ng-container>

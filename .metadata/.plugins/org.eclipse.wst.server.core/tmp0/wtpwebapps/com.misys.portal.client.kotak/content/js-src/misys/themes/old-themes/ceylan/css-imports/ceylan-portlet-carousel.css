@@ -1,0 +1,72 @@
+/**
+	Carousel Related CSS
+*/
+
+
+/* Carousel */
+.ceylan #CarouselPortlet {
+    border: none;
+}.ceylan #CarouselPortlet .portlet-section-header {
+    display: none;
+}
+
+#carousel-container, .carousel-item {height:224px; width:327px;}		
+#carousel-container{position:relative;}
+.carousel-item{display: block;position: absolute;z-index: 1;}
+
+#carousel-container #carousel-menu {
+	background: none repeat scroll 0 0 #000000;
+	bottom: 6px;
+	list-style: none outside none;
+	margin: 0;
+	padding: 3px;
+	position: absolute;
+	right: 6px;
+	z-index: 4;
+	border-radius: 5px 5px 5px 5px;
+}
+#carousel-container #carousel-menu li, #carousel-menu li a {
+	float:left;
+}
+#carousel-container #carousel-menu li a {
+	border-radius: 9px 9px 9px 9px;
+}
+
+#carousel-container .carousel-menu-item {
+	background: none repeat scroll 0 0 #474A4B;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	text-indent: -999999px;
+}
+#carousel-container .carousel-menu-next, .carousel-menu-play, .carousel-menu-pause, .carousel-menu-prev {
+	height: 18px;
+	margin: 0 3px;
+	width: 18px;
+}
+#carousel-container .carousel-menu-next {
+	background-image: url("../images/next.png");
+}
+#carousel-container .carousel-menu-play {
+	background-image: url("../images/play.png");
+}
+#carousel-container .carousel-menu-pause {
+	background-image: url("../images/pause.png");
+}
+#carousel-container .carousel-menu-prev {
+	background-image: url("../images/prev.png");
+}
+#carousel-container .carousel-menu-index {
+	height: 9px;
+	margin: 4px 3px;
+	width: 9px;
+}
+#carousel-container .carousel-menu-active {
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+
+/* Configurable */
+#carousel-container .carousel-item-1{background: url("../images/item1.jpg") no-repeat center #000;}
+#carousel-container .carousel-item-2{background: url("../images/item2.jpg") no-repeat center #000;}
+#carousel-container .carousel-item-3{background: url("../images/item3.jpg") no-repeat center #000;}
+

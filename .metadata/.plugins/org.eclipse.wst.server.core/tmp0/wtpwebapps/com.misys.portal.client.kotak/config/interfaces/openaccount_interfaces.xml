@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2011 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+ 	<interface name="openaccount2tsu" description="Open Account to TSU">
+		<component name="environmentreader">
+			<!-- Custom filter to create -->
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 01 == event.tnx_type_code</property>
+				</properties>
+				<component name="apply2advisefilter">
+					<component name="apply2adviseconnector">
+						<component name="mailformatter">
+							<component name="sendmail"/>
+						</component>
+					</component>
+				</component>
+			</component>
+			<!-- **********************  -->
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 21 == event.tnx_type_code</property>
+				</properties>
+				<component name="advise2applyconnector">
+					<component name="xmloutprocessor">
+						<component name="filewriter"/>
+					</component>
+					<component name="mailformatter">
+						<component name="sendmail"/>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 13 == event.tnx_type_code &amp;&amp; 44 == event.sub_tnx_type_code &amp;&amp; (48 == event.prod_stat_code || 49 == event.prod_stat_code)</property>
+				</properties>
+				<component name="apply2ftconnector"/>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 13 == event.tnx_type_code &amp;&amp; (44 == event.sub_tnx_type_code || 45 == event.sub_tnx_type_code) &amp;&amp; (48 == event.prod_stat_code || 49 == event.prod_stat_code)</property>
+				</properties>
+				<component name="apply2invoiceconnector">
+					<component name="mailformatter">
+						<component name="sendmail"/>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 18 == event.tnx_type_code &amp;&amp; 45 == event.prod_stat_code</property>
+				</properties>
+				<component name="invoice2applyconnector">
+				  <component name="useridsanddttmmanager">
+                     <component name="databaseserializer" />
+                  </component>
+                  <component name="mailformatter">
+					<component name="sendmail" />
+				  </component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">04 == event.tnx_stat_code &amp;&amp; 10 == event.prod_stat_code</property>
+				</properties>
+				<component name="closepoconnector">
+					<component name="mailformatter">
+						<component name="sendmail"/>
+					</component>
+				</component>
+			</component>
+			<!-- This generates outgoing XML,should be commented when not required  -->
+			<component name="filter">
+				<properties>
+					<property name="script">(03 == event.tnx_stat_code || 04 == event.tnx_stat_code) </property>
+				</properties>
+				<component name="xmloutprocessor">
+					<component name="filewriter"/>
+				</component>
+			</component>
+		</component>
+	</interface>
+ 
+</interfaces>

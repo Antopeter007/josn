@@ -1,0 +1,64 @@
+@import '../../../variables.scss';
+
+@mixin common_card_mixin($primaryCardColor,$primaryCardHeadercolor, $dashboardBgColor, $hyperLinkColor, $headerColorOfCard) {
+    // For all cards in Dashboard background color change.
+    fcc-common-global-dashboard .ui-card {
+        background-color: $primaryCardColor !important;
+        color: $primaryCardHeadercolor !important;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%);
+    }
+    // background color of the entire dashboard.
+    .dashboardLayout {
+        min-height: 100%;
+        background-color: $dashboardBgColor !important;
+    }
+    // all hyperlink color change,
+    .view-all-links a {
+        color: $hyperLinkColor !important;
+        font-size: 0.75rem;
+        line-height: 0.75rem;
+        font-weight: 400;
+        font-style: normal;
+        cursor: pointer;
+        cursor: hand;
+    }
+    // change the account balance card header text color
+    .name-of-acc-holder {
+        height: 44px;
+        width: 207px;
+        font-size: 24px;
+        line-height: 22px;
+        font-weight: normal;
+        color: $headerColorOfCard;
+    }
+    // change the all card header text color except account balance
+    .headerTitle {
+        color: $headerColorOfCard;
+        font-size: 1em;
+        font-weight: bold;
+        line-height: 1.1875em;
+        padding-bottom: 1em;
+        /* opacity: 0.75; */
+    }
+    // transation in progress card header text color
+    fcc-common-tab-menu .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-link .ui-menuitem-text {
+        color: $headerColorOfCard !important;
+        font-size: 1em !important;
+        font-weight: bold !important;
+        line-height: 1.1875em !important;
+    }
+}
+
+
+
+.finastra {
+    // primary clors
+    $primaryCardColor:#c8c8c8;
+    $primaryCardHeadercolor: $BLACK;
+    $dashboardBgColor: #eaeaea;
+    $hyperLinkColor: blue;
+    $headerColorOfCard: blue;
+
+
+    @include common_card_mixin($primaryCardColor, $primaryCardHeadercolor, $dashboardBgColor, $hyperLinkColor, $headerColorOfCard);
+}

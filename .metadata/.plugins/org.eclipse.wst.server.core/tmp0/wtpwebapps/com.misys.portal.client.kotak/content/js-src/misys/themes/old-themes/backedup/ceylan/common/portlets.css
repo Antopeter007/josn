@@ -1,0 +1,243 @@
+/**
+ Refer to /themes/base/common/portlets.css
+**/
+
+/** ----------------- Portlet Spec Classes / General Portlet Rules ---------------------------- **/
+
+.portlet {
+	border: 1px solid #7AA1FF;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.portlet #contentDiv{
+	padding-left: 15px;
+}
+
+.portlet-section-header {
+	background:#1B3E93;
+	height: 28px;
+	padding: 2px 1px 1px 4px;
+}
+
+.portlet-section-header .portlet-title {
+	color: white;
+	font-family: Tahoma,Arial;
+	font-size: 0.875em;
+	line-height: 2.3em;
+	padding-left: 5px;
+	display: inline;
+	float: none;
+}
+
+.portlet-section-body {
+	background: url("../images/portlet_bottom.png") repeat-x scroll left bottom transparent;
+	min-height:100px;
+}
+
+.dj_ie6 .portlet-section-body {
+	height:100px;
+}
+
+.homepage .showHide > .action-portlet-collapse {
+	background-position: 0 -95px;
+}
+
+.homepage .showHide > .action-portlet-expand{
+	background-position: -3px -243px;
+}
+
+.homepage .showHide > img {
+	background: transparent url(../images/actions.png) no-repeat;
+}
+
+.homepage .portlet-section-header {
+	background-color: #7AA1FF;
+}
+
+/** ------------------------------------- Root Portlet ----------------------------------- **/
+
+#default #GTPRootPortlet.portlet {
+	border: none;
+}
+
+#default #GTPRootPortlet .portlet-section-header {
+	background: none;
+	background-color: white;
+}
+
+#default #GTPRootPortlet .portlet-section-header h2 {
+	color: #117BAA;
+}
+
+/** ----------------------------------- Bookmarks Portlet --------------------------------- **/
+
+#BookmarkPortlet .portlet-section-header {
+	background: #D0D0D0 none;
+}
+
+#BookmarkPortlet .portlet-title {
+	color: #0079A7;
+}
+
+#BookmarkPortlet .portlet-section-body {
+	background-color: #f0f0f0;
+}
+
+/** ----------------------------------- Carousel Portlet --------------------------------- **/
+
+#CarouselPortlet {
+    border: none;
+}
+
+#CarouselPortlet .portlet-section-header {
+    display: none;
+}
+
+#carousel-container, 
+.carousel-item {
+	height:224px;
+	width:327px;
+}
+
+#carousel-container{
+	position:relative;
+}
+
+.carousel-item {
+	display: block;
+	position: absolute;
+	z-index: 1;
+}
+
+#carousel-container #carousel-menu {
+	background: none repeat scroll 0 0 #000000;
+	bottom: 6px;
+	list-style: none outside none;
+	margin: 0;
+	padding: 3px;
+	position: absolute;
+	right: 6px;
+	z-index: 4;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#carousel-container #carousel-menu li,
+#carousel-menu li a {
+	float:left;
+}
+#carousel-container #carousel-menu li a {
+	border-radius: 9px 9px 9px 9px;
+}
+
+#carousel-container .carousel-menu-item {
+	background: none repeat scroll 0 0 #474A4B;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	text-indent: -99999px;
+}
+#carousel-container .carousel-menu-next,
+.carousel-menu-play,
+.carousel-menu-pause,
+.carousel-menu-prev {
+	height: 18px;
+	margin: 0 3px;
+	width: 18px;
+}
+#carousel-container .carousel-menu-next {
+	background-image: url("../images/next.png");
+}
+
+#carousel-container .carousel-menu-play {
+	background-image: url("../images/play.png");
+}
+
+#carousel-container .carousel-menu-pause {
+	background-image: url("../images/pause.png");
+}
+
+#carousel-container .carousel-menu-prev {
+	background-image: url("../images/prev.png");
+}
+
+#carousel-container .carousel-menu-index {
+	height: 9px;
+	margin: 4px 3px;
+	width: 9px;
+}
+
+#carousel-container .carousel-menu-active {
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+
+/* Configurable */
+#carousel-container .carousel-item-1{
+	background: url("../images/item1.jpg") no-repeat center #000;
+}
+
+#carousel-container .carousel-item-2{
+	background: url("../images/item2.jpg") no-repeat center #000;
+}
+
+#carousel-container .carousel-item-3{
+	background: url("../images/item3.jpg") no-repeat center #000;
+}
+
+#AccountListPortletPlusBalance .wipeInOutTabHeader,
+#AccountListPortletPlusBalance #searchCriteria {
+	display: none;
+}
+
+/** ----------------------------------- Calendar Portlet --------------------------------- **/
+
+#TradeCalendarPortlet .portlet-section-body{
+	background: none;
+}
+
+/** --------------------------------- Quick Transfer Portlet --------------------------------- **/
+
+#QuickTransferPortlet {
+	position: relative;
+}
+
+#QuickTransferPortlet fieldset > * {
+	margin: 5px 10px 10px;
+	padding: 0;
+}
+
+/** --------------------------------- Loan Calculator Portlet --------------------------------- **/
+
+#LoanCalculatorPortlet p{
+	padding:10px 10px 10px 10px;
+	font-weight:bolder;
+}
+#LoanCalculatorPortlet .loanCalcValue{
+	float:right;
+	margin-right:50px;
+	font-weight:lighter;
+}
+#LoanCalculatorPortlet p{
+	font-size:12px;
+}
+
+/** --------------------------------------- Demo Portlet ------------------------------------- **/
+
+#DemoPortlet table{
+    margin-right:auto;
+	margin-left:auto;
+}
+
+/** ------------------------------------- Stocks Portlet ------------------------------------- **/
+
+#StocksPortlet #wikiInvest{
+	margin: 5px auto;
+	width:300px;
+}
+
+/** ---------------------------------- All Events Portlet ------------------------------------- **/
+
+#AllEventsPortlet {
+	border: 1px solid #7AA1FF;
+}

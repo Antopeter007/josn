@@ -1,0 +1,15 @@
+<ng-container [formGroup]="form">
+  <div  class="p-col-12">
+    <div class="{{control.params.styleClass}}">
+      <p-fileUpload #fileUpload name="myfile[]" customUpload="true" id="{{control.key}}" multiple="multiple"
+      (uploadHandler)="onAutoUploadHandler($event,fileUpload)" [auto]="true" (onSelect)="onEventRaised($event,control.key)">
+          <ng-template pTemplate="content">
+              <div class="dragDropInner">
+                <em class="pi pi-cloud-upload"></em>
+                <p class="dragDropText">{{control.params.label}}</p>
+              </div>
+          </ng-template>
+      </p-fileUpload>
+    </div>
+  </div>
+</ng-container>

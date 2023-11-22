@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang='en'>
+ <head>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>DOH Console</title>
+  <link media='screen' rel='stylesheet' href='/cf/content/js-src/dojo/resources/dojo.css?v=4.0' type='text/css'>
+  <link media='screen' rel='stylesheet' href='/cf/content/js-src/misys/themes/demobank/demobank.css?v=4.0' type='text/css'>
+  <meta content='text/html;charset=utf-8' http-equiv='content-type'>
+  <script
+  	djConfig="parseOnLoad: true, locale:'en-us', isDebug: false, popup: false" 
+  	src='/cf/content/js-src/dojo/dojo.js?v=4.0'></script>
+  <script>
+   dojo.require("dojo.parser");
+   dojo.require("doh.runner");
+   dojo.require("dijit.form.ValidationTextBox");
+   dojo.require("dijit.form.Button");
+   dojo.require("dijit.Tree");
+   dojo.require("dojo.data.ItemFileReadStore");
+   dojo.require("dijit.tree.ForestStoreModel");
+   dojo.requireLocalization("misys", "common", "en-us");
+  </script>
+ </head>
+ <body id='body' class='tundra demobank notready'>
+  <header role="banner">
+  	<h1>DOH Test Console</h1>
+  </header>
+  <div id="content" role="main">
+  	<article>
+  	 <p>Run this in Chrome, yo</p>
+  	</article><br/>
+  	
+  	<label for="class_name">dojo.provide class:</label>
+  	<div trim="true" dojoType="dijit.form.ValidationTextBox" id="class_name"></div>
+  	<button type="button" dojoType="dijit.form.Button" id="add">Add</button>
+  	<div class="clear">&nbsp;</div>
+  	
+  	<div data-dojo-id="continentStore" data-dojo-type="dojo.data.ItemFileReadStore" 
+  		data-dojo-props='url:"countries.json"'></div> 
+	<div data-dojo-id="continentModel" data-dojo-type="dijit.tree.ForestStoreModel" data-dojo-props='store:continentStore, query:{type:"continent"},
+		rootId:"continentRoot", rootLabel:"Continents", childrenAttrs:["children"]'></div> 
+  	<div id="mytree" data-dojo-type="dijit.Tree" data-dojo-props='model:continentModel, openOnClick:true, onLoad:function(){ console.log("loaded mytree (first tree)"); }'> 
+  	<div id="objectTree"></div>
+
+  </div>
+  <script>
+  	dojo.ready(function(){
+  		misys = {};
+  		dojo.mixin(misys, {_config: { context: '/cf', servlet: '/portal', client:'misys'}});
+  		
+  		var test = 
+  		{
+  				identifier: 'id',
+  				label: 'name',
+  				items: [
+  				        { id: 'AF', name:'Africa', type:'continent', population:'900 million', area: '30,221,532 sq km',
+  				        		timezone: '-1 UTC to +4 UTC',
+  				        		children:[{_reference:'EG'}, {_reference:'KE'}, {_reference:'SD'}] },
+  				        	{ id: 'EG', name:'Egypt', type:'country' },
+  				        	{ id: 'KE', name:'Kenya', type:'country',
+  				        			children:[{_reference:'Nairobi'}, {_reference:'Mombasa'}] },
+  				        		{ id: 'Nairobi', name:'Nairobi', type:'city' },
+  				        		{ id: 'Mombasa', name:'Mombasa', type:'city' },
+  				        	{ id: 'SD', name:'Sudan', type:'country',
+  				        			children:{_reference:'Khartoum'} },
+  				        		{ id: 'Khartoum', name:'Khartoum', type:'city' },
+  				        	{ id: 'AS', name:'Asia', type:'continent',
+  				        			children:[{_reference:'CN'}, {_reference:'IN'}, {_reference:'RU'}, {_reference:'MN'}] },
+  				        		{ id: 'CN', name:'China', type:'country' },
+  				        		{ id: 'IN', name:'India', type:'country' },
+  				        		{ id: 'RU', name:'Russia', type:'country' },
+  				        		{ id: 'MN', name:'Mongolia', type:'country' },
+  				        	{ id: 'OC', name:'Oceania', type:'continent', population:'21 million',
+  				        			children:{_reference:'AU'}},
+  				        	{ id: 'AU', name:'Australia', type:'country', population:'21 million'},
+  				        	{ id: 'EU', name:'Europe', type:'continent',
+  				        			children:[{_reference:'DE'}, {_reference:'FR'}, {_reference:'ES'}, {_reference:'IT'}] },
+  				        	{ id: 'DE', name:'Germany', type:'country' },
+  				        	{ id: 'FR', name:'France', type:'country' },
+  				        	{ id: 'ES', name:'Spain', type:'country' },
+  				        	{ id: 'IT', name:'Italy', type:'country' },
+  				        { id: 'NA', name:'North America', type:'continent',
+  				        		children:[{_reference:'MX'}, {_reference:'CA'}, {_reference:'US'}] },
+  				        	{ id: 'MX', name:'Mexico', type:'country',  population:'108 million', area:'1,972,550 sq km',
+  				        			children:[{_reference:'Mexico City'}, {_reference:'Guadalajara'}] },
+  				        		{ id: 'Mexico City', name:'Mexico City', type:'city', population:'19 million', timezone:'-6 UTC'},
+  				        		{ id: 'Guadalajara', name:'Guadalajara', type:'city', population:'4 million', timezone:'-6 UTC' },
+  				        	{ id: 'CA', name:'Canada', type:'country',  population:'33 million', area:'9,984,670 sq km',
+  				        			children:[{_reference:'Ottawa'}, {_reference:'Toronto'}] },
+  				        		{ id: 'Ottawa', name:'Ottawa', type:'city', population:'0.9 million', timezone:'-5 UTC'},
+  				        		{ id: 'Toronto', name:'Toronto', type:'city', population:'2.5 million', timezone:'-5 UTC' },
+  				        	{ id: 'US', name:'United States of America', type:'country' },
+  				        { id: 'SA', name:'South America', type:'continent',
+  				        		children:[{_reference:'BR'}, {_reference:'AR'}] },
+  				        	{ id: 'BR', name:'Brazil', type:'country', population:'186 million' },
+  				        	{ id: 'AR', name:'Argentina', type:'country', population:'40 million' }
+  			]};
+  		//dijit.byId('continentStore').data = test;
+  		// Get the initial store
+  		//var treeModel = new dojo.data.ItemFileReadStore(mConsole.objectToTreeModel());
+  		//new dijit.Tree({
+          //   model: treeModel
+        //}, "objectTree");
+  	});
+  	
+  	mConsole = {};
+  	dojo.mixin(mConsole, {
+  		objectToTreeModel : function( /*String*/ rootObjName){
+  			var root = rootObjName ? eval(rootObjName) : misys;
+  			var name = rootObjName || 'misys';
+  			var json = {};
+  			json.identifier = 'id';
+  			json.label = 'name';
+  			var fncs = [];
+  			for(fnc in root) {
+  				var fncJson = {};
+  				fncJson.id = fncJson.name = fnc;
+  				fncJson.type = (typeof root[fnc]);
+  				fncs.push(fncJson);
+  			}
+  			json.items = fncs;
+  			
+  			
+  			var store = new dojo.data.ItemFileReadStore(njson);
+  			var treeModel = new dijit.tree.ForestStoreModel({
+  	            store: store,
+  	            query: {
+  	                "type": "continent"
+  	            },
+  	            rootId: "root",
+  	            rootLabel: "Continents",
+  	            childrenAttrs: ["children"]
+  	        });
+  			
+  			return treeModel;
+  		}
+  	});
+  	
+  </script>
+ </body>
+</html>

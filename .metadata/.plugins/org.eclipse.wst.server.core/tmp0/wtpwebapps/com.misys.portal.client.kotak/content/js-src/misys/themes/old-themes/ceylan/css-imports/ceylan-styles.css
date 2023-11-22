@@ -1,0 +1,917 @@
+/* 
+ General page styles
+*/
+
+body.ceylan{
+	font-size:100%;
+	font-family: Arial, sans-serif;
+	 margin-left: auto;
+    margin-right: auto;
+    width: 988px;
+	background: #D6D6D6 url("../images/gradientfromtop.gif") repeat-x;
+}
+
+.ceylan .homepage,
+.ceylan .maincontent,
+.ceylan .maincontent > .colmask {
+	background: none repeat scroll 0 0 white;
+}
+
+.ceylan .maincontent {
+	clear: both;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+	min-height:400px;
+}
+
+.ceylan p{
+	padding:0;
+    margin:0;
+}
+
+.ceylan ul{
+	padding:0;
+	margin:0;
+}
+
+.ceylan li{
+	padding:0;
+	list-style-type:none;
+}
+
+.ceylan h1, .ceylan h2, .ceylan h3{
+	margin:0;
+	padding:0;
+	line-height: normal;
+}
+
+.ceylan a:link {
+	color: #0079a7;
+	text-decoration: none;
+}
+
+.ceylan a:visited {
+	color: #0079a7;
+	text-decoration: none;
+}
+
+.ceylan a:hover {
+	color: #e86d1f;
+	text-decoration: underline;
+}
+
+.ceylan .shadow{
+	box-shadow: -2px -2px 4px #BFBFBF;	
+}
+
+.dj_webkit .ceylan button:hover, 
+.dj_gecko .ceylan button:hover,
+.dj_ie8 .ceylan button:hover{
+    cursor: pointer;
+}
+
+.notready .grid,
+.notready #TransactionSearchForm,
+.notready #TransactionFilterSearchForm,
+.notready #toc,
+.notready #edit,
+.notready #loginForm{
+	visibility:hidden !important;
+}
+
+
+/** Loading message and progress bars **/
+.notready #loading-message{
+	display:block !important;
+	position:absolute;
+    left:165px;
+    top:0px;
+    width:90%;
+    height:100%;
+    margin:10px 0 0 5px;
+    padding:0;
+    z-index:999;
+    background-color:#fff;
+}
+.notready #reporting_popup #loading-message{
+	left:0px;
+	width:100%;
+}
+
+.notready #loading-message p{
+     font-weight:bold;
+     font-style:italic;
+     margin-left:5px;
+     font-size:1.4em;
+}
+
+.notready #loadingProgressBar{
+	width:250px;
+	height:15px;
+	margin-left:5px;
+	border:1px solid #999;
+	background:#cad2de url("../../../dijit/themes/tundra/../images/progressBarAnim.gif") repeat-x center center;
+}
+
+.ceylan #loading-message{
+	display:none;
+}
+
+.ceylan #dialogProgressBar{
+	width:250px;
+}
+
+/** News **/
+.ceylan .paracontent p{
+	font-size:0.9em;
+}
+
+/** Page Header **/
+.ceylan .panel1 {
+	background-color: #999999;
+	padding:2px 0px 2px 0px;
+	height: 1.1em;
+}
+
+.ceylan .panel1,.ceylan .panel2 {
+	clear: both;
+	width: 100%;
+}
+
+.ceylan .panel2 {
+	/*background: #0079a7 url("../images/header.png") repeat-x	top;*/
+	height: 3.6em;
+	position:relative;
+}
+
+.ceylan .header a:link,.ceylan .header a:visited {
+	color: #FFFFFF;
+}
+
+.ceylan .header a:hover {
+	color: #ffff00;
+}
+
+.ceylan .breadcrumb {
+	color: #ffffff;
+	float: left;
+	font-weight: bold;
+	font-size:0.75em;
+	padding: 0px 0px 0px 11px;
+	vertical-align: middle;
+	width: 160px;
+}
+
+.ceylan .message {
+	color: #ffffff;
+	float: left;
+	vertical-align: middle;
+	font-size:0.75em;
+}
+
+.ceylan .header .welcomemessage {
+	height: 1.5em;
+	/*color: #ffffff;*/
+	/*float: right;*/
+	padding-top: 25px;
+	padding-right:2px;
+	vertical-align: middle;
+	font-size:0.75em;
+	position:absolute;
+	right:0px;
+	bottom:8px;
+}.ceylan .header .welcomemessage a {
+	color: #000;
+	}
+
+.ceylan .header #header_top_options {
+    position: absolute;
+    right: 120px;
+    top: 5px;
+}
+.ceylan .header .login_details,
+.ceylan .header .login_details dt,
+.ceylan .header .login_details dd,
+.ceylan .header .top_menu,
+.ceylan .header .top_menu li {
+    float: left;
+}
+
+.ceylan .header .login_details {
+    background: #DDF1F8;
+    display: inline;
+    font-size: 0.8em;
+    height: 20px;
+    line-height: 20px;
+    /*margin-right: 10px;*/
+    padding-right: 5px;
+	border-radius: 7px 7px 7px 7px;
+}
+.ceylan .header .login_details dt {
+    display: inline;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.ceylan .header .login_details .date {
+    height: 20px;
+    padding-left: 5px;
+}
+.ceylan .header .last_login {
+    display: inline;
+    margin-left: 10px;
+}
+.ceylan .submenu {
+	color: #ffffff;
+	float: right;
+	font-weight: bold;
+	height: 1.5em;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+
+.ceylan .submenu img {
+	margin: 5px 0 0 5px;
+}
+
+.ceylan .logo {
+	float: left;
+	margin: 5px 15px 0 15px;
+	background-image: url("../images/demobank_logo.gif");
+	/*background-image: url("../images/demosthene_logo.gif");*/
+	width: 236px;
+	height: 38px;
+	background-repeat:no-repeat;
+}
+
+/** Page Footer **/
+.ceylan .footer {
+	clear: both;
+	border-top: 1px solid #999;
+}
+
+/** Notices **/
+.ceylan .notice {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	height: 25px;
+	font-weight: bold;
+	clear: both;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.ceylan .notice p {
+	vertical-align: middle;
+	margin:2px 0px 1px 1px;
+	height:32px;
+	font-size:0.8em;
+}
+
+.ceylan .notice img {
+	float: left;
+}
+
+/** Forms **/
+.ceylan .description {
+	display: none;
+}
+
+/** Favorites **/
+.ceylan #BookmarkPortlet {
+	border: none;
+	font-size:0.7em;
+}
+
+.ceylan #BookmarkPortlet .portlet-section-header {
+	background: #D0D0D0 none;
+}
+
+.ceylan #BookmarkPortlet .portlet-title {
+	color: #0079A7;
+	font-size:1em;
+}
+
+.ceylan #BookmarkPortlet .portlet-section-body {
+	background-color: #f0f0f0;
+	padding: 2px 1px 1px 4px;
+}
+
+.ceylan #BookmarkPortlet li {
+	margin: 3px 0px 3px 0px;
+}
+
+.ceylan #nofavorites {
+	font-weight: bold;
+	margin: 5px;
+}
+
+.ceylan #addBookmark {
+	font-weight: bold;
+	font-style: italic;
+	margin: 5px;
+}
+
+.ceylan .deleteBookmarkLink{
+	margin:5px 0px 0px 5px;
+	display:none;
+}
+
+/** Product Menu **/
+.ceylan #MenuBuilder {
+	border: none;
+}
+
+.ceylan #MenuBuilder .portlet-section-header {
+	display: none;
+}
+
+.ceylan ul.product-menu {
+	padding-left:0.8em;
+	font-size:0.9em;
+}
+
+.ceylan ul.product-menu li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.ceylan ul.product-menu a.currentModule {
+	color: red;
+}
+
+.ceylan ul.product-menu ul {
+	margin: 0.5em 0em 1em 1em;
+}
+
+.ceylan ul.product-menu li li {
+	margin: 0em;
+}
+
+.ceylan ul.product-menu ul li a {
+	font-weight: normal;
+}
+
+.ceylan .product-menu-items a{
+	font-size:0.95em;
+}
+
+/** Product Summary **/
+.ceylan .product-summary{
+	padding:5px;
+}
+
+.ceylan .product-summary p{
+	margin:2px;
+	padding:2px;
+}
+
+/** Override Dijit Classes **/
+.ceylan .dijitTabListContainer-top{
+	background-color: #f2f2f2;
+}
+
+/** A field and its label **/
+.ceylan .field{
+ 	clear: left;
+    margin: 6px 0 6px 20%;
+}
+
+.ceylan #reporting_popup .field{
+    margin-left:10%;
+}
+
+.ceylan .field .field {
+    margin: 0;
+    font-size:1em;
+}
+
+.ceylan .noborder .dijitButtonNode{
+	border:none;
+	background:transparent;
+}
+
+#swapDetailsSection .dijitButtonNode
+{
+	background:url("../../../dijit/themes/tundra/../images/buttonEnabled.png") repeat-x scroll left bottom #FFFFFF;
+	border:1px solid gray;
+}
+
+#swapDetailsSection .dijitArrowButton
+{
+	border-color:#9B9B9B;
+	border-style:solid;
+	border-width:0 0 0 1px;
+}
+
+
+/** A field label **/
+.ceylan label,
+.ceylan .label {
+    width: 175px;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+    margin-right:5px;
+}
+
+.ceylan .multipleItemDialog label{
+	width: 125px;
+}
+
+.ceylan .textarea label, .ceylan .textarea .label{
+	vertical-align:top;
+}
+
+/*.ceylan #view .textarea .label,
+.ceylan #event-summary .textarea .label{
+	text-align: left; 
+}*/
+
+/* 
+ Hide the close button in popup windows.
+ 
+ This is to force the user to click on our cancel button.
+*/
+.ceylan .dijitDialogTitleBar {
+	/*background: #0079a7 url("../images/header_20px.png") repeat-x top left;*/
+	background:#7AA1FF;
+	padding:3px 0px 3px 2px;
+	font-size:0.9em;
+	font-weight:normal;
+}
+
+.ceylan #alertDialog .dijitDialogCloseIcon,
+.ceylan #loadingDialog .dijitDialogCloseIcon,
+.ceylan #delayDialog .dijitDialogCloseIcon,
+.ceylan #dealSummaryDialog .dijitDialogCloseIcon,
+.ceylan #waitingDialog .dijitDialogCloseIcon,
+.ceylan #reauth_dialog .dijitDialogCloseIcon{
+    display:none !important;
+}
+
+.ceylan #reauth_dialog label{
+	width:100px;
+}
+
+.ceylan .dijitDialog {
+	border: 3px ridge #7eabcd;
+}
+
+.ceylan .dijitDialogTitle {
+	color: white;
+}
+
+/** Classes used throughout **/
+.ceylan .clear {
+	clear: both;
+}
+
+.ceylan .hide{
+	display:none;
+}
+
+.ceylan .right{
+	float:right;
+}
+
+.ceylan td.align-right{
+	text-align:right;
+}
+
+.ceylan .left{
+	float:left
+}
+
+.ceylan td.align-left{
+	text-align:left
+}
+
+.ceylan td.align-center{
+	text-align:center;
+}
+
+.ceylan .grid th{
+	text-align:center;
+}
+
+.ceylan .legend{
+	font-size:0.9em;
+}
+
+/** Grids **/
+.ceylan .dojoxGrid table {
+    margin: 0;
+}
+
+.ceylan .dojoxGridRowbarSelected {
+    background:transparent url("../../../../../images/pic_greentick.gif") no-repeat left;
+}
+
+.ceylan .grid{
+	font-size:0.75em;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .ceylan .group {
+	height: 300px;
+}
+.dj_ie7 .ceylan .group {
+	height: 300px;
+}
+.dj_ie8 .ceylan .group {
+	height: 300px;
+}
+/** End Fix */
+
+.ceylan .standingInstructionsGrid th {
+	text-align:center;
+}
+
+/** Calendar **/
+.ceylan .calendarLoader {
+	width:100%; 
+	height:200px;
+	margin:0;
+	padding:0;
+	background:#fff url('../../../dojox/image/resources/../images/loading.gif') no-repeat center center;
+	z-index:999;
+}
+
+.ceylan .chartImg{
+	background:#fff url('../../../dojox/image/resources/../images/loading.gif') no-repeat center center;
+	margin:0;
+	padding:0;
+	z-index:999;
+}
+
+.ceylan .dijitCalendarContainer{
+	font-size:1em !important;
+}
+
+.ceylan #TradeCalendarPortlet {
+	border: none;
+}
+
+.ceylan #TradeCalendarPortlet .portlet-section-header {
+	display: none;
+}
+
+.ceylan #TradeCalendarPortlet .dijitCalendarHoveredDate {
+	background-color:#FBE5D8 !important;	
+}
+
+.ceylan #TradeCalendarPortlet .dijitCalendarDateTemplate,
+.ceylan #default .dijitCalendarDateTemplate {
+	font-weight: bold;
+	text-align: center;
+	padding: 0.3em 0.15em 0.05em 0.15em;
+	letter-spacing: 1px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan #TradeCalendarPortlet .dijitCalendarSelectedYear,
+.ceylan #TradeCalendarPortlet .dijitCalendarSelectedDate,
+.ceylan #default .dijitCalendarSelectedYear,
+.ceylan #default .dijitCalendarSelectedDate{
+	background-color: #E86D1F !important;
+	color: white !important;
+}
+
+.ceylan .dijitCalendarCurrentMonth {
+	border:1px solid white;
+}
+
+.ceylan .calevent-iss-date {
+	background-image: url("../images/cal_99ccff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-exp-date {
+	background-image: url("../images/cal_ffcc99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-last-ship-date {
+	background-image: url("../images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-last-match-date {
+	background-image: url("../images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-appl-date {
+	background-image: url("../images/cal_ffcccc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-maturity-date {
+	background-image: url("../images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-latest-answer-date {
+	background-image: url("../images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-tenor-maturity-date {
+	background-image: url("../images/cal_ff99ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-creation-date {
+	background-image: url("../images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-remittance-date {
+	background-image: url("../images/cal_3366ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-amd-date {
+	background: #387c44 !important;
+	background-image: url("../images/cal_387c44.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-renewal-date {
+	background-image: url("../images/cal_6698ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-tenor-effective-date {
+	background-image: url("../images/cal_fa96f4.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-customer-event {
+	background-image: url("../images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-renewal-renew-on {
+	background-image: url("../images/cal_bb77ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.ceylan .calevent-tenor-start-date {
+	background-image: url("../images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+
+/** Content div, containing form control or content **/
+.ceylan .content {
+    text-align: left;
+    font-family: "Courier New";
+    font-weight: bold;
+    display: inline;
+}
+
+.ceylan .multiple {
+	display:block;
+}
+
+.ceylan .textarea .content{
+	display: block;
+}
+
+/** Cross refs**/
+.ceylan .content .crossrefs{
+	margin-top:-19px;
+	margin-left:180px;
+}
+/** Use by Foreign Exchange to add a customer **/
+.ceylan #customerReferenceDialog .field{
+	display:inline;
+}
+
+.ceylan #customerReferenceDialog #beforeCheckField{
+	display: block;
+}
+
+.ceylan #customerReferenceDialog #checkFieldLabel{
+	display: inline-block;
+}
+
+.ceylan #customerReferenceDialog #checkField{
+	display: inline-block;
+	background-color:#F2F5F9;
+	padding:1em;
+	width:18em;
+}
+
+.ceylan #customerReferenceDialog #checkField span{
+	font-weight: bold;
+}
+/** Use by Foreign Exchange to display the progress bar**/
+.ceylan #progressBarCash {
+	display : inline-block;
+}
+.ceylan #progressBarCash #countdownProgress {
+	display : inline-block;
+}
+
+/** Alert Calendar Screen **/
+.ceylan #alert01_details_offsetsigncode_nosend_0_row label,
+.ceylan #alert01_details_offsetsigncode_nosend_1_row label,
+.ceylan #alert02_details_offsetsigncode_nosend_0_row label,
+ .ceylan #alert02_details_offsetsigncode_nosend_1_row label{
+	margin-left:180px;
+	text-align: left;
+}
+
+.ceylan div#company_role_list_row.field div ul.multi-select li
+{
+	text-align: left;
+}
+
+.ceylan div#company_role_list_row.field
+{
+	padding-left:0;
+	text-align:center;
+}
+
+
+.ceylan div#user_list_row.field
+{
+	padding-left:0;
+	text-align:center;
+}
+
+.ceylan div#company_role_list_row div 
+{
+	display: block;
+}
+
+.ceylan ul.bulleted-list{
+	padding-left:3%;
+}
+
+.ceylan ul.bulleted-list li{
+	list-style-type:circle;
+}
+
+.ceylan .dojoxGridRowOver {
+	border: none;
+	background-color: white;
+}
+
+.ceylan .dojoxGridRowOver .dojoxGridCell {
+	background-color: white; 
+	color:#000;
+}
+
+.ceylan .dojoxGridCellOver {
+	border: 1px dotted #D5CDB5;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver {
+	cursor: pointer;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver {
+	border-top-color: #ccc;
+	border-bottom-color: #ccc;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell {
+	background-color: #60a1ea; 
+	color:#fff;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijit {
+	color: #000;
+}
+
+.ceylan .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijitDisabled {
+	color: gray;
+}
+
+.ceylan #TransactionSearchForm .field, .ceylan #TransactionFilterSearchForm .field {
+   margin-left:0px;	
+}
+
+.ceylan .outstandingAmountTitle {
+	font-weight:normal;
+	text-align:center;
+	margin:5px;
+}
+
+.ceylan #currencydata label{
+	width:60px;
+}
+
+.ceylan .searchhelp{
+	font-size:0.8em;
+}
+
+.ceylan #aggregate_use_product_currency_row label{
+	margin-left: 50px;
+}
+
+.ceylan #AWBTrackingPortlet .AWBDiv, .AWBTrackingDialog .AWBDiv{
+	text-align:center;
+}
+.ceylan .AWBTrackingDialog #AWBWelcome {
+	color:red;
+	font-weight:bold;
+}
+.ceylan .AWBTrackingDialog #AWBDisclaimerMain{
+	font-weight:bold;
+}
+.ceylan .AWBTrackingDialog .AWBDialogDisclaimer{
+	font-weight:bold;
+	color:#0079a7;
+	margin-bottom: 10px;
+}
+.ceylan .AWBTrackingDialog #AWBDialogHeader{
+	margin-bottom: 10px;
+}
+.ceylan .AWBTrackingDialog .AWBDialogDisclaimerNote{
+	font-weight:bold;
+	font-style:italic;
+	margin-bottom: 10px;
+}
+.ceylan #AWBTrackingPortlet #AWBlink{
+	color:#0079a7;
+}
+.ceylan #AWBTrackingPortlet .AWBClickTrack{
+	margin-top:10px;
+	margin-bottom: 10px;
+	text-align:center;
+}
+
+.ceylan .dijitTitlePane {
+	margin: auto;
+	width: 500px;
+}
+
+.ceylan .dojoxFloatingPane {
+	width: 300px;
+}
+
+.ceylan .dijitTitlePaneTitle {
+	background: none;
+	background-color: #EB6E1F;
+}
+
+/** Buttons on a popup dialog **/
+.ceylan .dialogButtons{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin:5px;
+}
+
+.ceylan .dijitDialog .field,
+.ceylan #TransactionSearchForm .field{
+	margin-left:0;
+}
+
+.ceylan .dijitDialog{
+	font-size:0.8em;
+}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+
+	<header>
+
+		<sourceappcode>JARVIS</sourceappcode>
+
+		<RqUID>2</RqUID>
+
+		<action_type>FETCH_MASTER_DET</action_type>
+
+		<master_code>CR_NARRATION</master_code>
+
+		<company_code>asd</company_code>
+
+		<crn>69914730</crn>
+
+	</header>
+	<master>
+
+		<code>1</code>
+
+		<description>begin Select ':inv_no:'||' '||':utr_no:'||'
+			'||':dealer_name:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>10</code>
+
+		<description>begin Select ':pyt_type:'||' '||':utr_no:'||'
+			'||':remitter_name:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>11</code>
+
+		<description>begin Select ':utr_no:'||' '||':remitter_name:'||'
+			'||':dealer_nm:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>12</code>
+
+		<description>begin Select ':utr_no:'||' '||':benef_apac:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>2</code>
+
+		<description>begin Select ':inv_no:'||' '||':utr_no:'||'
+			'||':dealer_cd:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>3</code>
+
+		<description>begin Select ':utr_no:'||' '||':dealer_cd:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>4</code>
+
+		<description>begin Select ':utr_no:'||' '||':dealer_name:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>5</code>
+
+		<description>begin Select ':utr_no:'||' '||':dealer_name:'||'
+			'||':inv_no:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>6</code>
+
+		<description>begin Select ':utr_no:'||' '||':dealer_cd:'||'
+			'||':inv_no:' into :v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>7</code>
+
+		<description>begin Select ':utr_no:'||' '||':inv_no:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>8</code>
+
+		<description>begin Select ':dealer_name:'||' '||':inv_no:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+	<master>
+
+		<code>9</code>
+
+		<description>begin Select ':dealer_cd:'||' '||':inv_no:' into
+			:v_narration from dual;end;</description>
+
+	</master>
+
+	<request_status>
+
+		<error_flag>N</error_flag>
+
+		<error_desc>Cr Narration Found</error_desc>
+
+	</request_status>
+
+</Response> 

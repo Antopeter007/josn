@@ -1,0 +1,20 @@
+<div ng-repeat="graph_data in vm.graph_data_list">
+	<ion-list
+		ng-show="graph_data.permission === 'true' && (graph_data.labels && graph_data.labels.length > 0) ">
+	<div class="item item-divider text-alignment-center">{{graph_data.header}}</div>
+	
+	<ion-item class="card">
+	<div ng-if="graph_data.ChartType === 'line'">
+		<canvas id="bar" class="chart chart-bar"
+			chart-data="graph_data.amounts" chart-labels="graph_data.labels"
+			chart-series="graph_data.series"
+			chart-options="{scaleBeginAtZero:false, tooltipFontSize: 9, scaleFontSize: 9}"></canvas>
+	</div>
+
+	<div ng-if="graph_data.ChartType === 'pie'">
+		<canvas id="doughnut" class="chart chart-doughnut"
+			chart-data="graph_data.amounts" chart-labels="graph_data.labels" chart-options="{tooltipFontSize: 9, scaleFontSize: 9}"></canvas>
+	</div>
+
+	</ion-item> </ion-list>
+</div>

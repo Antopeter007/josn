@@ -1,0 +1,288 @@
+<form [formGroup]="amendReleaseSection">
+ <p-confirmDialog></p-confirmDialog>
+ <div class = "release-task-alignment">
+ <fcc-common-actions *ngIf ="(!viewMode || mode === 'UNSIGNED') && bgRecord" [bgRecord]="bgRecord" [showSubmit]= "false" [showCancel] = "false" [showHelp] = "false" [showTask] ="true" ></fcc-common-actions>
+ </div>
+ <div *ngIf ="!viewMode ; else view_content" class="fieldset-content">
+   <!--General Detail Section-->
+   <p-panel id="commonGeneralDetails" header="{{'HEADER_GENERAL_DETAILS' | translate}}"
+              [toggleable]="true" [collapsed] ="false">
+      <p-header *ngIf="!viewMode">
+         <a class="fa fa-search fa-lg {{commonService.getUserLanguage() === 'ar' ? 'master-icon-left' : 'master-icon'}}" (click)="showDailog(bgRecord['refId'])"></a>
+      </p-header>
+       <!-- System Id: -->
+      <div id =  "generalRefIdViewRow" class="field" *ngIf ="bgRecord && bgRecord['refId'] && bgRecord['refId'] != null && bgRecord['refId'] != ''">
+        <label for =  "systemId" id =  "systemIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-field' : 'label-left-field'}}">{{bgRecord['refId']}}</label>
+      </div>
+      <!-- Bank Reference -->
+      <div id = "generalBoRefIdViewRow" class="field" *ngIf ="bgRecord && bgRecord['boRefId'] && bgRecord['boRefId'] != null && bgRecord['boRefId'] != ''">
+        <label for ="boRefId" id ="boRefIdLabel">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['boRefId']}}</label>
+      </div>
+      <!-- Purpose -->
+      <div class="field" id =  "purposeRow" *ngIf="bgRecord && bgRecord['purpose'] && bgRecord['purpose'] != null &&   bgRecord['purpose'] != ''">
+        <label for = "purpose" >{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-max' : 'label-left-max'}}">{{iuCommonDataService.getAmendPurpose(bgRecord['purpose']) | translate}}</label>
+      </div>
+      <!--Start Date-->
+      <div id =  "bgIssDateTypeCodeRow" class="field" *ngIf="bgRecord && bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null &&   bgRecord['bgIssDateTypeCode'] != ''">
+        <label for = "bgIssDateTypeCode" >{{ 'AMEND_GENERALDETAILS_START_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+      </div>
+      <!--Issue Date-->
+      <div id =  "issDateRow" class="field"  *ngIf="bgRecord && bgRecord['issDate'] && bgRecord['issDate'] != null &&   bgRecord['issDate'] != ''">
+          <label for = "issDate" >{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['issDate']}}</label>
+      </div>
+      <!--Original Expiry Date-->
+      <div id =  "orgExpDateRow"  class="field"  *ngIf="bgRecord && bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null &&   bgRecord['bgExpDate'] != ''">
+        <label for = "orgExpDate" >{{ 'AMEND_GENERALDETAILS_ORIGINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgExpDate']}}</label>
+      </div>
+      <!-- Amendment/Request date -->
+       <div id = "amdDateRow"  class="field">
+          <label for = "amdDate">{{ 'AMEND_GENERALDETAILS_AMENDMENT_DATE' | translate }}&nbsp;</label>
+          <p-calendar id = "bgAmddate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="bgAmdDate" dataType="string"
+           onkeydown="return false" dateFormat="{{ this.dateFormat }}" name="amdDateSelected"
+          (onSelect) = "setValidatorAmendDate('bgAmdDate');"
+          [styleClass]="validationService.isFieldInvalid(amendReleaseSection.get('bgAmdDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="amendReleaseSection.get('bgAmdDate')"></fcc-common-error-message>
+      </div>
+       <!-- Amendment Number -->
+      <div id =  "amendmentNumberRow" class="field">
+        <label for = "amendmentNumber" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{amdNum}}</label>
+      </div>
+    </p-panel>
+        <!--Amount Detail Section-->
+    <p-panel id="amountDetails" header="{{'HEADER_AMEND_AMOUNT_DETAILS' | translate}}"[toggleable]="true">
+      <!-- Release Full Checkbox -->
+      <div id = "bgReleaseFlagRow" class="field" >
+          <label class="label-checkbox">{{'IU_AMEND_AMOUNT_RELEASE_FULL' | translate}}&nbsp;</label>
+          <p-checkbox formControlName="bgReleaseFlag" id="bgReleaseFlag" binary="true" (ngModelChange)="onChangeAmendReleaseFull($event);" name="bgReleaseFlagSelected"  required="true"></p-checkbox>
+      </div>
+      <!-- Guarantee Release Amount -->
+      <div id = "releaseAmtRow" class = "field">
+          <label for="bgReleaseAmt" class="label"><span class = "required-field-symbol">*</span> {{'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>{{bgRecord['bgCurCode']}}&nbsp;
+          <input formControlName="bgReleaseAmt" name="bgReleaseAmt" type="text"   (blur) = "setValidatorReleaseAmount();" pInputText  required="true">
+          <fcc-common-error-message [control]="amendReleaseSection.get('bgReleaseAmt')"></fcc-common-error-message>
+      </div>
+      <!--Available Amount-->
+      <div id = "bgOsAmtRow" class = "field">
+          <label for="bgOsAmt" class="label">{{'AVAILABLE_AMOUNT' | translate }}&nbsp;</label>{{bgRecord['bgCurCode']}}&nbsp;
+          <input formControlName="bgOsAmt" name="bgOsAmt" type="text" readonly pInputText  required="true">
+      </div>
+      <!--Reasons for Reduction/Release-->
+      <div id = "reasonReductionReleaseRow" class="field">
+        <label for = "reasonReductionRelease"><span class = "required-field-symbol">*</span> {{ 'AMEND_RELEASE_REDUCTION_REASON' | translate }}&nbsp;</label>
+          <p-dropdown id="reasonReductionRelease" appendTo = "body" formControlName="reasonReductionRelease" [options]="ReductionReleaseReasonsObj"
+          optionLabel="name" name="reasonReductionReleaseSelected" placeholder="" [showClear]="false" (ngModelChange)="onchangeReasonForReductionRelease($event);"></p-dropdown>
+        <fcc-common-error-message [control]="amendReleaseSection.get('reasonReductionRelease')"></fcc-common-error-message>
+      </div>
+    </p-panel>
+        <!--Narrative Section-->
+
+    <p-panel id="bgAmdDetails" header="{{'HEADER_NARRATIVE_DETAILS' | translate}}"[toggleable]="true">
+      <div id = "amdDetailsRow" class = "field">
+        <label for = "bgAmdDetails"><span *ngIf="isRequired" class = "required-field-symbol">*</span>&nbsp;</label>
+        <textarea fccCommonTextArea [controlName]="amendReleaseSection.get('bgAmdDetails')" pInputTextarea [rows] = "6" [cols]= "35" formControlName="bgAmdDetails"></textarea>
+        <a class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgAmdDetails')"></a>
+        <fcc-common-error-message [control]="amendReleaseSection.get('bgAmdDetails')"></fcc-common-error-message>
+        <fcc-common-narrative-character-count [enteredCharCount]="amendReleaseSection.get('bgAmdDetails').value ? amendReleaseSection.get('bgAmdDetails').value.length : 0" [allowedCharCount]="210" [fieldSize]="'S'"></fcc-common-narrative-character-count>
+      </div>
+    </p-panel>
+
+        <!--Instructions to the Bank Section-->
+    <p-panel id="instructionDetails" header="{{'HEADER_INSTRUCTIONS' | translate}}"[toggleable]="true">
+      <div class="field">
+          <label for="bgPrincipalActNo" class="label">{{'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <input pInputText type="text" id="bgPrincipalActNo" formControlName="bgPrincipalActNo" (click)="openAccountDialog('bgPrincipalActNo')" [readonly]="true" pInputText>
+          <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgPrincipalActNo')"></a>
+          <a *ngIf="hasPrincipalAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearPrincipalAcc($event);"></a>
+          <fcc-common-error-message [control]="amendReleaseSection.get('bgPrincipalActNo')" ></fcc-common-error-message>
+      </div>
+
+      <div class="field">
+        <label for="bgFeeActNo" >{{'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+        <input pInputText type="text" id="bgFeeActNo" formControlName="bgFeeActNo" [readonly]="true" (click)="openAccountDialog('bgFeeActNo')">
+        <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgFeeActNo')"></a>
+        <a *ngIf="hasFeeAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearFeeAcc($event);"></a>
+          <fcc-common-error-message [control]="amendReleaseSection.get('bgFeeActNo')" ></fcc-common-error-message>
+      </div>
+
+      <div id = "freeFormatTextRow" class = "field">
+        <label for="bgFreeFormatText">{{'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+        <textarea fccCommonTextArea [controlName]="amendReleaseSection.get('bgFreeFormatText')" pInputTextarea [rows]="6" [cols]="35" formControlName="bgFreeFormatText" id="bgFreeFormatText"></textarea>
+        <a class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgFreeFormatText')"></a>
+        <fcc-common-error-message [control]="amendReleaseSection.get('bgFreeFormatText')"></fcc-common-error-message>
+        <fcc-common-narrative-character-count [enteredCharCount]="amendReleaseSection.get('bgFreeFormatText').value ? amendReleaseSection.get('bgFreeFormatText').value.length : 0" [allowedCharCount]="210" [fieldSize]="'S'"></fcc-common-narrative-character-count>
+      </div>
+        <input type="hidden" *ngIf="bgRecord"  formControlName="bgExpDate" value="{{bgRecord['bgExpDate']}}"/>
+        <input type="hidden" *ngIf="bgRecord"  formControlName="bgOsAmt" value="{{bgRecord['bgLiabAmt']}}"/>
+        <input type="hidden"  *ngIf="bgRecord" formControlName="tnxCurCode" value="{{bgRecord['bgCurCode']}}"/>
+      </p-panel>
+
+      <div id='returnComments' class="field" *ngIf="bgRecord && bgRecord['returnComments'] && bgRecord['returnComments'] != null && bgRecord['returnComments'] !== ''">
+        <p-panel id="returnComments" header="{{'HEADER_MC_COMMENTS_FOR_RETURN' | translate}}"[toggleable]="true">
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['returnComments']}}</label>
+        </p-panel>
+      </div>
+
+        <fcc-common-fileupload-component *ngIf="bgRecord" [bgRecord]="bgRecord" (formReady)="addToForm('fileUploadSection', $event)"></fcc-common-fileupload-component>
+        <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+      <!-- Buttons for create Amend Release -->
+       <fcc-common-actions *ngIf ="mode !== 'UNSIGNED'" [isFooter]="'true'" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+     </div>
+
+<!-- view screen content-->
+<ng-template #view_content>
+    <!-- Header buttons for the Preview screen -->
+    <fcc-common-actions *ngIf ="viewMode && mode !== 'UNSIGNED'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <div *ngIf ="mode === 'UNSIGNED'; else view_header_content">
+        <h2>{{ 'HEADER_GENERAL_DETAILS' | translate }}
+            <button pButton type="button" icon="pi pi-search" class="search-btn" (click)= "showDailog(bgRecord['refId'])" style="margin-top: 0.25px"></button>
+          </h2>
+    </div>
+    <ng-template #view_header_content>
+       <fcc-trade-event-details *ngIf="bgRecord" [bgRecord]= "bgRecord"  [formReady]="bgRecord"></fcc-trade-event-details>
+    </ng-template>
+      <div *ngIf ="mode === 'UNSIGNED' && bgRecord" id="commonGeneralDetails">
+      <!-- Company Name -->
+      <div id =  "companyNameViewRow" *ngIf ="bgRecord['companyName'] && bgRecord['companyName'] != null && bgRecord['companyName'] != '' && mode !== 'UNSIGNED'">
+        <label for =  "companyName" id =  "companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['companyName']}}</label>
+      </div>
+       <!-- System Id: -->
+      <div id =  "generalRefIdViewRow" *ngIf ="bgRecord['refId'] && bgRecord['refId'] != null && bgRecord['refId'] != ''">
+        <label for =  "systemId" id =  "systemIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['refId']}}</label>
+      </div>
+       <!--Customer Reference -->
+      <div id = "customerReferenceViewRow" *ngIf ="bgRecord['custRefId'] && bgRecord['custRefId'] != null && bgRecord['custRefId'] != '' && mode !== 'UNSIGNED'">
+        <label for="customerReference">{{'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['custRefId']}}</label>
+      </div>
+      <!-- Bank Reference -->
+      <div id = "generalBoRefIdViewRow" *ngIf ="bgRecord['boRefId'] && bgRecord['boRefId'] != null && bgRecord['boRefId'] != ''">
+        <label for ="boRefId" id ="boRefIdLabel">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['boRefId']}}</label>
+      </div>
+       <!--Purpose-->
+       <div id = "purposeRow" class = "field" *ngIf="bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] !== '' && mode !== 'UNSIGNED'">
+          <label for = "purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+          <label class="label-left">{{iuCommonDataService.getPurpose(bgRecord['purpose']) | translate}}</label>
+      </div>
+      <!--Form of Undertaking-->
+      <div id="subProductCodeViewRow" *ngIf ="bgRecord['subProductCode'] && bgRecord['subProductCode'] != null && bgRecord['subProductCode'] != '' && mode !== 'UNSIGNED'">
+          <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+          <label class="label-left">{{iuCommonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+      </div>
+     <!--Start Date-->
+     <div id =  "issDateTypeCodeRow" *ngIf="bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null &&   bgRecord['bgIssDateTypeCode'] != ''">
+        <label for = "bgIssDateTypeCode" >{{ 'AMEND_GENERALDETAILS_START_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{iuCommonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+      </div>
+      <!--Issue Date-->
+      <div id =  "issDateRow" *ngIf="bgRecord['issDate'] && bgRecord['issDate'] != null && bgRecord['issDate'] != ''">
+          <label for = "issDate" >{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['issDate']}}</label>
+      </div>
+      <!--Original Expiry Date-->
+      <div id =  "orgExpDateRow" *ngIf="bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null && bgRecord['bgExpDate'] != ''">
+        <label for = "orgExpDate" >{{ 'AMEND_GENERALDETAILS_ORIGINAL_EXPIRY_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgExpDate']}}</label>
+      </div>
+        <!-- Amendment/Request date -->
+        <div id = "amdDateRow" *ngIf="bgRecord['bgAmdDate'] && bgRecord['bgAmdDate'] != null && bgRecord['bgAmdDate'] != ''">
+            <label for = "orgAmdDate" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_DATE' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgAmdDate']}}</label>
+        </div>
+         <!-- Amendment Number -->
+      <div id =  "amendmentNumberRow" *ngIf="bgRecord['bgAmdNo'] && bgRecord['bgAmdNo'] != null && bgRecord['bgAmdNo'] != ''">
+        <label for = "amendmentNumber" >{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgAmdNo']}}</label>
+      </div>
+      </div>
+      <!--Amount Detail Section-->
+      <p-panel header="{{ 'HEADER_AMEND_AMOUNT_DETAILS' | translate }}" [toggleable]="true">
+      <div *ngIf="bgRecord" id="amountDetails">
+      <!-- Release Full Checkbox -->
+      <div id = "bgReleaseFlagRow" *ngIf="bgRecord['bgReleaseFlag'] && bgRecord['bgReleaseFlag'] != null && bgRecord['bgReleaseFlag'] != '' && bgRecord['bgReleaseFlag'] === 'Y'">
+        <label for = "bgReleaseFlag">&nbsp;</label>
+        <label class="label-left"><strong>{{ 'IU_AMEND_AMOUNT_RELEASE_FULL' | translate }}</strong></label>
+      </div>
+      <!-- Guarantee Release Amount -->
+      <div id = "releaseAmtRow" *ngIf="bgRecord['bgReleaseAmt'] && bgRecord['bgReleaseAmt'] != null && bgRecord['bgReleaseAmt'] != ''">
+          <label for="bgReleaseAmt" class="label">{{'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgReleaseAmt']}}</label>
+      </div>
+      <!--Available Amount-->
+      <div id = "bgOsAmtRow" *ngIf="bgRecord['bgReleaseAmt'] && bgRecord['bgReleaseAmt'] != null && bgRecord['bgReleaseAmt'] != ''">
+          <label for="bgOsAmt" class="label">{{'AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgLiabAmt']}}</label>
+      </div>
+      <!--Reasons for Reduction/Release-->
+      <div id = "reasonReductionReleaseRow" *ngIf="bgRecord['reasonReductionRelease'] && bgRecord['reasonReductionRelease'] != null && bgRecord['reasonReductionRelease'] != ''">
+          <label for = "reasonReductionRelease">{{ 'AMEND_RELEASE_REDUCTION_REASON' | translate }}&nbsp;</label>
+          <label class="label-left">{{iuCommonDataService.getReasonReductionRelease(bgRecord['reasonReductionRelease']) | translate}}</label>
+      </div>
+    </div>
+     </p-panel>
+
+      <p-panel id="amdDetailsRow" header="{{'HEADER_NARRATIVE_DETAILS' | translate}}" [toggleable]="true">
+        <div id = "amdDetailsRow" *ngIf ="bgRecord && bgRecord['bgAmdDetails'] && bgRecord['bgAmdDetails'] != null && bgRecord['bgAmdDetails'] != ''">
+          <label for ="bgAmdDetails"></label>
+          <label class="label-left-narrative">{{bgRecord['bgAmdDetails']}}</label>
+        </div>
+      </p-panel>
+
+      <p-panel id="instructionDetailsRow" header="{{'HEADER_INSTRUCTIONS' | translate}}" [toggleable]="true">
+      <div *ngIf="bgRecord" id="instructionDetails">
+        <!--Principal account-->
+      <div id = "principalActNoViewRow" *ngIf ="bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+        <label for =  "bgPrincipalActNo" id =  "principalActNoLabel">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+      </div>
+        <!--Fee account-->
+      <div id = "feeActNoViewRow" *ngIf ="bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+          <label for =  "bgFeeActNo" id =  "feeActNoLabel">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+      </div>
+      <!-- Free format message-->
+      <div id = "freeFormatTextRow" *ngIf ="bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+          <label for = "bgFreeFormatText" id="freeFormatTextLabel" style= "vertical-align: top;">{{ 'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+          <label class="label-left-narrative">{{bgRecord['bgFreeFormatText']}}</label>
+      </div>
+    </div>
+      </p-panel>
+      <div *ngIf ="mode === 'UNSIGNED'">
+        <fcc-common-fileupload-component *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-common-fileupload-component>
+      </div>
+      <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+      <div id='commentsSection' *ngIf ="mode === 'UNSIGNED' || this.iuCommonDataService.getViewComments() || showCommentSection">
+          <fcc-iu-common-return-comments *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+        </div>
+        <div *ngIf="this.iuCommonDataService.getMode() !== 'UNSIGNED' && (this.iuCommonDataService.getPreviewOption() !== 'SUMMARY' && this.iuCommonDataService.getPreviewOption() !== 'FULLORSUMMARY')">
+          <fcc-iu-initiate-general-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-general-details>
+          <fcc-iu-common-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-applicant-details>
+          <fcc-iu-common-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-beneficiary-details>
+          <fcc-iu-common-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-amount-details>
+          <fcc-iu-renewal-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-renewal-details>
+          <fcc-iu-initiate-contract-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-contract-details>
+          <fcc-iu-initiate-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-bank-details>
+          <fcc-iu-initiate-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-undertaking-details>
+       </div>
+       <div *ngIf="luStatus">
+          <fcc-iu-cu-general-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-general-details>
+          <fcc-iu-cu-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-beneficiary-details>
+          <fcc-iu-initiate-cu-amount-details  *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-amount-details>
+          <fcc-iu-cu-renewal-details  *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-renewal-details>
+          <fcc-iu-initiate-cu-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-undertaking-details>
+       </div>
+     <!-- Buttons for unsigned Amend Release -->
+     <fcc-common-actions *ngIf ="mode === 'UNSIGNED'" [isFooter]="'true'" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <!-- Footer Buttons for Preview screen -->
+    <fcc-common-actions *ngIf ="viewMode && this.iuCommonDataService.getMode() !== 'UNSIGNED'" [isFooter]="'true'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+</ng-template>
+</form>

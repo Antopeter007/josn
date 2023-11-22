@@ -1,0 +1,157 @@
+<mat-drawer-container class="entity-container" autosize [hasBackdrop]="true" (backdropClick)="onCloseMatDrawer();">
+  <mat-drawer #drawer class="entity-sidenav" mode="over" position="{{entityNavPosition}}" (close)="onCloseMatDrawer()">
+      <strong dir={{dir}} class="set-entity-header" style="font-size: 1.25em; font-weight: 500; margin-left: 0.8em;">{{'setEntity' | translate}}</strong> <button role="button"  mat-button (click)="onCloseMatDrawer()" [ngClass]="dir === 'rtl' ? 'icon-close-left' : 'icon-close'"><mat-icon aria-hidden="false" aria-label="Close" [ngClass]="dir === 'rtl' ? 'left-align' : 'right-align'" dir={{dir}}>close</mat-icon></button>
+    <br>
+    <br>
+      <strong dir={{dir}} class="set-entity-sub-header" style="font-weight: 400;">{{'change' | translate}} {{productCode | translate}} {{'entity' | translate}}</strong>
+    <br>
+    <br>
+    <br>
+  <app-set-entity-sidenav></app-set-entity-sidenav>
+  </mat-drawer>
+  <mat-drawer #refDrawer class="reference-sidenav" mode="over" position="{{referenceNavPosition}}" (close)="onCloseMatDrawer()">
+      <strong dir={{dir}} class="set-entity-header" style="font-size: 1.25em; font-weight: 500; margin-left: 0.8em;">{{'setReference' | translate}}</strong> <button role="button"  mat-button (click)="onCloseMatDrawer()" [ngClass]="dir === 'rtl' ? 'icon-close-left' : 'icon-close'"><mat-icon aria-hidden="false" class="set-ref-close-icon" aria-label="Close" [ngClass]="dir === 'rtl' ? 'left-align' : 'right-align'" dir={{dir}}>close</mat-icon></button>
+    <br>
+    <br>
+      <strong dir={{dir}} class="set-entity-sub-header" style="font-weight: 400;">{{'change' | translate}} {{productCode | translate}} {{'reference' | translate}}</strong>
+    <br>
+    <br>
+    <br>
+  <app-set-reference-sidenav></app-set-reference-sidenav>
+  </mat-drawer>
+<div [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'">
+  <div class="p-grid main-start marginBtmByEightyFive {{(this.inputParams && this.inputParams.screenType ==='dialog') ? 'dialogHeader' : ''}}">
+    <div class="p-col-12 pageContent">
+      <div class="p-grid margin-top mx-0" [ngClass]="{'header-margin': menuToggleFlag === 'true'}">
+        <div class="p-sm-12 p-md-6 p-lg-6 pageTitleBar" *ngIf="enableHeader">
+          <h1 class="pageTitle">
+            {{header}}
+            <span>&nbsp;</span>
+            <app-info-icon-details
+              *ngIf="(infoInvoked && showHeaderToolTip !== '' && showHeaderToolTip !== undefined)"
+              [infoIconDetails]="infoIconDetails">
+            </app-info-icon-details>
+          </h1>
+        </div>
+        <div class="p-sm-12 p-md-6 p-lg-6 create-btn-block" *ngIf="showCards" [ngStyle]="{'text-align': setButtonBlockDirection()}">
+          <button
+              role="button"
+              pButton
+              class="backDashboardButton"
+              type="button"
+              label="{{backToDashboard | translate}}"
+              (click)="onclickBackToDashboard()"
+              tabindex="0"
+            ></button>
+        </div>
+        <div class="p-sm-12 p-md-6 p-lg-6 create-btn-block" *ngIf="enableButtons && !buttonsDisable && !showCards" [ngStyle]="{'text-align': setButtonBlockDirection()}">
+          <ng-container *ngFor= "let button of buttonItemList">
+            <button role="button"
+              pButton
+
+              *ngIf = "!button.listdefDialogEnable"
+              class="{{button.buttonClass}}"
+              id = "{{button.buttonName}}"
+              type="button"
+              label="{{button.buttonName | translate}}"
+              (click)="navigateButtonUrl(button.routerLink, button.productProcessor, button.urlKey)"
+              tabindex="0"
+            ></button>
+            <button role="button"
+              pButton
+              *ngIf = "button.listdefDialogEnable"
+              class="{{button.buttonClass}}"
+              type="button"
+              label="{{button.buttonName | translate}}"
+              (click)="listingDialog(button)"
+              tabindex="0"
+            ></button>
+          </ng-container>
+          <!-- <a style= "margin-left: 1.4em"><em class="pi pi-ellipsis-v threeDots" tabindex="0"></em></a> -->
+        </div>
+      </div>
+    </div>
+    <p-dialog header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+    [modal]="true" [maximizable]="false" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>{{ 'popupConfirmationMessage' | translate }}</p>
+    <p-footer>
+        <p-button role="button" (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+        <p-button role="button" (click)="displayDialog = false" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+    </p-footer>
+</p-dialog>
+    <div class="p-col-12">
+      <div class="p-grid" *ngIf="outertabs">
+        <div class="p-col-12 saved-view-block"  *ngIf="enableSaveList">
+          <div class="p-grid">
+            <div class="p-sm-12 p-md-6 p-lg-6">
+              <p-dropdown
+                [options]="views"
+                [(ngModel)]="selectedView"
+                class="view-drp"
+              ></p-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 tab-block" *ngIf ="!showCards">
+          <p-tabMenu [model]="tabItems" (keyup)="OnEnterKey($event)" (click)="OnClickTab($event)" [activeItem]="activeItem" [ngStyle]="{'float': setDirection()}">
+            <ng-template pTemplate="item" let-item let-i="index" >
+                <a (click)="onChange(i)" class="tabs_{{i}}">
+                    <div class="ui-menuitem-text" id={{item.localizationKey}}>
+                        {{item.localizationKey | translate}} {{getCount(i)}}
+                    </div>
+                </a>
+            </ng-template>
+          </p-tabMenu>
+        </div>
+        <div *ngIf ="showCards">
+          <mat-button-toggle-group class="uxg-filtering-toggle-group cardPadding" dir={{dir}} >
+            <mat-button-toggle *ngFor="let vals of cardItems" class="p-col-12" [ngClass]="setClass(vals)" tabindex="0" (change)="onChange(vals.index)">
+              <mat-label>
+                <div class = "cardLabel" [ngClass]='countStyle' id={{vals.localizationKey}}>{{vals.localizationKey | translate}}</div>
+                <div>
+                  <div class = "cardValue" [ngClass]='countStyle'><strong>{{getCount(vals.index)}}</strong></div>
+              </div>
+                  </mat-label>
+              </mat-button-toggle>
+          </mat-button-toggle-group>
+      </div>
+        <div *ngIf="allowSwitch" class="p-col-12">
+          <p-inputSwitch  [(ngModel)]="checkedEnable" class="example-margin" (onChange) = "onToggleChange($event)"></p-inputSwitch><span class="toggle">{{ allowMultipleLicense }}</span>
+        </div>
+        <fcc-common-transactions-listdef #listdef *ngIf="changed"  class="p-col-12" [inputParams]= "params" (rowUnSelectEventListdef)="getRowUnSelectEvent($event)" (refreshTableDataList)="refreshTableData();" (refreshProductList)="refreshProductList($event);" (filterAppliedEvent)="onFilterApply($event)" (headerCheckboxToggle)="onHeaderCheckboxToggle($event)" (rowSelectEventListdef)="getRowSelectEvent($event)"
+        (resetTableFilterOnSwitch) = "resetTableFilterOnSwitch($event)" (showTotalCount)="getTotalCount($event)"></fcc-common-transactions-listdef>
+        <div id="accountNumbers_confirmation" *ngIf="(successAccArr.length>0||checkEmptyObject(failedAccounts))">
+          <div *ngIf="successAccArr.length>0">
+            <strong><p>{{ confirmationMsg | translate}}</p></strong>
+            <div *ngFor="let accNo of successAccArr">{{accNo}}</div>
+          </div>
+          <div *ngIf="checkEmptyObject(failedAccounts);" style="color:red;">
+            <strong><p>{{ failureMsg | translate}}</p></strong>
+            <div *ngFor="let accNo of failedAccounts | keyvalue">{{accNo.value}}</div>
+          </div>
+
+        </div>
+        <div class="p-col-12 rightDirect" *ngIf="activeItem['displayInputSwitch']  && activeItem['displayInputSwitch'].display && selectedRowsdata.length > 0">
+          <fcc-comment-section [visible]="true" position="bottom" [disableReturn]="disableReturn" [selectedRowsData]="selectedRowsdata"
+            [commentsRequired]="false" [bottomButtonList]="bottomButtonList" (handleAction)="handleAction($event)"></fcc-comment-section>
+        </div>
+        <div *ngIf="toggleSubmission() && buttonList && buttonList.length && this.commonService.showCommentDialog" class="p-col-12">
+          <fcc-comment-section [visible]="true" position="bottom" [disableReturn]="disableReturn" [selectedRowsData]="selectedRowsdata" [pendingVerifiedTnx]="pendingVerifiedTnx"
+            [commentsRequired]="commentsRequired" [commentsMandatory]="commentsMandatory" [buttonList]="buttonList" [verifiedTnx]="verifiedTnx" (handleAction)="handleAction($event)"></fcc-comment-section>
+        </div>
+        <div id="multiSubmitResponse" *ngIf="enableMultiSubmitResponse"  >
+          <div id="{{'responseHeader_' + i}}" *ngFor= "let detail of responseMap | keyvalue; let i= index">
+            <br><strong>{{detail.key | translate}}</strong><br>
+            <span class="viewTransaction focus pointer-class">
+            <a href="#" id="{{'responseValueRow_' + i}}" *ngFor="let val of detail.value; let i=index" onclick="return false;" (click)="onClickView($event,val)">
+            {{val.refId}}
+            </a>
+            </span>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</mat-drawer-container>

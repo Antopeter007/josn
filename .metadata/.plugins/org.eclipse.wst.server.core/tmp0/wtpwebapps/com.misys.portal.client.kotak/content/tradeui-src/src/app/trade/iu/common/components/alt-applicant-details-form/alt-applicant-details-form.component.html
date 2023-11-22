@@ -1,0 +1,23 @@
+<div class="indented-header">
+  <div *ngIf="!viewMode  ;else view_content">
+    <form [formGroup]="altApplicantDetailsFormSection">
+      <div *ngIf="mode !== 'initiateAmend'">
+        <h3>{{'HEADER_ALTERNATE_PARTY_DETAILS' | translate }}</h3>
+        <fcc-trade-party-details [bankType]="'altApplicant'" [showAltFlag]="'y'" *ngIf="bgRecord" [bgRecord]="bgRecord"
+          [genericBankDetails]="altApplicantDetailsFormSection" [labelName]="'ALTERNATE_CONTACT_DETAILS_NAME'"
+          [labelAddress]="'ALTERNATE_CONTACT_DETAILS_ADDRESS'" [labelCountry]="'PARTIESDETAILS_CONTRY'">
+        </fcc-trade-party-details>
+      </div>
+    </form>
+  </div>
+  <ng-template #view_content>
+      <!--If FOR_ACCOUNT is Y then display Alternate applicant details-->
+      <div *ngIf="iuCommonDataService.getPreviewOption() !== 'SUMMARY' && mode !== 'initiateAmend' && bgRecord['forAccount'] === 'Y'">
+        <div id="altApplicantFlagViewRow">
+          <h3>{{'HEADER_ALTERNATE_PARTY_DETAILS' | translate }}</h3>
+        </div>
+        <fcc-trade-party-details [bankType]="'altApplicant'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord"
+          [viewMode]="true"></fcc-trade-party-details>
+      </div>
+  </ng-template>
+</div>

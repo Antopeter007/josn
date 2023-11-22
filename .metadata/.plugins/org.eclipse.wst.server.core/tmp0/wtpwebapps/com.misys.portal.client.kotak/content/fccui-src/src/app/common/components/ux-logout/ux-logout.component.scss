@@ -1,0 +1,168 @@
+@import './../../../../styles/variables.scss';
+
+:host ::ng-deep .p-grid {
+  margin-right: 0em;
+  margin-left: 0em;
+  margin-top: 0em;
+}
+
+.entirePage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0em;
+}
+
+.rightImage {
+  min-height: 40em;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and  (min-width: 768px) and (max-width: 820px){
+  .logout-img {
+    width: 100%;
+  }
+}
+
+@media screen and  (min-width: 1024px) and (max-width: 1180px){
+  .logout-img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1180px){
+  .p-lg-6 {
+      width: 100% !important;
+  }
+}
+
+.logo-img {
+  margin-left: -0.1em;
+  margin-top: 1.25em;
+  max-height: 5.25em;
+  max-width: 10.625em;
+}
+
+.generic-text {
+  font-size: 1.6em;
+  color: $primaryColor;
+}
+
+.generic-text-bold {
+  font-weight: bold;
+}
+
+.margin-top-5 {
+  margin-top: 0.3125em;
+}
+
+.margin-top-15 {
+  margin-top: 0.9375em;
+}
+
+.margin-top-30 {
+  margin-top: 1.875em;
+}
+
+.margin-left-15 {
+  margin-left: 1.5em;
+}
+
+:host ::ng-deep .rating .ui-rating a .ui-rating-icon {
+  font-size: 2.5em;
+  font-weight: lighter;
+  color: $primaryColor;
+}
+
+#feedback-text {
+  border: 1.1px solid $CHARCOAL-F50;
+}
+
+#feedback-request {
+  color: $CHARCOAL-F75;
+  font-size: 1.2em;
+}
+
+#char-left {
+  font-size: 0.75em;
+  color: $CHARCOAL-F50;
+  white-space: nowrap;
+}
+
+.left-logo {
+  padding-left: 8.3%;
+}
+
+[dir="rtl"] .left-logo {
+  padding-left: 0%;
+  padding-right: 8.3%;
+}
+
+.right-logo {
+  padding-right: 8.3%;
+}
+
+.left-body {
+  padding-left: 12%;
+}
+
+[dir="rtl"] .left-body {
+  padding-left: 0%;
+  padding-right: 12%;
+}
+
+.right-body {
+  padding-right: 12%;
+}
+
+.feedBackTextArea textarea {
+  width: 100%;
+  resize: none;
+}
+
+.generic-text-bold .corpName {
+  font-size: 1.4em;
+}
+
+.generic-text-bold .prodName {
+  font-size: 1.2em;
+  color: $CHARCOAL-F75;
+}
+
+.generic-text .timedOutMsg {
+  font-weight: bold;
+}
+
+.generic-text .timedOutLongMsg {
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.feedbackSuccessMsg {
+  color: rgb(23, 175, 23);
+}
+
+.feedbackFailureMsg {
+  color: $RED-100;
+}
+
+.msgDist {
+  margin-top: 18%;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.focus button:focus {
+  border: .125em solid #694ed6 !important;
+  border-radius: 2.125em !important;
+}
+
+
+.buttonDist {
+  margin-top: 1.25em;
+  margin-bottom: 25%;
+}

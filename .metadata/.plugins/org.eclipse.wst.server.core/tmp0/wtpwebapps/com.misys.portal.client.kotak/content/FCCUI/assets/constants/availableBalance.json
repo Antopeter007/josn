@@ -1,0 +1,56 @@
+{
+    "baseCurrency": "USD",
+    "totalAvailableAmount": "15.77",
+    "availableAmount": [
+      {
+        "product": "BG",
+        "subProduct": "ILF",
+        "ccy": "INR",
+        "amount": 199
+      },
+      {
+        "product": "BR",
+        "subProduct": "ILF",
+        "ccy": "USD",
+        "amount": 0.00
+      },
+      {
+        "product": "EL",
+        "subProduct": "ILD",
+        "ccy": "USD",
+        "amount": 2.99
+      },
+      {
+        "product": "LC",
+        "subProduct": "ILD",
+        "ccy": "USD",
+        "amount": 8.70
+      },
+      {
+        "product": "LI",
+        "subProduct": "ILF",
+        "ccy": "INR",
+        "amount": 100
+      },
+      {
+        "product": "SG",
+        "subProduct": "ILD",
+        "ccy": "USD",
+        "amount": 0.00
+      },
+      {
+        "product": "SI",
+        "subProduct": "ILF",
+        "ccy": "INR",
+        "amount": 2.72
+      },
+      {
+        "product": "SR",
+        "subProduct": "ILD",
+        "ccy": "USD",
+        "amount": 1.36
+      }
+    ],
+    "response": "REST_API_SUCCESS",
+    "errorMessage": null
+  }

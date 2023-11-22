@@ -1,0 +1,628 @@
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles that control layout and positioning
+  		
+	description:
+	  	Other than those generated via the Java/PSML, this files contains rules pertaining
+	  	to overall layout and positioning, and header/footer organisation.
+	  	
+	  	------------- Page Row/Column Layout --------------------------
+	  	
+		The initial block of CSS has been adapted from those freely available at
+		 
+ 			http://matthewjamestaylor.com/blog/perfect-3-column.htm
+ 
+ 		Widths and additional details are set inline, in accordance with the PSML
+
+		In addition, this file describes global headers, footers and menus
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Everyone
+*/
+
+/** ------------------------------ Master Layout/Positioning Rules ---------------------------- **/
+
+
+/** -----------  Start of matthewjamestaylor.com CSS ------------- **/
+.colmask {
+	position: relative;
+	/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	float: left;
+	clear: both;
+	width: 100%; /* width of whole page */
+	overflow: hidden; /* This chops off any overhanging divs */
+}
+
+.colmid {
+	position: relative;
+	float: left;
+	width: 200%;
+}
+
+.colright {
+	position: relative;
+	float: left;
+	width: 100%;
+	left: 50%;
+}
+
+.col1wrap {
+	position: relative;
+	float: right;
+	width: 50%;
+	right: 100%;
+}
+
+.col1pad {
+	margin-top: 0;
+	margin-right: 5px; /* Right padding*/
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+.col1 {
+	width: 100%;
+	overflow: hidden;
+}
+
+.col2 {
+	float: left;
+	position: relative;
+	margin-left: -50%; /* ?*/
+	overflow: hidden;
+	padding-left: 5px;
+}
+
+.col3 {
+	float: left;
+	position: relative;
+	left: 5px; /* Padding */
+	overflow: hidden;
+}
+
+/** Percentage layout classes */
+.percent .colmid,.percent .colright,.percent .colleft {
+	width: 100%; /* width of page */
+	position: relative;
+}
+
+.percent .col1,.percent .col2,.percent .col3 {
+	float: left;
+	position: relative;
+	margin-left: auto;
+}
+
+/** -----------  End of matthewjamestaylor.com CSS ------------- **/
+
+.column-wrapper{
+	float: left;
+	width: 50%;	
+}
+
+.search-column-wrapper {
+	float: left;
+	width: 50%;
+}
+
+.column-container{
+	margin: 3px 0;	
+}
+
+.width3per {
+	width: 3%;
+}
+
+.width4per{
+	width: 4%;
+}
+
+.width5per {
+	width: 5%;
+}
+
+.width8per{
+	width: 8%;
+}
+
+.width10per {
+	width: 10%;
+}
+
+.width13per{
+	width: 13%;
+}
+
+.width15per {
+	width: 15%;
+}
+
+.width20per {
+	width: 20%;
+}
+
+.width25per {
+	width: 25%;
+}
+
+.width30per {
+	width: 30%;
+}
+
+.width35per {
+	width: 35%;
+}
+
+.width40per {
+	width: 40%;
+}
+
+.width45per {
+	width: 45%;
+}
+
+.width50per{
+	width: 50%;
+}
+
+.width60per{
+	width: 60%;
+}
+
+.width70per{
+	width: 70%;
+}
+
+.width80per{
+	width: 80%;
+}
+
+.width85per{
+	width: 85%;
+}
+
+.width90per{
+	width:90%;
+}
+
+.width100per{
+	width:100%;
+}
+
+.alignRight{
+	text-align:right;
+}
+
+.alignCenter{
+	text-align:center;
+}
+
+.alignLeft{
+  	text-align:left;	
+}
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+
+.panel1, .panel2 {
+	clear: both;
+	width: 100%;
+}
+
+/** Fixed width heights as they have a fixed width background image **/
+.panel1 {
+	padding: 2px 0;
+	height: 18px;
+}
+
+.panel2 {
+	height: 50px;
+}
+
+.breadcrumb {
+	float: left;
+	font-weight: bold;
+	font-size:0.75em;
+	padding: 0 0 0 12px;
+	vertical-align: middle;
+	width: 215px;
+}
+
+.message {
+	float: left;
+	vertical-align: middle;
+	font-size: 0.75em;
+}
+
+.submenu {
+	float: right;
+	font-weight: bold;
+	padding: 4px 16px 0 0;
+	vertical-align: middle;
+}
+
+.submenu img {
+	margin: 4px 0 0 4px;
+}
+
+.logo {
+	float: left;
+	margin: 4px 0 0 16px;
+}
+
+/** Page Footer **/
+.footer {
+	clear: both;
+	border-top: 1px solid #999;
+}
+
+/** ----------------------------------- Product Menu --------------------------------- **/
+
+#MenuBuilder {
+	border: none;
+}
+
+#MenuBuilder .portlet-section-header {
+	display: none;
+}
+
+.product-menu {
+	position: relative;		/** Fixes an issue with backgrounds under IE6 **/
+	padding-left: 0.625em;
+}
+
+.product-menu li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.product-menu .currentModule {
+	color: red;
+}
+
+.product-menu ul {
+	margin: 0.5em 0 1em 1em;
+}
+
+.product-menu li li {
+	margin: 0;
+}
+
+.product-menu li li a {
+	font-weight: normal;
+}
+
+.product-menu-items a {
+	font-size: 0.916em;
+}
+
+.menuBarHighlight {
+	color: black;	
+}
+
+/** --------------------------- Product History ------------------------------ **/
+
+#ProductOverview {
+	margin-left: 1px;
+}
+
+#actions {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+#actions li a {
+	font-size: 0.916em; /** 11px **/
+}
+/**---- Inline block for handling special case for IE7----**/
+.inlineBlock {
+	display:inline-block;	
+}
+
+.dj_ie6 .inlineBlock,
+.dj_ie7 .inlineBlock {
+    zoom: 1;
+	display:inline;
+}
+.widgetButtonContainer{
+	float:right
+}
+
+
+/*------------------ Client Code ----------------*/
+
+#layout {
+	/*margin: 0 5% 0 5%;*/
+	padding: 0 24px 0 24px;
+	background: #fff url("../images/header.gif") no-repeat center top;
+	min-width : 800px;	
+}
+
+#AttachmentOverview .attachments{
+  clear:both; 
+}
+
+.column-container {
+	margin: 3px 0;	
+}
+
+.colmid {
+	width: 198%;
+}
+
+.col3 {
+	width: 250px;
+}
+
+.colLeftWrap{
+	float: left;
+	width: 100%;
+}
+
+.colRight{
+	float: left;
+}
+
+.colLeft{
+	margin-right:250px;	
+}
+
+.panel3span {
+	padding-bottom:5px;
+}
+
+/** TODO These following three rules are unnecessary & should be removed. They needlessly 
+	abstract something that is already in CSS.**/
+
+.inlineBlock {
+	display:inline-block;	
+}
+
+.inlineContainer {
+	/** TODO This is a bit hacky and won't scale 100% correctly **/
+	margin-left: 30.2%;	
+}
+
+.inlineContainer label {
+	display: inline;
+}
+
+.dj_ie6 .inlineBlock,
+.dj_ie7 .inlineBlock {
+    zoom: 1;
+	display:inline;
+}
+
+.inlineComponent {
+	display:inline;	
+}
+
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+
+.loginFormLargeHeader {
+	color:#FFF;	
+	height:80px;
+	clear: both;
+}
+
+.panel1 {
+	background-color: #990000;
+	color: white;
+	padding: 2px 0 3px 0;
+	height: 27px;
+}
+
+.panel2 {
+	height: 66px;
+}
+
+.logo {
+	/*background-image: url("../images/logo.png");*/
+	/*background-position: left center;*/
+	height: 46px;
+	/*background-repeat: no-repeat;*/
+	margin: 8px 0 0 0;
+	/*padding: 15px 5px 0 150px;*/
+}
+
+.footer {
+	background: url("../images/footer.gif") #FFFFFF repeat-x;
+	border: none;
+	height: 110px;
+}
+
+.userHeaderContent {
+	float: right;
+	padding-top: 3px;
+	margin-right: 10px;	
+}
+
+.lastLoginContainer {
+	font-size: 0.75em;
+	float: right;
+	clear: right;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.panel2 .headerContent {
+	margin-top: 35px;
+	font-size: 0.75em;
+}
+
+/** Size the div during load, so it doesn't jump around **/
+.notready .panel2 .headerContent .dijitButton {
+	width: 49px;
+	height: 23px;
+}
+
+.headerRight {
+	float: right;	
+}
+
+.menubarImg{
+	width: 27px;
+	height: 27px;
+	padding: 1px 5px 0;
+	vertical-align: middle;
+	
+	/*
+		background-image: url("../images/home.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding: 5px 5px 0 25px;
+	vertical-align: middle;
+	*/
+}
+
+.bookmarkMenu {
+	float:right;
+	font-weight :normal;
+	font-size:8px;	
+}
+
+.dj_ie7 .bookmarkMenu {
+	position: relative;
+	top: -3.3em;	
+}
+
+.bookmarkMenu #bookmarkDropDownButton {
+	background-image: url("../images/bookmark.png");
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding: 5px 5px 0 25px;
+	vertical-align: middle;
+}
+
+#userId {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+#manageProfile, #skipToContent, #skipToMenu {
+	font-weight: bold;
+	color: #0079A7;
+}
+
+#myPending {
+	font-weight: bold;
+	color: #0079A7;
+}
+
+#skipToMenu, #skipToContent, #helpDesk, #manageProfile, #myPending {
+	text-decoration: underline;
+}
+
+#helpDesk {
+	font-weight: bold;
+	color: #0079A7;
+}
+
+.notready .homepageButtons {
+	visibility: hidden;
+}
+
+.homepageButtons {
+	font-size: 0.833em;
+	color: #000;
+	float: right;
+	font-weight: normal;
+	padding-right: 15px;
+	vertical-align: middle;
+	padding: 0;
+}
+
+.footerSeparator {
+	color: #bbb;
+	margin: 0 15px;
+}
+
+.footerDiv1 {
+	margin:10px 5px;
+	font-size: 0.625em;
+}
+
+.footerDiv2 {
+	margin: 40px 5px 0 5px;
+	text-align: center;
+	clear: both;
+	font-size: 0.625em;
+	color: gray;
+}
+
+.footerLinkLeft {
+	margin: 0 3px;
+	float: left;
+	vertical-align: bottom;
+}
+
+.footerLinkRight {
+	margin: 0 3px;
+	float: right;
+	vertical-align: bottom;
+}
+
+/** ----------------------------------- New Left Menu Tree--------------------------------- **/
+
+.base .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow .dijitTreeExpando {
+	width: 14px;
+}
+
+.base .dijitTreeRow, .dijitTreeContent {
+	white-space:normal;	
+	cursor:pointer;
+}
+
+.base .dijitTreeLabel {
+	margin: 0;
+}
+
+/** ----------------------------------- Product Menu --------------------------------- **/
+
+.product-menu li {
+	list-style-image: url("../images/ul_collapse.gif");
+	padding: 0;
+	clear: left;
+}
+
+.product-menu-items li {
+	list-style-image: url("../images/ul_arrow_right.gif");
+	padding: 0;
+}
+
+.menuBarHighlight {
+	color: #ccc;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+	white-space: nowrap;
+}
+@media screen and (min-width: 768px) and (max-width: 820px) {
+	.col1 {
+	 margin-top: 50px !important;
+	}
+	.col2 {
+	 width: 184px !important;
+	}
+	.colmid {
+	width: 194% !important;
+	}
+	[dir="rtl"] .col1 {
+	 margin-top: 50px !important;
+	}
+}
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+	.col1 {
+	 margin-top: 18px !important;
+	}
+}

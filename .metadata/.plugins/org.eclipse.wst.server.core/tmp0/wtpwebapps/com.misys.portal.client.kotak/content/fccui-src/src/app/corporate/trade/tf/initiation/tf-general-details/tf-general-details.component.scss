@@ -1,0 +1,234 @@
+  :host ::ng-deep .financingInstructionTitle {
+    color: #4a4a4a;
+    font-size: 1.25em;
+    font-weight: bold;
+    line-height: 1.6875em;
+  }
+  :host ::ng-deep .warningStyle {
+    position:relative;
+    font-size: 12px;
+    font-family: 'Roboto-Regular';
+    color:#000000;
+   }
+   :host ::ng-deep .indented-text-area-field-65 {
+    width: 60.9rem;
+   }
+   :host ::ng-deep .form-header.subheader-title {
+    margin-top: 1em;
+   }
+  :host ::ng-deep .browseButton{
+    color: #fff !important;
+    border-radius: 18px !important;
+    padding: 0 16px !important;
+    min-width: 64px !important;
+    line-height: 36px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    border: 0.0625em solid #694ed6 !important;
+    border-color: #694ed6  !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: #694ed6 !important;
+    margin-left: 4em !important;
+    margin-top: -0.1em;
+  }
+
+  :host ::ng-deep [dir=rtl] .browseButton{
+    color: #fff !important;
+    border-radius: 18px !important;
+    padding: 0 16px !important;
+    min-width: 64px !important;
+    line-height: 36px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    border: 0.0625em solid #694ed6 !important;
+    border-color: #694ed6  !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: #694ed6 !important;
+    margin-right: -5.5em !important;
+    margin-top: -0.1em !important;
+  }
+
+  :host ::ng-deep [dir=rtl] .hintForBackToBack{
+    color: #694ed6;
+    font-size: 0.9em;
+    text-align: left;
+    position: absolute;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    padding-right: 2em;
+    padding-left: 2.5em !important;
+  }
+
+:host ::ng-deep .removeLabelSRStyle {
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: left;
+  left: auto;
+  right: auto;
+  position: absolute;
+  margin-top: 2em;
+  margin-left: 4em;
+  color: #c137a2;
+  letter-spacing: 0.05em;
+}
+
+:host ::ng-deep .margin-side {
+  margin: 0px 20px 0px 0px;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin: 0em !important;
+  margin-top: 2em;
+}
+
+:host ::ng-deep .indented-text-area-field-35 textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+  font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin: 0em !important;
+  margin-top: 2em;
+}
+
+:host ::ng-deep .hintForBackToBack {
+  color: #694ed6;
+  font-size: 0.9em;
+  text-align: left;
+  position: relative;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  padding-left:2.5em !important;
+}
+
+:host ::ng-deep .disableOptions .mat-button-toggle{
+  pointer-events: none;
+  opacity: 0.4;
+}
+:host ::ng-deep .disableOptions .mat-button-toggle-checked{
+  opacity: 1;
+}
+
+@media screen and  (min-width: 768px) and (max-width: 820px){
+  :host ::ng-deep.select-msg-width {
+    width: 60% !important;
+  }
+  :host ::ng-deep .mat-card-width {
+    width:40em !important;
+  }
+
+}
+
+@media screen and  (min-width: 1024px) and (max-width: 1180px){
+  :host ::ng-deep.select-msg-width {
+    width: 60% !important;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+      flex-wrap: nowrap;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 820px) {
+:host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+:host ::ng-deep.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+    width: 8.8em;
+  }
+}
+@media screen and  (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+    left: -0.5em !important;
+  }
+  :host ::ng-deep .matCardRemove{
+    left: 28.5em !important;
+  }
+}
+
+
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+  :host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+      flex-wrap: nowrap;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1180px) {
+:host ::ng-deep.transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle,
+:host ::ng-deep.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+    width: 8.8em;
+  }
+}
+@media screen and  (min-width: 1024px) and (max-width: 1180px) {
+  :host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+    left: -0.5em !important;
+  }
+}
+:host ::ng-deep .browseButton:focus {
+  background-color: #694ed6 !important;
+}
+:host ::ng-deep mat-card.mat-card.mat-focus-indicator {
+  box-shadow: 0px 0px 1px 0px rgb(0 0 0 / 16%), 0px 0px 3px 0px #694ed6, 0px 7px 0px 0px #3333331f;
+  border-style: none;
+}
+:host ::ng-deep .p-col-4.ng-star-inserted {
+  width: auto;
+  flex: 1 0 auto;
+}
+:host ::ng-deep .mat-card-content .p-grid.p-col-12 {
+  flex: 1 0 auto;
+}
+:host ::ng-deep .mat-card-width {
+  width: 62em !important;
+}
+:host ::ng-deep .matCardRemove{
+  left: 67em !important;
+}
+:host ::ng-deep mat-card-title.mat-card-title.ng-star-inserted {
+  color: #694ed6 !important;
+}
+@media screen and (max-width: 1280px) {
+  :host ::ng-deep .p-col-4.ng-star-inserted {
+    width: 11em;
+    padding-right: 9px;
+  }
+  :host ::ng-deep .mat-card-width {
+    width: 30em !important;
+  }
+  :host ::ng-deep mat-card.mat-card.mat-focus-indicator {
+    padding-right: 0em;
+  }
+  :host ::ng-deep .matCardRemove{
+    position: absolute !important;
+    left: 87% !important;
+  }
+  :host ::ng-deep .p-col-9{
+    padding-left: 2%;
+  }
+  :host ::ng-deep mat-card-title.mat-card-title.ng-star-inserted {
+    width: 12em !important;
+  }
+}
+
+:host ::ng-deep .infoicon{
+  top: 0.3em;
+  position: relative;
+}
+
+:host ::ng-deep fcc-rounded-button .browseButton.browseButton{
+  right: 25%;
+  margin-top: 5%;
+}

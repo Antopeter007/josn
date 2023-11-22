@@ -1,0 +1,72 @@
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+  border-bottom: 1px solid #d7d6d7 !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding: 0px 0.857em;
+  padding-top: 1.875em;
+  padding-bottom: 0.3125em;
+  border: 0px solid #c8c8c8;
+  font-weight: bold;
+  background-color: transparent;
+  color: #414141;
+  line-height: 0.875em;
+  text-align: left;
+  font-size: 0.75em !important;
+}
+
+:host ::ng-deep .ui-paginator {
+  display: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+  background: #e0e0e0 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  border-bottom: 1px solid #d7d6d7 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: none !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: #fff;
+  border: 0px solid #c8c8c8;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 1em;
+  padding-bottom: 1.1875em;
+  text-align: left;
+  font-size: 0.875em;
+}
+
+.amountId {
+  text-align: right !important;
+  padding-right: 4% !important;
+}
+
+tr:hover > td {
+  cursor: pointer;
+  border-bottom: 1px solid #c137a2 !important ;
+  border-top: 1px solid #c137a2 !important ;
+}
+
+tr > td {
+  color: black;
+}
+
+@media screen and (max-width: 40em) {
+  :host ::ng-deep .ui-table.ui-table-responsive .ui-table-tbody > tr > td {
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+}
+
+.bottom-transaction {
+  padding-left: 47%;
+}
+
+.focus a:focus {
+  outline: 0.125em solid #694ed6 !important;
+}

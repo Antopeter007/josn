@@ -1,0 +1,182 @@
+@import './../../../../styles/variables.scss';
+.mat-form-field+.mat-form-field {
+    margin: auto;
+}
+
+:host ::ng-deep .container {
+    margin: 5px;
+}
+
+thead th {
+    width: 10%;
+}
+
+p, td {
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+th, td {
+    margin: 5px;
+    padding: 5px;
+    border-right: 1px;
+    text-align: start;
+}
+
+.space-between {  
+    justify-content: space-between;
+  }
+
+
+.violet-100{
+     color: $VIOLET-F100;
+    }
+
+.inline-block {
+    display: inline-block;
+    margin-right: 2em;
+    background: $GREY-10;
+}
+
+:host ::ng-deep .mat-expansion-panel-body{
+    text-align: center;
+}     
+
+:host ::ng-deep mat-panel-title div, span {
+    width: 25%;
+    font-size: 1em;
+}
+
+:host ::ng-deep mat-card  {
+    width: 100%;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0 0 2px 2px;
+    padding: 0;
+}
+
+#noDetailsMatched {
+    text-align: center;
+    background: $GREY-10;
+}
+
+#courierDetailsPreferenceDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#courierDetailsSearch[dir="ltr"]  {
+    margin-right: 1px;
+    margin-bottom: 0.5em;
+    /* Input */
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;
+    
+    /* surface */
+    background: #FFFFFF;
+    
+    /* primary */
+    border: 1px solid #694ED6;
+    border-radius: 31px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    /* provision space for search-icon */
+    padding:0 2.5em 0 1em;
+    height: 3rem;
+}
+
+#courierDetailsSearch[dir="rtl"] {
+    margin-right: 1px;
+    margin-bottom: 0.5em;
+    /* Input */
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;
+    
+    /* surface */
+    background: #FFFFFF;
+    
+    /* primary */
+    border: 1px solid #694ED6;
+    border-radius: 31px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    /* provision space for search-icon */
+    padding:0 1em 0 2.5em;
+    height: 3rem;
+}
+
+#courierDetailsSearchIcon[dir="rtl"] {
+    margin: 0.5em 0em 0.5em 0.3em;
+    align-self: stretch;
+}
+
+#courierDetailsSearchIcon[dir="ltr"] {
+    margin: 0.5em 0.3em 0.5em 0em;
+    align-self: stretch;
+}
+
+#courierDetailsSortIcon[dir="ltr"] {
+    margin: -1rem;
+}
+
+#courierDetailsSortIcon[dir="rtl"] {
+    margin: -3em;
+}
+
+.noListStyle {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#courierDetailsSort {
+    margin-left: -3rem;
+    margin-right: 1px;
+    margin-bottom: 0.5em;
+    /* Input */
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;
+    
+    /* surface */
+    background: #FFFFFF;
+    
+    /* primary */
+    border: 0px solid #694ED6;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    /* provision space for search-icon */
+    height: 3rem;
+}

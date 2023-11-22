@@ -1,0 +1,396 @@
+ <div [formGroup]="sectionForm">
+  <div *ngIf ="!viewMode ;else viewContent">
+
+         <!-- Variation Type: Regular/Irregular -->
+        <div id="{{undertakingType}}variationTypeRow" class="field">
+          <label id="{{undertakingType}}variationTypeLabel" class="label-radiobutton" for="{{undertakingType}}VariationType">{{ 'INC_DEC_OPTION' | translate }}&nbsp;</label>
+          <p-radioButton value="01" formControlName="{{undertakingType}}VariationType" label="{{'REGULAR' | translate}}"  name="{{undertakingType}}VariationTypeSelected"
+            id="{{undertakingType}}VariationType" (onClick)="this.setValueFromField(undertakingType + 'VariationType', undertakingType);"></p-radioButton>
+
+          <p-radioButton value="02" formControlName="{{undertakingType}}VariationType" label="{{'IRREGULAR' | translate}}" name="{{undertakingType}}VariationTypeSelected"
+            id="{{undertakingType}}VariationType" (onClick)="this.setValueFromField(undertakingType + 'VariationType', undertakingType);"></p-radioButton>
+          <div *ngIf="sectionForm.get(undertakingType + 'VariationType') && sectionForm.get(undertakingType + 'VariationType').value && sectionForm.get(undertakingType + 'VariationType').enabled" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+        </div>
+
+        <!-- Regular Details -->
+        <div *ngIf="sectionForm.get(undertakingType+ 'VariationType').value === '01'">
+              <div id="{{undertakingType}}operationTypeRow" class = "field" >
+                  <label id="{{undertakingType}}operationTypeLabel" class="label-radiobutton">{{ 'INCREASE_DECREASE_OPERATION' | translate }}&nbsp;</label>
+                  <p-dropdown id="{{undertakingType}}OperationType" [disabled]="commonDataService.disableTnx" placeholder=" " [options]="operationTypeObj" [showClear]="false" formControlName = "{{undertakingType}}OperationType"
+                  [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'OperationType')) ? 'dropDownFieldError' : 'inherit'"
+                  (onChange)="commonService.validateVariationAmt(sectionForm, undertakingType, null); commonService.validateVariationPercentage(sectionForm, undertakingType, null);"></p-dropdown>
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'OperationType')"></fcc-common-error-message>
+              </div>
+              <div id="firstDateRow" class = "field" >
+                <label id="firstDateLabel">{{ 'INCREASE_DECREASE_FIRST_DATE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                <p-calendar [disabled]="commonDataService.disableTnx" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string"
+                  formControlName="{{undertakingType}}VariationFirstDate" onkeydown="return false" dateFormat="{{ this.dateFormat }}" id="{{undertakingType}}VariationFirstDate"
+                  (onSelect)="commonService.setFirstDateValidator(undertakingType+ 'VariationFirstDate', sectionForm, undertakingType, null);
+                  commonService.validateDatewithExpiryDate(sectionForm, undertakingType); validateVariationDaysNotice();" [maxDate]="checkMaxDate()" [minDate]="this.commonService.getMinFirstDate()"
+                  [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'VariationFirstDate')) ? 'calendarFieldError' : 'inherit'">
+                </p-calendar>
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'VariationFirstDate')"></fcc-common-error-message>
+            </div>
+            <!-- Advise Reduction/Increase check box -->
+            <div *ngIf="sectionForm.get(undertakingType+'VariationType').value" id="{{undertakingType}}AdviseEventFlagRow" class="field">
+                  <label id="{{undertakingType}}AdviseEventFlagLabel" class="label-checkbox">{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate}}&nbsp;</label>
+                  <p-checkbox id="{{undertakingType}}AdviseEventFlag" formControlName="{{undertakingType}}AdviseEventFlag" binary="true" (onChange)="toggleOnDaysNotice()">
+                  </p-checkbox>
+            </div>
+             <!-- Advice Days Notice -->
+             <div *ngIf="sectionForm.get(undertakingType+'VariationType').value" id="{{undertakingType}}AdviseDaysPriorNbRow" class="field">
+                  <label id="{{undertakingType}}AdviseDaysPriorNbLabel" for="{{undertakingType}}AdviseDaysPriorNb"> {{ 'DAYS_NOTICE' | translate }}<span *ngIf = "sectionForm.get(undertakingType+'AdviseEventFlag').value" class="required-field-symbol">*</span>&nbsp;
+                  </label>
+                  <input pInputText id="{{undertakingType}}AdviseDaysPriorNb" class="input-three-digit" formControlName="{{undertakingType}}AdviseDaysPriorNb" type=text pKeyFilter="int" maxlength="3"
+                  (change)="validateVariationDaysNotice();" pKeyFilter="int" maxlength="3"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AdviseDaysPriorNb'))">
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'AdviseDaysPriorNb')"></fcc-common-error-message>
+            </div>
+              <div id="{{undertakingType}}VariationFrequencyRow" class = "field" >
+                  <label id="{{undertakingType}}VariationFrequencyLabel">{{ 'FREQUENCY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                  <input pInputText class="input-three-digit" type="text" id="{{undertakingType}}VariationFrequency" formControlName="{{undertakingType}}VariationFrequency" autocomplete="off"
+                  (change)="commonService.validateDatewithExpiryDate(sectionForm, undertakingType);" pKeyFilter="int" maxlength="3"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'VariationFrequency'))">
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'VariationFrequency')"></fcc-common-error-message>
+              </div>
+              <div id="{{undertakingType}}VariationPeriodRow" class = "field" >
+                  <label id="{{undertakingType}}VariationPeriodLabel">{{ 'PERIOD' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                  <p-dropdown placeholder=" " [options]="periodObj" [showClear]="false" id="{{undertakingType}}VariationPeriod" formControlName="{{undertakingType}}VariationPeriod"
+                    (onChange)="commonService.validateDatewithExpiryDate(sectionForm, undertakingType);"
+                    [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'VariationPeriod')) ? 'dropDownFieldError' : 'inherit'">
+                  </p-dropdown>
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'VariationPeriod')"></fcc-common-error-message>
+              </div>
+              <div id="{{undertakingType}}MaximumNbVariationRow" class = "field" >
+                <label id="{{undertakingType}}MaximumNbVariationRowLabel">{{ 'MAX_INCREASE_DECREASE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                <input class="input-three-digit" pInputText type="text" id="{{undertakingType}}MaximumNbVariation" formControlName="{{undertakingType}}MaximumNbVariation" autocomplete="off"
+                (change)="commonService.validateDatewithExpiryDate(sectionForm, undertakingType);" pKeyFilter="int" maxlength="3"
+                [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'MaximumNbVariation'))">
+                <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'MaximumNbVariation')"></fcc-common-error-message>
+              </div>
+              <div id="{{undertakingType}}VariationDayInMonthRow" class = "field" >
+                  <label id="{{undertakingType}}VariationDayInMonthLabel">{{ 'VARIATION_DAYS_IN_MONTH' | translate }}&nbsp;</label>
+                  <input pInputText type="text" id="{{undertakingType}}VariationDayInMonth" class="input-three-digit" formControlName="{{undertakingType}}VariationDayInMonth" autocomplete="off"
+                  (change)="validateDaysInMonth(sectionForm.get(undertakingType+ 'VariationDayInMonth'));" pKeyFilter="int" maxlength="2"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'VariationDayInMonth'))">
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'VariationDayInMonth')"></fcc-common-error-message>
+              </div>
+              <div id="{{undertakingType}}VariationPctRow" class = "field" >
+                  <label id="{{undertakingType}}VariationPctLabel">{{ 'INCREASE_DECREASE_PERCENTAGE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                  <input [disabled]="commonDataService.disableTnx" class="input-three-digit" pInputText type="text" id="{{undertakingType}}VariationPct" formControlName="{{undertakingType}}VariationPct" autocomplete="off" pKeyFilter="num"
+                  [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'VariationPct'))"
+                  (change)="this.commonService.transformNumber(sectionForm.get(undertakingType+ 'VariationPct')); commonService.disableCurrencyAmtField(sectionForm, undertakingType, null); commonService.validateForNullTnxAmtCurrencyField(sectionForm.get(undertakingType+ 'VariationPct'), sectionForm, undertakingType, null);
+                  commonService.calculateVariationAmt(sectionForm, undertakingType, null);">
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType+ 'VariationPct')"></fcc-common-error-message>
+              </div>
+               <div id="{{undertakingType}}VariationCurCodeRow"class = "field" >
+                  <label id="{{undertakingType}}VariationCurCodeLabel">{{ 'INCREASE_DECREASE_AMOUNT' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+                  <input class="input-three-digit" id="{{undertakingType}}VariationCurCode" pInputText type="text" formControlName="{{undertakingType}}VariationCurCode" size="3" oninput="this.value = this.value.toUpperCase()"
+                      (change)="validateCurrency(sectionForm.get(undertakingType+ 'VariationCurCode')); commonService.transformAmtAndSetValidators(sectionForm.get(undertakingType+ 'VariationAmt'), sectionForm.get(undertakingType+ 'VariationCurCode'), undertakingType+'VariationCurCode');"
+                      [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'VariationCurCode'))" placeholder="{{ 'CCY' | translate}}" maxlength="3" [(ngModel)]="this.currCode">
+                  <input pInputText type="text" id="{{undertakingType}}VariationAmt" formControlName="{{undertakingType}}VariationAmt" autocomplete="off" pKeyFilter="num"
+                      (change)="commonService.transformAmtAndSetValidators(sectionForm.get(undertakingType+ 'VariationAmt'),sectionForm.get(undertakingType+ 'VariationCurCode'), undertakingType+ 'VariationCurCode');
+                        commonService.disablePercentageField(sectionForm, undertakingType, null);
+                        commonService.validateVariationAmt(sectionForm, undertakingType, null);"
+                        [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'VariationAmt'))">
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'VariationAmt')"></fcc-common-error-message>
+                  <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'VariationCurCode')"></fcc-common-error-message>
+              </div>
+        </div>
+
+        <!-- Irregular Details Grid -->
+        <div *ngIf="sectionForm.get(undertakingType+ 'VariationType').value === '02' && irregularList.length !== 0">
+            <table class="custom-class">
+                <thead>
+                  <th scope="col">{{ 'CHARGE_DATE' | translate}}</th>
+                  <th scope="col">{{ 'HEADER_OPERATION' | translate}}</th>
+                  <th scope="col">{{ 'INCREASE_DECREASE_PERCENTAGE_HEADER' | translate}}</th>
+                  <th scope="col">{{ 'AMOUNT' | translate}}</th>
+                  <th scope="col"></th>
+                  <th scope="col" class="td-error-grid"></th>
+                </thead>
+                <tbody>
+                  <tr [class.grid-error]="checkErrorOnIrregularItem(fileObj)"
+                  *ngFor="let fileObj of irregularList; index as i">
+                    <td>{{ fileObj.variationFirstDate }}</td>
+                    <td>{{ iuCommonDataService.getReductionOperationType(fileObj.operationType) | translate}}</td>
+                    <td>{{ (fileObj.variationPct !=='') ? (fileObj.variationPct+ '%'): ''}}</td>
+                    <td>{{ fileObj.variationCurCode }} {{ commonService.transformAmt(fileObj.variationAmt,fileObj.variationCurCode) }}</td>
+                    <td [class.grid-row]="isIrregularItemHasAmtError || isIrregularItemHasDateError">
+                      <div *ngIf="!this.commonDataService.disableTnx && this.commonService.compareFirstDatewithAmendDate(fileObj.variationFirstDate)">
+                          <img src="{{imagePath}}edit.png" class="cursor" alt="{{undertakingType}}Edit" id="{{undertakingType}}Edit" (click) = "addReductionDetails('edit',fileObj.variationFirstDate, fileObj.operationType, fileObj.variationPct, fileObj.variationCurCode, fileObj.variationAmt, fileObj.variationSequence)" type="edit">
+                          <img src="{{imagePath}}delete.png" class="cursor" alt="{{undertakingType}}Delete" id="{{undertakingType}}Delete" (click)="deleteRow(fileObj.variationSequence)" type="remove">
+                      </div>
+                    </td>
+                    <td class="error-msg messages text-left text-danger grid-style">{{showErrorOnIrregularItem()}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p-confirmDialog id="{{undertakingType}}ReductionConfirmDialog" class="lf-confirm-dialog" key='{{undertakingType}}ReductionConfirmDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        </div>
+        <div *ngIf="sectionForm.get(undertakingType+ 'VariationType').value === '02'">
+          <button [disabled]="this.commonDataService.disableTnx" pButton id="variationTypeAdd" type="button" class="secondary-button" (click) = "addReductionDetails('add', '','','','','', '')"  label="{{ 'KEY_ADD_BUTTON' | translate}}"></button>
+       </div>
+       <!-- Advise Reduction/Increase check box -->
+       <div *ngIf="sectionForm.get(undertakingType+'VariationType').value === '02'" id="{{undertakingType}}AdviseEventFlagRow" class="field">
+            <label id="{{undertakingType}}AdviseEventFlagLabel"class="label-checkbox">{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate}}&nbsp;</label>
+            <p-checkbox id="{{undertakingType}}AdviseEventFlag" formControlName="{{undertakingType}}AdviseEventFlag" binary="true" (onChange)="toggleOnDaysNotice()">
+            </p-checkbox>
+       </div>
+       <!-- Advice Days Notice -->
+       <div *ngIf="sectionForm.get(undertakingType+'VariationType').value === '02';" id="{{undertakingType}}AdviseDaysPriorNbRow" class="field">
+            <label id="{{undertakingType}}AdviseDaysPriorNbLabel"for="{{undertakingType}}AdviseDaysPriorNb"> {{ 'DAYS_NOTICE' | translate }}<span *ngIf = "sectionForm.get(undertakingType+'AdviseEventFlag').value" class="required-field-symbol">*</span>&nbsp;
+            </label>
+            <input pInputText id="{{undertakingType}}AdviseDaysPriorNb" class="input-three-digit" formControlName="{{undertakingType}}AdviseDaysPriorNb" type=text pKeyFilter="int" maxlength="3"
+            (change)="validateVariationDaysNotice();"
+            [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'AdviseDaysPriorNb'))">
+            <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'AdviseDaysPriorNb')"></fcc-common-error-message>
+       </div>
+      </div>
+    </div>
+    <ng-template #viewContent>
+      <div *ngIf="(undertakingType === 'bg' || undertakingType === 'br') && (bgRecord[undertakingType + 'Variation'] && bgRecord[undertakingType + 'Variation'] != null &&bgRecord[undertakingType + 'Variation'] != ''
+      && bgRecord[undertakingType + 'Variation']['variationLineItem'] && bgRecord[undertakingType + 'Variation']['variationLineItem'] != null && bgRecord[undertakingType + 'Variation']['variationLineItem'] != '')">
+      <div id="variationCommonFields">
+          <!-- Regular/Irregular option -->
+          <div id="bgVariationTypeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['type']])">
+            <label for="bgVariationType" id="bgVariationTypeLabel">
+              {{ 'INC_DEC_OPTION' | translate }}&nbsp;
+            </label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getReductionEventType(bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['type']) | translate}}</label>
+          </div>
+      </div>
+          <!-- Regular Details -->
+          <div *ngIf="bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['type'] === '01'" id="regularDetails">
+            <!-- Operation Type-->
+            <div id="bgOperationTypeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['operationType']])">
+                <label for="bgOperationType" id="bgOperationTypeLabel">
+                  {{ 'INCREASE_DECREASE_OPERATION' | translate }}&nbsp;
+                </label>
+                <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getReductionOperationType(bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['operationType']) | translate}}</label>
+            </div>
+             <!-- First Date -->
+             <div id="bgVariationFirstDateRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationFirstDate']])">
+              <label for="bgVariationFirstDate" id="bgVariationFirstDateLabel">
+                {{ 'INCREASE_DECREASE_FIRST_DATE' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationFirstDate']}}</label>
+            </div>
+            <!-- Advise Increase/Decrease Flag -->
+            <div id="bgAdviseEventFlagRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseFlag']]) && bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseFlag'] === 'Y'">
+              <label>&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">
+              <strong>{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate }}</strong>
+              </label>
+            </div>
+            <!-- Days Notice -->
+            <div id="bgAdviseDaysPriorNbRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseReductionDays']])">
+              <label for="bgAdviseDaysPriorNb" id="bgAdviseDaysPriorNbLabel">
+              {{ 'DAYS_NOTICE' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseReductionDays']}}</label>
+            </div>
+            <!-- Frequency -->
+            <div id="bgVariationFrequencyRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['frequency']])">
+              <label for="bgVariationFrequency" id="bgVariationFrequencyLabel">
+                {{ 'FREQUENCY' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['frequency']}}</label>
+            </div>
+            <!-- Period -->
+            <div id="bgVariationPeriodRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['period']])">
+              <label for="bgVariationPeriod" id="bgVariationPeriodLabel">
+                {{ 'PERIOD' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getRenewForPeriod(bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['period']) | translate}}</label>
+            </div>
+            <!-- Maximum Increase/Decrease-->
+            <div id="bgMaximumNbVariationRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['maximumNbDays']])">
+              <label for="bgMaximumNbVariation" id="bgMaximumNbVariationLabel">
+                {{ 'MAX_INCREASE_DECREASE' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['maximumNbDays']}}</label>
+            </div>
+             <!-- Days in Month -->
+             <div id="bgVariationDayInMonthRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['dayInMonth']])">
+              <label for="bgVariationDayInMonth" id="bgVariationDayInMonthLabel">
+                {{ 'VARIATION_DAYS_IN_MONTH' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['dayInMonth']}}</label>
+            </div>
+            <!-- Percentage -->
+            <div id="bgVariationPctRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationPct']])">
+              <label for="bgVariationPct" id="bgVariationPctLabel">
+                {{ 'INCREASE_DECREASE_PERCENTAGE' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationPct']}}</label>
+            </div>
+            <!-- Currenct and Amt -->
+            <div id="bgVariationCurrencyAmtRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationCurCode']]) && commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationAmt']])">
+              <label for="bgVariationCurrencyAmt" id="bgVariationCurrencyAmtLabel">
+                {{ 'AMOUNT' | translate }}&nbsp;
+              </label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationCurCode']}}&nbsp;{{ commonService.transformAmt(bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationAmt'], bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['variationCurCode']) }}
+              </label>
+            </div>
+          </div>
+          <!--BG Irregular Details -->
+          <div id="bgIrregularTable" *ngIf="bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['type'] === '02' && irregularList.length !== 0">
+            <table class="custom-class">
+              <thead>
+                <th scope="col">{{ 'CHARGE_DATE' | translate}}</th>
+                <th scope="col">{{ 'HEADER_OPERATION' | translate}}</th>
+                <th scope="col">{{ 'INCREASE_DECREASE_PERCENTAGE_HEADER' | translate}}</th>
+                <th scope="col">{{ 'AMOUNT' | translate}}</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let fileObj of irregularList; index as i">
+                  <td>{{ fileObj.variationFirstDate }}</td>
+                  <td>{{ iuCommonDataService.getReductionOperationType(fileObj.operationType) | translate }}</td>
+                  <td>{{ fileObj.variationPct}}%</td>
+                  <td>{{ fileObj.variationCurCode }} {{ commonService.transformAmt(fileObj.variationAmt, fileObj.variationCurCode) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="VariationDaysCommonFields" *ngIf="bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['type'] === '02'">
+          <!-- Advise Increase/Decrease Flag -->
+          <div id="bgAdviseIrregularEventFlagRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseFlag']]) && bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseFlag'] === 'Y'">
+            <label>&nbsp;</label>
+            <label id="bgAdviseIrregularEventFlagLabel" class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">
+            <strong>{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate }}</strong>
+            </label>
+          </div>
+          <!-- Days Notice -->
+          <div id="bgAdviseIrregularDaysPriorNbRow" *ngIf="commonService.isFieldsValuesExists([bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseReductionDays']])">
+            <label for="bgAdviseDaysPriorNb" id="bgAdviseDaysPriorNbLabel">
+            {{ 'DAYS_NOTICE' | translate }}&nbsp;
+            </label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord[undertakingType + 'Variation']['variationLineItem'][0]['adviseReductionDays']}}</label>
+          </div>
+        </div>
+        </div>
+      <div *ngIf="undertakingType === 'cu' && (bgRecord[undertakingType + 'Variation'] && bgRecord[undertakingType + 'Variation'] != null &&bgRecord[undertakingType + 'Variation'] != ''
+      && bgRecord[undertakingType + 'Variation']['variationLineItem'] && bgRecord[undertakingType + 'Variation']['variationLineItem'] != null && bgRecord[undertakingType + 'Variation']['variationLineItem'] != '')">
+      <div id="cuVariationCommonFields">
+        <!-- Regular/Irregular option -->
+        <div id="cuVariationTypeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['type']])">
+          <label for="cuVariationType" id="cuVariationTypeLabel">
+            {{ 'INC_DEC_OPTION' | translate }}&nbsp;
+          </label>
+          <label class="label-left">{{iuCommonDataService.getReductionEventType(bgRecord['cuVariation']['variationLineItem'][0]['type']) | translate}}</label>
+        </div>
+      </div>
+        <!-- Regular Details -->
+        <div *ngIf="bgRecord['cuVariation']['variationLineItem'][0]['type'] === '01'" id="cuRegularDetails">
+          <!-- Operation Type-->
+          <div id="cuOperationTypeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['operationType']])">
+              <label for="cuOperationType" id="cuOperationTypeLabel">
+                {{ 'INCREASE_DECREASE_OPERATION' | translate }}&nbsp;
+              </label>
+              <label class="label-left">{{iuCommonDataService.getReductionOperationType(bgRecord['cuVariation']['variationLineItem'][0]['operationType']) | translate}}</label>
+          </div>
+          <!-- Maximum Increase/Decrease-->
+          <div id="cuMaximumNbVariationRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['maximumNbDays']])">
+            <label for="cuMaximumNbVariation" id="cuMaximumNbVariationLabel">
+              {{ 'MAX_INCREASE_DECREASE' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['maximumNbDays']}}</label>
+          </div>
+          <!-- First Date -->
+          <div id="cuVariationFirstDateRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['variationFirstDate'])">
+            <label for="cuVariationFirstDate" id="cuVariationFirstDateLabel">
+              {{ 'INCREASE_DECREASE_FIRST_DATE' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['variationFirstDate']}}</label>
+          </div>
+          <!-- Advise Increase/Decrease Flag -->
+          <div id="cuAdviseEventFlagRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['adviseFlag']]) && bgRecord['cuVariation']['variationLineItem'][0]['adviseFlag'] === 'Y'">
+            <label>&nbsp;</label>
+              <label class="label-left">
+            <strong>{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate }}</strong>
+            </label>
+          </div>
+          <!-- Days Notice -->
+          <div id="cuAdviseDaysPriorNbRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['adviseReductionDays']])">
+            <label for="cuAdviseDaysPriorNb" id="cuAdviseDaysPriorNbLabel">
+              {{ 'DAYS_NOTICE' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['adviseReductionDays']}}</label>
+          </div>
+          <!-- Frequency -->
+          <div id="cuVariationFrequencyRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['frequency'])">
+            <label for="cuVariationFrequency" id="cuVariationFrequencyLabel">
+              {{ 'FREQUENCY' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['frequency']}}</label>
+          </div>
+          <!-- Period -->
+          <div id="cuVariationPeriodRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['period'])">
+            <label for="cuVariationPeriod" id="cuVariationPeriodLabel">
+              {{ 'PERIOD' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{iuCommonDataService.getRenewForPeriod(bgRecord['cuVariation']['variationLineItem'][0]['period']) | translate}}</label>
+          </div>
+          <!-- Days in Month -->
+          <div id="cuVariationDayInMonthRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['dayInMonth'])">
+            <label for="cuVariationDayInMonth" id="cuVariationDayInMonthLabel">
+              {{ 'VARIATION_DAYS_IN_MONTH' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['dayInMonth']}}</label>
+          </div>
+          <!-- Percentage -->
+          <div id="cuVariationPctRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['variationPct'])">
+            <label for="cuVariationPct" id="cuVariationPctLabel">
+              {{ 'INCREASE_DECREASE_PERCENTAGE' | translate }}&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['variationPct']}}</label>
+          </div>
+          <!-- Currency and Amt -->
+          <div id="cuVariationCurrencyAmtRow" *ngIf="commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['variationCurCode']) && commonService.isFieldsValuesExists(bgRecord['cuVariation']['variationLineItem'][0]['variationAmt'])">
+            <label for="cuVariationCurrencyAmt" id="cuVariationCurrencyAmtLabel">
+              {{ 'AMOUNT' | translate }}:&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['variationCurCode']}}&nbsp;{{ commonService.transformAmt(bgRecord['cuVariation']['variationLineItem'][0]['variationAmt'], bgRecord['cuVariation']['variationLineItem'][0]['variationCurCode']) }}
+            </label>
+          </div>
+        </div>
+      <!--CU Irregular Details -->
+        <div id="cuIrregularTable" *ngIf="bgRecord['cuVariation']['variationLineItem'][0]['type'] === '02' && this.irregularList.length !== 0">
+          <table class="custom-class">
+            <thead>
+              <th scope="col">{{ 'CHARGE_DATE' | translate}}</th>
+              <th scope="col">{{ 'HEADER_OPERATION' | translate}}</th>
+              <th scope="col">{{ 'INCREASE_DECREASE_PERCENTAGE_HEADER' | translate}}</th>
+              <th scope="col">{{ 'AMOUNT' | translate}}</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fileObj of irregularList; index as i">
+                <td>{{ fileObj.variationFirstDate }}</td>
+                <td>{{ iuCommonDataService.getReductionOperationType(fileObj.operationType) | translate }}</td>
+                <td>{{ fileObj.variationPct}}%</td>
+                <td>{{ fileObj.variationCurCode }} {{ commonService.transformAmt(fileObj.variationAmt, fileObj.variationCurCode) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="cuVariationDaysCommonFields" *ngIf="bgRecord['cuVariation']['variationLineItem'][0]['type'] === '02' && this.irregularList.length !== 0">
+         <!-- Advise Increase/Decrease Flag -->
+         <div id="cuAdviseIrregularEventFlagRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['adviseFlag']]) && bgRecord['cuVariation']['variationLineItem'][0]['adviseFlag'] === 'Y'">
+          <label>&nbsp;</label>
+          <label class="label-left">
+            <strong>{{ 'ADVISE_INCREASE_DECREASE_LABEL' | translate }}</strong>
+          </label>
+        </div>
+        <!-- Days Notice -->
+        <div id="cuAdviseIrregularDaysPriorNbRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuVariation']['variationLineItem'][0]['adviseReductionDays']])">
+          <label for="cuAdviseDaysPriorNb" id="cuAdviseDaysPriorNbLabel">
+            {{ 'DAYS_NOTICE' | translate }}&nbsp;
+          </label>
+          <label class="label-left">{{bgRecord['cuVariation']['variationLineItem'][0]['adviseReductionDays']}}</label>
+        </div>
+        </div>
+      </div>
+    </ng-template>
+

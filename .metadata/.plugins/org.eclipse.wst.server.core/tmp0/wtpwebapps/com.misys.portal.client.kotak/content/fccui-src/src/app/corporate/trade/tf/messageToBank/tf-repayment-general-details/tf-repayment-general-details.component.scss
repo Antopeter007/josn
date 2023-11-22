@@ -1,0 +1,29 @@
+:host ::ng-deep .messageStyle {
+    width: 72% !important;
+    font-family: monospace !important;
+  }
+:host ::ng-deep .messageStyle textarea {
+    resize: none;
+  }
+
+:host ::ng-deep .Amt .fcc-field-message {
+    margin-top: -2em;
+}
+
+:host ::ng-deep .Amt {
+    padding-right: 0.7em !important;
+}
+
+:host ::ng-deep .Amt > div {
+    padding-left: 0em;
+    margin-left: -1.3em;
+    padding-right: 0em;
+}
+
+:host ::ng-deep .currencyView .fieldvalue {
+    margin-top: 1em;
+}
+
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-bottom: 1em !important;
+}

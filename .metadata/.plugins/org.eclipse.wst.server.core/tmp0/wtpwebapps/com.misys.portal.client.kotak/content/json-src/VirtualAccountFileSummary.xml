@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+	<header>
+		<sourceappcode>JARVIS</sourceappcode>
+		<RqUID>2</RqUID>
+		<action_type>FETCH_FILE_SUMMARY</action_type>
+		<crn>10003593</crn>
+		<file_id>12345</file_id>
+		<file_name>ABC.txt</file_name>
+		<from_date>29-NOV-2011</from_date>
+		<to_date>01-DEC-2021</to_date>
+		<file_count>
+            <status>ALL</status>
+            <count>5</count>
+            <status>SUCCESS</status>
+            <count>5</count>
+            <status>FAIL</status>
+            <count>0</count>
+            <status>INPROGRESS</status>
+            <count>0</count>
+        </file_count>
+		<company_code>MULTIACCOUNT</company_code>
+		<company_name></company_name>
+	</header>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>ABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>20-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>Test.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>20-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>BABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>21-DEC-2021 11:33</file_upld_datetime>
+		<file_status>INPROGRESS</file_status>
+		<total_count>0</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>0</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>Test.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>30-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>ZABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>10-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>PTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>30-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>DABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>02-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>QTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>04-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>SABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>28-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>MTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>27-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>ABC.txt</file_name>		
+		<file_upld_by>HMaker1</file_upld_by>
+		<file_upld_datetime>15-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>NTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>21-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>XABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>24-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>YTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>10-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>XABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>11-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>QTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>23-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>RABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>24-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>MTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>07-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>WABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>09-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>CTest.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>08-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>12345</file_id>
+		<file_name>ABC.txt</file_name>		
+		<file_upld_by>Maker1</file_upld_by>
+		<file_upld_datetime>12-DEC-2021 11:33</file_upld_datetime>
+		<file_status>SUCCESS</file_status>
+		<total_count>1000</total_count>
+		<accepted_count>800</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<file_upload_info>
+		<file_id>34567</file_id>
+		<file_name>Test.txt</file_name>
+		<file_upld_by>Maker2</file_upld_by>
+		<file_upld_datetime>17-NOV-2021 07:30</file_upld_datetime>
+		<file_status>FAIL</file_status>		
+		<total_count>200</total_count>
+		<accepted_count>0</accepted_count>
+		<failed_count>200</failed_count>
+		<company_code>34343432</company_code>
+		<company_name>Test Company</company_name>
+	</file_upload_info>
+	<request_status>
+		<error_flag>N</error_flag>
+		<error_code>N</error_code>
+		<error_desc>virtual account Found</error_desc>
+	</request_status>
+</Response>

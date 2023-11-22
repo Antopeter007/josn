@@ -1,0 +1,22 @@
+<div class="fcc-ui-amt">
+  <span class="fcc-ui-amt-curr">
+    <p-dropdown
+      id="{{ id }}_cur_code"
+      [options]="currencies"
+      [(ngModel)]="currency"
+    ></p-dropdown>
+  </span>
+  <span class="fcc-ui-amt-val">
+    <input role="textbox"
+      id="{{ id }}_amt"
+      type="text"
+      pInputText
+      [(ngModel)]="amount"
+      [placeholder]="amountPlaceholder"
+      (click)="registerOnChange($event)"
+      (blur)="registerOnTouched($event)"
+      (focus)="registerOnChange($event)"
+      pattern="[0-9]+"
+    />
+  </span>
+</div>

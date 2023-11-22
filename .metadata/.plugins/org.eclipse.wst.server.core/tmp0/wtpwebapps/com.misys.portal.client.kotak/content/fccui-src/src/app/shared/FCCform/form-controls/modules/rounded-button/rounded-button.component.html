@@ -1,0 +1,27 @@
+<ng-container [formGroup]="form">
+  <div dir="{{ dir }}">
+    <!-- <button role="button"  pButton type="button" class="{{control.params.styleClass}}" id="{{control.key}}"
+    [ngClass]="{'activeClass': control.params.isActivebtn == true }" tabindex="0"
+    label="{{control.params.label}}" icon={{control.params.icon}} [disabled]="control.params.btndisable"
+    (click)="onEventRaised($event,control.key)"  (blur)="onEventRaised($event,control.key)"
+      (focus)="onEventRaised($event,control.key)" ></button> -->
+    <button role="button" 
+      mat-stroked-button
+      dense
+      class="{{ control.params.styleClass }}"
+      id="{{ control.key }}"
+      (click)="onEventRaised($event, control.key)"
+      (blur)="onEventRaised($event, control.key)"
+      (focus)="onEventRaised($event, control.key)"
+      (keyup.enter)="onEventRaised($event, control.key)"
+      [disabled]="control.params.btndisable"
+    >
+      {{ control.params.label }}
+    </button> &nbsp;
+    <span *ngIf="control.params.warning" >
+      <label class="errMsg" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </span>
+  </div>
+</ng-container>

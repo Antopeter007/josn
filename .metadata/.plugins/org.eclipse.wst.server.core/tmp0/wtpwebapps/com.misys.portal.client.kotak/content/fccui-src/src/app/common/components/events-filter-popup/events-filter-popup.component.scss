@@ -1,0 +1,217 @@
+@import './../../../../styles/variables.scss';
+
+.dateRangePicker {
+    width: 400px !important;
+    height: 50px !important;
+}
+
+.textFieldStyle {
+  margin-top:0;
+  margin-bottom: 0;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+mat-form-field {
+    margin-right: 24px !important;
+}
+
+a.mat-icon-button, button.mat-icon-button {
+    position: absolute !important;
+    margin-left: 350px !important;
+    margin-top: -30px !important;
+}
+
+.selectClass {
+    margin-left: 3.5em !important;
+}
+
+:host ::ng-deep .FCC .primaryButton {
+  margin-left: 18em !important;;
+  margin-right: 2em !important;;
+}
+
+:host ::ng-deep .form-header {
+  font-size: 1em;
+  margin-top: 0em;
+  //color: $VIOLET-F100;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* Date CSS */
+
+.calendarStyle {
+    padding-left: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+    :host ::ng-deep .dateStyle {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      margin-bottom: 0.5em;
+      margin-right: 1.25em;
+      padding-top: 0.7em !important;
+    }
+    
+    :host ::ng-deep .dateStyle.ui-float-label {
+      padding-top: 0em !important;
+      margin-top: 0em !important;
+    }
+    
+    :host ::ng-deep .triggerIcon.ui-float-label {
+      padding-top: 0em !important;
+      margin-top: 0.8em !important;
+    }
+    
+    :host ::ng-deep .dateStyle .ui-calendar-button:hover {
+      border-bottom: 0.065em solid #9f9f9f;
+      border-bottom-right-radius: 0em;
+    }
+    :host ::ng-deep .dateStyle .ui-inputtext:enabled:hover {
+      border-color: #6f6f6f;
+    }
+    
+    :host ::ng-deep .dateStyle p-calendar {
+      width: 100%;
+    }
+    
+    :host ::ng-deep .ui-float-label .ui-widget{
+      line-height: 1.9375em !important;
+      padding-right: 0.1em !important;
+    }
+    
+    :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary{
+      background-color:#f4f4f4 !important;
+      line-height: 1.9375em !important;
+      padding-right: 0.1em !important;
+      width: 30%;
+    }
+    :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary:enabled:hover{
+      background-color: #c8c8c8 !important;
+    }
+    :host ::ng-deep .dateStyle .ui-calendar {
+      position: relative !important;
+      display: -webkit-box !important;
+      display: flex !important;
+      width: 100% !important;
+    }
+    
+    :host ::ng-deep .dateStyle label {
+      color: #333333;
+      font-size: 14px !important;
+      top: 35% !important;
+      padding-top: inherit;
+    }
+    
+    :host ::ng-deep [dir=rtl].dateStyle label {
+      color: #333333;
+      font-size: 14px !important;
+      top: 35% !important;
+      padding-top: inherit;
+      left: auto !important;
+    }
+    
+    :host ::ng-deep .dateStyle.ui-float-label>input:focus ~ label,
+    :host ::ng-deep .dateStyle.ui-float-label>input.ui-state-filled ~ label,
+    :host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-focus ~ label,
+    :host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-filled ~ label {
+      top: -.75em !important;
+      font-size: 12px !important;
+    }
+    
+    :host ::ng-deep .dateStyle .ui-calendar .ui-datepicker.ui-widget {
+      background-color: #fff !important;
+      width: auto !important;
+      top: 0em !important;
+    }
+    
+    :host ::ng-deep .ui-datepicker {
+      background-color: #fff !important;
+    }
+    
+    // :host
+    //   ::ng-deep
+    //   .ui-datepicker
+    //   .ui-datepicker-header
+    //   .ui-datepicker-title
+    //   select {
+    //   border: none;
+    //   font-weight: 500;
+    // }
+    
+    :host ::ng-deep .ui-button:enabled:hover {
+      background-color: transparent;
+      border-color: #212121;
+    }
+    
+    :host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+    :host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+      color: #ffffff;
+      background-color: $calenderActiveTabColor;
+    }
+    
+    :host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+    :host
+      ::ng-deep
+      .ui-datepicker
+      table
+      td.ui-datepicker-today
+      > span.ui-state-active {
+      background-color: $calenderActiveTabColor;
+    }
+    
+    :host ::ng-deep .ui-button:enabled:focus {
+      box-shadow: none;
+    }
+    
+    :host
+      ::ng-deep
+      .ui-calendar.ui-calendar-w-btn
+      .ui-datepicker-trigger.ui-button {
+      color: white;
+      height: auto;
+    }
+    
+    :host
+      ::ng-deep
+      .ui-datepicker:not(.ui-state-disabled)
+      table
+      td
+      a:not(.ui-state-active):not(.ui-state-highlight):hover {
+      font-weight: normal;
+    }
+    
+    // :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+    //   color: #333333;
+    //   background-color: #fafafa;
+    //   border: 0.0625em solid #a6a6a6;
+    // }
+    
+    :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary:hover {
+      border-radius: 0em !important;
+      color: #333333;
+    }
+    
+    // :host ::ng-deep .ui-datepicker-buttonbar .ui-button-secondary {
+    //   width: 100% !important;
+    // }
+    
+    /*Date CSS End */
+
+  .textFieldStyle .mat-form-field-appearance-legacy .mat-form-field-label {
+      top: 1em;
+    }
+
+    :host ::ng-deep .mat-form-field-label-wrapper{
+     box-sizing: content-box;
+    }
+    :host ::ng-deep .mat-form-field{
+      line-height: 1.40em;
+    }
+    :host ::ng-deep .ui-button-icon-left {
+      background-color: #ffffff !important;
+      color: #707070;//
+      font-size: 1.7em;
+    }

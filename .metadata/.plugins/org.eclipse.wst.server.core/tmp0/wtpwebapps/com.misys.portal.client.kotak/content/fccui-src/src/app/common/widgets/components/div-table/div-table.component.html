@@ -1,0 +1,125 @@
+<ng-container>
+  <div *ngIf="showSpinner" class="spinnerStyle">
+    <p-progressSpinner
+      [style]="{ width: '4em', height: '4em' }"
+      strokeWidth="5"
+      fill="transparent"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+  <div *ngIf="!showSpinner" >
+  <div *ngFor="let transactionData of dataList; let i = index"
+    id="{{ i }}">
+    <div class="divTable">
+      <div
+        class="divRow"
+        (click)="onRowClick(transactionData)"
+        tabindex="0"
+      >
+        <div class="divCell leftBorderStyle" [ngClass]="{
+          leftBorderExtended: flagArray[i] == true
+        }">
+          <div
+            [ngClass]="'leftBorder'"
+            class="{{ 'N004_' + transactionData['tnx_stat_code'] }}"
+          ></div>
+        </div>
+
+        <div
+          class="divCell expandArrow"
+          (click)="expandAndCollapseRow(i, $event)"
+        >
+          <div class="displayOnHover">
+            <em
+              class="pi"
+              [ngClass]="{
+                'pi-chevron-right': flagArray[i] == false,
+                'pi-chevron-down': flagArray[i] == true
+              }"
+              aria-hidden="true"
+            ></em>
+          </div>
+        </div>
+        <div class="divCell" *ngFor="let item of defaultColumns" [ngSwitch]="item.field">
+          <div *ngSwitchCase="'product_code'" >
+            <div
+              class="productCodeDefault circleBackground {{ transactionData[item.field] }} {{
+                transactionData[item.field] + '_background'
+              }}"
+            >
+              {{ transactionData[item.field] }}
+            </div>
+          </div>
+          <div class="row_1" *ngSwitchCase="'tnx_type_code'">
+            <div class="headerPadding">{{ 'event' | translate }}</div>
+            <div [ngClass]="'event'">
+              <div
+                class="dataPadding {{
+                  transactionData['product_code'] + '_background'
+                }}"
+              >
+                {{ 'N002_' + transactionData['tnx_type_code'] | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="row_1" *ngIf="item.field != 'product_code' && item.field !='tnx_type_code'" >
+            <div class="headerFont" >
+              {{item.header | translate}}
+            </div>
+            <div class="dataFont" [innerHTML] = "transactionData[item.field]"></div>
+          </div>
+        </div>
+      </div>
+      <div class="divRow" *ngIf="flagArray[i]">
+        <div class="divCell leftBorderStyle">
+          <div
+            [ngClass]="'leftBorder'"
+            class="{{ 'N004_' + transactionData['tnx_stat_code'] }}"
+          ></div>
+        </div>
+        <div class="divCell" *ngFor="let item of additionColumns">
+          <div class="row_2">
+            <div class="headerFont" >
+              {{item.header | translate}}
+            </div>
+            <div class="dataFont" [innerHTML] = "transactionData[item.field]">
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div *ngIf="numRows > count">
+      <div
+        class="chevron"
+        (click)="
+          moreDataDisplayed === false ? getData(count * 2) : getData(count);
+          moreDataDisplayed = !moreDataDisplayed
+        "
+      >
+        <em
+          [ngClass]="
+            moreDataDisplayed === false
+              ? 'pi pi-chevron-down pointer-class'
+              : 'pi pi-chevron-up pointer-class'
+          "
+        ></em>
+      </div>
+    </div>
+</div>
+<div>
+  <p class="viewAllTransactions pointer-class">
+    <a (click)="onClick()">
+      {{ 'viewAllTransactions' | translate }}
+    </a>
+  </p>
+</div>
+</div>
+
+  <div
+    *ngIf="!showSpinner && transactionList.length === 0"
+    class="displayNotAvailable"
+  >
+    {{ 'notAvailable' | translate }}
+  </div>
+</ng-container>

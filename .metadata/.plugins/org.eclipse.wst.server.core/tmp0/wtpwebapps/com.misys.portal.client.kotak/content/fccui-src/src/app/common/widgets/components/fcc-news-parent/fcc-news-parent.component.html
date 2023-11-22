@@ -1,0 +1,25 @@
+<ng-container>
+<div class="p-col-12  padding-all"  [ngClass]="menuToggleFlag === 'true' ? 'padding-all-withmenu' : 'padding-all-nomenu'">
+  <div id="newsHeaderGrid" class="p-grid border-btn">
+    <div class="p-col-6">
+      <div class="p-grid">
+       <div class = "displayType"> {{DispalyType}} </div>
+      </div>
+    </div>
+    <div class="p-col-6">
+      <div class="p-grid p-justify-end">
+        <button role="button"  pButton class="primaryButton" type="button"  label={{ButtonType}} *ngIf="disableButton()" (click)="onChangeOfNews()"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-8 leftNews">
+      <fcc-news-left [newsObject]='newObject' id="newsDisplay"></fcc-news-left>
+</div>
+    <div class="p-col-4 rightNews">
+      <fcc-news-right [currentListOfNews] ='currentListOfNews' [newsType] = 'newtype' (newsTitleName)="newsDescription($event)"></fcc-news-right>
+    </div>
+  </div>
+</div>
+</ng-container>

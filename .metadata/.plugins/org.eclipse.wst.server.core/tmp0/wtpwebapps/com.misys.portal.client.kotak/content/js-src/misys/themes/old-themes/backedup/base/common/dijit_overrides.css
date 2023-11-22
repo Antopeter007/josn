@@ -1,0 +1,336 @@
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles that override or augment core Dijit rules and widgets
+  		
+	description:
+	  	Note that all styles must be prefixed by .base (unless an ID is in the selector). 
+	  	This is to ensure that our rules take precedence over the default Dijit styles. You may 
+	  	occasionally have to use !important, but it's rarely needed.
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Everyone
+*/
+
+/** ------------------------------------- Forms and Fields --------------------------------- **/
+
+.base .dijitInputField {
+	padding: 0.1em 0 0.1em 0.1em;
+}
+
+.base .dijitButtonNode {
+	background-color: transparent;
+}
+
+/** Put the magnifying glass button a bit closer to the field **/
+.base .field .dijitButton {
+	margin-left: -2px;
+}
+
+.dj_gecko .base .field .dijitButton {
+	margin-left: -4px;
+}
+ 
+.dj_ie .base .field .dijitButton {
+	margin-left: -4px;
+}
+
+/**
+ * Bug fix for IE to push enter in forms
+ */
+.dj_ie .notready .dijitButton {
+	visibility: visible;
+}
+
+/** Except in the currency/country code dialogs .. **/
+#currencydata .field .dijitButton,
+#codevaluedata .field .dijitButton {
+	margin-left: 6px;
+}
+
+/** ComboBox Menuitems are attached to the body, so they need to be given
+    the same font size as other top-level elements **/
+.base .dijitComboBoxMenu .dijitMenuItem {
+	font-size: 0.75em;
+} 
+
+.base .dijitArrowButton {
+	line-height: 1.45em;  /** TODO Check **/
+}
+
+.base .dijitTitlePane {
+	margin: auto;
+	width: 500px;  /** TODO Check **/
+}
+
+/** A button in a form, such as the one that opens the entity dialog **/
+.base .noborder .dijitButtonNode {
+	border: none;
+	background: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+.base .menu .dijitButton {
+	display: inline;
+}
+
+.base .multiselect-buttons .dijitButton {
+	margin-left: 6px;
+}
+
+/** Don't show the arrow button for the attachment table delete button **/
+/** TODO Check & Simplify this selector **/
+.base .attachments .dijitDownArrowButton .dijitArrowButtonInner {
+	display: none;
+}
+
+.base .dijitTextArea {
+	font-family: "Courier New";
+	font-size: 1em; /** Needed for Firefox **/
+}
+
+/** This inherits the body font-size (16px) so we have to bring it down to 12px **/
+.base .dijitTooltipContainer {
+	font-size: 0.75em;
+	padding: 4px 6px;
+}
+
+.base .dijitCheckBox,
+.base .dijitRadio {
+	margin-right: 3px;
+	margin-top: -4px;
+}
+
+/** --------------------------------- DataGrid, EnhanceGrid Rules ------------------------- **/
+
+.base .dojoxGrid {
+	font-size: 0.916em;
+}
+
+/** Padding around error message is too small under IE **/
+.dj_ie6 .base .dojoxGridMasterMessages,
+.dj_ie7 .base .dojoxGridMasterMessages,
+.dj_ie8 .base .dojoxGridMasterMessages {
+	padding: 1.2em;
+}
+
+.base .dojoxGridHeader .dojoxGridCell  {
+	text-align:center;	
+}
+
+.base .dojoxGridRowbarSelected {
+    background:transparent url("../images/tick.png") no-repeat left;
+}
+
+.base .dojoxGridRowOver .dojoxGridCell {
+	background-color: white; 
+	color: #000;
+}
+
+.base .linkableGrid .dojoxGridRowOver {
+	cursor: pointer;
+}
+
+.base .gridActions {
+	text-align: center;
+}
+
+.dj_webkit .base .gridActions img:hover,
+.dj_gecko .base .gridActions img:hover,
+.dj_ie8 .base .gridActions img:hover {
+	cursor: pointer;
+}
+
+.base .dojoxGrid th {
+	text-align: center;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .base .group {
+	height: 300px;
+}
+.dj_ie7 .base .group {
+	height: 300px;
+}
+.dj_ie8 .base .group {
+	height: 300px;
+}
+
+/** ---------------------------------------- Calendar Rules -------------------------------- **/
+
+/** Calendar in the side bar **/
+#MenuBuilder .dijitCalendarContainer {
+	margin-bottom: 6px;
+}
+
+/*#TradeCalendarPortlet .dijitCalendarDateTemplate,
+#default .dijitCalendarDateTemplate {
+	text-align: center;
+	letter-spacing: 1px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: top left;
+}*/
+
+.base .dijitCalendarCurrentMonth {
+	/*border: 1px solid white;*/
+}
+
+/** Inherits from <body>, so we have to reset it to ~12px **/
+.base .dijitCalendarPopup {
+	font-size: 0.75em;
+}
+
+/** cell for today's date */
+.base .dijitCalendarCurrentDate {
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+/** ------------------------------------------- Dialogs -------------------------------- **/
+
+.base .dijitDialog {
+	font-size: 0.75em;  /**TODO 12px **/
+}
+
+.base .dijitDialogTitleBar {
+	padding: 2px 0 1px 2px;
+	font-weight: normal;
+	border: 0;
+}
+
+.base .dijitDialog .field {
+	margin-left: 0;
+}
+
+/** Hide the close icon for some dialogs, to force the user to click cancel **/
+#alertDialog .dijitDialogCloseIcon,
+#loadingDialog .dijitDialogCloseIcon,
+#delayDialog .dijitDialogCloseIcon,
+#dealSummaryDialog .dijitDialogCloseIcon,
+#waitingDialog .dijitDialogCloseIcon,
+#reauth_dialog .dijitDialogCloseIcon {
+    display:none !important;
+}
+
+.base .dijitDialogPaneActionBar .dijitButton {
+	margin-left: 4px !important;
+}
+
+/** ----------------------------- Collaboration / FloatingPane Rules ------------------------- **/
+
+.base .dojoxFloatingPaneTitle {
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.base .dojoxFloatingPane {
+	border: none;
+	background-color: white;
+	-webkit-box-shadow: 1px 3px 12px #adadad;
+	-moz-box-shadow: 1px 3px 12px #adadad;
+	-o-box-shadow: 1px 3px 12px #adadad;
+	-ms-box-shadow: 1px 3px 12px #adadad;
+	box-shadow: 1px 3px 12px #adadad;
+}
+
+.dj_ie .base .dojoxFloatingPane {
+	border: 1px solid #adadad;
+}
+
+.base .dojoxFloatingPaneFg {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+.base .dojoxFloatingPaneContent {
+	padding: 6px;
+}
+
+.dj_ie .base .dojoxFloatingPaneContent {
+	width: 95%;
+	height: 90%;
+}
+
+.base #collaborationWindow.dijitContentPane {
+	padding: 0;
+}
+
+.base #collaborationWindow .dijitButton {
+	margin: 0;
+}
+
+.base .dojoxFloatingPane .dijitArrowNode {
+	cursor: pointer;
+	background-image: url("../images/spriteArrows.png");
+	background-repeat: no-repeat;
+	height: 7px;
+	width: 7px;
+}
+
+/** An empty list, also used for other empty lists in the application **/
+.empty-list-notice {
+	padding: 0 0 0 0.2em; /** TODO Change to pixel **/
+	margin: 0 0 0 0.2em;
+	font-weight: bold;
+}
+
+.dj_ie6 .base .dojoxFloatingPane .dijitArrowNode {
+	background-image:
+		url("../images/spriteArrows.gif");
+}
+
+/* TODO Simplify the following selectors */
+.base .dojoxFloatingPane .dijitOpen .dijitArrowNode {
+	background-position: 0 0;
+}
+
+.base .dojoxFloatingPane .dijitClosed .dijitArrowNode {
+	background-position: -14px 0;
+}
+
+.base .dojoxFloatingPane .dijitArrowNodeInner {
+	display: none;
+}
+
+.base .dijit_a11y .dojoxFloatingPane .dijitArrowNodeInner {
+	display: inline !important;
+	cursor: pointer;
+	padding-bottom: 3px;
+}
+
+.base .dijit_a11y .dojoxFloatingPane .dijitArrowNode,
+.base #dojoxGlobalResizeHelper {
+	display: none;
+}
+
+/** ----------------------------------------- TabContainer ---------------------------------- **/
+
+.base .tabLabel img {
+	padding: 0 0 4px 4px;
+}
+
+.base .tabContentDiv {
+	padding-top: 12px;
+}
+
+.base .tabContentDiv .textarea-button {
+	margin-top: -6px;
+	margin-left: -4px;
+}
+
+.dj_gecko .base .tabContentDiv .textarea-button {
+	margin-top: -4px;
+}

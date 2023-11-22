@@ -1,0 +1,50 @@
+/**
+ Refer to /themes/base/common/layout.css
+**/
+
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+.panel1 {
+	background-color: #CEC7B5;
+	padding: 4px 0;
+}
+
+.header a:link,
+.header a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.header a:hover {
+	color: #ffff00;
+}
+
+.breadcrumb, .message {
+	color: #000000;
+}
+
+.submenu {
+	background: #CEC7B5;
+	margin-top: 6px;
+	margin-right: 6px;
+	padding: 3px 6px 3px 0;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.logo {
+	background-image: url("../images/misys.png");
+	width: 164px;
+	height: 52px;
+	background-repeat: no-repeat;
+}
+
+/** ----------------------------------- Product Menu --------------------------------- **/
+
+.product-menu .currentModule {
+	color: #DE7100;
+}
+
+#MenuBuilder .portlet-section-body {
+	background-color:#F3F3F3;
+}

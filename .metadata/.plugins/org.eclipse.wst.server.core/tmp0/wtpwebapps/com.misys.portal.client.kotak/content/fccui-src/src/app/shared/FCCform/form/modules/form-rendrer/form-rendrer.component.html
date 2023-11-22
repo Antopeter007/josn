@@ -1,0 +1,51 @@
+<ng-container>
+  <div
+    *ngIf="formGroup && formGroup.getFormMode() as mode"
+    tabindex="-1"
+    [ngClass]="mode === 'view' ? 'viewmodeheader' : 'readmodeheader'"
+    class="fcc-form-header"
+  >
+    <h2 [ngStyle]="{'font-size': '1.25em'}" *ngIf="module" id="{{module}}" tabindex="0">{{ module }}</h2>
+  </div>
+  <form *ngIf="formGroup" class="m-2" novalidate [formGroup]="formGroup">
+    <div
+      class="p-grid form-render-wrapper"
+      *ngIf="formGroup && formGroup.getFormMode() as mode"
+      [ngClass]="mode === 'view' ? 'viewmode' : 'readmode'"
+    >
+      <ng-container *ngFor="let control of formGroup.productControls">
+        <div
+          dir="dir"
+          #references
+          [ngClass]="mode === 'view' ? 'p-col-6' : control?.params?.layoutClass"
+          *ngIf="
+            (mode === 'edit' && control?.params?.rendered === true) ||
+            (mode === 'view' &&
+              control?.params?.rendered === true &&
+              control?.value)
+          "
+        >
+          <ng-container *ngIf="control.params.rendered">
+            <ng-container
+              fccFormControlResolver
+              [control]="control"
+              [form]="formGroup"
+              [mode]="mode"
+              [hostComponentData]="hostComponentData"
+              (controlComponentsData)="handleControlComponentsData($event)"
+            ></ng-container>
+          </ng-container>
+          <div *ngIf="getControlForHighLightTextEditor(control.type) ? (control.dirty && control.touched && control.invalid ): 
+               (control.touched || control.dirty)" dir="{{ dir }}" [ngClass]="renderClass(control.type)"> 
+            <ng-container *ngFor="let error of control.getValidationMessages()"> 
+              <span class="fcc-field-message">
+                <p-message id = "{{ control.params.label }}" severity="error" text="{{errorHeader | translate}}: {{ error | translate }}">
+                </p-message>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </form>
+</ng-container>

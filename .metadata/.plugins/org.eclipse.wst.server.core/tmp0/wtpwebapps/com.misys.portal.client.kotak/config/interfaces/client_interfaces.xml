@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Misys Trade Portal Interfaces Schema Copyright (c) 2000-2014 Misys (http://www.misys.com) 
+	All Rights Reserved. -->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	<!-- Placeholder file for clients to define their own interfaces -->
+	<bundle name="ReturnUnsignedLCInitiation">
+		<interface asynchronous="true">lsproductwriter</interface>
+		<!-- Enable only when Local Services is running-->
+		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	<bundle name="RunReSend">
+		<!-- <interface asynchronous="true">xmlout</interface> -->
+		<interface asynchronous="true">xmljmsoutTI</interface>
+		<!-- <interface asynchronous="true">loanmanualretry</interface> -->
+	</bundle>
+	<!-- <bundle name="SubmitBKInitiation"> </bundle> -->
+	<interface name="xmlretry" description="Output Transaction as pain XML to a JMS Queue" onerror="logger">
+		<component name="interfacemessagereader">
+			<component name="jmssender">
+				<!-- GPP MQ Server properties -->
+				<properties>
+					<property name="initialContextFactory">${module.payment.initialContextFactory}
+					</property>
+					<property name="providerURL">${module.payment.providerURL}</property>
+					<property name="factory">${module.payment.factory}</property>
+					<property name="queue">${module.payment.out.queue}</property>
+					<property name="invoker">${module.payment.invoker}</property>
+					<property name="retry">${module.payment.retry}</property>
+				</properties>
+				<component name="filewriter">
+					<properties>
+						<property name="directory.override">true</property>
+						<property name="directory.isDynamic">false</property>
+						<property name="directory.name">${xml_output_directory_payment}</property>
+					</properties>
+				</component>
+			</component>
+			<component name="interfacecleaner"/>
+		</component>
+	</interface>
+<interface name="custominterfaceservice" description="online interface to send request API to external system">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">event.targetComponent=='Dummy'</property>
+				</properties>
+				<component name="RequestGenerator">
+					<component name="Dummy">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JSON_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">event.targetComponent=='MostFavouriteAccountsService'
+					</property>
+				</properties>
+				<component name="RequestGenerator">
+					<component name="MostFavouriteAccountsService">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JSON_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">event.targetComponent=='CreateGroupAccountsService'
+					</property>
+				</properties>
+				<component name="RequestGenerator">
+					<component name="CreateGroupAccountsService">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JSON_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">event.targetComponent=='MostActiveAccountsComponent'</property>
+				</properties>
+				<component name="RequestGenerator">
+					<component name="MostActiveAccountsComponent">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JSON_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='yourRecentTransactionService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="yourRecentTransactionService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='RecentTransactionService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="RecentTransactionService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='YourLoansService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="YourLoansService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='LoanSummaryService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="LoanSummaryService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='DepositInterestCertificateService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="DepositInterestCertificateService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='DepositSummaryService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="DepositSummaryService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<!-- Balance Confirmation -->
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='BalanceConfirmationCertificateComponent'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="BalanceConfirmationCertificateComponent">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='PaymentGateWayGraph'
+			</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="PaymentGateWayGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='UpiSummaryGraph'
+			</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="UpiSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='VirtualAccountSummaryGraph'
+</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="VirtualAccountSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='BbpsSummaryGraph'
+</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="BbpsSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='CashChequeNachSummaryGraph'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="CashChequeNachSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='CollectionSummaryGraph'
+</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="CollectionSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='DepositsService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="DepositsService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='PaymentAndCollectionService'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="PaymentAndCollectionService">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='OpenFixedDepositComponent'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="OpenFixedDepositComponent">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+
+         <!--6112HF1 Start 270923  -->
+        <component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='FCMPaymentsSummaryGraph'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="FCMPaymentsSummaryGraph">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		 <!--6112HF1 End 270923  -->
+	</interface>
+	<interface name="yoursummaryInterface" description="Notify Bank by Email when Counterparty is created">
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='yoursummaryComponent'
+				</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="yoursummaryComponent">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="stopChequeinterfaceservice" description="API to stop the cheque">
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='StopChequeComponent'
+			</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="StopChequeComponent">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+		<component name="filter">
+			<properties>
+				<property name="script">event.targetComponent=='ChequeStatusListingComponent'
+			</property>
+			</properties>
+			<component name="RequestGenerator">
+				<component name="ChequeStatusListingComponent">
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="sendlockeduseremailnotification" description="Email to send the notification for the Locked Customer User">
+		<component name="environmentreader">
+			<component name="lockedusermailformatter">
+				<properties>
+					<property name="alerttype">03</property>
+				</properties>
+				<component name="sendmail"/>
+			</component>
+		</component>
+	</interface>
+	<interface name="sendlockedusersmsnotification" description="SMS to send the notification for the Locked Customer User">
+		<component name="environmentreader">
+			<component name="lockedusersmsformatter"/>
+		</component>
+	</interface>
+	<!-- On Boarding Interfaces -->
+	<interface name="jarvisprovisioninginterface" description="This interface used to trigger the User and Account provisioning daemons">
+		<component name="environmentreader">
+			<component name="filter">
+				<component name="companyuserprovisioningprocessor">
+					<component name="accountdetailsfetchprocessor">
+						<component name="useraccountdetailsupdateprocessor"/>
+						<component name="unprocessedrolesupdateprocessor"/>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="xmljmsoutTI" description="Output Transaction as XML to a JMS Queue">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">'03' == event.tnx_stat_code &amp;&amp; event.product_code == 'IR' &amp;&amp; event.product.objectData.contains("sub_product_code") &amp;&amp; event.product.objectData.getField("sub_product_code").getValue()=='CSTIN'</property>
+				</properties>
+				<component name="clientXmlOutToNostro">
+					<component name="jmssender">
+						<!-- TI MQ Server properties -->
+						<properties>
+							<!-- <property name="initialContextFactory">${module.trade.initialContextFactory}</property>
+					<property name="providerURL">${module.trade.providerURL}</property>-->
+							<property name="factory">${module.trade.factory}</property>
+							<property name="queue">${module.trade.cstrin.out.queue}</property>
+							<property name="invoker">05</property>
+							<property name="retry">${module.trade.retry}</property>
+						</properties>
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_jms_output_directory}</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<!-- Only products in TI are handled -->
+					<property name="script">(${xmljmsoutTI.enable} ==true) &amp;&amp; (('LI' == event.product_code || 'LC' == event.product_code ||
+                                    'SI' == event.product_code || 'SR' == event.product_code || 
+                                    'SG' == event.product_code || 'BG' == event.product_code || 'CN' == event.product_code || 'BK' == event.product_code ||
+                                    'TF' == event.product_code || ('IR' == event.product_code &amp;&amp; !event.product.objectData.contains("sub_product_code")) || 'BR' == event.product_code ||
+                                    'IC' == event.product_code || 'EC' == event.product_code || 'FT' == event.product_code ||
+                                    'IO' == event.product_code || 'LS' == event.product_code || 'EA' == event.product_code || 'IN' == event.product_code || 'IP' == event.product_code ||
+                                    ('EL' == event.product_code &amp;&amp; '87' != event.sub_tnx_type_code &amp;&amp;
+                                        '40' != event.prod_stat_code)) &amp;&amp; ('17' != event.sub_tnx_stat_code))
+                    </property>
+				</properties>
+				<component name="filter">
+					<properties>
+						<property name="script">'03' == event.tnx_stat_code || '04' == event.tnx_stat_code || (06 == event.tnx_stat_code &amp;&amp; ('IO' == event.product_code || 'EA' == event.product_code))</property>
+					</properties>
+					<!-- If the customer want some extra data to go as part of free format please uncomment the below component -->
+					<!--  <component name="freeformattextappender"> -->
+					<component name="xmlorgappender">
+						<component name="outgoingboreferenceprocessor">
+							<component name="filter">
+								<properties>
+									<property name="script">(0 != event.inp_user_id || (('IO' != event.product_code || 'EA' != event.product_code ) &amp;&amp; 43 != event.prod_stat_code)) &amp;&amp; !('IN' == event.product_code &amp;&amp; 01 == event.tnx_type_code  &amp;&amp; 'Y' == event.fscmProgram.buyer_acceptance_required )</property>
+								</properties>
+								<component name="botnxidappender">
+									<component name="xmluserdetails">
+										<component name="xmloutprocessor">
+											<properties>
+												<property name="directory" description="output base directory"/>
+												<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+												<property name="export.attachments" description="true to export attachments into directory">true</property>
+											</properties>
+											<component name="jmssender">
+												<!-- TI MQ Server properties -->
+												<properties>
+													<!--<property name="initialContextFactory">${module.trade.initialContextFactory}</property>
+															<property name="providerURL">${module.trade.providerURL}</property>-->
+													<property name="factory">${module.trade.factory}</property>
+													<property name="queue">${module.trade.out.queue}</property>
+													<property name="invoker">${module.trade.invoker}</property>
+													<property name="retry">${module.trade.retry}</property>
+												</properties>
+												<component name="filewriter">
+													<properties>
+														<property name="directory.override">true</property>
+														<property name="directory.isDynamic">false</property>
+														<property name="directory.name">${xml_jms_output_directory}</property>
+													</properties>
+												</component>
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+			<component name="filter">
+				<properties>
+					<property name="script">(0 == event.inp_user_id &amp;&amp; ('IO' == event.product_code || 'EA' == event.product_code )  &amp;&amp; 43 == event.prod_stat_code)</property>
+				</properties>
+				<component name="xmloutprocessor">
+					<properties>
+						<property name="directory" description="output base directory"/>
+						<property name="embed.attachments" description="true to embed attachments into xml in Base64">false</property>
+						<property name="export.attachments" description="true to export attachments into directory">false</property>
+					</properties>
+					<component name="jmssender">
+						<!-- TI MQ Server properties -->
+						<properties>
+							<!--<property name="initialContextFactory">${module.trade.initialContextFactory}</property>
+										<property name="providerURL">${module.trade.providerURL}</property>-->
+							<property name="factory">${module.trade.factory}</property>
+							<property name="queue">${module.trade.out.queue}</property>
+							<property name="invoker">${module.trade.invoker}</property>
+							<property name="retry">${module.trade.retry}</property>
+						</properties>
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory}</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<!-- In Below xml to removed the passsword auto generate mail trigger due to sso -->
+	<interface name="sendmailpassword" description="Send password to corresponding user">
+		<component name="environmentreader">
+		   </component>
+	</interface>
+	<interface name="custominterfaceserviceforgraph" description="online interface to send request API to external system">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">event.targetComponent=='DirectCollection'
+					</property>
+				</properties>
+				<component name="RequestGenerator">
+					<component name="DirectCollection">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JSON_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="sendapplyforproductsemailnotification" description="Email to send the notification of apply for product">
+		<component name="environmentreader">
+			<component name="applyforproductemailformatter">
+				<properties>
+					<property name="alerttype">03</property>
+				</properties>
+				<component name="sendmail"/>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="xmlin" onerror="nacksender" description="Load a Product Transaction from the environment">
+		<component name="environmentreader">
+			<component name="fgNostroIncomingMsgInserter">
+				<component name="irNostroIncomingHandler">
+					<transaction>
+						<component name="transformNarrative">
+							<component name="filepathprocessor">
+								<component name="incominginitiator">
+									<properties>
+										<property name="validation" description="Whether to validate against the corresponding xsd">false</property>
+									</properties>
+									<component name="documentparser">
+										<component name="useridsanddttmmanager">
+											<component name="incomingboreferenceprocessor">
+												<!-- Uncomment tiattachmentmergeprocessor component when connected to TI 1.4 -->
+												<!-- <component name="tiattachmentmergeprocessor"> -->
+												<component name="attachmentsmanager">
+													<properties>
+														<property name="mode">${attachments}</property>
+													</properties>
+													<component name="actionrequiredhandler">
+														<component name="treasuryactionrequiredhandler">
+															<component name="genericdocumentgenerator">
+																<component name="filter">
+																	<properties>
+																		<property name="script">event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN'</property>
+																	</properties>
+																	<component name="unReferencedLNUpdator">												
+																</component>
+																</component>
+																<component name="filter">
+																	<properties>
+																		<property name="script">!(event.product_code == 'BK' &amp;&amp; event.sub_product_code == 'LNRPN' &amp;&amp; event.product.objectData.contains("isProcessed") &amp;&amp; event.product.objectData.getField("isProcessed").getValue() == 'false')</property>
+																	</properties>
+																	<component name="incomingvalidator">
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'IR' &amp;&amp; event.product.objectData.contains("sub_product_code") &amp;&amp; event.product.objectData.getField("sub_product_code").getValue()=='CSTIN' &amp;&amp; event.prod_stat_code == 'F3'</property>
+																			</properties>
+																			<component name="clientRejectdatabaseserializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'IR' &amp;&amp; event.product.objectData.contains("sub_product_code") &amp;&amp; event.product.objectData.getField("sub_product_code").getValue()=='CSTIN' &amp;&amp; event.prod_stat_code == '03'</property>
+																			</properties>
+																			<component name="clientdatabaseserializer">												
+																	</component>
+																		</component>
+																		<!-- Hyperlink customization Starts -->
+																		<!-- EC Hyperlink -->
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code != 'IR' &amp;&amp; event.product_code == 'EC' &amp;&amp; event.product.objectData.contains("ec_nostro_number")</property>
+																			</properties>
+																			<component name="clientUpdatedatabaseserializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<!-- MBI Hyperlink -->
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'EC'</property>
+																			</properties>
+																			<component name="clientmbiupdatedatabaseserializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<!-- EL Hyperlink -->
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code != 'IR' &amp;&amp; event.product_code == 'EL' &amp;&amp; event.product.objectData.contains("el_nostro_number")</property>
+																			</properties>
+																			<component name="clientelUpdatedatabaseserializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<!-- IR-Default Hyperlink -->
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'IR' &amp;&amp; event.product.objectData.contains("ir_nostro_number")</property>
+																			</properties>
+																			<component name="ClientirUpdateDatabaseSerializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code != 'IR' &amp;&amp; event.product_code != 'EC' &amp;&amp; event.product_code == 'TF' &amp;&amp; event.product.objectData.contains("finance_link_master_id") &amp;&amp; event.product.objectData.contains("finance_link_prod_code")</property>
+																			</properties>
+																			<component name="clienttfdatabaseserializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<!-- Hyperlink customization ends -->
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'TF' &amp;&amp;event.product.objectData.contains("short_prod_code")</property>
+																			</properties>
+																			<component name="clientTFPreShipDatabaseSerializer">
+																				<component name="databaseserializer"/>
+																			</component>
+																		</component>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code == 'IR'
+																				&amp;&amp;
+																				!event.product.objectData.contains("sub_product_code")</property>
+																			</properties>
+																			<!-- 	<component name="clientApplicationDateAddedSerializer"> -->
+																			<component name="databaseserializer">
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(event.product_code == 'FT') &amp;&amp; ('' != event.bulk_ref_id)</property>
+																					</properties>
+																					<component name="bkstatusprocessor">
+																						<component name="filter">
+																							<properties>
+																								<property name="script">event.product_code == 'BK' &amp;&amp; event.tnx_stat_code == '04'
+																                </property>
+																							</properties>
+																							<component name="mailformatter" failsafe="true">
+																								<properties>
+																									<property name="destination">00</property>
+																									<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																									<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+																								</properties>
+																								<component name="sendmail"/>
+																							</component>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- Generate acknowledgement for treasury incoming messages -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(event.product_code == 'FX') &amp;&amp; (${treasury.ack.enable}==true)</property>
+																					</properties>
+																					<component name="generateack"/>
+																				</component>
+																				<!-- ends here -->
+																				<!-- Generate acknowledgement for  incoming fx rate messages -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(interface_processing_object_content.indexOf("exchange_rate_record") > -1) &amp;&amp; (${exchangeRate.ack.enable}==true)</property>
+																					</properties>
+																					<component name="generateack"/>
+																				</component>
+																				<!-- end of Generate acknowledgement for  incoming fx rate messages  -->
+																				<!-- START :: Generate FSCM Program creation acknowledgement to TI -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(interface_processing_object_content.indexOf("fscm_program_details") > -1)</property>
+																					</properties>
+																					<component name="staticdataxmloutprocessor">
+																						<component name="filewriter">
+																							<properties>
+																								<property name="directory.override">true</property>
+																								<property name="directory.isDynamic">false</property>
+																								<property name="directory.name">${xml_jms_output_directory}</property>
+																							</properties>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- END :: Generate FSCM Program creation acknowledgement to TI -->
+																				<component name="fscmprogramconnector">
+																	</component>
+																				<component name="filter">
+																					<properties>
+																						<property name="script"> (${sync_bo_erp} == true) &amp;&amp; (event.product_code == 'CN') </property>
+																					</properties>
+																					<component name="environmentreader">
+																						<component name="productoutputprocessor">
+																							<properties>
+																								<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+																								<property name="subtype" description="Output sub-type code">01</property>
+																							</properties>
+																							<component name="xmloutprocessor">
+																								<properties>
+																									<property name="directory" description="output base directory">${xml_output_directory}</property>
+																									<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+																									<property name="export.attachments" description="true to export attachments into directory">false</property>
+																								</properties>
+																								<component name="outputwriter">
+																									<properties>
+																										<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+																									</properties>
+																								</component>
+																							</component>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- <component name="filter">
+																	<properties><property name="script"> (event.bo_status == '02') </property></properties>
+																	<component name="fscmprogramconnector">
+																</component>
+																</component> -->
+																				<!-- START Generate ACK for the trade Messages	 -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(${trade.ack.enable}==true) &amp;&amp; ('LC'== event.product_code || 'EL'==  event.product_code ||
+																							 'IC' == event.product_code || 'EC' == event.product_code || 
+																							 'BG' == event.product_code || 'BR' == event.product_code || 
+																							 'TF' == event.product_code || 'SI' == event.product_code || 'SR'== event.product_code || 
+																							 'IR' == event.product_code || ('FT'== event.product_code &amp;&amp; ('TINT'== event.sub_product_code || 'TTPT'== event.sub_product_code))||
+																							 'LI' == event.product_code || 'LS' == event.product_code )
+																	</property>
+																					</properties>
+																					<component name="staticdataxmloutprocessor">
+																						<properties>
+																							<property name="domain">trade</property>
+																						</properties>
+																						<component name="filewriter">
+																							<properties>
+																								<property name="directory.override">true</property>
+																								<property name="directory.isDynamic">false</property>
+																								<property name="directory.name">${xml_jms_output_directory}
+																			</property>
+																							</properties>
+																						</component>
+																						<component name="jmssender">
+																							<properties>
+																								<!-- <property name="initialContextFactory">${module.trade.initialContextFactory}</property>
+																		<property name="providerURL">${module.trade.providerURL}</property> -->
+																								<property name="factory">${module.trade.factory}</property>
+																								<property name="queue">${module.trade.out.queue}</property>
+																								<property name="invoker">${module.trade.invoker}</property>
+																								<property name="retry">false</property>
+																							</properties>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- STOP Generate ACK for the trade Messages	 -->
+																				<!-- </component> -->
+																			</component>
+																		</component>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">event.product_code != 'IR'</property>
+																			</properties>
+																			<component name="databaseserializer">
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(event.product_code == 'FT') &amp;&amp; ('' != event.bulk_ref_id)</property>
+																					</properties>
+																					<component name="bkstatusprocessor">
+																						<component name="filter">
+																							<properties>
+																								<property name="script">event.product_code == 'BK' &amp;&amp; event.tnx_stat_code == '04'
+																                </property>
+																							</properties>
+																							<component name="mailformatter" failsafe="true">
+																								<properties>
+																									<property name="destination">00</property>
+																									<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																									<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+																								</properties>
+																								<component name="sendmail"/>
+																							</component>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- Generate acknowledgement for treasury incoming messages -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(event.product_code == 'FX') &amp;&amp; (${treasury.ack.enable}==true)</property>
+																					</properties>
+																					<component name="generateack"/>
+																				</component>
+																				<!-- ends here -->
+																				<!-- Generate acknowledgement for  incoming fx rate messages -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(interface_processing_object_content.includes("exchange_rate_record")) &amp;&amp; (${exchangeRate.ack.enable}==true)</property>
+																					</properties>
+																					<component name="generateack"/>
+																				</component>
+																				<!-- end of Generate acknowledgement for  incoming fx rate messages  -->
+																				<!-- START :: Generate FSCM Program creation acknowledgement to TI -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(interface_processing_object_content.includes("fscm_program_details"))</property>
+																					</properties>
+																					<component name="staticdataxmloutprocessor">
+																						<component name="filewriter">
+																							<properties>
+																								<property name="directory.override">true</property>
+																								<property name="directory.isDynamic">false</property>
+																								<property name="directory.name">${xml_jms_output_directory}</property>
+																							</properties>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- END :: Generate FSCM Program creation acknowledgement to TI -->
+																				<component name="fscmprogramconnector">
+																	</component>
+																				<component name="filter">
+																					<properties>
+																						<property name="script"> (${sync_bo_erp} == true) &amp;&amp; (event.product_code == 'CN') </property>
+																					</properties>
+																					<component name="environmentreader">
+																						<component name="productoutputprocessor">
+																							<properties>
+																								<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+																								<property name="subtype" description="Output sub-type code">01</property>
+																							</properties>
+																							<component name="xmloutprocessor">
+																								<properties>
+																									<property name="directory" description="output base directory">${xml_output_directory}</property>
+																									<property name="embed.attachments" description="true to embed attachments into xml in Base64">true</property>
+																									<property name="export.attachments" description="true to export attachments into directory">false</property>
+																								</properties>
+																								<component name="outputwriter">
+																									<properties>
+																										<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, ...)">04</property>
+																									</properties>
+																								</component>
+																							</component>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- <component name="filter">
+																	<properties><property name="script"> (event.bo_status == '02') </property></properties>
+																	<component name="fscmprogramconnector">
+																</component>
+																</component> -->
+																				<!-- START Generate ACK for the trade Messages	 -->
+																				<component name="filter">
+																					<properties>
+																						<property name="script">(${trade.ack.enable}==true) &amp;&amp; ('LC'== event.product_code || 'EL'==  event.product_code ||
+																							 'IC' == event.product_code || 'EC' == event.product_code || 
+																							 'BG' == event.product_code || 'BR' == event.product_code || 
+																							 'TF' == event.product_code || 'SI' == event.product_code || 'SR'== event.product_code || 
+																							 'IR' == event.product_code || ('FT'== event.product_code &amp;&amp; ('TINT'== event.sub_product_code || 'TTPT'== event.sub_product_code))||
+																							 'LI' == event.product_code || 'LS' == event.product_code )
+																	</property>
+																					</properties>
+																					<component name="staticdataxmloutprocessor">
+																						<properties>
+																							<property name="domain">trade</property>
+																						</properties>
+																						<component name="filewriter">
+																							<properties>
+																								<property name="directory.override">true</property>
+																								<property name="directory.isDynamic">false</property>
+																								<property name="directory.name">${xml_jms_output_directory}
+																			</property>
+																							</properties>
+																						</component>
+																						<component name="jmssender">
+																							<properties>
+																								<!--	<property name="initialContextFactory">${module.trade.initialContextFactory}</property>
+																		<property name="providerURL">${module.trade.providerURL}</property>-->
+																								<property name="factory">${module.trade.factory}</property>
+																								<property name="queue">${module.trade.out.queue}</property>
+																								<property name="invoker">${module.trade.invoker}</property>
+																								<property name="retry">false</property>
+																							</properties>
+																						</component>
+																					</component>
+																				</component>
+																				<!-- STOP Generate ACK for the trade Messages	 -->
+																			</component>
+																		</component>
+																		<component name="bankcurrencyprocessor"/>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">(${export.common_party_data.enable}==true)</property>
+																			</properties>
+																			<component name="commonPartyAcknowledgementProcessor">
+																				<component name="multibranchjmssender">
+																					<properties>
+																						<!-- <property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+								                                            <property name="providerURL">${provider_url_common_party}</property> -->
+																						<property name="factory">MPQueueCF</property>
+																						<property name="queue">${common_party_queue_name}</property>
+																						<property name="user">micloud</property>
+																						<property name="password">misys123</property>
+																					</properties>
+																					<component name="filewriter"/>
+																				</component>
+																			</component>
+																		</component>
+																		<component name="filter">
+																			<properties>
+																				<property name="script">(${export.tnxdata2fbi.enable}==true)</property>
+																			</properties>
+																			<component name="tnxdata2fbiprocessor">
+																				<component name="multibranchjmssender">
+																					<properties>
+																						<!--<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</property> 
+												                                    <property name="providerURL">${provider_url}</property> -->
+																						<property name="factory">QueueConnectionFactory</property>
+																						<property name="queue">dynamicQueues/${fbi_tnx_queue_name}</property>
+																					</properties>
+																					<component name="filewriter"/>
+																				</component>
+																			</component>
+																		</component>
+																	</component>
+																</component>
+															</component>
+															<component name="filter">
+																<properties>
+																	<property name="script">(event.product_code != 'IN' || event.product_code != 'IP') &amp;&amp; (event.tnx_stat_code == 04 || interface_processing_object_content.includes("bulk_upload_holder")) </property>
+																</properties>
+																<component name="onlinealert" failsafe="true"/>
+																<component name="mailformatter" failsafe="true">
+																	<properties>
+																		<property name="destination">00</property>
+																		<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																		<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+																	</properties>
+																	<component name="sendmail"/>
+																</component>
+															</component>
+															<component name="filter">
+																<properties>
+																	<property name="script">event.product_code == 'IN' || event.product_code == 'IP' </property>
+																</properties>
+																<component name="onlinealert" failsafe="true"/>
+																<component name="mailformatter" failsafe="true">
+																	<properties>
+																		<property name="destination">00</property>
+																		<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																		<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_IN_BODY</property>
+																	</properties>
+																	<component name="sendmail"/>
+																</component>
+															</component>
+															<component name="filter">
+																<properties>
+																	<property name="script">event.tnx_stat_code == 03</property>
+																</properties>
+																<component name="mailformatter" failsafe="true">
+																	<properties>
+																		<property name="destination">01</property>
+																		<property name="titlekey">BANK_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																		<property name="bodykey">BANK_SUBMISSION_ALERT_EMAIL_BODY</property>
+																	</properties>
+																	<component name="sendmail"/>
+																</component>
+															</component>
+															<!-- Added for the TMA START-->
+															<component name="filter">
+																<properties>
+																	<property name="script">(event.tnx_stat_code == 04 &amp;&amp; event.product_code == 'IO' &amp;&amp; event.prod_stat_code == 98)</property>
+																</properties>
+																<component name="iototsmtgenerator">
+																	<component name="databaseserializer"/>
+																	<component name="xmloutprocessor">
+																		<component name="filewriter"/>
+																	</component>
+																</component>
+															</component>
+															<component name="filter">
+																<properties>
+																	<property name="script">event.tnx_stat_code == 04 &amp;&amp; event.product_code == 'EA' &amp;&amp; (event.prod_stat_code == '55' || event.prod_stat_code == '77' || (event.prod_stat_code == 'A6' &amp;&amp; event.tnx_type_code == 61))</property>
+																</properties>
+																<component name="eatotsmtgenerator">
+																	<component name="databaseserializer"/>
+																	<component name="xmloutprocessor">
+																		<component name="filewriter"/>
+																	</component>
+																</component>
+															</component>
+															<!-- Added for the TMA END-->
+															<!-- Added to update CR from incoming CN Start -->
+															<component name="filter">
+																<properties>
+																	<property name="script">event.product_code == 'CN' &amp;&amp; ('E4' == event.prod_stat_code || '01' == event.prod_stat_code || 'A0' == event.prod_stat_code)</property>
+																</properties>
+																<component name="creditnoteconnector">
+																	<component name="databaseserializer"/>
+																	<!-- Added to notify other party -->
+																	<component name="genericmailformatter">
+																		<properties>
+																			<property name="destination">02</property>
+																			<property name="alerttype">01</property>
+																		</properties>
+																		<component name="genericSendMail"/>
+																	</component>
+																</component>
+																<component name="creditnoteinvoicehandler">
+																	<component name="databaseserializer"/>
+																</component>
+															</component>
+															<!-- Added to notify previous authorisers if the repriced loan status has changed Start -->
+															<component name="filter">
+																<properties>
+																	<property name="script">event.product_code == 'LN' &amp;&amp; event.tnx_type_code != 01</property>
+																</properties>
+																<component name="repricedloanextractor">
+																	<component name="genericmailformatter">
+																		<properties>
+																			<property name="alerttype">11</property>
+																		</properties>
+																		<component name="genericSendMail"/>
+																	</component>
+																</component>
+															</component>
+															<!-- Added to notify previous authorisers if the repriced loan status has changed End -->
+															<!-- Added to update IN from incoming IP [Start] -->
+															<component name="filter">
+																<properties>
+																	<property name="script">(('IP' == event.product_code || 'IN' == event.product_code) &amp;&amp;  (06 == event.prod_stat_code || 08 == event.prod_stat_code || 46 == event.prod_stat_code || 47 == event.prod_stat_code || 04 == event.prod_stat_code || 01 == event.prod_stat_code || 56 == event.prod_stat_code || 'E0' == event.prod_stat_code || 'D8' == event.prod_stat_code || 'D9' == event.prod_stat_code || 'E1' == event.prod_stat_code || '07' == event.prod_stat_code)) || ('BK' == event.product_code &amp;&amp; ((03 == event.tnx_stat_code &amp;&amp; 54 == event.prod_stat_code)|| (04 == event.tnx_stat_code &amp;&amp; (04 == event.prod_stat_code || 'D5' == event.prod_stat_code || 'D6' == event.prod_stat_code || 'E3' == event.prod_stat_code))))</property>
+																</properties>
+																<component name="fscmconnector">
+																	<component name="useridsanddttmmanager">
+																		<component name="databaseserializer"/>
+																	</component>
+																	<!-- Added to notify other party -->
+																	<component name="genericmailformatter">
+																		<properties>
+																			<property name="destination">02</property>
+																			<property name="alerttype">01</property>
+																		</properties>
+																		<component name="genericSendMail"/>
+																	</component>
+																</component>
+															</component>
+														</component>
+													</component>
+												</component>
+												<component name="filter">
+													<properties>
+														<property name="script">(${balanceAlert.enable} ==true &amp;&amp; (event instanceof com.misys.portal.interfaces.incoming.AccountSet ||  event instanceof com.misys.portal.interfaces.incoming.AccountStatementsSet))</property>
+													</properties>
+													<component name="onlinealert" failsafe="true"/>
+													<component name="mailformatter" failsafe="true">
+														<properties>
+															<property name="destination">00</property>
+															<property name="titlekey">N906_BAOT</property>
+															<property name="bodykey">N907_BAOB</property>
+														</properties>
+														<component name="sendmail"/>
+													</component>
+												</component>
+												<!-- Added to update IN from incoming IP [End] -->
+												<!-- START ELS change -->
+												<component name="filter">
+													<properties>
+														<property name="script">(('TF' == event.product_code || 'EC' == event.product_code || 'IC' == event.product_code ||
+												'IN' == event.product_code || 'IP' == event.product_code || 'CN' == event.product_code || 'CR' == event.product_code || 
+												'IR' == event.product_code || 'SR' == event.product_code || 'LC' == event.product_code || 'BR' == event.product_code || 
+												'EL' == event.product_code || 'BG' == event.product_code || 'SI' == event.product_code || 'LS' == event.product_code || 
+												'PO' == event.product_code || 'SO' == event.product_code || 'SG' == event.product_code || 'LI' == event.product_code ||
+												 ('FT'== event.product_code &amp;&amp; ('TINT'== event.sub_product_code || 'TTPT'== event.sub_product_code))) &amp;&amp; event.tnx_type_code == 01)</property>
+													</properties>
+													<component name="productoutputprocessor">
+														<properties>
+															<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, 05=ELS...)">05</property>
+															<property name="subtype" description="Output sub-type code">01</property>
+														</properties>
+														<component name="outputwriter">
+															<properties>
+																<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, 05=ELS....)">05</property>
+															</properties>
+														</component>
+													</component>
+												</component>
+												<component name="filter">
+													<properties>
+														<property name="script">(('TF' == event.product_code || 'EC' == event.product_code || 'IC' == event.product_code ||
+												'IN' == event.product_code || 'IP' == event.product_code || 'CN' == event.product_code || 'CR' == event.product_code || 
+												'IR' == event.product_code || 'SR' == event.product_code || 'LC' == event.product_code || 'BR' == event.product_code || 
+												'EL' == event.product_code || 'BG' == event.product_code || 'SI' == event.product_code || 'LS' == event.product_code || 
+												'PO' == event.product_code || 'SO' == event.product_code || 'SG' == event.product_code || 'LI' == event.product_code ||
+												('FT'== event.product_code &amp;&amp; ('TINT'== event.sub_product_code || 'TTPT'== event.sub_product_code))) &amp;&amp; event.tnx_type_code != 01)</property>
+													</properties>
+													<component name="productoutputprocessor">
+														<properties>
+															<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, 05=ELS...)">05</property>
+															<property name="subtype" description="Output sub-type code">01</property>
+														</properties>
+														<component name="xmlinoutputwriter">
+															<properties>
+																<property name="type" description="Output type code (01=GTP, 02=LOADER BO, 03=SWIFT, 04=LOCAL SERVICES, 05=ELS....)">05</property>
+															</properties>
+														</component>
+													</component>
+												</component>
+												<!-- END ELS change -->
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</transaction>
+				</component>
+			</component>
+			<!-- ACK/NACK sender  -->
+			<!-- send acknowledgement for treasury incoming messages -->
+			<component name="filter">
+				<properties>
+					<property name="script">interface_processing_object_content.includes("fx_tnx_record") &amp;&amp; (${treasury.ack.enable}==true)</property>
+				</properties>
+				<component name="xsltransformer">
+					<properties>
+						<property name="stylesheet.name">${xmlinackSenderStylesheet}</property>
+						<property name="stylesheet.parameters.name" description="">ack_status</property>
+						<property name="stylesheet.parameter.ack_status.isDynamic">true</property>
+					</properties>
+					<component name="jmssender">
+						<properties>
+							<property name="jmsexecute">ackSender</property>
+							<!-- Tomcat Specific begins: The following properties should be mentioned if deployed through tomcat					
+							<property name="user">MPQueueCF</property>						
+							<property name="password">MPAckSenderQueue</property>						
+							<property name="secondary.user">MPQueueCF</property>						
+							<property name="secondary.password">MPAckSenderQueue</property>
+							-->
+							<!--<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</property>	
+							<property name="factory">QueueConnectionFactory</property> 		-->
+							<property name="providerURL">${provider_url_treasury}</property>
+							<property name="queue">${queue_name_treasury}</property>
+							<property name="user">${user_treasury}</property>
+							<property name="password">${password_treasury}</property>
+							<property name="secondary.factory">QueueConnectionFactory</property>
+							<property name="secondary.queue">${queue_name_treasury}</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+			<!-- ACK/NACK sender  -->
+			<!--START send acknowledgement for  incoming exchange rate messages -->
+			<component name="filter">
+				<properties>
+					<property name="script">interface_processing_object_content.includes("exchange_rate_record") &amp;&amp; (${exchangeRate.ack.enable}==true)</property>
+				</properties>
+				<component name="xsltransformer">
+					<properties>
+						<property name="stylesheet.name">${exchangeRateAckNackStylesheet}</property>
+						<property name="stylesheet.parameters.name" description="">ack_status</property>
+						<property name="stylesheet.parameter.ack_status.isDynamic">true</property>
+					</properties>
+					<component name="jmssender">
+						<properties>
+							<property name="jmsexecute">ackSender</property>
+							<!-- Tomcat Specific begins: The following properties should be mentioned if deployed through tomcat					
+							<property name="user">MPQueueCF</property>						
+							<property name="password">MPAckSenderQueue</property>						
+							<property name="secondary.user">MPQueueCF</property>						
+							<property name="secondary.password">MPAckSenderQueue</property>
+							-->
+							<!--<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</property>	
+							<property name="factory">QueueConnectionFactory</property> 		-->
+							<property name="providerURL">${provider_url_exchangeRate}</property>
+							<property name="queue">${queue_name_exchangeRate}</property>
+							<property name="user">${user_exchangeRate}</property>
+							<property name="password">${password_exchangeRate}</property>
+							<property name="secondary.factory">QueueConnectionFactory</property>
+							<property name="secondary.queue">${queue_name_exchangeRate}</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+			<!--END send acknowledgement for  incoming exchange rate messages -->
+		</component>
+	</interface>
+	
+	<bundle name="SendApplyForProductsEmailNotification">
+		<interface failsafe="true" asynchronous="true">sendapplyforproductsemailnotification</interface>
+	</bundle>
+	<!-- Send Locked User's Email and SMS notifications - Start -->
+	<bundle name="SendLockedEmailNotification">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendlockeduseremailnotification</interface>
+	</bundle>
+	<bundle name="SendLockedSMSNotification">
+		<interface asynchronous="true">xmlout</interface>
+		<interface failsafe="true" asynchronous="true">sendlockedusersmsnotification</interface>
+	</bundle>
+	<!-- Send Locked User's Email and SMS notifications - End -->
+	<!-- Calendar event alert mail interface -->
+	<interface name="sendcalendareventmailnotification" description="SMS to send the notification for the Locked Customer User">
+		<component name="environmentreader">
+			<component name="calendareventmailformatter">
+				<component name="genericSendMail"/>
+			</component>
+		</component>
+	</interface>
+	<bundle name="SendCalendarEventMailNotification">
+		<interface failsafe="true" asynchronous="true">sendcalendareventmailnotification
+		</interface>
+	</bundle>
+	
+	<!-- 6112HF1 Start 270923 -->
+	  <!-- On Boarding Phase3 Interfaces -->
+     <interface name="jarvisfcmrolesinterface" description="This interface used to update the company and user roles in fcc staging table">
+           <component name="environmentreader">
+                  <component name="filter">
+                         <component name="fcmcompanyrolesprocessor">
+                               <component name="fcmuserrolesprocessor"/>
+                         </component>
+                  </component>
+           </component>        
+     </interface>
+
+    <!-- 6112HF1 End 270923 -->
+</interfaces>

@@ -1,0 +1,455 @@
+@import '../../../variables.scss';
+
+@mixin headerTheme($ng-headerBackgroundColor,$ng-headerBoxShadow,$ng-headerAColor,$ng-headerAfontSize,$iconHoverColor,$primaryColor,
+$ng-headerlogoImgHoverBackgroundColor,$profileboxBackgroundColor,$profileboxBoxShadow,$userinfo2Font-weight,$userinfo2Color,
+$itemlistBorderBottom,$uibuttonBackgroundColor,$uibuttonColor,$uibuttonBoxShadow,$uibuttonborder-radius,$uibuttonBorder,
+$uibuttonEnableHoverBorderColor,$uibuttontextFOntWeight,$viewProfileAColor,$viewProfileAFontWeight,$Acolor,$viewProfileAHoverBackgroundColor,
+$uiOverlaypanelBackgroundColor,$uiOverlaypanelColor,$log-outfontweight,$uiSlideMenuBorder,$uimenuitemtexcolor,$uisubmenuListBackgroundColor,$uisubmenuListBorder,
+$uiBreadcrumbChevronColor,$closeiconBackgroundColor,$closeiconColor,$corpAvatarColor,$corpAvatarBackground,$ui-menuitemLinkHoverColor,$ui-menuitemicon,
+$uimenuitemactiveLinkBorderLeft,$uimenuitemactiveBackgroundColor,$uimenuitemiconColor,$uidropdownItemUiHighlightColor,$uidropdownItemUiHighlightBackGroundcolor,
+$uiMenuItemLinkHoverBorderLeft,$uiMenuItemLinkHoverBackgroundColor,$uiMenuItemActiveHoverBorderLeft,$menuBackground,$uimenuitemBackgroundColor,
+$MenuFontweight,$MenuColor,$ngmenuUIMenuitem-textFontweight,$ngmenuUIMenuitem-textColor,$ngmenuUISubMenuListBorder,$ngmenuUISubMenuListBoxShadow,$ngmenuUISubMenuListBorderRadius,
+$ngmenuUISubMenuListBackgroundColor,$ngmenuUISubMenuListColor,$ngmenuLTRUIMenuitemLinkHoverbackground-color,$ngmenuLTRUIMenuitemLinkHoverBorder-Left,
+$ngmenuRTL-UIMenuitemLinkHoverBorder-right,$ngmenuRTL-RUIMenuitemLinkHoverbackground-color,$ngMenuLTR-UiMenuItemActiveLinkBGColor,
+$ngMenuRTL-UiMenuItemActiveLinkBGColor,$ngMenuRTL-UiMenuItemActiveLinkBorderRight,$ngMenu-UIMenuItemActiveIconColor,$uiMenuBarMenuItemActiveLinkBGColor,
+$uiMenuBarMenuItemLinkHoverBGColor,$uiMenuBarMenuItemIconColor,$uiMenubarMenuItemActiveColor,$textDisableColor,$focusOutline,$RTLDropDownItemHighlightColor,
+$RTLDropDownItemHighlightBGColor,$RTLDropDownItemHighlightFontWeight,$buttonLinkBackgroundColor,$buttonLinkBorder,$uiButtonTextBeforeColor,
+$uiButtonTextBeforeFontWeight,$LanguageCodeSelectedColor,$LanguageCodeSelectedFontWeight,$languageSelectedHover-FocusBackgroundColor,
+$globeSpanColor,$globeHoverSpan,$lastLoginContainerColor,$activeMenuLeftBorder) {
+    
+    fcc-common-header .ng-header {
+        background-color: $ng-headerBackgroundColor;
+        box-shadow: $ng-headerBoxShadow;
+       
+      }
+      fcc-common-header .material-icons{
+        color:$primaryColor;
+      }
+      fcc-common-header .ng-header a:hover {
+        background-color: $iconHoverColor;
+        color: $primaryColor !important;
+       
+      }
+      fcc-common-header .ng-header a {
+        color: $ng-headerAColor !important;
+    }
+
+      fcc-common-header .ng-header a.logo-img:hover {
+        background-color: $ng-headerlogoImgHoverBackgroundColor;
+      }
+  
+      fcc-common-header .profile-box {
+        box-shadow: $profileboxBoxShadow;
+        background-color: $profileboxBackgroundColor;
+      }
+      fcc-common-header .user-info2 {
+        color: $userinfo2Color;
+        font-weight: $userinfo2Font-weight;
+        
+      }
+      fcc-common-header .item-list {
+        border-bottom: $itemlistBorderBottom;
+      }
+
+      fcc-common-header .ui-button.ui-button-rounded {
+        border-radius: 18px;
+        background-color: $uibuttonBackgroundColor;
+        box-shadow: $uibuttonBoxShadow;
+      
+      }
+      
+      fcc-common-header .ui-button:enabled:active {
+        background-color: $uibuttonBackgroundColor;
+        color: $uibuttonColor;
+        border-color: $uibuttonBackgroundColor;
+      }
+      fcc-common-header .ui-button:enabled:hover {
+        background-color: $uibuttonBackgroundColor;
+        color: $uibuttonColor;
+        border-color: $uibuttonEnableHoverBorderColor;
+      }
+      fcc-common-header .ui-button.ui-button-text-only .ui-button-text {
+        color: $uibuttonColor;
+        font-weight: $uibuttontextFOntWeight;
+      }
+      fcc-common-header .ui-button {
+        color: $uibuttonColor;
+        background-color: $uibuttonBackgroundColor;
+        border: $uibuttonBorder;
+        border-radius: $uibuttonborder-radius;
+      }
+
+      fcc-common-header .view-profile a {
+        color: $viewProfileAColor !important;
+        font-weight: $viewProfileAFontWeight !important;
+      }
+      
+      fcc-common-header .view-profile a:hover {
+        background-color: $viewProfileAHoverBackgroundColor !important;
+    }
+      
+      fcc-common-header a {
+        color: $Acolor;
+       
+      }
+      fcc-common-header .ui-overlaypanel {
+        background-color: $uiOverlaypanelBackgroundColor;
+        color: $uiOverlaypanelColor;
+      }
+
+      fcc-common-header .log-out {
+       
+        color: $secondaryColor;
+      
+      }
+      fcc-common-header .sign-out {
+        color: $secondaryColor;
+      }
+      fcc-common-header .ui-slidemenu {
+        border: $uiSlideMenuBorder !important;
+      }
+
+      fcc-common-header .sideNavClass .ui-menuitem-link .ui-menuitem-text {
+        color: $uimenuitemtexcolor !important;
+        
+      }
+      fcc-common-header .sideNavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron {
+        color: $uiBreadcrumbChevronColor;
+        
+      }
+      
+      fcc-common-header .ui-submenu .ui-submenu-list {
+        border: $uisubmenuListBorder;
+        background-color: $uisubmenuListBackgroundColor;
+      }
+      
+      fcc-common-header .close-icon a {
+        color: $closeiconColor;
+      }
+      fcc-common-header .close-icon a:hover {
+        color: $closeiconColor;
+        background-color: $closeiconBackgroundColor;
+      }
+      fcc-common-header .corp-avatar {
+        background: $corpAvatarBackground;
+        border-radius: 50%;
+        color: $corpAvatarColor;
+      }
+      fcc-common-header .ui-slidemenu .ui-menuitem-link .ui-menuitem-icon {
+        color: $ui-menuitemicon;
+      }
+      
+      fcc-common-header .ui-slidemenu .ui-menuitem-link:hover .ui-menuitem-icon {
+        color: $ui-menuitemLinkHoverColor;
+      }
+
+      fcc-common-header .ui-slidemenu .ui-menuitem.ui-menuitem-active
+        > .ui-menuitem-link {
+        border-left: $uimenuitemactiveLinkBorderLeft;
+        background-color: $uimenuitemactiveBackgroundColor;
+    }
+    fcc-common-header .ui-slidemenu
+        .ui-menuitem.ui-menuitem-active
+        > .ui-menuitem-link
+        > .ui-menuitem-text {
+            color: $primaryColor !important;
+}
+    fcc-common-header .ui-slidemenu
+        .ui-menuitem.ui-menuitem-active
+        > .ui-menuitem-link
+        .ui-menuitem-icon {
+            color: $uimenuitemiconColor !important;
+}
+
+    fcc-common-header .ui-dropdown-panel .ui-dropdown-items
+        .ui-dropdown-item.ui-state-highlight {
+        color: $uidropdownItemUiHighlightColor;
+        background-color: $uidropdownItemUiHighlightBackGroundcolor;
+    }
+
+    fcc-common-header .ui-slidemenu .ui-menuitem-link:hover {
+        border-left: $uiMenuItemLinkHoverBorderLeft;
+        background-color: $uiMenuItemLinkHoverBackgroundColor;
+      }
+      fcc-common-header .ui-slidemenu
+      .ui-menuitem.ui-menuitem-active:hover
+      > .ui-menuitem-link {
+      border-left: $uiMenuItemActiveHoverBorderLeft;
+      background-color:$uiMenuItemLinkHoverBackgroundColor;
+    }
+    
+    fcc-common-header .ng-menu .ui-menubar {
+        background-color: $menuBackground;
+        
+      }
+      fcc-common-header .ng-menu .ui-submenu .ui-submenu-list .ui-menuitem {
+        background-color: uimenuitemBackgroundColor;
+      }
+      fcc-common-header .ng-menu .ui-menuitem-link .ui-menuitem-text {
+        color: $MenuColor !important;
+        font-weight: 500;
+      }
+
+      
+      fcc-common-header .ng-menu
+            .ui-submenu
+            .ui-submenu-list
+            .ui-menuitem-link
+            .ui-menuitem-text {
+                color: $ngmenuUIMenuitem-textColor !important;
+                font-weight: $ngmenuUIMenuitem-textFontweight;
+            }
+
+        fcc-common-header .ng-menu .ui-submenu .ui-submenu-list {
+               
+                border: $ngmenuUISubMenuListBorder;
+                box-shadow:$ngmenuUISubMenuListBoxShadow;
+                border-radius: $ngmenuUISubMenuListBorderRadius;
+               
+                background-color: $ngmenuUISubMenuListBackgroundColor;
+                color: $ngmenuUISubMenuListColor;
+               
+        }
+        fcc-common-header .ng-menu.dirLtrStyle
+            .ui-menubar
+            .ui-submenu-list
+            .ui-menuitem
+            .ui-menuitem-link:hover {
+            border-left: $ngmenuLTRUIMenuitemLinkHoverBorder-Left;
+            background-color: $ngmenuLTRUIMenuitemLinkHoverbackground-color;
+        }
+
+        fcc-common-header .ng-menu.dirRtlStyle
+            .ui-menubar
+            .ui-submenu-list
+            .ui-menuitem
+            .ui-menuitem-link:hover {
+                border-right: $ngmenuRTL-UIMenuitemLinkHoverBorder-right;
+                background-color: $ngmenuRTL-RUIMenuitemLinkHoverbackground-color;
+            }
+        fcc-common-header .ng-menu.dirLtrStyle
+            .ui-menubar
+            .ui-submenu-list
+            .ui-menuitem.ui-menuitem-active
+            > .ui-menuitem-link {
+            border-left: 5px solid $activeMenuLeftBorder ;
+            background-color: $ngMenuLTR-UiMenuItemActiveLinkBGColor;
+          }
+    
+        fcc-common-header .ng-menu.dirRtlStyle
+            .ui-menubar
+            .ui-submenu-list
+            .ui-menuitem.ui-menuitem-active
+            > .ui-menuitem-link {
+            border-right: $ngMenuRTL-UiMenuItemActiveLinkBorderRight;
+            background-color:$ngMenuRTL-UiMenuItemActiveLinkBGColor;
+        }
+        fcc-common-header .ng-menu
+            .ui-menubar
+            .ui-menuitem.ui-menuitem-active
+            > .ui-menuitem-link
+            .ui-menuitem-icon {
+                color: $ngMenu-UIMenuItemActiveIconColor;
+        }
+        fcc-common-header .ui-menubar
+            .ui-menuitem.ui-menuitem-active
+            > .ui-menuitem-link {
+            background-color: $uiMenuBarMenuItemActiveLinkBGColor;
+        }
+
+        fcc-common-header .ui-menubar .ui-menuitem-link:hover {
+            background-color: $uiMenuBarMenuItemLinkHoverBGColor; 
+          }
+          fcc-common-header .ui-menubar .ui-menuitem-link .ui-menuitem-icon {
+            color: $uiMenuBarMenuItemIconColor;
+          }
+          
+          fcc-common-header .ui-menubar .ui-menuitem-active {
+            color: $uiMenubarMenuItemActiveColor;
+          }
+          fcc-common-header .ui-menubar
+            .ui-menubar-root-list
+            > .ui-menuitem
+            > .ui-menuitem-link:hover,
+            fcc-common-header .ui-menubar
+            .ui-menubar-root-list
+            > .ui-menuitem.ui-menuitem-active
+            > .ui-menuitem-link {
+                background-color: $menuHoverBackground;
+            }
+
+            fcc-common-header .textDisable {
+                color: $textDisableColor;
+              }
+
+              fcc-common-header .focus a:focus {
+                outline: $focusOutline !important;
+              }
+              fcc-common-header .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+                background-color: $RTLDropDownItemHighlightBGColor !important;
+                color: $RTLDropDownItemHighlightColor !important;
+               
+                font-weight: $RTLDropDownItemHighlightFontWeight !important;
+              }
+              fcc-common-header .button-link {
+                background-color:$buttonLinkBackgroundColor;
+                border: $buttonLinkBorder;
+              }
+              fcc-common-header .ui-button.ui-button-text-only .ui-button-text::before {
+                color: $uiButtonTextBeforeColor;
+                font-weight: $uiButtonTextBeforeFontWeight;
+    
+              }
+              fcc-common-header .languageCodeSelected {
+                color: $LanguageCodeSelectedColor !important;
+                border-left: 0.4em solid $VIOLET-PRIMARY-COLOR !important;
+                font-weight: $LanguageCodeSelectedFontWeight  !important;
+               
+              }
+              fcc-common-header .languageCodeSelected:hover, .languageCodeSelected:focus {
+                background-color: $languageSelectedHover-FocusBackgroundColor !important;
+              }
+              fcc-common-header .globe span {
+                color: $globeSpanColor !important;
+              }
+
+              fcc-common-header .globe:hover span {
+                color:$globeHoverSpan !important;
+              }
+              fcc-common-header .lastLoginContainer {
+              
+                color: $lastLoginContainerColor;
+              
+              }
+              
+                
+    } 
+
+.FCC {
+    $primaryColor: $VIOLET-F100;
+    $primaryLight:$VIOLET-F25;
+    $secondaryColor:$FUCHSIA-F100;
+    $standardFontSize : '14px';
+    $standardFontFamily:'Roboto';
+    $iconHoverColor:$WHITE-09;
+    $menuHoverBackground:$VIOLET-F10;
+    $focusOutline : .125em solid $primaryColor;
+
+    $LanguageCodeSelectedColor: $VIOLET-PRIMARY-COLOR;
+    $LanguageCodeSelectedFontWeight : $fontWeight-500;
+    $globeSpanColor : $CHARCOAL-F75;
+    $globeHoverSpan : $primaryColor;
+
+    $lastLoginContainerColor : #493694;
+    $activeMenuLeftBorder: $primaryColor;
+
+    $languageSelectedHover-FocusBackgroundColor: rgba(105, 78, 214, 0.04);
+
+    $buttonLinkBackgroundColor : $WHITE;
+    $buttonLinkBorder : none;
+    $textDisableColor: $DarkGrey;
+    $uiMenuBarMenuItemIconColor : $WHITE;
+    $uiMenubarMenuItemActiveColor : $WHITE;
+    $uiMenuBarMenuItemLinkHoverBGColor : $VIOLET-F100-dark;;
+    $uiMenuBarMenuItemActiveLinkBGColor : $VIOLET-F100-dark;
+    $ngMenu-UIMenuItemActiveIconColor : $WHITE;
+
+    $uiButtonTextBeforeColor: $WHITE;
+    $uiButtonTextBeforeFontWeight : $fontWeight-500;
+    $RTLDropDownItemHighlightColor: $primaryColor;
+    $RTLDropDownItemHighlightBGColor: transparent;
+    $RTLDropDownItemHighlightFontWeight:$fontWeight-500;
+
+    $ngMenuRTL-UiMenuItemActiveLinkBGColor : $WHITE-14;
+    $ngMenuRTL-UiMenuItemActiveLinkBorderRight : 5px solid $VIOLET-F100;
+    $ngMenuLTR-UiMenuItemActiveLinkBGColor :$WHITE-14; 
+    $ngmenuRTL-UIMenuitemLinkHoverBorder-right: 5px solid $VIOLET-F50;
+    $ngmenuRTL-RUIMenuitemLinkHoverbackground-color : $selago;
+    $ngmenuLTRUIMenuitemLinkHoverBorder-Left : 5px solid $VIOLET-F50;
+    $ngmenuLTRUIMenuitemLinkHoverbackground-color : $selago;
+    $ngmenuUISubMenuListBorder : 0px solid #584493;
+    $ngmenuUISubMenuListBoxShadow : 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    $ngmenuUISubMenuListBorderRadius : 1px;
+    $ngmenuUISubMenuListBackgroundColor: $WHITE;
+    $ngmenuUISubMenuListColor : $GREY-05;
+    $ngmenuUIMenuitem-textColor: $GREY-05;
+    $ngmenuUIMenuitem-textFontweight: $fontWeight-500;
+    $MenuColor:$WHITE;
+    $MenuFontweight : $fontWeight-500;
+    $menuBorder:$VIOLET-F100-dark;
+    $menuBackground:$VIOLET-F100-dark;
+    $uimenuitemBackgroundColor: transparent;
+   $uiMenuItemActiveHoverBorderLeft: 0.788em solid $primaryColor;
+  
+    $uiMenuItemLinkHoverBorderLeft : 0.788em solid rgba(105, 78, 214, 0.2);
+    $uiMenuItemLinkHoverBackgroundColor:  rgba(105, 78, 214, 0.04);
+    $uidropdownItemUiHighlightColor: $WHITE;
+    $uidropdownItemUiHighlightBackGroundcolor: $VIOLET-02;
+    $uimenuitemiconColor: rgba(105, 78, 214, 0.5) ;
+    $uimenuitemactiveLinkBorderLeft : 0.788em solid $primaryColor;
+    $uimenuitemactiveBackgroundColor: transparent;
+   
+    $ng-headerBackgroundColor: $WHITE;
+    $ng-headerBoxShadow : 0 2px 4px 0 rgba(177, 177, 177, 0.5);
+    $ng-headerAColor: $CHARCOAL-F75;
+    $ng-headerAfontSize : 18px;
+    $ng-headerlogoImgHoverBackgroundColor : transparent;
+    $profileboxBoxShadow : $CHARCOAL-F100;
+    $profileboxBackgroundColor: $Gallery;
+    $userinfo2Color: $CHARCOAL-F100;
+    $userinfo2Font-weight: $fontWeight-300;
+    $itemlistBorderBottom: 1px solid $Gallery;
+
+    $uibuttonBackgroundColor: $VIOLET-02;
+    $uibuttonColor: $WHITE;
+    $uibuttonBoxShadow:none;
+    $uibuttonborder-radius: 25px;
+    $uibuttonBorder: 1px solid $VIOLET-02;
+    $uibuttonEnableHoverBorderColor:$VIOLET-02;
+    $uibuttontextFOntWeight:$fontWeight-500;
+
+    $viewProfileAColor: $VIOLET-02;
+    $viewProfileAFontWeight: $fontWeight-600;
+    $viewProfileAHoverBackgroundColor: transparent;
+
+    $Acolor:$VIOLET-02;
+
+    $uiOverlaypanelBackgroundColor: $WHITE;
+    $uiOverlaypanelColor:$GRAY-HEX-20;
+
+    $log-outfontweight:$fontWeight-400;
+    
+    $uiSlideMenuBorder:none;
+
+    $uimenuitemtexcolor:$CHARCOAL-F100;
+    $uisubmenuListBorder: 1px solid $WHITE;
+    $uisubmenuListBackgroundColor:$WHITE;
+
+    $uiBreadcrumbChevronColor: $CHARCOAL-F100;
+
+    $closeiconColor:$primaryColor;
+    $closeiconBackgroundColor: $WHITE;
+    $corpAvatarColor: $WHITE;
+    $corpAvatarBackground:$GRADIENT_01;
+
+    $ui-menuitemicon:$Alto;
+    $ui-menuitemLinkHoverColor: $CHARCOAL-F100;
+   
+    @include headerTheme($ng-headerBackgroundColor,$ng-headerBoxShadow,$ng-headerAColor,$ng-headerAfontSize,$iconHoverColor,$primaryColor,
+    $ng-headerlogoImgHoverBackgroundColor,$profileboxBackgroundColor,$profileboxBoxShadow,$userinfo2Font-weight,$userinfo2Color,
+    $itemlistBorderBottom,$uibuttonBackgroundColor,$uibuttonColor,$uibuttonBoxShadow,$uibuttonborder-radius,$uibuttonBorder,$uibuttonEnableHoverBorderColor,
+    $uibuttontextFOntWeight,$viewProfileAColor,$viewProfileAFontWeight,$Acolor,$viewProfileAHoverBackgroundColor,$uiOverlaypanelBackgroundColor,
+    $uiOverlaypanelColor,$log-outfontweight,$uiSlideMenuBorder,$uimenuitemtexcolor,$uisubmenuListBackgroundColor,$uisubmenuListBorder,
+    $uiBreadcrumbChevronColor$uiBreadcrumbChevronColor,$closeiconBackgroundColor,$closeiconColor,$corpAvatarColor,$corpAvatarBackground,
+    $ui-menuitemLinkHoverColor,$ui-menuitemicon,$uimenuitemactiveLinkBorderLeft,$uimenuitemactiveBackgroundColor,$uimenuitemiconColor,
+    $uidropdownItemUiHighlightColor,$uidropdownItemUiHighlightBackGroundcolor,$uiMenuItemLinkHoverBorderLeft,$uiMenuItemLinkHoverBackgroundColor,
+    $uiMenuItemActiveHoverBorderLeft,$menuBackground,$uimenuitemBackgroundColor,$MenuFontweight,$MenuColor,$ngmenuUIMenuitem-textFontweight,$ngmenuUIMenuitem-textColor,
+    $ngmenuUISubMenuListBorder,$ngmenuUISubMenuListBoxShadow,$ngmenuUISubMenuListBorderRadius,$ngmenuUISubMenuListBackgroundColor,$ngmenuUISubMenuListColor,
+    $ngmenuLTRUIMenuitemLinkHoverbackground-color,$ngmenuLTRUIMenuitemLinkHoverBorder-Left,$ngmenuRTL-UIMenuitemLinkHoverBorder-right,$ngmenuRTL-RUIMenuitemLinkHoverbackground-color,
+    $ngMenuLTR-UiMenuItemActiveLinkBGColor,$ngMenuRTL-UiMenuItemActiveLinkBGColor,$ngMenuRTL-UiMenuItemActiveLinkBorderRight,$ngMenu-UIMenuItemActiveIconColor,
+    $uiMenuBarMenuItemActiveLinkBGColor,$uiMenuBarMenuItemLinkHoverBGColor,$uiMenuBarMenuItemIconColor,$uiMenubarMenuItemActiveColor,
+    $textDisableColor,$focusOutline,$RTLDropDownItemHighlightColor,$RTLDropDownItemHighlightBGColor,$RTLDropDownItemHighlightFontWeight,
+    $buttonLinkBackgroundColor,$buttonLinkBorder,$uiButtonTextBeforeColor,$uiButtonTextBeforeFontWeight,$LanguageCodeSelectedColor,$LanguageCodeSelectedFontWeight,
+    $languageSelectedHover-FocusBackgroundColor,$globeSpanColor,$globeHoverSpan,$lastLoginContainerColor,$activeMenuLeftBorder );
+}

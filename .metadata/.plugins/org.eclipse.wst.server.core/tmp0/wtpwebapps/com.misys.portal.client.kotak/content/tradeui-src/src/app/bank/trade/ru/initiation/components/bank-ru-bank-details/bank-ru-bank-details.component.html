@@ -1,0 +1,231 @@
+<div *ngIf ="!viewMode && this.commonData.getOption()!== 'SUMMARY' ;else view_content">
+  <div [formGroup]="ruBankDetailsSection">
+    <p-panel header="{{ 'BANK_DETAILS_LABEL' | translate }}" id="bankDetails" [toggleable]="true" [collapsed] ="false">
+      <p-tabView (onChange)="handleChange($event)" [activeIndex]="index">
+          <!-- Tab 1 details: Issuing Bank -->
+          <p-tabPanel header="{{'*'}}{{'BANKDETAILS_ISSUING_BANK_DETAILS' | translate}}" id="issuingBank">
+              <div id="issuingBankSwiftCodeRow" class="field">
+               <label id="issuingBankSwiftCodeLabel">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}</label>
+                <input pInputText type="text" id="issuingBankSwiftCode" formControlName="issuingBankSwiftCode"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankSwiftCode'))">&nbsp;
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="issuingsearch" (click)="openBankDialog('issuing')"></a>
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankSwiftCode')"></fcc-common-error-message>
+              </div>
+              <div id="issuingBankNameRow" class="field">
+               <label id="issuingBankNameLabel"><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>
+                <input pInputText type="text" id="issuingBankName" formControlName="issuingBankName"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankName'))">&nbsp;
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankName')"></fcc-common-error-message>
+              </div>
+              <div id="issuingBankAddressLine1Row" class="field">
+               <label id="issuingBankAddressLine1Label"><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_ADDRESS' | translate }}</label>
+                <input pInputText type="text" id="issuingBankAddressLine1" formControlName="issuingBankAddressLine1"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankAddressLine1'))">
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankAddressLine1')"></fcc-common-error-message>
+              </div>
+              <div id="issuingBankAddressLine2Row" class="field">
+               <label id="issuingBankAddressLine2Label">&nbsp;</label>
+                <input pInputText type="text" id="issuingBankAddressLine2" formControlName="issuingBankAddressLine2"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankAddressLine2'))">
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankAddressLine2')" ></fcc-common-error-message>
+              </div>
+              <div id="issuingBankDomRow" class="field">
+               <label id="issuingBankDomLabel">&nbsp;</label>
+                <input pInputText type="text" id="issuingBankDom" formControlName="issuingBankDom"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankDom'))">
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankDom')"></fcc-common-error-message>
+              </div>
+              <div id="issuingBankAddressLine4Row" class="field">
+               <label id="issuingBankAddressLine4Label">&nbsp;</label>
+                <input pInputText type="text" id="issuingBankAddressLine4" formControlName="issuingBankAddressLine4"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('issuingBankAddressLine4'))">
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('issuingBankAddressLine4')"></fcc-common-error-message>
+              </div>
+          </p-tabPanel>
+           <!-- Tab 2 details: Confirming Bank -->
+          <p-tabPanel header="{{isMandatory}}{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}" id="confirmingBank" *ngIf="isConfirmingBankMandatory">
+              <div id="confirmingBankSwiftCodeRow"class="field">
+                <label id="confirmingBankSwiftCodeLabel">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                <input pInputText type="text" id="confirmingBankSwiftCode" formControlName="confirmingBankSwiftCode"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankSwiftCode'))">&nbsp;
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="confirmingSearch" (click)="openBankDialog('confirming')"></a>
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankSwiftCode')" ></fcc-common-error-message>
+              </div>
+              <div id="confirmingBankNameRow" class="field">
+                <label id=""confirmingBankNameLabel><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>
+                <input pInputText type="text" id="confirmingBankName" formControlName="confirmingBankName"
+                [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankName'))">&nbsp;
+                <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankName')"></fcc-common-error-message>
+              </div>
+              <div id="confirmingBankAddressLine1Row" class="field">
+                 <label id="confirmingBankAddressLine1Label"><span class="required-field-symbol">*</span>{{'PARTIESDETAILS_ADDRESS' | translate }}</label>
+                  <input pInputText type="text" id="confirmingBankAddressLine1" formControlName="confirmingBankAddressLine1"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankAddressLine1'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankAddressLine1')"></fcc-common-error-message>
+              </div>
+              <div id="confirmingBankAddressLine2Row"class="field">
+                 <label id="confirmingBankAddressLine2Label">&nbsp;</label>
+                  <input pInputText type="text" id="confirmingBankAddressLine2" formControlName="confirmingBankAddressLine2"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankAddressLine2'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankAddressLine2')"></fcc-common-error-message>
+              </div>
+              <div id="confirmingBankDomRow" class="field">
+                 <label id="confirmingBankDomLabel">&nbsp;</label>
+                  <input pInputText type="text" id="confirmingBankDom" formControlName="confirmingBankDom"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankDom'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankDom')"></fcc-common-error-message>
+              </div>
+              <div id="confirmingBankAddressLine4Row"class="field">
+                 <label id="confirmingBankAddressLine4Label">&nbsp;</label>
+                  <input pInputText type="text" id="confirmingBankAddressLine4" formControlName="confirmingBankAddressLine4"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('confirmingBankAddressLine4'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('confirmingBankAddressLine4')"></fcc-common-error-message>
+              </div>
+          </p-tabPanel>
+          <!-- Tab 3 details:Advise thru bank Details -->
+          <p-tabPanel header="{{'BANKDETAILS_TAB_ADVISE_THRU_BANK' | translate }}" id="adviseThruBank">
+              <div id="adviseThruBankSwiftCodeRow" class="field">
+                 <label id="adviseThruBankSwiftCodeLabel">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}</label>
+                  <input pInputText type="text" id="adviseThruBankSwiftCode" formControlName="adviseThruBankSwiftCode"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankSwiftCode'))">&nbsp;
+                  <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" (click)="openBankDialog('adviseThru')"></a>
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankSwiftCode')"></fcc-common-error-message>
+              </div>
+              <div id="adviseThruBankNameRow" class="field">
+                 <label id="adviseThruBankNameLabel">{{'PARTIESDETAILS_BANK_NAME' | translate }}</label>
+                  <input pInputText type="text" id="adviseThruBankName" formControlName="adviseThruBankName"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankName'))">&nbsp;
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankName')"></fcc-common-error-message>
+              </div>
+              <div id="adviseThruBankAddressLine1Row" class="field">
+                 <label id="adviseThruBankAddressLine1">{{'PARTIESDETAILS_ADDRESS' | translate }}</label>
+                  <input pInputText type="text" id="adviseThruBankAddressLine1" formControlName="adviseThruBankAddressLine1"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankAddressLine1'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankAddressLine1')"></fcc-common-error-message>
+              </div>
+              <div id="adviseThruBankAddressLine2Row" class="field">
+                 <label id="adviseThruBankAddressLine2Label">&nbsp;</label>
+                  <input pInputText type="text" id="adviseThruBankAddressLine2" formControlName="adviseThruBankAddressLine2"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankAddressLine2'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankAddressLine2')"></fcc-common-error-message>
+              </div>
+              <div id="adviseThruBankDomRow" class="field">
+                 <label id="adviseThruBankDomLabel">&nbsp;</label>
+                  <input pInputText type="text" id="adviseThruBankDom" formControlName="adviseThruBankDom"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankDom'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankDom')"></fcc-common-error-message>
+              </div>
+              <div id="adviseThruBankAddressLine4Row" class="field">
+                 <label id="adviseThruBankAddressLine4Label">&nbsp;</label>
+                  <input pInputText type="text" id="adviseThruBankAddressLine4" formControlName="adviseThruBankAddressLine4"
+                  [class.fieldError]="validationService.isFieldInvalid(ruBankDetailsSection.get('adviseThruBankAddressLine4'))">
+                  <fcc-common-error-message [control]="ruBankDetailsSection.get('adviseThruBankAddressLine4')"></fcc-common-error-message>
+              </div>
+          </p-tabPanel>
+      </p-tabView>
+  </p-panel>
+  </div>
+ </div>
+
+      <!--View Bank Details Section-->
+  <ng-template #view_content>
+    <div  *ngIf= "this.commonData.getOption()!== 'SUMMARY'">
+    <p-panel header="{{ 'BANK_DETAILS_LABEL' | translate }}" id="viewBankDetails" [toggleable]="true" [collapsed] ="false">
+      <div *ngIf="brRecord['issuingBank'] && checkIfBankAvailable('issuingBank')">
+        <div class="indented-header">
+          <h3>{{'BANKDETAILS_ISSUING_BANK_DETAILS' | translate }}</h3>
+        </div>
+          <div id = "issuingBankDetails">
+              <div id = "issuingBankSwiftCode_view_row" *ngIf ="brRecord['issuingBank']['isoCode'] && brRecord['issuingBank']['isoCode'] != null && brRecord['issuingBank']['isoCode'] != ''">
+                  <label for =  "issuingBankSwiftCode" id =  "issuingBankSwiftCode_label">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['isoCode']}}</label>
+              </div>
+              <div id = "issuingBankName_view_row" *ngIf ="brRecord['issuingBank']['name'] && brRecord['issuingBank']['name'] != null && brRecord['issuingBank']['name'] != ''">
+                  <label for =  "issuingBankName" id =  "issuingBankName_label">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['name']}}</label>
+              </div>
+              <div id = "issuingBankAddressLine1_view_row" *ngIf ="brRecord['issuingBank']['addressLine1'] && brRecord['issuingBank']['addressLine1'] != null && brRecord['issuingBank']['addressLine1'] != ''">
+                  <label for =  "issuingBankAddressLine1" id =  "issuingBankAddressLine1_label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['addressLine1']}}</label>
+              </div>
+              <div id = "issuingBankAddressLine2_view_row" *ngIf ="brRecord['issuingBank']['addressLine2'] && brRecord['issuingBank']['addressLine2'] != null && brRecord['issuingBank']['addressLine2'] != ''">
+                  <label for =  "issuingBankAddressLine2" id =  "issuingBankAddressLine2_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['addressLine2']}}</label>
+              </div>
+              <div id = "issuingBankDom_view_row" *ngIf ="brRecord['issuingBank']['dom'] && brRecord['issuingBank']['dom'] != null && brRecord['issuingBank']['dom'] != ''">
+                  <label for =  "issuingBankDom" id =  "issuingBankDom_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['dom']}}</label>
+              </div>
+              <div id = "issuingBankAddressLine4_view_row" *ngIf ="brRecord['issuingBank']['addressLine4'] && brRecord['issuingBank']['addressLine4'] != null && brRecord['issuingBank']['addressLine4'] != ''">
+                  <label for =  "issuingBankAddressLine4" id =  "issuingBankAddressLine4_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['issuingBank']['addressLine4']}}</label>
+              </div>
+          </div>
+      </div>
+      <!--Confirming Bank tab-->
+      <div *ngIf="brRecord['confirmingBank'] && checkIfBankAvailable('confirmingBank')">
+        <div class="indented-header">
+          <h3>{{'BANKDETAILS_TAB_CONFIRMING_BANK' | translate }}</h3>
+        </div>
+            <div id ="confirmingBankDetails">
+              <div id = "confirmingBankSwiftCode_view_row" *ngIf ="brRecord['confirmingBank']['isoCode'] && brRecord['confirmingBank']['isoCode'] != null && brRecord['confirmingBank']['isoCode'] != ''">
+                  <label for =  "confirmingBankSwiftCode" id =  "confirmingBankSwiftCode_label">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['isoCode']}}</label>
+              </div>
+              <div id = "confirmingBankName_view_row" *ngIf ="brRecord['confirmingBank']['name'] && brRecord['confirmingBank']['name'] != null && brRecord['confirmingBank']['name'] != ''">
+                  <label for =  "confirmingBankName" id =  "confirmingBankName_label">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['name']}}</label>
+              </div>
+              <div id = "confirmingBankAddressLine1_view_row" *ngIf ="brRecord['confirmingBank']['addressLine1'] && brRecord['confirmingBank']['addressLine1'] != null && brRecord['confirmingBank']['addressLine1'] != ''">
+                  <label for =  "confirmingBankAddressLine1" id =  "confirmingBankAddressLine1_label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['addressLine1']}}</label>
+              </div>
+              <div id = "confirmingBankAddressLine2_view_row" *ngIf ="brRecord['confirmingBank']['addressLine2'] && brRecord['confirmingBank']['addressLine2'] != null && brRecord['confirmingBank']['addressLine2'] != ''">
+                  <label for =  "confirmingBankAddressLine2" id =  "confirmingBankAddressLine2_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['addressLine2']}}</label>
+              </div>
+              <div id = "confirmingBankDom_view_row" *ngIf ="brRecord['confirmingBank']['dom'] && brRecord['confirmingBank']['dom'] != null && brRecord['confirmingBank']['dom'] != ''">
+                  <label for =  "confirmingBankDom" id =  "confirmingBankDom_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['dom']}}</label>
+              </div>
+              <div id = "confirmingBankAddressLine4_view_row" *ngIf ="brRecord['confirmingBank']['addressLine4'] && brRecord['confirmingBank']['addressLine4'] != null && brRecord['confirmingBank']['addressLine4'] != ''">
+                  <label for =  "confirmingBankAddressLine4" id =  "confirmingBankAddressLine4_label">&nbsp;</label>
+                  <label class = 'label-left'>{{brRecord['confirmingBank']['addressLine4']}}</label>
+              </div>
+            </div>
+      </div>
+      <!--Advise thru bank tab-->
+      <div *ngIf="brRecord['adviseThruBank'] && checkIfBankAvailable('adviseThruBank')">
+        <div class="indented-header">
+          <h3>{{'BANKDETAILS_TAB_ADVISE_THRU_BANK' | translate }}</h3>
+        </div>
+         <div id ="advisingThruBankDetails">
+            <div id = "advisethruBankSwiftCode_view_row" *ngIf ="brRecord['adviseThruBank']['isoCode'] && brRecord['adviseThruBank']['isoCode'] != null && brRecord['adviseThruBank']['isoCode'] != ''">
+                <label for =  "advisethruBankSwiftCode" id =  "advisethruBankSwiftCode_label">{{'PARTIESDETAILS_SWIFT_CODE' | translate }}&nbsp;</label>
+                <label class = 'label-left'>{{brRecord['adviseThruBank']['isoCode']}}</label>
+            </div>
+           <div id = "adviseThruBankName_view_row" *ngIf ="brRecord['adviseThruBank']['name'] && brRecord['adviseThruBank']['name'] != null && brRecord['adviseThruBank']['name'] != ''">
+             <label for =  "adviseThruBankName" id =  "adviseThruBankName_label">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+             <label class = 'label-left'>{{brRecord['adviseThruBank']['name']}}</label>
+           </div>
+           <div id = "adviseThruBankAddressLine1_view_row" *ngIf ="brRecord['adviseThruBank']['addressLine1'] && brRecord['adviseThruBank']['addressLine1'] != null && brRecord['adviseThruBank']['addressLine1'] != ''">
+             <label for =  "adviseThruBankAddressLine1" id =  "adviseThruBankAddressLine1_label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+             <label class = 'label-left'>{{brRecord['adviseThruBank']['addressLine1']}}</label>
+           </div>
+           <div id = "adviseThruBankAddressLine2_view_row" *ngIf ="brRecord['adviseThruBank']['addressLine2'] && brRecord['adviseThruBank']['addressLine2'] != null && brRecord['adviseThruBank']['addressLine2'] != ''">
+             <label for =  "adviseThruBankAddressLine2" id =  "adviseThruBankAddressLine2_label">&nbsp;</label>
+             <label class = 'label-left'>{{brRecord['adviseThruBank']['addressLine2']}}</label>
+           </div>
+           <div id = "adviseThruBankDom_view_row" *ngIf ="brRecord['adviseThruBank']['dom'] && brRecord['adviseThruBank']['dom'] != null && brRecord['adviseThruBank']['dom'] != ''">
+             <label for =  "adviseThruBankDom" id =  "adviseThruBankDom_label">&nbsp;</label>
+             <label class = 'label-left'>{{brRecord['adviseThruBank']['dom']}}</label>
+           </div>
+           <div id = "adviseThruBankAddressLine4_view_row" *ngIf ="brRecord['adviseThruBank']['addressLine4'] && brRecord['adviseThruBank']['addressLine4'] != null && brRecord['adviseThruBank']['addressLine4'] != ''">
+             <label for =  "adviseThruBankAddressLine4" id =  "adviseThruBankAddressLine4_label">&nbsp;</label>
+             <label class = 'label-left'>{{brRecord['adviseThruBank']['addressLine4']}}</label>
+           </div>
+         </div>
+     </div>
+  </p-panel>
+    </div>
+  </ng-template>

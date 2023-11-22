@@ -1,0 +1,173 @@
+.parentContainerToggle {
+    width: 21.875em;
+    height: 84%;
+    background-color: #FAFAFA;
+    right: 0em;
+    float: right;
+    margin-top: 7.6875em;
+    bottom: 0em;
+    position: fixed;
+    margin-left: 1em;
+}
+
+@media screen and (max-width: 597px) {
+  .parentContainerToggle {
+      top: 0em;
+      height: 100%;
+  }
+}
+
+@media screen and (max-width: 1160px) and (min-width: 645px) {
+  .parentContainerToggle {
+    top: 2.9em;
+  }
+}
+
+.parentContainer {
+  width: 21.875em;
+  height: 90%;
+  background-color: #FAFAFA;
+  right: 0em;
+  float: right;
+  margin-top: 7.6875em;
+  bottom: 0em;
+  position: fixed;
+  margin-left: 1em;
+}
+
+.parentContainer[dir="rtl"] {
+    float: left;
+    left: -1em;
+}
+
+.bodyContainer {
+    overflow-y: auto;
+    max-height: 58%;
+}
+
+.footerContainer {
+    margin-top: 1.3em;
+}
+
+.submitBtn {
+    margin-left: 0.3em;
+}
+
+:host ::ng-deep .primaryButton {
+    background-color: #694ed6 !important;
+}
+
+a.mat-button .mat-icon, a.mat-raised-button .mat-icon,
+a.mat-stroked-button .mat-icon, a.mat-flat-button .mat-icon,
+button.mat-button .mat-icon, button.mat-raised-button .mat-icon,
+button.mat-stroked-button .mat-icon, button.mat-flat-button .mat-icon {
+    right: 0em;
+}
+
+.icon-close {
+    float: right;
+    left: -2em;
+}
+
+.icon-close-left {
+    text-align: left;
+    right: 16em;
+    top: -1em;
+}
+
+.setEntityDropdown {
+    margin-left: 1.25em;
+    padding-bottom: 0em;
+    padding-left: 0em;
+    margin-bottom: 0rem;
+}
+
+.setEntityDropdown[dir="rtl"] {
+    margin-right: 1em;
+}
+
+:host ::ng-deep .applicant_bene_entity_class .ui-dropdown span.ui-dropdown-label {
+    padding-left: 0.45em !important;
+}
+
+:host ::ng-deep body .ui-dropdown .ui-dropdown-label {
+    padding-right: 17.6em !important;
+}
+
+.applicant_bene_entity_class.ui-float-label > .ui-inputwrapper-filled ~ label,
+.applicant_bene_entity_class.ui-float-label > .ui-inputwrapper-focus ~ label,
+.applicant_bene_entity_class.ui-float-label > input.ui-state-filled ~ label,
+.applicant_bene_entity_class.ui-float-label > input:focus ~ label,
+.no-margin-multiselect.ui-float-label > .ui-inputwrapper-filled ~ label,
+.no-margin-multiselect.ui-float-label > .ui-inputwrapper-focus ~ label,
+.no-margin-multiselect.ui-float-label > input.ui-state-filled ~ label,
+.no-margin-multiselect.ui-float-label > input:focus ~ label {
+    top: 0.8em !important;
+    left: 0.8em !important;
+}
+
+.invalid-error-text {
+    color: red;
+    font-size: 0.75em;
+    margin-left: 1.5em;
+    font-weight: 300;
+}
+
+[dir="rtl"] .invalid-error-text {
+    margin-right: 1.5em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+  border-left: none !important;
+  border-right: 0.4em solid transparent !important;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  border-left: none !important;
+  border-right: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+  background-color: transparent !important;
+  color: #694ed6 !important;
+  border-left: none !important;
+  border-right: 0.4em solid #694ed6 !important;
+  font-weight: 500 !important;
+}
+
+.ui-float-label[dir="rtl"] .ui-dropdown span.ui-dropdown-label {
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 0.429em !important;
+  text-align: right;
+  padding-right: 0em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown span.ui-dropdown-label,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown span.ui-dropdown-label {
+  padding-right: 0.75em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon {
+  right: auto;
+  left: 1.375em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown .ui-dropdown-trigger,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown .ui-dropdown-trigger {
+  right: auto;
+  left: 0em;
+}
+
+.applicant_bene_entity_class[dir="rtl"] .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon,
+.no-margin-multiselect[dir="rtl"] .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  top: 33%;
+  left: 66%;
+  font-size: 14px;
+  color: #696969;
+}

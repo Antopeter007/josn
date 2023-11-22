@@ -1,0 +1,34 @@
+:host ::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+    resize: none;
+}
+
+
+:host ::ng-deep .indented-text-area-field-35 {
+  margin: 0em !important;
+  width: 100% !important;
+}
+
+.Amt .fcc-field-message {
+  margin-top: -2em;
+}
+
+.Amt {
+  padding-right: 0.7em !important;
+}
+
+.Amt > div {
+  padding-left: 0em;
+  margin-left: -1.3em;
+  padding-right: 0em;
+}
+
+.currencyView {
+  width: 4.2em;
+  margin-top: 1.2em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+	:host ::ng-deep .indented-text-area-field-65 {
+    width: 25.9rem;
+	}
+}

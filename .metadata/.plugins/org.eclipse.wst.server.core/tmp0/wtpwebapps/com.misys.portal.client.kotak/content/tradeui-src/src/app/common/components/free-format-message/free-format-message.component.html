@@ -1,0 +1,18 @@
+<div *ngIf ="!viewMode  ;else view_content">
+  <div [formGroup]="freeFormatMessageSection">
+      <div id = "free_format_text_row" class = "field">
+          <label for="bgFreeFormatText"> {{labelName | translate }}
+            <span class = "required-field-symbol">*</span>&nbsp;
+          </label>
+          <textarea fccCommonTextArea [controlName]="freeFormatMessageSection.get('bgFreeFormatText')" pInputTextarea [rows]="6" [cols]="35" formControlName = "bgFreeFormatText"
+          id="bgFreeFormatText"></textarea>
+          <a class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgFreeFormatText')"></a>
+          <fcc-common-narrative-character-count [enteredCharCount]="freeFormatMessageSection.get('bgFreeFormatText').value ? freeFormatMessageSection.get('bgFreeFormatText').value.length : 0" [allowedCharCount]="210" [fieldSize]="'S'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="freeFormatMessageSection.get('bgFreeFormatText')"></fcc-common-error-message>
+        </div>
+  </div>
+</div>
+<ng-template #view_content>
+    <label for = "bgFreeFormatText">&nbsp;</label>
+    <label class="label-left-narrative">{{bgRecord.bgFreeFormatText}}</label>
+</ng-template>

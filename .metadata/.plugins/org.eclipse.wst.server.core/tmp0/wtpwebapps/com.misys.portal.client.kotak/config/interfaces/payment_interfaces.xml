@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+    
+    FINASTRA GPP Interface definition file
+    Copyright (c) 2019-2020 Finastra (http://www.finastra.com) All Rights Reserved.
+    Component configuration file for GPP Interface
+    @author: avighos1
+
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+<interface name="gppxmlout" onerror="logger" description="GPP xml generation for Payment initiation">
+		<component name="environmentreader">
+				<component name="mhubxslselector">
+					<component name="jsstylesheetpicker">
+					<properties>
+						<!-- default parameter set -->
+						<property name="001.rule">event.sub_product_code == 'INT' || event.sub_product_code == 'TPT' || event.sub_product_code == 'MT103' || event.sub_product_code == 'RTGS'</property>
+						<property name="001.stylesheet">STYLESHEET_PAYMENT_INITIATION_URL</property>
+						<property name="default.stylesheet" description="Default stylesheet to define in case there is no rule that matches the event"></property>
+						<property name="stylesheet.resource">xslname</property>
+					</properties>
+						<component name="xmloutprocessor">
+						<properties>
+							<property name="export.attachments" description="true to export attachments into directory">false</property>
+						</properties>
+							<component name="xsltransformer">
+								<properties>
+									 <property name="stylesheet.resource">xslname</property> 
+									 <property name="stylesheet.isDynamic">true</property> 
+								</properties>
+								<component name="filewriter">
+									<properties>
+										<property name="directory.override">true</property>
+										<property name="directory.isDynamic">false</property>
+										<property name="directory.name">${xml_output_directory_payment}
+										</property>
+									</properties>
+								</component>
+								<component name="jmssender">
+									<!-- GPP MQ Server properties -->
+									<!-- uncomment only when send the response to gpp queue -->
+									<properties>
+										<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory
+										</property>
+										<property name="providerURL">tcp://localhost:14616</property>
+										<property name="factory">QueueConnectionFactory</property>
+										<property name="queue">dynamicQueues/FCC.TO.FFC.GPP</property>
+										<property name="retry">${module.payment.retry}</property>
+									</properties>
+									<!-- uncomment paymentsender when mhub jms is enabled -->
+									<!-- <component name="paymentsender" /> -->
+								</component>
+	 						</component>
+	 					</component>	
+ 					</component>	
+				</component>
+		</component>
+</interface>
+
+<interface name="bulkgppxmlout" onerror="logger"
+	description="Outputs a message in pain xml format">
+	<component name="environmentreader">
+		<component name="filter">
+			<properties>
+				<property name="script">
+					(('FT' == event.product_code) &amp;&amp;
+					('INT' == event.sub_product_code || 'TPT' == event.sub_product_code ||
+					'MT103' == event.sub_product_code || 'RTGS' == event.sub_product_code))||
+					(('BK' == event.product_code) &amp;&amp; ('PAYRL' ==
+					event.product.bk_type || 'PAYMT' == event.product.bk_type))
+
+				</property>
+			</properties>
+			<component name="filter">
+				<properties>
+					<property name="script">('BK' == event.product_code) &amp;&amp;
+						('03' == event.tnx_stat_code)</property>
+				</properties>
+				<component name="xmloutprocessor">
+					<component name="filewriter">
+						<properties>
+							<property name="directory.name"
+								description="Specify Connect Direct Location">${BulkXmlOutLocation}</property>
+							<property name="directory.override"
+								description="Overide interface default location">true</property>
+							<property name="directory.isDynamic" description="">false
+							</property>
+						</properties>
+					</component>
+				</component>
+			</component>
+			<component name="bulkspiltter">
+				<component name="filter">
+					<properties>
+						<property name="script">
+							(('FT' == event.product_code) &amp;&amp; ('INT' ==
+							event.sub_product_code || 'TPT' == event.sub_product_code ||
+							'MT103' == event.sub_product_code || 'RTGS' == event.sub_product_code))
+						</property>
+					</properties>
+					<component name="mhubxslselector">
+						<component name="jsstylesheetpicker">
+						<properties>
+							<!-- default parameter set -->
+							<property name="001.rule">event.sub_product_code == 'INT' || event.sub_product_code == 'TPT' || event.sub_product_code == 'MT103' || event.sub_product_code == 'RTGS'</property>
+							<property name="001.stylesheet">STYLESHEET_PAYMENT_INITIATION_URL</property>
+							<property name="002.rule">event.sub_product_code == 'INT' &amp;&amp; event.product_code == 'BK'</property>
+							<property name="002.stylesheet">STYLESHEET_FT_INT_CREATE_URL</property>
+							<property name="003.rule">event.sub_product_code == 'TPT' &amp;&amp; event.product_code == 'BK'</property>
+							<property name="003.stylesheet">STYLESHEET_FT_TPT_CREATE_URL</property>
+							<property name="004.rule">event.sub_product_code == 'MT103' &amp;&amp; event.product_code == 'BK'</property>
+							<property name="004.stylesheet">STYLESHEET_FT_MT103_DETAILS_URL</property>
+							<property name="005.rule">event.sub_product_code == 'RTGS' &amp;&amp; event.product_code == 'BK'</property>
+							<property name="005.stylesheet">STYLESHEET_FT_RTGS_CREATE_URL</property>
+							<property name="default.stylesheet" description="Default stylesheet to define in case there is no rule that matches the event"></property>
+							<property name="stylesheet.resource">xslname</property>
+						</properties>
+							<component name="xmloutprocessor">
+								<component name="xsltransformer">
+									<properties>
+										<property name="stylesheet.isDynamic">true</property>
+										<property name="stylesheet.resource">xslname</property>
+									</properties>
+									<component name="filewriter">
+										<properties>
+											<property name="failsafe">true</property>
+											<!-- Start: MPS-19819 : Recent notifications update -->
+											<property name="directory.override">true</property>
+											<property name="directory.isDynamic">false</property>
+											<property name="directory.name">${xml_output_directory_mobi}
+											</property>
+											<!-- End: MPS-19819 : Recent notifications update -->
+										</properties>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+					<component name="environmentreader">
+				<component name="mhubxslselector">
+					<component name="jsstylesheetpicker">
+					<properties>
+						<!-- default parameter set -->
+						<property name="001.rule">event.sub_product_code == 'INT' || event.sub_product_code == 'TPT' || event.sub_product_code == 'MT103' || event.sub_product_code == 'RTGS'</property>
+						<property name="001.stylesheet">STYLESHEET_PAYMENT_INITIATION_URL</property>
+						<property name="default.stylesheet" description="Default stylesheet to define in case there is no rule that matches the event"></property>
+						<property name="stylesheet.resource">xslname</property>
+					</properties>
+						<component name="xmloutprocessor">
+						<properties>
+							<property name="export.attachments" description="true to export attachments into directory">false</property>
+						</properties>
+							<component name="xsltransformer">
+								<properties>
+									 <property name="stylesheet.resource">xslname</property> 
+									 <property name="stylesheet.isDynamic">true</property> 
+								</properties>
+								<component name="filewriter">
+									<properties>
+										<property name="directory.override">true</property>
+										<property name="directory.isDynamic">false</property>
+										<property name="directory.name">${xml_output_directory_payment}
+										</property>
+									</properties>
+								</component>
+								<component name="jmssender">
+									<!-- GPP MQ Server properties -->
+									<!-- uncomment only when send the response to gpp queue -->
+									<properties>
+										<property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory
+										</property>
+										<property name="providerURL">tcp://localhost:14616</property>
+										<property name="factory">QueueConnectionFactory</property>
+										<property name="queue">dynamicQueues/FCC.TO.FFC.GPP</property>
+										<property name="retry">${module.payment.retry}</property>
+									</properties>
+									<!-- uncomment paymentsender when mhub jms is enabled -->
+									<!-- <component name="paymentsender" /> -->
+								</component>
+	 						</component>
+	 					</component>	
+ 					</component>	
+				</component>
+		</component>
+				</component>
+			</component>
+		</component>
+	</component>
+</interface>
+
+<interface name="gppxmloutso" onerror="logger" description="GPP xml generation for standing order">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script"> 
+					(${gppxmlout.enable} == true) &amp;&amp; (03 == event.tnx_stat_code) &amp;&amp; (61 != event.sub_tnx_type_code) &amp;&amp; (event.product.objectData.contains("recurring_payment_enabled")
+					&amp;&amp; event.product.objectData.getField("recurring_payment_enabled").getValue()
+					== 'Y' &amp;&amp; ('INT' == event.sub_product_code || 'TPT' == event.sub_product_code || 'MT103' == event.sub_product_code
+					|| 'RTGS' == event.sub_product_code))
+					</property>
+				</properties>
+				<component name="PaymentProcessor">
+					<properties>
+						<property name="request.from">so_template</property> 
+					</properties>
+					<component name="OpenApiHandler">
+						<component name="environmentwriter">
+								<properties>
+									<property name="property.name">SYNC_JSON_RESPONSE</property>
+								</properties>
+								<transaction>
+								<component name="GPPResponseProcessor">
+									<properties>
+										<property name="request.from">so_template</property> 
+									</properties>
+											<component name="PaymentProcessor">
+												<properties>
+													<property name="request.from">so_create</property> 
+												</properties>
+												<component name="OpenApiHandler">
+													<component name="environmentwriter">
+															<properties>
+																<property name="property.name">SYNC_JSON_RESPONSE</property>
+															</properties>
+															<component name="GPPResponseProcessor">
+																<properties>
+																	<property name="request.from">so_create</property> 
+																</properties>
+																 
+														    </component>
+													</component>	
+												</component>
+											</component> 
+							    </component>
+								</transaction>						
+						</component>	
+					</component>
+				</component>
+			</component>
+
+			<component name="filter">
+				<properties>
+					<property name="script">
+					(${gppxmlout.enable} == true) &amp;&amp; (03 == event.tnx_stat_code)  &amp;&amp; (61==event.sub_tnx_type_code) &amp;&amp; (event.product.objectData.contains("recurring_payment_enabled")
+					&amp;&amp; event.product.objectData.getField("recurring_payment_enabled").getValue()
+					== 'Y' &amp;&amp; ('INT' == event.sub_product_code || 'TPT' == event.sub_product_code || 'MT103' == event.sub_product_code || 'RTGS' == event.sub_product_code))
+					</property>
+				</properties>
+				<component name="PaymentProcessor">
+					<properties>
+						<property name="request.from">so_terminate</property> 
+					</properties>
+					<component name="OpenApiHandler">
+						<component name="environmentwriter">
+								<properties>
+									<property name="property.name">SYNC_JSON_RESPONSE</property>
+								</properties>
+								<transaction>
+								<component name="GPPResponseProcessor">
+									<properties>
+										<property name="request.from">so_terminate</property> 
+									</properties>
+							   	</component>
+								</transaction>						
+						</component>	
+					</component>
+				</component>
+			</component>
+		</component>
+</interface>
+
+
+<interface name="syncpaymentservice" onerror="logger" description="GPP xml generation for Payment initiation">
+	<component name="environmentreader">
+		<component name="PaymentProcessor">
+			<component name="OpenApiHandler">
+				<component name="environmentwriter">
+						<properties>
+							<property name="property.name">SYNC_JSON_RESPONSE</property>
+						</properties>
+					</component>
+			</component>
+			
+		</component>
+	</component>
+</interface>
+
+
+</interfaces>

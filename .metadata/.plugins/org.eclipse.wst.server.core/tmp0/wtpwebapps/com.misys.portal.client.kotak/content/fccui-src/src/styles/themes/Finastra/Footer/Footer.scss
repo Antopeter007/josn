@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+
+@mixin footer($FooterMenuscolor,$FooterFontsize,$FootercopyrightColor) {
+
+    fcc-common-footer .footer-content {
+        color: $FooterMenuscolor;
+        font-size: $FooterFontsize;
+      
+      }
+      fcc-common-footer .footer-content a {
+        color: $FooterMenuscolor !important;
+        font-weight: $fontWeight-400 !important;
+      }
+
+      fcc-common-footer .footer-bottom {
+        color: $FootercopyrightColor;
+        font-size: $FooterFontsize;
+        line-height: 1em;
+        
+      }
+      
+    
+}
+
+
+.finastra {
+    $primaryColor: $VIOLET-F100;
+    $primaryLight:$VIOLET-F25;
+    $secondaryColor:$FUCHSIA-F100;
+    $standardFontSize : '14px';
+    $standardFontFamily:'Roboto';
+
+    //Footer
+$FooterMenuscolor:$primaryColor;
+
+
+$FooterFontsize: 1em;
+$fontfamily:'';
+$FootercopyrightColor:$primaryColor;
+
+    @include footer($FooterMenuscolor,$FooterFontsize,$FootercopyrightColor);
+}

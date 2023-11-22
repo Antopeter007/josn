@@ -1,0 +1,97 @@
+@import'../../../../../styles/variables.scss'; 
+// css steps start
+::ng-deep .mat-step-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+::ng-deep .mat-vertical-content {
+  padding: 0 !important;
+  display: none;
+}
+
+::ng-deep .mat-vertical-stepper-header {
+  display: flex;
+  align-items: center;
+  padding-left: 1em !important
+}
+
+::ng-deep .mat-vertical-content-container {
+  margin-left: 1.7em !important
+}
+
+::ng-deep .mat-vertical-content-container.mat-stepper-vertical-line {
+  margin-left: 1.7em !important;
+}
+
+// ::ng-deep .mat-stepper-vertical-line {
+
+::ng-deep .mat-step-header {
+  color: black;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-done.mat-step-icon {
+  background-color: $steppercompletedbackgroundcolor !important;
+  color: $steppercompletedcolor !important;
+}
+
+
+.fa-exclamation {
+  color: $stepper-error-icon-color !important;
+}
+
+::ng-deep .mat-step-header.mat-step-label.mat-step-label-error {
+  color: $stepper-error-label-color !important;
+}
+
+::ng-deep .mat-step-header[aria-selected="true"]  {
+  background-color: $stepper-active-header-backgroundcolor;
+  & div.mat-step-label.mat-step-label-active.mat-step-label-selected {
+      color: $stepper-active-label-color !important;
+  }
+}
+
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: #e2e2e2 !important;
+  color: #424040 !important;
+}
+
+::ng-deep .mat-step-icon-state-edit .mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted {
+  font-family: Roboto, sans-serif !important;
+}
+
+::ng-deep .mat-step-icon-state-edit.mat-step-icon.mat-step-icon-selected
+  .mat-step-icon-content {
+  // left: 62% !important;
+  text-align: center !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #e2e2e2 !important;
+  color: #424040 !important;
+  font-weight: 700 !important;
+}
+
+.section-top {
+  margin: -6em 0em 0em 0em;
+  padding: 0em 3.125em 0em 3.125em;
+  height: auto;
+  background-color: #fbfbfe;
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .mat-vertical-stepper-header {
+  padding-top: 3em !important;
+  padding-bottom: 3em !important;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  :host ::ng-deep .mat-step-text-label {
+    word-wrap: break-word !important;
+  }
+}
+
+::ng-deep .mat-step-icon-content .mat-icon {
+  position: relative !important;
+}

@@ -1,0 +1,21 @@
+.headerTitle {
+  padding-bottom: 1.5em;
+}
+
+.dialogAWB {
+  width: 550px;
+  min-width: 200px;
+}
+
+.bodyAWB {
+  text-align: center;
+}
+
+.bodyAWB a {
+  cursor: pointer;
+}
+
+:host ::ng-deep .ui-dialog{
+  width: 550px;
+  min-width: 200px;
+}

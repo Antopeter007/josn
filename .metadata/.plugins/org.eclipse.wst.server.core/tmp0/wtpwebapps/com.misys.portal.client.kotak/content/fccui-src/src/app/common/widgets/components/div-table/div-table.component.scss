@@ -1,0 +1,207 @@
+.divTable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.divRow {
+  display: table-row;
+}
+
+.divCell {
+  display: table-cell;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+  max-width: 13%;
+  border-top: 0.05em  solid  #C8C8C8;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.headerFont {
+  padding: 1em 0em;
+  font-size: 0.75em;
+  font-family: Roboto;
+  color: #414141;
+  line-height: 0.875em;
+  padding-bottom: 0.5em;
+}
+
+.dataFont {
+  font-size: 0.875em;
+  font-family: Roboto;
+  color: #545454;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.headerPadding {
+  padding: 1em 0em;
+  padding-left: 0.5em;
+  font-size: 0.75em;
+  font-family: Roboto;
+  color: #414141;
+  line-height: 0.875em;
+  padding-bottom: 0.1em;
+}
+
+.dataPadding {
+  display: inline-flex;
+  border-radius: 0.125em;
+  padding: 0.1em 0.5em;
+  font-size: 0.875em;
+  font-family: Roboto;
+  color: #545454;
+  line-height: 1em;
+}
+
+.circleBackground {
+  display: inline-block;
+  border-radius: 50%;
+  min-width: 1.875em;
+  min-height: 1.875em;
+  padding: 0.6em;
+  font-size: 1.125em;
+  font-family: Roboto;
+  text-align: center;
+  line-height: 1em;
+  box-sizing: content-box;
+  white-space: nowrap;
+}
+
+.circleBackground:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+  height: 0;
+}
+
+.leftBorder {
+  border-left: 0.3125em solid;
+  padding: 2em 0em;
+}
+
+.leftBorderExtended {
+  border-top: none;
+}
+
+.borderStyle {
+  border-top: 0.05em  solid  #C8C8C8;
+}
+
+.chevron {
+  color: #979797;
+  text-align: center;
+  padding-top: 0.5em;
+}
+
+.viewAllTransactions {
+  color: #C139A3;
+  text-align: right;
+  padding-top: 0.5em;
+}
+
+.viewAllTransactions a {
+  color: #C139A3;
+  font-family: Roboto;
+  font-size: 12px;
+}
+
+.viewAllTransactions a:hover {
+  color: #C139A3;
+}
+
+.displayOnHover {
+  color: #6948D9;
+  visibility: hidden;
+}
+
+.divRow:hover .displayOnHover {
+  visibility: visible;
+}
+
+.divRow:hover .divCell {
+  border-bottom: 0.05em  solid  #C137A2;
+  border-top: 0.05em  solid  #C137A2;
+}
+
+.hideData {
+  line-height: 1em;
+  visibility: hidden;
+}
+
+.row_1 {
+  height: 3.5em;
+}
+
+.row_2 {
+  padding: 1em 0em;
+}
+
+.leftBorderStyle {
+  color: #9F9F9F;
+  width: 0.5em;
+  padding: 0em;
+  padding-bottom: 0em;
+  vertical-align: middle;
+}
+
+.expandArrow {
+  width: 1em;
+  padding: 1.5em 0em;
+}
+
+.productCodeField {
+  width: 2em;
+  padding-left: 0.5em;
+  padding-top: 0.9em;
+}
+
+.productCodeDefault {
+  color: #7F7F7F;
+  background: #ECECEC;
+  border-radius: 50%;
+}
+
+.displayNotAvailable {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.event {
+  background: #ECECEC;
+  display: inline-flex;
+  border-radius: 0.125em;
+}
+
+.amount {
+  text-align: right;
+  padding-right: 10%;
+}
+
+.ellipsis {
+  padding: 1.5em 0em;
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}
+
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #A65494;
+  }
+  26% {
+      stroke: #7262B4;
+  }
+  51% {
+      stroke: #6AA6B4;
+  }
+  76% {
+      stroke: #C6AE74;
+  }
+}

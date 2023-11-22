@@ -1,0 +1,62 @@
+<form [formGroup]="inititationForm">
+
+  <p-confirmDialog id="headerDialog" class="lf-confirm-dialog"></p-confirmDialog>
+  <!-- Buttons for initiate/edit transactions screen -->
+  <fcc-common-actions *ngIf ="!viewMode && jsonContent" [bgRecord]="jsonContent"  [showTask] ="true" [showSave]="true" [showTemplate]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- Buttons for unsigned screen -->
+  <fcc-common-actions *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent"  [bgRecord]="jsonContent" [showTask] ="true"  [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- Buttons for the preview screen -->
+  <fcc-common-actions *ngIf ="viewMode && mode !== 'UNSIGNED' && jsonContent" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <div>
+  <fcc-iu-initiate-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (resetRenewalDetails)= "resetRenewalSection($event)" (lUStatus)="setLUStatus($event)" (resetLUSections)="resetLUForms($event)" (entity) = "reloadApplicantDetails($event)" (subProductCodeChange)="onChangeSubProductCode($event)" (formReady)="addToForm('generaldetailsSection', $event)" (confInstructions)="setConfInstValue($event)" (swiftModeSelected)="setValidatorsIfModeSwift($event)"></fcc-iu-initiate-general-details>
+  <fcc-iu-common-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent" (updateBankDetails)= "updateBankDetails()"(formReady)="addToForm('applicantDetailsFormSection', $event)"></fcc-iu-common-applicant-details>
+  <fcc-iu-common-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('beneficiaryDetailsFormSection', $event)"></fcc-iu-common-beneficiary-details>
+  <fcc-iu-initiate-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('bankDetailsSection', $event)" (issuerReferenceChangePass)="onChangeIssuerRef($event)" (bankAbbvName)="fetchIncoTermRules($event)" (bankAbbvName)="fetchLargeParamDetails($event)"></fcc-iu-initiate-bank-details>
+  <fcc-iu-undertaking-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (resetRenewalDetails)= "resetRenewalSection($event)" (downloadBankTemplate)="downloadTemplateFile()" (formReady)="addToForm('undertakingGeneralDetailsSection', $event)" (confInstructions)="setConfInstValue($event)" (expDate)="setExpDate($event)" (expiryDateExtension)="setExpiryDateForExtension($event)"></fcc-iu-undertaking-general-details>
+  <fcc-iu-common-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('amountDetailsSection', $event)" (isTnxAmtCurCodeEmpty)="clearVariationAmtValidations($event);" (bgCurrencyCode)="setVariationCurrCode($event);" (bookingAmtCheck2)="validateLimitBookingAmount();" (bgAmtValidate)="validateBGAmount();"></fcc-iu-common-amount-details>
+  <fcc-iu-renewal-details *ngIf="jsonContent && this.iuCommonDataService.getExpDateType() === '02'" [bgRecord]="jsonContent" (formReady)="addToForm('renewalDetailsSection', $event)" (renewalExpDate)="setRenewalExpDate($event)"></fcc-iu-renewal-details>
+  <fcc-iu-initiate-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('redIncForm', $event)"></fcc-iu-initiate-reduction-increase>
+  <fcc-iu-payment-details *ngIf="jsonContent && this.iuCommonDataService.getSubProdCode() === 'STBY'" [bgRecord]="jsonContent" (formReady)="addToForm('paymentDetailsForm', $event)"></fcc-iu-payment-details>
+  <fcc-iu-shipment-details  *ngIf="jsonContent && this.iuCommonDataService.getSubProdCode() === 'STBY'" [bgRecord]="jsonContent" (formReady)="addToForm('shipmentDetailsSection', $event)"></fcc-iu-shipment-details>
+  <fcc-iu-facility-details  *ngIf="jsonContent && this.facilityVisible  && this.commonService.isShowFacilitySectionForTradeEnabled() && (this.commonService.issuerRefPresent || (jsonContent && jsonContent['applicantReference'] !== ''))" [customerRef]="customerReference" [bgAmtValue]="bgAmtValue" [bgCurCode]="bgCurCode" [bgRecord]="jsonContent" (formReady)="addToForm('facilityDetailsSection', $event)"></fcc-iu-facility-details>
+  <fcc-iu-initiate-contract-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('contractDetails', $event)"></fcc-iu-initiate-contract-details>
+  <fcc-iu-initiate-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('undertakingDetailsForm', $event)"></fcc-iu-initiate-undertaking-details>
+  <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+      <p-panel *ngIf="this.configService.getCounterUndertakingEnabled() && luStatus && iuCommonDataService.getPreviewOption() !== 'SUMMARY'" header="{{ 'COUNTER_UNDERTAKING' | translate }}" [toggleable]="true" [collapsed] ="false">
+          <fcc-iu-cu-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (resetRenewalDetails)="resetRenewalSection($event)" (cuConfInstructions)="setCuConfInstValue($event)" (formReady)="addToForm('cuGeneraldetailsSection', $event)" (expDate)="setExpDate($event)" (expiryDateExtension)="setExpiryDateForExtension($event)"></fcc-iu-cu-general-details>
+          <fcc-iu-cu-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuBeneficaryDetailsSection', $event)"></fcc-iu-cu-beneficiary-details>
+          <fcc-iu-initiate-cu-amount-details  *ngIf="jsonContent" [bgRecord]="jsonContent" (resetRenewalDetails)="resetRenewalSection($event)" (formReady)="addToForm('cuAmountDetailsSection', $event)" (isTnxAmtCurCodeEmpty)="clearVariationAmtValidations($event);" (bgCurrencyCode)="setVariationCurrCode($event);"></fcc-iu-initiate-cu-amount-details>
+		      <fcc-iu-cu-renewal-details  *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuRenewalDetailsSection', $event)" (renewalExpDate)="setRenewalExpDate($event)">></fcc-iu-cu-renewal-details>
+          <fcc-iu-cu-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuRedIncForm', $event)"></fcc-iu-cu-reduction-increase>
+          <fcc-iu-cu-payment-details *ngIf="jsonContent && this.iuCommonDataService.getCUSubProdCode() === 'STBY'" [bgRecord]="jsonContent" (formReady)="addToForm('cuPaymentDetailsForm', $event)"></fcc-iu-cu-payment-details>
+          <fcc-iu-initiate-cu-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuUndertakingDetailsForm', $event)"></fcc-iu-initiate-cu-undertaking-details>
+      </p-panel>
+  <fcc-iu-initiate-bank-instructions *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('bankInstructionsForm', $event)"></fcc-iu-initiate-bank-instructions>
+  <fcc-common-fileupload-component *ngIf="jsonContent && (!viewMode || this.iuCommonDataService.getMode() === 'UNSIGNED') " [bgRecord]="jsonContent" (formReady)="addToForm('fileUploadSection', $event)"></fcc-common-fileupload-component>
+  <p-confirmDialog id="fieldErrorLicense" class="lf-confirm-dialog" key='linkedLicenseErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  <fcc-iu-common-license *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('License', $event)"></fcc-iu-common-license>
+  <div id='commentsSection' *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED' || this.iuCommonDataService.getViewComments()">
+  <fcc-iu-common-return-comments *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+  </div>
+  </div>
+    <p-confirmDialog id="fieldError" class="lf-confirm-dialog" key='fieldErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    <p-confirmDialog id="resetWarningMsg" class="lf-confirm-dialog" key='resetWarningMsg' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    <fcc-common-actions *ngIf ="!viewMode" [isFooter]="'true'" [showSave]="true" [showTemplate]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <!-- SAVE, SUBMIT, TEMPLATE, CANCEL, HELP-->
+
+    <fcc-common-actions *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent" [isFooter]="'true'"  [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <!-- SUBMIT, RETURN, PREVIEW, CANCEL, HELP-->
+
+    <!-- Footer buttons for the preview screen -->
+    <fcc-common-actions *ngIf ="viewMode && this.iuCommonDataService.getMode() !== 'UNSIGNED' && jsonContent" [isFooter]="'true'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+
+<!-- Error dialog -->
+ <p-dialog header="{{errorTitle}}" [(visible)]="displayErrorDialog"
+  [draggable]="false" [modal]="true" [blockScroll]="true">
+    {{errorMessage}}
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="displayErrorDialog=false" label="OK"></button>
+    </p-footer>
+ </p-dialog>
+
+</form>

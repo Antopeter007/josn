@@ -1,0 +1,327 @@
+<div class="p-grid">
+  <h1 class="p-col-12 closeSearch focus">
+    <a  [attr.aria-label]="closeButtonLabel" [title]="closeButtonLabel" class="active" (keydown.enter)="onDialogClose()" (click)="onDialogClose(); skipLink('search');"  onclick="return false;" tabindex="0" id="searchClose"><i class="pi pi-times" aria-hidden="true"></i></a>
+  </h1>
+</div>
+
+
+<div class="p-col-12">
+  <div class="p-grid" class={{dir}} dir="{{dir}}">
+    <div class="spacer"  >
+      <div class="p-grid">
+        <div class="p-col-2  p-md-3 applicant_bene_entity_class col-drop-down-select" dir="{{dir}}" [class]="drowDownFocus">
+          <span class="hidden" style="display: none;" id="searchFilterLabel">{{searchFilterLabel}}</span>
+          <p-dropdown [options]="searchFilter" [(ngModel)]="tnxFilter"
+          (onChange)="filterSelect()" styleClass="drop-down-select"
+          [autoDisplayFirst]="true" (onFocus)="onFocus()" (focusout)="onFocusout()"
+          (onShow)="onDropdownChange($event);"
+          (keyup.escape)="oncloseDropdown($event);" ariaLabelledBy="searchFilterLabel"></p-dropdown>
+        </div>
+
+        <div class="p-col-10  p-md-9 searchwrapper">
+          <div class="autoCompleteSearch">
+            <div class="focus">
+              <span id="seachIcon"><i class="pi pi-search" aria-hidden="true"></i></span>
+              <p-autoComplete  #autoComplete class="autoclass" [suggestions]="filteredSingle" styleClass={{dir}} [minLength]="1"
+                (completeMethod)="filterSingle($event)" field="referenceId" [(ngModel)]="inputSearchString" (onSelect)="doOnSelect($event)"
+                (onKeyUp)="checkForEnter($event)" (keydown.enter)="autoComplete.hide()" [ariaLabel]="smartSearchLabel"></p-autoComplete>
+                <span *ngIf="micIcon" id="micIcon"><i class="fa fa-microphone pointer-class"
+                  [ngStyle]="searchID === false ? {'margin-left.px':-14}:{'margin-left.px':-100}"
+                  aria-hidden="true" (click)="onMicClick()" [class.disabled]="true"></i></span>
+              <a *ngIf="searchID" (click)="relatedSearch()" href="#" onclick="return false;" tabindex="0" [ngClass]="dir==='ltr' ? 'searchID' : 'searchIDRtl'">
+                {{'search' | translate}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="!showWarning" dir="{{dir}}">
+  <div class="p-col-2">
+  </div>
+  <div class="p-col-10 cardWidth">
+    <div class="spacer gridDetails">
+      <p-card class="transactionDetails " *ngIf="transactionDetails">
+        <p-table width="100%" [columns]="cols" [value]="searchDetails" [responsive]="true" [tableStyle]="{'table-layout':'auto'}">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th scope="col" *ngFor="let colmn of columns" id="{{colmn.class}}" tabindex="0">
+                <div class="headerPadding">
+                  {{colmn.header | translate }}
+                </div>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns" id="{{col.class}}">
+                <!-- ngIf col.header(tnxtype) , localization pass-->
+                <div *ngIf="col.field === ''">
+                  <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                  <span class="dataPadding"  tabindex="0">
+                    {{rowData[col.field]}}
+                  </span>
+                </div>
+                <div *ngIf="col.field === 'tnxTypeCode'">
+                  <div class="tdProdCode" >
+                    {{refId | slice: 0:2}}
+                  </div>
+                  <div class="tdTnxTypeCode"  tabindex="0">
+                    {{ ("N002_" + rowData[col.field]) | translate}}
+                  </div>
+                </div>
+                <div *ngIf="col.field === 'counterpartyName'">
+                    <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                    <span class="dataPadding"  tabindex="0">
+                      {{rowData[col.field]}}
+                    </span>
+                </div>
+                <div *ngIf="col.field === 'refId'">
+                  <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                  <span class="tdRefId"  tabindex="0">
+                    {{rowData[col.field]}}
+                  </span>
+                </div>
+                <div *ngIf="col.field === 'boRefId'">
+                  <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                  <span class="boRefId"  tabindex="0">
+                    {{rowData[col.field]}}
+                  </span>
+                </div>
+                <div *ngIf="col.field === 'amount'">
+                  <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                  <span class="dataPadding"  tabindex="0">
+                    {{rowData[col.field]}}
+                  </span>
+                </div>
+                <div *ngIf="col.field === 'status'">
+                  <span class="ui-column-title"  tabindex="0">{{col.header}}</span>
+                  <span class="dataPadding"  tabindex="0">
+                    {{rowData[col.field] }}
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <div *ngIf="this.commonService.isAngularProductUrl(this.searchDetails[0].productCode, this.searchDetails[0].subProductCode)" 
+        class="p-grid p-justify-end justifyActionGrid" >
+          <span (keyup.enter) ="amendmentMethod()" (click) ="amendmentMethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="amend">
+            {{'SearchAmendment' | translate}}</span>
+          <span (keyup.enter) ="messageBankmethod()" (click) ="messageBankmethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="messageToBank">
+            {{'SearchBankMessage' | translate}}
+          </span>
+
+          <span (keyup.enter) ="approvereturnmethod('approve')" (click) ="approvereturnmethod('approve')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="approve">
+            {{'authorize' | translate}}
+           </span>
+           <!-- <a (click) ="approvereturnmethod('return')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="return">
+            {{'return' | translate}}
+           </a> -->
+           <span (keyup.enter) ="transferAssignmentMethod('TRANSFER')" (click) ="transferAssignmentMethod('TRANSFER')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="transfer">
+            {{'transfer' | translate}}
+           </span>
+           <span (keyup.enter) ="transferAssignmentMethod('ASSIGNEE')" (click) ="transferAssignmentMethod('ASSIGNEE')"  class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="assignment">
+            {{'assignment' | translate}}
+           </span>
+           <span (keyup.enter) ="editDetailsmethod()" (click) ="editDetailsmethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="editDetails">
+            {{'SearchEdit' | translate}}
+           </span>
+           <span (keyup.enter) ="viewDetailsmethod()" (click) ="viewDetailsmethod()"  class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  >
+            {{'SearchViewDetail' | translate}}
+          </span>
+          <span (keyup.enter) ="consolidatedMethod()"  (click) ="consolidatedMethod()"  class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent"  tabindex="0" >
+            {{'SearchConsolidatedView' | translate}}
+          </span>
+        </div>
+
+        <div *ngIf="!this.commonService.isAngularProductUrl(this.searchDetails[0].productCode, this.searchDetails[0].subProductCode)" class="p-grid p-justify-end justifyActionGrid">
+          <a (click) ="amendmentMethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="amend">
+            {{'SearchAmendment' | translate}}
+          </a>
+          <a (click) ="messageBankmethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="messageToBank">
+            {{'SearchBankMessage' | translate}}
+           </a>
+          <a (click) ="approvereturnmethod('approve')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="approve">
+            {{'SearchApprove' | translate}}
+           </a>
+           <a (click) ="approvereturnmethod('return')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="return">
+            {{'return' | translate}}
+           </a>
+           <a (click) ="transferAssignmentMethod('TRANSFER')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="transfer">
+            {{'transfer' | translate}}
+           </a>
+           <a (click) ="transferAssignmentMethod('ASSIGNEE')" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="assignment">
+            {{'assignment' | translate}}
+           </a>
+           <a (click) ="editDetailsmethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0"  *ngIf="editDetails">
+            {{'SearchEdit' | translate}}
+           </a>
+           <a (click) ="viewDetailsmethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent" tabindex="0">
+            {{'SearchViewDetail' | translate}}
+          </a>
+          <a (click) ="consolidatedMethod()" class="p-col-12 p-md-6 p-lg-2 p-text-center urlContent">
+             {{'SearchConsolidatedView' | translate}}
+          </a>
+        </div>
+      </p-card>
+
+      <p-card class="transactionDetails" *ngIf="beneficiaryDetails">
+        <div class="beneficiaryWrapper p-grid"  *ngIf="tnxFilter === 'beneficiary'">
+          <div class="p-col-3">
+            <img  src='{{contextPath}}/content/FCCUI/assets/icons/user.svg' alt="user"/>
+          </div>
+          <div class="p-col-2">
+            <div class="Benheader">{{name}}</div>
+            <div class="Bendata bencardname"><span [innerHtml]="bencardDetail[0].beneficiary_name"></span> </div>
+          </div>
+          <div class="p-col-2">
+            <div class="Benheader"> {{abbrevationName}}</div>
+            <div class="Bendata"><span [innerHtml]="bencardDetail[0].beneficiary_abbv_name"></span> </div>
+          </div>
+          <div class="p-col-2">
+            <div class="Benheader">{{addressLine1}}</div>
+            <div class="Bendata"><span [innerHtml]="bencardDetail[0].address_line_1"></span></div>
+          </div>
+          <div class="p-col-2">
+            <div class="Benheader">{{addressLine2}} </div>
+            <div class="Bendata"><span [innerHtml]="bencardDetail[0].address_line_2"></span></div>
+          </div>
+          <div class="p-col-9">
+          </div>
+          <div class="p-col-2 p-md-6 p-lg-2 p-text-center urlContent" >
+            <a (click) ="viewBeneDetails(bencardDetail[0])"> {{'SearchViewDetail' | translate}} </a>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+<div class="spacer p-grid" *ngIf="showWarning" dir="{{dir}}">
+<div class="p-md-3 "></div>
+<div aria-live="polite"  class="p-col-10  p-md-9 errorMessageWrapper">
+  <span *ngIf = "dir === 'ltr' && showWarning" id="invalid-error-text" class="invalid-error-text">{{errorHeader | translate}}: {{showWarningMsg}}</span>
+  <span *ngIf = "dir === 'rtl' && showWarning" id="invalid-error-text" class="invalid-error-text">{{showWarningMsg}} :{{errorHeader | translate}}</span>
+ </div>
+</div>
+<section *ngIf="defaultSearchResultPage">
+  <div class="p-grid" dir="{{dir}}">
+    <div class="p-col-12 horizontal-bar" *ngIf="tnxFilter === 'tnx'">
+      <span *ngIf="totalSearchCount > 1 ">{{totalSearchCount}} {{resultsFound}} <span class="searchTitle"> '{{inputSearchString?.referenceId ?  inputSearchString?.referenceId : inputSearchString}}'</span></span>
+      <span *ngIf="totalSearchCount === 1 ">{{totalSearchCount}} {{resultFound}} <span class="searchTitle"> '{{inputSearchString?.referenceId ?  inputSearchString?.referenceId : inputSearchString}}'</span></span>
+      <span *ngIf="totalSearchCount === 0 ">{{NoresultFound}}  <span class="searchTitle"> '{{inputSearchString?.referenceId ?  inputSearchString?.referenceId : inputSearchString}}'</span> </span>
+    </div>
+    <div class="p-col-12 horizontal-bar" *ngIf="tnxFilter === 'beneficiary'">
+      <span *ngIf="totalSearchCount > 1 ">{{totalSearchCount}} {{resultsFound}} <span class="searchTitle"> '{{inputSearchString.beneficiary_name}}'</span></span>
+      <span *ngIf="totalSearchCount === 1 ">{{totalSearchCount}} {{resultFound}} <span class="searchTitle"> '{{inputSearchString.beneficiary_name}}'</span></span>
+      <span *ngIf="totalSearchCount === 0 ">{{NoresultFound}}  <span class="searchTitle"> '{{inputSearchString.beneficiary_name}}'</span> </span>
+    </div>
+    <div class="p-col-12 horizontal-bar" *ngIf="tnxFilter === 'boRefId'">
+      <span *ngIf="totalSearchCount > 1 ">{{totalSearchCount}} {{resultsFound}} <span class="searchTitle"> '{{inputSearchString.bo_ref_id}}'</span></span>
+      <span *ngIf="totalSearchCount === 1 ">{{totalSearchCount}} {{resultFound}} <span class="searchTitle"> '{{inputSearchString.bo_ref_id}}'</span></span>
+      <span *ngIf="totalSearchCount === 0 ">{{NoresultFound}}  <span class="searchTitle"> '{{inputSearchString.bo_ref_id}}'</span> </span>
+    </div>
+  </div>
+
+  <div class="p-grid p-justify-center"  dir="{{dir}}">
+    <div class="p-col-11 defaultSearchTable">
+      <!-- removing the virtualscroll as it is not working in the current primeng version and thus failing the global search grid. Have to add this back once it is upgraded -->
+      <p-table class="transactionSearch plainTable {{tnxFilter}}" dir="dir" width="100%"
+        #globalSearchTable
+       scrollWidth="100%"
+       [loading]="loading"
+       [scrollable]="true"
+       [rows]="rows" scrollHeight="100vh"
+       [columns]="searchcols"
+       (onLazyLoad)="loadDataOnScroll($event)" [lazy]="true"
+       [value]="searchRow"
+       [responsive]="true"
+       [rowHover]="true"
+       (onPage)="onpaginate($event)"
+       [first]="first"
+       [paginator]="searchRow.length"
+       [rowsPerPageOptions]="rowsPerPageOptions"
+       currentPageReportTemplate="{{'showMessage' | translate}} {first} - {last} {{'of' | translate}} {{totalSearchCount}} {{'records' | translate}}"
+       showCurrentPageReport="true"
+       [totalRecords]="totalSearchCount" 
+       (focusout)="disablehighlightRow(trIndex)">
+        <ng-template pTemplate="header">
+          <tr class="ui-resizable-column" tabindex="0"  *ngIf="totalSearchCount > 0" >
+            <th scope="col"  id="" *ngFor="let colmn of searchcols" class="{{colmn.field }} transheader" tabindex="0">
+                {{colmn.field | translate}}
+            </th>
+            <th id="" class="transheader">{{'ACTIONS' | translate}}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+          <tr (mouseenter)="showicon($event)" 
+          (focusin)="showicon($event);"
+          (mouseleave)="hideicon($event)"
+          class="ui-selectable-row" 
+          (mouseover)="highlightRow($event,rowData,i)"  
+          tabindex="0">
+            <td *ngFor="let col of columns;index as j" class="transdata_{{col.field}}">
+           <div  [innerHtml]="rowData[col.field]">  </div>
+            </td>
+            <td class="icons">
+              <div class="iconsWrapper">
+                <img (click)="viewDetailsmethodList(rowData)" (keyup.enter)="viewDetailsmethodList(rowData)" tabindex="0" *ngIf="actionItemChangeStatus( rowData.actions,'viewDetails')" title="{{'view' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg' alt="{{'view' | translate}} {{rowData.ref_id}}">
+                <img (click)="editDetailsmethodList(rowData)" (keyup.enter)="editDetailsmethodList(rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'editDetails')" title="{{'edit' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/edit.svg' alt="{{'edit' | translate}} {{rowData.ref_id}}">
+                <img (click)="approvereturnmethodList(rowData,'approve')" (keyup.enter)="approvereturnmethodList(rowData,'approve')" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'approve')" title="{{'authorize' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/authorize.svg' alt="{{'authorize' | translate}} {{rowData.ref_id}}">
+                <!-- <img (click)="approvereturnmethodList(rowData,'return')" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'return')" title="{{'return' | translate}}" tooltipPosition="top" tooltipEvent="focus" src='{{contextPath}}/content/FCCUI/assets/icons/Return.svg' alt="{{'return' | translate}}"> -->
+                <img (click)="consolidatedMethodlist(rowData)" (keyup.enter)="consolidatedMethodlist(rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'consolidatedView')" title="{{'SearchConsolidatedView'| translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Details.svg' alt="{{'SearchConsolidatedView'| translate}} {{'of'| translate}} {{rowData.ref_id}}">
+                <img (click)="messageBankmethodList(rowData)" (keyup.enter)="messageBankmethodList(rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'messageToBank')" title="{{'MENU_INITIATE_LI_UPDATE' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Message_small.svg' alt="{{'MENU_INITIATE_LI_UPDATE' | translate}} {{rowData.ref_id}}">
+                <img (click)="amendmentMethodList(rowData)" (keyup.enter)="amendmentMethodList(rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'amend')" title="{{'amend' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Amend.svg' alt="{{'amend' | translate}} {{rowData.ref_id}}">
+                <img (click)="transferAssignmentMethod('TRANSFER', rowData)" (keyup.enter)="transferAssignmentMethod('TRANSFER', rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'transfer')" title="{{'transfer' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Transfer.svg' alt="{{'transfer' | translate}} {{rowData.ref_id}}">
+                <img (click)="transferAssignmentMethod('ASSIGNEE', rowData)" (keyup.enter)="transferAssignmentMethod('ASSIGNEE', rowData)" tabindex="0"  *ngIf="actionItemChangeStatus( rowData.actions,'assignment')" title="{{'assignment' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/Assignment.svg' alt="{{'assignment' | translate}} {{rowData.ref_id}}">
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="p-grid p-justify-center" dir="{{dir}}" *ngIf="beneficiaryList">
+    <div class="p-col-12 horizontal-bar" *ngIf="tnxFilter === 'beneficiary'">
+      <span *ngIf="totalSearchCount > 1 ">{{totalSearchCount}} {{resultsFound}} <span class="searchTitle"> '{{inputSearchString}}'</span></span>
+      <span *ngIf="totalSearchCount === 1 ">{{totalSearchCount}} {{resultFound}} <span class="searchTitle"> '{{inputSearchString}}'</span></span>
+      <span *ngIf="totalSearchCount === 0 ">{{NoresultFound}}  <span class="searchTitle"> '{{inputSearchString}}'</span> </span>
+    </div>
+    <div class="p-col-11 defaultSearchTable" >
+      <p-table class="transactionSearch plainTable" [value]="searchRow">
+        <ng-template pTemplate="header">
+          <tr *ngIf="totalSearchCount > 0">
+            <th scope="col" class="transheader" id=''>  {{'beneficiary' | translate}} </th>
+            <th scope="col" class="transheader" id=''>{{'entity' | translate}} </th>
+            <th scope="col" class="transheader" id=''>{{'abbrevationName' | translate}}</th>
+            <th scope="col" class="transheader" id=''>{{'addressLine1' | translate}}</th>
+            <th scope="col" class="transheader" id=''> {{'addressLine2' | translate}} </th>
+            <th scope="col" class="transheader" id=''> </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-col>
+          <tr>
+          <td>
+            <div (click)="benDetails(col)" >
+              <span [innerHtml]="col.beneficiary_name"></span>
+               </div>
+            </td>
+            <td >
+              <span [innerHtml]="col.entity"></span>
+            </td>
+            <td><span [innerHtml]="col.beneficiary_abbv_name"></span> </td>
+            <td><span [innerHtml]="col.address_line_1"></span></td>
+            <td><span [innerHtml]="col.address_line_2"></span></td>
+            <td> </td>
+      </tr>
+        </ng-template>
+    </p-table>
+
+    </div>
+    </div>
+  </section>

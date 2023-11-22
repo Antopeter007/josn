@@ -1,0 +1,52 @@
+.common_radio .p-grid {
+  width: 100%;
+}
+
+.fcc-radio-button-display label {
+  display: none;
+}
+
+p-radiobutton.leftwrapper {
+  padding-left: 1em !important;
+}
+
+p-radiobutton.rightwrapper {
+  padding-left: 1.9em !important;
+}
+
+.shipmentForm {
+  width: 99% !important;
+}
+
+.shipmentTo {
+  width: 97% !important;
+}
+
+.placeOfLoading {
+  width: 99% !important;
+}
+
+.placeOfDischarge {
+  width: 97% !important;
+}
+:host ::ng-deep .ammendPrincipalAct {
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
+:host ::ng-deep .shipmentTo {
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
+:host ::ng-deep .placeOfDischarge  {
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  background: none;
+}
+
+:host ::ng-deep.indented-text-area-field-65 {
+  margin: 0 !important;
+  width: 100%;
+}

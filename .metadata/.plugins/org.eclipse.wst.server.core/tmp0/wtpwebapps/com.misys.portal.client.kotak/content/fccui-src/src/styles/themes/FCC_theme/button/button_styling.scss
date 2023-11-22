@@ -1,0 +1,90 @@
+@import '../../../variables.scss';
+
+@mixin button_mixin_styling(
+     $primaryBtnBorderRadius,$primaryBtnFontSize,$primaryBtnFontWeight,$primaryBtnBorder,$secondaryBtnBorderRadius,$secondaryBtnFontSize,
+     $secondaryBtnFontWeight,$secondaryBtnBorder,$tertiaryBtnBorderRadius,$tertiaryBtnFontWeight,$tertiaryBtnBorder,$secondaryButtonBorder,
+     $uiBtnBorder,$uiBtnBorderRadius,$confrmBtnradius,$confrmBtnFont,$confrmBtnWeight,$confrmBtnBorder
+    ) {
+
+   .primaryButton{
+    border-radius: $primaryBtnBorderRadius !important;
+    font-size: $primaryBtnFontSize !important;
+    font-weight: $primaryBtnFontWeight !important;
+    border: $primaryBtnBorder !important;
+   }
+  app-review-history .secondaryButton {
+    border: $secondaryButtonBorder !important;
+  }
+  .secondaryButton {
+    border-radius: $secondaryBtnBorderRadius !important;
+    font-size: $secondaryBtnFontSize !important;
+    font-weight: $secondaryBtnFontWeight !important;
+    border: $secondaryBtnBorder !important;
+  }
+  .tertiaryButton {
+    border-radius: $tertiaryBtnBorderRadius !important;
+    font-size: $secondaryBtnFontSize !important;
+    font-weight: $tertiaryBtnFontWeight !important;
+    border: $tertiaryBtnBorder !important;
+  }
+  fcc-trade-file-upload-dialog .ui-button {
+    border-radius: $uiBtnBorderRadius !important;
+    border: $uiBtnBorder !important;
+  }
+  fcc-trade-confirmation-dialog .ConfirmButton {
+    border-radius: $confrmBtnradius !important;
+    font-size: $confrmBtnFont !important;
+    font-weight: $confrmBtnWeight !important;
+    border: $confrmBtnBorder !important;
+    }
+
+}
+
+
+
+.FCC {
+
+// Primary Button 
+$primaryButtonColor:$WHITE;
+$primaryButtonBackground:$FUCHSIA-F100;
+$primaryButtonHoverBackgroundcolor:$FUCHSIA-A01;
+$primaryButtonFocusBackgroundcolor:$FUCHSIA-A02;
+$primaryButtonActiveBackgroundcolor:$FUCHSIA-A02;
+$primaryButtonBorderColor:$FUCHSIA-F100;
+$primaryBtnBorderRadius: $font-size-15_1;
+$primaryBtnFontSize: $font-size-12_1;
+$primaryBtnFontWeight: $fontWeight-500;
+$primaryBtnBorder: $borderNone;
+
+// Secondary Button
+$SecondaryButtonColor:$FUCHSIA-PRIMARY-COLOR;
+$SecondaryButtonBackground:$WHITE;
+$secondaryButtonBorder:$font-size-01 $borderSolid $FUCHSIA-PRIMARY-COLOR;
+$secondaryButtonActive:$FUCHSIA-F25;
+$secondaryButtonhover:$VIOLET-F25;
+$bankViewOptionColor:$VIOLET-F25;
+$secondaryBtnBorderRadius: $font-size-15_1;
+$secondaryBtnFontSize: $font-size-12_1;
+$secondaryBtnFontWeight: $fontWeight-500;
+$secondaryBtnBorder: $font-size-0_1 $borderSolid $secondaryColor ;
+
+// Tertiary Button
+$tertiaryBtnBorderRadius: $font-size-15_1;
+$tertiaryBtnFontWeight: $fontWeight-500;
+$tertiaryBtnBorder: $font-size-0_1 $borderSolid $secondaryColor;
+
+// UI Buttons
+$uiBtnBorder:$font-size-0 $borderSolid $uiButtonBorder;
+$uiBtnBorderRadius:$font-size-18;
+// Confirm Pop up buttons
+$confrmBtnradius:$font-size-15_1;
+$confrmBtnFont:$font-size-12_1;
+$confrmBtnWeight:$fontWeight-500;
+$confrmBtnBorder:$borderNone;
+
+
+  @include button_mixin_styling($primaryBtnBorderRadius,$primaryBtnFontSize,$primaryBtnFontWeight,$primaryBtnBorder,$secondaryBtnBorderRadius,
+  $secondaryBtnFontSize,$secondaryBtnFontWeight,$secondaryBtnBorder,$tertiaryBtnBorderRadius,$tertiaryBtnFontWeight,$tertiaryBtnBorder,
+  $secondaryButtonBorder,$uiBtnBorder,$uiBtnBorderRadius,$confrmBtnradius,$confrmBtnFont,$confrmBtnWeight,$confrmBtnBorder
+  );
+}

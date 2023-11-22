@@ -1,0 +1,1587 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* @font-face {
+  font-family: "icomoon";
+  src: url(/assets/fonts/icomoon.eot?uo6e4d);
+  src: url(/assets/fonts/icomoon.eot?uo6e4d#iefix) format("embedded-opentype"),
+    url(/assets/fonts/icomoon.ttf?uo6e4d) format("truetype"), url(/assets/fonts/icomoon.woff?uo6e4d) format("woff"),
+    url(/assets/fonts/icomoon.svg?uo6e4d#icomoon) format("svg");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@font-face {
+    font-family: "icomoon";
+ 
+    src: url("./fonts/icomoon.eot");
+    src: url("./fonts/icomoon.eot?uo6e4d#iefix") format("embedded-opentype"), url("./fonts/icomoon.ttf") format("truetype"), url("./fonts/icomoon.woff") format("woff"), url("./fonts/icomoon.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    // font-family: "icomoon";
+    font-family: "icomoonNew";
+    src: url("./fonts/icomoon.eot");
+    src: url("./fonts/icomoon.eot?uo6e4d#iefix") format("embedded-opentype"), url("./fonts/icomoon.ttf") format("truetype"), url("./fonts/icomoon.woff") format("woff"), url("./fonts/icomoon.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-trade_icon:before {
+    font-family: "icomoonNew";
+    content: "\e910";
+    color: #6B8199;
+}
+
+.icon-trade_icon:before {
+    font-family: "icomoonNew";
+    content: "\e910";
+    color: #6B8199;
+  }
+
+.icon-apply_now:before {
+    font-family: "icomoonNew";
+    content: "\e90f";
+    color: #6f6f6f;
+  }
+
+.icon-Tag:before {
+    font-family: "icomoonNew";
+    content: "\e90d";
+  }
+
+.icon-Switch-icon:before {
+    font-family: "icomoonNew";
+    content: "\e90c";
+    color: #5A9DE0;
+  }
+
+.icon-profile_new1:before {
+    font-family: "icomoonNew";
+    content: "\e90b";
+    color: #6b8199;
+  }
+
+
+.icon-buger_menu_collapsed:before {
+    font-family: "icomoonNew";
+    content: "\e90a";
+    color: #0070e0;
+  }
+
+.icon-burger-arrow .path1:before {
+    font-family: "icomoonNew";
+    content: "\e907";
+    color: rgb(239, 247, 255);
+  }
+  .icon-burger-arrow .path2:before {
+    font-family: "icomoonNew";
+    content: "\e908";
+    margin-left: -1em;
+    color: rgb(0, 112, 224);
+  }
+  .icon-burger-arrow .path3:before {
+    font-family: "icomoonNew";
+    content: "\e909";
+    margin-left: -1em;
+    color: rgb(0, 112, 224);
+  }
+
+.icon-ic_favorite_bg:before {
+    font-family: "icomoonNew";
+    content: "\e904";
+  }
+  .icon-ic_favorite_border:before {
+    font-family: "icomoonNew";
+    content: "\e905";
+  }
+  .icon-ic_search:before {
+    font-family: "icomoonNew";
+    content: "\e906";
+    color: #ee1c25;
+  }
+
+.icon-ic_sitemap:before {
+    font-family: "icomoonNew";
+    content: "\e902";
+}
+
+.icon-Last-Mile:before {
+    font-family: "icomoonNew";
+    content: "\e900";
+    color: #6f6f6f;
+}
+
+.icon-Stock-statement:before {
+    font-family: "icomoonNew";
+    content: "\e901";
+    color: color(color-blue-grey);
+}
+
+.icon-ic_privy_privilege:before {
+    content: "\ea6d";
+    color: #87929d;
+}
+
+.icon-ic_wealth_connect:before {
+    content: "\ea6e";
+    color: #87929d;
+}
+
+.icon-ic_esuite .path1:before {
+    content: "\ea6f";
+    color: rgb(0, 0, 0);
+}
+
+.icon-ic_esuite .path2:before {
+    content: "\ea70";
+    margin-left: -1em;
+    color: rgb(4, 5, 6);
+}
+
+.icon-ic_last_mile:before {
+    content: "\ea71";
+    color: #87929d;
+}
+
+.icon-ic_collections:before {
+    content: "\ea72";
+    color: #87929d;
+}
+
+.icon-ic_pcm:before {
+    content: "\ea73";
+    color: #87929d;
+}
+
+.icon-ic_custody:before {
+    content: "\ea74";
+    color: #87929d;
+}
+
+.icon-ic_treasury:before {
+    content: "\ea75";
+    color: #87929d;
+}
+
+.icon-ic_trade_solution:before {
+    content: "\ea76";
+    color: #87929d;
+}
+
+.icon-two_wheeler_insurance .path1:before {
+    content: "\ea77";
+    color: rgb(203, 216, 220);
+}
+
+.icon-two_wheeler_insurance .path2:before {
+    content: "\ea78";
+    margin-left: -1em;
+    color: rgb(234, 242, 245);
+}
+
+.icon-two_wheeler_insurance .path3:before {
+    content: "\ea79";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-two_wheeler_insurance .path4:before {
+    content: "\ea7a";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-two_wheeler_insurance .path5:before {
+    content: "\ea7b";
+    margin-left: -1em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-insta_cover .path1:before {
+    content: "\ea7c";
+    color: rgb(203, 216, 220);
+}
+
+.icon-insta_cover .path2:before {
+    content: "\ea7d";
+    margin-left: -1em;
+    color: rgb(234, 242, 245);
+}
+
+.icon-insta_cover .path3:before {
+    content: "\ea7e";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-insta_cover .path4:before {
+    content: "\ea7f";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-insta_cover .path5:before {
+    content: "\ea80";
+    margin-left: -1em;
+    color: rgb(203, 216, 220);
+}
+
+.icon-insta_cover .path6:before {
+    content: "\ea81";
+    margin-left: -1em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-insta_cover .path7:before {
+    content: "\ea82";
+    margin-left: -1em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-business_loan .path1:before {
+    content: "\ea83";
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path2:before {
+    content: "\ea84";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path3:before {
+    content: "\ea85";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path4:before {
+    content: "\ea86";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path5:before {
+    content: "\ea87";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-business_loan .path6:before {
+    content: "\ea88";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-business_loan .path7:before {
+    content: "\ea89";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-business_loan .path8:before {
+    content: "\ea8a";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path9:before {
+    content: "\ea8b";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-business_loan .path10:before {
+    content: "\ea8c";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-business_loan .path11:before {
+    content: "\ea8d";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-business_loan .path12:before {
+    content: "\ea8e";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-business_loan .path13:before {
+    content: "\ea8f";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-business_loan .path14:before {
+    content: "\ea90";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-business_loan .path15:before {
+    content: "\ea91";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-business_loan .path16:before {
+    content: "\ea92";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-business_loan .path17:before {
+    content: "\ea93";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-two_wheeler_loan .path1:before {
+    content: "\ea94";
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path2:before {
+    content: "\ea95";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path3:before {
+    content: "\ea96";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path4:before {
+    content: "\ea97";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path5:before {
+    content: "\ea98";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-two_wheeler_loan .path6:before {
+    content: "\ea99";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-two_wheeler_loan .path7:before {
+    content: "\ea9a";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-two_wheeler_loan .path8:before {
+    content: "\ea9b";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path9:before {
+    content: "\ea9c";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-two_wheeler_loan .path10:before {
+    content: "\ea9d";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-two_wheeler_loan .path11:before {
+    content: "\ea9e";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-two_wheeler_loan .path12:before {
+    content: "\ea9f";
+    margin-left: -1em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-loan_against_security .path1:before {
+    content: "\eaa0";
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path2:before {
+    content: "\eaa1";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path3:before {
+    content: "\eaa2";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path4:before {
+    content: "\eaa3";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path5:before {
+    content: "\eaa4";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-loan_against_security .path6:before {
+    content: "\eaa5";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-loan_against_security .path7:before {
+    content: "\eaa6";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-loan_against_security .path8:before {
+    content: "\eaa7";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path9:before {
+    content: "\eaa8";
+    margin-left: -1em;
+    color: rgb(202, 215, 219);
+}
+
+.icon-loan_against_security .path10:before {
+    content: "\eaa9";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-loan_against_security .path11:before {
+    content: "\eaaa";
+    margin-left: -1em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-loan_against_security .path12:before {
+    content: "\eaab";
+    margin-left: -1em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-lhs_account:before {
+    content: "\ea60";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_cards:before {
+    content: "\ea61";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_digilocker .path1:before {
+    content: "\ea62";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_digilocker .path2:before {
+    content: "\ea63";
+    margin-left: -1em;
+    color: rgb(255, 255, 255) !important;
+}
+
+.icon-lhs_digilocker .path3:before {
+    content: "\ea64";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-lhs_home:before {
+    content: "\ea65";
+    color: #87929d;
+}
+
+.icon-lhs_insurance:before {
+    content: "\ea66";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_kaymall:before {
+    content: "\ea67";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_payments:before {
+    content: "\ea68";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_service_request:before {
+    content: "\ea69";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_setting:before {
+    content: "\ea6a";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_smart_solution:before {
+    content: "\ea6b";
+    color: color(color-blue-grey);
+}
+
+.icon-lhs_statements:before {
+    content: "\ea6c";
+    color: color(color-blue-grey);
+}
+
+.icon-ic_cloud:before {
+    content: "\ea46";
+    color: #fff;
+}
+
+.icon-graphic_submission-failed .path1:before {
+    content: "\ea47";
+    color: rgb(204, 216, 220);
+}
+
+.icon-graphic_submission-failed .path2:before {
+    content: "\ea48";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-graphic_submission-failed .path3:before {
+    content: "\ea49";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-graphic_submission-failed .path4:before {
+    content: "\ea4a";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-graphic_submission-failed .path5:before {
+    content: "\ea4b";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-graphic .path1:before {
+    content: "\ea4c";
+    color: rgb(224, 18, 27);
+}
+
+.icon-graphic .path2:before {
+    content: "\ea4d";
+    margin-left: -1.5em;
+    color: rgb(193, 207, 212);
+}
+
+.icon-graphic .path3:before {
+    content: "\ea4e";
+    margin-left: -1.5em;
+    color: rgb(193, 207, 212);
+}
+
+.icon-graphic .path4:before {
+    content: "\ea4f";
+    margin-left: -1.5em;
+    color: rgb(193, 207, 212);
+}
+
+.icon-graphic .path5:before {
+    content: "\ea50";
+    margin-left: -1.5em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-graphic .path6:before {
+    content: "\ea51";
+    margin-left: -1.5em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-graphic .path7:before {
+    content: "\ea52";
+    margin-left: -1.5em;
+    color: rgb(193, 207, 212);
+}
+
+.icon-graphic .path8:before {
+    content: "\ea53";
+    margin-left: -1.5em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-graphic .path9:before {
+    content: "\ea54";
+    margin-left: -1.5em;
+    color: rgb(235, 243, 246);
+    opacity: 0.5;
+}
+
+.icon-graphic .path10:before {
+    content: "\ea55";
+    margin-left: -1.5em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-graphic .path11:before {
+    content: "\ea56";
+    margin-left: -1.5em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-graphic .path12:before {
+    content: "\ea57";
+    margin-left: -1.5em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-graphic_something-went-wrong .path1:before {
+    content: "\ea58";
+    color: rgb(203, 216, 220);
+}
+
+.icon-graphic_something-went-wrong .path2:before {
+    content: "\ea59";
+    margin-left: -1.400390625em;
+    color: rgb(222, 233, 236);
+}
+
+.icon-graphic_something-went-wrong .path3:before {
+    content: "\ea5a";
+    margin-left: -1.400390625em;
+    color: rgb(234, 242, 245);
+}
+
+.icon-graphic_something-went-wrong .path4:before {
+    content: "\ea5b";
+    margin-left: -1.400390625em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-graphic_something-went-wrong .path5:before {
+    content: "\ea5c";
+    margin-left: -1.400390625em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-graphic_something-went-wrong .path6:before {
+    content: "\ea5d";
+    margin-left: -1.400390625em;
+    color: rgb(223, 15, 27);
+}
+
+.icon-ic_cloud:before {
+    content: "\ea46";
+    color: #fff;
+}
+
+.icon-delete:before {
+    content: "\ea44";
+}
+
+.icon-icons8-edit:before {
+    content: "\ea45";
+}
+
+.icon-Close_CRN1:before {
+    content: "\e95a";
+    color: #ee1c25;
+}
+
+.icon-crn_removed_success .path1:before {
+    content: "\e95b";
+    color: rgb(204, 216, 220);
+}
+
+.icon-crn_removed_success .path2:before {
+    content: "\e95c";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_removed_success .path3:before {
+    content: "\e95d";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-crn_removed_success .path4:before {
+    content: "\e95e";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-crn_throug_customer_support .path1:before {
+    content: "\e95f";
+    color: rgb(204, 216, 220);
+}
+
+.icon-crn_throug_customer_support .path2:before {
+    content: "\e960";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_throug_customer_support .path3:before {
+    content: "\e961";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-crn_throug_customer_support .path4:before {
+    content: "\e962";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-crn_throug_customer_support .path5:before {
+    content: "\e963";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-crn_throug_customer_support .path6:before {
+    content: "\e964";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-crn_through_mobile .path1:before {
+    content: "\e965";
+    color: rgb(204, 216, 220);
+}
+
+.icon-crn_through_mobile .path2:before {
+    content: "\e966";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_through_mobile .path3:before {
+    content: "\e967";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-crn_through_mobile .path4:before {
+    content: "\e968";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-crn_through_mobile .path5:before {
+    content: "\e969";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_through_mobile .path6:before {
+    content: "\e96a";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-crn_through_mobile .path7:before {
+    content: "\e96b";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-crn_through_mobile .path8:before {
+    content: "\e96c";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_through_mobile .path9:before {
+    content: "\e96d";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-crn_through_mobile .path10:before {
+    content: "\e96e";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path1:before {
+    content: "\e978";
+    color: rgb(204, 216, 220);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path2:before {
+    content: "\e979";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path3:before {
+    content: "\e97a";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path4:before {
+    content: "\e97b";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path5:before {
+    content: "\e97c";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path6:before {
+    content: "\e97d";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path7:before {
+    content: "\e97e";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-Iconography_Login-OPR_Final-13 .path8:before {
+    content: "\e97f";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-know_your_CRN .path1:before {
+    content: "\e980";
+    color: rgb(204, 216, 220);
+}
+
+.icon-know_your_CRN .path2:before {
+    content: "\e981";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-know_your_CRN .path3:before {
+    content: "\e982";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-know_your_CRN .path4:before {
+    content: "\e983";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-know_your_CRN .path5:before {
+    content: "\e984";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-know_your_CRN .path6:before {
+    content: "\e985";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-know_your_CRN .path7:before {
+    content: "\e986";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-know_your_CRN .path8:before {
+    content: "\e987";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-login_unsuccessful .path1:before {
+    content: "\e988";
+    color: rgb(204, 216, 220);
+}
+
+.icon-login_unsuccessful .path2:before {
+    content: "\e989";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-login_unsuccessful .path3:before {
+    content: "\e98a";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-login_unsuccessful .path4:before {
+    content: "\e98b";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-login_unsuccessful .path5:before {
+    content: "\e98c";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-net_banking_reg_success .path1:before {
+    content: "\e991";
+    color: rgb(235, 243, 246);
+}
+
+.icon-net_banking_reg_success .path2:before {
+    content: "\e992";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-net_banking_reg_success .path3:before {
+    content: "\e993";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-net_banking_reg_success .path4:before {
+    content: "\e994";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-net_banking_reg_success .path5:before {
+    content: "\e995";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-net_banking_reg_success .path6:before {
+    content: "\e996";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-net_banking_reg_success .path7:before {
+    content: "\e997";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-OTP:before {
+    content: "\e998";
+    color: #9f9f9f;
+}
+
+.icon-Password_On_Way .path1:before {
+    content: "\e999";
+    color: rgb(204, 216, 220);
+}
+
+.icon-Password_On_Way .path2:before {
+    content: "\e99a";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-Password_On_Way .path3:before {
+    content: "\e99b";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-Password_On_Way .path4:before {
+    content: "\e99c";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-Password_On_Way .path5:before {
+    content: "\e99d";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-Password_On_Way .path6:before {
+    content: "\e99e";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-Password_On_Way .path7:before {
+    content: "\e99f";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-Password_On_Way .path8:before {
+    content: "\e9a0";
+    margin-left: -1em;
+    color: rgb(224, 19, 28);
+}
+
+.icon-set_net_banking_password .path1:before {
+    content: "\e9a2";
+    color: rgb(204, 216, 220);
+}
+
+.icon-set_net_banking_password .path2:before {
+    content: "\e9a3";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-set_net_banking_password .path3:before {
+    content: "\e9a4";
+    margin-left: -1em;
+    color: rgb(223, 234, 237);
+}
+
+.icon-set_net_banking_password .path4:before {
+    content: "\e9a5";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-set_net_banking_password .path5:before {
+    content: "\e9a6";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-set_net_banking_password .path6:before {
+    content: "\e9a7";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-set_net_banking_password .path7:before {
+    content: "\e9a8";
+    margin-left: -1em;
+    color: rgb(224, 18, 27);
+}
+
+.icon-set_net_banking_password .path8:before {
+    content: "\e9a9";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-set_net_banking_password .path9:before {
+    content: "\e9aa";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-set_net_banking_password .path10:before {
+    content: "\e9ab";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-set_net_banking_password .path11:before {
+    content: "\e9ac";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-unblock_success .path1:before {
+    content: "\e9b6";
+    color: rgb(224, 18, 27);
+}
+
+.icon-unblock_success .path2:before {
+    content: "\e9b7";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-unblock_success .path3:before {
+    content: "\e9b8";
+    margin-left: -1em;
+    color: rgb(235, 243, 246);
+}
+
+.icon-unblock_success .path4:before {
+    content: "\e9b9";
+    margin-left: -1em;
+    color: rgb(204, 216, 220);
+}
+
+.icon-KNB_Icons_192309_1511_Account-balance:before {
+    content: "\e91e";
+}
+
+.icon-KNB_Icons_192309_1511_Account:before {
+    content: "\e921";
+}
+
+.icon-KNB_Icons_192309_1511_Approved:before {
+    content: "\e922";
+}
+
+.icon-KNB_Icons_192309_1511_Assets .path1:before {
+    content: "\e923";
+    color: rgb(223, 234, 245);
+}
+
+.icon-KNB_Icons_192309_1511_Assets .path2:before {
+    content: "\e924";
+    margin-left: -1em;
+    color: rgb(0, 112, 224);
+}
+
+.icon-KNB_Icons_192309_1511_Browser:before {
+    content: "\e937";
+}
+
+.icon-KNB_Icons_192309_1511_Burger-menu:before {
+    content: "\e938";
+}
+
+.icon-KNB_Icons_192309_1511_Card-details:before {
+    content: "\e939";
+}
+
+.icon-KNB_Icons_192309_1511_Cards:before {
+    content: "\e93a";
+}
+
+.icon-KNB_Icons_192309_1511_Downloads:before {
+    content: "\e93b";
+}
+
+.icon-KNB_Icons_192309_1511_Emergency:before {
+    content: "\e93c";
+}
+
+.icon-KNB_Icons_192309_1511_Help:before {
+    content: "\e93d";
+}
+
+.icon-KNB_Icons_192309_1511_Home:before {
+    content: "\e93e";
+}
+
+.icon-KNB_Icons_192309_1511_Insurance:before {
+    content: "\e93f";
+}
+
+.icon-KNB_Icons_192309_1511_Kay-mall:before {
+    content: "\e940";
+}
+
+.icon-KNB_Icons_192309_1511_KYC:before {
+    content: "\e941";
+}
+
+.icon-KNB_Icons_192309_1511_Left-Arrow:before {
+    content: "\e942";
+}
+
+.icon-KNB_Icons_192309_1511_Liabilities .path1:before {
+    content: "\e943";
+    color: rgb(252, 229, 230);
+}
+
+.icon-KNB_Icons_192309_1511_Liabilities .path2:before {
+    content: "\e944";
+    margin-left: -1em;
+    color: rgb(238, 28, 37);
+}
+
+.icon-KNB_Icons_192309_1511_Link:before {
+    content: "\e945";
+}
+
+.icon-KNB_Icons_192309_1511_Message:before {
+    content: "\e946";
+}
+
+.icon-KNB_Icons_192309_1511_More-people:before {
+    content: "\e947";
+    color: #87929d;
+}
+
+.icon-KNB_Icons_192309_1511_Offer:before {
+    content: "\e948";
+}
+
+.icon-KNB_Icons_192309_1511_One-time-password:before {
+    content: "\e949";
+}
+
+.icon-KNB_Icons_192309_1511_Payments:before {
+    content: "\e94a";
+}
+
+.icon-KNB_Icons_192309_1511_Post:before {
+    content: "\e94b";
+}
+
+.icon-KNB_Icons_192309_1511_Question-mark:before {
+    content: "\e94c";
+}
+
+.icon-KNB_Icons_192309_1511_Right-Arrow:before {
+    content: "\e94d";
+}
+
+.icon-KNB_Icons_192309_1511_Search:before {
+    content: "\e94e";
+}
+
+.icon-KNB_Icons_192309_1511_Security-Questions:before {
+    content: "\e94f";
+}
+
+.icon-KNB_Icons_192309_1511_Select-date-calendar:before {
+    content: "\e950";
+}
+
+.icon-KNB_Icons_192309_1511_Service-request-history:before {
+    content: "\e951";
+}
+
+.icon-KNB_Icons_192309_1511_Service-requests:before {
+    content: "\e952";
+}
+
+.icon-KNB_Icons_192309_1511_Settings:before {
+    content: "\e953";
+}
+
+.icon-KNB_Icons_192309_1511_Shortcuts:before {
+    content: "\e954";
+}
+
+.icon-KNB_Icons_192309_1511_Statements:before {
+    content: "\e955";
+}
+
+.icon-KNB_Icons_192309_1511_Tap-approve:before {
+    content: "\e956";
+}
+
+.icon-KNB_Icons_192309_1511_Transfer:before {
+    content: "\e957";
+}
+
+.icon-Service-request-history:before {
+    content: "\e90d";
+}
+
+.icon-pagination_arrow_left:before {
+    content: "\e932";
+    color: #6f6f6f;
+}
+
+.icon-pagination_arrow_right:before {
+    content: "\e933";
+    color: #6f6f6f;
+}
+
+.icon-menu-statements:before {
+    content: "\e936";
+    color: #6f6f6f;
+}
+
+.icon-baseline-arrow_back_ios-24px-2:before {
+    content: "\e930";
+    color: #0070e0;
+}
+
+.icon-baseline-assignment_ind-24px1:before {
+    content: "\e934";
+    color: #9f9f9f;
+}
+
+.icon-baseline-local_post_office-24px:before {
+    content: "\e931";
+    color: #ee1c25;
+}
+
+.icon-baseline-video_library-24px1:before {
+    content: "\e935";
+    color: #9f9f9f;
+}
+
+.icon-close:before {
+    content: "\e92c";
+    color: #9f9f9f;
+}
+
+.icon-mobile:before {
+    content: "\e92d";
+    color: #9f9f9f;
+}
+
+.icon-digital_sign:before {
+    content: "\e92e";
+    color: #9f9f9f;
+}
+
+.icon-baseline-video_library-24px:before {
+    content: "\e92a";
+    color: #9f9f9f;
+}
+
+.icon-baseline-assignment_ind-24px:before {
+    content: "\e92b";
+    color: #9f9f9f;
+}
+
+.icon-tapApprove:before {
+    content: "\e925";
+    color: #9f9f9f;
+}
+
+.icon-mpin:before {
+    content: "\e926";
+    color: #9f9f9f;
+}
+
+.icon-approveNet:before {
+    content: "\e927";
+    color: #9f9f9f;
+}
+
+.icon-mobileWithBurger:before {
+    content: "\e928";
+    color: #9f9f9f;
+}
+
+.icon-mobileApp:before {
+    content: "\e929";
+    color: #9f9f9f;
+}
+
+.icon-baseline-credit_card-24px:before {
+    content: "\e904";
+    color: #9f9f9f;
+}
+
+.icon-Icons-07:before {
+    content: "\e905";
+    color: #9f9f9f;
+}
+
+.icon-baseline-arrow_back_ios-24px:before {
+    content: "\e907";
+    color: #ee1c25;
+}
+
+.icon-Error .path1:before {
+    content: "\e917";
+    color: rgb(252, 211, 204);
+}
+
+.icon-Error .path2:before {
+    content: "\e958";
+    margin-left: -1em;
+    color: rgb(18, 18, 18);
+}
+
+.icon-Error .path3:before {
+    content: "\e959";
+    margin-left: -1em;
+    color: rgb(18, 18, 18);
+}
+
+.icon-Checkmark .path1:before {
+    content: "\e91f";
+    color: rgb(205, 232, 211);
+}
+
+.icon-Checkmark .path2:before {
+    content: "\e920";
+    margin-left: -1em;
+    color: rgb(18, 18, 18);
+}
+
+
+
+.icon-info:before {
+    content: "\e91d";
+}
+
+.icon-Accounts:before {
+    content: "\e900";
+    color: color(color-blue-grey);
+}
+
+.icon-Back:before {
+    font-family: "icomoon";
+    content: "\e901";
+}
+
+.icon-Cards:before {
+    content: "\e902";
+    color: #87929d;
+}
+
+.icon-CRN:before {
+    content: "\e906";
+    color: #d6d6d6;
+}
+
+.icon-Dropdown_blue:before {
+    content: "\e908";
+    color: #0070e0;
+}
+
+.icon-Emergency .path1:before {
+    content: "\e909";
+    color: rgb(135, 146, 157);
+}
+
+.icon-Emergency .path2:before {
+    content: "\e90a";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-Emergency .path3:before {
+    content: "\e90b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-Help:before {
+    content: "\e90c";
+    color: #87929d;
+}
+
+.icon-Home:before {
+    content: "\e90e";
+    color: color(color-blue-grey);
+}
+
+.icon-Insurance .path1:before {
+    content: "\e90f";
+    color: color(color-blue-grey);
+}
+
+.icon-Insurance .path2:before {
+    content: "\e910";
+    margin-left: -1em;
+    color: color(color-blue-grey);
+}
+
+.icon-Insurance .path3:before {
+    content: "\e911";
+    margin-left: -1em;
+    color: rgb(255, 255, 255) !important;
+}
+
+.icon-Investments:before {
+    content: "\e912";
+    color: color(color-blue-grey);
+}
+
+.icon-Kay-Mall:before {
+    content: "\e913";
+    color: #87929d;
+}
+
+.icon-Loans:before {
+    content: "\e914";
+    color: #87929d;
+}
+
+.icon-Lock_footer:before {
+    content: "\e915";
+    color: #101010;
+}
+
+.icon-More:before {
+    content: "\e916";
+    color: #9f9f9f;
+}
+
+.icon-Service-Request:before {
+    content: "\e918";
+    color: #87929d;
+}
+
+.icon-Settings:before {
+    content: "\e919";
+    color: #87929d;
+}
+
+.icon-Shortcut:before {
+    content: "\e91a";
+    color: #87929d;
+}
+
+.icon-Show:before {
+    content: "\e91b";
+}
+
+.icon-Statement:before {
+    content: "\e91c";
+    color: #87929d;
+}
+
+.icon-RSA:before {
+    content: "\e92f";
+    color: #9f9f9f;
+}
+
+.icon-menu-payments:before {
+    content: "\ea08";
+    color: #6f6f6f;
+}
+
+.icon-download:before {
+    content: "\e9d3";
+    color: #9f9f9f;
+}
+
+.icon-outline-error_outline-24px:before {
+    content: "\ea26";
+    color: #9f9f9f;
+}
+
+.icon-Back:before {
+    content: "\e901";
+}
+.icon-baseline-block-24px:before {
+    content: "\e903";
+}

@@ -1,0 +1,61 @@
+<ng-container class="flex-container">
+  <button role="button"  mat-icon-button class="close-button" (click)="onCancel()" (keypress)="onCancel()"
+  [ngClass]="setDirections('className', '')" [dir]="dir" aria-hidden="false" attr.aria-label="{{ 'close' | translate }}" title="{{ 'close' | translate }}">
+  <mat-icon class="close-icon" (keypress)="onCancel()" tabindex="0" aria-label="{{ 'close' | translate }}" title="{{ 'close' | translate }}" >close</mat-icon>
+  </button>
+  <h1 mat-dialog-title class="moredetails" [ngClass]="setDirections('className', '')" [dir]="dir">
+  {{'CUSTOMIZECOLUMNS' | translate}}</h1>
+  <mat-dialog-content class="mat-typography">
+      <h2 class="column-box columnHeader" [ngClass]="setDirections('className', '')" [dir]="dir">
+      <span>{{'CUSTOMIZE_COLUMNS' | translate}}</span>
+      </h2>
+      <div class="staticText" [ngClass]="setDirections('className', '')" [dir]="dir">
+          <app-widget-static-text *ngIf="isSelectColMinLimitReached" [textDetails]="staticTextSelectObj"></app-widget-static-text>
+          <app-widget-static-text *ngIf="isFrozenColMaxLimitReached" [textDetails]="staticTextFrozenObj"></app-widget-static-text>
+      </div>
+      <div class="column-box selectAll" [ngClass]="setDirections('className', '')" [dir]="dir">
+        <mat-checkbox (change)="onSelectAll()" [checked]="isSelectAll" [indeterminate]="someSelected()" class="p-col-6">
+          {{ 'selectAll' | translate}}
+      </mat-checkbox>
+      </div>&nbsp;
+      <div cdkDropList [cdkDropListData]="columnList" class="column-list" (cdkDropListDropped)="drop($event)" [ngClass]="setDirections('className', '')" [dir]="dir">
+      <div  *ngFor="let col of columnList; let index = index;" >
+        <div  [ngClass]="(col.frozen === true) ? 'frozenlist':''">
+            <div class="column-box " *ngIf="col.field !== 'action'" [ngClass]="{'freezeColCustomListBorder': index === overlayLastFreezedColumnIndex}" cdkDragLockAxis="y" cdkDrag>
+                &nbsp;
+              <div class="p-col-1 indexpadding" [ngClass]="setDirections('className', '')" [dir]="dir">
+                {{index+1}}
+              </div>
+              <div class="p-col-11 borderclass" [ngClass]="setDirections('className', '')" [dir]="dir">
+                  <span>
+                    <mat-checkbox (ngModelChange)="onSelectColumn($event, index)" [(ngModel)]="col.showAsDefault" [disabled]="col.frozen">
+                        {{ col.header | translate}}
+                    </mat-checkbox>
+                  </span>
+                <span class="columnListIcon" [ngClass]="setDirections('className', '')" [dir]="dir">
+                    <span tabindex="0" class="unfreeze"(keyup)="OnEnterKey($event, index,'unfreeze')" (click)="onLockClick(index, 'unfreeze')" *ngIf="col.frozen" attr.aria-label="{{'lock' | translate}}">
+                        {{ 'Unfreeze' | translate }}
+                    </span>
+                    <span tabindex="0" class="freeze" role="button" (keyup)="OnEnterKey($event, index,'freeze')"  (click)="onLockClick(index, 'freeze')" *ngIf="!col.frozen" attr.aria-label="{{'unlock' | translate}}">
+                        {{ 'Freeze' | translate}}
+                    </span>
+                    <span tabindex="{{col.frozen ? '-1' : '0'}}" #listItem class="drag-handler list-item" attr.aria-label="{{'reorder' | translate}} {{ col.header | translate}}" cdkDragHandle attr.title="{{'reorder' | translate}} {{ col.header | translate}}" (keydown)="handleKeyDown($event, index)">
+                      <mat-icon
+                        id="dragIcon"
+                        class="material-icons" aria-hidden="true"
+                        svgIcon="drag_indicator">
+                      </mat-icon>
+                    </span>
+                </span>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="buttonLayout" [ngClass]="setDirections('className', '')" [dir]="dir">
+  <button role="button"  mat-button class="secondaryButton cancelBtn" (click)="onCancel()" [dir]="dir">{{ 'cancel' | translate}}</button>
+  <button role="button"  mat-button class="primaryButton"  (click)="onApply()" [dir]="dir"
+  [disabled]="isSelectColMinLimitReached">{{ 'applyBtn' | translate }}</button>
+  </mat-dialog-actions>
+</ng-container>

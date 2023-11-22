@@ -1,0 +1,120 @@
+@import '../../../../../../../styles/variables.scss';
+.summaryWrapper {
+    padding: 0.938em 0.938em;
+    font-size: 0.875em;
+}
+
+.margintop15 {
+    margin-top: 0.938em;
+}
+
+.margintop5 {
+    margin-top: 0.938em;
+}
+
+.sectionHeader {
+    font-weight: bold;
+}
+
+.summaryHeader {
+    color: $primaryColor;
+    margin-top: 0.3125em;
+}
+
+.fcc-form-header {
+    padding-left: 0.375em;
+    padding-bottom: 0em;
+    margin-bottom: 0.6em;
+}
+
+.savetemplate {
+    padding-left: 0.8em;
+}
+
+.savetemplate span {
+    position: relative;
+    top: -0.4em;
+    padding-left: 1em;
+}
+
+
+.summarylabel{
+    font-weight: 350;
+    font-size: .87em;
+}
+.summaryval{
+    font-weight: 400;
+    font-size: 1em;
+}
+h4{
+    color:#4a4a4a;
+}
+pre {
+    background: $preBackground;
+    border: none !important;
+    white-space: pre-wrap;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+}
+
+.submit {
+  margin: 0.5em 3em;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr {
+    border-bottom: 0.0625em solid $uiTableBorderBottom !important;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+    padding: 0em 0.857em;
+    padding-top: 1.875em;
+    padding-bottom: 0.3125em;
+    border: 0em solid $uiTableBorderBorder;
+    font-weight: bold;
+    background-color: transparent;
+    color: $uiTableColor;
+    line-height: 0.875em;
+    text-align: left;
+    font-size: 0.75em;
+}
+  
+:host ::ng-deep .ui-paginator {
+    display: none;
+ }
+
+:host ::ng-deep .ui-table .ui-table-tbody .ui-state-highlight {
+    background: #e0e0e0 !important;
+  }
+  
+  :host ::ng-deep .ui-table .ui-table-tbody > tr {
+    border-bottom: 0.0625em solid $uiTableBorderBottom !important;
+  }
+  
+  :host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+    outline: none !important;
+  }
+  
+  :host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+    background-color: #fff;
+    border-top: 0.00625em solid $uiTableBorderBorder;
+    border-bottom: 0.00625em solid $uiTableBorderBorder;
+    border-left: none;
+    border-right: none;
+    line-height: 1em;
+    word-break: break-word;
+    padding-top: 1em;
+    padding-bottom: 1.1875em;
+    text-align: left;
+    font-size: 0.875em;
+  }
+  tr:hover > td {
+    cursor: pointer;
+    border-bottom: 0.0625em solid $secondaryColor !important ;
+    border-top: 0.0625em solid $secondaryColor !important ;
+  }
+  
+  tr > td {
+    color: black;
+  }

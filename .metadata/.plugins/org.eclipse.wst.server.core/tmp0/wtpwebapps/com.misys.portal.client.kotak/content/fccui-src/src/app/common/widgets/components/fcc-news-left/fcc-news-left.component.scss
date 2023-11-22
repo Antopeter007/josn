@@ -1,0 +1,74 @@
+@import '../../../../../styles/variables.scss';
+:host ::ng-deep .title {
+  font-family: sans-serif;
+  font-size: -webkit-xxx-large;
+  color:$CHARCOAL-F50;
+}
+
+:host ::ng-deep .form-header {
+  margin-top: 0em !important;
+}
+
+.completeDesc {
+  color: initial !important;
+}
+
+:host ::ng-deep.fa {
+  font-size: 25px;
+  height: 25px ;
+  width: 25px;
+}
+
+.desc {
+  color: $CHARCOAL-F50;
+  text-align: justify;
+  word-break: break-word;
+  white-space: pre-line;
+  padding-right: 0.4em;
+  font-weight: normal;
+  font-size: 1em;
+
+}
+:host ::ng-deep .newsbannerimage > div{
+padding-left: 0.62em;
+}
+:host ::ng-deep .externallink a , .download a{
+  display:none;
+}
+:host ::ng-deep .externallink .fa{
+  color:$CHARCOAL-F100;
+  cursor: pointer;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .lefttitle{
+  text-transform: capitalize;
+  color: $BLACK;
+}
+
+:host ::ng-deep .externallink , .download
+{
+    margin-top: 2em;
+    text-align: right;
+    padding-right: 1.2em;
+    cursor: pointer;
+}
+:host ::ng-deep .pi-window-maximize{
+  display: none !important;
+}
+
+:host ::ng-deep ul{
+	list-style-type: disc;
+	line-height: 1.4em;
+	display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+:host ::ng-deep ol{
+	list-style-type: decimal;
+	line-height: 1.4em;
+}

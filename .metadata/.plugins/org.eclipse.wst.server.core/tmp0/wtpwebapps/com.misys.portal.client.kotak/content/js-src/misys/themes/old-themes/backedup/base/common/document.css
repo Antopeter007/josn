@@ -1,0 +1,178 @@
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Basic document styles
+  		
+	description:
+	  	This file contains typesetting rules, browser-default overrrides, print styles and other 
+	  	commonly used classes. It should be small, don't add anything unless its going to be used 
+		all over the place.
+
+		------------------------------ TYPOGRAPHY --------------------------------
+
+		We set the font size to 100%% of the default browser font size, which is 16px by default.
+		
+		This gives us the following font-sizes in EM
+		
+		  1.75em   -- 22px
+		  1em      -- 16px  // Default
+		  0.875em  -- 14px
+		  0.8125em -- 13px
+		  0.75em   -- 12px  // Font-size used in forms, pages, portlets etc.
+		  0.625em  -- 10px  // Smallest
+		
+		Portlets are given a font-size of 0.75em, so font-sizes inside portlets are proportional to
+		this (12px). i.e.
+		
+		 Inside portlets
+		 
+		 1.833em  -- 22px // Large form headers
+		 1.333em  -- 16px
+		 1.25em   -- 15px 
+		 1.0833em -- 13px // h2 headers inside forms
+		 1em	  -- 12px // Default
+		 0.916em  -- 11px // Product menu items
+		 0.833em  -- 10px
+ 
+		------------------------------ MARGINS AND PADDING --------------------------------
+		
+		Since the default font size is 16px, 12px inside portlets, try to choose padding
+		and margin values of multiples/divisors of 3px or 4px, to keep things roughly 
+		proportional, i.e. no irregular padding like 7px (unless necessary)
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Everyone
+*/
+
+body {
+	display: none;
+	font: 100% Arial, Helvetica, sans-serif;
+	line-height: 1.125em;
+	background: #ffffff;
+	color: #000000;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	margin : 0px;
+}
+
+p, ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+	list-style-type: none;
+	line-height: 1.4em;
+}
+
+h1, h2, h3{
+	margin: 0;
+	padding: 0;
+	line-height: normal;
+}
+
+/* clearfix */
+.clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+/* clearfix ie7 */
+.dj_ie7 .clear {
+	zoom: 1;
+}
+
+/* Common overrides */
+a:link, a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.dj_webkit button:hover,
+.dj_gecko button:hover,
+.dj_ie8 button:hover {
+	cursor: pointer;
+}
+
+/* Common classes */
+.hide {
+	display: none;
+}
+
+/** Position an element offscreen **/
+.offscreen {
+	position: absolute;
+	left: -9999em;
+}
+
+.right {
+	float: right;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.left {
+	float: left
+}
+
+.align-left {
+	text-align: left
+}
+
+.align-center {
+	text-align: center;
+}
+
+/* A message/notice */
+/** Notices **/
+/** TODO Should be centered, but not working for screen after logout **/
+.notice {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 12px;
+	width: 40em; /** Around 500px typically**/
+	padding: 6px;
+	height: 34px;
+	font-weight: bold;
+	font-size: 0.875em;
+	clear: both;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 4px 4px 4px #ebebeb;
+	-moz-box-shadow: 4px 4px 4px #ebebeb;
+	-o-box-shadow: 4px 4px 4px #ebebeb;
+	-ms-box-shadow: 4px 4px 4px #ebebeb;
+	box-shadow: 4px 4px 4px #ebebeb;
+}
+
+.notice p {
+	vertical-align: middle;
+	margin: 6px 2px;
+	height: 2em;
+	padding-left: 36px;
+}
+
+.notice img {
+	float: left;
+}
+
+/* Print */
+@media print {
+	.noprint,.menu {
+		display: none;
+	}
+}

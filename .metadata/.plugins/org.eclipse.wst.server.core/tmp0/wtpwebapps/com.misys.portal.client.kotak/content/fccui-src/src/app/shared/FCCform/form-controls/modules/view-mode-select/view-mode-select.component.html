@@ -1,0 +1,18 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.parentStyleClass }}">
+    <label
+      for="{{ control.key }}"
+      *ngIf="control.params.showLabel"
+      class="p-col-12 label-header {{ control.params.labelStyleClass }}"
+      tabindex="0"
+      >{{ control.params.label }}</label
+    >
+    <div
+      tabindex="0"
+      class="p-col-12 fieldvalue {{ control.params.valueStyleClass }}"
+      id="{{ control.key }}"
+    >
+      {{ control?.value[0]?.label }}
+    </div>
+  </div>
+</ng-container>

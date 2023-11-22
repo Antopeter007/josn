@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.listdef.message_center.listdef_batch_inquiry_mc_list"]){dojo._hasResource["misys.binding.listdef.message_center.listdef_batch_inquiry_mc_list"]=true;dojo.provide("misys.binding.listdef.message_center.listdef_batch_inquiry_mc_list");dojo.require("dojo.data.ItemFileReadStore");dojo.require("dojo.data.ItemFileWriteStore");dojo.require("dijit.form.FilteringSelect");dojo.require("misys.form.MultiSelect");dojo.require("dijit.layout.TabContainer");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dijit.layout.ContentPane");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.RadioButton");(function(d,dj,m){function _1(){var _2=this;if(_2.get("value")==null||_2.get("value")===""){return true;}var _3=new Date();_3.setHours(0,0,0,0);var _4=d.date.compare(_3,m.localizeDate(this))<0?false:true;if(!_4){var _5=dj.byId("batch_dttm");displayMessage=m.getLocalization("batchDateGreaterThanCurrentDateError");_5.set("state","Error");dj.hideTooltip(_5.domNode);dj.showTooltip(displayMessage,_5.domNode,0);}return true;};d.mixin(m,{bind:function(){m.connect("batch_dttm","onBlur",_1);m.connect("submitButton","onClick",_1);}});})(dojo,dijit,misys);dojo.require("misys.client.binding.listdef.message_center.listdef_batch_inquiry_mc_list_client");}

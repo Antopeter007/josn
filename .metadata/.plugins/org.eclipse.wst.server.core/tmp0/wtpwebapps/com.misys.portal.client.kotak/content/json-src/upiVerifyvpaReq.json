@@ -1,0 +1,11 @@
+{
+ "head": {
+ "requestId": "abcdb41a31d711ea8cba005056bslfedc2d",
+ "ts": "2020-01-08 10:55:23",
+ "crn": "D00001234"
+ },
+ "verifyVPAReq": {
+ "merchantId": "KKBK00000DELSS",
+ "payerVPA": "godwinA123@upi"
+ }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="36px" viewBox="0 0 32 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ImportLCDraft-filter-expand-drop-down-1-v-2.0" transform="translate(-1253.000000, -86.000000)">
+            <g id="Group-5" transform="translate(1253.000000, 86.000000)">
+                <rect id="Rectangle" fill="#694ED6" x="0" y="0" width="32" height="36" rx="7"></rect>
+                <g id="question" transform="translate(10.000000, 8.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <circle id="Oval" cx="6" cy="18" r="1.8"></circle>
+                    <path d="M6.45,0 C3.22431,0 0.6,2.46089143 0.6,5.48571429 C0.6,6.24315429 1.25476125,6.85714286 2.0625,6.85714286 C2.87023875,6.85714286 3.525,6.24315429 3.525,5.48571429 C3.525,3.97330286 4.837155,2.74285714 6.45,2.74285714 C8.062845,2.74285714 9.375,3.97330286 9.375,5.48571429 C9.375,6.99812571 8.062845,8.22857143 6.45,8.22857143 C5.64226125,8.22857143 4.9875,8.84256 4.9875,9.6 L4.9875,13.0285714 C4.9875,13.7860114 5.64226125,14.4 6.45,14.4 C7.25773875,14.4 7.9125,13.7860114 7.9125,13.0285714 L7.9125,10.7978743 C10.4328262,10.1873829 12.3,8.03718857 12.3,5.48571429 C12.3,2.46089143 9.67569,0 6.45,0 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

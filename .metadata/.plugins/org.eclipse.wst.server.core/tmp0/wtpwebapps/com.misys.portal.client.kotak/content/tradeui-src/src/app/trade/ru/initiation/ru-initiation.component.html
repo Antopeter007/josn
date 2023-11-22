@@ -1,0 +1,15 @@
+<!-- Buttons for the preview screen -->
+<fcc-common-actions *ngIf ="viewMode && this.commonDataService.getMode() !== 'UNSIGNED'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+<fcc-iu-initiate-general-details *ngIf="brContent" [bgRecord]="brContent" ></fcc-iu-initiate-general-details>
+<fcc-ru-party-details *ngIf="brContent" [bgRecord]="brContent"></fcc-ru-party-details>
+<fcc-iu-common-amount-details *ngIf="brContent" [bgRecord]="brContent"></fcc-iu-common-amount-details>
+<fcc-iu-renewal-details *ngIf="brContent" [bgRecord]= "brContent"></fcc-iu-renewal-details>
+<fcc-ru-reduction-increase *ngIf="brContent" [brRecord]="brContent"></fcc-ru-reduction-increase>
+<fcc-iu-payment-details *ngIf="brContent && brContent['subProductCode'] === 'STBY'" [bgRecord]="brContent"></fcc-iu-payment-details>
+<fcc-iu-shipment-details  *ngIf="brContent && brContent['subProductCode'] === 'STBY'" [bgRecord]="brContent"></fcc-iu-shipment-details>
+<fcc-iu-common-bank-details *ngIf="brContent" [bgRecord]= "brContent" [adviseBankRequired]="false"></fcc-iu-common-bank-details>
+<fcc-iu-initiate-contract-details *ngIf="brContent" [bgRecord]="brContent"></fcc-iu-initiate-contract-details>
+<fcc-ru-undertaking-details *ngIf="brContent" [fileContent]= "brContent"></fcc-ru-undertaking-details>
+<!-- Footer buttons for the preview screen -->
+<fcc-common-actions *ngIf ="viewMode && this.commonDataService.getMode() !== 'UNSIGNED'" [isFooter]="'true'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+

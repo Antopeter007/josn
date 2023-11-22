@@ -1,0 +1,122 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="control.params.rendered && mode === 'edit'"
+      class="ui-float-label {{ control.params.styleClass }}"
+    >
+      <!-- <textarea #fccCommonTextAreaId  pInputTextarea fccCommonTextArea [controlName]= "form.get(control.key)"
+       rows="{{control.params.rows}}" cols="{{control.params.cols}}"
+       class="fcc-ui-inputtextarea fcc-textarea-width" id="{{control.key}}" tabindex="0"
+       (click)="onEventRaised($event,control.key)"  (blur)="onEventRaised($event,control.key)"
+       (keyup)="onEventRaised($event,control.key)" (focus)="onEventRaised($event,control.key)" (change)="onCustomEventRaised($event,control.key,control)" formControlName={{control.key}}
+       maxlength="{{control.params.maxlength}}" [required]="control.params.required" [readOnly]="control.params.readonly">{{control.value}}</textarea>
+      <label for="{{control.key}}" *ngIf = "control.params.showLabel" tabindex="-1">
+        {{ control.params.label }}<a *ngIf = "control.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+        <a class = "infoLabel" *ngIf = "control.params.infoIcon"> {{control.params.infolabel | translate}}</a>
+      </label> -->
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div class="previousInfoDivClass">
+            <div
+              *ngIf="
+                control.params.previousValue !== '' &&
+                  control.params.previousValue !== undefined &&
+                  control.params.previousValue !== null;
+                else previousValueNotentered
+              "
+            >
+              <p class="previous-info">{{ "previousInfo" | translate }}</p>
+              {{ control.params.previousValue }}
+            </div>
+            <ng-template #previousValueNotentered>
+              <p class="previous-info">{{ "previousInfo" | translate }}</p>
+              {{ "NOT_ENTERED" | translate }}
+            </ng-template>
+          </div>
+        </p-overlayPanel>
+      </a>
+      <mat-form-field
+        floatLabel="false"
+        appearance="fill"
+        class="input-mat-width"
+      >
+        <mat-label tabindex="-1"
+          >{{ control.params.label }}
+          <a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          >
+        </mat-label>
+        <textarea
+          style="font-family: monospace"
+          #fccCommonTextAreaId
+          matInput
+          fccCommonTextArea
+          [controlName]="form.get(control.key)"
+          rows="{{ control.params.rows }}"
+          cols="{{ control.params.cols }}"
+          class="fcc-ui-inputtextarea fcc-textarea-width"
+          id="{{ control.key }}"
+          (click)="onEventRaised($event, control.key)"
+          (blur)="onEventRaised($event, control.key)"
+          (keyup)="onEventRaised($event, control.key)"
+          (focus)="onEventRaised($event, control.key)"
+          (change)="onCustomEventRaised($event, control.key, control)"
+          formControlName="{{ control.key }}"
+          maxlength="{{ control.params.maxlength }}"
+          [required]="control.params.required"
+          [readonly]="control.params.readonly"
+          [ngClass]="{ 'resize-none': control.params.resize === false }"
+        ></textarea>
+        <mat-icon
+          *ngIf="control.params.phraseEnabled"
+          class="material-icons phraseIcon {{ control.params.phraseIconStyle }}"
+          (click)="onClickMatPhraseIcon($event, control.key)"
+          (keyup)="checkMatPhraseIconClick($event, control.key)"
+          #tooltip="matTooltip"
+          matTooltip="{{ 'phraseTooltip' | translate }}"
+          matTooltipPosition="below"
+          matTooltipClass="mat-tooltip"
+          tabindex="0"
+          >format_quote</mat-icon
+        >
+      </mat-form-field>
+      <div *ngIf="!control.params.swift">
+        <fcc-common-narrative-character-count
+          [enteredCharCount]="control.params.enteredCharCount"
+          [allowedCharCount]="control.params.allowedCharCount"
+          [fieldSize]="control.params.fieldSize"
+        >
+        </fcc-common-narrative-character-count>
+      </div>
+      <span *ngIf="control.params.hintTextControl" class="label-below" id="commentsRequired">{{
+        control.params.hintText
+      }}</span>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

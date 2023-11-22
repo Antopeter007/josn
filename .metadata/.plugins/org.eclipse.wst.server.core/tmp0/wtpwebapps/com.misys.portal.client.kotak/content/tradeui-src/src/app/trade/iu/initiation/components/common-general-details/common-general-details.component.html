@@ -1,0 +1,312 @@
+
+  <div [formGroup]="sectionForm" *ngIf="undertakingType === 'bg' || undertakingType === 'cu'">
+    <div *ngIf="this.commonData.getProductCode() === 'BR'">
+      <h2>{{ 'HEADER_GENERAL_DETAILS' | translate }}</h2>
+    </div>
+    <div *ngIf="!viewMode  ;else view_content">
+      <!-- Form Of Undertaking -->
+      <div *ngIf="(undertakingType === 'cu') && !fromExistingReadOnlyFlag" class="field">
+        <label class="label-radiobutton" for="cuSubProductCode">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+
+          <p-radioButton *ngIf="displayDgar" id="customRadioButton" name="undertakingFormGroup" label="{{'AMOUNTDETAILS_DEMAND_GUARANTEE' | translate}}" value="DGAR"  formControlName="cuSubProductCode" name="cuSubProductCodeSelected"
+            [(ngModel)]="luSelected" (onClick)="this.setValueFromField('cuSubProductCode', undertakingType);"></p-radioButton>
+
+          <p-radioButton  *ngIf="displayStby" id="customRadioButton" name="undertakingFormGroup" label="{{'AMOUNTDETAILS_STAND_BY_LC' | translate}}" value="STBY"  formControlName="cuSubProductCode"  name="cuSubProductCodeSelected"
+            [(ngModel)]="luSelected" (onClick)="this.setValueFromField('cuSubProductCode', undertakingType);"></p-radioButton>
+
+          <p-radioButton *ngIf="(undertakingType === 'cu' && displayLuDepu)" id="customRadioButton" name="undertakingFormGroup" label="{{'AMOUNTDETAILS_DEPENDENT_UNDERTAKING' | translate}}"  value="DEPU"  formControlName="cuSubProductCode"
+            name="cuSubProductCodeSelected" [(ngModel)]="luSelected" (onClick)="this.setValueFromField('cuSubProductCode', undertakingType);"></p-radioButton>
+
+        <fcc-common-error-message [control]="sectionForm.get('cuSubProductCode')" ></fcc-common-error-message>
+        <div *ngIf="sectionForm.get('cuSubProductCode') && sectionForm.get('cuSubProductCode').value && !isBankUser" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+      </div>
+
+      <div *ngIf="fromExistingReadOnlyFlag && undertakingType === 'cu'">
+          <div id="cuSubProductCodeViewRow" *ngIf="bgRecord['cuSubProductCode'] && bgRecord['cuSubProductCode'] != null && bgRecord['cuSubProductCode'] != ''">
+            <label for="cuSubProductCode" id="cuSubProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class = "label-left">{{commonDataService.getSubProductCode(bgRecord['cuSubProductCode']) | translate}}</label>
+          </div>
+      </div>
+      <!-- Confirmation Instructions -->
+      <div *ngIf="(undertakingType === 'cu' && sectionForm.get('cuSubProductCode').value === 'STBY')" class="field">
+            <label class="label-radiobutton">{{'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+
+              <p-radioButton id="customRadioButton" name="cuConfInstructions"  label="{{'AMOUNTDETAILS_CFM_INST_CONFIRM' | translate }}" value="01"  formControlName="{{undertakingType}}ConfInstructions"  name="{{undertakingType}}ConfInstructionsSelected"
+                (onClick)="setConfInstValue(sectionForm.get(undertakingType+ 'ConfInstructions').value);">
+              </p-radioButton>
+
+              <p-radioButton id="customRadioButton" name="cuConfInstructions"  value="02" label="{{'AMOUNTDETAILS_CFM_INST_MAY_ADD' | translate }}" formControlName="{{undertakingType}}ConfInstructions"   name="{{undertakingType}}ConfInstructionsSelected"
+                (onClick)="setConfInstValue(sectionForm.get(undertakingType+ 'ConfInstructions').value);">
+              </p-radioButton>
+
+              <p-radioButton id="customRadioButton" name="cuConfInstructions"  value="03" label="{{'AMOUNTDETAILS_CFM_INST_WITHOUT' | translate }}"  formControlName="{{undertakingType}}ConfInstructions"  name="{{undertakingType}}ConfInstructionsSelected"
+                (onClick)="setConfInstValue(sectionForm.get(undertakingType+ 'ConfInstructions').value);">
+              </p-radioButton>
+
+            <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'ConfInstructions')"></fcc-common-error-message>
+      </div>
+
+      <div *ngIf="(undertakingType === 'cu' && sectionForm.get('cuSubProductCode').value === 'STBY')" class="field">
+            <label class="label-checkbox">{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate}}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+            <p-checkbox id = "cuTransferIndicator" formControlName="cuTransferIndicator" binary="true" (onChange)="onCheckedTransferIndicator()"></p-checkbox>
+            <fcc-common-error-message [control]="sectionForm.get('cuTransferIndicator')" ></fcc-common-error-message>
+      </div>
+      <div *ngIf="(undertakingType === 'cu' && sectionForm.get('cuSubProductCode').value === 'STBY' && sectionForm.get('cuTransferIndicator').value)" class="field">
+            <label for="transfer_conditions">
+              {{'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;
+            </label>
+            <textarea id = "narrativeTransferConditionsCu" fccCommonTextArea [controlName]="sectionForm.get('narrativeTransferConditionsCu')" pInputTextarea [rows]="12"
+              [cols]="65" formControlName="narrativeTransferConditionsCu"
+              [class.fieldError]="validationService.isFieldInvalid(sectionForm.get('narrativeTransferConditionsCu'))">
+            </textarea>
+            <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get('narrativeTransferConditionsCu').value ? sectionForm.get('narrativeTransferConditionsCu').value.length : 0"
+              [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+            <fcc-common-error-message [control]="sectionForm.get('narrativeTransferConditionsCu')" ></fcc-common-error-message>
+      </div>
+      <!-- Type Of Undertaking -->
+      <div class="field">
+        <label for="{{type}}TypeCode">{{'UNDERTAKING_DETAILS_TYPE' | translate }}<span *ngIf="(this.commonData.getProductCode() === 'BG' && undertakingType === 'bg') || isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown id = "{{type}}TypeCode" placeholder="{{this.commonService.setPlaceholder(undertakingType)}}" [options]="typeOfUndertakingObj" [showClear]="(undertakingType !== 'bg' && !isBankUser)" formControlName="{{type}}TypeCode"
+          (onChange)="changeTypeOfUndertaking();"
+          [styleClass]="validationService.isFieldInvalid(sectionForm.get(type + 'TypeCode')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+        <fcc-common-error-message *ngIf="(this.commonData.getProductCode() === 'BG' && undertakingType === 'bg') || isBankUser" [control]="sectionForm.get(type + 'TypeCode')" ></fcc-common-error-message>
+      </div>
+
+      <div *ngIf="type === 'bg' && sectionForm.get(type+'TypeCode').value === '99'" class="field">
+        <label for="{{type}}TypeDetails"><span class="required-field-symbol">*</span>&nbsp;</label>
+        <input id = "{{type}}TypeDetails" pInputText type="text" formControlName="{{type}}TypeDetails">
+        <fcc-common-error-message [control]="sectionForm.get(type + 'TypeDetails')" ></fcc-common-error-message>
+      </div>
+
+      <div *ngIf="type === 'bg' && (this.commonDataService.isFromBankTemplateOption)" id="guaranteeTypeNameField" class="field">
+        <label for="guaranteeTypeName" id="guaranteeTypeNameLabel">{{ 'UNDERTAKING_NAME' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <input id = "guaranteeTypeName" pInputText type="text" formControlName="guaranteeTypeName">
+        <fcc-common-error-message [control]="sectionForm.get('guaranteeTypeName')" ></fcc-common-error-message>
+      </div>
+      <div *ngIf="type === 'bg' && (this.commonDataService.isFromBankTemplateOption)
+       && !isBankUser" id="bankTemplateLink" class="word-break-all">
+      <label id="bankTemplateLinkLabel" for="bankTemplateLinkLabel">&nbsp;</label>
+      <span class="word-break-all link-highlight">
+          <a href="javascript:void(0)" (click)="downloadSpecimen()"
+          title="{{ bankTemplateLinkLabel }}">{{bankTemplateLinkLabel}}</a>
+        </span>
+      </div>
+     <!-- Effective Date -->
+      <div class="field" id="{{undertakingType}}IssDateTypeCodeRow" *ngIf="undertakingType === 'bg'">
+        <label for="{{undertakingType}}IssDateTypeCode" id="{{undertakingType}}IssDateTypeCodeLabel">{{ 'GENERALDETAILS_EFFECTIVE_DATE_TYPE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown id = "{{undertakingType}}IssDateTypeCode" formControlName="{{undertakingType}}IssDateTypeCode" placeholder=" " [options]="issueDateTypeObj" [showClear]="false"
+          (ngModelChange)="onChangeIssuedate();" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'IssDateTypeCode')) ? 'dropDownFieldError fcc-dropdown-larger' : 'inherit fcc-dropdown-larger'">
+        </p-dropdown>
+        <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'IssDateTypeCode')" ></fcc-common-error-message>
+      </div>
+      <div class="field" id="{{undertakingType}}EffectiveDateTypeCodeRow" *ngIf="undertakingType === 'cu'">
+        <label for="{{undertakingType}}EffectiveDateTypeCode" id="{{undertakingType}}EffectiveDateTypeCodeLabel">
+         {{ 'GENERALDETAILS_EFFECTIVE_DATE_TYPE' | translate }}<span *ngIf="isBankUser" class="required-field-symbol">*</span>&nbsp;
+        </label>
+        <p-dropdown id = "{{undertakingType}}EffectiveDateTypeCode" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="issueDateTypeObj" [showClear]="!isBankUser" formControlName="{{undertakingType}}EffectiveDateTypeCode"
+          (ngModelChange)="onChangeIssuedate();" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'EffectiveDateTypeCode')) ? 'dropDownFieldError fcc-dropdown-larger' : 'inherit fcc-dropdown-larger'">
+        </p-dropdown>
+        <fcc-common-error-message *ngIf="isBankUser" [control]="sectionForm.get(undertakingType + 'EffectiveDateTypeCode')" ></fcc-common-error-message>
+      </div>
+      <div class="field" id="{{undertakingType}}EffectiveDateTypeDetailsRow" *ngIf="undertakingType === 'cu' && sectionForm.get(undertakingType+'EffectiveDateTypeCode').value === '99'">
+        <label for="{{undertakingType}}EffectiveDateTypeDetails"><span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-calendar id = "{{undertakingType}}EffectiveDateTypeDetails" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}EffectiveDateTypeDetails"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'EffectiveDateTypeDetails')) ? 'calendarFieldError' : 'inherit'"
+          (onSelect)="setValidationIssueDate(undertakingType + 'EffectiveDateTypeDetails')" (onBlur)="setValidationIssueDate(undertakingType + 'EffectiveDateTypeDetails')"
+          (onSelect)="setValidatorEffectiveDate(undertakingType+'EffectiveDateTypeDetails')"
+          ></p-calendar>
+        <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'EffectiveDateTypeDetails')" ></fcc-common-error-message>
+      </div>
+      <div class="field" id="{{undertakingType}}IssDateTypeDetailsRow" *ngIf="undertakingType === 'bg' && sectionForm.get(undertakingType+'IssDateTypeCode').value === '99'">
+        <label for="{{undertakingType}}IssDateTypeDetails"><span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-calendar id = "{{undertakingType}}IssDateTypeDetails" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}IssDateTypeDetails"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="this.commonDataService.setShipmentDate(sectionForm.get(undertakingType + 'IssDateTypeDetails').value);
+          setValidationIssueDate(undertakingType+'IssDateTypeDetails')" (onBlur)="setValidationIssueDate(undertakingType+'IssDateTypeDetails')"
+          (onSelect)="setValidatorEffectiveDate(undertakingType+'IssDateTypeDetails')"
+          [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'IssDateTypeDetails')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+        <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'IssDateTypeDetails')" ></fcc-common-error-message>
+      </div>
+      <!-- Expiry Type -->
+      <div class="field" id="{{undertakingType}}ExpDateTypeCodeRow">
+        <label class="label-radiobutton" for="{{undertakingType}}ExpDateTypeCode">{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}<span *ngIf="(this.commonData.getProductCode() === 'BG' && undertakingType === 'bg') || isBankUser" class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton id="{{undertakingType}}ExpDateTypeCode" name="{{undertakingType}}ExpDateTypeCodeGroup" value="01" label="{{'GENERALDETAILS_END_DATE_NONE' | translate}}" formControlName="{{undertakingType}}ExpDateTypeCode"
+          (click)="this.setExpiryTypeFromField(undertakingType + 'ExpDateTypeCode');">
+        </p-radioButton>
+
+        <p-radioButton id="{{undertakingType}}ExpDateTypeCode" name="{{undertakingType}}ExpDateTypeCodeGroup" value="02" label="{{'GENERALDETAILS_END_DATE_FIXED' | translate}}" formControlName="{{undertakingType}}ExpDateTypeCode"
+          (click)="this.setExpiryTypeFromField(undertakingType + 'ExpDateTypeCode');">
+        </p-radioButton>
+
+        <p-radioButton id="{{undertakingType}}ExpDateTypeCode" name="{{undertakingType}}ExpDateTypeCodeGroup" value="03" label="{{'GENERALDETAILS_END_DATE_PROJECTED' | translate}}" formControlName="{{undertakingType}}ExpDateTypeCode"
+          (click)="this.setExpiryTypeFromField(undertakingType + 'ExpDateTypeCode');">
+        </p-radioButton>
+        <div *ngIf="sectionForm.get('cuExpDateTypeCode') && sectionForm.get('cuExpDateTypeCode').value && !isBankUser" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+        <fcc-common-error-message *ngIf="this.commonData.getProductCode() === 'BG' && (undertakingType === 'bg' || isBankUser)"
+        [control]="sectionForm.get(undertakingType + 'ExpDateTypeCode')" ></fcc-common-error-message>
+      </div>
+      <!-- Expiry Date -->
+      <div class="field"  id="{{undertakingType}}ExpDateRow" *ngIf="(sectionForm.get(undertakingType+'ExpDateTypeCode').value) === '02'">
+        <label for="{{undertakingType}}ExpDate">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate }}<span *ngIf="this.commonData.getProductCode() === 'BG' && (undertakingType === 'bg' || isBankUser)" class="required-field-symbol">*</span>&nbsp;</label>
+        <p-calendar id = "{{undertakingType}}ExpDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}ExpDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorExpDate(undertakingType+'ExpDate'); updateLicenseList(); setVariationFrequencyValidator();
+          commonService.setExpiryDate(sectionForm.get(undertakingType+'ExpDate').value, this.undertakingType);commonService.calculateRegularExtFinalExpiryDate(undertakingType);commonService.calculateRollingExtFinalExpiryDate(undertakingType);setExpiryDateForExt();"
+          (onBlur)="setValidatorExpDate(undertakingType+'ExpDate')" [showButtonBar]="true"
+          [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+ 'ExpDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <a *ngIf="!(commonData.disableTnx) && hasExpDate() && this.undertakingType=='cu'" class="fa fa-remove fa-lg text-danger" (click)="clearExpDate($event);"></a>
+        <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'ExpDate')" ></fcc-common-error-message>
+      </div>
+      <!-- Approximate Expiry Date -->
+      <div class="field" *ngIf="(sectionForm.get(undertakingType+'ExpDateTypeCode').value == '03') || (sectionForm.get(undertakingType+'ExpDateTypeCode').value == '01')"
+        id="{{undertakingType}}ApproxExpiryDateRow">
+          <label for="{{undertakingType}}ApproxExpiryDate " id="approxExpDateFormLabel">
+            <span class = "approx-exp-date" *ngIf="sectionForm.get(undertakingType+'ExpDateTypeCode').value == '03'">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>&nbsp;
+            <span class = "approx-exp-date" *ngIf="sectionForm.get(undertakingType+'ExpDateTypeCode').value == '01'">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+          </label>
+        <p-calendar id = "{{undertakingType}}ApproxExpiryDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}ApproxExpiryDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorExpDate(undertakingType+'ApproxExpiryDate');"
+          (onBlur)="setValidatorExpDate(undertakingType+'ApproxExpiryDate')" [showButtonBar]="true"
+          [styleClass]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'ApproxExpiryDate')) ? 'calendarFieldError' : 'inherit'">
+        </p-calendar>
+        <a *ngIf="!(commonData.disableTnx) && hasApproxExpiryDate()" class="fa fa-remove fa-lg text-danger" (click)="clearApproxExpiryDate($event);"></a>
+        <fcc-common-error-message *ngIf="!isBankUser" [control]="sectionForm.get(undertakingType + 'ApproxExpiryDate')" ></fcc-common-error-message>
+      </div>
+      <!-- Expiry Event -->
+      <div *ngIf="(undertakingType === 'bg' && showBGExpiryEvent) || (undertakingType === 'cu' && showCUExpiryEvent)" class="field" id="{{undertakingType}}}ExpEventRow">
+        <label for="{{undertakingType}}ExpEvent">{{ 'GENERALDETAILS_EXPIRY_EVENT' | translate }}<span *ngIf="(undertakingType === 'bg' && sectionForm.get(undertakingType+'ExpDateTypeCode').value === '03') ||
+          (undertakingType === 'cu' && sectionForm.get(undertakingType+'ExpDateTypeCode').value === '03' && isBankUser)" class="required-field-symbol">*</span>&nbsp;</label>
+        <textarea id = "{{undertakingType}}ExpEvent" fccCommonTextArea [controlName]="sectionForm.get(undertakingType + 'ExpEvent')" pInputTextarea [rows]="12" [cols]="65"
+          formControlName="{{undertakingType}}ExpEvent" [class.fieldError]="validationService.isFieldInvalid(sectionForm.get(undertakingType+'ExpEvent'))">
+        </textarea>
+      <fcc-common-narrative-character-count [enteredCharCount]="sectionForm.get(undertakingType+'ExpEvent').value ? sectionForm.get(undertakingType+'ExpEvent').value.length : 0"
+        [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="sectionForm.get(undertakingType + 'ExpEvent')" ></fcc-common-error-message>
+      </div>
+      <div *ngIf="undertakingType === 'bg'">
+        <p-confirmDialog id="deleteConfirmDialog" class="lf-confirm-dialog" key='deleteLicenseConfirmDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+    </div>
+    <ng-template #view_content>
+      <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'">
+        <div *ngIf="undertakingType === 'bg' || undertakingType !== 'cu'" id="commonGeneralDetails">
+          <div id="bg_type_code_view_row" *ngIf="bgRecord['bgTypeCode'] && bgRecord['bgTypeCode'] != null && bgRecord['bgTypeCode'] != ''">
+            <label for="bgTypeCode" id="bgTypeCodeLabel">{{ 'UNDERTAKING_DETAILS_TYPE' | translate }}&nbsp;</label>
+            <label class="label-left">{{this.getSelectedUndertakingType(bgRecord['bgTypeCode']) | translate}}</label>
+          </div>
+          <div id="bg_type_details_view_row" *ngIf="bgRecord['bgTypeCode'] ==='99' && bgRecord['bgTypeDetails'] && bgRecord['bgTypeDetails'] != null && bgRecord['bgTypeDetails'] != ''">
+            <label for="bgTypeDetails" id="bgTypeDetailsLabel">&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgTypeDetails']}}</label>
+          </div>
+          <div *ngIf="this.commonDataService.getIsFromBankTemplateOption()">
+            <label for="guaranteeTypeName" id="guaranteeTypeNameViewLabel">{{ 'UNDERTAKING_NAME' | translate }}</label>
+            <label class="label-left">{{bgRecord['guaranteeTypeName'] | translate}}</label>
+          </div>
+        </div>
+          <div id="documentDownloadViewLink" *ngIf="!isBankUser && undertakingType === 'bg' && this.commonDataService.getIsFromBankTemplateOption()">
+            <label for="documentDownloadView" id="documentDownloadViewLabel">&nbsp;</label>
+            <label class="word-break-all label-left link-highlight">
+              <a href="javascript:void(0)" (click)="downloadSpecimen()">
+
+              <span *ngIf="this.commonDataService.isSpecimenTemplate">
+                {{'VIEW_THE_UNDERTAKING_SPECIMEN' | translate}} </span>
+                <span *ngIf="this.commonDataService.isEditorTemplate">
+                {{'VIEW_EDITED_DOCUMENT' | translate}} </span>
+                <span *ngIf="this.commonDataService.isXslTemplate">
+                  {{'PREVIEW_UNDERTAKING_DETAILS' | translate}} </span>
+            </a>
+            </label>
+          </div>
+          <div *ngIf="undertakingType === 'bg' || undertakingType !== 'cu'" id="commonGeneralDetailsOtherDetails">
+          <!-- Effective Date -->
+          <div id="{{undertakingType}}IssDateTypeCodeRow" *ngIf="bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null && bgRecord['bgIssDateTypeCode'] !== ''">
+            <label for="{{undertakingType}}IssDateTypeCodeRow"> {{ 'GENERALDETAILS_EFFECTIVE_DATE_TYPE' | translate }} &nbsp;</label>
+            <label class="label-left">{{commonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+          </div>
+          <div id="{{undertakingType}}IssDateTypeDetailsRow" *ngIf="bgRecord['bgIssDateTypeDetails'] && bgRecord['bgIssDateTypeDetails'] != null && bgRecord['bgIssDateTypeDetails'] !== ''">
+            <label for="{{undertakingType}}IssDateTypeDetails">&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgIssDateTypeDetails']}}</label>
+          </div>
+          <!-- Expiry Type -->
+          <div id="{{undertakingType}}ExpDateTypeCodeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['bgExpDateTypeCode']])">
+            <label for="{{undertakingType}}ExpDateTypeCode">{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getExpiryType(bgRecord['bgExpDateTypeCode']) | translate}}</label>
+          </div>
+          <!-- Expiry Date -->
+          <div id="{{undertakingType}}ExpDateRow" class="required" *ngIf="commonService.isFieldsValuesExists([bgRecord['bgExpDate']])">
+            <label for="{{undertakingType}}ExpDate">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate}}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgExpDate']}}</label>
+          </div>
+          <!-- Approximate Expiry Date -->
+          <div id="{{undertakingType}}ApproxExpiryDateRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['bgApproxExpiryDate']]) && commonService.isFieldsValuesExists([bgRecord['bgExpDateTypeCode']])">
+            <label for="{{undertakingType}}ApproxExpiryDate">
+              <span *ngIf="bgRecord['bgExpDateTypeCode'] == '03'">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>
+              <span *ngIf="bgRecord['bgExpDateTypeCode'] == '01'">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['bgApproxExpiryDate']}}</label>
+          </div>
+          <!-- Expiry Event -->
+          <div id="{{undertakingType}}ExpEventRow" class="textarea" *ngIf="commonService.isFieldsValuesExists([bgRecord['bgExpEvent']])">
+            <label for="{{undertakingType}}ExpEvent">{{ 'GENERALDETAILS_EXPIRY_EVENT' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['bgExpEvent']}}</label>
+          </div>
+        </div>
+
+        <div *ngIf="undertakingType === 'cu'" id="luGeneralDetails">
+          <div id="cuSubProductCodeViewRow" *ngIf="bgRecord['cuSubProductCode'] && bgRecord['cuSubProductCode'] != null && bgRecord['cuSubProductCode'] != ''">
+            <label for="cuSubProductCode" id="cuSubProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getSubProductCode(bgRecord['cuSubProductCode']) | translate}}</label>
+          </div>
+          <div id="cuConfInstructionsViewRow" *ngIf="bgRecord['cuConfInstructions'] && bgRecord['cuConfInstructions'] != null && bgRecord['cuConfInstructions'] != ''">
+            <label for="cuConfInstructions" id="cuConfInstructionsLabel">{{ 'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getConfirmationInstructions(bgRecord['cuConfInstructions']) | translate}}</label>
+          </div>
+          <div id="cuTransferIndicatorViewRow" *ngIf="bgRecord['cuTransferIndicator'] && bgRecord['cuTransferIndicator'] != null && bgRecord['cuTransferIndicator'] != '' && bgRecord['cuTransferIndicator'] === 'Y'">
+            <label for="cuTransferIndicator" id="cuTransferIndicatorLabel">&nbsp;</label>
+            <label class="label-left">
+              <strong>{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate }}</strong>
+            </label>
+          </div>
+          <div id="narrativeTransferConditionsCuViewRow" *ngIf="bgRecord['narrativeTransferConditionsCu'] && bgRecord['narrativeTransferConditionsCu'] != null && bgRecord['narrativeTransferConditionsCu'] != ''">
+            <label for="narrativeTransferConditionsCu" id="narrativeTransferConditionsCuLabel">{{ 'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['narrativeTransferConditionsCu']}}</label>
+          </div>
+          <div id="cuTypeCodeViewRow" *ngIf="(bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] != '' && (bgRecord['purpose'] === '02' || bgRecord['purpose'] === '03')) && bgRecord['cuTypeCode'] && bgRecord['cuTypeCode'] != null && bgRecord['cuTypeCode'] != ''">
+            <label for="cuTypeCode" id="cuTypeCodeLabel">{{ 'UNDERTAKING_DETAILS_TYPE' | translate }}&nbsp;</label>
+            <label class="label-left">{{this.getSelectedUndertakingType(bgRecord['cuTypeCode']) | translate}}</label>
+          </div>
+          <!-- Effective Date -->
+          <div id="{{undertakingType}}EffectiveDateTypeCodeRow" *ngIf="bgRecord['cuEffectiveDateTypeCode'] && bgRecord['cuEffectiveDateTypeCode'] != null && bgRecord['cuEffectiveDateTypeCode'] !== ''">
+            <label for="{{undertakingType}}EffectiveDateTypeCodeRow"> {{ 'GENERALDETAILS_EFFECTIVE_DATE_TYPE' | translate }} &nbsp;</label>
+            <label class="label-left">{{commonDataService.getIssueDateTypeCode(bgRecord['cuEffectiveDateTypeCode']) | translate}}</label>
+          </div>
+          <div id="{{undertakingType}}EffectiveDateTypeDetailsRow" *ngIf="bgRecord['cuEffectiveDateTypeDetails'] && bgRecord['cuEffectiveDateTypeDetails'] != null && bgRecord['cuEffectiveDateTypeDetails'] !== ''">
+            <label for="{{undertakingType}}EffectiveDateTypeDetails">&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuEffectiveDateTypeDetails']}}</label>
+          </div>
+          <!-- Expiry Type -->
+          <div id="{{undertakingType}}ExpDateTypeCodeRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuExpDateTypeCode']])">
+            <label for="{{undertakingType}}ExpDateTypeCode">{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getExpiryType(bgRecord['cuExpDateTypeCode']) | translate}}</label>
+          </div>
+          <!-- Expiry Date -->
+          <div id="{{undertakingType}}ExpDateRow" class="required" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuExpDate']])">
+            <label for="{{undertakingType}}ExpDate">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['cuExpDate']}}</label>
+          </div>
+          <!-- Approximate Expiry Date -->
+          <div id="{{undertakingType}}ApproxExpiryDateRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuExpDateTypeCode']]) && commonService.isFieldsValuesExists([bgRecord['cuApproxExpiryDate']])">
+            <label for="{{undertakingType}}ApproxExpiryDate">
+              <span *ngIf="bgRecord['cuExpDateTypeCode'] == '03'">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>&nbsp;
+              <span *ngIf="bgRecord['cuExpDateTypeCode'] == '01'">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+            </label>
+            <label class="label-left">{{bgRecord['cuApproxExpiryDate']}}</label>
+          </div>
+          <!-- Expiry Event -->
+          <div id="{{undertakingType}}ExpEventRow" class="textarea" *ngIf="commonService.isFieldsValuesExists([bgRecord['cuExpEvent']])">
+            <label for="{{undertakingType}}ExpEvent">{{ 'GENERALDETAILS_EXPIRY_EVENT' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['cuExpEvent']}}</label>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>

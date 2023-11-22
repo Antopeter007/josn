@@ -1,0 +1,10 @@
+<ng-container *ngFor="let opt of options">
+  <p-radioButton
+    name="radioName"
+    value="{{ opt.value }}"
+    label="{{ opt.radioLabel }}"
+    [(ngModel)]="radioNgModelValue"
+    inputId="opt.value"
+    styleClass="radioStyleClass"
+  ></p-radioButton>
+</ng-container>

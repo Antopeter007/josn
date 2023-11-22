@@ -1,0 +1,42 @@
+
+<div class="p-grid widget-container">
+    <div class="p-col-12 widget-header widget-padding widget-header-margin pageTitle">
+        <ng-container
+            *ngIf="form"
+            fccFormResolver
+            [module]="module"
+            [formGroup]="form"
+            [mode]="mode"
+            ></ng-container>
+    </div>
+</div>
+<p-dialog tabindex="0"
+[(visible)]="successRequest" [closable]="true" [focusTrap]="false"  [focusOnShow]="false" [draggable]="false" class="confirm"
+[baseZIndex]="10000"
+[autoZIndex]="false"
+[position]="position" class="dialogStyle1" dir="{{dir}}">
+  <div class="p-grid">
+    <div class="p-col-8 textStyle">
+      <img class="dialogImage" src="{{contextPath}}/content/FCCUI/assets/images/File.svg" alt= "{{'file' | translate }}" />
+      {{requestAccountStatementSuccessMessage}}<span>&nbsp;</span><a class="focusStyle" tabindex="0" href="#/downloadCenter">{{downloadCenter | translate}}</a>
+    </div>
+  </div>
+</p-dialog>
+<p-dialog tabindex="0"
+[(visible)]="similarRequest" [closable]="true" [focusTrap]="false"  [focusOnShow]="false" [draggable]="false" class="confirm"
+[baseZIndex]="10000"
+[autoZIndex]="false"
+[position]="position" class="dialogStyle2" dir="{{dir}}">
+  <div *ngIf="!preparingFile" class="p-grid">
+    <div class="p-col-8 textStyle">
+      <img class="dialogImage" src="{{contextPath}}/content/FCCUI/assets/images/Alert.svg" alt= "{{'alert' | translate }}" />
+      {{requestAccountStatementSimilarMessage1}}<span>&nbsp;</span><a class="newRequestStyle focusStyle"  tabindex="0" (keyup.enter)="onClickAccountStatementDownload()" (click)="onClickAccountStatementDownload()">{{download | translate}}</a><span>&nbsp;</span>{{requestAccountStatementSimilarMessage2}}<span>&nbsp;</span><a class="newRequestStyle focusStyle"  tabindex="0" (keyup.enter)="onClickMakeNewRequest()" (click)="onClickMakeNewRequest()">{{makeNewRequest | translate}}</a>
+      </div>
+  </div>
+  <div *ngIf="preparingFile" class="p-grid">
+    <div class="p-col-8 textStyle">
+      <img class="dialogImage" src="{{contextPath}}/content/FCCUI/assets/images/Alert.svg" alt= "{{'alert' | translate }}" />
+      {{requestAccountStatementprepdownloadMessage1}}<span>&nbsp;</span><a class="focusStyle" tabindex="0" href="#/downloadCenter">{{downloadCenter | translate}}</a><span>&nbsp;</span>{{requestAccountStatementprepdownloadMessage2}}<span>&nbsp;</span><a tabindex="0" class="newRequestStyle focusStyle" (keyup.enter)="onClickMakeNewRequest()" (click)="onClickMakeNewRequest()">{{makeNewRequest | translate}}</a>
+    </div>
+  </div>
+</p-dialog>

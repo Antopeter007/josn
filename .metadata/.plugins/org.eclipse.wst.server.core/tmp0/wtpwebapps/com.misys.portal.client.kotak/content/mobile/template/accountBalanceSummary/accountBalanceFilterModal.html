@@ -1,0 +1,35 @@
+<div class="modal">
+    <ion-header-bar class="bar bar-header bar-dark">
+        <button class="button button-clear button-secondary" ng-click="vm.clearModalValue()">{{"CLEAR" | translate}}</button>
+        <button class="button button-calm button-secondary" ng-click="vm.applyFilter()">{{"APPLY" | translate}}</button>
+        <button class="button button-clear ion-android-close" ng-click="vm.closeModal()"></button>
+    </ion-header-bar>
+    <ion-side-menus>
+        <ion-side-menu-content>
+            <ion-content>
+                <form>
+                    <div ng-show="vm.menuOption === 'entity'">
+                        <ion-radio name="entity" ng-model="vm.filterForm.entity" ng-repeat="entity in vm.filterModalData.entities" ng-value="entity.abbv_name">{{entity.abbv_name}}</ion-radio>
+
+                    </div>
+                    <div ng-show="vm.menuOption === 'currency'">
+                        <ion-radio name="currency" ng-model="vm.filterForm.account_ccy" ng-repeat="currency in vm.filterModalData.currencies" ng-value="currency.ISOCODE">{{currency.ISOCODE}}</ion-radio>
+                    </div>
+                </form>
+            </ion-content>
+        </ion-side-menu-content>
+
+        <ion-side-menu expose-aside-when="(min-width:10px)" width="100" class="modal-menu" is-enabled="false" side="left">
+            <ion-content class="modal-menu">
+                <ion-list>
+                    <ion-item ng-repeat="menu in vm.filterModalData.menus" class="modal-menu-item" ng-class="{'active': vm.isMenuActive('{{menu}}')}" ng-click="vm.changeMenu('{{menu}}')">
+                        {{menu | uppercase | translate}}
+                    </ion-item>
+                 
+                </ion-list>
+
+            </ion-content>
+        </ion-side-menu>
+
+    </ion-side-menus>
+</div>

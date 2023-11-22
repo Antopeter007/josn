@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Document Instruction</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Document-Instruction" transform="translate(1.000000, 2.000000)" stroke="#FFF" stroke-width="2">
+            <path d="M6.26,18 L1.91,18 C0.93510368,18.0692158 0.0849069158,17.3436552 0,16.37 L0,16.37 L0,1.63 C0.0849069158,0.656344785 0.93510368,-0.0692158045 1.91,-5.54244151e-16 L16.09,-5.54244151e-16 C17.0648963,-0.0692158045 17.9150931,0.656344785 18,1.63 L18,1.63 L18,6.63" id="Path_362"></path>
+            <circle id="Ellipse_43" cx="10.16" cy="9.95" r="4.61"></circle>
+            <polyline id="Path_363" stroke-linecap="round" points="13.72 13.79 14.92 14.99 16.92 16.99"></polyline>
+        </g>
+    </g>
+</svg>

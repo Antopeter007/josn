@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.loan.ln_facility_inquiry"]){dojo._hasResource["misys.binding.loan.ln_facility_inquiry"]=true;dojo.provide("misys.binding.loan.ln_facility_inquiry");dojo.require("dojo.data.ItemFileReadStore");dojo.require("dojo.data.ItemFileWriteStore");dojo.require("dijit.form.FilteringSelect");dojo.require("misys.form.MultiSelect");dojo.require("dijit.layout.TabContainer");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dijit.layout.ContentPane");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.RadioButton");dojo.require("misys.grid._base");(function(d,dj,m){function _1(_2){m._config=m._config||{};m._config.dealValidationinProcess=false;var _3=dj.byId(_2);var _4=_3?_3.get("value"):"";if(_4.length===0||!_4.trim()){var _5=misys.getLocalization("dealFielIsRequired");_3.set("state","Error");dijit.hideTooltip(_3.domNode);dijit.showTooltip(_5,_3.domNode,100);}};d.mixin(m,{bind:function(){m.setValidation("currency",m.validateCurrency);m.connect("submitButton","onClick",function(){_1("borrowerid");dijit.byId("escape").set("value","Y");});},onFormLoad:function(){dojo.style(dojo.byId("escape_row"),"display","none");}});})(dojo,dijit,misys);dojo.require("misys.client.binding.loan.ln_facility_inquiry_client");}

@@ -1,0 +1,167 @@
+<form [formGroup]="messageToBankForm">
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  <!-- Buttons for create message to bank -->
+  <fcc-common-actions *ngIf ="!viewMode && ruRecord" [bgRecord]="ruRecord" [showTask] ="true" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- Buttons for unsigned message to bank -->
+  <fcc-common-actions *ngIf ="this.commonDataService.getMode() === 'UNSIGNED' && ruRecord" [bgRecord]="ruRecord"  [showTask] ="true" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <div *ngIf ="!viewMode && ruRecord; else view_content" >
+  <p-panel  header="{{'HEADER_REFERENCE_AND_PURPOSE_DETAILS' | translate}}" >
+    <p-header> 
+      <a class="fa fa-search fa-lg {{commonService.getUserLanguage() === 'ar' ? 'master-icon-left' : 'master-icon'}}" (click)= "showDailog(ruRecord['refId'])"></a>
+    </p-header>
+       <!-- System Id: -->
+      <div id =  "general_ref_id_view_row" *ngIf ="ruRecord['refId'] && ruRecord['refId'] != null && ruRecord['refId'] != ''">
+        <label for =  "system_id" id =  "system_id_label">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ruRecord['refId']}}</label>
+      </div>
+      <!-- Bank Reference -->
+      <div id = "general_bo_ref_id_view_row" *ngIf ="ruRecord['boRefId'] && ruRecord['boRefId'] != null && ruRecord['boRefId'] != ''">
+        <label for ="bo_ref_id" id ="bo_ref_id_label">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ruRecord['boRefId']}}</label>
+      </div>
+       <!--Issue date -->
+       <div id="iss_date_row" *ngIf="ruRecord['issDate'] && ruRecord['issDate'] != null && ruRecord['issDate'] != ''">
+        <label for ="issDate">{{'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ruRecord['issDate']}}</label>
+      </div>
+      <!--Expiry date -->
+      <div id="exp_date_row" *ngIf="ruRecord['expDate'] && ruRecord['expDate'] != null && ruRecord['expDate'] != ''">
+        <label for ="expDate">{{'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ruRecord['expDate']}}</label>
+      </div>
+      <!--Purpose-->
+      <div id = "purpose_row" *ngIf="ruRecord['purpose'] && ruRecord['purpose'] != null && ruRecord['purpose'] !== ''">
+          <label for = "purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{tradeCommonDataService.getPurpose(ruRecord['purpose']) | translate}}</label>
+      </div>
+      <!--Form of Undertaking-->
+      <div id="sub_product_code_view_row"  *ngIf ="ruRecord['subProductCode'] && ruRecord['subProductCode'] != null && ruRecord['subProductCode'] != ''">
+          <label for="subProductCode" id="subProductCode">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{tradeCommonDataService.getSubProductCode(ruRecord['subProductCode']) | translate}}</label>
+      </div>
+      <!--Action Required Type-->
+      <div *ngIf ="ruRecord['actionReqCode'] && ruRecord['actionReqCode'] != null && ruRecord['actionReqCode'] != ''">
+        <label>{{ 'REPORTINGDETAILS_ACTION_REQUIRED' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{tradeCommonDataService.getActionReqCode(ruRecord['actionReqCode']) | translate}}</label>
+      </div>
+      <!--Status-->
+      <div *ngIf ="ruRecord['prodStatCode'] && ruRecord['prodStatCode'] != null && ruRecord['prodStatCode'] != ''">
+        <label>{{ 'GENERALDETAILS_PROD_STAT_LABEL' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{tradeCommonDataService.getProdStatusCode(ruRecord['prodStatCode']) | translate}}</label>
+      </div>
+    </p-panel>
+    <p-panel  header="{{'HEADER_MESSAGE_TO_BANK' | translate}}" >
+      <div *ngIf="option && option != null && option != ''">
+        <div id= "sub_tnx_type_code_row" class="field" enable>
+          <label for="sub_tnx_type_code" >
+            {{ 'MESSAGE_TYPE_LABEL' | translate }}
+            <span *ngIf="option === 'EXISTING' || option === 'ACTION_REQUIRED' || mode === 'DRAFT'" class = "required-field-symbol">*</span>&nbsp;
+            </label>
+            <p-dropdown  appendTo = "body" formControlName="subTnxTypeCode" [autoDisplayFirst]="false" [options]="subTnxTypeObj"
+            [styleClass]="validationService.isFieldInvalid(messageToBankForm.get('subTnxTypeCode')) ? 'dropDownFieldError' : 'inherit'">
+            </p-dropdown>
+            <fcc-common-error-message [control]="messageToBankForm.get('subTnxTypeCode')" ></fcc-common-error-message>
+        </div>
+      </div>
+        <fcc-common-free-format-message *ngIf="ruRecord" [labelName]="'CUSTOMER_INSTRUCTIONS_LABEL'" [bgRecord]="ruRecord" (formReady)="addToForm('freeFormatMessageSection', $event)"></fcc-common-free-format-message>
+  </p-panel>
+  <fcc-common-fileupload-component *ngIf="ruRecord" [bgRecord]="ruRecord"></fcc-common-fileupload-component>
+</div>
+
+
+<!-- view screen content-->
+<ng-template #view_content>
+  <!-- Header buttons for preview -->
+  <fcc-common-actions *ngIf ="ruRecord && this.commonDataService.getMode() !== 'UNSIGNED'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+    <div class="toplevel-header" *ngIf="ruRecord">
+          <h2>{{ 'HEADER_EVENT_DETAILS' | translate }}</h2>
+          <div id = "eventDetails" >
+              <!-- Company Name -->
+              <div id =  "company_name_view_row" *ngIf ="ruRecord['companyName'] && ruRecord['companyName'] != null && ruRecord['companyName'] != ''">
+                <label for =  "company_name" id =  "company_name_label">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['companyName']}}</label>
+              </div>
+              <!-- Release DTTM -->
+              <div id =  "release_dttm_row" *ngIf="ruRecord['releaseDttm'] && ruRecord['releaseDttm'] != null &&   ruRecord['releaseDttm'] != ''">
+                <label for = "release_dttm" >{{ 'TRANSACTIONDETAILS_RELEASE_DTTM' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['releaseDttm']}}</label>
+              </div>
+              <!-- System Id: -->
+              <div id =  "general_ref_id_view_row" *ngIf ="ruRecord['refId'] && ruRecord['refId'] != null && ruRecord['refId'] != ''">
+                <label for =  "system_id" id =  "system_id_label">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['refId']}}</label>
+              </div>
+              <!-- Product Code -->
+              <div id =  "product_code_row" *ngIf="ruRecord['productCode'] && ruRecord['productCode'] != null &&   ruRecord['productCode'] != ''">
+                <label for = "product_code" >{{ 'TRANSACTIONDETAILS_PRODUCT_CODE' | translate }}&nbsp;</label>
+                <label class="label-left">{{ 'BR' | translate}}</label>
+              </div>
+              <!--Customer Reference -->
+              <div id = "customer_reference_view_row" *ngIf ="ruRecord['custRefId'] && ruRecord['custRefId'] != null && ruRecord['custRefId'] != ''">
+                <label for="customer_reference">{{'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['custRefId']}}</label>
+              </div>
+              <!-- Bank Reference -->
+              <div id = "general_bo_ref_id_view_row" *ngIf ="ruRecord['boRefId'] && ruRecord['boRefId'] != null && ruRecord['boRefId'] != ''">
+                <label for ="bo_ref_id" id ="bo_ref_id_label">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['boRefId']}}</label>
+              </div>
+              <!--Purpose-->
+              <div id = "purpose_row" *ngIf="ruRecord['purpose'] && ruRecord['purpose'] != null && ruRecord['purpose'] !== ''">
+                  <label for = "purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+                  <label class="label-left">{{tradeCommonDataService.getPurpose(ruRecord['purpose']) | translate}}</label>
+              </div>
+              <!--Form of Undertaking-->
+              <div id="subProductCodeView" *ngIf ="ruRecord['subProductCode'] && ruRecord['subProductCode'] != null && ruRecord['subProductCode'] != ''">
+                  <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+                  <label class="label-left">{{tradeCommonDataService.getSubProductCode(ruRecord['subProductCode']) | translate}}</label>
+              </div>
+              <!--Issue date -->
+              <div id = "iss_date_row" *ngIf="option && option != null && option != '' && option == 'CANCEL' && ruRecord['issDate'] && ruRecord['issDate'] != null && ruRecord['issDate'] != ''">
+                <label for ="issDate">{{'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['issDate']}}</label>
+              </div>
+              <!--Expiry date -->
+              <div id = "exp_date_row" *ngIf ="ruRecord['expDate'] && ruRecord['expDate'] != null && ruRecord['expDate'] != ''">
+                <label for ="expDate">{{'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['expDate']}}</label>
+              </div>
+          </div>
+          <div id = "messageToBank">
+              <div class="indented-header">
+                <h3>{{'HEADER_MESSAGE_TO_BANK' | translate }}</h3>
+              </div>
+               <!--Message type-->
+              <div id= "sub_tnx_type_code_row" *ngIf ="ruRecord && ruRecord['subTnxTypeCode'] && ruRecord['subTnxTypeCode'] != null && ruRecord['subTnxTypeCode'] != ''">
+                <label for = "sub_tnx_type_code" id="sub_tnx_type_code_label">
+                  {{ 'MESSAGE_TYPE_LABEL' | translate }}&nbsp;</label>
+                  <label class="label-left">{{tradeCommonDataService.getTnxSubTypeCode(ruRecord['subTnxTypeCode']) | translate}}</label>
+              </div>
+              <!-- Free format message-->
+              <div class="free_format_text_row" id = "freeFormatTextRow" *ngIf ="ruRecord && this.commonDataService.getMode() !== 'UNSIGNED' && ruRecord['freeFormatText'] && ruRecord['freeFormatText'] != null && ruRecord['freeFormatText'] != ''">
+                    <label for = "freeFormatText">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+                    <label class="label-left-narrative">{{ruRecord['freeFormatText']}}</label>
+              </div>
+          </div>
+            <div *ngIf ="this.commonDataService.getMode() === 'UNSIGNED'">
+              <div id = "free_format_text_row_unsigned" *ngIf ="ruRecord && ruRecord['freeFormatText'] && ruRecord['freeFormatText'] != null && ruRecord['freeFormatText'] != ''">
+                <label for = "free_format_text">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+                <label class="label-left">{{ruRecord['freeFormatText']}}</label>
+              </div>
+            </div>
+    </div>
+    <fcc-common-fileupload-component  *ngIf="ruRecord" [bgRecord]="ruRecord"></fcc-common-fileupload-component>
+    <div id='commentsSection' *ngIf ="this.commonDataService.getMode() !== 'UNSIGNED' && this.commonDataService.getViewComments()">
+      <fcc-iu-common-return-comments *ngIf="ruRecord" [bgRecord]="ruRecord" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+    </div>
+    <!-- Footer Buttons for preview -->
+    <fcc-common-actions *ngIf ="ruRecord && this.commonDataService.getMode() !== 'UNSIGNED'" [isFooter]="'true'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+</ng-template>
+<div id='commentsSection' *ngIf ="this.commonDataService.getMode() === 'UNSIGNED' || (!viewMode && this.commonDataService.getViewComments())">
+  <fcc-iu-common-return-comments *ngIf="ruRecord" [bgRecord]="ruRecord" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+</div>
+  <fcc-common-actions *ngIf ="!viewMode" [isFooter]="'true'" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- SUBMIT, RETURN, PREVIEW, CANCEL, HELP-->
+  <fcc-common-actions *ngIf ="this.commonDataService.getMode() === 'UNSIGNED'" [isFooter]="'true'" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+</form>

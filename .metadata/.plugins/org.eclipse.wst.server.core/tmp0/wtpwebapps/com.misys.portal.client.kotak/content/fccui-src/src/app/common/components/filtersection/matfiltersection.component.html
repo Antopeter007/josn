@@ -1,0 +1,32 @@
+<div class="dynamic-dialog">
+  <div class="p-col-12 dynamic-dialog-title" mat-dialog-title dir={{dir}}>
+      <div class="p-col-11">
+          <p>{{'applyFilter' | translate}}</p>
+      </div>
+      <div class="p-col-1 closeButton" dir={{dir}}>
+        <mat-icon tabindex="0" dir={{dir}} mat-button (keyup.enter)="onClickCancelBtn()" (click)="onClickCancelBtn()" 
+        attr.aria-label="{{ 'close' | translate}}"
+        title="{{ 'close' | translate}}">close</mat-icon>
+      </div>
+  </div>
+  <div mat-dialog-content>
+    <ng-container
+      *ngIf="form"
+      fccFormResolver
+      [module]="module"
+      [formGroup]="form"
+      [mode]="mode"
+    ></ng-container>
+  </div>
+</div>
+  <mat-dialog-actions align="end" dir={{dir}}>
+    <div>
+      <ng-container
+        *ngIf="buttonForm"
+        fccFormResolver
+        [module]="module"
+        [formGroup]="buttonForm"
+        [mode]="mode"
+      ></ng-container>
+    </div>
+  </mat-dialog-actions>

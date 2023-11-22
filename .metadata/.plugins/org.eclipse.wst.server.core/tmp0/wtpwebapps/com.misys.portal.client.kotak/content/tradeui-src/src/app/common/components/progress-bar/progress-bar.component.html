@@ -1,0 +1,9 @@
+<div>
+    <p-dialog [(visible)]="showProgressBar" [closable]="false" [style]="{width: '300px', height: '4px'}" [modal]="true">
+      <p-header>
+          {{'PROGRESSBAR_HEADER' | translate}}
+      </p-header>
+      {{displayMessage}}
+      <p-progressBar mode="indeterminate"></p-progressBar>
+    </p-dialog>
+</div>

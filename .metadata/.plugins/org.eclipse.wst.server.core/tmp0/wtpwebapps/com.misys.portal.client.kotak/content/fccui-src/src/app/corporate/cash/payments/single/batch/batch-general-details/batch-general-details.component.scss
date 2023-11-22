@@ -1,0 +1,251 @@
+@import '../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .mat-expansion-panel-header-description {
+    margin-top: 0 !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-spacing {
+    border: 1px solid $CHARCOAL-F10;
+}
+
+:host ::ng-deep .add-enrichment fcc-rounded-button button {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .bene_code_error .form-field-error-message .ui-message-error {
+  padding-top: 2.345em;
+}
+
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -1em !important;
+}
+
+:host ::ng-deep .iconStyle {
+    padding: 0em !important;
+    position: relative;
+    top: 1em;
+    right: 0.5em;
+}
+
+:host ::ng-deep .iconStyle[dir="rtl"] {
+    position: relative;
+    top: 0.7em;
+    right: -1.5em;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+    width: 100% !important;
+    margin-top: 2em;
+    margin: 0em !important;
+}
+:host ::ng-deep.indented-text-area-field-35 textarea {
+    line-height: 1.4em;
+    font-size: 1em !important;
+    resize: none;
+    font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+    width: 100% !important;
+    margin-top: 2em;
+    margin: 0em !important;
+}
+
+:host ::ng-deep textarea.mat-input-element {
+    resize: none !important;
+}
+
+:host ::ng-deep .dropdownFilterStyleClass {
+    padding-top: 0em !important;
+}
+
+:host ::ng-deep .ui-table-wrapper{
+    overflow-x: auto;
+  }
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-tbody tr {
+    border-bottom: 0.065em solid $GREY-07;
+    line-height: 2em !important;
+  }
+
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+    width: 10em;
+    position: sticky;
+    text-align: left;
+    right: 0;
+    border: none;
+  }
+
+  [dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+    width: 10em;
+    position: sticky;
+    text-align: right !important;
+    left: 0 !important;
+    border: none;
+  }
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+    width: 10em;
+    position: sticky;
+    right: 0;
+    border: none;
+    box-shadow: inset 0.05em 0em $GREY-07 !important;
+  }
+
+  [dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+    width: 10em;
+    position: sticky !important;
+    left: 0 !important;
+    border: none;
+    box-shadow: inset 0.05em 0em $GREY-07 !important;
+  }
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover,
+  :host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:focus-within {
+    font-weight: bold !important;
+    background-color: $VIOLET-14 !important;
+  }
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-tbody td{
+    font-size: 0.875em !important;
+    padding-left: 1em !important;
+    border: none;
+  }
+
+  :host ::ng-deep .actionData .pi {
+    visibility: hidden;
+  }
+
+  :host ::ng-deep tr:hover .actionData .pi,
+  :host ::ng-deep tr:focus-within .actionData .pi{
+    cursor: pointer;
+    visibility:  visible;
+  }
+
+  :host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover em.pi {
+    display: inline-block;
+    font-size: 1.5em !important;
+  }
+
+
+:host ::ng-deep .ui-float-label .ui-dropdown .ui-widget {
+    z-index: 9999 !important;
+    padding-right: 0em !important;
+  }
+
+  :host ::ng-deep .narrative-textarea-in {
+    min-height: 6.5em;
+    margin-top: 1em;
+  }
+
+:host ::ng-deep .balTransLayoutClass, :host ::ng-deep .countTransLayoutClass{
+  color: $primaryColor;
+  margin-top: 0.7em;
+  padding: 0 0 0 2em !important;
+  margin-left:2em;
+}
+:host ::ng-deep .countTransLayoutClass{
+  margin-left:3em;
+}
+:host ::ng-deep .balTransParentClass{
+  display: flex;
+}
+:host ::ng-deep .balTransValueClass{
+  position: relative;
+  padding-left:0.4em;
+}
+:host ::ng-deep .balTransLabelClass::after, :host ::ng-deep .balTransLabelClass::after{
+  content:":";
+}
+:host ::ng-deep .balTransLayoutClass .balTransValueClass::after,
+:host ::ng-deep .countTransLayoutClass .balTransValueClass::after{
+  content:"|";
+  padding-left:0.4em;
+  position: absolute;
+  font-size: 1.5em;
+}
+:host ::ng-deep .balTransAmtLayoutClass, :host ::ng-deep .countTransAmtLayoutClass{
+  color: $primaryColor;
+  margin-top: 0.7em;
+  padding: 0em 0em 0em 0.5em !important;
+}
+:host ::ng-deep .batchPaymentTableList span.ui-message-text.ng-star-inserted{
+  font-weight: 500;
+}
+:host ::ng-deep .batchPaymentTableList span.ui-message-text.ng-star-inserted::before{
+  content: "*";
+  color: $RED-100;
+  padding-right: 0.2em;
+}
+:host ::ng-deep fcc-edit-table .fcc-field-message .ui-message .ui-message-text {
+  color: $RED-100 !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  :host ::ng-deep .balTransLayoutClass{margin-left: -2em;}
+  :host ::ng-deep .countTransLayoutClass {margin-left: 1em;}
+  :host ::ng-deep .imageIcon {padding-left: 1em;}
+}
+@media screen and (max-width: 768px){
+  :host ::ng-deep .balTransLayoutClass {margin-left: 5em;}
+  :host ::ng-deep .countTransLayoutClass {margin-left: 6em;}
+  :host ::ng-deep .imageIcon {padding-left: 1em;}
+}
+:host ::ng-deep .disable-save-beneficiary .saveBeneStyle{
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+  color: $selectButtonDisabledHoverColor !important;
+}
+
+:host ::ng-deep .saveBeneStyle {
+  white-space: nowrap !important;
+}
+
+:host ::ng-deep .imageIcon {
+  margin-left: 110% !important;
+  margin-right: 70% !important;
+}
+
+:host ::ng-deep .form-field-error-message {
+  margin-top: 0em;
+}
+
+:host ::ng-deep .p-grid>.p-col, .p-grid>[class*=p-col] {
+  padding-top: 1.5em;
+}
+
+@media only screen and (min-width: 1350px) {
+  :host ::ng-deep .imageIcon {padding-left: 4em;}
+}
+
+:host ::ng-deep .beneficiaryCodeStyle {
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep .balanceCountValidEditClass{
+  display: contents;
+  color: $RED-100;
+}
+
+:host ::ng-deep .balanceCountValidEditClass::before{
+  content: "*";
+  color: $RED-100;
+  padding-top: 0.5em;
+  margin-right: -0.4em;
+}
+
+:host ::ng-deep .email-id-warn-msg-style-class{
+  margin-top: -2em;
+  color: $AMBER-O100;
+}
+
+:host ::ng-deep .mobile-number-warn-msg-style-class{
+  margin-top: -2em;
+  margin-left: 28.5em;
+  color: $AMBER-O100;
+}
+:host ::ng-deep .cutOffWarning{
+  margin-top: -1em;
+}

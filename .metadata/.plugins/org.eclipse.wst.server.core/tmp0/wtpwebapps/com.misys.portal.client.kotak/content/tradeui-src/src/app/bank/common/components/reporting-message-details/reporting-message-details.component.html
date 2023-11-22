@@ -1,0 +1,476 @@
+<div [formGroup] = "reportingMessageDetailsSection">
+  <div *ngIf ="!viewMode ;else view_content">
+    <p-panel header="{{ 'HEADER_BANKERS_SECTION' | translate }}" [toggleable]="true" [collapsed] ="false">
+
+      <div id="prodStatCodeDecisionRow" *ngIf="((bgRecord['tnxTypeCode'] === '01' && this.commonData.getOperation() !== 'CREATE_RELEASEREJECT_REPORTING') || (isPendingMessageToBank && showWording))">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="03" id="prodStatCode" label="{{'PROD_STAT_APPROVED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected , 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="01" id="prodStatCode" label="{{'PROD_STAT_NOT_PROCESSED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="02" id="prodStatCode" label="{{'PROD_STAT_PENDING' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+
+      <div id="prodStatCodeDecisionRow" *ngIf="(bgRecord['tnxTypeCode'] === '03' && this.commonData.getOperation() !== 'CREATE_RELEASEREJECT_REPORTING')">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="08" id="prodStatCode" label="{{'PROD_STAT_APPROVED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="01" id="prodStatCode" label="{{'PROD_STAT_NOT_PROCESSED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="02" id="prodStatCode" label="{{'PROD_STAT_PENDING' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+
+      <div id="prodStatCodeDecisionRow" *ngIf="(this.commonData.getOperation() === 'CREATE_RELEASEREJECT_REPORTING')">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="02" id="prodStatCode" label="{{'RELEASE' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected">
+          (onClick)="isReleaseReject ? onProdStatChange() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="01" id="prodStatCode" label="{{'PROD_STAT_NOT_PROCESSED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected">
+          (onClick)="isReleaseReject ? onProdStatChange() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+
+      <div id="prodStatCodeDecisionRow" *ngIf="((this.commonData.getOption() === 'SCRATCH' && bgRecord['tnxTypeCode'] !== '01' && bgRecord['tnxTypeCode'] !== '03' && bgRecord['tnxTypeCode'] !== '13') ||
+      (this.commonData.getMode() === 'DRAFT' && bgRecord['tnxTypeCode'] !== '15' && bgRecord['tnxTypeCode'] !== '01' && bgRecord['tnxTypeCode'] !== '03' && bgRecord['tnxTypeCode'] !== '13'))">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="04" id="prodStatCode" label="{{'PROD_STAT_APPROVED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="01" id="prodStatCode" label="{{'PROD_STAT_NOT_PROCESSED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="02" id="prodStatCode" label="{{'PROD_STAT_PENDING' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+      <div id="prodStatCodeDecisionRow" *ngIf="((this.commonData.getOption() === 'SCRATCH' && bgRecord['tnxTypeCode'] !== '01' && bgRecord['tnxTypeCode'] !== '03') ||
+      (this.commonData.getMode() === 'DRAFT' && bgRecord['tnxTypeCode'] === '13')) && !(isPendingMessageToBank && showWording)">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="07" id="prodStatCode" label="{{'PROD_STAT_APPROVED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="01" id="prodStatCode" label="{{'PROD_STAT_NOT_PROCESSED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="02" id="prodStatCode" label="{{'PROD_STAT_PENDING' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+      <div id="prodStatCodeDecisionRow" *ngIf="(this.commonData.getOption() === 'EXISTING' || this.isExistingDraftMenu)">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton value="04" id="prodStatCode" label="{{'PROD_STAT_APPROVED' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <p-radioButton value="02" id="prodStatCode" label="{{'PROD_STAT_PENDING' | translate}}" formControlName="prodStatCode" name="prodStatCodeSelected"
+          (onClick)="isPendingMessageToBank ? onProdStatChangeMsgToBank() : onProdStatChange(prodStatCodeSelected, 'fromReportingSection')">
+        </p-radioButton>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+      </div>
+      <div id="provisionalProdStatCodeRow" *ngIf="(reportingMessageDetailsSection.get('prodStatCode').value === '03' && showWording)">
+        <label for="provisionalProdStatCode" id="provisionalProdStatCodeLabel"></label>
+        <p-radioButton value="78" id="provisionalProdStatCode" label="{{'WORDING_UNDER_REVIEW' | translate}}" formControlName="provisionalProdStatCode" name="provisionalProdStatCodeSelected"
+          (onClick)="onSelectWordingDecision()">
+        </p-radioButton>
+        <p-radioButton value="79" id="provisionalProdStatCode" label="{{'FINAL_WORDING' | translate}}" formControlName="provisionalProdStatCode" name="provisionalProdStatCodeSelected"
+          (onClick)="onSelectWordingDecision()">
+        </p-radioButton>
+        <div *ngIf="reportingMessageDetailsSection.get('provisionalProdStatCode') && reportingMessageDetailsSection.get('provisionalProdStatCode').value &&
+        reportingMessageDetailsSection.get('provisionalProdStatCode').value != null && reportingMessageDetailsSection.get('provisionalProdStatCode').value !== ''" class="hint">{{'HINT_MESSAGE_FOR_RADIO' | translate}}</div>
+      </div>
+    <div *ngIf="isClaimPresentation">
+        <!-- Claim Reference -->
+        <div class = "field" id = "claimReferenceFieldRow">
+          <label for="claimReference" id="claimReferenceLabel">{{ 'CLAIM_REFERENCE_LABEL' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText formControlName="claimReference" id = "claimReference" (change)="validateClaimReference()"
+            [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('claimReference'))">
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('claimReference')"></fcc-common-error-message>
+        </div>
+        <!--Claim Presentation Date -->
+        <div class = "field"  id = "claimPresentDateRow">
+          <label for="claimPresentDate" id="claimPresentDateLabel">{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+          <p-calendar id="claimPresentDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="claimPresentDate" dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+          name="claimPresentationDateSelected" (onSelect) = "validateClaimPresentationDate()" class="content">
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('claimPresentDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.controls.claimPresentDate"></fcc-common-error-message>
+        </div>
+        <!-- Claim Amount -->
+        <div class = "field"  id = "claimAmtRow">
+         <label for="claimAmt" id="claimAmtLabel">{{'CLAIM_AMOUNT_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+            <input class="input-three-digit read-only-field" pInputText tabindex="-1" type="text" formControlName="claimCurCode" size="3" readonly>
+          <input type="text" pInputText formControlName="claimAmt" name="claimAmt" id= "claimAmt" pKeyFilter="num"
+          (blur)="this.commonService.transformAmtAndSetValidators(this.reportingMessageDetailsSection.get('claimAmt'),
+          this.reportingMessageDetailsSection.get('claimCurCode'), 'claimCurCode'); setValidatorClaimAmount();"
+          [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('claimAmt'))">
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('claimAmt')"></fcc-common-error-message>
+      </div>
+    </div>
+
+      <div id="docRefNoRow" *ngIf="enableDocRefNo">
+        <label for="docRefNo" id="docRefNoLabel">
+          {{ 'DOCUMENT_REFERENCE_NO' | translate }}<span *ngIf="docRefReq" class="required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="docRefNo" id="docRefNo"
+          [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('docRefNo'))">
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('docRefNo')"></fcc-common-error-message>
+      </div>
+      <div class = "field"  id = "tnxAmtRow" *ngIf="enableDocAmount">
+        <label for="tnxAmt" id="tnxAmtLabel">{{'DOCUMENT_AMOUNT' | translate }}<span *ngIf="docAmtReq" class="required-field-symbol">*</span>&nbsp;</label>
+         <input class="input-three-digit read-only-field" pInputText tabindex="-1" type="text" formControlName="tnxAmtCurCode" size="3" readonly>
+         <input type="text" pInputText formControlName="tnxAmt" name="tnxAmt" id= "tnxAmt" pKeyFilter="num"
+         (blur)="this.commonService.transformAmtAndSetValidators(this.reportingMessageDetailsSection.get('tnxAmt'),
+         this.reportingMessageDetailsSection.get('tnxAmtCurCode'), 'tnxAmtCurCode'); setValidatorDocumentAmount();"
+         [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('tnxAmt'))">
+         <fcc-common-error-message [control]="reportingMessageDetailsSection.get('tnxAmt')"></fcc-common-error-message>
+     </div>
+      <div id="boRefIdRow" *ngIf="(bgRecord['tnxTypeCode'] === '01') && enableBankReference">
+        <label for="boRefId" id="boRefIdLabel">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}<span class="required-field-symbol">*</span>&nbsp; </label>
+        <input pInputText formControlName="boRefId" id="boRefId" [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('boRefId'))">
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('boRefId')"></fcc-common-error-message>
+      </div>
+      <div *ngIf="enableIssueDate && (bgRecord['tnxTypeCode'] === '01'||(this.bgRecord.subTnxTypeCode === '88' || this.bgRecord.subTnxTypeCode === '89')) && !isRUDraftMode" class="field" id="issDateRow">
+         <label for="issDate" id="issDateLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}<span class="required-field-symbol" [style.display]="'inherit'">*</span>&nbsp;</label>
+        <p-calendar id="issDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="issDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+          (onSelect) = "setValidatorUnsignedIssueDate();"
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('issDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('issDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+      </div>
+      <div *ngIf="((enableIssueDate || enableAmendDate) && bgRecord['tnxTypeCode'] === '03') ||
+      (enableAmendDate && (this.commonData.getOption() === 'EXISTING' || isExistingDraftMenu))" id="bgAmdRow">
+        <div class="field" id="bgAmdDate">
+          <label for="bgAmdDate" id="bgAmdDateLabel">{{ 'AMENDMENT_DATE' | translate }}<span class="required-field-symbol" [style.display]="'inherit'">*</span>&nbsp;</label>
+          <p-calendar id="bgAmdDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="bgAmdDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+            (onSelect) = "setValidatorAmendDate();"
+            [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('bgAmdDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('bgAmdDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+        </div>
+      </div>
+
+      <div *ngIf="enableAdviseDate" class="field" id="adviseDateRow">
+        <label for="adviseDate" id="adviseDateLabel">{{ 'ADVISE_DATE' | translate }}</label>
+        <p-calendar id="adviseDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="adviseDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorOnAdviseDate()"
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('adviseDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('adviseDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+      </div>
+      <div *ngIf="enableMaturityDate" class="field" id="maturityDateRow">
+        <label for="maturityDate" id="maturityDateLabel">
+          <span *ngIf="this.commonData.getProdStatCode() === '05' || this.commonData.getProdStatCode() === '13'">
+		  {{ 'SETTLEMENT_DATE' | translate }}</span>&nbsp;
+          <span *ngIf="this.commonData.getProdStatCode() === '14' || this.commonData.getProdStatCode() === '15'">
+		  {{ 'PAYMENT_DATE' | translate }}</span>&nbsp;
+		  <span *ngIf="this.commonData.getProdStatCode() === '12' || this.commonData.getProdStatCode() === '26'
+               || this.commonData.getProdStatCode() === '04' || this.commonData.getProdStatCode() === '24'">
+		  {{ 'MATURITY_DATE' | translate }}</span>&nbsp;
+		  </label>
+      <p-calendar id="maturityDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="maturityDate"
+      onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorMaturityDate()"
+      [showButtonBar]="true"
+      [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('maturityDate')) ? 'calendarFieldError' : 'inherit'">
+    </p-calendar>
+    <a *ngIf="hasFieldValue('maturityDate')" class="fa fa-remove fa-lg text-danger" (click)="clearFieldValue('maturityDate');"></a>
+    <fcc-common-error-message [control]="reportingMessageDetailsSection.get('maturityDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+  </div>
+  <div *ngIf="enableResponseDate" class="field" id="responeDateRow">
+    <label for="latestResponseDate" id="responeDateLabel">{{ 'LATEST_RESPONSE_DATE' | translate }}</label>
+    <p-calendar id="latestResponseDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+    [showIcon]="true" dataType="string" formControlName="latestResponseDate"
+      onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorResponseDate()"
+    [showButtonBar]="true"
+      [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('latestResponseDate')) ? 'calendarFieldError' : 'inherit'">
+    </p-calendar>
+    <a *ngIf="hasFieldValue('latestResponseDate')" class="fa fa-remove fa-lg text-danger" (click)="clearFieldValue('latestResponseDate');"></a>
+    <fcc-common-error-message [control]="reportingMessageDetailsSection.get('latestResponseDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+  </div>
+
+      <div class="field" id="boComment" *ngIf="enableComment || this.commonData.getOption() === 'EXISTING'">
+        <label for="boComment" id="boCommentLabel" class="alignment-vertical-top">{{ 'LABEL_BO_COMMENT' | translate }}<span *ngIf="commentReq" class="required-field-symbol">*</span>&nbsp;</label>
+        <textarea class="textarea-fixed-height" fccCommonTextArea [controlName]="reportingMessageDetailsSection.get('boComment')" pInputTextarea [rows]="250" [cols]="66"
+          formControlName="boComment" id = "boCommentArea"
+          [class.fieldError]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('boComment'))">
+        </textarea>
+        <fcc-common-narrative-character-count [enteredCharCount]="reportingMessageDetailsSection.get('boComment').value ? reportingMessageDetailsSection.get('boComment').value.length : 0"
+        [allowedCharCount]="16500" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('boComment')"></fcc-common-error-message>
+        </div>
+
+      <div id="actionReqCodeRow" *ngIf="enableActionRequired">
+        <label for="actionReqCode" id = "actionReqCodeLabel" class="alignment-vertical-top">{{ 'REPORTINGDETAILS_ACTION_REQUIRED' | translate }}&nbsp;
+        </label>
+        <p-dropdown id = "actionReqCode" [options]="actionReqObj" formControlName="actionReqCode" [showClear]="actionRequiredClear" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;"
+        [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('actionReqCode')) ? 'dropDownFieldError' : 'inherit'" [readonly] = "actionReqReadOnly">
+        </p-dropdown>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('actionReqCode')"></fcc-common-error-message>
+      </div>
+    </p-panel>
+  </div>
+
+  <ng-template #view_content>
+   <div *ngIf= "this.commonData.getOption()!== 'SUMMARY' ">
+    <p-panel header="{{ 'HEADER_BANKERS_SECTION' | translate }}"  [toggleable]="true" [collapsed] ="false">
+    <div id="reportingMessageDetails">
+      <div id="prodStatCodeViewRow" *ngIf="bgRecord['tnxTypeCode'] !== '15'">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}&nbsp;</label>
+        <span *ngIf="(bgRecord['prodStatCode'] === '03' || bgRecord['prodStatCode'] === '98' || bgRecord['prodStatCode'] === '07'); else other_prod_stat">
+          <label class="label-left">{{'PROD_STAT_APPROVED' | translate}}</label>
+        </span>
+        <ng-template #other_prod_stat>
+          <span>
+            <label class="label-left">{{tradeCommonDataService.getProdStatusCode(bgRecord['prodStatCode']) | translate}}</label>
+          </span>
+        </ng-template>
+      </div>
+      <div id="prodStatCodeExistingViewRow" *ngIf="bgRecord['tnxTypeCode'] == '15'">
+        <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_DECISION' | translate }}&nbsp;</label>
+        <span *ngIf="bgRecord['tnxStatCode'] === '04' || bgRecord['tnxStatCode'] === '06'">
+          <label class="label-left">{{'PROD_STAT_APPROVED' | translate}}</label>
+        </span>
+        <span *ngIf="bgRecord['tnxStatCode'] === '05'">
+          <label class="label-left">{{'PROD_STAT_PENDING' | translate}}</label>
+        </span>
+      </div>
+      <!-- Claim presentation fields -->
+      <div id="claimReferenceRow" *ngIf="bgRecord['claimReference'] && bgRecord['claimReference'] !== null && bgRecord['claimReference'] !== ''">
+        <label for="claimReference" id="claimReferenceLabel">{{ 'CLAIM_REFERENCE_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['claimReference']}}</label>
+      </div>
+	    <div id="claimPresentDateRow" *ngIf="!isExistingUnsignedMode && bgRecord['claimPresentDate'] && bgRecord['claimPresentDate'] !== null && bgRecord['claimPresentDate'] !== ''">
+        <label for="claimPresentDate" id="claimPresentDateLabel">{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['claimPresentDate']}}</label>
+      </div>
+       <div class = "field"  id = "claimPresentDateRow" *ngIf="isExistingUnsignedMode && enableClaimDate">
+          <label for="claimPresentDate" id="claimPresentDateLabel">{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+          <p-calendar id="claimPresentDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="claimPresentDate" dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+          name="claimPresentationDateSelected" (onSelect) = "validateClaimPresentationDate()" class="content">
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('claimPresentDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.controls.claimPresentDate"></fcc-common-error-message>
+        </div>
+	    <div id="claimAmtRow" *ngIf="bgRecord['claimAmt'] && bgRecord['claimAmt'] !== null && bgRecord['claimAmt'] !== ''">
+        <label for="claimAmt" id="claimAmtLabel">{{ 'CLAIM_AMOUNT_LABEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['claimCurCode']}}&nbsp;{{bgRecord['claimAmt']}}</label>
+      </div>
+      <div id="docRefNoViewRow" *ngIf="bgRecord['docRefNo'] && bgRecord['docRefNo'] !== null && bgRecord['docRefNo'] !== ''">
+        <label for="docRefNo" id="docRefNoLabel">{{ 'DOCUMENT_REFERENCE_NO' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['docRefNo']}}</label>
+      </div>
+      <div id="tnxAmtViewRow" *ngIf="(((this.commonData.getProductCode() === 'BG' &&
+          this.bgRecord.purpose !== '01' &&
+        (bgRecord['cuTnxAmt'] && bgRecord['cuTnxAmt'] !== null && bgRecord['cuTnxAmt'] !== '')) ||
+        (bgRecord['tnxAmt'] && bgRecord['tnxAmt'] !== null && bgRecord['tnxAmt'] !== '')) &&
+      (bgRecord['prodStatCode'] === '12' || bgRecord['prodStatCode'] === '14' || bgRecord['prodStatCode'] === '15'
+      || bgRecord['prodStatCode'] === '05' || bgRecord['prodStatCode'] === '13' || bgRecord['prodStatCode'] === '04'
+      || bgRecord['prodStatCode'] === '24' || bgRecord['prodStatCode'] === '26'))">
+        <label for="tnxAmt" id="tnxAmtLabel">{{ 'DOCUMENT_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{((this.commonData.getProductCode() === 'BG' &&
+          this.bgRecord.purpose !== '01') ? bgRecord['cuCurCode'] : bgRecord['bgCurCode'])}}&nbsp;
+          {{((this.commonData.getProductCode() === 'BG' &&
+          this.bgRecord.purpose !== '01') ? bgRecord['cuTnxAmt'] : bgRecord['tnxAmt'])}}</label>
+      </div>
+      <div id="boRefIdViewRow" *ngIf="(bgRecord['tnxTypeCode'] !== '13' && bgRecord['prodCode'] === 'BR') && bgRecord['tnxTypeCode'] !== '15' && bgRecord['boRefId'] && bgRecord['boRefId'] !== null && bgRecord['boRefId'] !== ''">
+        <label for="boRefId" id="boRefIdLabel">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['boRefId']}}</label>
+      </div>
+      <div id="issueDateRow" *ngIf="enableIssueDate && bgRecord['issDate'] && bgRecord['issDate'] != null && bgRecord['issDate'] != '' && !(this.commonDataService.getMode() === 'UNSIGNED' && this.commonDataService.getOption() !== 'EXISTING' &&
+      this.commonDataService.getProductCode() === 'BG' && (bgRecord['tnxTypeCode'] === '01' || this.bgRecord.subTnxTypeCode === '88' || this.bgRecord.subTnxTypeCode === '89'))">
+        <label for="issDate" id="issDateLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['issDate']}}</label>
+      </div>
+      <div id="amendDateRow" *ngIf="((enableAmendDate  || bgRecord['tnxTypeCode'] === '15') && !isExistingUnsignedMode && !(this.commonDataService.getMode() === 'UNSIGNED' && this.commonDataService.getOption() !== 'EXISTING' && this.commonDataService.getProductCode() === 'BG' && bgRecord['tnxTypeCode'] === '03'))
+      && bgRecord['bgAmdDate'] && bgRecord['bgAmdDate'] != null && bgRecord['bgAmdDate'] != ''">
+        <label for="amendDate" id="amendDateLabel">{{ 'AMENDMENT_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgAmdDate']}}</label>
+      </div>
+      <div id="amendReqNoBGRow" *ngIf="bgRecord['bgAmdReqNo'] && bgRecord['bgAmdReqNo'] != null && bgRecord['bgAmdReqNo'] != '' &&
+       this.commonDataService.getProductCode() === 'BG' && bgRecord['prodStatCode'] === '01'">
+        <label for="bgAmdReqNo" id="amdReqNoBGLabel">{{ 'AMEND_GENERALDETAILS_AMENDMENT_REQUEST_NUMBER' | translate }}:&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{this.commonDataService.getBgAmdNo(this.bgRecord['bgAmdReqNo'])}}</label>
+      </div>
+      <div id="amendNoBGRow" *ngIf="bgRecord['bgAmdNo'] && bgRecord['bgAmdNo'] != null && bgRecord['bgAmdNo'] != '' &&
+       this.commonDataService.getProductCode() === 'BG'">
+        <label for="bgAmdNo" id="amdNoBGLabel">{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}:&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{this.commonDataService.getBgAmdNo(this.bgRecord['bgAmdNo'])}}</label>
+      </div>
+      <div id="amendNoRow" *ngIf="bgRecord['amdNo'] && bgRecord['amdNo'] != null && bgRecord['amdNo'] != '' &&
+         this.commonData.getProductCode() === 'BR'">
+        <label for="amdNo" id="amdNoLabel">{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}:&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['amdNo']}}</label>
+      </div>
+      <div *ngIf="enableAmendDate && isExistingUnsignedMode" class="field" id="bgAmdDateRow">
+          <label for="bgAmdDate" id="bgAmdDateLabel">{{ 'AMENDMENT_DATE' | translate }}<span class="required-field-symbol" [style.display]="'inherit'">*</span>&nbsp;</label>
+          <p-calendar id="bgAmdDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="bgAmdDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+            (onSelect) = "setValidatorAmendDate();"
+            [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('bgAmdDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('bgAmdDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+      </div>
+      <div id="adviseDateViewRow" *ngIf="((bgRecord['tnxTypeCode'] !== '13' && bgRecord['prodCode'] === 'BR') && (bgRecord['adviseDate'] && bgRecord['adviseDate'] !== null && bgRecord['adviseDate'] !== '')
+      && !(bgRecord['tnxTypeCode'] === '15') && !(isRUScratchUnsignedMode))">
+        <label for="adviseDateId" id="adviseDateIdLabel">{{ 'ADVISE_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['adviseDate']}}</label>
+      </div>
+      <div id="maturityDateViewRow" *ngIf="bgRecord['maturityDate'] && bgRecord['maturityDate'] !== null && bgRecord['maturityDate'] !== '' && !isExistingUnsignedMode">
+        <label for="maturityDateId" id="maturityDateIdLabel">
+          <span *ngIf="bgRecord['prodStatCode'] === '05' || bgRecord['prodStatCode'] === '13'">
+		  {{ 'SETTLEMENT_DATE' | translate }}</span>
+          <span *ngIf="bgRecord['prodStatCode'] === '14' || bgRecord['prodStatCode'] === '15'">
+		  {{ 'PAYMENT_DATE' | translate }}</span>
+		  <span *ngIf="bgRecord['prodStatCode'] === '12' || bgRecord['prodStatCode'] === '26'
+               || bgRecord['prodStatCode'] === '04' || bgRecord['prodStatCode'] === '24'">
+		  {{ 'MATURITY_DATE' | translate }}</span>&nbsp;
+		  </label>
+        <label class="label-left">{{bgRecord['maturityDate']}}</label>
+      </div>
+      <div *ngIf="enableMaturityDate && isExistingUnsignedMode" class="field" id="maturityDateRow">
+        <label for="maturityDate" id="maturityDateLabel">
+          <span *ngIf="bgRecord['prodStatCode'] === '05' || bgRecord['prodStatCode'] === '13'">
+            {{ 'SETTLEMENT_DATE' | translate }}</span>&nbsp;
+            <span *ngIf="bgRecord['prodStatCode'] === '14' || bgRecord['prodStatCode'] === '15'">
+              {{ 'PAYMENT_DATE' | translate }}</span>&nbsp;
+		  <span *ngIf="bgRecord['prodStatCode'] === '12' || bgRecord['prodStatCode'] === '26'
+               || bgRecord['prodStatCode'] === '04' || bgRecord['prodStatCode'] === '24'">
+		  {{ 'MATURITY_DATE' | translate }}</span>&nbsp;
+		  </label>
+        <p-calendar id="maturityDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="maturityDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorMaturityDate()"
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('maturityDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('maturityDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+      </div>
+      <div id="responeDateViewRow" *ngIf="bgRecord['latestResponseDate'] && bgRecord['latestResponseDate'] !== null && bgRecord['latestResponseDate'] !== ''">
+        <label for="responeDateId" id="responeDateIdLabel">{{ 'LATEST_RESPONSE_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['latestResponseDate']}}</label>
+      </div>
+      <!-- issue date editable for pending retrieved unsigned -->
+      <div *ngIf="(this.commonDataService.getMode() === 'UNSIGNED' && !isExistingUnsignedMode
+                 && !(isRUScratchUnsignedMode))">
+        <div *ngIf="((bgRecord['tnxTypeCode'] === '01'&& bgRecord['provisionalStatus'] !== 'Y') || (enableIssueDate && (bgRecord.subTnxTypeCode === '88' || this.bgRecord.subTnxTypeCode === '89')))" class="field" id="issDateRow">
+          <label for="issDate" id="issDateLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}<span class="required-field-symbol" [style.display]="'inherit'">*</span>&nbsp;</label>
+          <p-calendar id="issDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="issDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect) = "setValidatorUnsignedIssueDate()"
+            [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('issDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('issDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+        </div>
+        <div *ngIf="(bgRecord['tnxTypeCode'] === '03')" class="field" id="amendDateRow">
+          <label for="bgAmdDate" id="amendDateLabel">{{ 'AMENDMENT_DATE' | translate }}<span class="required-field-symbol" [style.display]="'inherit'">*</span>&nbsp;</label>
+          <p-calendar id="amendDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="bgAmdDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect) = "setValidatorUnsignedAmendDate()"
+            [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('bgAmdDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+          <fcc-common-error-message [control]="reportingMessageDetailsSection.get('bgAmdDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+        </div>
+      </div>
+      <div class="field" id="adviseDateRow" *ngIf="isRUScratchUnsignedMode">
+        <label for="adviseDateUnsigned" id="adviseDateUnsignedLabel">{{ 'ADVISE_DATE' | translate }}</label>
+        <p-calendar id="adviseDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="adviseDate"
+          onkeydown="return false" dateFormat="{{ this.dateFormat }}" (onSelect)="setValidatorOnAdviseDate()"
+          [styleClass]="validationService.isFieldInvalid(reportingMessageDetailsSection.get('adviseDate')) ? 'calendarFieldError' : 'inherit'"></p-calendar>
+        <fcc-common-error-message [control]="reportingMessageDetailsSection.get('adviseDate')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+      </div>
+      <div id="boCommentViewRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['boComment']])">
+        <label for="boComment" id="boCommentLabel">{{ 'LABEL_BO_COMMENT' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['boComment']}}</label>
+      </div>
+      <div id="actionReqCodeViewRow" *ngIf="bgRecord['actionReqCode'] && bgRecord['actionReqCode'] !== null && bgRecord['actionReqCode'] !== ''">
+        <label for="actionReqCode" id="actionReqCodeLabel">{{ 'REPORTINGDETAILS_ACTION_REQUIRED' | translate }}&nbsp;</label>
+        <label class="label-left">{{tradeCommonDataService.getBankActionReqCode((bgRecord['actionReqCode']), '')  | translate}}</label>
+      </div>
+    </div>
+    </p-panel>
+    <p-panel *ngIf="renderAdviceDiscrepancyAck() && (renderPreviousComment() || renderPreviousAttachment())" 
+      header="{{ 'ADVICE_OF_DISCREPANCIES' | translate }}"  [toggleable]="true" [collapsed] ="false">
+
+      <div id="adviceDiscrepancies">
+        <div id="boCommentViewRow" *ngIf="renderPreviousComment()">
+          <label for="boComment" id="boCommentLabel">{{ 'LABEL_PREVIOUS_BO_COMMENT' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord.objectData.parent_tnx_details.bo_comment}}</label>
+        </div>
+      </div>
+
+        <div *ngIf="commonData.getIsBankUser()" id="fileAttachment">
+          <div class="indented-header">
+            <h3>{{'PREVIOUS_BANK_FILES_UPLOAD' | translate }}</h3>
+          </div>
+          <div *ngIf="renderPreviousAttachment(); else no_attachment">
+            <p-table [value]="getPreviousRecord(this.bgRecord.objectData.parent_tnx_details.attachments.attachment)" sortMode="single">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+                  <th id="file-name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+                    <p-sortIcon [field]="'file_name'"></p-sortIcon>
+                  </th>
+                  <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+                    <p-sortIcon [field]="'title'"></p-sortIcon>
+                  </th>
+                  <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rec>
+                <tr *ngIf="rec.type === '02'">
+                  <td [ngSwitch]="true">
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'doc' || getFileExt(rec.file_name) === 'docx'">
+                      <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'pdf'">
+                      <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'gif'">
+                      <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'txt'">
+                      <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'csv'">
+                      <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'xls'">
+                      <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'xlsx'">
+                      <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'png' || getFileExt(rec.file_name) === 'PNG' ">
+                      <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'jpg' || getFileExt(rec.file_name) === 'jpeg' ">
+                      <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'zip'">
+                      <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchCase="getFileExt(rec.file_name) === 'rtf'">
+                      <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+                    </div>
+                    <div *ngSwitchDefault>
+                      <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+                    </div>
+                  </td>
+                  <td class="word-break-all">{{rec.file_name}}</td>
+                  <td class="word-break-all">{{rec.title}}</td>
+                  <td>
+                    <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachment_id, rec.file_name)">
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          <ng-template #no_attachment>
+            <span>
+              <label id="noAttach">{{ 'NO_ATTACHMENTS' | translate }}&nbsp;</label>
+            </span>
+          </ng-template>
+        </div>
+    </p-panel>
+   </div>
+  </ng-template>
+</div>

@@ -1,0 +1,5 @@
+<p-panel id="bgGeneralDetailsPanel" *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" header="{{'HEADER_UNDERTAKING_GENERAL_DETAILS' | translate}}" [toggleable]="true" [collapsed]="false">
+  <div [formGroup] = "undertakingGeneralDetailsSection">
+     <fcc-iu-common-general-details *ngIf="bgRecord !== ''" (resetRenewalDetails)="resetRenewalSection($event)" (downloadBankTemplate)="downloadTemplateFile($event)" [bgRecord]="bgRecord" [sectionForm]="undertakingGeneralDetailsSection" [undertakingType]="'bg'" (confInstructions)="setConfInstValue($event)" (expDate)="setExpDate($event)" (expiryDateExtension)="setExpiryDateForExtension($event)"></fcc-iu-common-general-details>
+  </div>
+</p-panel>

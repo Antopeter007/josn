@@ -1,0 +1,19 @@
+<form [formGroup]="setEntityForm" >
+
+ <p-confirmDialog id="headerDialog" header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+ <fcc-common-actions (handleEvents)="handleEvents($event)"></fcc-common-actions>
+
+
+  <fcc-trade-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('generalDetailsForm', $event)"></fcc-trade-general-details>
+
+  <div *ngIf="this.commonDataService.getProductCode() !== 'BR' ">
+    <fcc-trade-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('applicantDetailsForm', $event)"></fcc-trade-applicant-details>
+  </div>
+  <div *ngIf="this.commonDataService.getProductCode() === 'BR' ">
+    <fcc-trade-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('beneficiaryDetailsForm', $event)"></fcc-trade-beneficiary-details>
+  </div>
+  <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+
+  <fcc-common-actions [isFooter]="'true'" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+
+</form>

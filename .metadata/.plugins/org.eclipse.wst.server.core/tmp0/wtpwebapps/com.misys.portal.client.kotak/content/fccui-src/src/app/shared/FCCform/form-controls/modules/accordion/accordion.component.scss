@@ -1,0 +1,319 @@
+@import './../../../../../../styles/variables.scss';
+.p-col-1, .p-col-2, .p-col-3, .p-col-4, .p-col-5, .p-col-6, .p-col-7, .p-col-8, .p-col-9, .p-col-10, .p-col-11, .p-col-12 {
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.download:focus {
+  outline: black auto 1px !important;
+}
+
+.viewButton {
+  margin-top: 1em !important;
+  float: right !important;
+}
+
+:host ::ng-deep .mat-content {
+  align-items: center;
+}
+
+.setContentWidth{
+  width: 50%;
+}
+
+.threeDots{
+  font-size: 1.7em;
+  color: $CHARCOAL-F75;
+  border-radius: 50%;
+  position: relative;
+  opacity: 0.75;
+  top: -0.4em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.threeDots:hover{
+  background-color: rgba(158, 158, 158, 0.2);
+  cursor: pointer;
+  color: $primaryColor !important;
+}
+
+#threeDots{
+  border: none;
+  background: none;
+}
+
+#threeDots:focus{
+  background-color: rgba(158, 158, 158, 0.2)!important;
+  cursor: pointer;
+  border: .125em solid $VIOLET-F100 !important;
+  border-radius: 50%;
+}
+
+tr:hover > td .ellipisis, tr:focus-within > td .ellipisis{
+  cursor: pointer;
+  visibility:  visible;
+}
+.ellipisis {
+  color: $VIOLET-02;
+  visibility: hidden;
+}
+.overdraw {
+  visibility: visible;
+}
+
+:host ::ng-deep .ui-paginator {
+  background-color: #f4f4f4;
+  border: 0.065em solid #c8c8c8;
+  padding: 0;
+  background-color: rgba(217, 211, 245, 0.31);
+  border: 0.065em solid rgba(217, 211, 245, 0.31);
+}
+
+// :host ::ng-deep .ui-paginator .ui-paginator-page {
+//   visibility: hidden !important;
+// }
+
+// :host ::ng-deep .ui-paginator-first{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-prev{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-next{
+//   visibility: hidden  !important;
+// }
+
+// :host ::ng-deep .ui-paginator-last{
+//   visibility: hidden  !important;
+// }
+:host ::ng-deep .ui-paginator-right-content,
+:host ::ng-deep .ui-paginator-left-content {
+  line-height: 2.286em;
+  margin-left: 1em;
+  margin-right: 1em;
+  color: $GRAY;
+}
+:host ::ng-deep .ui-paginator-right-content{
+  width : 100%;
+  margin-top: -2.4em;
+}
+:host ::ng-deep .ui-paginator-left-content {
+  width : 100%;
+  margin-bottom: -2.4em;
+}
+.defaultAccountFlag{
+  width: 3em !important;
+}
+
+:host ::ng-deep .ui-paginator >  p-dropdown > .ui-dropdown{
+  visibility: hidden  !important;
+}
+
+.matCardHeaderPreview {
+  display: inline-flex;
+}
+.fcc-empty-icon-block {
+  margin: 1em;
+}
+
+.fcc-view-file-icon {
+  width: 1.2em;
+  // margin-right: 0.6em;
+}
+
+[dir=ltr] .fcc-view-file-div {
+  width: 50%;
+  float: left;
+  margin-top: 0.4em;
+}
+
+[dir=rtl] .fcc-view-file-div {
+  width: 50%;
+  float: right;
+  margin-top: 0.4em;
+}
+.actionData {
+  outline: 0.0625em solid $GREY-07 !important;
+  position: sticky !important;
+  right: 0 !important;
+  text-align: center !important;
+}
+
+[dir="rtl"].actionData {
+  outline: 0.0625em solid $GREY-07 !important;
+  position: sticky !important;
+  left: 0 !important;
+  text-align: center !important;
+}
+
+.actionHeader {
+  text-align: center !important;
+}
+
+.account-table{
+  float : left;
+  width: 100%;
+}
+
+// Header alightment Fix for QA
+.subheader-title-h4{
+  font-weight: normal;
+  margin-bottom: 1.35em !important;
+}
+
+.childStatusbackground {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 15em;
+  height: 3em;
+  float: right;
+}
+
+.childStatus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[dir="rtl"] .childStatusbackground {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 15em;
+  height: 3em;
+  float: left;
+  display: inline;
+}
+
+.childDetailsDiv {
+  display: flex;
+  justify-content: end;
+}
+
+.childDetails {
+  font-weight: 700;
+  color: #c037a1;
+  line-height: 0px;
+  font-size: 12px;
+  font-family: 'Roboto';
+  font-style: normal;
+  letter-spacing: 1.25px;
+}
+
+.childDetails:focus {
+  outline:none;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+[dir="rtl"] .childDetails {
+  font-weight: 700;
+  color: #c037a1;
+  line-height: 0px;
+  font-size: 12px;
+  font-family: 'Roboto';
+  font-style: normal;
+  letter-spacing: 1.25px;
+}
+
+[dir="rtl"] .childDetails:focus {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.matCardTitlePreview {
+  margin: 0 0.4em !important;
+  color: #694ed6 !important;
+}
+
+:host ::ng-deep mat-card.mat-card.mat-focus-indicator {
+  box-shadow: 0px 0px 1px 0px rgb(0 0 0 / 16%), 0px 0px 3px 0px #694ed6, 0px 7px 0px 0px #3333331f;
+  border-style: none;
+}
+
+:host ::ng-deep .p-col-6.ng-star-inserted {
+  padding-right: 25px;
+  width: auto;
+  flex: 1 0 auto;
+}
+
+:host ::ng-deep .mat-card-content .p-grid.p-col-12 {
+  flex: 1 0 auto;
+}
+
+:host ::ng-deep mat-card-content.mat-card-content {
+  margin-left: 0.5em !important;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+  outline: 0em;
+}
+
+:host ::ng-deep .mat-card-header.matCardHeaderPreview {
+  margin-left: -10px;
+}
+
+@media screen and (max-width: 1280px) {
+  :host ::ng-deep .p-col-6.ng-star-inserted {
+    width: 12em;
+    padding-right: 9px;
+    flex: 0 0 auto;
+  }
+}
+:host ::ng-deep .ui-message{
+  border: none;
+}
+
+.btn-section{
+  width:7em;
+}
+
+.accordion_expand_all,.accordion_collapse_all{
+    width: 2em;
+    position: relative;
+    bottom: 0.1em;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+}
+
+.accordion_expand_all{
+  float: left;
+  border-radius: 50%;
+  margin-left: 2.1em;
+}
+
+.accordion_expand_all .mat-icon,.accordion_collapse_all .mat-icon{
+    position: relative;
+    top: 0.3em;
+    padding-left: 0.3em;
+    margin-left: 0.2em;
+}
+
+.accordion-master-expand,.accordion-master-collapse{
+     border-radius: 50%;
+     background-color: #edebfa;
+}
+
+.accordion-expan-coll-all-left .accordion_expand_all.accordion_expand_all{
+  float: inherit;
+  bottom: -2em;
+  margin-left: 3em;
+}
+.accordion-expan-coll-all-left .mat-icon.mat-icon{
+  left: 0.5em;
+}
+
+.accordion-expan-coll-all{
+  position: relative;
+}
+
+.accordion-expan-coll-all-left{
+  margin-top: -2em !important;
+}

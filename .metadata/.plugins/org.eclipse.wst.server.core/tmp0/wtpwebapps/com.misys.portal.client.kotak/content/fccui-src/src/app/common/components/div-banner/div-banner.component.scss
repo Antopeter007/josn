@@ -1,0 +1,72 @@
+@import './../../../../styles/variables.scss';
+
+:host ::ng-deep  .ui-card {
+    background-color: transparent;
+    color: $uiCardColor;
+    box-shadow: none;
+  }
+
+  .top-wrapper{
+    border-radius: 0.1875em;
+    background-color: $enquirydetailsBackgroundColor;
+    box-shadow: $topWrapperBoxShadow;
+}
+.top-lc-wrapper {
+    padding: 2em 2em 0em 2em;
+}
+.middle-lc-wrapper{
+    border-bottom: 0.1em solid rgb(114, 113, 113);
+}
+.lc-small-text{
+  color: $enquirydetailsmallTextColor;
+  font-family: Roboto;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.188em;
+  opacity: 0.700;
+  letter-spacing: 0.03125em;
+
+}
+.lc-large-text{
+    color: $enquiryDetailsLargeTextColor;
+    font-family: Roboto;
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.75em;
+    margin-left: 0.3em;
+}
+.padd-all{
+  padding: 0.5em 0.5em 0.5em 1em;
+}
+.padd-lft {
+  padding: 2.5em 0em 1.5em 0em;
+}
+.medium-text{
+  color:$enquiryDetailsMediumTextColor;
+  font-family: Roboto;
+  font-size: 1.313em;
+  font-weight: 500;
+  line-height: 1.500em;
+  margin-top: 0.4em;
+  word-break: break-all;
+  letter-spacing: 0.03125em;
+
+}
+.border-class{
+    border-right: $borderClassBorderRight;
+    min-height: 0em;
+}
+
+.border-class-left{
+  border-left: 0.0625em solid $WHITE;
+  min-height: 0em;
+}
+
+.textalign{
+  text-align: center;
+}
+.small-text-c {
+  font-size: 1em;
+  color: $enquirydetailsmallTextColor;
+  letter-spacing:0.0125em;
+}

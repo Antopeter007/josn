@@ -1,0 +1,44 @@
+<ion-view>
+    
+    <div class="bar bar-stable bar-subheader bar-flex-direction-column">
+        <h2 class="title">{{"HOME" | translate}}</h2>
+        
+        <div class="buttons-container-margin" ng-if="vm.slidesCount > 1">
+    		<div class="left">
+	          <button class="button button-positive button-clear no-animation icon ion-chevron-left navigation-icon-left"
+	                  ng-click="vm.previous()" ng-if="vm.currSlide > 0">
+	
+	          </button>
+	        </div>
+	        <div class="right">
+	          <button class="button button-positive button-clear no-animation icon ion-chevron-right navigation-icon-right"
+	                  ng-click="vm.next()" ng-if="vm.currSlide < (vm.slidesCount-1)"> 
+	          </button>
+	        </div>
+        </div>
+    </div>
+    
+    <ion-content class="has-subheader home-scroll-content" dir="ltr">
+     	<ion-slide-box show-pager="false" scroll="true"
+           on-slide-changed="vm.slideChanged(vm.currSlide)">
+            <ion-slide>
+	           <h4 class="text-alignment-center">{{"CUSTOMER_DETAILS" | translate}}</h4>
+		       <div align="center" ng-bind-html="vm.customerContent" class="customer-content"></div>
+           </ion-slide>
+            <ion-slide>
+	           <h4 class="text-alignment-center">{{"SUMMARY_DETAILS" | translate}}</h4>
+		       <ng-include src="'content/mobile/template/home/homeTemplates/charts.html'"></ng-include>
+           </ion-slide>
+           <ion-slide>
+	           <h4 class="text-alignment-center">{{"INTERNAL_NEWS" | translate}}</h4>
+		       <ng-include src="'content/mobile/template/home/homeTemplates/internalNews.html'"></ng-include>
+           </ion-slide>
+     	</ion-slide-box>
+     	
+     </ion-content>
+     
+     <div class="tabs">
+  	    <button class="button button-block button-positive misys-big-button" ng-click="vm.toPending()">{{"PENDING_TASKS" | translate}} <span class="badge badge-assertive misys-badge">{{count}}</span></button>
+  	 </div>
+  	 
+</ion-view>

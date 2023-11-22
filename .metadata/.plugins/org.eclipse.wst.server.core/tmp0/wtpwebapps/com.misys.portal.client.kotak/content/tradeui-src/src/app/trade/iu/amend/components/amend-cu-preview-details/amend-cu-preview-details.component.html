@@ -1,0 +1,16 @@
+<div class = "toplevel-header">
+<div>
+    <p-panel header="{{ 'COUNTER_UNDERTAKING' | translate }}" [toggleable]="true" [collapsed] ="false">
+      <div>
+        <fcc-iu-cu-general-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-general-details>
+        <fcc-iu-cu-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-beneficiary-details>
+        <fcc-iu-initiate-cu-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-amount-details>
+        <fcc-iu-cu-renewal-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-renewal-details>
+        <fcc-iu-cu-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-reduction-increase>
+        <fcc-iu-cu-payment-details *ngIf="jsonContent && this.iuCommonDataService.getCUSubProdCode() === 'STBY'" [bgRecord]="jsonContent"></fcc-iu-cu-payment-details>
+        <fcc-iu-initiate-cu-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-undertaking-details>
+      </div>
+  </p-panel>
+  <button pButton type="button" style="margin:5px;" (click) = "onClose()" label="{{ 'ACTION_USER_CLOSE' | translate}}" class="ui-button-raised"></button>
+</div>
+</div>

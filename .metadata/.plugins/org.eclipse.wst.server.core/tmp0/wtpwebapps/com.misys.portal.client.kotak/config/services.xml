@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<turbine>
+	<services>
+		<InterfacesService>
+			<classname>com.misys.portal.interfaces.services.XMLConfigurationInterfacesService</classname>
+			<encoding>UTF-8</encoding>
+			<components>/config/interfaces/components.xml</components>
+			<interfaces>/config/interfaces/interfaces.xml</interfaces>
+			<custom_components>/config/interfaces/client_components.xml</custom_components>
+			<custom_interfaces>/config/interfaces/client_interfaces.xml</custom_interfaces>
+			<earlyInit>true</earlyInit>
+		</InterfacesService>		
+		<PortalResourcesService>
+			<classname>com.misys.portal.services.resources.ClassLoaderPortalResourcesService</classname>
+			<earlyInit>true</earlyInit>
+		</PortalResourcesService>
+		<XMLCatalogService>
+			<classname>com.misys.portal.services.xmlcatalog.ClassloaderXMLCatalogService</classname>
+		</XMLCatalogService>
+		<XMLReaderService>
+			<classname>com.misys.portal.services.xmlreader.SAXXMLReaderService</classname>
+			<sax_features>
+				<sax_feature name="http://xml.org/sax/features/validation">true</sax_feature>
+				<sax_feature name="http://apache.org/xml/features/validation/dynamic">true</sax_feature>
+				<sax_feature name="http://apache.org/xml/features/validation/schema">true</sax_feature>
+			</sax_features>				
+			<apache_features>
+				<apache_feature name="http://apache.org/xml/features/xinclude">true</apache_feature>
+				<apache_feature name="http://apache.org/xml/features/xinclude/fixup-base-uris">false</apache_feature>
+				<apache_feature name="http://apache.org/xml/features/xinclude/fixup-language">false</apache_feature>
+			</apache_features>
+			<validation>true</validation>
+		</XMLReaderService>
+		<SchematronService>
+			<classname>com.misys.portal.services.schematron.SchematronCachingService</classname>
+			<earlyInit>true</earlyInit>
+			<cache>true</cache> <!-- all stylesheets are loaded everytime when cache is disabled -->
+			<xsd2sch>/schematron/xsd2sch.xsl</xsd2sch>
+			<sch2xsl>/schematron/schematron-basic.xsl</sch2xsl>
+		</SchematronService>
+		<DaemonFactory>
+			<classname>com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService</classname>
+			<earlyInit>true</earlyInit>
+		</DaemonFactory>		
+	</services>
+</turbine>

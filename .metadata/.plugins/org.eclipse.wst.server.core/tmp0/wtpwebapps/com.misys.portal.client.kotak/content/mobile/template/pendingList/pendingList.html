@@ -1,0 +1,22 @@
+<ion-view>
+    <div class="bar bar-stable bar-subheader">
+        <h2 class="title">{{"PENDING_TASKS" | translate}} <span ng-show="vm.pendingItemCount >= 0" class="badge badge-assertive misys-badge">{{vm.pendingItemCount}}</span></h2>
+        <button ng-class="vm.filterApplied ? 'button button-clear filter-applied' : 'button button-clear'" ng-click="vm.openModal()"><em class="fa fa-filter fa-1x"></em>
+        </button>
+    </div>
+
+    <ion-content class="has-subheader">
+        <p class="message" ng-show="vm.pendingItemCount == 0"> &nbsp;<em class="ion-document"></em>&nbsp;{{"NO_RECORDS" | translate}}</p>
+        <ion-list>
+            <ion-item class="misys-item" on-tap="vm.getTransactionDetail(pendingItem)" collection-repeat="pendingItem in vm.pendingListItem">
+            	<div class="card card-layout">
+                    <div class="item item-text-wrap account-balance-items" ng-repeat="item in pendingItem" ng-if="item.label">
+                        <div class="row row-item-label">{{item.label | translate}} :</div>
+                        <div class="row">{{item.value}}</div>
+                    </div>
+            	</div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="vm.moreDataCanBeLoaded()" on-infinite="vm.addItems()"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

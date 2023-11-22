@@ -1,0 +1,537 @@
+<div *ngIf="commonDataService.getPreviewOption() !== 'DETAILS'">
+  <p-panel header="{{ 'HEADER_EVENT_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+    <!-- View Amend Event details section -->
+    <div id="eventDetails">
+      <div id="company_name_view_row" *ngIf="bgRecord['companyName'] && bgRecord['companyName'] != null && bgRecord['companyName'] != ''">
+        <label for="companyName" id="companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+        <span *ngIf="(companyFullName && companyFullName !==null && companyFullName !== ''); else companyName">
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{companyFullName}}</label>
+        </span>
+        <ng-template #companyName>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['companyName']}}</label>
+        </ng-template>
+      </div>
+      <div id="releaseDttmRow" *ngIf="bgRecord['releaseDttm'] && bgRecord['releaseDttm'] != null &&   bgRecord['releaseDttm'] != ''">
+        <label for="releaseDttm">{{ 'TRANSACTIONDETAILS_RELEASE_DTTM' | translate }}&nbsp;</label>
+        <span *ngIf="(completeDate && completeDate !== null && completeDate !== ''); else bgReleaseDate">
+          <label class="label-left">{{completeDate}}</label>
+        </span>
+        <ng-template #bgReleaseDate>
+          <label class="label-left">{{bgRecord['releaseDttm']}}</label>
+        </ng-template>
+      </div>
+      <div id="ref_id_row" *ngIf="bgRecord['refId'] && bgRecord['refId'] != null &&   bgRecord['refId'] != ''">
+        <label for="refId">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['refId']}}</label>
+      </div>
+      <div id="product_code_row" *ngIf="bgRecord['productCode'] && bgRecord['productCode'] != null &&   bgRecord['productCode'] != ''">
+        <label for="productCode">{{ 'TRANSACTIONDETAILS_PRODUCT_CODE' | translate }}&nbsp;</label>
+        <label class="label-left">{{ bgRecord['productCode'] | translate }}</label>
+      </div>
+      <div id = "purpose_row" *ngIf="bgRecord['tnxTypeCode'] == '13' || (bgRecord['tnxTypeCode'] === '03' && bgRecord['subTnxTypeCode'] === '05') && bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] !== ''">
+        <label for = "purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getPurpose(bgRecord['purpose']) | translate}}</label>
+      </div>
+      <div id="sub_product_code_view_row" *ngIf="bgRecord['subProductCode'] && bgRecord['subProductCode'] != null && bgRecord['subProductCode']">
+        <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+      </div>
+      <!-- Beneficiary Reference -->
+      <div id = "beneficiaryReferenceViewRow" *ngIf ="bgRecord['tnxTypeCode'] == '13' && bgRecord['beneficiaryReference'] && bgRecord['beneficiaryReference'] != null && bgRecord['beneficiaryReference'] != ''">
+        <label for ="beneficiaryReference" id = "beneficiaryReferenceLabel">{{ 'PARTIESDETAILS_BENEFICIARY_REFERENCE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['beneficiaryReference']}}</label>
+      </div>
+      <div id="sub_tnx_type_code_row" *ngIf="(bgRecord['tnxTypeCode'] && bgRecord['tnxTypeCode'] != null &&   bgRecord['tnxTypeCode'] != '') || (bgRecord['subTnxTypeCode'] && bgRecord['subTnxTypeCode'] != null &&   bgRecord['subTnxTypeCode'] != '')">
+        <label for="subTnxTypeCode">{{ 'TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getTnxTypeCode(bgRecord['tnxTypeCode']) | translate}}&nbsp;{{commonDataService.getTnxSubTypeCode(bgRecord['subTnxTypeCode']) | translate}}</label>
+      </div>
+      <div id="cust_ref_id_row" *ngIf="bgRecord['custRefId'] && bgRecord['custRefId'] != null &&   bgRecord['custRefId'] != ''">
+        <label for="custRefId">{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['custRefId']}}</label>
+      </div>
+      <div id="bo_ref_id_row" *ngIf="bgRecord['boRefId'] && bgRecord['boRefId'] != null &&   bgRecord['boRefId'] != ''">
+        <label for="boRefId">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['boRefId']}}</label>
+      </div>
+      <div id="bo_tnx_id_row" *ngIf="bgRecord['bo_tnx_id'] && bgRecord['bo_tnx_id'] != null &&   bgRecord['bo_tnx_id'] != ''">
+        <label for="boRefId">{{ 'GENERALDETAILS_BO_TNX_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bo_tnx_id']}}</label>
+      </div>
+      <div id="amd_no_row" *ngIf="bgRecord['bgAmdNo'] && bgRecord['bgAmdNo'] != null &&   bgRecord['bgAmdNo'] != ''">
+        <label for="bgAmdNo">{{ 'AMEND_GENERALDETAILS_AMENDMENT_NUMBER' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getBgAmdNo(bgRecord['bgAmdNo'])}}</label>
+      </div>
+      <div id="amd_date_row" *ngIf="bgRecord['bgAmdDate'] && bgRecord['bgAmdDate'] != null &&   bgRecord['bgAmdDate'] != ''">
+        <label for="bgAmdDate">{{ 'AMEND_GENERALDETAILS_AMENDMENT_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgAmdDate']}}</label>
+      </div>
+      <div id="exp_date_row" *ngIf="bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null && bgRecord['bgExpDate'] != ''">
+        <label for="bgExpDate">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgExpDate']}}</label>
+      </div>
+      <div id="exp_date_type_code_row" *ngIf="bgRecord['bgExpDateTypeCode'] && bgRecord['bgExpDateTypeCode'] != null && bgRecord['bgExpDateTypeCode'] != ''">
+        <label for="bgExpDateTypeCode">{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getExpiryType(bgRecord['bgExpDateTypeCode']) | translate}}</label>
+      </div>
+      <div id="bg_amt_row" *ngIf="((commonService.isFieldsValuesExists([bgRecord['subTnxTypeCode']]) && bgRecord['subTnxTypeCode'] === '21') ||
+        (commonService.isFieldsValuesExists([bgRecord['prodStatCode']]) && bgRecord['prodStatCode'] === '86')) && commonService.isFieldsValuesExists([bgRecord['tnxAmt']])">
+        <label for="tnxAmt" >{{'AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['tnxCurCode']}}&nbsp;{{bgRecord['tnxAmt']}}</label>
+      </div>
+      <div id="iss_date_type_code_row" *ngIf="bgRecord['bgIssDateTypeCode'] && bgRecord['bgIssDateTypeCode'] != null &&   bgRecord['bgIssDateTypeCode'] != ''">
+        <label for="bgIssDateTypeCode">{{ 'AMEND_GENERALDETAILS_START_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getIssueDateTypeCode(bgRecord['bgIssDateTypeCode']) | translate}}</label>
+      </div>
+      <div id="iss_date_row" *ngIf="bgRecord['issDate'] && bgRecord['issDate'] != null &&   bgRecord['issDate'] != ''">
+        <label for="issDate">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <label class="label-left">{{bgRecord['issDate']}}</label>
+      </div>
+    </div>
+      <div *ngIf = "!(bgRecord['tnxTypeCode'] === '03' && bgRecord['subTnxTypeCode'] === '05')" id ="eventAmountDetails">
+        <div id="tnxAmtRow" *ngIf="bgRecord['tnxAmt'] && bgRecord['tnxAmt'] != null &&   bgRecord['tnxAmt'] != '' && bgRecord['purpose'] === '01'">
+          <label for="tnxAmt">{{ 'TRANSACTION_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['tnxCurCode']}}&nbsp;{{bgRecord['tnxAmt']}}</label>
+        </div>
+
+        <div id="tnxAmtRow" *ngIf="bgRecord['cuTnxAmt'] && bgRecord['cuTnxAmt'] != null && bgRecord['cuTnxAmt'] != '' && bgRecord['purpose'] !== '01'">
+          <label for="tnxAmt">{{ 'TRANSACTION_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuTnxAmt']}}</label>
+        </div>
+
+        <div id="bg_amt_row" *ngIf="bgRecord['tnxTypeCode'] === '03' && bgRecord['bgAmt'] && bgRecord['bgAmt'] != null &&   bgRecord['bgAmt'] != ''">
+          <label for="bgAmt">{{ 'NEW_GUARANTEE_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['bgAmt']}}</label>
+        </div>
+        <div id="bg_release_flag_row" *ngIf="bgRecord['bgReleaseFlag'] && bgRecord['bgReleaseFlag'] != null && bgRecord['bgReleaseFlag'] != '' && bgRecord['bgReleaseFlag'] === 'Y'">
+          <label for="bgReleaseFlag">{{ 'IU_AMEND_AMOUNT_RELEASE_FULL' | translate }}&nbsp;</label>&nbsp;
+        </div>
+    </div>
+
+    <div id="instructionsToBank" class="indented-header" *ngIf = "((!(bgRecord['tnxTypeCode'] === '03' && bgRecord['subTnxTypeCode'] === '05') && !isMessageToBank && this.commonData.getProductCode() === 'BG') || (bgRecord['productCode'] === 'BR' && bgRecord['tnxTypeCode'] === '13')) && doesFieldValueExist">
+      <h3>{{'HEADER_INSTRUCTIONS' | translate }}</h3>
+        <div id = "delv_org_undertaking_view_row" *ngIf ="bgRecord['bgDelvOrgUndertaking'] && bgRecord['bgDelvOrgUndertaking'] != null && bgRecord['bgDelvOrgUndertaking'] != ''">
+            <label *ngIf = "bgRecord['tnxTypeCode'] !== '03'" for =  "bgDelvOrgUndertaking" id =  "delv_org_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_ORG_UNDERTAKING' | translate }}&nbsp;</label>
+            <label *ngIf = "bgRecord['tnxTypeCode'] === '03'" for =  "bgDelvAmdUndertaking" id =  "delv_amd_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_AMD_UNDERTAKING' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getOriginalUndertakingDel(bgRecord['bgDelvOrgUndertaking']) | translate}}</label>
+        </div>
+        <div id = "delv_org_undertaking_text_view_row" *ngIf ="bgRecord['bgDelvOrgUndertaking'] && (bgRecord['bgDelvOrgUndertaking'] == '99' || bgRecord['bgDelvOrgUndertaking'] == '02') && bgRecord['bgDelvOrgUndertakingText'] && bgRecord['bgDelvOrgUndertakingText'] != null && bgRecord['bgDelvOrgUndertakingText'] != ''">
+            <label for =  "bgDelvOrgUndertakingText" id =  "delv_org_undertaking_text_label">&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgDelvOrgUndertakingText']}}</label>
+        </div>
+        <div id = "br_delv_org_undertaking_view_row" *ngIf ="bgRecord['delvOrgUndertaking'] && bgRecord['delvOrgUndertaking'] != null && bgRecord['delvOrgUndertaking'] != ''">
+          <label for =  "delvOrgUndertaking" id = "br_delv_org_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_ORG_UNDERTAKING' | translate }}&nbsp;</label>
+          <label class="label-left">{{commonDataService.getOriginalUndertakingDel(bgRecord['delvOrgUndertaking']) | translate}}</label>
+        </div>
+        <div id = "br_delv_org_undertaking_text_view_row" *ngIf ="bgRecord['delvOrgUndertakingText'] && (bgRecord['delvOrgUndertaking'] == '99' || bgRecord['delvOrgUndertaking'] == '02') && bgRecord['delvOrgUndertakingText'] && bgRecord['delvOrgUndertakingText'] != null && bgRecord['delvOrgUndertakingText'] != ''">
+            <label for =  "delvOrgUndertakingText" id =  "br_delv_org_undertaking_text_label">&nbsp;</label>
+            <label class="label-left">{{bgRecord['delvOrgUndertakingText']}}</label>
+        </div>
+        <div id = "principal_act_no_view_row" *ngIf ="bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+            <label for =  "bgPrincipalActNo" id =  "principal_act_no_label">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+        </div>
+        <div id = "fee_act_no_view_row" *ngIf ="bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+            <label for =  "bgFeeActNo" id =  "fee_act_no_label">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+        </div>
+        <div id = "delivery_to_view_row" *ngIf ="bgRecord['bgDeliveryTo'] && bgRecord['bgDeliveryTo'] != null && bgRecord['bgDeliveryTo'] != ''">
+            <label for =  "bgDeliveryTo" id =  "delivery_to_label">{{ 'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getDeliveryTo(bgRecord['bgDeliveryTo']) | translate}}</label>
+        </div>
+        <div id =  "delivery_to_other_view_row" *ngIf ="bgRecord['bgDeliveryTo'] && this.deliveryToOtherApplicableCode.indexOf(bgRecord['bgDeliveryTo']) > -1  && bgRecord['bgDeliveryToOther'] && bgRecord['bgDeliveryToOther'] != null && bgRecord['bgDeliveryToOther'] != ''">
+            <label for =  "bgDeliveryToOther" id =  "delivery_to_other_label">&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['bgDeliveryToOther']}}</label>
+        </div>
+        <div id = "free_format_text_view_row" *ngIf ="bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+            <label for =  "bgFreeFormatText" id =  "free_format_text_label">{{ 'INSTRUCTIONS_OTHER_INFORMATION' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['bgFreeFormatText']}}</label>
+        </div>
+        <!-- RU Free format message-->
+        <div id = "freeFormatTextRow" *ngIf ="bgRecord['freeFormatText'] && bgRecord['freeFormatText'] != null && bgRecord['freeFormatText'] != ''">
+           <label for = "freeFormatText">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+           <label class="label-left-narrative">{{bgRecord['freeFormatText']}}</label>
+        </div>
+    </div>
+
+    <div *ngIf="bgRecord['attachments'] && bgRecord['attachments'] !== '' && hasCustomerAttach && commonData.getIsBankUser()" id="fileAttachment">
+          <div class="indented-header">
+            <h3>{{'CUSTOMER_FILES_UPLOAD' | translate }}</h3>
+          </div>
+          <p-table [value]="bgRecord['attachments']['attachment']" sortMode="single">
+            <ng-template pTemplate="header">
+              <tr>
+                <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+                <th id="file_name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+                  <p-sortIcon [field]="'file_name'"></p-sortIcon>
+                </th>
+                <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+                  <p-sortIcon [field]="'title'"></p-sortIcon>
+                </th>
+                <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rec>
+              <tr *ngIf="rec.type === '01'">
+                <td [ngSwitch]="true">
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'doc' || getFileExt(rec.fileName) === 'docx'">
+                    <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'pdf'">
+                    <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'gif'">
+                    <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'txt'">
+                    <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'csv'">
+                    <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'xls'">
+                    <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'xlsx'">
+                    <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'png' || getFileExt(rec.fileName) === 'PNG' ">
+                    <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'jpg' || getFileExt(rec.fileName) === 'jpeg' ">
+                    <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'zip'">
+                    <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'rtf'">
+                    <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchDefault>
+                    <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+                  </div>
+                </td>
+                <td class="word-break-all">{{rec.fileName}}</td>
+                <td class="word-break-all">{{rec.title}}</td>
+                <td>
+                  <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachmentId, rec.fileName)">
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <div id='sendAttachmentDetails' *ngIf="this.commonService.getTnxType()!='13'">
+            <div id="sendAttachmentsByRow" *ngIf="bgRecord['bgSendAttachmentsBy'] && bgRecord['bgSendAttachmentsBy'] != null && bgRecord['bgSendAttachmentsBy'] != ''">
+              <label for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}&nbsp;</label>
+              <label class="label-left">{{commonDataService.getSendAttachments(bgRecord['bgSendAttachmentsBy']) | translate}}</label>
+            </div>
+
+            <div id="sendAttachmentsByOtherRow" *ngIf="bgRecord['bgSendAttachmentsByOther'] && bgRecord['bgSendAttachmentsByOther'] != null && bgRecord['bgSendAttachmentsByOther'] != ''">
+              <label for="bgSendAttachmentsByOther">&nbsp;</label>
+              <label class="label-left">{{bgRecord['bgSendAttachmentsByOther']}}</label>
+            </div>
+            </div>
+      </div>
+
+    <div *ngIf="(this.commonData.getProductCode() === 'BR' && !isMessageToBank) ||
+                (this.commonData.getProductCode() === 'BG' && bgRecord['tnxStatCode'] === '04') ||
+                (this.commonData.getIsBankUser())">
+      <div class="indented-header">
+        <h3>{{'HEADER_BANK_MESSAGE' | translate }}</h3>
+      </div>
+      <div id="messageToBank">
+        <div id="releaseDttmRow" *ngIf="bgRecord['releaseDttm'] && bgRecord['releaseDttm'] != null && bgRecord['releaseDttm'] != ''">
+          <label for="releaseDttm">{{ 'TRANSACTIONDETAILS_RELEASE_DTTM' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['releaseDttm']}}</label>
+        </div>
+        <div id="prod_stat_row" *ngIf="bgRecord['prodStatCode'] && bgRecord['prodStatCode'] != null && bgRecord['prodStatCode'] != ''">
+          <label for="prod_stat_code">{{ 'GENERALDETAILS_PROD_STAT_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{commonDataService.getProdStatusCode(bgRecord['prodStatCode']) | translate}}</label>
+        </div>
+        <div id="principal_act_no_row" *ngIf="bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+          <label for="bgPrincipalActNo">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+        </div>
+        <div id="fee_act_no_row" *ngIf="bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+          <label for="bgFeeActNo">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+        </div>
+        <div id="bo_ref_id_row" *ngIf="bgRecord['boRefId'] && bgRecord['boRefId'] != null &&   bgRecord['boRefId'] != ''">
+          <label for="boRefId">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['boRefId']}}</label>
+        </div>
+        <div id="claim_reference_row" *ngIf="bgRecord['claimReference'] && bgRecord['claimReference'] !== null && bgRecord['claimReference'] !== ''">
+          <label for="claim_reference" id="claim_reference_label">{{ 'CLAIM_REFERENCE_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['claimReference']}}</label>
+        </div>
+        <div id="claim_present_date_row" *ngIf="bgRecord['claimPresentDate'] && bgRecord['claimPresentDate'] !== null && bgRecord['claimPresentDate'] !== ''">
+          <label for="claim_present_date" id="claim_present_date_label">{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['claimPresentDate']}}</label>
+        </div>
+        <div id="claim_amt_row" *ngIf="bgRecord['claimAmt'] && bgRecord['claimAmt'] !== null && bgRecord['claimAmt'] !== ''">
+          <label for="claim_amt" id="claim_amt_label">{{ 'CLAIM_AMOUNT_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['claimCurCode']}}&nbsp;{{bgRecord['claimAmt']}}</label>
+        </div>
+        <div id="bo_comment_row" *ngIf="bgRecord['boComment'] && bgRecord['boComment'] != null && bgRecord['boComment'] != ''">
+          <label for="boRefId">{{ 'REPORTINGDETAILS_COMMENT_BANK' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['boComment']}}</label>
+        </div>
+        <div id="actionReqRow" *ngIf="bgRecord['actionReqCode'] && bgRecord['actionReqCode'] != null && bgRecord['actionReqCode'] != ''">
+          <label for="actionReqCode">{{ 'REPORTINGDETAILS_ACTION_REQUIRED' | translate }}&nbsp;</label>
+          <label class="label-left">{{this.commonDataService.getActionReqCode(bgRecord['actionReqCode']) | translate}}</label>
+        </div>
+        <div id = "br_delv_org_undertaking_view_row" *ngIf ="this.commonData.getProductCode() === 'BR' && bgRecord['delvOrgUndertaking'] && bgRecord['delvOrgUndertaking'] != null && bgRecord['delvOrgUndertaking'] != ''">
+          <label *ngIf = "bgRecord['tnxTypeCode'] !== '03'" for =  "delvOrgUndertaking" id =  "br_delv_org_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_ORG_UNDERTAKING' | translate }}&nbsp;</label>
+          <label *ngIf = "bgRecord['tnxTypeCode'] === '03'" for =  "delvOrgUndertaking" id =  "br_delv_amd_undertaking_label">{{ 'INSTRUCTIONS_DELIVERY_OF_AMD_UNDERTAKING' | translate }}&nbsp;</label>
+          <label class="label-left">{{commonDataService.getOriginalUndertakingDel(bgRecord['delvOrgUndertaking']) | translate}}</label>
+        </div>
+        <div id = "br_delv_org_undertaking_text_view_row" *ngIf ="this.commonData.getProductCode() === 'BR' && bgRecord['delvOrgUndertakingText'] && (bgRecord['delvOrgUndertaking'] == '99' || bgRecord['delvOrgUndertaking'] == '02') && bgRecord['delvOrgUndertakingText'] && bgRecord['delvOrgUndertakingText'] != null && bgRecord['delvOrgUndertakingText'] != ''">
+            <label for =  "delvOrgUndertakingText" id =  "br_delv_org_undertaking_text_label">&nbsp;</label>
+            <label class="label-left">{{bgRecord['delvOrgUndertakingText']}}</label>
+        </div>
+        <div id="bgDeliveryToRow" *ngIf="this.commonData.getProductCode() === 'BR' && bgRecord['bgDeliveryTo'] && bgRecord['bgDeliveryTo'] != null && bgRecord['bgDeliveryTo'] != ''">
+          <label for="bgDeliveryTo">{{'INSTRUCTIONS_DELIVERY_TO_LABEL' | translate }}&nbsp;</label>
+          <label class="label-left">{{commonDataService.getDeliveryTo(bgRecord['bgDeliveryTo']) | translate}}</label>
+        </div>
+        <div id="bgDeliveryToOtherRow" *ngIf="this.commonData.getProductCode() === 'BR' && bgRecord['bgDeliveryTo'] && this.deliveryToOtherApplicableCode.indexOf(bgRecord['bgDeliveryTo']) > -1 && bgRecord['bgDeliveryToOther'] && bgRecord['bgDeliveryToOther'] != null && bgRecord['bgDeliveryToOther'] != ''">
+          <label for="bgDeliveryToOther">&nbsp;</label>
+          <label class="label-left-narrative">{{bgRecord['bgDeliveryToOther']}}</label>
+        </div>
+        <div id="docRefNoViewRow" *ngIf="bgRecord['docRefNo'] && bgRecord['docRefNo'] !== null && bgRecord['docRefNo'] !== ''">
+          <label for="docRefNo" id="docRefNoLabel">{{ 'DOCUMENT_REFERENCE_NO' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['docRefNo']}}</label>
+        </div>
+        <div id="tnxAmtViewRow" *ngIf="(bgRecord['tnxAmt'] && bgRecord['tnxAmt'] !== null && bgRecord['tnxAmt'] !== ''
+        && (bgRecord['prodStatCode'] === '12' || bgRecord['prodStatCode'] === '14' || bgRecord['prodStatCode'] === '15'
+        || bgRecord['prodStatCode'] === '05' || bgRecord['prodStatCode'] === '13' || bgRecord['prodStatCode'] === '04'
+        || bgRecord['prodStatCode'] === '24' || bgRecord['prodStatCode'] === '26'))">
+          <label for="tnxAmt" id="tnxAmtLabel">{{ 'DOCUMENT_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['bgCurCode']}}&nbsp;{{bgRecord['tnxAmt']}}</label>
+        </div>
+        <div id="maturityDateViewRow" *ngIf="bgRecord['maturityDate'] && bgRecord['maturityDate'] !== null && bgRecord['maturityDate'] !== ''">
+          <label for="maturityDateId" id="maturityDateIdLabel">
+            <span *ngIf="bgRecord['prodStatCode'] === '05' || bgRecord['prodStatCode'] === '13'">
+        {{ 'SETTLEMENT_DATE' | translate }}</span>&nbsp;
+            <span *ngIf="bgRecord['prodStatCode'] === '14' || bgRecord['prodStatCode'] === '15'">
+        {{ 'PAYMENT_DATE' | translate }}</span>&nbsp;
+        <span *ngIf="bgRecord['prodStatCode'] === '12' || bgRecord['prodStatCode'] === '26'
+                 || bgRecord['prodStatCode'] === '04' || bgRecord['prodStatCode'] === '24'">
+        {{ 'MATURITY_DATE' | translate }}</span>&nbsp;
+        </label>
+          <label class="label-left">{{bgRecord['maturityDate']}}</label>
+        </div>
+        <div id="responeDateViewRow" *ngIf="bgRecord['latestResponseDate'] && bgRecord['latestResponseDate'] !== null && bgRecord['latestResponseDate'] !== ''">
+          <label for="responeDateId" id="responeDateIdLabel">{{ 'LATEST_RESPONSE_DATE' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['latestResponseDate']}}</label>
+        </div>
+      </div>
+
+      <div *ngIf="bgRecord['attachments'] && bgRecord['attachments'] !== '' && hasBankAttach && commonData.getIsBankUser()" id="fileAttachment">
+          <div class="indented-header">
+            <h3>{{'BANK_FILES_UPLOAD' | translate }}</h3>
+          </div>
+          <p-table [value]="bgRecord['attachments']['attachment']" sortMode="single">
+            <ng-template pTemplate="header">
+              <tr>
+                <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+                <th id="file_name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+                  <p-sortIcon [field]="'file_name'"></p-sortIcon>
+                </th>
+                <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+                  <p-sortIcon [field]="'title'"></p-sortIcon>
+                </th>
+                <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rec>
+              <tr *ngIf="rec.type === '02'">
+                <td [ngSwitch]="true">
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'doc' || getFileExt(rec.fileName) === 'docx'">
+                    <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'pdf'">
+                    <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'gif'">
+                    <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'txt'">
+                    <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'csv'">
+                    <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'xls'">
+                    <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'xlsx'">
+                    <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'png' || getFileExt(rec.fileName) === 'PNG' ">
+                    <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'jpg' || getFileExt(rec.fileName) === 'jpeg' ">
+                    <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'zip'">
+                    <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchCase="getFileExt(rec.fileName) === 'rtf'">
+                    <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+                  </div>
+                  <div *ngSwitchDefault>
+                    <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+                  </div>
+                </td>
+                <td class="word-break-all">{{rec.fileName}}</td>
+                <td class="word-break-all">{{rec.title}}</td>
+                <td>
+                  <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachmentId, rec.fileName)">
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <div id='sendAttachmentDetails' *ngIf="this.commonService.getTnxType()!='13'">
+            <div id="sendAttachmentsByRow" *ngIf="bgRecord['bgSendAttachmentsBy'] && bgRecord['bgSendAttachmentsBy'] != null && bgRecord['bgSendAttachmentsBy'] != ''">
+              <label for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}&nbsp;</label>
+              <label class="label-left">{{commonDataService.getSendAttachments(bgRecord['bgSendAttachmentsBy']) | translate}}</label>
+            </div>
+
+            <div id="sendAttachmentsByOtherRow" *ngIf="bgRecord['bgSendAttachmentsByOther'] && bgRecord['bgSendAttachmentsByOther'] != null && bgRecord['bgSendAttachmentsByOther'] != ''">
+              <label for="bgSendAttachmentsByOther">&nbsp;</label>
+              <label class="label-left">{{bgRecord['bgSendAttachmentsByOther']}}</label>
+            </div>
+            </div>
+      </div>
+
+      <div *ngIf="!commonData.getIsBankUser() && !isMaster && bgRecord['charges'] && bgRecord['charges'] !== ''" id="chargeDetailsRow">
+        <div class="indented-header">
+          <h3>{{'HEADER_CHARGE_DETAILS' | translate }}</h3>
+        </div>
+        <p-table [value]="bgRecord['charges']['charge']" sortMode="single" id="chargesTable">
+          <ng-template pTemplate="header">
+            <tr>
+              <th id="chrg_code" class="tablecol-width-10" [pSortableColumn]="'chrgCode'">{{ "CHARGE_TYPE" | translate}}
+                <p-sortIcon [field]="'chrgCode'"></p-sortIcon>
+              </th>
+              <th id="additional_comment" class="tablecol-width-40" [pSortableColumn]="'additionalComment'">{{ "CHARGE_DESCRIPTION" | translate}}
+                <p-sortIcon [field]="'additionalComment'"></p-sortIcon>
+              </th>
+              <th id="cur_code" class="tablecol-width-10" [pSortableColumn]="'curCode'">{{ "CHARGE_CURRENCY" | translate}}
+                <p-sortIcon [field]="'curCode'"></p-sortIcon>
+              </th>
+              <th id="amt" class="tablecol-width-15" [pSortableColumn]="'amt'">{{ "CHARGE_AMOUNT" | translate}}
+                <p-sortIcon [field]="'amt'"></p-sortIcon>
+              </th>
+              <th id="status" class="tablecol-width-10" [pSortableColumn]="'status'">{{ "CHARGE_STATUS" | translate}}
+                <p-sortIcon [field]="'status'"></p-sortIcon>
+              </th>
+              <th id="settlement_date" class="tablecol-width-15" [pSortableColumn]="'settlementDate'">{{ "CHARGE_SETTLEMENT_DATE" | translate}}
+                <p-sortIcon [field]="'settlementDate'"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rec>
+            <tr>
+              <td>{{ commonDataService.getChargeType(rec.chrgCode) | translate }}</td>
+              <td>{{ rec.additionalComment }}</td>
+              <td>
+                <div *ngIf="rec.eqv_cur_code === '' || rec.eqv_cur_code === null  ;else eqvCCY">
+                  {{ rec.curCode }}
+                </div>
+                <ng-template #eqvCCY>
+                  {{ rec.eqv_cur_code }}
+                </ng-template>
+              </td>
+              <td>
+                <div *ngIf="rec.eqv_amt === '' || rec.eqv_amt === null  ;else eqvAMT">
+                  {{ rec.amt }}
+                </div>
+                <ng-template #eqvAMT>
+                  {{ rec.eqv_amt }}
+                </ng-template>
+              </td>
+              <td>{{ commonDataService.getChargeStatus(rec.status) | translate }}</td>
+              <td>{{rec.settlementDate}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+     </div>
+    </div>
+    <div *ngIf="bgRecord['attachments'] && bgRecord['attachments'] !== '' && !commonData.getIsBankUser()">
+      <div class="indented-header">
+        <h3>{{'KEY_HEADER_FILE_UPLOAD' | translate }}</h3>
+      </div>
+      <p-table [value]="bgRecord['attachments']['attachment']" sortMode="single">
+        <ng-template pTemplate="header">
+          <tr>
+            <th id="type" [pSortableColumn]="'type'">{{ "ATTACHMENT_TYPE" | translate}}</th>
+            <th id="file_name" [pSortableColumn]="'file_name'">{{ "FILE_NAME" | translate}}
+              <p-sortIcon [field]="'file_name'"></p-sortIcon>
+            </th>
+            <th id="title" [pSortableColumn]="'title'">{{ "KEY_FILE_TITLE" | translate}}
+              <p-sortIcon [field]="'title'"></p-sortIcon>
+            </th>
+            <th id="status" [pSortableColumn]="'status'">{{ 'KEY_FILE_ACTIONS' | translate}}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rec>
+          <tr>
+            <td [ngSwitch]="true">
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'doc' || getFileExt(rec.fileName) === 'docx'">
+                <img src="{{imagePath}}file_doc.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'pdf'">
+                <img src="{{imagePath}}file_pdf.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'gif'">
+                <img src="{{imagePath}}file_gif.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'txt'">
+                <img src="{{imagePath}}file_txt.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'csv'">
+                <img src="{{imagePath}}file_csv.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'xls'">
+                <img src="{{imagePath}}file_xls.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'xlsx'">
+                <img src="{{imagePath}}file_xlsx.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'png' || getFileExt(rec.fileName) === 'PNG' ">
+                <img src="{{imagePath}}file_png.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'jpg' || getFileExt(rec.fileName) === 'jpeg' ">
+                <img src="{{imagePath}}file_jpeg.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'zip'">
+                <img src="{{imagePath}}file_zip.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchCase="getFileExt(rec.fileName) === 'rtf'">
+                <img src="{{imagePath}}file_rtf.gif" class="cursor" alt="download">
+              </div>
+              <div *ngSwitchDefault>
+                <img src="{{imagePath}}file_ext.gif" class="cursor" alt="download">
+              </div>
+            </td>
+            <td class="word-break-all">{{rec.fileName}}</td>
+            <td class="word-break-all">{{rec.title}}</td>
+            <td>
+              <img src="{{imagePath}}download.png" class="cursor" alt="Download" type="remove" (click)="downloadAttachmentService.download(rec.attachmentId, rec.fileName)">
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div id='sendAttachmentDetails' *ngIf="this.commonService.getTnxType()!='13'">
+      <div id="send_attachments_by_row" *ngIf="bgRecord['bgSendAttachmentsBy'] && bgRecord['bgSendAttachmentsBy'] != null && bgRecord['bgSendAttachmentsBy'] != ''">
+        <label for="bgSendAttachmentsBy">{{'FILESDETAILS_FILEACT_DELIVERY_CHANNEL' | translate }}&nbsp;</label>
+        <label class="label-left">{{commonDataService.getSendAttachments(bgRecord['bgSendAttachmentsBy']) | translate}}</label>
+      </div>
+
+      <div id="send_attachments_by_other_row" *ngIf="bgRecord['bgSendAttachmentsByOther'] && bgRecord['bgSendAttachmentsByOther'] != null && bgRecord['bgSendAttachmentsByOther'] != ''">
+        <label for="bgSendAttachmentsByOther">&nbsp;</label>
+        <label class="label-left">{{bgRecord['bgSendAttachmentsByOther']}}</label>
+      </div>
+      </div>
+    </div>
+  </p-panel>
+</div>

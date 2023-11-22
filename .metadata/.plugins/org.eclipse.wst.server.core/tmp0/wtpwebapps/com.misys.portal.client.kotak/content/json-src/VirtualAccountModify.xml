@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+
+	<header>
+
+		<sourceappcode>JARVIS</sourceappcode>
+
+		<RqUID>2</RqUID>
+
+		<action_type>VAM_CREATE_MODIFY</action_type>
+
+		<crn>38288199</crn>
+
+		<corp_crn></corp_crn>
+		<company_name></company_name>
+		<company_code>UNICHEM</company_code>
+		<sub_company_code>aa</sub_company_code>
+		<account_no>01730010012048</account_no>
+	</header>
+	<request_status>
+
+		<error_flag>N</error_flag>
+
+		<error_desc>Request Successfully Processed</error_desc>
+
+	</request_status>
+</Response> 

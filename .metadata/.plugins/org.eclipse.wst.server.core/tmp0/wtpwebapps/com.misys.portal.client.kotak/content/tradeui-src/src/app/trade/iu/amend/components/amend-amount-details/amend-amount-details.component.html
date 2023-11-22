@@ -1,0 +1,106 @@
+<p-panel header="{{ 'HEADER_AMEND_AMOUNT_DETAILS' | translate }}"[toggleable]="true" [collapsed] ="true">
+  <div *ngIf="!unsignedMode; else unsigned_content">
+    <div>
+      <div [formGroup]="amendAmtForm">
+        <div id =  "originalUndertakingAmtRow" class = "field">
+          <label for = "originalUndertakingAmt" >{{ 'AMEND_AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+          <input type="text" name="orgCurCode" class="input-three-digit" value="{{orgData?.bgCurCode}}" readonly pInputText>&nbsp;&nbsp;
+          <input name="orgAmt" value="{{this.originalUndertakingAmt}}" readonly pInputText>
+        </div>
+       <div class = "field" id =  "increaseAmtRow">
+          <label for = "increaseAmt" >{{ 'AMEND_AMOUNTDETAILS_INCREASE_AMOUNT' | translate }}&nbsp;</label>
+          <input type="text" class="input-three-digit" value="{{bgRecord['bgCurCode']}}" readonly pInputText>&nbsp;&nbsp;
+          <input formControlName="incAmt" name="incAmt" pKeyFilter="num"  (blur)= "this.commonService.transformNumber(this.amendAmtForm.get('incAmt'), this.amendAmtForm.get('tnxCurCode')); calculateNewUndertakingIncreaseAmount();" type="text" pInputText>
+          <fcc-common-error-message [control]="amendAmtForm.controls.incAmt" ></fcc-common-error-message>
+        </div>
+        <div id =  "decreaseAmtRow" class = "field">
+            <label for = "decreaseAmt" >{{ 'AMEND_AMOUNTDETAILS_DECREASE_AMOUNT' | translate }}&nbsp;</label>
+            <input type="text" class="input-three-digit" value="{{bgRecord['bgCurCode']}}" readonly pInputText>&nbsp;&nbsp;
+            <input formControlName="decAmt" name="decAmt" pKeyFilter="num" (blur)= "this.commonService.transformNumber(this.amendAmtForm.get('decAmt'), this.amendAmtForm.get('tnxCurCode')); calculateNewUndertakingDecreaseAmount()" type="text" pInputText>
+            <fcc-common-error-message [control]="amendAmtForm.controls.decAmt" ></fcc-common-error-message>
+          </div>
+        <div id =  "newUndertakingAmtRow" class = "field">
+          <label for = "newUndertakingAmt" >{{ 'AMEND_AMOUNTDETAILS_NEW_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+          <input type="text" class="input-three-digit" value="{{bgRecord['bgCurCode']}}" readonly pInputText>&nbsp;&nbsp;
+          <input type="text" formControlName="bgAmt" name="bgAmt" value="" readonly pInputText>
+        </div>
+        <div class="field">
+          <label id="positiveToleranceLabel">{{'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_POS_TOL' | translate }}&nbsp;</label>
+          <input class = "input-three-digit" id="bgTolerancePositivePct" pInputText type="text" formControlName="bgTolerancePositivePct" maxlength="2" pKeyFilter="pnum"
+              [class.fieldError]="validationService.isFieldInvalid(amendAmtForm.get('bgTolerancePositivePct'))">%
+          <fcc-common-error-message [control]="amendAmtForm.get('bgTolerancePositivePct')"></fcc-common-error-message>
+        </div>
+        <div class="field">
+          <label id="negativeToleranceLabel">{{'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_NEG_TOL' | translate }}&nbsp;</label>
+          <input class = "input-three-digit" id = "bgToleranceNegativePct" pInputText type="text" formControlName="bgToleranceNegativePct" maxlength="2" pKeyFilter="pnum"
+            [class.fieldError]="validationService.isFieldInvalid(amendAmtForm.get('bgToleranceNegativePct'))">%
+            <fcc-common-error-message [control]="amendAmtForm.get('bgToleranceNegativePct')"></fcc-common-error-message>
+        </div>
+        <div class="field">
+          <label>{{'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+          <textarea class="textarea-fixed-height" id="bgNarrativeAdditionalAmount" fccCommonTextArea [controlName]="amendAmtForm.get('bgNarrativeAdditionalAmount')"
+          pInputTextarea [rows]="12" [cols]="65" formControlName="bgNarrativeAdditionalAmount"
+          [class.fieldError]="validationService.isFieldInvalid(amendAmtForm.get('bgNarrativeAdditionalAmount'))">
+          </textarea>
+          <fcc-common-narrative-character-count [enteredCharCount]="amendAmtForm.get('bgNarrativeAdditionalAmount').value ? amendAmtForm.get('bgNarrativeAdditionalAmount').value.length : 0"
+          [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="amendAmtForm.get('bgNarrativeAdditionalAmount')"></fcc-common-error-message>
+        </div>
+        <div id =  "outstandingAmtRow" class = "field">
+          <label for = "outstandingAmt" >{{ 'AMEND_AMOUNTDETAILS_OUTSTANDING_AMOUNT' | translate }}&nbsp;</label>
+          <input type="text" class="input-three-digit" value="{{orgData?.bgCurCode}}" readonly pInputText>&nbsp;&nbsp;
+          <input type="text" value="{{this.commonService.transformAmt(orgData?.bgLiabAmt, this.bgRecord.bgCurCode)}}" readonly pInputText>
+        </div>
+
+          <input type="hidden" formControlName="tnxAmt"/>
+          <input type="hidden" formControlName="tnxCurCode"/>
+          <input type="hidden" formControlName="subTnxTypeCode"/>
+      </div>
+    </div>
+  </div>
+
+     <!--View-->
+     <ng-template #unsigned_content>
+          <div *ngIf="orgData.bgAmt && orgData.bgAmt != null &&  orgData.bgAmt != ''">
+              <label for = "oldUndertakingAmt"> {{ 'AMEND_AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }} &nbsp;</label>
+              <label class="input-three-digit-readonly">{{bgRecord['bgCurCode']}}</label>&nbsp;
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.bgAmt}}</label>
+          </div>
+          <div id = "increaseAmtViewRow" *ngIf="isIncremented && bgRecord['tnxAmt'] && bgRecord['tnxAmt'] != null && bgRecord['tnxAmt'] !== ''">
+              <label for = "increaseAmt"> {{ 'AMEND_AMOUNTDETAILS_INCREASE_AMOUNT' | translate }} &nbsp;</label>
+              <label class="input-three-digit-readonly">{{bgRecord['bgCurCode']}}</label>&nbsp;
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['tnxAmt']}}</label>
+          </div>
+          <div id = "decreaseAmtViewRow" *ngIf="!isIncremented && bgRecord['tnxAmt'] && bgRecord['tnxAmt'] != null && bgRecord['tnxAmt'] !== ''">
+              <label for = "decreaseAmt"> {{ 'AMEND_AMOUNTDETAILS_DECREASE_AMOUNT' | translate }} &nbsp;</label>
+              <label class="input-three-digit-readonly">{{bgRecord['bgCurCode']}}</label>&nbsp;
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['tnxAmt']}}</label>
+          </div>
+          <div id = "undertakingAmtViewRow" *ngIf="bgRecord['bgAmt'] && bgRecord['bgAmt'] != null && bgRecord['bgAmt'] !== ''">
+              <label for = "undertakingAmt"> {{ 'AMEND_AMOUNTDETAILS_NEW_UNDERTAKING_AMOUNT' | translate }} &nbsp;</label>
+              <label class="input-three-digit-readonly">{{bgRecord['bgCurCode']}}</label>&nbsp;
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgAmt']}}</label>
+          </div>
+
+          <div id="bg_tolerance_positive_pct_view_row" *ngIf ="bgRecord['bgTolerancePositivePct'] && bgRecord['bgTolerancePositivePct'] != null && bgRecord['bgTolerancePositivePct'] != ''">
+            <label for="bgTolerancePositivePct" id="bgTolerancePositivePct_label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_POS_TOL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgTolerancePositivePct']}} %</label>
+          </div>
+
+          <div id="bg_tolerance_negative_pct_view_row" *ngIf ="bgRecord['bgToleranceNegativePct'] && bgRecord['bgToleranceNegativePct'] != null && bgRecord['bgToleranceNegativePct'] != ''">
+            <label for="bgToleranceNegativePct" id="bg_tolerance_negative_pct_label">{{ 'LU_AMOUNTDETAILS_UNDERTAKING_AMOUNT_NEG_TOL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgToleranceNegativePct']}} %</label>
+          </div>
+
+          <div id="bg_narrative_additional_amount_view_row" *ngIf ="bgRecord['bgNarrativeAdditionalAmount'] && bgRecord['bgNarrativeAdditionalAmount'] != null && bgRecord['bgNarrativeAdditionalAmount'] != ''">
+            <label for="bgNarrativeAdditionalAmount" id="narrative_additional_amount_label">{{ 'AMOUNTDETAILS_ADD_AMOUNT_INFO' | translate }}&nbsp;</label>
+            <label class="label-left-narrative">{{bgRecord['bgNarrativeAdditionalAmount']}}</label>
+          </div>
+
+          <div id = "outstandingAmtViewRow" *ngIf="bgRecord['bgLiabAmt'] && bgRecord['bgLiabAmt'] != null && bgRecord['bgLiabAmt'] !== ''">
+              <label for = "outstandingAmt"> {{ 'AMEND_AMOUNTDETAILS_OUTSTANDING_AMOUNT' | translate }} &nbsp;</label>
+              <label class="input-three-digit-readonly">{{bgRecord['bgCurCode']}}</label>&nbsp;
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgLiabAmt']}}</label>
+          </div>
+    </ng-template>
+</p-panel>

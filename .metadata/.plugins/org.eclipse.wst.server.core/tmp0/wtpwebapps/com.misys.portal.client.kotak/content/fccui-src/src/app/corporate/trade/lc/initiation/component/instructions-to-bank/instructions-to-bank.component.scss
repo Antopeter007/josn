@@ -1,0 +1,77 @@
+@import '../../../../../../../styles/variables.scss';
+:host ::ng-deep .otherInst .ui-widget {
+  padding: 0em 0.429em 0em 0em;
+  margin-left: -1.5em;
+  resize: none;
+  width: 103%;
+}
+
+// :host ::ng-deep .ui-float-label label {
+//   color: $uiFloatLabel-LabelColor;
+//   font-weight: 400;
+//   font-size: 1em;
+//   line-height: 0.9375em;
+// }
+
+:host ::ng-deep .ui-dropdown,
+:host ::ng-deep .ui-inputtext {
+  background-color: transparent !important;
+}
+
+:host ::ng-deep .ui-dropdown .ui-dropdown-panel {
+  margin-left: 0em !important;
+}
+
+:host ::ng-deep .ui-dropdown-trigger-icon {
+  font-size: 1em;
+}
+
+:host ::ng-deep.otherInst {
+  margin-top: 1.5em;
+  padding: 0em 0.429em 0em 0em;
+}
+:host ::ng-deep.otherInst textarea{
+  resize: none;
+  font-family: Roboto !important;
+}
+
+.principalAct, .feeAct {
+  margin-top: 2em;
+}
+
+:host ::ng-deep.ammendPrincipalAct{
+  width: 95% !important;
+}
+
+:host ::ng-deep.ammendFeeAct{
+  width: 95% !important;
+}
+
+:host ::ng-deep.otherInst  .infoIcon .material-icons{
+  top: .5em;
+  right: -2.9em;
+}
+
+:host ::ng-deep .indented-text-area-field-65 {
+  width: 100%;
+  margin-top: 2em;
+}
+
+:host ::ng-deep .indented-text-area-field-65-with-scrollbar {
+  width: 100%;
+  margin-top: 2em;
+}
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  border-bottom: none !important ;
+  width: 100%;
+  padding-right: 0.159em;
+}
+
+:host ::ng-deep .ui-dropdown-panel .ui-dropdown-items-wrapper {
+  overflow-x: hidden !important;
+}
+
+[dir=rtl] :host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-left: 2em !important;
+}

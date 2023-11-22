@@ -1,0 +1,103 @@
+/*
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		RTL version of the Base theme, extended by all other themes. 
+  		
+	description:
+	  	The base theme describes the overall layout of the portal in terms of
+	  	positioning, typography, HTML and Dijit overrides, portlet organisation and
+	  	screen-specific CSS. All other themes extend base with their own colours, 
+	  	fonts, backgrounds, positioning, etc.
+	  	
+	  	RTL Base is organised into the following files
+	  	
+	  	- welcome_rtl.css          (Loaded by all unsecured pages)
+	  	- base_rtl.css             (Loaded by all other pages)
+	  	- common/document_rtl.css  (Typography presets, commonly used classes)
+	  	- common/layout_rtl.css    (Row/Col layout, positioning, header/footer, menu)
+	  	- common/portlets_rtl.css  (Portlet layout, definition of rules for Portlet Specification classes)
+	  	- common/dijit_rtl.css     (Any overrides of core Dijit classes. Must be qualified with .base)
+	  	- common/forms_rtl.css     (Styles for forms, for both edit and view modes)
+	  	- common/screens_rtl.css   (Any screen-specific styles)
+	  	
+	  	Custom themes should override Base in the following way
+	  	
+	  	1. In portal.properties, set dojo.css.core.theme as follows
+	  	
+	  			dojo.css.core.theme = claro base
+	  	
+	  	2. Set dojo.css.theme to the name of your theme, e.g. myTheme
+	  	
+	  	3. Create the folder /js-src/misys/themes/myTheme
+	  	
+	  	4. Create the file welcome.css.
+	  	
+	  	5.	Import "../base/welcome.css";
+	  	
+	  	6. Create the file myTheme.css.
+	  	
+	  	7. Import "../base/base.css";
+	  	
+	  	8. If you need to override any rule in Base, create the corresponding CSS file in your
+	  	   theme and add the new rule there, ensuring that you import it as needed in welcome.css
+	  	   or myTheme.css. 
+	  	   
+	  	 9. If you need to override Dijit classes, you must qualify the override with the name
+	  	    of your theme, which is set as a class on the <body> tag. E.g. 
+	  	    
+	  	    .myTheme .dijitDialog {
+	  	    	// rule override
+	  	    }
+
+	version:   1.0
+	date:      11/04/2014
+	author:    Gurudath JC
+	email:     gurudath.reddy@misys.com
+*/
+
+/* Dojo imports used by the theme */
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dojox/layout/resources/FloatingPane.css";
+@import "../../../dojox/layout/resources/ResizeHandle.css";
+@import "../../../dojox/layout/resources/ToggleSplitter.css";
+@import "../../../dijit/themes/claro/Common.css";
+@import "../../../dijit/themes/claro/Tree.css";
+@import "../../../dijit/themes/claro/layout/ContentPane.css";
+@import "../../../dijit/themes/claro/layout/TabContainer.css";
+@import "../../../dijit/themes/claro/layout/BorderContainer.css";
+@import "../../../dijit/themes/claro/form/Common.css";
+@import "../../../dijit/themes/claro/form/Button.css";
+@import "../../../dijit/themes/claro/form/Checkbox.css";
+@import "../../../dijit/themes/claro/form/RadioButton.css";
+@import "../../../dijit/themes/claro/ProgressBar.css";
+@import "../../../dijit/themes/claro/TitlePane.css";
+@import "../../../dijit/themes/claro/Calendar.css";
+@import "../../../dijit/themes/claro/Dialog.css";
+@import "../../../dijit/themes/claro/Editor.css";
+@import "../../../dijit/themes/claro/Menu.css";
+@import "../../../dijit/icons/editorIcons.css";
+@import "../../../dojox/editor/plugins/resources/editorPlugins.css";
+@import "../../../dojox/grid/enhanced/resources/claro/EnhancedGrid.css";  /* Imports 6 more */
+
+/* Import RTL overrides */
+@import "../../../dijit/themes/dijit_rtl.css";
+@import "../../../dijit/themes/claro/layout/TabContainer_rtl.css";
+@import "../../../dijit/themes/claro/form/Common_rtl.css";
+@import "../../../dijit/themes/claro/form/Button_rtl.css";
+@import "../../../dijit/themes/claro/TitlePane_rtl.css";
+@import "../../../dijit/themes/claro/Calendar_rtl.css";
+@import "../../../dijit/themes/claro/Dialog_rtl.css";
+@import "../../../dijit/themes/claro/Editor_rtl.css";
+@import "../../../dijit/themes/claro/Menu_rtl.css";
+@import "../../../dijit/icons/editorIcons_rtl.css";
+
+/** Core imports **/
+@import "common/document_rtl.css";
+@import "common/layout_rtl.css";
+@import "common/portlets_rtl.css";
+@import "common/forms_rtl.css";
+@import "common/screens_rtl.css";
+@import "common/dijit_overrides_rtl.css"; 

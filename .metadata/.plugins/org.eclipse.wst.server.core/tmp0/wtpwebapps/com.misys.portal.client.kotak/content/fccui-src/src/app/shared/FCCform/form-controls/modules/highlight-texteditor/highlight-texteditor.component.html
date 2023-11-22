@@ -1,0 +1,105 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 editorPadding">
+    <div
+      *ngIf="control.params.rendered && mode === 'edit'"
+      class="ui-float-label relative {{ control.params.styleClass }}"
+    >
+
+    <a class="infoIcon" *ngIf="control.params.infoIcon">
+      <span
+        class="material-icons"
+        (mouseenter)="op.show($event)"
+        (mouseleave)="op.hide()"
+        >info</span
+      >
+      <p-overlayPanel
+        #op
+        class="previosInfoOLPanel"
+        [dismissable]="true"
+        appendTo="body"
+      >
+        <div class="previousInfoDivClass">
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </div>
+      </p-overlayPanel>
+    </a>
+
+      <mat-form-field
+        floatLabel="false"
+        appearance="fill"
+        class="input-mat-width"
+        [ngClass] = "{'mat-form-field-invalid' : (control.getValidationMessages().length > 0)}"
+      >
+        <mat-label tabindex="-1"
+          >{{ control.params.label }}
+          <a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          >
+        </mat-label>
+        <fcc-highlight-editor
+          style="font-family: monospace"
+          #fccCommonTextAreaId
+          matInput
+          [value]="value"
+          class="fcc-ui-inputtextarea fcc-textarea-width"
+          id="{{ control.key }}"
+          (click)="onEventRaised($event, control.key)"
+          (blur)="onCustomEventRaised($event, control.key, control)"
+          (keyup)="onEventRaised($event, control.key)"
+          (focus)="onEventRaised($event, control.key)"
+          (change)="onCustomEventRaised($event, control.key, control)"
+          formControlName="{{ control.key }}"
+          maxlength="{{ control.params.maxlength }}"
+          [required]="control.params.required"
+          [ngClass]="{ 'resize-none': control.params.resize === false }"
+          (data)="getHighlightEditorData($event)"
+          [properties]="highlightEditorProperties"
+          [typeOfRegex]="typeOfRegex"
+        ></fcc-highlight-editor>
+        <mat-error *ngIf="errorCount > 0">
+          {{ ErrorCountLabel }}: {{ errorCount }}
+        </mat-error>
+      </mat-form-field>
+      <mat-icon
+        *ngIf = "control.params.phraseEnabled"
+        class="material-icons phraseIcon1 {{ control.params.phraseIconStyle }}"
+        (click)="onClickMatPhraseIcon($event, control.key)"
+        (keyup)="checkMatPhraseIconClick($event, control.key)"
+        #tooltip="matTooltip"
+        matTooltip="{{ 'phraseTooltip' | translate }}"
+        matTooltipPosition="below"
+        matTooltipClass="mat-tooltip"
+        tabindex="0"
+        >format_quote
+      </mat-icon>
+    </div>
+  </div>
+  <div *ngIf="!control.params.swift">
+    <fcc-common-narrative-character-count
+      [enteredCharCount]="control.params.enteredCharCount"
+      [allowedCharCount]="control.params.allowedCharCount"
+      [fieldSize]="control.params.fieldSize"
+    >
+    </fcc-common-narrative-character-count>
+  </div>
+  <!-- <div *ngIf="errorCount !== 0">
+    <span>Error Count - {{ errorCount }}</span>
+  </div> -->
+</ng-container>

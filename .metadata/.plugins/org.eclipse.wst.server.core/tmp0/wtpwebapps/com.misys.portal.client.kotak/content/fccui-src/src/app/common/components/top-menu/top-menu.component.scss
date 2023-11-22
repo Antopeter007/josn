@@ -1,0 +1,50 @@
+.ng-menu {
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(177, 177, 177, 0.5);
+  border-bottom: none;
+  -ms-overflow-style: none;
+}
+:host ::ng-deep .ui-submenu-icon {
+  display: none;
+}
+:host ::ng-deep .ui-menubar  {
+  padding: 0;
+  border: 1px solid #584493;
+  background-color: #584493;
+  border-radius: 0px;
+}
+:host ::ng-deep .ui-menuitem-link .ui-menuitem-text {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+:host ::ng-deep .ui-submenu .ui-submenu-list {
+  border: 1px solid #584493;
+  background-color: #584493;
+}
+:host ::ng-deep .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
+  background-color: #60469B;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-link .ui-menuitem-icon {
+   color: #ffffff;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-active {
+  color: #ffffff;
+}
+
+:host ::ng-deep .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link > .ui-menuitem-text{
+  border-right: 0.1em solid white;
+  padding-right: 1em;
+  margin-left: -1em;
+}
+
+:host ::ng-deep .ui-menubar-root-list > .ui-menuitem:last-child > .ui-menuitem-link > .ui-menuitem-text{
+  border-right: none;
+  padding-right: 1em;
+  margin-left: -1em;
+}
+::-webkit-scrollbar {
+  display: none;
+}

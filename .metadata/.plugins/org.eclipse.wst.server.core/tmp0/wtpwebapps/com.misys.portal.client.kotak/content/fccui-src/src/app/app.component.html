@@ -1,0 +1,32 @@
+<div class="dashboradWrapper" dir="{{getCurrentLangDir()}}">
+<!--<div class="contentWrapper">-->
+<ng-container *ngIf="showHeaderFooter">
+  <div *ngIf="!showCustomHeader" class="topMenu" [ngClass]="{ displayTopMenu: topMenuDisplay === 'true' }">
+    <fcc-common-header (topMenuDisplayValue)="receiveTopMenuDisplayValue($event)"></fcc-common-header>
+  </div>
+  
+  <div *ngIf="showCustomHeader" class="topMenu" [ngClass]="{ displayTopMenu: topMenuDisplay === 'true' }">
+    <app-custom-header (topMenuDisplayValue)="receiveTopMenuDisplayValue($event)"></app-custom-header>
+  </div>
+</ng-container>
+
+<div class="p-grid" *ngIf="showRouter">
+  <ng-container *ngIf="showSideNav && !isSideMenuVisible && showCustomHeader">
+    <div class="p-col-2 p-sm-1 p-lg-2 p-md-1 padding">
+        <app-menu></app-menu>
+    </div>
+  </ng-container>  
+  <ng-container *ngIf="!isSideMenuVisible else newRouteTemplate">
+    <div [ngClass]="floatingComponentClass()" class="no-padding padding-bottom">
+      <router-outlet *ngIf="showRouter"></router-outlet>
+    </div>
+  </ng-container>
+  <ng-template #newRouteTemplate class="news">
+    <div class="p-col-12 p-sm-12p-lg-12 p-md-12">
+      <router-outlet *ngIf="showRouter"></router-outlet>
+    </div>
+   </ng-template>
+  
+</div>
+<!--</div>-->
+<fcc-common-footer *ngIf="showFooter"></fcc-common-footer>

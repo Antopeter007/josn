@@ -1,0 +1,18 @@
+:host ::ng-deep .messageStyle {
+  width: 63% !important;
+  font-family: monospace !important;
+}
+:host ::ng-deep .messageStyle textarea {
+  resize: none;
+}
+
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0em !important;
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep [dir="rtl"] .textarea.characterCountDivfield .characterCountValueField {
+  text-align: left;
+  padding-left: 0em !important;
+  padding-bottom: 1em !important;
+}

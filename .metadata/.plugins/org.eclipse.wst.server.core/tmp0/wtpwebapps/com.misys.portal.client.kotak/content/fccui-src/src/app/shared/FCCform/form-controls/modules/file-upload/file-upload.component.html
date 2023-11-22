@@ -1,0 +1,12 @@
+<ng-container [formGroup]="form">
+  <div  class="p-col-12">
+    <div class="{{control.params.styleClass}}" dir={{dir}}>
+      <p-fileUpload name="myfile[]" customUpload="true" id="{{control.key}}"
+      (uploadHandler)="onuploadHandler($event,control.key)" (onSelect)="onEventRaised($event,control.key)"
+      (onClear)="onClearHandler($event)" uploadLabel="{{control.params.uploadLabel}}"
+      chooseLabel="{{control.params.chooseLabel}}" cancelLabel="{{control.params.cancelLabel}}"
+      maxFileSize="{{control.params.maxFileSize}}" accept="{{control.params.accept}}">
+      </p-fileUpload>
+    </div>
+  </div>
+</ng-container>

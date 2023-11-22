@@ -1,0 +1,9 @@
+<p-panel header="{{'KEY_HEADER_UNDERTAKING_INCREASE_DECREASE' | translate}}" [toggleable]="true" [collapsed] ="collapsible">
+  <div [formGroup]="redIncForm">
+      <fcc-iu-common-reduction-increase *ngIf="brRecord" [undertakingType]="'bg'" [bgRecord]="brRecord" [sectionForm]="redIncForm"></fcc-iu-common-reduction-increase>
+  </div>
+</p-panel>
+
+
+
+

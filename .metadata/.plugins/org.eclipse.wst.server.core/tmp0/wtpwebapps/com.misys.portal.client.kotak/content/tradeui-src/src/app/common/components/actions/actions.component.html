@@ -1,0 +1,16 @@
+
+<div id = "actions"  class="menu">
+    
+    <button *ngIf = "showCancel" pButton type="button" id={{cancelButtonId}} label="{{ 'ACTION_USER_CANCEL' | translate }}" class="tertiary-button"  (click)="openDialog(operationCancel)"></button>
+    <button *ngIf = "showClose" pButton type="button" id={{closeButtonId}} label="{{ 'ACTION_USER_CLOSE' | translate }}"  (click)="onClose()" class="secondary-button"></button>
+    <button *ngIf = "showPrint" pButton type="button" id={{printButtonId}} label="{{ 'ACTION_USER_PRINT' | translate }}"  (click)="onPrint()" class="secondary-button"></button>
+    <button *ngIf = "showExport" pButton type="button" id={{exportButtonId}} label="{{ 'ACTION_USER_EXPORT' | translate }}"  (click)="generatePdf()" class="primary-button"></button>
+    <button *ngIf = "showPreview" id={{previewButtonId}} pButton type="button" label="{{ 'USER_PREVIEW' | translate }}" class="secondary-button"  (click) = "openPreview()"></button>
+    <button *ngIf = "showReturn" id={{returnButtonId}}  pButton type="button" label="{{ 'USER_RETURN' | translate }}" class="secondary-button"  (click)="openDialog(operationReturn)"></button>
+    <button *ngIf = "showTemplate" id={{templateButtonId}} pButton type="button" label="{{ 'USER_TEMPLATE' | translate }}" class="secondary-button"  (click)="openDialog(operationTemplate)"></button>
+    <button *ngIf = "showSave"  id={{saveButtonId}} pButton type="button"  label="{{ 'USER_SAVE' | translate }}" class="primary-button" (click)="openDialog(operationSave)"></button>
+    <button *ngIf = "showSubmit" pButton type="button" id={{submitButtonId}} label="{{ 'USER_SUBMIT' | translate }}" class="primary-button"  (click)="openDialog(operationSubmit)"></button>
+    <img *ngIf = "showHelp"  src="{{imagePath}}help.png" id={{helpButtonId}} alt="help" class="help cursor" (click) = "openHelp()">
+    <fcc-common-task-details class="{{commonService.getUserLanguage() === 'ar' ? 'task-icon-left' : 'task-icon-right'}}" *ngIf= "showTask && bgRecord" [bgRecord]="bgRecord"></fcc-common-task-details>
+</div>
+<fcc-common-progress-bar [showProgressBar]="showProgressBar" [displayMessage]="displayMessage" ></fcc-common-progress-bar>

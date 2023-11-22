@@ -1,0 +1,88 @@
+@import '../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .primaryButton{
+  float: right;
+}
+
+:host ::ng-deep .secondaryButton{
+  float: right;
+  right: 12em;
+  position: absolute;
+}
+
+[dir="rtl"] :host ::ng-deep .primaryButton{
+  float: left !important;
+}
+
+[dir="rtl"] :host ::ng-deep .secondaryButton{
+  float: left !important;
+  left: 10em !important;
+  right: auto !important;
+  position: absolute !important;
+}
+
+:host ::ng-deep .dropdownFilterStyleClass {
+  padding-top: 0em !important;
+  }
+
+.iconStyle {
+  padding: 0em !important;
+  position: relative;
+  top: 1em;
+  right: 0.5em;
+}
+
+.iconStyle[dir="rtl"] {
+  position: relative;
+  top: 0.7em;
+  right: -1.5em;
+}
+
+:host ::ng-deep textarea.mat-input-element {
+  resize: none !important;
+}
+
+:host ::ng-deep.infoIcon {
+  right: 1.6em !important;
+}
+
+:host ::ng-deep.infoIcon:hover {
+  color: $infoIconColor !important;
+}
+
+[dir="rtl"] :host ::ng-deep.infoIcon {
+  right: 100% !important;
+  margin-right: -1.8em !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+:host ::ng-deep.indented-text-area-field-35 textarea {
+  line-height: 1.4em;
+  font-size: 1em !important;
+  resize: none;
+  font-family: Roboto !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+:host ::ng-deep .beneficiaryCodeStyle {
+  padding-bottom: 1.5em !important;
+}
+
+:host ::ng-deep .ui-inputswitch .ui-inputswitch-slider:before {
+  height: 1em;
+  width: 1em;
+  top: 1px;
+}
+:host ::ng-deep .ui-inputswitch {
+  width: 3em;
+  height: 1.2em;
+}

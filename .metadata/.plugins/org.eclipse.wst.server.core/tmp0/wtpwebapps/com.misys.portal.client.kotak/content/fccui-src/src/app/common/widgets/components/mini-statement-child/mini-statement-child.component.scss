@@ -1,0 +1,206 @@
+@import "./../../../../../styles/variables.scss";
+
+.fcc-form-header {
+  display: none;
+}
+
+:host ::ng-deep .miniStatementImage {
+  width: 4.7em;
+}
+
+:host ::ng-deep .miniStatementImage img {
+  border: 0.25em solid #c137a2;
+  border-radius: 0.4375em;
+  max-width: 100%;
+}
+
+.form-header {
+  color: #000000;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.1875em;
+  opacity: 0.75;
+}
+
+.msheader {
+  margin-top: 0em !important;
+}
+
+[dir="rtl"] .msheader {
+  margin-top: 0em !important;
+  padding-right: 2em !important;
+}
+
+:host ::ng-deep .miniheader {
+  margin-top: 0em !important;
+}
+
+:host ::ng-deep fcc-image-w .fa-download {
+  cursor: pointer !important;
+}
+
+.avlBalanceHeader {
+  margin-top: 0em !important;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding-left: 0.5em;
+}
+
+.recentTransactionHeader {
+  margin-top: 0em !important;
+  font-size: 1.0em;
+  font-weight: 500;
+  padding-left: 0.5em;
+}
+
+:host ::ng-deep .BalanceHeader {
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+:host ::ng-deep {
+  .avlBalance1,
+  .avlBalance1  .globalPadding {
+    padding-top: 0;
+  }
+}
+
+.transactionHeader{
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .avlBalance .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  margin-top: 0em;
+}
+
+:host ::ng-deep .avlBalance .mat-form-field-appearance-legacy .mat-form-field-wrapper .mat-form-field-infix {
+  border-top: none;
+}
+
+:host ::ng-deep .avlBalance .mat-form-field-appearance-legacy .mat-form-field-underline {
+  display: none;
+}
+
+.avlBalance input {
+  border-bottom: none !important;
+  font-size: 1.7em !important;
+  font-weight: 600;
+  color: $VIOLET-PRIMARY-COLOR;
+}
+
+.avlBalance1 {
+  border-bottom: none !important;
+  padding-top: 0em;
+  padding-left: 0.5em !important;
+}
+
+.avlBalance1 input,
+.avlBalance1 .p-col-12 {
+  padding-top: 0em;
+  margin-left: 0em;
+}
+
+.displayDate input {
+  border-bottom: none !important;
+  font-style: italic;
+  font-size: 0.84em !important;
+}
+
+.displayDate {
+  top: 1.35em;
+  left: 3.40em;
+}
+
+.buttonLabel {
+  margin-left: 0.4em;
+}
+
+:host ::ng-deep .download {
+  display: none;
+}
+
+.downloadmini {
+  text-align: right;
+  cursor: pointer;
+}
+
+.downloadminiArabic {
+  text-align: left;
+  cursor: pointer;
+}
+
+.date {
+  font-weight: 300;
+  font-style: italic;
+}
+
+ .displayDate .fcc-ui-inputfield .ui-inputtext:enabled:focus:not(.ui-state-error),
+ .avlBalance .fcc-ui-inputfield .ui-inputtext:enabled:focus:not(.ui-state-error)
+{
+  outline: 0 none;
+  box-shadow: none;
+  border: none !important;
+  border-bottom: none !important;
+}
+
+.displayDateLayout {
+  position: absolute;
+}
+
+.ui-float-label > input.ui-state-filled ~ label {
+  font-size: 0.75em !important;
+}
+
+.ui-float-label.currency .ui-widget {
+  padding-top: 0.9em;
+  padding-bottom: 0.529em;
+}
+
+.accountNoLayout,
+.currencyLayout {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  padding-left: 0.5em !important;
+}
+
+.host ::ng-deep .accountNoLayout .ui-dropdown-items-wrapper {
+  overflow-x: hidden;
+}
+
+.accountNoLayout .ui-dropdown-items-wrapper {
+  overflow-x: hidden;
+}
+
+ .avlBalance .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-bottom: none !important;
+}
+
+ .avlBalance1 .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-bottom: none !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex {
+  background-color: transparent !important;
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: #707070;
+}
+
+:host ::ng-deep .statementTypeLayout {
+  padding: 0;
+  .p-col-12 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+:host ::ng-deep .currencyLayout .ui-float-label.currency  {
+  .mat-form-field-label {
+    font-size: 16px !important;
+  }
+}
+

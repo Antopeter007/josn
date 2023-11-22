@@ -1,0 +1,62 @@
+.top-lc-wrapper { 
+    padding: 2.5em 2.5em 0em 2.5em;
+}
+.top-lc {
+    margin-top:2em;
+}
+.section-wrapper{
+    padding: 1.5em 2.5em 0em 2.5em;
+}
+ul li {
+    list-style-type: none;
+    padding: 1em;
+    color: #424040;	
+    font-family: Roboto;	
+    font-size:  0.875em;
+    font-weight: 300;	
+    line-height: 1.25em;
+}
+.left-class{
+    border-top: 0.0625em solid #979797;
+    border-left: 0.0625em solid #979797;
+    border-bottom: 0.0625em solid #979797;
+}
+.right-class{
+    border-top: 0.0625em solid #979797;
+    border-right: 0.0625em solid #979797;
+    border-bottom: 0.0625em solid #979797;
+    background-color: #ddd;
+}
+.default-selection{
+    border-left: 0.25em solid #694ED6 !important;
+    color: #424040 !important;	
+    font-family: Roboto !important;	
+    font-size: 0.875em !important;	
+    font-weight: bold !important;	
+    line-height: 1.25em !important;
+}
+li:hover {
+ cursor: pointer;
+}
+.label-text {
+    color: #694ED6;	
+    font-family: Roboto;	
+    font-size: 1.25em;
+    font-weight: 500;	
+    line-height: 1.3125em;
+}
+.data-text {
+    color: #4A4A4A;	
+    font-family: Roboto;	
+    font-size: 1.125em;
+    font-weight: 300;	
+    line-height: 1.3125em;
+}
+.header-text{
+    color: #4A4A4A;	
+    font-family: Roboto;	
+    font-size: 1.3125em;	
+    font-weight: 500;	
+    line-height: 1.5em;	
+    text-align: center;
+}

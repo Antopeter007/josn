@@ -1,0 +1,19 @@
+<div>
+    <div class="container">
+        <ng-container *ngFor="let item of nudges">
+            <div [ngClass]="(nudges.length > 1) ? 'nudge' : 'nudgeFull'" tabindex="0" dir="{{dir}}" (keydown.enter)="navigateToLink(item)" style="display: flex;"
+            [attr.title]="item.text | translate">
+                <span class="nudges" (click)="navigateToLink(item)">{{item.text | translate}}</span>
+                <em dir="{{dir}}" class="nudges pi pi-external-link external-link" (click)="navigateToLink(item)"></em>
+            </div>
+        </ng-container>
+    </div>
+ </div>
+ <p-dialog header="{{'warning' | translate}}" dir="{{dir}}" [(visible)]="displayDialog" [style]="{width: '35vw'}"
+    [modal]="true" [maximizable]="false" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <p>{{ 'popupConfirmationMessage' | translate }}</p>
+    <p-footer>
+        <p-button role="button"  (click)="navigateToExternalUrl()" label="{{ 'yes' | translate }}" styleClass="primaryButton"></p-button>
+        <p-button role="button"  (click)="displayDialog = false" label="{{ 'no' | translate }}" styleClass="margin-left secondaryButton"></p-button>
+    </p-footer>
+</p-dialog>

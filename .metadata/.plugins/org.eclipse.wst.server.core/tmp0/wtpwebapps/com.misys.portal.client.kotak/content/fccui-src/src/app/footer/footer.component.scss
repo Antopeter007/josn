@@ -1,0 +1,138 @@
+@import '../../styles/variables.scss';
+#footerMain {
+  margin-top: 0em;
+  clear: both;
+  background-color: transparent;
+  padding-top: 3.875em;
+  width: 100%;
+  height: 1.875em;
+}
+
+.logo-img {
+  padding: 0.4375em !important;
+}
+
+.logo-img img {
+  max-width: 6.25em;
+  max-height: 2.875em;
+}
+
+.footer-content {
+  color: $FooterMenuscolor;
+  font-size: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.footer-content a {
+  color: $FooterMenuscolor;
+  font-weight: 400;
+}
+
+.footer-bottom {
+  color: #6b6868 !important;
+  font-size: $FooterFontsize;
+  line-height: 1em;
+  text-align: center;
+  font-weight: 600;
+}
+
+.footer-logo a {
+  margin-left: 3.9em;
+}
+
+@media screen and (max-width: 991px) {
+  .footer-logo {
+    text-align: center;
+    a {
+      margin-left: 0;
+    }
+  }
+}
+
+:host ::ng-deep .p-grid {
+  margin: 0em;
+}
+
+@media screen and (min-width: 1200px) {
+  .urlContent {
+    width: auto;
+    padding-left: 5%;
+  }
+
+  .urlContent a {
+    white-space: nowrap;
+  }
+
+  .logo-img img {
+    margin-top: -0.5em;
+  }
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.logo-img {
+  padding: 0 !important;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .urlContent {
+    width: auto;
+    padding-left: 3%;
+  }
+
+  .urlContent a {
+    white-space: nowrap;
+  }
+
+  .logo-img img {
+    margin-top: -0.5em;
+  }
+}
+
+@media (min-width: 1170px) {
+  .sticky-footer-main{
+    position: fixed;
+    bottom: 2em;
+    z-index: 999;
+    padding-top: 0em !important;
+  }
+  .sticky-footer-background{
+    background-color: $WHITE;
+  }
+  .footer-bottom-margin {
+    margin-top: -1.5em;
+  }
+}
+
+@media (max-width: 1170px) {
+  .sticky-footer-main{
+    position: fixed;
+    bottom: 5em;
+    z-index: 999;
+    padding-top: 0em !important;
+  }
+  .sticky-footer-background{
+    background-color: $WHITE;
+  }
+  .footer-bottom-margin {
+    margin-top: -0.5em;
+  }
+  .urlContent {
+    width: 33% !important;
+  }
+  .footer-logo {
+    width: 6.8em;
+  }
+  .footer-content {
+    width: calc(100% - 6.8em);
+  }
+}
+
+@media screen and  (min-width: 768px) and (max-width: 820px) {
+  #footerMain {
+    margin-right: 3em !important;
+  }
+}

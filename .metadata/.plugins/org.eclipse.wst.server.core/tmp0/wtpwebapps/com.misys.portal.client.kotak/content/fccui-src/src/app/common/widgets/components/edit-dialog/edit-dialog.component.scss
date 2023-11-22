@@ -1,0 +1,191 @@
+@import '../../../../../styles/variables.scss';
+
+::ng-deep.mat-dialog-container{
+    width: 65em;
+    height: 30em;
+    overflow: auto;
+}
+
+.card{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.innerdiv{
+    height: 15em;
+    overflow-y:scroll ;
+}
+.selectedAccounts {
+  height: 15em;
+  overflow-y:scroll ;
+}
+
+.selectedGroupAccounts {
+  height: 9em;
+  overflow-y:scroll ;
+}
+.editHeader{
+    padding: 1.25em 0.8125em 0.8125em 1.25em;
+}
+.warningMessage {
+  font-size: 0.8em !important;
+}
+.endbutton{
+    text-align: end;
+    margin-right: 2em;
+}
+
+.endbutton[dir='rtl']{
+margin-left: 2em;
+}
+
+  .submitButton {
+    background-color: $FUCHSIA-F100 !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    color: $WHITE !important;
+  }
+
+.submitButton:disabled {
+  background-color: $GrayShade !important;
+  text-align: center !important;
+  font-weight: 500 !important;
+  color: $GrayLight !important;
+}
+
+  .submitButton1 {
+    border: 0.0625em solid $FUCHSIA-F100 !important;
+    margin-right: 2em;
+    margin-top: 0.5em;
+    text-align: center !important;
+    font-weight: 500 !important;
+    color: $FUCHSIA-F100 !important;
+  }
+
+  .submitButton1[dir='rtl'] {
+    margin-left: 2em;
+  }
+
+  .text{
+      color: $VIOLET-F100!important;
+  }
+  .filterButton {
+    margin-left: 50em !important;
+    margin-top: 1em !important;
+    background-color: $secondaryColor !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    border-color: $secondaryColor !important;
+  }
+  .container {
+    color: $VIOLET-F100!important;
+    font-size: 1.25em;
+    display: block;
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 50%;
+    border: 0.125em solid $VIOLET-F100!important;
+    line-height: 1em;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+.btn{
+    position: relative;
+    top: -3em;
+    left: 26em;
+}
+
+.btn[dir='rtl']{
+    position: relative;
+    top: -3em;
+    left: -26em;
+}
+
+.textdiv{
+    font-weight: 300;
+    margin-top: 0.75em;
+    font-size: 0.9em;
+}
+.innertxt{
+    margin-top: 1em;
+}
+hr.solid {
+    border-top: 0em solid #bbb;
+    margin-top: -1.5em;
+  }
+  .popup{
+   height: 22em; 
+   overflow:hidden;
+  }
+  .inner-card-right{
+    margin-bottom: 1em;
+  }
+  .groupName{
+   width: 20em !important;
+   padding-top: 1em !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.25em;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $WHITE-05;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $GREY-22;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $GREY-22;
+  }
+
+  .errorMessage {
+    padding: 0 0 0.25em 1.25em;
+  }
+
+  .groupErrorMessage {
+    padding: 0 0 -0.75em 1.25em;
+    padding-bottom: 1.5em !important;
+  }
+
+  ::ng-deep.cdk-overlay-container {
+    z-index: 9999;
+  }
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+   :host ::ng-deep .inner-card-left{
+          padding-left: 9.375em;
+          padding-right: 0em;
+   }
+}
+
+@media screen and (min-width: 22.5em) and (max-width: 40em) {
+    :host ::ng-deep .inner-card-left{
+          padding-left: 19.0625em;
+          padding-right: 0em;
+    }
+}
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+    :host ::ng-deep .inner-card-right{
+          padding-left: 0.1875em;
+          padding-right: 9.375em;
+    }
+}
+         
+@media screen and (min-width: 22.5em) and (max-width: 40em) {
+    :host ::ng-deep .inner-card-right{
+          padding-left: 0em;
+          padding-right: 19.375em;
+    }
+}
+                    

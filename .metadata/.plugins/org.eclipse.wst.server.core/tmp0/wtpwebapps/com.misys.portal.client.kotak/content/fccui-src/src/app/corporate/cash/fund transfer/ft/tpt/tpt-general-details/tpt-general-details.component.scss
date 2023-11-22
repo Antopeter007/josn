@@ -1,0 +1,19 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep {
+    .padding_bottom_zero {
+        padding-top: 0;
+    }
+
+    .iconStyleFtTransfer[dir="rtl"] {
+        right: -3.5em !important;
+    }
+    .padding_bottom_space {
+        margin-bottom: 1em;
+    }
+
+    .description-error .form-field-error-message {
+        margin-top: 0em;
+    }
+}
+

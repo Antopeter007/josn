@@ -1,0 +1,24 @@
+.setEntityBtn {
+  margin-left: 2em;
+  background-color: #694ed6 !important
+}
+
+.set-entity-nav-class {
+  margin-left: 0.6em;
+}
+
+:host ::ng-deep .fcc-field-message .ui-message .ui-message-text {
+  margin-left: 1em;
+}
+
+.fcc-form-header{
+  margin-top: -1.5em !important;
+}
+
+.side_bar{
+    padding-right: 1em;
+    position : sticky;
+    top : 0;
+    height : 100%;
+    overflow-y : scroll;
+}

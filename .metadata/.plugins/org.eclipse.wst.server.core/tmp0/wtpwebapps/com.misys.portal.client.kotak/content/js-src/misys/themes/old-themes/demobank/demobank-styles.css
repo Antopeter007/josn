@@ -1,0 +1,1101 @@
+/* 
+ General page styles
+*/
+
+body.demobank{
+	font-size:100%;
+	font-family: Arial, sans-serif;
+}
+
+.demobank p{
+	padding:0;
+    margin:0;
+}
+
+.demobank ul{
+	padding:0;
+	margin:0;
+}
+
+.demobank li{
+	padding:0;
+	list-style-type:none;
+}
+
+.demobank h1, .demobank h2, .demobank h3{
+	margin:0;
+	padding:0;
+	line-height: normal;
+}
+
+.demobank a:link {
+	color: #0079a7;
+	text-decoration: none;
+}
+
+.demobank a:visited {
+	color: #0079a7;
+	text-decoration: none;
+}
+
+.demobank a:hover {
+	color: #e86d1f;
+	text-decoration: underline;
+}
+
+.dj_webkit .demobank button:hover, 
+.dj_gecko .demobank button:hover,
+.dj_ie8 .demobank button:hover{
+    cursor: pointer;
+}
+
+.notready .grid,
+.notready #TransactionSearchForm,
+.notready #TransactionFilterSearchForm,
+.notready #toc,
+.notready #edit,
+.notready #loginForm{
+	visibility:hidden !important;
+}
+
+/** Loading message and progress bars **/
+.notready #loading-message{
+	display:block !important;
+	position:absolute;
+    left:165px;
+    top:0px;
+    width:90%;
+    height:100%;
+    margin:10px 0 0 5px;
+    padding:0;
+    z-index:999;
+    background-color:#fff;
+}
+.notready #reporting_popup #loading-message, 
+.notready #onlinehelp_popup #loading-message{
+	left:0px;
+	width:100%;
+}
+
+.notready #loading-message p{
+     font-weight:bold;
+     font-style:italic;
+     margin-left:5px;
+     font-size:1.4em;
+}
+
+.notready #loadingProgressBar{
+	width:250px;
+	height:15px;
+	margin-left:5px;
+	border:1px solid #999;
+	background:#cad2de url("../../../dijit/themes/tundra/images/progressBarAnim.gif") repeat-x center center;
+}
+
+.demobank #loading-message{
+	display:none;
+}
+
+.demobank #dialogProgressBar{
+	width:250px;
+}
+
+/** News **/
+.demobank .paracontent p{
+	font-size:0.9em;
+}
+
+/** Page Header **/
+.demobank .panel1 {
+	background-color: #999999;
+	padding:2px 0px 2px 0px;
+	height: 1.1em;
+}
+
+.demobank .panel1,.demobank .panel2 {
+	clear: both;
+	width: 100%;
+}
+
+.demobank .panel2 {
+	background: #0079a7 url("images/header.png") repeat-x
+		top;
+	height: 3.1em;
+}
+
+.demobank .header a:link,.demobank .header a:visited {
+	color: #FFFFFF !important;
+}
+
+.demobank .header a:hover {
+	color: #ffff00;
+}
+
+.demobank .breadcrumb {
+	color: #ffffff;
+	float: left;
+	font-weight: bold;
+	font-size:0.75em;
+	padding: 0px 0px 0px 11px;
+	vertical-align: middle;
+	width: 160px;
+}
+
+.demobank .message {
+	color: #ffffff;
+	float: left;
+	vertical-align: middle;
+	font-size:0.75em;
+}
+
+.demobank .submenu {
+	color: #ffffff;
+	float: right;
+	font-weight: bold;
+	height: 1.5em;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+
+.demobank .submenu img {
+	margin: 5px 0 0 5px;
+}
+
+.demobank .logo {
+	float: left;
+	margin: 5px 15px 0 15px;
+	background-image: url("images/demobank.gif");
+	width: 80px;
+	height: 45px;
+	background-repeat:no-repeat;
+}
+
+/** Page Footer **/
+.demobank .footer {
+	clear: both;
+	border-top: 1px solid #999;
+}
+
+/** Notices **/
+.demobank .notice {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	margin: 5px;
+	padding: 5px;
+	height: 25px;
+	font-weight: bold;
+	clear: both;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.demobank .notice p {
+	vertical-align: middle;
+	margin:2px 0px 1px 1px;
+	height:32px;
+	font-size:0.8em;
+}
+
+.demobank .notice img {
+	float: left;
+}
+
+/** Forms **/
+.demobank .description {
+	display: none;
+}
+
+/** Favorites **/
+.demobank #BookmarkPortlet {
+	border: none;
+	font-size:0.7em;
+}
+
+.demobank #BookmarkPortlet .portlet-section-header {
+	background: #D0D0D0 none;
+}
+
+.demobank #BookmarkPortlet .portlet-title {
+	color: #0079A7;
+	font-size:1em;
+}
+
+.demobank #BookmarkPortlet .portlet-section-body {
+	background-color: #f0f0f0;
+	padding: 2px 1px 1px 4px;
+}
+
+.demobank #BookmarkPortlet li {
+	margin: 3px 0px 3px 0px;
+}
+
+.demobank #nofavorites {
+	font-weight: bold;
+	margin: 5px;
+}
+
+.demobank #addBookmark {
+	font-weight: bold;
+	font-style: italic;
+	margin: 5px;
+}
+
+.demobank .deleteBookmarkLink{
+	margin:5px 0px 0px 5px;
+	display:none;
+}
+
+/** Product Menu **/
+.demobank #MenuBuilder {
+	border: none;
+}
+
+.demobank #MenuBuilder .portlet-section-header {
+	display: none;
+}
+
+.demobank ul.product-menu {
+	padding-left:0.8em;
+	font-size:0.9em;
+}
+
+.demobank ul.product-menu li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.demobank ul.product-menu a.currentModule {
+	color: red;
+}
+
+.demobank ul.product-menu ul {
+	margin: 0.5em 0em 1em 1em;
+}
+
+.demobank ul.product-menu li li {
+	margin: 0em;
+}
+
+.demobank ul.product-menu ul li a {
+	font-weight: normal;
+}
+
+.demobank .product-menu-items a{
+	font-size:0.95em;
+}
+
+/** Product Summary **/
+.demobank .product-summary{
+	padding:5px;
+}
+
+.demobank .product-summary p{
+	margin:2px;
+	padding:2px;
+}
+
+/** Override Dijit Classes **/
+.demobank .dijitTabListContainer-top{
+	background-color: #f2f2f2;
+}
+
+/** A field and its label **/
+.demobank .field{
+ 	clear: none;
+    margin: 3px 0 3px 0;
+}
+
+.demobank #reporting_popup .field{
+    margin-left:10%;
+}
+
+.demobank .field .field {
+    margin: 0;
+    font-size:1em;
+}
+
+.demobank .noborder .dijitButtonNode{
+	border:none;
+	background:transparent;
+}
+
+#swapDetailsSection .dijitButtonNode
+{
+	background:url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x scroll left bottom #FFFFFF;
+	border:1px solid gray;
+}
+
+#swapDetailsSection .dijitArrowButton
+{
+	border-color:#9B9B9B;
+	border-style:solid;
+	border-width:0 0 0 1px;
+}
+
+
+/** A field label **/
+.demobank label,
+.demobank .label {
+    width: 40%;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+    margin-right:5px;
+}
+
+.demobank .radiolist .radio label
+{
+text-align:left;	
+}
+
+
+.demobank .multipleItemDialog label{
+	width: 125px;
+}
+
+.demobank .textarea label, .demobank .textarea .label{
+	vertical-align:top;
+}
+
+/*.demobank #view .textarea .label,
+.demobank #event-summary .textarea .label{
+	text-align: left; 
+}*/
+
+/* 
+ Hide the close button in popup windows.
+ 
+ This is to force the user to click on our cancel button.
+*/
+.demobank .dijitDialogTitleBar {
+	background: #0079a7 url("images/header_20px.png") repeat-x top left;
+	padding:3px 0px 3px 2px;
+	font-size:0.9em;
+	font-weight:normal;
+}
+
+.demobank #alertDialog .dijitDialogCloseIcon,
+.demobank #loadingDialog .dijitDialogCloseIcon,
+.demobank #delayDialog .dijitDialogCloseIcon,
+.demobank #dealSummaryDialog .dijitDialogCloseIcon,
+.demobank #waitingDialog .dijitDialogCloseIcon,
+.demobank #reauth_dialog .dijitDialogCloseIcon{
+    display:none !important;
+}
+
+.demobank #reauth_dialog label{
+	width:100px;
+}
+
+.demobank .dijitDialog {
+	border: 3px ridge #7eabcd;
+}
+
+.demobank .dijitDialogTitle {
+	color: white;
+}
+
+/** Classes used throughout **/
+.demobank .clear {
+	clear: both;
+}
+
+.demobank .hide{
+	display:none;
+}
+
+.demobank .hidden{
+	position: absolute;
+	left: -999em;
+}
+
+.demobank .right{
+	float:right;
+}
+
+.demobank td.align-right{
+	text-align:right;
+}
+
+.demobank .left{
+	float:left
+}
+
+.demobank td.align-left{
+	text-align:left
+}
+
+.demobank td.align-center{
+	text-align:center;
+}
+
+.demobank .grid th{
+	text-align:center;
+}
+
+.demobank .legend{
+	font-size:0.9em;
+}
+
+/** Grids **/
+.demobank .dojoxGrid table {
+    margin: 0;
+}
+
+.demobank .dojoxGridRowbarSelected {
+    background:transparent url("../../../../images/pic_greentick.gif") no-repeat left;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .demobank .group {
+	height: 300px;
+}
+.dj_ie7 .demobank .group {
+	height: 300px;
+}
+.dj_ie8 .demobank .group {
+	height: 300px;
+}
+
+/** End Fix */
+.demobank .grid{
+ font-size:0.75em;
+}
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .demobank .group {
+	height: 300px;
+}
+.dj_ie7 .demobank .group {
+	height: 300px;
+}
+.dj_ie8 .demobank .group {
+	height: 300px;
+}
+/** End Fix */
+
+/** Fix for Internet Explorer where the height of the grid with grouping is not correctly set */
+.dj_ie6 .demobank .group {
+	height: 300px;
+}
+.dj_ie7 .demobank .group {
+	height: 300px;
+}
+.dj_ie8 .demobank .group {
+	height: 300px;
+}
+/** End Fix */
+
+.demobank .standingInstructionsGrid th {
+	text-align:center;
+}
+
+/** Calendar **/
+.demobank .calendarLoader {
+	width:100%; 
+	height:200px;
+	margin:0;
+	padding:0;
+	background:#fff url('../../../dojox/image/resources/images/loading.gif') no-repeat center center;
+	z-index:999;
+}
+
+.demobank .chartImg{
+	background:#fff url('../../../dojox/image/resources/images/loading.gif') no-repeat center center;
+	margin:0;
+	padding:0;
+	z-index:999;
+}
+
+.demobank .dijitCalendarContainer{
+	font-size:1em !important;
+}
+
+.demobank #TradeCalendarPortlet {
+	border: none;
+}
+
+.demobank #TradeCalendarPortlet .portlet-section-header {
+	display: none;
+}
+
+.demobank #TradeCalendarPortlet .dijitCalendarHoveredDate {
+	background-color:#FBE5D8 !important;	
+}
+
+.demobank #TradeCalendarPortlet .dijitCalendarDateTemplate,
+.demobank #default .dijitCalendarDateTemplate {
+	font-weight: bold;
+	text-align: center;
+	padding: 0.3em 0.15em 0.05em 0.15em;
+	letter-spacing: 1px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank #TradeCalendarPortlet .dijitCalendarSelectedYear,
+.demobank #TradeCalendarPortlet .dijitCalendarSelectedDate,
+.demobank #default .dijitCalendarSelectedYear,
+.demobank #default .dijitCalendarSelectedDate{
+	background-color: #E86D1F !important;
+	color: white !important;
+}
+
+.demobank .dijitCalendarCurrentMonth {
+	border:1px solid white;
+}
+
+.demobank .calevent-iss-date {
+	background-image: url("images/cal_99ccff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-exp-date {
+	background-image: url("images/cal_ffcc99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-last-ship-date {
+	background-image: url("images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-last-match-date {
+	background-image: url("images/cal_ffff99.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-appl-date {
+	background-image: url("images/cal_ffcccc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-maturity-date {
+	background-image: url("images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-latest-answer-date {
+	background-image: url("images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-tenor-maturity-date {
+	background-image: url("images/cal_ff99ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-creation-date {
+	background-image: url("images/cal_ccffcc.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-remittance-date {
+	background-image: url("images/cal_3366ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-amd-date {
+	background: #387c44 !important;
+	background-image: url("images/cal_387c44.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-renewal-date {
+	background-image: url("images/cal_6698ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-tenor-effective-date {
+	background-image: url("images/cal_fa96f4.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-customer-event {
+	background-image: url("images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-renewal-renew-on {
+	background-image: url("images/cal_bb77ff.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+.demobank .calevent-tenor-start-date {
+	background-image: url("images/cal_888888.png") !important;
+	border: 1px solid silver;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+
+/** Content div, containing form control or content **/
+.demobank .content {
+    text-align: left;
+    font-family: "Courier New";
+    font-weight: bold;
+    display: inline;
+}
+
+.demobank .multiple {
+	display:block;
+}
+
+.demobank .textarea .content{
+	display: block;
+	margin-left:175px;
+}
+
+.demobank #view .multioption-group-label .content
+{
+	margin-left:175px;
+	padding-left: 1.6em;
+	}
+
+/** Cross refs**/
+.demobank .content .crossrefs{
+	margin-top:-19px;
+	margin-left:180px;
+}
+/** Use by Foreign Exchange to add a customer **/
+.demobank #customerReferenceDialog .field{
+	display:inline;
+}
+
+.demobank .radiolist .label
+{
+text-align:left;	
+}
+
+.demobank #customerReferenceDialog #beforeCheckField{
+	display: block;
+}
+
+.demobank #customerReferenceDialog #checkFieldLabel{
+	display: inline-block;
+}
+
+.demobank #customerReferenceDialog #checkField{
+	display: inline-block;
+	background-color:#F2F5F9;
+	padding:1em;
+	width:18em;
+}
+
+.demobank #customerReferenceDialog #checkField span{
+	font-weight: bold;
+}
+/** Use by Foreign Exchange to display the progress bar**/
+.demobank #progressBarCash {
+	display : inline-block;
+}
+.demobank #progressBarCash #countdownProgress {
+	display : inline-block;
+}
+
+/** Alert Calendar Screen **/
+.demobank #alert01_details_offsetsigncode_nosend_0_row label,
+.demobank #alert01_details_offsetsigncode_nosend_1_row label,
+.demobank #alert02_details_offsetsigncode_nosend_0_row label,
+ .demobank #alert02_details_offsetsigncode_nosend_1_row label{
+	margin-left:180px;
+	text-align: left;
+}
+
+.demobank div#company_role_list_row.field div ul.multi-select li
+{
+	text-align: left;
+}
+
+.demobank div#company_role_list_row.field
+{
+	padding-left:0;
+	text-align:center;
+}
+
+
+.demobank div#user_list_row.field
+{
+	padding-left:0;
+	text-align:center;
+}
+
+.demobank div#company_role_list_row div 
+{
+	display: block;
+}
+
+.demobank ul.bulleted-list{
+	padding-left:3%;
+}
+
+.demobank ul.bulleted-list li{
+	list-style-type:circle;
+}
+
+.demobank .dojoxGridRowOver {
+	border: none;
+	background-color: white;
+}
+
+.demobank .dojoxGridRowOver .dojoxGridCell {
+	background-color: white; 
+	color:#000;
+}
+
+.demobank .dojoxGridCellOver {
+	border: 1px dotted #D5CDB5;
+	border-left-color: transparent;
+	border-top-color: transparent;
+}
+
+.demobank .linkableGrid .dojoxGridRowOver {
+	cursor: pointer;
+}
+
+.demobank .linkableGrid .dojoxGridRowOver {
+	border-top-color: #ccc;
+	border-bottom-color: #ccc;
+}
+
+.demobank .linkableGrid .dojoxGridRowOver .dojoxGridCell {
+	background-color: #60a1ea; 
+	color:#fff;
+}
+
+.demobank .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijit {
+	color: #000;
+}
+
+.demobank .linkableGrid .dojoxGridRowOver .dojoxGridCell .dijitDisabled {
+	color: gray;
+}
+
+.demobank #TransactionSearchForm .field, .demobank #TransactionFilterSearchForm .field {
+   margin-left:0px;	
+}
+
+.demobank .outstandingAmountTitle {
+	font-weight:normal;
+	text-align:center;
+	margin:5px;
+}
+
+.demobank #currencydata label{
+	width:60px;
+}
+
+.demobank .searchhelp{
+	font-size:0.8em;
+}
+
+.demobank #aggregate_use_product_currency_row label{
+	margin-left: 50px;
+}
+
+.demobank #AWBTrackingPortlet .AWBDiv, .AWBTrackingDialog .AWBDiv{
+	text-align:center;
+}
+.demobank .AWBTrackingDialog #AWBWelcome {
+	color:red;
+	font-weight:bold;
+}
+.demobank .AWBTrackingDialog #AWBDisclaimerMain{
+	font-weight:bold;
+}
+.demobank .AWBTrackingDialog .AWBDialogDisclaimer{
+	font-weight:bold;
+	color:#0079a7;
+	margin-bottom: 10px;
+}
+.demobank .AWBTrackingDialog #AWBDialogHeader{
+	margin-bottom: 10px;
+}
+.demobank .AWBTrackingDialog .AWBDialogDisclaimerNote{
+	font-weight:bold;
+	font-style:italic;
+	margin-bottom: 10px;
+}
+.demobank #AWBTrackingPortlet #AWBlink{
+	color:#0079a7;
+}
+.demobank #AWBTrackingPortlet .AWBClickTrack{
+	margin-top:10px;
+	margin-bottom: 10px;
+	text-align:center;
+}
+
+.demobank .dijitTitlePane {
+	margin: auto;
+	width: 500px;
+}
+
+.demobank .dojoxFloatingPane {
+	width: 300px;
+}
+
+.demobank #AWBTrackingPortlet #awblinkImg{
+	color:#0079a7;
+}
+
+.demobank .dijitTitlePaneTitle {
+	background: none;
+	background-color: #EB6E1F;
+}
+
+/** Buttons on a popup dialog **/
+.demobank .dialogButtons{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin:5px;
+}
+
+.demobank .dijitDialog .field,
+.demobank #TransactionSearchForm .field{
+	margin-left:0;
+}
+
+.demobank .dijitDialog{
+	font-size:0.8em;
+}
+
+.demobank div.multioption-group-label-view ul li{
+	line-height: 1em;
+	margin: -20px 0 0 180px;
+}
+
+.dj_ie6 .demobank div.multioption-group-label-view ul li{
+	line-height: 1em;
+	margin: 0 0 0 0px;
+}
+
+.demobank .alignRight{
+	text-align:right;
+}
+
+.demobank .alignCenter{
+	text-align:center;
+}
+.demobank .alignLeft{
+  	text-align:left;	
+}
+	
+.demobank #transactionDetails,
+.demobank #permission-details {
+	position: absolute;
+	left: -10000px;
+}
+
+.demobank #reporting_popup #transactionDetails {
+	position: relative;
+	left: 0;
+}
+
+/*New styles for alignments */
+.demobank .radio-checkbox-field-label{
+	display: inline;
+    line-height: 1.5em;
+    margin-left: 1px;
+    text-align: left !important;
+    width: auto;	
+}
+.demobank .column-wrapper{
+	float:left;
+	width:50%;	
+}
+
+.demobank .column-container{
+	margin: 3px 0;	
+}
+.demobank .column10{
+	width:10% !important;
+}
+.demobank .column20{
+	width:20% !important;
+}
+.demobank .column30{
+	width:30% !important;
+}
+.demobank .column40{
+	width:40% !important;
+}
+.demobank .column50{
+	width:50% !important;
+}
+.demobank .column60{
+	width:60% !important;
+}
+.demobank .column70{
+	width:70% !important;
+}
+.demobank .column80{
+	width:80% !important;
+}
+.demobank .column90{
+	width:90% !important;
+}
+.demobank .column100{
+	width:100% !important;
+}
+.demobank .big-textarea-wrapper-label{
+	margin-left:20px;
+	text-align:left;
+}
+.demobank .big-textarea-wrapper-content{
+	clear:both;	
+}
+.demobank #addButtonContainer{
+	 padding: 10px;	
+}
+.demobank .menuBarHighlight{
+	color:black !important;	
+}
+
+/*Component for User Entity*/
+.demobank .entityRows .label,.demobank .entityRows label{
+	width:0px;
+}
+.demobank .entityRows .field {
+    margin: 0px;
+    display: inline;
+}
+.demobank .entityRows img{
+	margin: 3px 2px 0px 0px;	
+}
+.demobank #userEntityTabel .dijitToggleButton,.demobank #userEntityTabel .dijitButton,.demobank #userEntityTabel .dijitDropDownButton,.demobank #userEntityTabel .dijitComboButton {
+    margin: 0em;
+}
+.demobank .misysCustomisableTabelCell{
+	vertical-align:middle;
+	height: 25px;
+	border: 1.5px solid white;	
+    display: inline-block;
+     /* For IE6 and IE7*/
+    zoom: 1;
+	*display:inline;
+}
+.demobank .misysCustomisableTabelCellHeader{
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
+}
+.demobank .misysCustomisableTabelCellOdd{
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+.demobank .misysCustomisableTabelCellEven{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.demobank .misysCustomisableTabelMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.demobank .width3per{
+	width:3%;
+}
+.demobank .width5per{
+	width:5%;
+}
+.demobank .width10per{
+	width:10%;
+}
+.demobank .width15per{
+	width:15%;
+}
+.demobank .width20per{
+	width:20%;
+}
+.demobank .width25per{
+	width:25%;
+}
+.demobank .width30per{
+	width:30%;
+}
+.demobank .width35per{
+	width:35%;
+}
+.demobank .width40per{
+	width:40%;
+}
+.demobank .width45per{
+	width:45%;
+}
+.demobank .alignCenter{
+	text-align:center;	
+}
+.demobank .customUserEntityClass1{
+	width:3.6%;	
+}
+.demobank .misysCustomisableTabelCellSelectAll{
+	background: none repeat scroll 0 0 #7692B7;
+	padding-top: 3px;
+    text-align: center;
+}
+.demobank .width4per{
+	width:4%;
+}
+.demobank .width13per{
+	width:13%;
+}
+.demobank .customUserAccountsClass1{
+	width:3%;	
+}
+.demobank .alignCenterWithPadding{
+	text-align :center;
+	padding-top : 4px;	
+}
+.demobank .alignLeftWithPadding{
+	padding : 4px 0px 0px 4px;	
+}
+.demobank .alignLeftWithPaddingHeader{
+	padding : 3px 0px 0px 4px;	
+}
+.demobank .entityTabHeader{
+	border: 1px solid #D0D0D0;
+	background-color: #F8F8F8;
+	margin:3px 0px;
+	padding:5px;
+	font-weight:bold;
+}
+.demobank .wipeInOutTabHeader{
+	border: 1px solid #DBDBDB;
+	background-color: transparent;
+	margin:3px 0px;
+	padding:5px;
+	font-weight:bold;
+}
+.demobank .dateFormatLabel{
+	display: none;
+}

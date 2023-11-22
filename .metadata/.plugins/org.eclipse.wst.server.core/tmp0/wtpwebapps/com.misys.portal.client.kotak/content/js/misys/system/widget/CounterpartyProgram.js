@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.system.widget.CounterpartyProgram"]){dojo._hasResource["misys.system.widget.CounterpartyProgram"]=true;dojo.provide("misys.system.widget.CounterpartyProgram");dojo.experimental("misys.system.widget.CounterpartyProgram");dojo.require("dijit._Contained");dojo.require("dijit._Container");dojo.require("dijit._Widget");dojo.require("misys.layout.SimpleItem");dojo.declare("misys.system.widget.CounterpartyProgram",[dijit._Widget,dijit._Contained,dijit._Container,misys.layout.SimpleItem],{cpty_abbv_name:"",cpty_name:"",cpty_bo_status:"",cpty_prog_cpty_assn_status:"",cpty_limit_cur_code:"",cpty_limit_amt:"",cpty_available_limit_amt:"",cpty_max_finance_percent:"",cpty_beneficiary_id:"",cpty_program_cpty_id:"",cpty_showDelete:"",createItem:function(){var _1={cpty_abbv_name:this.get("cpty_abbv_name"),cpty_name:this.get("cpty_name"),cpty_bo_status:this.get("cpty_bo_status"),cpty_prog_cpty_assn_status:this.get("cpty_prog_cpty_assn_status"),cpty_limit_cur_code:this.get("cpty_limit_cur_code"),cpty_limit_amt:this.get("cpty_limit_amt"),cpty_available_limit_amt:this.get("cpty_available_limit_amt"),cpty_max_finance_percent:this.get("cpty_max_finance_percent"),cpty_beneficiary_id:this.get("cpty_beneficiary_id"),cpty_program_cpty_id:this.get("cpty_program_cpty_id"),cpty_showDelete:this.get("cpty_showDelete")};if(this.hasChildren&&this.hasChildren()){dojo.forEach(this.getChildren(),function(_2){if(_2.createItem){_1.push(_2.createItem());}},this);}return _1;},constructor:function(){}});}

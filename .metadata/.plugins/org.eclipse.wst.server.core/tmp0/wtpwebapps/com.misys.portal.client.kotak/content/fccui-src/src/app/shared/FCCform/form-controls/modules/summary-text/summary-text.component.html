@@ -1,0 +1,62 @@
+<ng-container [formGroup]="form">
+    <div class="p-col-12" dir="{{ dir }}">
+      <div *ngIf="mode === 'edit'">
+        <p
+          class="newstitle"
+          *ngIf="control.params.titleLabel"
+          (click)="onEventRaised($event, control.params.itemId)"
+        >
+          {{ control.params.titleLabel }}
+        </p>
+        <div
+          tabindex="{{ control.params.tabIndex ? control.params.tabIndex : -1 }}"
+          class="form-header {{ control.params.styleClass }} {{
+            control.params.boxClass
+          }}"
+          (focus)="onEventRaised($event, control.params.itemId)"
+          (scroll)="onEventRaised($event, control.key)"
+          (click)="onEventRaised($event, control.params.itemId)"
+          [ngClass]="control.params.invalidValue ? 'labelStyleInRed' : ''"
+        >
+          <span
+            class="{{ control.params.parentStyleClass }}"
+            [innerHTML]="control.params.label"
+          ></span>
+          <button role="button" 
+            type="button"
+            *ngIf="control.params.invalidValue"
+            (click)="
+              navigateAway(
+                $event,
+                control.params.origSectionName,
+                control.params.origFieldName,
+                control.params.clubbedInvalidField
+              )
+            "
+            title="{{ 'goAndEdit' | translate }}"
+            mat-icon-button
+            [attr.aria-label]="'Link'"
+          >
+            <mat-icon class="iconSize" aria-hidden="false" aria-label="Link icon"
+              >link</mat-icon
+            ></button
+          ><a class="infoLabel" *ngIf="control.params.infoIcon">
+            {{ control.params.infolabel | translate }}</a
+          >
+        </div>
+        <div *ngIf="control.params.swift" class="narrative-counter-class">
+          <fcc-common-narrative-character-count
+            [enteredCharCount]="control.params.enteredCharCount"
+            [allowedCharCount]="control.params.allowedCharCount"
+            [fieldSize]="control.params.fieldSize"
+          >
+          </fcc-common-narrative-character-count>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="(control.key === 'lineBreakForMaster')">
+      <div class="line-break">
+      </div>
+    </div> 
+  </ng-container>
+  

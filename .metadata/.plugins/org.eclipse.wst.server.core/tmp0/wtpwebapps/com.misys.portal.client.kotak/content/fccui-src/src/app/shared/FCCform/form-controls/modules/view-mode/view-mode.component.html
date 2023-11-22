@@ -1,0 +1,32 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.parentStyleClass }}" dir="{{ dir }}">
+    <label
+      for="{{ control.key }}"
+      *ngIf="control.params.showLabel && !control['interpolateParams']"
+      class="p-col-12 label-header {{ control.params.labelStyleClass }}"
+      tabindex="0"
+      >{{ control.params.label }}
+    </label>
+    <label
+    for="{{ control.key }}"
+    *ngIf="control.params.showLabel && control['interpolateParams'] && control.params.fieldIcon !== undefined"
+    class="p-col-12 label-header {{ control.params.labelStyleClass }}"
+    tabindex="0"
+    >{{ control.params.label }} {{control['interpolateParams']['key']}}
+    <button role="button"  type="button" class="{{control.params.fieldIconStyle}}"
+      (click)="fieldIconClick($event, control.key, control.params)" title="{{control.params.fieldIconTitle | translate}}" mat-icon-button
+      [attr.aria-label]="'Icon'">
+      <mat-icon class="fieldIconClass" aria-hidden="false" aria-label="Icon">{{control.params.fieldIcon}}</mat-icon>
+    </button>
+  </label
+  >
+    <div
+      tabindex="0" dir="{{ dir }}"
+      class="p-col-12 fieldvalue {{ control.params.valueStyleClass }}"
+      id="{{ control.key }}"
+    >
+      <span *ngIf="control.key !== 'errorMsg'">{{ control.value }}</span>
+      <span aria-live="polite" *ngIf="control.value  && control.key === 'errorMsg'">{{errorHeader | translate}}: {{ control.value }}</span>
+    </div>
+  </div>
+</ng-container>

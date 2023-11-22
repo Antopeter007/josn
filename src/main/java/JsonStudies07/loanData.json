@@ -1,0 +1,59 @@
+{
+	"loans": [
+		{
+			"master_ref": "0286IVD210024915    ",
+			"status": "LIV ",
+			"cust_mnm": "100001",
+			"disb_date": "23-03-21",
+			"maturity_date": "15-06-21",
+			"principle_repayment_amount": 139305.94,
+			"interest_repayment_amount": 33037.64,
+			"total_repayment_amount": 172343.58,
+			"overdue_y_n": "N"
+		},
+		{
+			"master_ref": "0286IVD210025236    ",
+			"status": "LIV ",
+			"cust_mnm": "100001",
+			"disb_date": "25-03-21",
+			"maturity_date": "22-06-21",
+			"principle_repayment_amount": 145000,
+			"interest_repayment_amount": 34090.49,
+			"total_repayment_amount": 179090.49,
+			"overdue_y_n": "Y"
+		},
+		{
+			"master_ref": "0286IVD210026143    ",
+			"status": "LIV ",
+			"cust_mnm": "100001",
+			"disb_date": "25-03-21",
+			"maturity_date": "22-06-21",
+			"principle_repayment_amount": 53032.41,
+			"interest_repayment_amount": 12468.28,
+			"total_repayment_amount": 65500.69,
+			"overdue_y_n": "N"
+		},
+		{
+			"master_ref": "0286IVD210026006    ",
+			"status": "LIV ",
+			"cust_mnm": "100001",
+			"disb_date": "25-03-21",
+			"maturity_date": "22-06-21",
+			"principle_repayment_amount": 313597.27,
+			"interest_repayment_amount": 73728.87,
+			"total_repayment_amount": 387326.14,
+			"overdue_y_n": "Y"
+		},
+		{
+			"master_ref": "0286IVD210024897    ",
+			"status": "LIV ",
+			"cust_mnm": "100001",
+			"disb_date": "23-03-21",
+			"maturity_date": "22-06-21",
+			"principle_repayment_amount": 92130.76,
+			"interest_repayment_amount": 21660.57,
+			"total_repayment_amount": 113791.33,
+			"overdue_y_n": "Y"
+		}
+	]
+}

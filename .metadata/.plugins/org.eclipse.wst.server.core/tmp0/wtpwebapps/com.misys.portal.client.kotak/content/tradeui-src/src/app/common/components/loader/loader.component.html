@@ -1,0 +1,8 @@
+<div [class.loader-hidden]="!show">
+            <div *ngIf="show">
+                <p-dialog header="Processing" [(visible)]="show" [style]="{width: '250px'}"
+                    [draggable]="false" [modal]="true" appendTo="body" [blockScroll]="true">
+                    <p-progressSpinner></p-progressSpinner>
+                  </p-dialog>
+            </div>
+</div>

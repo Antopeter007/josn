@@ -1,0 +1,44 @@
+<ng-container [formGroup]="form">
+  <div class="align-button">
+    <div *ngFor="let button of buttonsList" dir="{{ dir }}" style= "padding-top: 1em;">
+      <button role="button" 
+        mat-stroked-button
+        dense
+        class="{{ button.styleClass }}"
+        id="{{ button.name }}"
+        (click)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+        (blur)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+        (keyup.enter)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+        [disabled]="button?.btndisable"
+      >
+        {{ button.name | translate }}
+      </button> &nbsp;
+      <span *ngIf="button?.warning" >
+        <label class="errMsg" tabindex="0">{{
+          button?.warning
+        }}</label>
+      </span>
+    </div>
+    <div style= "padding-top: 1em;">
+      <span *ngIf="threeDotsList && threeDotsList?.length > 0" class="focus flex-center showContentsAlign">
+              <button role="button" mat-icon-button [dir]="dir" style="height: 32px;" attr.aria-label="{{'threeDots' | translate}}" [matMenuTriggerFor] = "menuButton" id="threeDots" tabindex="0">
+                  <img id="threeDotsIcon" class = "" tabindex="0" title="{{'threeDots' | translate}}" src="{{ threeDotsIconPath }}" alt="threeDots">
+              </button>
+      </span>
+      <mat-menu #menuButton="matMenu" class="downloadMatMenu downloadMatMainMenu">
+          <ul>
+              <li *ngFor= "let button of threeDotsList">
+                  <button role="button"  id="{{ button?.name}}" mat-menu-item tabindex="0"
+                      (click)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+                      (blur)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+                      (keyup.enter)="onthreeDotsButtonEventRaised($event, button?.name, form)"
+                      [disabled]="button?.btndisable">
+                      {{ button?.name }}
+                  </button>
+              </li>
+          </ul>
+      </mat-menu>
+    </div>
+  </div>
+  </ng-container>
+  

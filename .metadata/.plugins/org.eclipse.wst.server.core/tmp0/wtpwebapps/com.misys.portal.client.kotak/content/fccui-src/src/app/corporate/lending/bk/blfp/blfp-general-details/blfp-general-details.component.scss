@@ -1,0 +1,59 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .facilityChip .subheader-title {
+  margin-bottom: 0.5em;
+}
+:host ::ng-deep .widthForFacilityChip {
+  max-width: fit-content;
+  overflow: auto;
+}
+:host ::ng-deep .applicant_bene_entity_class {
+  padding-top: 1.2em !important;
+  background-color: $formFieldbackground !important;
+  border-radius: 4px 4px 0em 0em !important;
+  word-break: break-all;
+}
+
+// Dropdown scrollbar styles
+:host ::ng-deep .widthForFacilityChip::-webkit-scrollbar {
+  height: 3px; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host ::ng-deep .widthForFacilityChip::-webkit-scrollbar-track {
+  background:  $WHITE-13;// Chrome, Safari and Opera
+}
+
+/* Handle */
+:host ::ng-deep .widthForFacilityChip::-webkit-scrollbar-thumb {
+  background:  $GREY-02; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host ::ng-deep .widthForFacilityChip:hover::-webkit-scrollbar-track {
+  background: #f1f1f1; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+/* Handle on hover */
+:host ::ng-deep .widthForFacilityChip:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+:host ::ng-deep .mat-select-disabled .mat-select-value {
+  color: $GRAY-HEX-20;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-label {
+  color: $GREY-100;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+  background-color: $WHITE-14;
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}

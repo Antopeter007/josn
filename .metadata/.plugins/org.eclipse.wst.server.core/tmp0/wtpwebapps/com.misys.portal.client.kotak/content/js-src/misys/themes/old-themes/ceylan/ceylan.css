@@ -1,0 +1,216 @@
+/**
+ * @base-theme tundra
+ */
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dojox/layout/resources/FloatingPane.css";
+@import "../../../dojox/layout/resources/ResizeHandle.css";
+@import "../../../dojox/layout/resources/ToggleSplitter.css";
+@import "../../../dijit/themes/tundra/Common.css";
+@import "../../../dijit/themes/tundra/Tree.css";
+@import "../../../dijit/themes/tundra/layout/ContentPane.css";
+@import "../../../dijit/themes/tundra/layout/TabContainer.css";
+@import "../../../dijit/themes/tundra/layout/BorderContainer.css";
+@import "../../../dijit/themes/tundra/form/Common.css";
+@import "../../../dijit/themes/tundra/form/Button.css";
+@import "../../../dijit/themes/tundra/form/Checkbox.css";
+@import "../../../dijit/themes/tundra/form/RadioButton.css";
+@import "../../../dijit/themes/tundra/ProgressBar.css";
+@import "../../../dijit/themes/tundra/TitlePane.css";
+@import "../../../dijit/themes/tundra/Calendar.css";
+@import "../../../dijit/themes/tundra/Dialog.css";
+@import "../../../dijit/themes/tundra/Editor.css";
+@import "../../../dijit/icons/editorIcons.css";
+@import "../../../dojox/editor/plugins/resources/editorPlugins.css";
+@import "../../../dojox/grid/enhanced/resources/tundra/EnhancedGrid.css";  /* Imports 6 more */
+
+@import url("css-imports/ceylan-layout.css");
+@import url("css-imports/ceylan-styles.css");
+@import url("css-imports/ceylan-portlets.css");
+@import url("css-imports/ceylan-forms.css");
+@import url("css-imports/ceylan-help.css");
+@import url("css-imports/ceylan-navigation.css");
+
+/**
+ CSS for the homepage
+**/
+
+.ceylan .homepage {
+	background: none repeat scroll 0 0 white;
+	/*padding-top:10px;*/
+}
+
+.ceylan .breadcrumb{
+	width: 215px;
+}
+.ceylan #QuickTransferPortlet{
+	position:relative;
+}
+
+
+.ceylan #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	font-size:0.8em;
+	margin: 5px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+/* buttons */
+.ceylan a.submitButton{
+    background: url('images/home_submitarrow.gif') no-repeat 0 0 #1B3E93;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-weight: lighter;
+    height: 18px;
+    width: 60px;
+    margin-top: 5px;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+	padding-left:13px;
+}
+
+.ceylan a.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background-color:#7aa2ff;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	display:inline-block;
+	color:#ffffff!important;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:4px 12px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #1570cd;
+}.ceylan a.myButton:hover {
+	background-color:#1B3E93;
+}.ceylan a.myButton:active {
+	position:relative;
+	/*top:1px;*/
+}
+
+
+/* PORTLET-SPECIFIC Rules */
+.ceylan .portlet #contentDiv{
+	padding-left:15px;
+}
+
+.ceylan .half{
+	width:48%;
+	padding:1%;
+}
+
+.ceylan .homepage .portlet {
+	border: 1px solid #7AA1FF;
+	border-radius : 4px;
+}
+
+.ceylan .homepage .portlet-section-header h2.portlet-title {
+	font-family:Tahoma,Arial;
+    font-size: 0.88em;
+    line-height: 2.3em;
+	color:#fff;
+    padding-left: 5px;
+	/*float: left;*/
+	width: 100%;
+	display:inline;
+}
+.ceylan .homepage .showHide > img {
+	background:transparent url(images/actions.png) no-repeat;
+}
+.ceylan .homepage .showHide > img.action-portlet-collapse{
+	background-position: 0px -95px;
+}
+.ceylan .homepage .showHide > img.action-portlet-expand{
+	background-position: -3px -243px;
+}
+
+.ceylan .homepage .portlet-section-header .portlet-menu {
+	float: right;
+}
+
+/** News paragraph **/
+.ceylan .para{
+	margin-left:5px;
+	margin-top:5px;
+	width:95%;
+}
+
+.ceylan .para .icon {
+ float:left;
+ width:55px;
+}
+
+.ceylan .para-quote {
+	font-style: italic;
+}
+
+/** User tools **/
+/** TODO add a class to these, remove lang specific id **/
+.ceylan #UserTools_fr, .ceylan #UserTools_en {
+	display: none;
+}
+
+.dj_ie6 .ceylan .portlet-title-addons,
+.dj_ie7 .ceylan .portlet-title-addons {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}
+
+.dj_ie6 .ceylan .portlet-menu,
+.dj_ie7 .ceylan .portlet-menu {
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: -1.3em;
+}
+
+/** Loan Calculator **/
+.ceylan #LoanCalculatorPortlet p{
+	padding:10px 10px 10px 10px;
+	font-weight:bolder;
+}
+.ceylan #LoanCalculatorPortlet .loanCalcValue{
+	float:right;
+	margin-right:50px;
+	font-weight:lighter;
+}
+
+.ceylan #LoanCalculatorPortlet p{
+	font-size:12px;
+}
+
+.ceylan #QuickTransferPortlet fieldset > * {
+    display: block;
+    margin: 15px 10px 0;
+    padding: 0;
+}
+
+/* Demo (Portlet) */
+.ceylan #DemoPortlet table{
+    margin-right:auto;
+	margin-left:auto;
+}
+
+/* Stocks (Portlet) */
+.ceylan #StocksPortlet #wikiInvest{
+	margin-top:5px;
+	margin-bottom:5px;
+    margin-right:auto;
+	margin-left:auto;
+	width:300px;
+}

@@ -1,0 +1,11 @@
+<ng-container
+  *ngIf="form"
+  fccFormResolver
+  [module]="module"
+  [formGroup]="form"
+  [mode]="mode"
+></ng-container>
+<ng-container *ngIf="errorDispaly"  class="p-col-12" [dir]="dir" tabindex="0">
+  <div *ngIf = "dir === 'ltr'" class="errorBlock">{{errorHeader | translate}}: {{responseObj}}</div>
+  <div *ngIf = "dir === 'rtl'" class="errorBlock">{{responseObj}} :{{errorHeader | translate}}</div>
+ </ng-container>

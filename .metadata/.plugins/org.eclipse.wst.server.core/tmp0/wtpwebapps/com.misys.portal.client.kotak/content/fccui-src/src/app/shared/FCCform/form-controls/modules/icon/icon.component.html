@@ -1,0 +1,31 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 {{ control.params.parentStyleClass }}">
+    <div
+      *ngIf="control.params.rendered"
+      dir="{{ dir }}"
+      class="{{ control.params.styleClass }}"
+    >
+      <span *ngIf="control?.key !== 'downloadIcon'"
+        class="material-icons"
+        tabindex="0"
+        (click)="onEventRaised($event, control.key)"
+        (keyup)="onEventRaised($event, control.key)"
+        attr.title="{{control.params.iconName | translate}}"
+      >
+        {{ control.params.iconName }}
+      </span>
+      <span *ngIf="control?.key === 'downloadIcon'" class="focus flex-center showContentsAlign">
+        <button role="button" mat-icon-button [dir]="dir" attr.aria-label="{{'listDownload' | translate}}" [matMenuTriggerFor] = "menuDownload" id="tableDownload" tabindex="0">
+          <img id="downloadIcon" class = "" tabindex="0" title="Download All Accounts" src="{{downloadIconPath}}" alt="downloadIcon">
+        </button>
+      </span>
+      <mat-menu #menuDownload="matMenu" class="downloadMatMenu downloadMatMainMenu">
+        <ul>
+          <li *ngFor= "let downloadOption of allowedDownloadOptions">
+            <button role="button"  id="{{ downloadOption + '_download'}}" mat-menu-item tabindex="0" (click)="onClickDownloadOption(downloadOption)">{{ downloadOption }}</button>
+          </li>
+      </ul>
+      </mat-menu>
+    </div>
+  </div>
+</ng-container>

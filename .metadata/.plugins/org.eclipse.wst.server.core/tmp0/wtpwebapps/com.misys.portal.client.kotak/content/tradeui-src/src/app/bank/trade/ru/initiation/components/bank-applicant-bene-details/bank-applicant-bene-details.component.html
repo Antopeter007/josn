@@ -1,0 +1,5 @@
+<form [formGroup]="ruApplicantBeneDetailsForm">
+    <fcc-ru-bank-common-applicant-bene-details [jsonContent]="jsonContent" [type]="commonData.getProductCode() === 'BR' ? 'beneficiary' : 'applicant'" [ruCommonApplicantBeneDetailsForm]="ruApplicantBeneDetailsForm"></fcc-ru-bank-common-applicant-bene-details>
+    <fcc-ru-bank-common-applicant-bene-details [jsonContent]="jsonContent" [type]="'applicant'" *ngIf="commonData.getProductCode() === 'BR'" [ruCommonApplicantBeneDetailsForm]="ruApplicantBeneDetailsForm"></fcc-ru-bank-common-applicant-bene-details>
+</form>
+

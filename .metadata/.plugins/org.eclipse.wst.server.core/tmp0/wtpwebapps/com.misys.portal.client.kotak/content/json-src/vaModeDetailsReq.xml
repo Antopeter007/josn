@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request>
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>VAM_CREATE_MODIFY</action_type>
+    <crn>38288199</crn>
+    <mode>UPDATE</mode>
+    <virtual_account>
+        <record_id>49055</record_id>
+        <company_code>UNICHEM</company_code>
+        <sub_company_code>aa</sub_company_code>
+        <virtual_apac>998A00000bhm</virtual_apac>
+        <map_virtual_apac> </map_virtual_apac>
+        <account_no>01730010012048</account_no>
+        <dealer_code>bhm</dealer_code>
+        <dealer_name>bhmName 2</dealer_name>
+        <cr_narration>1</cr_narration>
+    </virtual_account>
+</Request>

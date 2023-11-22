@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.finacle.com/fixml stopCheque.xsd">
+    <Header>
+        <ResponseHeader>
+            <RequestMessageKey>
+                <RequestUUID>b5d1906b-5a7c-139a-e224-648d4326ebec</RequestUUID>
+                <ServiceRequestId>stopCheque</ServiceRequestId>
+                <ServiceRequestVersion>10.2</ServiceRequestVersion>
+                <ChannelId>COR</ChannelId>
+            </RequestMessageKey>
+            <ResponseMessageInfo>
+                <BankId>01</BankId>
+                <TimeZone>GMT+05:30</TimeZone>
+                <MessageDateTime>2021-04-15T19:41:26.577</MessageDateTime>
+            </ResponseMessageInfo>
+            <UBUSTransaction>
+                <Id/>
+                <Status/>
+            </UBUSTransaction>
+            <HostTransaction>
+                <Id/>
+                <Status>SUCCESS</Status>
+            </HostTransaction>
+            <HostParentTransaction>
+                <Id/>
+                <Status/>
+            </HostParentTransaction>
+            <CustomInfo/>
+        </ResponseHeader>
+    </Header>
+    <Body>
+        <stopChequeResponse>
+            <StopChequeResponseVO>
+                <chequeList>
+                    <acid>1711994190</acid>
+                    <branchId>1422</branchId>
+                    <chequeNumber>76</chequeNumber>
+                    <chequeStatus>S</chequeStatus>
+                </chequeList>
+            </StopChequeResponseVO>
+            <stopCheque_CustomData>
+                <THB>49</THB>
+            </stopCheque_CustomData>
+        </stopChequeResponse>
+    </Body>
+</FIXML>

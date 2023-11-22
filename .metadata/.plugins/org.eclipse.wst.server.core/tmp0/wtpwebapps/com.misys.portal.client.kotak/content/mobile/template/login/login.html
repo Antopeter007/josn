@@ -1,0 +1,69 @@
+<script type="text/ng-template" id="error-messages">
+ <div ng-message="required">{{'REQUIRED_FIELD_VALIDATION' | translate}}</div>
+ <div ng-message="minlength">{{'MINIMUM_LENGTH_VALIDATION' | translate}}</div>
+ <div ng-message="maxlength">{{'MAXIMUM_LENGTH_VALIDATION' | translate}}</div>
+ <div ng-message="pattern">{{'PATTERN_MISMATCH' | translate}}</div>
+ <div ng-message="samepassword">{{'SAME_PASSWORD' | translate}}</div>
+ <div ng-message="mismatch">{{'PASSWORD_MISMATCH' | translate}}</div>
+ <div ng-message="invalidname">{{vm.invalidChar}}{{'INVALID_NAME' | translate}}</div>
+</script>
+<div class="bar bar-header bar-positive">
+	<div class="mobile-header-login-logo">
+		<span title="FINASTRA - FINANCIAL SOFTWARE" alt="FINASTRA - FINANCIAL SOFTWARE"></span>
+	</div>
+</div>
+
+<ion-content padding="true" class="has-header">
+<div ng-if="vm.mode==='credentials'">
+	<form name="vm.myForm" ng-submit="vm.login()" novalidate>
+	  <ion-input class="item item-select small">
+	    <ion-label>Language</ion-label>
+	            <select name="userSelectedLanguage" id="userSelectedLanguage" ng-model="vm.selectedLanguage" ng-options="lang.name for lang in vm.availableLanguages track by lang.id" ng-change="vm.changeLanguage(vm.selectedLanguage.id)"></select>
+	 </ion-input>
+	 <ion-list>
+	 
+	 <ion-input class="item item-input item-floating-label">
+	   <ion-label>{{'COMPANY_ID' | translate}}</ion-label>
+	   <input type="text" name="companyid" maxlength="35" placeholder="{{'COMPANY_ID' | translate}}" ng-required="vm.mode === 'credentials'" ng-model="vm.user.company" capitalize>
+	</ion-input>
+	
+	<span ng-show="vm.myForm.companyid.$error && vm.myForm.$submitted" ng-messages="vm.myForm.companyid.$error" style="color:red" role="alert">
+	   <span ng-messages-include="error-messages"></span>
+	</span>
+	
+	<ion-input class="item item-input item-floating-label">
+	   <ion-label>{{'USER_ID' | translate}}</ion-label>
+	   <input type="text" name="username" placeholder="{{'USER_ID' | translate}}" maxlength="32" required ng-model="vm.user.username" capitalize> 
+	</ion-input>
+	
+	<span ng-show="vm.myForm.username.$error && vm.myForm.$submitted" ng-messages="vm.myForm.username.$error" style="color:red" role="alert">
+	   <span ng-messages-include="error-messages"></span>
+	</span>
+	
+	<ion-input class="item item-input item-floating-label">
+	   <ion-label>{{'PASSWORD' | translate}}</ion-label>
+	   <input type="password" name="password" required placeholder="{{'PASSWORD' | translate}}" maxlength="{{vm.pbMax}}" ng-model="vm.user.password">
+	</ion-input>
+
+	
+	<span ng-show="vm.myForm.password.$error && vm.myForm.$submitted" ng-messages="vm.myForm.password.$error" style="color:red" role="alert">
+	   <span ng-messages-include="error-messages"></span>
+	</span>
+	
+	<div class="spacer" style="width: 100%; height: 46px;"></div>
+	</ion-list> 
+	
+	 <div>
+	   <button type="submit" class="button button-block button-positive misys-login-button" >{{'LOGIN' | translate}}</button>
+	 </div>
+	
+	<p class="message"><span ng-show="vm.message" style="color:red" class="ion ion-alert"></span>&nbsp;{{ vm.message}}</p>
+	
+	</form>
+	<div ng-bind-html="vm.preLoginContent"></div>
+	
+</div>
+</ion-content>
+<div ng-if="vm.mode==='change_password_qa'" ng-include="'content/mobile/template/login/firstLogin.html'"></div>
+<div ng-if="vm.mode==='accept_terms'" ng-include="'content/mobile/template/login/termsandconditions.html'"></div>
+<div ng-if="vm.mode==='change_password'" ng-include="'content/mobile/template/login/changePassword.html'"></div>

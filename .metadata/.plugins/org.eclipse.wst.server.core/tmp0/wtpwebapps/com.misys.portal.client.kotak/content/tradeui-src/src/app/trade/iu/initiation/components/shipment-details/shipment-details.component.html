@@ -1,0 +1,177 @@
+<div>
+  <div *ngIf="!viewMode ;else view_content">
+    <form [formGroup]="shipmentDetailsSection">
+      <p-panel header="{{ 'HEADER_SHIPMENT_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+        <div  class="field">
+          <label for = "shipFrom" >{{ 'SHIPMENT_FROM' | translate }}&nbsp;</label>
+          <input id = "shipFrom" pInputText type="text" formControlName="shipFrom" maxlength= getLength()>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipFrom')"></fcc-common-error-message>
+        </div>
+        <div  class="field">
+          <label for = "shipLoading" >{{ 'PLACE_OF_LOADING' | translate }}&nbsp;</label>
+          <input id = "shipLoading" pInputText type="text" formControlName="shipLoading" maxlength= getLength()>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipLoading')"></fcc-common-error-message>
+        </div>
+        <div  class="field">
+          <label for = "shipDischarge" >{{ 'PLACE_OF_DISCHARGE' | translate }}&nbsp;</label>
+          <input id = "shipDischarge" pInputText type="text" formControlName="shipDischarge" maxlength= getLength()>
+          
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipDischarge')"></fcc-common-error-message>
+        </div>
+        <div  class="field">
+          <label for = "shipTo" >{{ 'SHIPMENT_TO' | translate }}&nbsp;</label>
+          <input id = "shipTo" pInputText type="text" formControlName="shipTo" maxlength= getLength()>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipTo')"></fcc-common-error-message>
+        </div>
+        <div  class="field" *ngIf="this.shipmentPeriodStandard === 'false'">
+          <label for = "shipName" >{{ 'SHIPMENT_NAME' | translate }}&nbsp;</label>
+          <input id = "shipName" pInputText type="text" formControlName="shipName" maxlength="65">
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipName')"></fcc-common-error-message>
+        </div>
+        <div  class="field">
+          <label for = "partShipDetl" >{{ 'PARTIAL_SHIPMENT' | translate }}&nbsp;</label>
+          <p-dropdown id = "partShipDetl" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="originalShipmentObj" [showClear]="true" (ngModelChange) = "diaplayMessage($event, 'partShipDetl');" formControlName="partShipDetl">
+        </p-dropdown>
+        <div>
+          <label *ngIf="partialShipConditional" >&nbsp;</label>
+          <span *ngIf="partialShipConditional && (bgRecord['tnxTypeCode'] !== '03' && this.commonDataService.getMode() !== 'AMEND')" >{{ 'TEXT_OF_UNDERTAKING_MSG' | translate }}</span>
+          <span *ngIf="partialShipConditional && (bgRecord['tnxTypeCode'] === '03' || this.commonDataService.getMode() === 'AMEND')" >{{ 'TEXT_OF_AMENDMENT_MSG' | translate }}</span>
+        </div>
+        </div>
+        <div  class="field">
+          <label for = "tranShipDetl" >{{ 'TRANSHIPMENT' | translate }}&nbsp;</label>
+          <p-dropdown id = "tranShipDetl" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="originalShipmentObj" [showClear]="true" (ngModelChange) = "diaplayMessage($event, 'tranShipDetl');" formControlName="tranShipDetl">
+          </p-dropdown>
+          <div>
+            <label *ngIf="transShipConditional" >&nbsp;</label>
+            <span *ngIf="transShipConditional && (bgRecord['tnxTypeCode'] !== '03' && this.commonDataService.getMode() !== 'AMEND')" >{{ 'TEXT_OF_UNDERTAKING_MSG' | translate }}</span>
+            <span *ngIf="transShipConditional && (bgRecord['tnxTypeCode'] === '03' || this.commonDataService.getMode() === 'AMEND')">{{ 'TEXT_OF_AMENDMENT_MSG' | translate }}</span>
+          </div>
+        </div>
+        <div  class="field" *ngIf="this.shipmentPeriodStandard === 'false'">
+          <label for = "shipPeriodValue" >{{ 'SHIPMENT_PERIOD_VALUE' | translate }}&nbsp;</label>
+          <p-dropdown id = "shipPeriodValue" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="shipmentPeriodObj" [showClear]="true" formControlName="shipPeriodValue" (onChange)="validateShipmentPeriodFields();">
+        </p-dropdown>
+        </div>
+        <div class="field" id="shipmentPeriodText" *ngIf="this.shipmentDetailsSection.get('shipPeriodValue').value ==='01' && this.shipmentPeriodStandard === 'false'">
+          <label for="shipmentPeriodText" id="shipmentPeriodTextLabel" class="alignment-vertical-top">{{ 'SHIPMENT_PERIOD_NARRATIVE' | translate }}<span  class="required-field-symbol">*</span>&nbsp;</label>
+          <textarea class="textarea-fixed-height" fccCommonTextArea [controlName]="shipmentDetailsSection.get('shipmentPeriodText')" pInputTextarea [rows]="6" [cols]="65"
+            formControlName="shipmentPeriodText" id = "shipmentPeriodText"
+            [class.fieldError]="validationService.isFieldInvalid(shipmentDetailsSection.get('shipmentPeriodText'))">
+          </textarea>
+          <fcc-common-narrative-character-count [enteredCharCount]="shipmentDetailsSection.get('shipmentPeriodText').value ? shipmentDetailsSection.get('shipmentPeriodText').value.length : 0"
+          [allowedCharCount]="390" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('shipmentPeriodText')"></fcc-common-error-message>
+          </div>
+        <div  class="field" *ngIf="this.shipmentDetailsSection.get('shipPeriodValue').value ==='03' && this.shipmentPeriodStandard === 'false'">
+          <label for = "earliestShipDate" >{{ 'EARLIEST_SHIPMENT_DATE' | translate }}
+            <span class="required-field-symbol">*</span>&nbsp;
+          </label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="earliestShipDate"
+          dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+          name="earliestShipDateSelected" (onSelect) = "validateEarliestShipDate()" class="content" [showButtonBar]="true"></p-calendar>
+          <a *ngIf="!(commonData.disableTnx) && hasEarliestShipmentDateValue()" class="fa fa-remove fa-lg text-danger" (click)="clearEarliestShipmentDate($event);"></a>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('earliestShipDate')"></fcc-common-error-message>
+        </div>
+        <div  class="field" *ngIf="this.shipmentDetailsSection.get('shipPeriodValue').value !=='01'">
+          <label for = "lastShipDate" >{{ 'LAST_SHIPMENT_DATE' | translate }}
+            <span class="required-field-symbol" *ngIf="this.shipmentDetailsSection.get('shipPeriodValue').value ==='03' && this.shipmentPeriodStandard === 'false'">*</span>&nbsp;</label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="lastShipDate"
+          dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}"
+          name="lastShipDateSelected" (onSelect) = "validateLastShipDate()" class="content" [showButtonBar]="true"></p-calendar>
+          <a *ngIf="!(commonData.disableTnx) && hasShipmentDateValue()" class="fa fa-remove fa-lg text-danger" (click)="clearShipmentDate($event);"></a>
+          <fcc-common-error-message [control]="shipmentDetailsSection.get('lastShipDate')"></fcc-common-error-message>
+        </div>
+
+        <div *ngIf="displayIncoDetails">
+          <div class="field">
+            <label for = "incoTermYear" >{{ 'INCOTERMS_RULES' | translate }}&nbsp;</label>
+            <p-dropdown id = "incoTermYear"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="incoRulesDropDown"
+            [showClear]="shipmentDetailsSection.get('incoTermYear').value != null && shipmentDetailsSection.get('incoTermYear').value !== ''"
+            formControlName="incoTermYear"
+            (onChange)="updateIncoTermList($event.value, false);">
+            </p-dropdown>
+          </div>
+          <div *ngIf="displayIncoTerms" class="field">
+            <label for = "incoTerm" >{{ 'PURCHASE_TERMS' | translate }}
+              <span class="required-field-symbol">*</span>&nbsp;</label>
+            <p-dropdown id = "incoTerm"  placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="incoTermValues" formControlName="incoTerm"
+            (onChange)="purchaseTermsSelected($event.value);"
+            [styleClass]="validationService.isFieldInvalid(shipmentDetailsSection.get('incoTerm')) ? 'dropDownFieldError' : 'inherit'">
+            </p-dropdown>
+            <fcc-common-error-message [control]="shipmentDetailsSection.get('incoTerm')"></fcc-common-error-message>
+            <div  class="field">
+            <label for = "incoPlace" >{{ 'NAMED_PLACE' | translate }}<span class="required-field-symbol" *ngIf="namedPlace">*</span>&nbsp;
+            </label>
+            <input id = "incoPlace" pInputText type="text" formControlName="incoPlace"  maxlength="65" (blur)="purchaseTermsSelected($event.value);"
+            [class.fieldError]="validationService.isFieldInvalid(shipmentDetailsSection.get('incoPlace'))">
+            <fcc-common-error-message [control]="shipmentDetailsSection.get('incoPlace')"></fcc-common-error-message>
+          </div>
+        </div>
+        </div>
+      </p-panel>
+    </form>
+  </div>
+  <ng-template #view_content>
+    <p-panel header="{{ 'HEADER_SHIPMENT_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+      <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" id="shipmentDetailsSection">
+        <div id="shipFrom" *ngIf="bgRecord['shipFrom'] && bgRecord['shipFrom'] !== null && bgRecord['shipFrom'] !== ''">
+          <label for="shipFrom" id="shipFromLabel">{{ 'SHIPMENT_FROM' | translate }}&nbsp;</label>
+          <label class = "label-left-text ">{{bgRecord['shipFrom']}}</label>
+        </div>
+        <div id="shipLoading" *ngIf="bgRecord['shipLoading'] && bgRecord['shipLoading'] !== null && bgRecord['shipLoading'] !== ''">
+          <label for="shipLoading" id="shipLoadingLabel">{{ 'PLACE_OF_LOADING' | translate }}&nbsp;</label>
+          <label class = "label-left-text ">{{bgRecord['shipLoading']}}</label>
+        </div>
+        <div id="shipDischarge" *ngIf="bgRecord['shipDischarge'] && bgRecord['shipDischarge'] !== null && bgRecord['shipDischarge'] !== ''">
+          <label for="shipDischarge" id="shipDischargeLabel">{{ 'PLACE_OF_DISCHARGE' | translate }}&nbsp;</label>
+          <label class = "label-left-text ">{{bgRecord['shipDischarge']}}</label>
+        </div>
+        <div id="shipTo" *ngIf="bgRecord['shipTo'] && bgRecord['shipTo'] !== null && bgRecord['shipTo'] !== ''">
+          <label for="shipTo" id="shipToLabel">{{ 'SHIPMENT_TO' | translate }}&nbsp;</label>
+          <label class = "label-left-text ">{{bgRecord['shipTo']}}</label>
+        </div>
+        <div id="shipName" *ngIf="bgRecord['shipName'] && bgRecord['shipName'] !== null && bgRecord['shipName'] !== ''">
+          <label for="shipName" id="shipNameLabel">{{ 'SHIPMENT_NAME' | translate }}&nbsp;</label>
+          <label class = "label-left">{{bgRecord['shipName']}}</label>
+        </div>
+        <div id="partShipDetl" *ngIf="bgRecord['partShipDetl'] && bgRecord['partShipDetl'] !== null && bgRecord['partShipDetl'] !== ''">
+          <label for="partShipDetl" id="partShipDetlLabel">{{ 'PARTIAL_SHIPMENT' | translate }}&nbsp;</label>
+          <label class = "label-left">{{commonDataService.getShipmentDetails(bgRecord['partShipDetl']) | translate}}</label>
+        </div>
+        <div id="tranShipDetl" *ngIf="bgRecord['tranShipDetl'] && bgRecord['tranShipDetl'] !== null && bgRecord['tranShipDetl'] !== ''">
+          <label for="tranShipDetl" id="tranShipDetlLabel">{{ 'TRANSHIPMENT' | translate }}&nbsp;</label>
+          <label class = "label-left">{{commonDataService.getShipmentDetails(bgRecord['tranShipDetl']) | translate}}</label>
+        </div>
+        <div id="shipPeriodValue" *ngIf="bgRecord['shipPeriodValue'] && bgRecord['shipPeriodValue'] !== null && bgRecord['shipPeriodValue'] !== ''">
+          <label for="shipPeriodValue" id="shipPeriodValueLabel">{{ 'SHIPMENT_PERIOD_VALUE' | translate }}&nbsp;</label>
+          <label class = "label-left">{{commonDataService.getShipmentPeriodValue(bgRecord['shipPeriodValue']) | translate}}</label>
+        </div>
+        <div id="shipmentPeriodTextViewRow" *ngIf="commonService.isFieldsValuesExists([bgRecord['shipmentPeriodText']])">
+        <label for="shipmentPeriodText" id="shipmentPeriodTextLabel">{{ 'SHIPMENT_PERIOD_NARRATIVE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage()==='ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['shipmentPeriodText']}}</label>
+      </div>
+        <div id="earliestShipDate" *ngIf="bgRecord['earliestShipDate'] && bgRecord['earliestShipDate'] !== null && bgRecord['earliestShipDate'] !== ''">
+          <label for="earliestShipDate" id="earliestShipDateLabel">{{ 'EARLIEST_SHIPMENT_DATE' | translate }}&nbsp;</label>
+          <label class = "label-left">{{bgRecord['earliestShipDate']}}</label>
+        </div>
+        <div id="lastShipDate" *ngIf="bgRecord['lastShipDate'] && bgRecord['lastShipDate'] !== null && bgRecord['lastShipDate'] !== ''">
+          <label for="lastShipDate" id="lastShipDateLabel">{{ 'LAST_SHIPMENT_DATE' | translate }}&nbsp;</label>
+          <label class = "label-left">{{bgRecord['lastShipDate']}}</label>
+        </div>
+        <div id="incoTermYear" *ngIf="commonService.isFieldsValuesExists([bgRecord['incoTermYear']])">
+          <label for="incoTermYear" id="incoTermYearLabel">{{ 'INCOTERMS_RULES' | translate }}&nbsp;</label>
+          <label class = "label-left">{{ bgRecord['incoTermYear'] | translate}}</label>
+        </div>
+        <div id="incoTerm" *ngIf="commonService.isFieldsValuesExists([bgRecord['incoTerm']])">
+          <label for="incoTerm" id="sincoTermLabel">{{ 'PURCHASE_TERMS' | translate }}&nbsp;</label>
+          <label class = "label-left">{{commonDataService.getIncoTermDetails(bgRecord['incoTerm']) | translate}}</label>
+        </div>
+        <div id="incoPlace" *ngIf="commonService.isFieldsValuesExists([bgRecord['incoPlace']])">
+          <label for="incoPlace" id="incoPlaceLabel">{{ 'NAMED_PLACE' | translate }}&nbsp;</label>
+          <label class = "label-left">{{bgRecord['incoPlace']}}</label>
+        </div>
+      </div>
+    </p-panel>
+  </ng-template>
+</div>

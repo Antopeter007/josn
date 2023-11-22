@@ -1,0 +1,90 @@
+
+<div *ngIf="!viewMode && !unsignedMode; else view_content" id="chargeDetailsRow">
+  <p-panel id ="chargeDetailsPanel" header="{{'HEADER_CHARGE_DETAILS' | translate}}" [toggleable]="true" [collapsed] ="false">
+    <form [formGroup]="chargeForm">
+          <p-table id="chargeDetailsTable" [value]="charges" sortMode="single" *ngIf = "charges && charges.length !== 0">
+            <ng-template pTemplate="header">
+              <tr>
+                <th id = "chargetype" class="tablecol-width-10" [pSortableColumn]="'chrgCode'">{{ "CHARGE_TYPE" | translate}}
+                    <p-sortIcon [field]="'chrgCode'"></p-sortIcon>
+                </th>
+                <th id = "description" class="tablecol-width-35" [pSortableColumn]="'additionalComment'">{{ "DESCRIPTION" | translate}}
+                  <p-sortIcon [field]="'additionalComment'"></p-sortIcon>
+                </th>
+                <th id = "curcode" class="tablecol-width-8" [pSortableColumn]="'curCode'">{{ "CURCODE" | translate}}
+                    <p-sortIcon [field]="'curCode'"></p-sortIcon>
+                </th>
+                <th id = "chargeamount" class="tablecol-width-15" [pSortableColumn]="'amt'">{{ "CHARGE_AMOUNT" | translate}}
+                    <p-sortIcon [field]="'amt'"></p-sortIcon>
+                </th>
+                <th id = "chargestatus" class="tablecol-width-10" [pSortableColumn]="'status'">{{ "CHARGE_STATUS" | translate}}
+                    <p-sortIcon [field]="'status'"></p-sortIcon>
+                </th>
+                <th id = "chargesettlementdate" class="tablecol-width-15" [pSortableColumn]="'settlementDate'">{{ "CHARGE_SETTLEMENT_DATE" | translate}}
+                    <p-sortIcon [field]="'settlementDate'"></p-sortIcon>
+                </th>
+                <th id = "tablecol" class="tablecol-width-7"></th>
+              </tr>
+            </ng-template>
+        <ng-template pTemplate="body" let-rec>
+              <tr>
+                  <td class="word-wrap">{{tradeCommonDataService.getChargeType(rec.chrgCode) | translate}}</td>
+                  <td class="word-wrap">{{rec.additionalComment}}</td>
+                  <td class="word-wrap">{{rec.curCode}}</td>
+                  <td class="word-wrap">{{rec.amt}}</td>
+                  <td class="word-wrap">{{tradeCommonDataService.getChargeStatus(rec.status) | translate}}</td>
+                  <td class="word-wrap">{{rec.settlementDate}}</td>
+          <td>
+              <img src="{{imagePath}}edit.png" id="editCharge" class="cursor"  alt="Edit" type="remove" (click)="editCharge(rec)">
+              <img src="{{imagePath}}delete.png" id="deleteCharge" alt="Delete" type="remove" (click)="deleteCharge(rec)">
+          </td>
+              </tr>
+            </ng-template>
+      </p-table>
+      <div>&nbsp;</div>
+      <button pButton type="button" id="addCharges" class="secondary-button-larger"  (click) = "addCharges()" label="{{'ADD_CHARGES' | translate}}"></button>
+      <p-confirmDialog id="chargeDeleteConfirmDialog" class="lf-confirm-dialog" key="chargeDeleteConfirmDialog"></p-confirmDialog>
+    </form>
+    </p-panel>
+</div>
+  <ng-template #view_content>
+  <div *ngIf= "this.commonData.getOption() !== 'SUMMARY' " id="chargesRow"   class="inquiryDiv">
+      <p-panel id="Charges" [toggleable]="true" *ngIf = "(commonData.getIsBankUser() || (chargesList && chargesList.length !== 0)) && this.commonData.getmasterorTnx() !== 'master'"
+      header="{{(this.commonData.getOperation() === 'LIST_INQUIRY' ? 'CONSOLIDATED_CHARGE_VIEW' : 'HEADER_CHARGE_DETAILS')| translate}}" [collapsed]="false">
+        <p-table *ngIf = "chargesList && chargesList.length !== 0" id="chargesTable" [value]="chargesList" sortMode="single">
+          <ng-template pTemplate="header">
+            <tr>
+              <th id = "charge" class="tablecol-width-10" [pSortableColumn]="'chargeType'">{{ "CHARGE_TYPE" | translate}}
+                  <p-sortIcon [field]="'chargeType'"></p-sortIcon>
+              </th>
+              <th id = "desc" class="tablecol-width-40" [pSortableColumn]="'description'">{{ "DESCRIPTION" | translate}}
+                <p-sortIcon [field]="'description'"></p-sortIcon>
+            </th>
+              <th id = "cur-code" class="tablecol-width-10" [pSortableColumn]="'ccy'">{{ "CURCODE" | translate}}
+                  <p-sortIcon [field]="'ccy'"></p-sortIcon>
+              </th>
+              <th id = "charge-amount" class="tablecol-width-15" [pSortableColumn]="'amount'">{{ "CHARGE_AMOUNT" | translate}}
+                  <p-sortIcon [field]="'amount'"></p-sortIcon>
+              </th>
+              <th id = "charge-status" class="tablecol-width-10" [pSortableColumn]="'status'">{{ "CHARGE_STATUS" | translate}}
+                  <p-sortIcon [field]="'status'"></p-sortIcon>
+              </th>
+              <th id = "charge-settlement-date" class="tablecol-width-15" [pSortableColumn]="'settlementDate'">{{ "CHARGE_SETTLEMENT_DATE" | translate}}
+                  <p-sortIcon [field]="'settlementDate'"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rec>
+            <tr class="{{commonData.getIsBankUser() ? 'alignment-center' : 'alignment-left'}}">
+                <td class="word-wrap">{{tradeCommonDataService.getChargeType(rec.chargeType) | translate}}</td>
+                <td class="word-wrap">{{rec.description}}</td>
+                <td class="word-wrap">{{rec.ccy}}</td>
+                <td class="word-wrap">{{rec.amount}}</td>
+                <td class="word-wrap">{{tradeCommonDataService.getChargeStatus(rec.status) | translate}}</td>
+                <td class="word-wrap">{{rec.settlementDate}}</td>
+            </tr>
+          </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+</ng-template>

@@ -1,0 +1,8 @@
+<ng-container
+  *ngIf="form"
+  fccFormResolver
+  [module]="module"
+  [formGroup]="form"
+  [mode]="mode"
+  (controlComponentsData)="handlecontrolComponentsData($event)"
+></ng-container>

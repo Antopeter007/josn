@@ -1,0 +1,23 @@
+<svg id="Netbanking_Icons-28" data-name="Netbanking Icons-28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_1240" data-name="Path 1240" d="M109.86,65A32.88,32.88,0,1,1,77,32.08,32.88,32.88,0,0,1,109.86,65Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle id="Ellipse_1787" data-name="Ellipse 1787" cx="32.88" cy="32.88" r="32.88" transform="translate(724.1 418.48)" fill="none"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle_468" data-name="Rectangle 468" width="87.03" height="122.03" rx="5.5" transform="translate(29.5 19.15)" fill="#cbd8dc"/>
+  <rect id="Rectangle_469" data-name="Rectangle 469" width="87.03" height="122.03" rx="5.5" transform="translate(33.47 15.19)" fill="#eaf2f5"/>
+  <path id="Path_1234" data-name="Path 1234" d="M108,106.28H45.94a3.5,3.5,0,0,0,0,7H108a3.5,3.5,0,0,0,0-7Z" fill="#dee9ec"/>
+  <path id="Path_1235" data-name="Path 1235" d="M108,120.28H45.94a3.5,3.5,0,1,0,0,7H108a3.5,3.5,0,0,0,0-7Z" fill="#dee9ec"/>
+  <path id="Path_1236" data-name="Path 1236" d="M109.86,65A32.88,32.88,0,1,1,77,32.08,32.88,32.88,0,0,1,109.86,65Z" fill="#dee9ec"/>
+  <rect id="Rectangle_471" data-name="Rectangle 471" width="35" height="14.16" rx="7.08" transform="translate(57.5 8.83)" fill="#cbd8dc"/>
+  <circle id="Ellipse_1609" data-name="Ellipse 1609" cx="2.62" cy="2.62" r="2.62" transform="translate(72.44 13.09)" fill="#eaf2f5"/>
+  <rect id="Rectangle_472" data-name="Rectangle 472" width="150" height="150" fill="none"/>
+  <g id="Group_21550" data-name="Group 21550" transform="translate(-680.01 -386.4)" clip-path="url(#clip-path-2)">
+    <circle id="Ellipse_1785" data-name="Ellipse 1785" cx="32.88" cy="32.88" r="32.88" transform="translate(724.1 418.48)" fill="#dee9ec"/>
+    <circle id="Ellipse_1786" data-name="Ellipse 1786" cx="12.39" cy="12.39" r="12.39" transform="translate(744.61 434.83)" fill="#e0121b"/>
+    <path id="Path_2051" data-name="Path 2051" d="M785.47,486.67a28.5,28.5,0,0,0-57,0Z" fill="#e0121b"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SeGeneralDetailsComponent } from './Se-general-details.component';
+
+describe('SeGeneralDetailsComponent', () => {
+  let component: SeGeneralDetailsComponent;
+  let fixture: ComponentFixture<SeGeneralDetailsComponent>;
+
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ SeGeneralDetailsComponent ]
+  //   })
+  //   .compileComponents();
+  // }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SeGeneralDetailsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

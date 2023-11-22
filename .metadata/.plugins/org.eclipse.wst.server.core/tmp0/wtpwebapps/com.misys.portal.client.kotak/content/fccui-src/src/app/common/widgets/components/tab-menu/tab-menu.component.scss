@@ -1,0 +1,65 @@
+:host ::ng-deep .ui-g.tabs-styl {
+  border-bottom: 1px solid #848484 !important;
+}
+:host ::ng-deep .ui-menuitem-link .ui-menuitem-text {
+  color: #414141 !important;
+  font-size: 1.25em !important;
+  font-weight: 500 !important;
+  line-height: 1.5em !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-link .ui-menuitem-text {
+  color: #000000 !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  line-height: 1.1875em !important;
+}
+
+:host ::ng-deep li.ui-tabmenuitem.ui-corner-top.ui-state-active {
+  border: none !important;
+  background: transparent !important;
+  font-weight: 500 !important;
+}
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem{
+  border: none !important;
+  background-color: transparent !important;
+  position: static !important;
+  margin: -0.01em 0em !important;
+  transition: background-color 0.5s !important;
+  font-weight: 500 !important;
+}
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav {
+  padding: 0 !important;
+  background: transparent !important;
+  pointer-events: none !important;
+  border-bottom: 0em;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
+  padding: 0em;
+}
+
+:host ::ng-deep .ui-tabmenu ul li > a:focus {
+  border: .125em solid #694ed6 !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text {
+  margin-right: 0em !important;
+  margin-left: 0em !important;
+  pointer-events: auto;
+  color: #000000;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.1875em;
+}
+.tab-menu {
+  margin-bottom: 1em;
+}
+:host ::ng-deep.tabClass h1{
+  font-size: 1em !important;
+}

@@ -1,0 +1,37 @@
+<div [formGroup]="courierDetailsForm">
+  <p-panel id="courierDetailsPanel" header="{{'HEADER_COURIER_DETAILS' | translate}}" [toggleable]="true" [collapsed]="false">
+    <div id="courierDetailsRow" *ngIf="!viewMode && !unsignedMode; else view_content">
+      <!-- Courier Partner -->
+      <div id="courierPartnerRow">
+        <label for="courierPartner" id="courierPartnerLabel" class="alignment-vertical-top">{{ 'COURIER_PARTNER' | translate
+          }}&nbsp;</label>
+        <p-dropdown id="courierPartner" [options]="courierPartnerOptnsObj" formControlName="courierPartner" [showClear]="true"
+          placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;">
+        </p-dropdown>
+      </div>
+
+      <!-- Courier Partner Waybill No -->
+      <div id="courierPartnerWaybillNoRow">
+        <label for="courierPartnerWaybillNo" id="courierPartnerWaybillNoLabel">{{ 'COURIER_PARTNER_WAYBILL_NO' | translate
+          }}&nbsp; </label>
+        <input pInputText formControlName="courierPartnerWaybillNo" id="courierPartnerWaybillNo">
+      </div>
+    </div>
+
+    <ng-template #view_content>
+      <!-- Courier Partner -->
+      <div id="courierPartnerRowView" *ngIf="bgRecord && bgRecord.courierPartner">
+        <label for="courierPartner" id="courierPartnerLabel" class="alignment-vertical-top">{{ 'COURIER_PARTNER' | translate
+          }}&nbsp; </label>
+        <label class="label-left">{{ this.bgRecord.courierPartner | translate}}</label>
+      </div>
+
+      <!-- Courier Partner Waybill No -->
+      <div id="courierPartnerWaybillNoRowView" *ngIf="bgRecord && bgRecord.courierPartnerWaybillNo">
+        <label for="courierPartnerWaybillNo" id="courierPartnerWaybillNoLabel">{{ 'COURIER_PARTNER_WAYBILL_NO' | translate
+          }}&nbsp; </label>
+        <label class="label-left">{{ this.bgRecord.courierPartnerWaybillNo | translate}}</label>
+      </div>
+    </ng-template>
+  </p-panel>
+</div>

@@ -1,0 +1,47 @@
+@import './../../narrative-details/narrative-details.component.scss';
+.indented-text-area-field-35 {
+    margin: 0em !important;
+    width: 22.5rem !important;
+    word-break: break-all;
+}
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    padding-left: 15px !important;
+}
+
+:host ::ng-deep .periodOfPresentation .indented-text-area-field-65 .mat-form-field-flex{
+    margin-top: 0em !important;
+    width: 38.5em;
+  }
+  
+:host ::ng-deep  .p-lg-2 {
+    width: 18% !important;
+  }
+
+:host ::ng-deep .text_pop_35  .characterCountDivfield .ui-inputtext{
+    background-color: transparent;
+    padding-top: 0.5em;
+    width: 21.5em;
+    padding-left: 5em !important;
+ }
+
+:host ::ng-deep.nbdays .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex {
+    padding-bottom: 0.4em;
+}
+
+:host ::ng-deep .text_pop_65 .characterCountDivfield .ui-inputtext{
+  background-color: transparent;
+  padding-top: 0.5em;
+  width: fit-content !important;
+  padding-left: 4em;
+}
+
+:host ::ng-deep .text_pop_35 .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    width: 22.5em !important;
+}
+
+:host ::ng-deep .text_pop_65  .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    width: 38.5em !important;
+}
+:host ::ng-deep .text_pop_65  .ui-message-text {
+    font-size: 1em;   
+}

@@ -1,0 +1,11 @@
+.o-bank-acc-header {
+    margin-left: 14px;
+}
+.o-bank-acc-top {
+    // margin-bottom: -3px;
+}
+
+:host
+  ::ng-deep .ui-card-body {
+    min-height: 13em;
+}

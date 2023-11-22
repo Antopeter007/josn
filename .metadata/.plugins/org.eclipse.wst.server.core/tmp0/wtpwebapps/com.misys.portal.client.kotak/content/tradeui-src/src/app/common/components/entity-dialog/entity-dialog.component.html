@@ -1,0 +1,37 @@
+
+    <div id =  "abbv_name_row" class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+      <label for =  "abbv_name" id =  "abbv_name_label">{{'ABBVNAME' | translate}}&nbsp;</label>
+      <input id = "abbv_name" type = "text" [(ngModel)]="abbvName" class="content" pInputText/>
+    </div>
+    <div id =  "name_row" class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+      <label for =  "name" id =  "name_label">{{'NAME' | translate}}&nbsp;</label>
+      <input id = "name" type = "text"  [(ngModel)]="name" class="content" pInputText/>
+    </div>
+    <div id =  "search_button_row" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+      <label for =  "search_button" >&nbsp;</label>
+      <button pButton type="button" label="{{ 'USER_ACTION_SEARCH' | translate}}"  (click)="getFilteredListOfEntities()" class="primary-button"></button>
+    </div>
+<p-table #data [value]="filteredListOfEntities" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id = "abvname" pSortableColumn="ABBVNAME">{{ "ABBVNAME" | translate }}<p-sortIcon field="ABBVNAME"></p-sortIcon></th>
+            <th id = "ename">{{ "NAME" | translate }} </th>
+            <th id = "addrline">{{ "ADDRESSLINE1" | translate }} </th>
+            <th id = "addr-line">{{ "ADDRESSLINE2" | translate }} </th>
+            <th id = "domicile">{{ "DOMICILE" | translate }} </th>
+            <th id = "entities" *ngIf="commonData.getIsBankUser()">{{ "ENTITIES" | translate}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-entity>
+        <tr>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}} cursor"><a (click)= "ref.close(entity)">{{entity.ABBVNAME}}</a></td>
+            <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{entity.NAME}}</td>
+            <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{entity.ADDRESSLINE1}}</td>
+            <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{entity.ADDRESSLINE2}}</td>
+            <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{entity.DOMICILE}}</td>
+            <td *ngIf="commonData.getIsBankUser()">
+                <a class="fa fa-search fa-lg" (click)="getCustomerEntityList(entity.ABBVNAME, entity.NAME);"></a>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,0 +1,12 @@
+{ 
+ "head": { 
+ "requestId": "ahd6x41a31d711ea8cba005056bslfedc2d", 
+ "ts": "2020-07-25 10:55:30", 
+ "responseCode": "0", 
+ "responseDesc": "Success" 
+ },
+ "fileUploadResp":{ 
+ "batchId": "1597864230", 
+ "status": "U" 
+ } 
+} 

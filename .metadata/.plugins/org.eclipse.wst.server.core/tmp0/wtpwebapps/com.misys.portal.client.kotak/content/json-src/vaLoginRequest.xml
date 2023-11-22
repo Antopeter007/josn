@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Request     xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+    <sourceappcode>JARVIS</sourceappcode>
+    <RqUID>2</RqUID>
+    <action_type>FETCH_LOGIN_DETAILS</action_type>
+    <crn>10003593</crn>
+</Request>

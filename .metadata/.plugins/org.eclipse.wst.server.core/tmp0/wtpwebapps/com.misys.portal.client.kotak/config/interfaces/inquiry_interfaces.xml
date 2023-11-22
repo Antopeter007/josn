@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+	
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 		xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<interface name="companyinquiryservice" description="Load a Product Transaction from the environment">
+		<component name="companyinquiryhandler">
+			<component name="staticdataxmloutprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.name">interface_processing_msg</property>
+					</properties>
+				</component>
+			</component>
+		</component>		
+	</interface>
+	
+	<interface name="userinquiry">
+		<component name="userfileretriever">
+			<component name="staticdataxmloutprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.name">interface_processing_msg</property>
+					</properties>
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="entityinquiry">
+		<component name="entityinquiryhandler">
+			<component name="staticdataxmloutprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.isDynamic">false</property>
+						<property name="property.name">interface_processing_msg</property>
+					</properties>
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="authorisationinquiry">
+		<component name="authorisationinquiryhandler">
+			<component name="staticdataxmloutprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.name">interface_processing_msg</property>
+					</properties>
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+</interfaces>

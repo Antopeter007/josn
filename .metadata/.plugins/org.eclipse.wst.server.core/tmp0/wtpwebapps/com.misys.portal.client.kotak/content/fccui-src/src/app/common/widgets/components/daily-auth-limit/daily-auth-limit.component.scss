@@ -1,0 +1,96 @@
+@import './../../../../../styles/variables.scss';
+
+.p-grid {
+  margin: 0em;
+}
+
+.outer-layout.p-grid {
+  margin: -0.5em;
+}
+
+.availableAmtCol {
+  font-size: 0.8em;
+  color: $VIOLET-PRIMARY-COLOR;
+}
+
+.utilisedAmtCol {
+  font-size: 0.8em;
+  color: $VIOLET-F50;
+}
+
+.availableAmt {
+  font-size: 2em;
+  color: $VIOLET-PRIMARY-COLOR;
+  padding: 0.2em;
+  margin-bottom: 0.9em;
+  overflow-wrap: break-word;
+}
+
+@media only screen and (max-width: 1024px) {
+  ::ng-deep .availableAmt {
+    font-size: 1em !important;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1180px) {
+  ::ng-deep .totalAmt {
+    font-size: 1em !important;
+  }
+}
+
+.utilisedAmt, .totalAmt {
+  font-size: 2em;
+  color: $CHARCOAL-F75;
+  padding: 0.2em;
+  margin-bottom: 0.9em;
+  overflow-wrap: break-word;
+}
+
+.availableAmtDeci, .utilisedAmtDeci, .totalAmtDeci {
+  font-size: 0.5em;
+}
+
+.amtDetailsLtr {
+  text-align: right;
+  padding: 0.5em 1.5em;
+}
+
+.amtDetailsRtl {
+  text-align: left;
+  padding: 0.5em 1.5em;
+}
+
+.vertical-container {
+  min-height: 10em;
+}
+
+.vertical-container .p-col-12 {
+  padding-left: 0em;
+}
+
+.authMsg1 {
+  font-size: 1.3em;
+  color: $VIOLET-PRIMARY-COLOR;
+  font-weight: 500;
+  line-height: 2em;
+}
+
+.authMsg2 {
+  font-size: 1.2em;
+  color: $CHARCOAL-PRIMARY-COLOR;
+  font-weight: 300;
+}
+
+.finishMsg {
+  color: $CHARCOAL-F75;
+  font-style: italic;
+  padding: 0.5em 1.5em;
+}
+
+.availableAmtTitle, .utilisedAmtTitle, .totalAmtTitle {
+  color: $CHARCOAL-F75;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

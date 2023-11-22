@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+
+	<header>
+
+		<sourceappcode>JARVIS</sourceappcode>
+
+		<RqUID>2</RqUID>
+
+		<action_type>FETCH_LOGIN_DETAILS</action_type>
+
+		<crn>38288199</crn>
+
+	</header>
+	<details>
+
+		<company_code>Diptest2</company_code>
+
+		<company_name>Dipesh comp2</company_name>
+
+		<sub_company_code>001</sub_company_code>
+
+		<sub_company_name>001</sub_company_name>
+
+		<role>B</role>
+
+		<company_account_no></company_account_no>
+
+		<corp_crn>13402308</corp_crn>
+
+		<sub_comp_account_no>001</sub_comp_account_no>
+
+	</details>
+	<details>
+
+		<company_code>Diptest2</company_code>
+
+		<company_name>Dipesh comp2</company_name>
+
+		<sub_company_code>002</sub_company_code>
+
+		<sub_company_name>002</sub_company_name>
+
+		<role>B</role>
+
+		<company_account_no></company_account_no>
+
+		<corp_crn>13402308</corp_crn>
+
+		<sub_comp_account_no>002</sub_comp_account_no>
+
+	</details>
+	<details>
+
+		<company_code>Diptest2</company_code>
+
+		<company_name>Dipesh comp2</company_name>
+
+		<sub_company_code>003</sub_company_code>
+
+		<sub_company_name>003</sub_company_name>
+
+		<role>B</role>
+
+		<company_account_no></company_account_no>
+
+		<corp_crn>13402308</corp_crn>
+
+		<sub_comp_account_no>003</sub_comp_account_no>
+
+	</details>
+	<request_status>
+
+		<error_flag>N</error_flag>
+
+		<error_desc>Company details Found</error_desc>
+
+	</request_status>
+
+</Response>

@@ -1,0 +1,44 @@
+@import './../../../../../styles/variables.scss';
+
+.workBreak {
+  word-break: break-all;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+.msgDiv {
+  margin-top: 0.5em;
+}
+
+.finishMsg {
+  color: $CHARCOAL-F75;
+  font-style: italic;
+  padding: 0.5em 1.5em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.flexDisplay {
+  display: flex;
+}
+.chartjsLegend li span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  border-radius: 25px;
+}
+:host ::ng-deep .widget-dropdown-1 .ui-chkbox{
+  width: 20px;
+  height: 20px;
+}
+:host ::ng-deep .widget-dropdown-1 .ui-chkbox .ui-chkbox-box {
+  width: 20px;
+  height: 20px;
+}
+
+:host ::ng-deep .widget-dropdown-1 .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+  font-size: 18px;
+}

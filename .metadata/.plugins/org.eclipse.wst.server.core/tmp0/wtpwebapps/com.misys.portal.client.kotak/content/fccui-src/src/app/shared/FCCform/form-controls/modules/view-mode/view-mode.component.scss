@@ -1,0 +1,20 @@
+:host ::ng-deep .eyeIconStyle {
+  border: none;
+  height: 1em;
+  width: 1.2em;
+  background-color: transparent;
+}
+
+:host ::ng-deep .eyeIconStyle .mat-icon {
+  position: relative !important;
+  height: 1em;
+  width: 1.2em;
+  font-size: 1.2em;
+}
+#rejectReasons {
+  color: black;
+  font-weight: bold;
+  padding: 4px !important;
+  background-color: lightgrey;
+  border: thick double palegoldenrod;
+}

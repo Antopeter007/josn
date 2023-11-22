@@ -1,0 +1,21 @@
+<mat-sidenav #rightSidenav mode="side" [fixedInViewport]="true"
+ [fixedTopGap]="0" 
+ class="p-col-offset-2 p-lg-offset-2 p-sm-offset-1">
+	<div class="sub-menu-container">
+        <ul>
+            <li *ngFor= "let menu of subMenu">
+                <div class="submenu-header" (click) = "onbutton(menu?.subMenuUrl)">
+                    <div>
+                       <p class="submenu-name">{{menu?.subMenuLabel | translate}}</p>
+                       <p class="submenu-description">{{menu?.description}}</p>     
+                    </div>
+                    <div>
+                        <i tabindex="0" class="fa fa-chevron-right"></i>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+	
+</mat-sidenav>

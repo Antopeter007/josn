@@ -1,0 +1,40 @@
+@import "../../../../styles/variables.scss";
+
+::ng-deep body .ui-rating a .ui-rating-icon {
+  font-size: 2.5em !important;
+  color: $VIOLET-F100 !important;
+}
+
+::ng-deep .ui-rating {
+  text-align: left !important;
+}
+
+[dir="rtl"] ::ng-deep .ui-rating {
+  text-align: right !important;
+}
+
+
+.ratingStyle {
+  display: none !important;
+}
+
+.positionStyle {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 3em !important;
+}
+
+:host ::ng-deep .ui-card {
+  box-shadow: none !important;
+}
+
+.msgStyle {
+  font-size: 1.3em !important;
+  color: $GREY-05 !important;
+}
+
+.text-area-field-65 {
+  resize: none !important;
+  font: 100% Roboto, sans-serif !important;
+  border: 0.1em solid black;
+}

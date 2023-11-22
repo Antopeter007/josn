@@ -1,0 +1,23 @@
+<div *ngIf ="!viewMode ;else view_content">
+  <p-panel header="{{'HEADER_MC_COMMENTS_FOR_RETURN' | translate}}">
+    <div [formGroup]="commentsForm">
+      <div id= "comments-for-return"  class = "field">
+        <textarea fccCommonTextArea [controlName]="commentsForm.get('returnComments')" formControlName="returnComments" [rows]="5" [cols]="30"
+         pInputTextarea></textarea>
+         <fcc-common-error-message [control]="commentsForm.get('returnComments')"></fcc-common-error-message>
+      </div>
+    </div>
+  </p-panel>
+</div>
+<ng-template #view_content>
+  <div *ngIf="((commonService.isFieldsValuesExists([fileContent['tnxStatCode']]) && (fileContent['tnxStatCode'] === '02' || fileContent['tnxStatCode'] === '06')) ||
+              (commonService.isFieldsValuesExists([fileContent['subTnxStatCode']]) && (fileContent['subTnxStatCode'] === '02' || fileContent['subTnxStatCode'] === '03' || fileContent['subTnxStatCode'] === '04' ||
+              fileContent['subTnxStatCode'] === '18'))) &&
+              commonService.isFieldsValuesExists([fileContent['returnComments']])">
+    <p-panel header="{{'HEADER_MC_COMMENTS_FOR_RETURN' | translate}}">
+    <div id='returnComments'>
+        {{fileContent['returnComments']}}
+    </div>
+    </p-panel>
+  </div>
+</ng-template>

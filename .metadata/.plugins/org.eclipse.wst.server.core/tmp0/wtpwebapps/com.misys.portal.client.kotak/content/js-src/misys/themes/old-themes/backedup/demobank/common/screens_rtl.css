@@ -1,0 +1,328 @@
+/**
+ Refer to /themes/base/common/screens_rtl.css
+**/
+
+/*
+	
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles for specific screens in Demobank (RTL version)
+  		
+	description:
+	  	Any style that is applied to a specific screen, collection of screens or field
+	  	should be placed in this file, and documented in its own block
+
+*/
+
+/** ---------------------------------------- Dialog Sizing  ---------------------------------- **/
+
+/** Note that when you fix dialog heights/widths with !important, as below, that Dojo can
+    no longer smoothly animate Dialog sizes **/ 
+
+#beneficiarydata {
+	height: 450px !important;
+	width: 850px !important;
+}
+
+#currencydata {
+	height: 400px !important;
+	width: 500px !important;
+}
+
+#phrasedata {
+	height: 450px !important;
+	width: 750px !important;
+}
+
+#bankdata,
+#accountdata,
+#bank_swift_data {
+	height: 450px !important; 
+	width: 800px !important;
+}
+
+#codevaluedata {
+	height: 500px !important;
+	width: 500px !important;	
+}
+
+#USERentities,
+#SYSTEMentities,
+#COMPANYentities,
+#CUSTOMERentities {
+	height: 400px !important;
+	width: 800px !important;	
+}
+
+#Userdata {
+	height: 250px !important;	
+}
+
+/** ---------------------------------------- LC Common  ---------------------------------- **/
+
+#narrative-period-tabcontainer {
+	height: 140px;
+}
+
+#payment_draft_fields {
+	margin-right: 263px;
+}
+
+/** ------------------------------------ Doc Editor Screens  ---------------------------------- **/
+
+#document-editor label {
+	width: auto;
+}
+
+/** ---------------------------------------- Help Rules  ---------------------------------- **/
+
+#onlinehelp_popup .toplevel-header {
+	background-color: #F2F2F2;
+	border: 1px solid #D0D0D0;	
+}
+
+#standardSearchContainer {
+	background-color: #F2F2F2;
+	border: 1px solid #999;
+}
+
+#advancedSearchInputContainer {
+	background-color: #F2F2F2;
+	border: 1px solid #999;
+}
+
+#searchsummary {
+	background-color: #F0F0F0;
+	border-top: 1px solid #0079A7;
+}
+
+/** ------------------------------ Value Added Service table ---------------------------------- **/
+
+.valueaddedservice {
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+	border-top: 1px solid white;
+}
+.valueaddedservice .dateFormatLabel{
+	display : none;	
+}
+.valueaddedservice td {
+	background-color: #CBE3FF;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.valueaddedservice th.dojoxGridCell {
+	text-align: center;
+	border-bottom: 2px solid white;
+	border-right: 2px solid white;
+	padding: 1px 1px;
+	color: #fff;
+	/** font-size: 12px;  TODO TEST **/
+	font-weight: bold;
+}
+
+.valueaddedservice thead th {
+	background: none repeat scroll 0 0 #7692B7;
+}
+
+.valueaddedservice label,
+.valueaddedservice .label {
+	/** TODO TEST **/
+	width: 0px !important;
+	display: inline-block;
+    line-height: 0;
+    margin-left: 0;
+    text-align: right;
+}
+
+.dj_ie7 .valueaddedservice label,
+.dj_ie7 .valueaddedservice .label {
+	zoom: 1;
+	display:inline;	
+}
+
+/** TODO Test **/
+.valueaddedservice .field {
+	margin: 0;	
+}
+
+.valueaddedservice .small {
+	width: 7em;
+}
+
+.valueaddedservice .medium{
+	width: 12em;	
+}
+
+/** ------------------------------ Multiple Account Dialog ---------------------------------- **/
+
+
+.multipleAccountDialog .toplevel-header {
+	margin-bottom: 0;
+}
+.multipleAccountDialog {
+	overflow: auto;
+    position: relative;
+    width: 900px;
+}
+
+/** ------------------------------ Beneficiary Master ---------------------------------- **/
+
+.inlineBlockNoLabel .label,
+.inlineBlockNoLabel label {
+	width: 0 !important;
+	margin-left: 0;
+}
+
+#account_cur_code_row {
+	display: inline-block;   
+}
+
+.dj_ie6 #account_cur_code_row,
+.dj_ie7 #account_cur_code_row {
+	display: inline;	
+	zoom: 1;
+}
+
+.bene-acc-medium {
+	width: 13.5em;
+}
+
+/** ------------------------------ Change User Profile ---------------------------------- **/
+
+#change_qa_row label {
+	width: 400px;
+}
+
+/** --------------------------------------- USER ENTITIES TABLE  ----------------------------- **/
+.userEntityHeaderSelector {
+	width: 3.6%;	
+}
+.entityRows .label,.entityRows label{
+	width:0px;
+}
+.entityRows .field {
+    margin: 0px;
+    display: inline;
+}
+.entityRows img{
+	margin: 3px 0px 0px 2px;	
+}
+#userEntityTabel .dijitToggleButton,#userEntityTabel .dijitButton,#userEntityTabel .dijitDropDownButton,#userEntityTabel .dijitComboButton {
+    margin: 0em;
+}
+.userEntityTableCell{
+	vertical-align:middle;
+	height: 25px;
+	border: 1.5px solid white;	
+    display: inline-block;
+}
+.dj_ie6 .userEntityTableCell,.dj_ie7 .userEntityTableCell{
+	zoom: 1;
+	display:inline;
+}
+.userEntityTableCellHeader{
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
+}
+.userEntityTableCellOdd{
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+.userEntityTableCellEven{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.userEntityTableMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.alignCenter{
+	text-align:center;	
+}
+/**---------------------For server message in FT------------- **/
+.serverMessage{
+	background: none repeat scroll 0 0 #EEE8AA;
+    font-weight: bold;
+    padding: 3px;
+    border: 1px dotted;
+}
+
+/**----------------------------- Parameter Maintenance------**/
+#parmForm .indented-header h3 {
+   margin: 10px 0;
+}
+#parmForm .s-medium {
+	width:17em;
+}
+#configurable_grid_items th img{
+	display:none;	
+}
+.labelCutOff label,.labelCutOff .label{
+	width : 70px;
+}
+
+/**---------------------------- Factoring-----------------**/
+.factoringTableCell{
+	vertical-align:middle;
+	height: 30px;
+	border: 1.5px solid white;	
+    display: inline-block;
+}
+.dj_ie6 .factoringTableCell,.dj_ie7 .factoringTableCell{
+	zoom: 1;
+	display:inline;
+}
+.factoringTableCellHeader{
+	background: none repeat scroll 0 0 #7692B7;
+	color: white;
+	height: 35px;
+    font-weight: bold;
+    padding-top: 3px;
+    text-align: center;
+}
+.factoringTableCellOdd{
+	 background: none repeat scroll 0 0 #CBE3FF;
+}
+.factoringTableCellEven{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.factoringTableMergedCellContainer{
+	background: none repeat scroll 0 0 #F0F7FF;    
+}
+.factoringTableCellAggregate{
+	background: none repeat scroll 0 0 #F0F0F0;    
+}
+.widthOverDueHeader{
+	width : 8%;	
+}
+
+.demobank #view #neg_tol_pct_row.field {
+    margin-right: 0px;
+}
+/**-------------------------- OTP Token Assignment---------------*/
+.demobank .otp_token_serial_no{
+	width:300px;	
+}
+.demobank .otp_token_serial_no_img_div{
+	width:350px;
+}
+
+/**---------------------- Documents Upload -----------------**/
+#document-master-table td{
+	word-break: break-all;
+}
+
+/**-----------------------FX Contacts-----------------------**/
+#contractMsgDiv{
+	float: right;
+	margin-right:85px;
+	font-weight:bold;
+}
+
+#totalUtiliseDiv{
+	margin-left:235px;
+}

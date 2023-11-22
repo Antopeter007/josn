@@ -1,0 +1,359 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+input.ng-dirty.ng-invalid {
+    color: red
+  }
+.indented-header {
+	border-color: #d7d2cb;
+	/* margin-bottom: 21px; */
+    background-color: #fffa;
+    border-radius: 3px;
+}
+.indented-header h3 {
+    background-image: none;
+    background-color: #C5E5F0;
+    color: #00236a;
+    padding: 2px 4px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    margin: 10px 0 4px;
+    font: 100% Arial;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: normal;
+}
+.fieldset-content {
+    padding: 6px 6px 12px 6px;
+}
+.fieldset-content .content {
+	text-align: left;
+    font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    /* font-size: 1.0833em; */
+    display: inline;
+}
+.fieldset-content .static-content {
+	text-align: left;
+    font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    /* font-size: 1.0833em; */
+    display: inline;
+    border-style: none;
+    outline: none;
+}
+
+.static-content {
+	text-align: left;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  display: inline;
+  border-style: none;
+  outline: none;
+  background: #CBE3FF;
+}
+
+.label {
+    width: 240px;
+    text-align: right;
+    line-height: 1.5em;
+    display: inline-block;
+    margin-right: 0.5em;
+    font: 100% Arial;
+    /* font-size: 1.0833em; */
+    word-wrap: break-word;
+    vertical-align: top;
+}
+
+label, .label {
+  width: 240px;
+  text-align: right;
+  line-height: 1.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  font: 100% Arial;
+  font-size: 13px;
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+
+.radio-label {
+  margin-bottom: 0;
+  text-align: left;
+  width: 70px;
+}
+
+.sub-header {
+  font-size: 0.85em !important;
+  margin: 0 0 8px !important;
+}
+
+.error{
+  color: rgba(184, 26, 26, 0.788);
+  font-size: 13px;
+}
+
+.fieldError{
+    border: 1px solid #CB4335;
+  }
+
+.toplevel-header h2 {
+	font-weight: bold;
+	padding: 2px 4px 0 4px;
+	height: 20px;
+	overflow: hidden;
+	font-size: 1.0833em; /** 13px **/
+	background: #00add6;
+  color: white;
+  line-height: normal;
+}
+
+.btn-space {
+  margin-right: 5px;
+}
+
+/** Required field symbol **/
+.required-field-symbol {
+	color: #eb6e1f;
+	display: inline-block;
+  padding-right: 2px;
+}
+
+.field {
+  clear: none;
+  margin: 0.4em 0;
+  padding-bottom: 2px !important;
+}
+
+.field {
+	margin: 0;
+}
+
+.inputField {
+  line-height: 1.2em;
+}
+
+.empty-list-notice{
+	padding: 0 0 0 0.2em;
+  margin: 0 0 0 0.2em;
+  font-size: .75em;
+	margin-bottom: 10px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+
+}
+.widget-upload-button {
+  border: 1px solid #769dc0;
+  padding: 2px 4px 4px 4px;
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-color: #e9f4fe;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: normal;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+}
+
+table.custom_class {
+  width: 80% !important;
+
+  margin-left:9% !important;
+  text-align: center;
+  padding: 6px 6px 12px 6px;
+  border:solid 5px white;
+  margin:0px;
+  padding:0px;
+  border-spacing:0px;
+  border-collapse:collapse;
+  line-height:1px;
+  border-width: 1px 0 0 0;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:400;
+  text-decoration:none;
+  white-space:pre-wrap;
+}
+table.custom_class thead {
+padding: 15px;
+background: #00add6;
+border-bottom: 1px solid white;
+border-left: 1px solid white;
+border-top: 1px solid white;
+height: 10px;
+color: white;
+border:solid 2px white;
+}
+table.custom_class td {
+padding: 15px;
+border:solid 1px white;
+}
+table.custom_class tr {
+  margin:0;
+  padding:2px;
+  font: 100% Arial, Helvetica, sans-serif;
+  height: 2px;
+  border-collapse:collapse;
+  line-height: 1.125em;
+  background-color: #CBE3FF;
+}
+
+::ng-deep .mat-tooltip {
+  color: black !important;
+  background: white;
+  font-size: 0.75em;
+  border: 2px solid #c01f03f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.required-field::before {
+  content: "*";
+  color: rgb(173, 10, 10);
+  float: left;
+}
+
+.confirm-dialog-header {
+  background-color: #00add6;
+  height:5px;
+  width: auto;
+}
+
+.error-dialog-header {
+  background-color: rgb(173, 10, 10);
+  height:5px;
+  width: auto;
+}
+
+.checkbox label, .radio label {
+  margin-left: 245px;
+  padding: 1px 2px;
+}
+
+.checkbox label {
+  text-align: left;
+  width: 245px;
+  padding: 1px 2px;
+}
+
+.multioption-group-label {
+  text-align: left;
+  padding: 8px 0;
+  height: auto;
+  padding: 1px 2px;
+  margin: 0px;
+}
+
+.search-btn{
+  /* border: 0px solid white; */
+  border:0 none;
+  background-color: white;
+}
+
+.form-check-label-radio {
+  margin-bottom: 0;
+  text-align: left;
+  width: 141px;
+}
+
+.currency-code {
+  width: 3%;
+  margin-right: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.text-box {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.content {
+  text-align: left;
+  font-family: Courier New, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  display: inline;
+}
+
+.disclaimer {
+	margin: 6px;
+	padding: 6px;
+	font-weight: bold;
+	clear: both;
+	font-size: 0.875em;
+}
+
+.readOnlyField {
+  border: none;
+}
+
+.search-btn {
+  background: #ffffff;
+}
+
+.radio {
+  text-align: left;
+  padding-left: 5px;
+}
+
+input, .input {
+  line-height: 20px;
+}
+
+.free_format_text_data{
+  position: relative;
+  max-width: 400px;
+  white-space: pre-line;
+  display: inline-table;
+  word-break: break-word;
+}
+
+.free_format_text_label{
+  float: left;
+}
+
+/* Should be removed after dojo css is eliminated.*/
+input {
+  border-radius: 3px;
+  box-shadow: none;
+  border-width: thin;
+  border-color: #8989898f;
+  height: 23px;
+  width: 16em;
+}
+
+.characterCountDivfield {
+  margin-top:-9px !important;
+  clear: none;
+  margin: 0.4em 0;
+  padding-bottom: 2px !important;
+  margin: 0
+}
+
+.characterCountValueField {
+  background: #c1b3b342;
+  height: 20px !important;
+  text-align: right;
+  font-weight: bold;
+  border: none;
+  overflow: hidden;
+  resize: none;
+  border-radius: 0;
+}
+
+.fcc-text-small {
+  width: 3%;
+  margin-right: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.extendedDate {
+  margin-left: 98px;
+}
+
+/* adding this only for the present screens. Once every screens are moved with new styling, this would be not much useful. */
+.button {
+  margin-left: 5px;
+}

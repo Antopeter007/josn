@@ -1,0 +1,63 @@
+<p-table *ngIf="(attachemntArrObj && attachemntArrObj.length > 0)" 
+  class="fcc-ui-table"
+  #tt 
+  #dt
+  [responsive]="true"
+  [paginator]="true" 
+  [rows]="rows" 
+  [columns]="cols" 
+  [value]="attachemntArrObj" 
+  [sortField]="sortField" [sortOrder]="sortOrder"
+  (sortFunction)="customSort($event)" [customSort]="true"
+  selectionMode="multiple">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th scope="col" tabindex="0" [ngClass]="colmn.field === 'action' ? 'centeredPos' : dir" id="tableHeader" *ngFor="let colmn of columns" [style.width]="colmn.width" 
+            [pSortableColumn]="checkIfDate(colmn.field)?colmn.field:''"
+            [pSortableColumnDisabled]="checkIfDate(colmn.field)?false:true"  >
+                <span class="header-of" tabindex="0" innerHTML="{{colmn.field | translate}}"></span>
+                <p-sortIcon tabindex="0" title="{{'Sorting' | translate}}" *ngIf="checkIfDate(colmn.field)" [field]="colmn.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+        <tr tabindex="0" [pSelectableRow]="rowData"(mouseenter)="showicon($event,i)"
+        (focus)="showicon($event,i)" (mouseleave)="hideicon($event,i)" (focusout)="hideicon($event,i)">
+            <td *ngFor="let col of columns; let i = index"  [ngClass]="col.field === 'action' ? 'centeredPos' : dir" [dir]="dir">
+                <span tabindex="0"  *ngIf="col.field !== 'action'" innerHTML="{{rowData[col.field]}}"></span>
+                <span tabindex="0" *ngIf="col.field === 'action'" class="iconsWrapper">
+                  <div class="fcc-view-file-div" [dir]="dir">
+                    <img *ngIf="this.allowedDocViewerType.indexOf(rowData['fileMimeType']) >= 0 else emptyBlock"
+                    class = "fcc-view-file-icon" tabindex="0"
+                    #tooltip="matTooltip"
+                    (click)="onClickViewFile(rowData['docId'], rowData['fileName'])"
+                    (keyup.enter)="onClickViewFile(rowData['docId'], rowData['fileName'])"
+                    src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                    matTooltip="View"
+                    alt="{{'VIEW' | translate}}"
+                    matTooltipPosition="below" matTooltipClass="mat-tooltip"/>
+                    <ng-template #emptyBlock>
+                      <span class="fcc-empty-icon-block"></span>
+                    </ng-template>
+                  </div>
+                  <div style="width: 50%;float: left;">
+                    <em class="pi pi-download fcc-icon fcc-download-icon" aria-label="Download File" title="{{'pdfDownload'| translate}}"  matTooltip="Download" matTooltipPosition="right"
+                    (click)="getActionData(rowData['docId'], rowData['fileName'])"  (keyup)="keyPressDownload($event, rowData['docId'], rowData['fileName'])" tabindex="0"></em>
+                  </div>
+                </span>
+
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template [pTemplate]="setDirections('right')" let-state>
+      <fcc-custom-paginator [state]="state" [paginatorParams]="paginatorParams" (setPageSizeCallback)="setPageSize($event)"
+        (setCurrentPageCallback) = "setCurrentPage($event)"></fcc-custom-paginator>
+    </ng-template>
+</p-table>
+<div *ngIf="(attachemntArrObj && attachemntArrObj.length === 0)">
+  <span *ngIf="tableSectionKey === 'Attachment'" tabindex="0">{{'NO_CUSTOMER_ATTACHMENT' | translate}}</span>
+  <span *ngIf="tableSectionKey === 'bankAttachments'" tabindex="0">{{'NO_BANK_ATTACHMENT' | translate}}</span>
+  <span *ngIf="tableSectionKey === 'Documents'" tabindex="0">{{'NO_DOCUMENTS' | translate}}</span>
+  <span *ngIf="tableSectionKey === 'feesAndCharges'" tabindex="0">{{'NO_CHARGES' | translate}}</span>
+</div>
+

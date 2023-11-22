@@ -1,0 +1,13 @@
+<span class="inputTextStyleClass">
+  <input
+    role="textbox"
+    pInputText
+    class="fcc-ui-inputtext"
+    #int
+    id="textIdx"
+    [(ngModel)]="textFieldValue"
+    (click)="onMouseClicked($event, int)"
+    (change)="registerOnChange($event)"
+  />
+  <label for="float-input">{{ textLabel }}</label>
+</span>

@@ -1,0 +1,434 @@
+@import './../../../../../../../styles/variables.scss';
+
+  :host ::ng-deep .pd-all-twelve {
+    padding: 2em;
+  }
+  :host ::ng-deep .pd-right-six {
+    padding: 0em 3em 0em 0em;
+  }
+  :host ::ng-deep .pd-left-six {
+    padding: 0em 0em 0em 3em;
+  }
+
+  :host ::ng-deep .ui-inputtext {
+    border-bottom: 0.06em solid $GREY-02;
+  }
+
+
+  :host ::ng-deep .transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked,
+  :host ::ng-deep .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle.mat-button-toggle-checked {
+    background-color: #ffffff !important;
+  }
+
+  :host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle {
+    width: 15em;
+    margin-left: auto;
+
+  .mat-button-icon {
+      padding-top: 0.4em;
+      left: -2.5em !important;
+      min-width: 3em;
+      width: 5em;
+    }
+  }
+
+  :host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    margin-left: 3em;
+  }
+
+  :host ::ng-deep [dir=rtl] .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle {
+  margin-right: auto;
+
+  :host ::ng-deep .mat-button-toggle-label-content {
+    min-width: 12em;
+
+  }
+  :host ::ng-deep .mat-button-icon {
+    padding-top: 0.4em;
+    font-size: 28px;
+    right: 4.5em;
+  }
+}
+
+  :host ::ng-deep [dir=rtl] .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+  margin-right: 3em;
+  margin-left: 0 !important;
+}
+
+  :host ::ng-deep .appl-detail-header label {
+    line-height: 2.5em;
+  }
+  :host
+    ::ng-deep
+    .ui-radiobutton
+    .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+    background-color: $WHITE !important;
+    border-color: $VIOLET-F100;
+  }
+
+  :host
+    ::ng-deep
+    .ui-radiobutton
+    .ui-radiobutton-box.ui-state-active.ui-state-focus {
+    border-color: $VIOLET-F100;
+    background-color: $WHITE !important;
+    color: $WHITE;
+    box-shadow: $WHITE;
+  }
+  :host
+    ::ng-deep
+    .ui-radiobutton
+    .ui-radiobutton-box.ui-state-active
+    .ui-radiobutton-icon {
+    background-color: $VIOLET-F100;
+    border-color: $VIOLET-F100;
+  }
+
+  :host ::ng-deep .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border: 0.1em solid $VIOLET-F100;
+    background-color: $WHITE-10;
+    color: $WHITE;
+  }
+  :host ::ng-deep .ui-radiobutton .ui-radiobutton-box {
+    background-color: none;
+  }
+  :host ::ng-deep .radiocontainer .p-grid {
+    width: 100%;
+  }
+
+  :host ::ng-deep p-radiobutton.rightwrapper {
+    padding-left: 1em !important;
+  }
+  :host ::ng-deep .ui-dropdown,
+  :host ::ng-deep .ui-inputtext {
+    background: transparent !important;
+  }
+  :host ::ng-deep .ui-corner-right {
+    border-bottom-right-radius: 0em !important;
+  }
+  :host ::ng-deep .ui-dropdown .ui-corner-all {
+    border-radius: 0em !important;
+  }
+  :host ::ng-deep .inputSelect {
+    margin-top: 1em !important;
+  }
+  :host ::ng-deep .inputFrom {
+    margin-top: 1em !important;
+  }
+  :host ::ng-deep .fcc-radio-button .ui-fluid label,
+  :host ::ng-deep .fcc-radio-button label {
+    position: relative;
+    top: -0.4em;
+  }
+  :host ::ng-deep .indented-text-area-field-35 {
+    width: 100% !important;
+    margin-top: 2em;
+    margin: 0em !important;
+  }
+  :host ::ng-deep .ui-dropdown {
+    display: block !important;
+  }
+  :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+    color: $GRAY-HEX-20 !important;
+    background-color: $CHARCOAL-c2 !important;
+    border: 0.06em solid $GREY-02 !important;
+  }
+:host ::ng-deep .maxwidthHeight {
+    width: 100% !important;
+    height: 3.7em !important;
+  }
+  :host ::ng-deep .ui-button-text-icon-left .ui-button-icon-left {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    height: 1em !important;
+    color: $GREEN-01 !important;
+  }
+  :host ::ng-deep .ui-button:enabled:hover {
+    background-color: transparent;
+    border-color: $BLACK-02;
+  }
+  :host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+    color: $GRAY-HEX-20;
+    background-color: $CHARCOAL-c2;
+    border: 1px solid $GREY-02;
+  }
+  :host ::ng-deep .inputDraweeDetail .ui-inputtext {
+    font-size: 1em;
+    margin-top: -1em !important;
+  }
+  :host ::ng-deep .inputDraweeDetail .ui-dropdown .ui-dropdown-trigger {
+    border-bottom: none !important;
+  }
+  :host ::ng-deep .inputDraweeDetail .pi-caret-down:before {
+    content: none !important;
+  }
+
+  :host ::ng-deep .paymentDetailsBank .ui-dropdown-panel .ui-dropdown-items-wrapper {
+      overflow-x: hidden;
+   }
+   :host ::ng-deep .inputDays .ui-dropdown-panel .ui-dropdown-items-wrapper {
+    overflow-x: hidden;
+  }
+  :host ::ng-deep .inputFrom .ui-dropdown-panel .ui-dropdown-items-wrapper {
+    overflow-x: hidden;
+  }
+  :host ::ng-deep .inputSelect .ui-dropdown-panel .ui-dropdown-items-wrapper {
+    overflow-x: hidden;
+  }
+
+:host ::ng-deep .fcc-radio-button-display label{
+    display:none;
+  }
+
+:host ::ng-deep .inputDraweeDetail label{
+    display: none;
+  }
+
+  :host ::ng-deep p-radiobutton.leftwrapper {
+    padding-left: 1em !important;
+  }
+
+  :host ::ng-deep p-radiobutton.rightwrapper {
+    padding-left: 1.9em !important;
+  }
+
+  /* Date CSS Start */
+  :host ::ng-deep .dateStyle {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    margin-right: 1.25em;
+  }
+
+  :host ::ng-deep .dateStyle .ui-inputtext:enabled:hover {
+    border-color: $GREY-100;
+  }
+
+:host ::ng-deep .dateStyle p-calendar {
+    width: 100%;
+  }
+
+  :host ::ng-deep .dateStyle .ui-calendar {
+    position: relative !important;
+    display: -webkit-box !important;
+    display: flex !important;
+    width: 100% !important;
+  }
+
+  :host ::ng-deep .dateStyle .ui-calendar .ui-datepicker.ui-widget {
+    background-color: $WHITE !important;
+  }
+
+  :host ::ng-deep .ui-datepicker {
+    background-color: $WHITE !important;
+  }
+
+  :host
+    ::ng-deep
+    .ui-datepicker
+    .ui-datepicker-header
+    .ui-datepicker-title
+    select {
+    border: none;
+    font-weight: 500;
+  }
+
+  :host ::ng-deep .ui-button:enabled:hover {
+    background-color: transparent;
+    border-color: $BLACK-02;
+  }
+
+  :host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+  :host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+    color: $WHITE;
+    background-color: $VIOLET-F100;
+  }
+
+  :host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+  :host
+    ::ng-deep
+    .ui-datepicker
+    table
+    td.ui-datepicker-today
+    > span.ui-state-active {
+    background-color: $VIOLET-F100;
+  }
+
+  :host ::ng-deep .ui-button:enabled:focus {
+    box-shadow: none;
+  }
+
+  :host
+    ::ng-deep
+    .ui-calendar.ui-calendar-w-btn
+    .ui-datepicker-trigger.ui-button {
+    color: $WHITE;
+  }
+
+  :host
+    ::ng-deep
+    .ui-datepicker:not(.ui-state-disabled)
+    table
+    td
+    a:not(.ui-state-active):not(.ui-state-highlight):hover {
+    font-weight: normal;
+  }
+
+  :host ::ng-deep .ui-datepicker .ui-button.ui-state-default.ui-button-secondary {
+    width: auto;
+  }
+
+  /* Date CSS End */
+
+  /* selected button css start */
+
+  :host ::ng-deep .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
+  :host ::ng-deep .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {
+    width: auto;
+    min-width: 7em;
+  }
+
+  :host ::ng-deep .request .ui-selectbutton .ui-button,
+  :host ::ng-deep .createform .ui-selectbutton .ui-button {
+    border-radius: 1.2em !important;
+    margin-right: 0.8em;
+  }
+
+  :host ::ng-deep .transmission .ui-selectbutton .ui-button,
+  :host ::ng-deep .transmission-2 .ui-selectbutton .ui-button {
+    margin-right: 3em !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-fluid
+    .ui-buttonset.ui-buttonset-3
+    .ui-button {
+    width: 25% !important;
+  }
+  :host ::ng-deep .transmission .ui-button.ui-button-text-only .ui-button-text,
+  :host ::ng-deep .transmission-2 .ui-button.ui-button-text-only .ui-button-text {
+    padding: 1.2em 2em !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button.ui-state-default
+    .ui-button-icon-left {
+    color: transparent !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button.ui-state-active
+    .ui-button-icon-left {
+    color: $GREEN-01 !important;
+  }
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover
+    .ui-button-icon-left {
+    color: transparent !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission-2
+    .ui-fluid
+    .ui-buttonset.ui-buttonset-2
+    .ui-button {
+    width: 40% !important;
+  }
+  :host
+    ::ng-deep
+    .transmission-2
+    .ui-selectbutton
+    .ui-button.ui-state-default
+    .ui-button-icon-left {
+    color: transparent !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission-2
+    .ui-selectbutton
+    .ui-button.ui-state-active
+    .ui-button-icon-left {
+    color: $GREEN-01 !important;
+  }
+  :host
+    ::ng-deep
+    .transmission-2
+    .ui-selectbutton
+    .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover
+    .ui-button-icon-left {
+    color: transparent !important;
+  }
+  /* selected button css end */
+  :host ::ng-deep .paymentDetailsBank .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+    margin-left: 0em ;
+  }
+
+:host ::ng-deep .infoDropDownIcon {
+    color: $GRAY-TROLLEYGREY-01 !important;
+    position: absolute !important;
+    top: 0.5em !important;
+    right: 0em !important;
+  }
+
+:host ::ng-deep .infoIcon {
+    right: 0em !important;
+  }
+  :host ::ng-deep .amendLabelStyle .infodisplaylabel {
+    margin-top: 2em;
+    margin-bottom: 0em !important;
+  }
+
+  :host ::ng-deep .transmission .mat-button-toggle.mat-button-toggle-checked .material-icons,
+  :host ::ng-deep .transmission-2 .mat-button-toggle.mat-button-toggle-checked .material-icons {
+   left: -3em !important;
+  }
+
+:host ::ng-deep .visibleMatIcon.material-icons{
+    color:  $GRAY-TROLLEYGREY-01;
+    top: 0em;
+    right: -1.5em;
+  }
+:host ::ng-deep .visibleMatIcon.material-icons:hover{
+    color: $ORANGE-DARK-BROWNTONE-01;
+  }
+
+:host ::ng-deep .infodisplaylabel {
+    margin-bottom: 2em !important;
+    display: block !important;
+  }
+
+:host ::ng-deep .fcc-radio-button .infodisplaylabel {
+    padding-left: 0.5em;
+  }
+
+:host ::ng-deep .warningStyle {
+    font-style: italic;
+    color: $GREY;
+  }
+
+:host ::ng-deep .draweeDetails{
+    margin-top: 0em;
+  }
+
+  :host ::ng-deep #inputTextAreaMixPayment {
+    resize: none;
+  }
+  :host ::ng-deep .filter_dropdown_msg .ui-message.ui-widget.ui-corner-all.ui-message-error {
+    margin-top: -0.5em !important;
+  }

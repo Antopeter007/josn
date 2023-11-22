@@ -1,0 +1,17 @@
+{
+ "head": {
+ "requestId": "abcdb41a31d711ea8cba005056bslfedc2d",
+ "ts": "2020-07-25 10:55:23",
+ "crn": "SETU004"
+ },
+ "downloadTxnReq": {
+"format": "csv",
+"fromDate": "2020-07-24 00:00:00",
+"toDate": "",
+ "payeeVPA": "",
+ "payerVPA": "",
+"orderId": "",
+"status": "",
+"txnType": ""
+ }
+}

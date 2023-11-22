@@ -1,0 +1,23 @@
+:host ::ng-deep {
+    .mat-accordion .mat-expansion-panel-header {
+        background-color: #F7F5FC !important;
+        border-radius: 0.125em !important;
+    }
+
+    .mat-accordion .mat-expansion-panel-header {
+        color: #694ed6 !important;
+        font-size: 1.125em !important;
+        font-weight: 500 !important;
+        height: 2.5em !important;
+        background-color: #F7F5FC !important;
+        border-radius: 0.125em !important;
+    }
+
+    .mat-accordion .mat-expansion-panel-header:focus {
+        border-bottom: 0.125em solid #694ed6 !important;
+    }
+
+    .mat-accordion .mat-expansion-panel-body {
+        padding: 0.9375em 1.5em 1em !important;
+    }
+}

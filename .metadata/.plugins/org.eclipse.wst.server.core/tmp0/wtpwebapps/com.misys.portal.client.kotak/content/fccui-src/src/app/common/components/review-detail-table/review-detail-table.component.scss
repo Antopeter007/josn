@@ -1,0 +1,21 @@
+:host ::ng-deep .Principal {
+    position: relative;
+    left: -1.25em;
+}
+:host ::ng-deep .Date{
+  position: relative;
+}
+:host ::ng-deep .Projected {
+  position: relative;
+  left: -0.85em;
+}
+
+:host ::ng-deep .date {
+  position: relative;
+  left: -0.85em;
+}
+
+
+.title {
+  color: #694ed6; padding-bottom: 15px
+}

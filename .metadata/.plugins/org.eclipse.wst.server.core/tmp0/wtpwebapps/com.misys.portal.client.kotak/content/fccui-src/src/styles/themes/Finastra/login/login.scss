@@ -1,0 +1,173 @@
+@import '../../../variables.scss';
+
+@mixin ux_login($primaryColor,$formFieldBorderBottom,$SubHeaderColor,$MainHeadingFontSize,$label-belowColor,
+$remembermeLabelColor,$ui-buttonBackgroundColor,$ui-buttonColor,$ui-buttonBorderColor,$customtoastColor,$pdlang-inputtextBackgroundColor,
+$pdlang-inputtextColor,$corpName) {
+
+
+    fcc-common-login  .ui-float-label .ui-widget {
+       
+        color: $GOLD-10;
+      
+      }
+
+      fcc-common-login  .h-text-1 {
+        color: $corpName;
+        font-weight: bold;
+       }
+
+      fcc-common-login .h-text-2 {
+        color: $SubHeaderColor;
+        font-size: $MainHeadingFontSize;
+        font-weight: bold;
+        
+      }
+      fcc-common-login .supportStyle{
+        color: $primaryColor !important;
+      }
+      fcc-common-login .error-text-msg {
+        color: $errorMessageColor;
+        font-weight: $fontWeight-500;
+      }
+      fcc-common-login .invalid-error-text {
+        color: $errorMessageColor;
+       
+      }
+     
+      fcc-common-login .label-below {
+        
+        color: $label-belowColor;
+       
+      }
+      fcc-common-login  .remember-me label,
+        .label {
+        color: $remembermeLabelColor;    
+    }
+
+    fcc-common-login .custom-toast .ui-toast-message {
+        color: $customtoastColor;
+        background: $RadicalRed;
+        background: -webkit-linear-gradient(to right, #3f5efb, #fc466b);
+        background: linear-gradient(to right, #3f5efb, #fc466b);
+      }
+
+      fcc-common-login .custom-toast .ui-toast-close-icon {
+        color: $customtoastColor;
+      }
+      fcc-common-login .retrieve-details {
+       
+        color: $primaryColor;
+       
+      }
+      fcc-common-login .implementation {
+       
+        color: $Nevada;
+        font-weight: $fontWeight-700;
+       
+      }
+      fcc-common-login .ui-dropdown-panel {
+        background-color:$Gallery;
+       
+      }
+
+      fcc-common-login .ui-button:enabled:focus {
+        box-shadow: 0 0 0 0.2em $Mulberry ;
+      }
+
+      fcc-common-login .ui-dropdown:not(.ui-state-disabled):hover {
+        border-color: $Gallery;
+      }
+      fcc-common-login .ui-dropdown {
+        background: $WHITE;
+   
+      }
+
+      fcc-common-login .ui-button:enabled:active {
+        background-color: $ui-buttonBackgroundColor;
+        color: $ui-buttonColor;
+        border-color: $ui-buttonBorderColor;
+      }
+      fcc-common-login .ui-button:enabled:hover {
+        background-color: $ui-buttonBackgroundColor;
+        color: $ui-buttonColor;
+        border-color: $ui-buttonBorderColor;
+      }
+      fcc-common-login .h2-underline {
+       color: $primaryColor;
+       
+      }
+
+      fcc-common-login .pd-lang .ui-inputtext {
+        color:$pdlang-inputtextColor;
+         background-color: $pdlang-inputtextBackgroundColor !important;  
+      }
+      
+  
+}
+
+@mixin Styling_of_logoutPage($corpName,$prodName,$genericTextColor,$rateExpText,$starIconColor,$feedbackTextBoxBorder,
+$charLeftColor,$logoImgColor) {
+    fcc-common-ux-logout .generic-text-bold .corpName {
+    color: $corpName !important;
+    }    
+    fcc-common-ux-logout .generic-text-bold .prodName {
+     color: $prodName !important;
+    }
+    fcc-common-ux-logout .generic-text {
+     color: $genericTextColor !important;
+    }
+    fcc-common-ux-logout #feedback-request {
+     color: $rateExpText !important;
+    }
+    fcc-common-ux-logout .rating .ui-rating a .ui-rating-icon {
+     color: $starIconColor !important;
+    }
+    fcc-common-ux-logout #feedback-text {
+     border: $feedbackTextBoxBorder !important;
+    }
+    fcc-common-ux-logout #char-left {
+     color: $charLeftColor;
+      }
+    fcc-common-ux-logout .logo-img {
+        color: $logoImgColor !important;
+    }
+}
+
+
+.finastra{
+// Default Variables
+$primaryColor: $YELLOW-F10;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$formFieldBorderBottom:$CHARCOAL-F50;
+$SubHeaderColor:$FUCHSIA-01;
+$MainHeadingFontSize:20px;
+$label-belowColor:$CHARCOAL-F50;
+$remembermeLabelColor: $CHARCOAL-F100;
+$ui-buttonBackgroundColor: $YELLOW-F10;
+$ui-buttonBorderColor:$YELLOW-F10;
+$ui-buttonColor: $WHITE;
+$customtoastColor:$WHITE;
+$pdlang-inputtextBackgroundColor: $WHITE-13;
+$pdlang-inputtextColor:$MineShaft;
+
+$corpName:$AMBER-O100;
+$prodName:$SubHeaderColor;
+$primaryColor:$VIOLET-F100;
+$genericTextColor:$primaryColor;
+$rateExpText:$CHARCOAL-F75;
+$starIconColor:$RED-01;
+$feedbackTextBoxBorder:$borderSizeFeedbackBox $borderSolid $CHARCOAL-F50;
+$charLeftColor:$GRASS-G75;
+$logoImgColor:$RED-20;
+
+    @include ux_login($primaryColor,$formFieldBorderBottom,$SubHeaderColor,$MainHeadingFontSize,$label-belowColor,
+    $remembermeLabelColor,$ui-buttonBackgroundColor,$ui-buttonColor,$ui-buttonBorderColor,$customtoastColor,
+    $pdlang-inputtextBackgroundColor,$pdlang-inputtextColor,$corpName);
+
+    
+@include Styling_of_logoutPage($corpName,$prodName,$genericTextColor,$rateExpText,$starIconColor,$feedbackTextBoxBorder,
+$charLeftColor,$logoImgColor);
+}

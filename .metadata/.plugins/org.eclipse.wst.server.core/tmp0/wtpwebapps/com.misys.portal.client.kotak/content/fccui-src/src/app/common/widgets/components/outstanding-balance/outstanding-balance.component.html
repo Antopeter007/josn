@@ -1,0 +1,94 @@
+<ng-container>
+    <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+      <p-card class="{{classCheck}}">
+          <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+              <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+          </p-header>
+      <h1 class="headerTitle">
+        {{ billsOutstanding | translate }}
+      </h1>
+
+      <div *ngIf="outstandingAmountExists" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <div class="{{dirClassStyle}} flex-row">
+         <p-dropdown class="{{dirDropDownStyle}}" [options]="currencyList" [(ngModel)]="toCurrency" scrollHeight="100px" (onChange)="getData()"
+            filter="true" dropdownIcon="fa fa-angle-down" placeholder="{{ toCurrency }}" resetFilterOnHide="true"></p-dropdown>
+          <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"  id="display-padding" class="display-on-hover focus"
+            aria-label="Switch to Doughnut Chart" 
+            (keyup.enter)="showChart = true; showPie = true; showBar = false; showLogarithmic = false"
+            (click)="showChart = true; showPie = true; showBar = false; showLogarithmic = false">
+              <span>{{doughnutChart|translate}}</span>
+              <a class="fa fa-pie-chart" tabindex="-1" href="#"></a>
+            </div>
+            <div tabindex="0" id="display-padding" class="display-on-hover focus"
+              aria-label="Switch to Bar Graph" 
+              (click)="showChart = true; showPie = false; showBar = true; showLogarithmic = false"
+              (keyup.enter)="showChart = true; showPie = false; showBar = true; showLogarithmic = false">
+              <span>{{barChart|translate}}</span>
+              <a class="fa fa-bar-chart" tabindex="-1" href="#" ></a>
+            </div>
+            <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"  id="display-padding" class="display-on-hover focus"
+              aria-label="Switch to Logarithmic Chart" 
+              (keyup.enter)="showChart = true; showPie = false; showLogarithmic = true; showBar = false"
+              (click)="showChart = true; showPie = false; showLogarithmic = true; showBar = false">
+              <span>{{logarithmicChart|translate}}</span>
+              <a class="fa fa-line-chart" tabindex="-1" href="#"></a></div>
+            <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"  id="display-padding" class="display-on-hover focus"
+              aria-label="Switch to Grid View" (click)="showChart = false" 
+              (keyup.enter)="showChart = false">
+              <span>{{gridView|translate}}</span>
+              <a class="fa fa-table" tabindex="-1" href="#" ></a></div>
+        </div>
+
+        <div id="display-padding">
+          <div *ngIf="outstandingAmountExists && showChart">
+            <div *ngIf="showChart && showPie">
+              <div>{{ doughnutChart | translate }}</div>
+              <div  style="padding-right: 69px">
+                <p-chart type="doughnut" [data]="chartDataPie" [options]="doghnutChartOptions" height="450" ></p-chart>
+              </div>
+            </div>
+            <div *ngIf="showChart && showBar">
+              <div>{{ barChart | translate }}</div>
+              <div  style="padding-left: 69px">
+                <p-chart type="horizontalBar" [data]="chartDataBar" [options]="barChartOptions" height="193" ></p-chart>
+              </div>
+            </div>
+            <div *ngIf="showChart && showLogarithmic">
+              <div>{{ logarithmicChart | translate }}</div>
+              <div  style="padding-left: 69px">
+                <p-chart type="horizontalBar" [data]="chartDataLogarithmic" [options]="logarithmicChartOptions" height="193" ></p-chart>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="outstandingAmountExists && !showChart">
+            <div>{{ gridView | translate }}</div>
+            <p-table class="plainTable" [columns]="cols" [value]="outstandingAmountForGridView" [responsive]="true">
+              <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th id="column" scope="col" *ngFor="let colmn of columns">
+                          {{colmn.header}}
+                      </th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        <span class="ui-column-title">{{col.header}}</span>
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!outstandingAmountExists">
+        <div style="text-align: center">{{ notAvailable | translate}}</div>
+      </div>
+      <app-nudges [nudges] = "nudges">
+      </app-nudges>
+      </p-card>
+      </div>
+  </ng-container>
+

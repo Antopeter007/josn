@@ -1,0 +1,168 @@
+<div *ngIf="WaybillApiLoaded | async else spinner">
+  <h2 style="text-align: center;" id="courierHeader">{{'CourierHeader' | translate}}</h2>
+    <div class="container">
+
+      <div id="courierDetailsPreferenceDiv" [dir]="dir">
+        <button [dir]="dir" attr.aria-label="{{ 'sort' | translate}}" title="{{ 'sort' | translate}}" id="courierDetailsSort"
+          tabindex="-1" [matMenuTriggerFor]="menuSortField">
+          <mat-icon id="courierDetailsSortIcon" [dir]="dir" tabindex="0">&#x21c5;</mat-icon>
+        </button>
+
+        <input role="textbox" type="search" id="courierDetailsSearch" name="searchForCourierData"
+            [(ngModel)]="searchForCourierData" (ngModelChange)="searchInExpansionHeader()"
+            placeholder="{{ 'COURIER_SEARCH_BOX_PLACEHOLDER' |  translate }}"  tabindex="0" [dir]="dir">
+          <mat-icon id="courierDetailsSearchIcon" [dir]="dir">search</mat-icon>
+      </div>
+
+      <mat-menu #menuSortField="matMenu">
+        <ul class="noListStyle">
+          <li *ngFor="let sortFieldOption of sortLabelOptions">
+            <button role="button" id="{{ sortFieldOption }}" mat-menu-item tabindex="0"
+              (menuOpened)="setSortField(sortFieldOption)" (click)="setSortField(sortFieldOption)"
+              [matMenuTriggerFor]="menuSortOrderSubMenu">{{ sortFieldOption | translate }}</button>
+          </li>
+        </ul>
+      </mat-menu>
+      
+      <mat-menu #menuSortOrderSubMenu="matMenu">
+        <ul class="noListStyle">
+          <li *ngFor="let sortOrderType of sortingOrderTypes">
+            <button mat-menu-item tabindex="0" (click)="sortBasedOn(sortOrderType)" id="{{ sortOrderType }}"
+              (keyup.enter)="sortBasedOn(sortOrderType)"><span
+                *ngIf="(sortOrderType && sortOrderType !== 'desc'); then upArrow; else downArrow;"></span> {{ sortOrderType |
+              translate }}</button>
+            <ng-template #upArrow>&#x2191;</ng-template>
+            <ng-template #downArrow>&#x2193;</ng-template>
+          </li>
+        </ul>
+      </mat-menu>
+      
+
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false"
+                               *ngFor="let item of latestCourierReferenceList">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!-- Courier Company icon/image Header :: Starts -->
+                <span>
+                  <img src="{{contextPath}}/content/FCCUI/assets/images/{{ item['courier_partner'] }}.svg"
+                  alt="{{ item['courier_partner'] }}">
+                </span>
+                <!-- Courier Company icon/image Header :: Ends -->
+                <!-- Event Header :: Starts -->
+                <span *ngIf="item['EVENT_REF']; else eventNotAvailable">
+                  <p>{{ 'EVENT_REF' | translate}}</p>
+                  <strong class="violet-100">{{ item['EVENT_REF'] }}</strong>
+                </span>
+                <ng-template #eventNotAvailable>
+                  <span>
+                    <p>{{ 'EVENT_REF' | translate}}</p>
+                    <strong class="violet-100">{{ 'notAvailable' | translate | titlecase }}</strong>
+                  </span>
+                </ng-template>
+                <!-- Event Header :: Ends -->
+                <!-- Way Bill Number Header :: Starts -->
+                <span>
+                  <p>{{ 'WaybillNo' | translate}}</p>
+                  <strong class="violet-100">{{ item['courier_partner_waybill_no'] }} </strong>
+                </span>
+                <!-- Way Bill Number Header :: Ends -->
+                <!-- Status Header :: Starts -->
+                <span *ngIf="(item['response'] && item['staticField'] && item['staticField']['status']); else statusNotAvailable">
+                  <p>{{ 'status' | translate}}</p>
+                  <strong class="violet-100">{{ item['staticField']['status'] | titlecase }}</strong>
+                </span>
+                <ng-template #statusNotAvailable>
+                  <span>
+                    <p>{{'status' | translate}}</p>
+                    <strong class="violet-100">{{ 'notAvailable' | translate | titlecase }}</strong>
+                  </span>
+                </ng-template>
+                <!-- Status Header :: Ends -->
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="item['response']; else errorMessage">
+            <div  >
+                    <table aria-describedby="courierHeader">
+                      <thead >
+                        <th id = "courierStatus" class="violet-100"><h1>{{ item['staticField']['status'] | titlecase }}</h1></th>
+                      </thead>  
+                      <tbody>
+                              <tr>
+                                <td *ngIf="commonService.isnonEMptyString(item['staticField']['expected_delivery'])">{{ 'ExpectedDelivery' | translate}}:&nbsp;{{ item['staticField']['expected_delivery'] | date : 'medium'}}</td>
+
+                              </tr>
+                              <tr>
+                                <td>{{ 'CourierCompany' | translate}}:&nbsp;{{ item['courier_partner'] }}</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>{{'CourierType' | translate}}:&nbsp;{{ item['staticField']['courier_type'] }}</td>
+                                
+                              </tr>  
+                              <tr *ngIf="item['staticField']['timestamp']">
+                                <td>{{ 'CourierDate' | translate}}:&nbsp;{{ item['staticField']['timestamp'] | date : 'medium' }}</td> 
+                              </tr>      
+                      </tbody>
+                    </table>
+                    <div style="display: flex; justify-content: flex-start">
+                    <mat-card class="inline-block" *ngIf="item['originAddress'] !== ''">
+                    <table aria-describedby="courierHeader">
+                        <thead>
+                          <th id="originAddress">{{'Origin' | translate}}</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ item['originAddress'] }}</td>   
+                          </tr>
+                        </tbody>
+                    </table>
+                  </mat-card>
+                  
+                  <mat-card class="inline-block" *ngIf="item['destinationAddress'] !== ''">
+                    <table aria-describedby="courierHeader">
+                      <thead>
+                        <th id="destinationAddress">{{'Destination' | translate}}</th> 
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{ item['destinationAddress'] }}</td>   
+                        </tr>
+                      </tbody>
+                  </table>
+                  </mat-card>
+                </div>
+            </div>
+            <div>
+                    <table aria-describedby="courierHeader">
+                      <thead >
+                        <th colspan="2"  id="trackingDetails">{{ 'TrackingDetails' | translate}}</th>
+                      </thead>  
+                      <tbody *ngFor="let trackingDetail of item['staticField']['tracking_details'] " >
+                          <tr *ngIf="trackingDetail.timestamp; else trackingDetailHasDateFormat">
+                              <td style="width: 25%;">{{ trackingDetail.timestamp | date:'medium'}}</td>
+                              <td>{{ trackingDetail.description }}</td>
+                          </tr>
+                          <ng-template #trackingDetailHasDateFormat>
+                            <td style="width: 25%;">{{ trackingDetail.date | date:'medium'}}</td>
+                            <td>{{ trackingDetail.eventDescription }}</td>
+                          </ng-template>
+                      </tbody>
+                    </table>
+                    
+            </div>
+          </div>
+          <ng-template #errorMessage>
+                <span style="color: red;">{{ item['errorDetail'] }}</span>
+          </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <mat-card *ngIf="latestCourierReferenceList.length == 0" class="inline-block" id="noDetailsMatched">
+          <p>{{ 'COURIER_NO_DETAILS_FOUND' | translate }}</p>
+        </mat-card>
+      </div>
+  </div>
+  <ng-template #spinner>
+    <mat-spinner style="margin:0 auto;"></mat-spinner>
+  </ng-template>

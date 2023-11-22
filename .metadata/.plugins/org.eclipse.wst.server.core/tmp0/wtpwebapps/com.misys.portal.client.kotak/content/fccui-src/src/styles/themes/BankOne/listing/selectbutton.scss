@@ -1,0 +1,84 @@
+@import '../../../variables.scss';
+
+@mixin ui-tabmenu ($ui-tabmenu-nav-li-BackgroundColor,$ui-tabmenu-nav-li-Border,
+$ui-tabmenu-nav-liHover-Border,$ui-tabmenu-nav-liHover-BackgroundColor,
+$ui-tabmenu-nav-liHover-Color,$ui-tabenu-nav-itemLinkFocusBoxShadow,$tabActiveBackgroundcolor,$ui-tabmenu-nav-active,
+$Tabcolor) {
+    
+    fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav li {
+       
+        background-color: $ui-tabmenu-nav-li-BackgroundColor !important;
+       
+       
+      }
+    
+      fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav li:hover {
+        background-color: $ui-tabmenu-nav-liHover-BackgroundColor !important;
+        border: $ui-tabmenu-nav-liHover-Border !important;
+        color: $ui-tabmenu-nav-liHover-Color !important;
+      }
+      fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link:focus 
+      {
+        box-shadow: $ui-tabenu-nav-itemLinkFocusBoxShadow;
+      }
+      
+      fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+       background-color: $tabActiveBackgroundcolor  !important;
+    
+      }
+      
+      fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-text {
+        color: $ui-tabmenu-nav-active;
+      }
+
+    .indented-Field .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked,
+    .bank-select .mat-button-toggle-group .mat-button-toggle.mat-button-toggle-checked {
+        background-color: $tabActiveBackgroundcolor;
+    }
+    .indented-Field .mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button,
+    .bank-select .mat-button-toggle-group .mat-button-toggle .mat-button-toggle-button {
+        color: $Tabcolor;
+    }
+
+
+.transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover,
+.transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover {
+  background-color: $WHITE;
+
+}
+fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
+fcc-common-productlisting .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-default .ui-menuitem-text {
+  color: $Tabcolor;
+}
+    
+   
+}
+
+.Bank-One{
+        // Default Variables
+$primaryColor: $GRASS-20;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$Tabcolor:$BLUE-01;
+$ui-tabmenu-focus:$primaryColor;
+$tabActiveBackgroundcolor:$YELLOW-F10;
+$ui-tabmenu-nav-active:$WHITE;
+$uitabmenu-hover-background:$WHITE-09;
+$ui-tabmenu-ul-borderBottom: none;
+$ui-tabmenu-nav-li-BackgroundColor: $WHITE;
+$tabBorderColor: $YELLOW-F10;
+$ui-tabmenu-nav-li-Border: 0.0625em $borderSolid $tabBorderColor;
+$ui-tabmenu-nav-liHover-Border:0.0625em $borderSolid $ui-tabmenu-focus;
+$ui-tabmenu-nav-liHover-BackgroundColor: $uitabmenu-hover-background;
+
+$ui-tabmenu-nav-liHover-Color:$ui-tabmenu-focus;
+$ui-tabenu-nav-itemLinkFocusBoxShadow:0 0 0 0.2em #8dcdff;
+
+
+    @include ui-tabmenu($ui-tabmenu-nav-li-BackgroundColor,$ui-tabmenu-nav-li-Border,
+    $ui-tabmenu-nav-liHover-Border,$ui-tabmenu-nav-liHover-BackgroundColor,
+    $ui-tabmenu-nav-liHover-Color,$ui-tabenu-nav-itemLinkFocusBoxShadow,$tabActiveBackgroundcolor,$ui-tabmenu-nav-active,
+    $Tabcolor);
+}

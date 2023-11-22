@@ -1,0 +1,5 @@
+<div [ngClass] = "buttonStyle" >
+    <button role="button"  *ngIf="containerType && (containerType.type !== items[0])" pButton [class]="" class="secondaryButton" label={{previous}} (click)="onClickPrevious()" id="previous"></button>
+    <button role="button"  *ngIf="containerType && (containerType.type !== 'summaryDetails')" [disabled]="!isParentFormValid ||!isNextEnabled || !isSubmitEnabled" pButton class="primaryButton" label={{next}} (click)="onClickNext()" id="next"></button>
+    <button role="button"  *ngIf="containerType && (containerType.type === 'summaryDetails') && isParentFormValid" pButton class="primaryButton" label="{{Submit}}" [disabled]="submitClicked" (click)="submit()" id="submit"></button> 
+</div>

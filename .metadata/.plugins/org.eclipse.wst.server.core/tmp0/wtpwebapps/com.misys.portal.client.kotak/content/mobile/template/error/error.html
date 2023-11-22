@@ -1,0 +1,26 @@
+<ion-view>
+	<div class="bar bar-stable bar-subheader">
+        <h2 class="title">{{'ERROR_MESSAGE' | translate}}</h2>
+    </div>
+
+    <ion-content class="has-subheader">
+    	<div class="list list-inset">
+			<div  class="item item-text-wrap" ng-if="vm.errorMessage && vm.errorMessage.length > 0">
+					{{vm.errorMessage}}				
+			</div>
+			<div  class="item item-text-wrap" ng-if="!(vm.errorMessage && vm.errorMessage.length > 0) ">
+					{{'UNKNOWN_ERROR' | translate}}
+			</div>
+		</div>
+		
+		<!-- 
+		<div class="row row-full">
+	      <div class="col col-full">
+	        <button type= "button" class="button button-block button-positive button-block" ui-sref="app.logout">{{"LOGOUT" | translate}}</button>
+	      </div>
+	    </div>
+	     -->
+			
+    </ion-content>
+</ion-view>
+

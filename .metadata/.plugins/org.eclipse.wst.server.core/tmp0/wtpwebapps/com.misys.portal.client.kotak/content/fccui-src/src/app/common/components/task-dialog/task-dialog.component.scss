@@ -1,0 +1,70 @@
+.uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  height: 1.875em !important;
+}
+:host
+  ::ng-deep
+  .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard
+  .mat-button-toggle-label-content {
+  line-height: 1.75em !important;
+  padding: 0 1.25em;
+  color: #694ed6;
+  font-size: 0.9375em !important;
+  font-weight: 400 !important;
+}
+:host::ng-deep.uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard :focus {
+  border: .125em solid #694ed6 !important;
+  border-radius: 3px !important;
+  box-shadow: 0 0 0 0.2em #8dcdff;
+}
+
+:host::ng-deep .readmode .select-button-pd {
+  padding-bottom: 1.5em;
+}
+
+:host::ng-deep .textarea.characterCountDivfield {
+  padding-bottom: 1em;
+  position: static;
+}
+
+:host::ng-deep .ui-float-label .ui-dropdown .ui-widget
+
+:host::ng-deep .task-padding .mat-button-toggle-group .mat-button-toggle:focus-within .mat-button-toggle-focus-overlay{
+      background-color: white;
+}
+:host ::ng-deep .ui-dialog-content ui-widget-content {
+  border: none !important;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-content {
+  border: none !important;
+}
+:host ::ng-deep .ui-dialog {
+  max-height: 48em;
+}
+:host
+  ::ng-deep .mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+  border-bottom: solid 1.5em;
+ 
+}
+.readmode .select-button-pd{
+  padding-left: 0.75em !important;
+  padding-bottom: 1em !important;
+}
+:host ::ng-deep .applicant_bene_entity_class[dir=rtl] .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon{
+  right: 1em !important;
+}
+:host ::ng-deep .task-paddingCheckbox[dir=rtl] .mat-checkbox-inner-container{
+  position: relative;
+  left: 0.4em;
+}
+:host ::ng-deep [dir=rtl] .mat-slide-toggle-content{
+  margin-right: 0.5em;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  :host ::ng-deep .p-col-12.select-button-pd {
+    padding-bottom: 1em !important;
+  }
+}

@@ -1,0 +1,81 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@moveState]>
+<p-card class="{{classCheck}}">
+  <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+    <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+  </p-header>
+
+  <h1 class="headerTitle">{{ 'currentExchangeRates' | translate }}</h1>
+
+  <div class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <div class="p-col-12">
+      <h2 class="base-ccy-label commonContrastStyle">{{ 'selectBaseCurrency' | translate }}</h2>
+    </div>
+
+    <div class="p-col-12 " [class]="dropDownFocus">
+      <p-dropdown *ngIf="currency.length!=0"
+        [options]="currency"
+        [(ngModel)]="baseCurrency"
+        dropdownIcon="pi pi-caret-down"
+        class="{{dirDropDownStyle}}"
+        styleClass="drop-down-select"
+        tabindex= "{{tabIndex}}"
+        (onChange)="calculate()"  filter="true" (onFocus)="onFocus()" (focusout)="onFocusout()"
+        class="currencyDropdown " resetFilterOnHide="true">
+          <ng-template *ngIf="!defaultFlag" let-item pTemplate="selectedItem">
+            <img src="{{imagePath}}flags/{{item.value.country.toLowerCase()}}.png" class="field-flag"
+            alt="" />
+            <span class="{{dirFieldTextStyle}}">{{item.value.iso}}</span>
+          </ng-template>
+          <ng-template *ngIf="defaultFlag" let-item pTemplate="selectedItem">
+            <img src="{{imagePath}}flags/{{baseCurrency.country.toLowerCase()}}.png" class="field-flag"
+            alt="" />
+            <span class="{{dirFieldTextStyle}}">{{baseCurrency.iso}}</span>
+          </ng-template>
+          <ng-template let-currency pTemplate="item">
+            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+              <img src="{{imagePath}}flags/{{currency.value.country.toLowerCase()}}.png"
+              class="{{dirFlagStyle}}"  alt="" />
+              <div class="{{dirTextStyle}}">{{currency.value.iso}}</div>
+            </div>
+          </ng-template>
+      </p-dropdown>
+    </div>
+    <p-table class="fcc-ui-table" [value]="xchRates">
+      <ng-template pTemplate="header" let-columns>
+        <tr class="p-col-12 "  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+            <th scope="col" class="p-col-6 rateHeaderCcy commonContrastStyle">{{ 'ccy' | translate }}</th>
+            <th scope="col" class="p-col-3 buysellRateHeader commonContrastStyle" *ngIf="!useMidRate">{{ 'buyRate' | translate }}</th>
+            <th scope="col" class="p-col-3 buysellRateHeader commonContrastStyle" *ngIf="!useMidRate">{{ 'sellRate' | translate }}</th>
+            <th scope="col" class="p-col-6 midRateHeader commonContrastStyle" *ngIf="useMidRate">{{ 'midRate' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rec>
+        <tr class="p-col-12 "  tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+          <td class="p-col-6">
+            <img src="{{imagePath}}flags/{{rec.currencyPrincipalCountry.toLowerCase()}}.png"
+            class="table-flag"  alt="" />
+            <span class="{{dirTableCcyText}}">1 {{rec.currencyCode}}</span>
+          </td>
+          <td class="p-col-3" *ngIf="!useMidRate">{{rec.buyTtRate | number : '1.3-3'}}</td>
+          <td class="p-col-3" *ngIf="!useMidRate">{{rec.sellTtRate | number : '1.3-3'}}</td>
+          <td class="p-col-6" *ngIf="useMidRate">{{rec.midTtRate | number : '1.3-3'}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div *ngIf="exchangeRates.length===5" class="p-col-12 bottom-rate focus" style="text-align: center;">
+      <a href="#" onclick="return false;" (click)="getMoreCurrencies()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"
+        attr.aria-label="{{ 'viewMoreCurrencies' | translate }}" attr.text="{{ 'viewMoreCurrencies' | translate }}" title="{{ 'viewMore' | translate }}">
+        <em class="pi pi-chevron-down pointer-class"></em>
+      </a>
+    </div>
+    <div *ngIf="exchangeRates.length===10" class="p-col-12 bottom-rate focus" style="text-align: center;">
+      <a href="#" onclick="return false;" (click)="getDefaultCurrencies()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}"
+      attr.aria-label="{{ 'viewLessCurrencies' | translate }}" attr.text="{{ 'viewLessCurrencies' | translate }}"  title="{{ 'viewLess' | translate }}">
+        <em class="pi pi-chevron-up pointer-class"></em>
+      </a>
+    </div>
+  </div>
+  <app-nudges [nudges] = "nudges">
+  </app-nudges>
+</p-card>
+</div>

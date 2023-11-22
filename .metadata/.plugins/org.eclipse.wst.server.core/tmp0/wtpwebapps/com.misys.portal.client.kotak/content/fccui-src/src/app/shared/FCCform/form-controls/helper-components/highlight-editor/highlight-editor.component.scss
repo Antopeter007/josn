@@ -1,0 +1,49 @@
+.highlight-editor {
+  position: relative;
+
+  .highlight-editor-wrapper {
+    position: relative;
+
+    .highlight-editor-textarea {
+      padding: 0.2rem 0.8rem 0.2rem 0rem;
+      background-color: transparent;
+      resize: vertical;
+      overflow: auto;
+      position: relative;
+      &:focus,
+      &.focus {
+        // outline: 0;
+      }
+
+      :host ::ng-deep blockquote {
+        margin-left: 1rem;
+        border-left: 0.2em solid #dfe2e5;
+        padding-left: 0.5rem;
+      }
+    }
+
+    :host ::ng-deep p {
+      margin-bottom: 0;
+    }
+
+    .highlight-editor-placeholder {
+      display: none;
+      position: absolute;
+      top: 0;
+      padding: 0.2rem 0.8rem 0.2rem 0rem;
+      color: #6c757d;
+      opacity: 0.75;
+    }
+
+    &.show-placeholder {
+      .highlight-editor-placeholder {
+        display: block;
+      }
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}

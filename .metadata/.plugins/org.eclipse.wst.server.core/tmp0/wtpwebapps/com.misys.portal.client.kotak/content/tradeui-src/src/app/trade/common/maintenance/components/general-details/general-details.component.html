@@ -1,0 +1,16 @@
+<p-panel  header="{{'HEADER_GENERAL_DETAILS' | translate }}" >
+  <div [formGroup]="generalDetailsForm">
+    <div>
+      <label> {{ 'GENERALDETAILS_REF_ID' | translate }} &nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['refId']}}</label>
+    </div>
+    <div *ngIf="bgRecord['boRefId'] && bgRecord['boRefId'] != null && bgRecord['boRefId'] !== ''">
+      <label> {{ 'GENERALDETAILS_BO_REF_ID' | translate }} &nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['boRefId']}}</label>
+    </div>
+    <div>
+      <label>{{ 'GENERALDETAILS_PROD_STAT_LABEL' | translate }} &nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{this.tradeCommonDataService.getProdStatusCode(bgRecord['prodStatCode']) | translate}}</label>
+    </div>
+  </div>
+</p-panel>

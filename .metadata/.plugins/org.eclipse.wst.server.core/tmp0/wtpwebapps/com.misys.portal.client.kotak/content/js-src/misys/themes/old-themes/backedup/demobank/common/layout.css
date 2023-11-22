@@ -1,0 +1,281 @@
+/**
+ Refer to /themes/base/common/layout.css
+**/
+
+/*
+	
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles that control layout and positioning in Portal
+  		
+	description:
+	  	Other than those generated via the Java/PSML, this files contains rules pertaining
+	  	to overall layout and positioning, and header/footer organisation.
+	  	
+	  	------------- Page Row/Column Layout --------------------------
+	  	
+		The initial block of CSS has been adapted from those freely available at
+		 
+ 			http://matthewjamestaylor.com/blog/perfect-3-column.htm
+ 
+ 		Widths and additional details are set inline, in accordance with the PSML
+
+		In addition, this file describes global headers, footers and menus
+*/
+
+/** ------------------------------ Master Layout/Positioning Rules ---------------------------- **/
+
+#layout {
+	/*margin: 0 5% 0 5%;*/
+	padding: 0 24px 0 24px;
+	background: #fff url("../images/header.gif") no-repeat center top;
+	min-width : 1200px;	
+}
+
+#AttachmentOverview .attachments{
+  clear:both; 
+}
+
+.column-container {
+	margin: 3px 0;	
+}
+
+.colmid {
+	width: 198%;
+}
+
+.col3 {
+	width: 250px;
+}
+
+.colLeftWrap{
+	float: left;
+	width: 100%;
+}
+
+.colRight{
+	float: left;
+}
+
+.colLeft{
+	margin-right:250px;	
+}
+
+.panel3span {
+	padding-bottom:5px;
+}
+
+/** TODO These following three rules are unnecessary & should be removed. They needlessly 
+	abstract something that is already in CSS.**/
+
+.inlineBlock {
+	display:inline-block;	
+}
+
+.inlineContainer {
+	/** TODO This is a bit hacky and won't scale 100% correctly **/
+	margin-left: 30.2%;	
+}
+
+.inlineContainer label {
+	display: inline;
+}
+
+.dj_ie6 .inlineBlock,
+.dj_ie7 .inlineBlock {
+    zoom: 1;
+	display:inline;
+}
+
+.inlineComponent {
+	display:inline;	
+}
+
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+
+.loginFormLargeHeader {
+	color:#FFF;	
+	height:80px;
+	clear: both;
+}
+
+.panel1 {
+	background-color: #990000;
+	color: white;
+	padding: 2px 0 3px 0;
+	height: 27px;
+}
+
+.panel2 {
+	height: 66px;
+}
+
+.logo {
+	/*background-image: url("../images/logo.png");*/
+	/*background-position: left center;*/
+	height: 46px;
+	/*background-repeat: no-repeat;*/
+	margin: 8px 0 0 0;
+	/*padding: 15px 5px 0 150px;*/
+}
+
+.footer {
+	background: url("../images/footer.gif") #FFFFFF repeat-x;
+	border: none;
+	height: 110px;
+}
+
+.userHeaderContent {
+	float: right;
+	padding-top: 3px;
+	margin-right: 10px;	
+}
+
+.lastLoginContainer {
+	font-size: 0.75em;
+	float: right;
+	clear: right;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.panel2 .headerContent {
+	margin-top: 35px;
+	font-size: 0.75em;
+}
+
+/** Size the div during load, so it doesn't jump around **/
+.notready .panel2 .headerContent .dijitButton {
+	width: 49px;
+	height: 23px;
+}
+
+.headerRight {
+	float: right;	
+}
+
+.menubarImg{
+	width: 27px;
+	height: 27px;
+	padding: 1px 5px 0;
+	vertical-align: middle;
+	
+	/*
+		background-image: url("../images/home.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding: 5px 5px 0 25px;
+	vertical-align: middle;
+	*/
+}
+
+.bookmarkMenu {
+	float:right;
+	font-weight :normal;
+	font-size:8px;	
+}
+
+.dj_ie7 .bookmarkMenu {
+	position: relative;
+	top: -3.3em;	
+}
+
+.bookmarkMenu #bookmarkDropDownButton {
+	background-image: url("../images/bookmark.png");
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding: 5px 5px 0 25px;
+	vertical-align: middle;
+}
+
+#userId {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+#manageProfile {
+	font-weight: bold;
+	color: #0079A7;
+}
+
+#helpDesk {
+	font-weight: bold;
+	color: #0079A7;
+}
+
+.notready .homepageButtons {
+	visibility: hidden;
+}
+
+.homepageButtons {
+	font-size: 0.833em;
+	color: #000;
+	float: right;
+	font-weight: normal;
+	padding-right: 15px;
+	vertical-align: middle;
+	padding: 0;
+}
+
+.footerSeparator {
+	color: #bbb;
+	margin: 0 15px;
+}
+
+.footerDiv1 {
+	margin:10px 5px;
+	font-size: 0.625em;
+}
+
+.footerDiv2 {
+	margin: 40px 5px 0 5px;
+	text-align: center;
+	clear: both;
+	font-size: 0.625em;
+	color: gray;
+}
+
+.footerLinkLeft {
+	margin: 0 3px;
+	float: left;
+	vertical-align: bottom;
+}
+
+.footerLinkRight {
+	margin: 0 3px;
+	float: right;
+	vertical-align: bottom;
+}
+
+/** ----------------------------------- New Left Menu Tree--------------------------------- **/
+
+.demobank .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow .dijitTreeExpando {
+	width: 8px;
+}
+
+.demobank .dijitTreeRow, .dijitTreeContent {
+	white-space:normal;	
+	cursor:pointer;
+}
+
+.demobank .dijitTreeLabel {
+	margin: 0;
+}
+
+/** ----------------------------------- Product Menu --------------------------------- **/
+
+.product-menu li {
+	list-style-image: url("../images/ul_collapse.gif");
+	padding: 0;
+}
+
+.product-menu-items li {
+	list-style-image: url("../images/ul_arrow_right.gif");
+	padding: 0;
+}
+
+.menuBarHighlight {
+	color: #ccc;
+}

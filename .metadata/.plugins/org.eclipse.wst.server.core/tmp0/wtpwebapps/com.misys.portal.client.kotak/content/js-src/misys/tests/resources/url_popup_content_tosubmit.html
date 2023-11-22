@@ -1,0 +1,12 @@
+<h2>My Form</h2>
+<div dojoType="dijit.form.Form" dojoType="dijit.form.Form" name="popup_fakeform1" id="popup_fakeform1" action="" class="form validate" method="POST">
+	<div id="popup_field_row" class="field">
+		<label for="popup_field">Popup Field:</label>
+		<div trim="true" dojoType="dijit.form.ValidationTextBox" name="popup_field" id="popup_field" maxLength="20" class="small swift" value="popup field value"></div>
+	</div>
+	<input dojoType="dijit.form.TextBox" readOnly="true" type="hidden" id="node_name" value="static_test">
+</div>
+<div dojoType="dijit.form.Form" name="popup_realform" id="popup_realform" action="resources/formAction.html" target="formSubmitIframe" method="POST">
+	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="operation" id="popup_realform_operation">
+	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="popup_TransactionData" id="popup_TransactionData">
+</div>

@@ -1,0 +1,5 @@
+<div *ngIf="commonDataService.displayLUSection()" [class.toplevel-header]="viewMode">
+      <div [formGroup]="cuBankDetailsSection">
+        <fcc-iu-common-bank-details [undertakingType]="'cu'" *ngIf="bgRecord" [bgRecord]="bgRecord" [formName]="cuBankDetailsSection"></fcc-iu-common-bank-details>
+      </div>
+</div>

@@ -1,0 +1,34 @@
+:host ::ng-deep .otherInst textarea {
+    resize: none;
+  }
+
+  :host ::ng-deep .radiocontainer.p-grid,
+  :host ::ng-deep .radiocontainer .p-grid {
+    width: 100%;
+  }
+
+  .indented-text-area-field-35 {
+    margin: 0em !important;
+    width: 28.5rem !important;
+    word-break: break-all !important;
+  }
+
+  :host ::ng-deep textarea.mat-input-element {
+    resize: none;
+  }
+
+  :host ::ng-deep .mat-radio-checked .mat-radio-label {
+    font-weight: bold;
+  }
+
+  :host ::ng-deep .characterCountDivfield .ui-widget {
+    border-bottom: none;
+    width: 100% ;
+    padding-right: 0.159em;
+  }
+
+  @media screen and  (max-width: 834px) and (min-width: 768px) {
+    :host ::ng-deep .mat-radio-group  {
+    width: 30rem !important;
+   }
+  }

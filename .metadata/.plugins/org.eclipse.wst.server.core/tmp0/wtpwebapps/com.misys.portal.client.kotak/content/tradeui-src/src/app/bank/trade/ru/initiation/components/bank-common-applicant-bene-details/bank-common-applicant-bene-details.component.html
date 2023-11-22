@@ -1,0 +1,152 @@
+<p-panel id="{{type}}DetailsPanel" *ngIf="this.commonDataService.getOption()!== 'SUMMARY'" header=" {{ this.header | translate }} "  [toggleable]="true" [collapsed]="false">
+<div *ngIf="!viewMode  ;else view_content">
+  <form [formGroup]="ruCommonApplicantBeneDetailsForm">
+    <div id="entityRow" *ngIf="(type === 'beneficiary' || (commonDataService.getProductCode() === 'BG' && type === 'applicant'))" class="field">
+      <label for="entity" id="entityLabel">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+      <input id="entity" formControlName="entity" type="text" readonly pInputText/>
+      <a *ngIf="((this.commonDataService.getOption() === 'EXISTING' || this.isExistingDraftMenu) &&
+      ((!(commonDataService.disableTnx) && type === 'applicant' && commonDataService.getProductCode() !== 'BG') ||
+        (!(commonDataService.disableTnx) && type === 'beneficiary' && commonDataService.getProductCode() !== 'BR')))
+        || (!(commonDataService.disableTnx) && this.commonDataService.getOption() !== 'EXISTING')"
+         class="fa fa-search fa-lg" id="entitySearch" (click)="openEntityDialog()"></a>
+    </div>
+    <div id="{{type}}AbbvNameRow" *ngIf="(type === 'beneficiary'|| (commonDataService.getProductCode() === 'BG' && type === 'applicant'))"class="field">
+      <label for="{{type}}AbbvName" id="{{type}}AbbvNameLabel">{{ 'BENEFICIARY_RECIPIENT' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+      <input id="{{type}}AbbvName" formControlName="{{type}}AbbvName" id="{{type}}AbbvName" type="text" pInputText />
+      <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'AbbvName')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}NameRow"class="field">
+        <label for="{{type}}Name">{{ 'NAME' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="{{type}}Name" id="{{type}}Name" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'Name'))">
+        <a *ngIf="!(commonDataService.disableTnx) && type === 'applicant' && commonDataService.getProductCode() !== 'BG'" class="fa fa-search fa-lg" id="applicantSearch" (click)="openBeneficiaryDialog()"></a>
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'Name')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}AddressLine1Row" class="field">
+        <label for="{{type}}AddressLine1">{{ 'ADDRESS' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="{{type}}AddressLine1" id="{{type}}AddressLine1" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'AddressLine1'))">
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'AddressLine1')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}AddressLine2Row" class="field">
+        <label for="{{type}}AddressLine2" >&nbsp;</label>
+        <input pInputText formControlName="{{type}}AddressLine2" id="{{type}}AddressLine2" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'AddressLine2'))">
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'AddressLine2')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}DomRow" class="field">
+        <label for="{{type}}Dom" >&nbsp;</label>
+        <input pInputText formControlName="{{type}}Dom" id="{{type}}Dom" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'Dom'))">
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'Dom')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}AddressLine4Row" class="field">
+        <label for="{{type}}AddressLine4">&nbsp;</label>
+        <input pInputText formControlName="{{type}}AddressLine4" id="{{type}}AddressLine4" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'AddressLine4'))">
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'AddressLine4')"></fcc-common-error-message>
+    </div>
+    <div id="{{type}}ReferenceRow" class="field"  *ngIf="commonDataService.getProductCode() === 'BR'">
+        <label for="{{type}}Reference" id="{{type}}referencelabel" >{{ 'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+        <input pInputText formControlName="{{type}}Reference" id="{{type}}Reference" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(ruCommonApplicantBeneDetailsForm.get(type+'Reference'))">
+        <fcc-common-error-message [control]="ruCommonApplicantBeneDetailsForm.get(type+'Reference')"></fcc-common-error-message>
+    </div>
+
+    <fcc-iu-common-alt-applicant-details *ngIf="jsonContent && (commonDataService.getProductCode() === 'BG')" [bgRecord]="jsonContent" (formReady)="addToForm('altApplicantDetailsFormSection', $event)">
+    </fcc-iu-common-alt-applicant-details>
+
+    </form>
+  </div>
+  <ng-template #view_content>
+    <div *ngIf="type === 'beneficiary' && this.commonDataService.getOption()!== 'SUMMARY'" id="beneficiaryDetails">
+      <div id="entityViewRow" *ngIf="jsonContent['entity'] !=null && jsonContent['entity'] != ''">
+          <label for="entity" id="entityLabel">{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['entity']}}</label>
+      </div>
+      <div id="beneficiaryAbbvNameViewRow" *ngIf="jsonContent['beneficiaryAbbvName'] !=null && jsonContent['beneficiaryAbbvName'] != ''">
+          <label for="beneficiaryAbbvName" id="beneficiaryAbbvNameLabel">{{ 'BENEFICIARY_RECIPIENT' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryAbbvName']}}</label>
+      </div>
+      <div id="beneficiaryNameViewRow" *ngIf= "jsonContent['beneficiaryName'] !=null && jsonContent['beneficiaryName'] != ''">
+          <label for="beneficiaryName" id="beneficiaryNameLabel">{{ 'NAME' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryName']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine1ViewRow"*ngIf= "jsonContent['beneficiaryAddressLine1'] !=null && jsonContent['beneficiaryAddressLine1'] != ''">
+          <label for="beneficiaryAddressLine1" id="beneficiaryAddressLine1Label">{{ 'ADDRESS' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryAddressLine1']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine2ViewRow" *ngIf= "jsonContent['beneficiaryAddressLine2'] !=null && jsonContent['beneficiaryAddressLine2'] != ''">
+          <label for="beneficiaryAddressLine2" id="beneficiaryAddressLine2Label">&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryAddressLine2']}}</label>
+      </div>
+      <div id="beneficiaryDomViewRow"*ngIf= "jsonContent['beneficiaryDom'] !=null && jsonContent['beneficiaryDom'] != ''">
+          <label for="beneficiaryDom" id="beneficiaryDomLabel" >&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryDom']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine4ViewRow" *ngIf= "jsonContent['beneficiaryAddressLine4'] !=null && jsonContent['beneficiaryAddressLine4'] != ''">
+          <label for="beneficiaryAddressLine4" id="beneficiaryAddressLine4Label">&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryAddressLine4']}}</label>
+      </div>
+      <div id="beneficiaryReferenceViewRow" *ngIf= "jsonContent['beneficiaryReference'] !=null && jsonContent['beneficiaryReference'] != ''">
+          <label for="beneficiaryReference" id="beneficiaryReferenceLabel">{{ 'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['beneficiaryReference']}}</label>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div *ngIf="(commonDataService.getProductCode() === 'BG' && type ==='contact') && this.commonDataService.getOption()!== 'SUMMARY'" id="contactDetails">
+      <div id="contactNameViewRow" *ngIf="jsonContent['contactName'] && jsonContent['contactName'] != null && jsonContent['contactName'] != ''">
+        <label for="contactName" id="contactNameLabel">{{ 'BENEFICIARY_CONTACT_DETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactName']}}</label>
+      </div>
+      <div id="contactAddressLine1ViewRow" *ngIf="jsonContent['contactAddressLine1'] && jsonContent['contactAddressLine1'] != null && jsonContent['contactAddressLine1'] != ''">
+        <label for="contactAddressLine1" id="contactAddressLine1Label">{{ 'BENEFICIARY_CONTACT_DETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactAddressLine1']}}</label>
+      </div>
+      <div id="contactAddressLine2ViewRow" *ngIf="jsonContent['contactAddressLine2'] && jsonContent['contactAddressLine2'] != null && jsonContent['contactAddressLine2'] != ''">
+        <label for="contactAddressLine2" id="contactAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactAddressLine2']}}</label>
+      </div>
+      <div id="contactCountryViewRow" *ngIf="jsonContent['contactDom'] && jsonContent['contactDom'] != null && jsonContent['contactDom'] != ''">
+        <label for="contactDom" id="contactCountryLabel">&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactDom']}}</label>
+      </div>
+      <div id="contactAddressLine4ViewRow" *ngIf="jsonContent['contactAddressLine4'] && jsonContent['contactAddressLine4'] != null && jsonContent['contactAddressLine4'] != ''">
+        <label for="contactAddressLine4" id="contactAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactAddressLine4']}}</label>
+      </div>
+      <div id="contactCountryViewRow" *ngIf="jsonContent['contactCountry'] && jsonContent['contactCountry'] != null && jsonContent['contactCountry'] != ''">
+        <label for="contactCountry" id="contactCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{jsonContent['contactCountry']}}</label>
+      </div>
+    </div>
+    <div *ngIf="type === 'applicant' && this.commonDataService.getOption()!== 'SUMMARY'" id="applicantDetails">
+      <div id="applicantNameViewRow" *ngIf= "jsonContent['applicantName'] !=null && jsonContent['applicantName'] != ''">
+          <label for="applicantName" id="applicantNameLabel">{{ 'NAME' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantName']}}</label>
+      </div>
+      <div id="applicantAddressLine1ViewRow" *ngIf= "jsonContent['applicantAddressLine1'] !=null && jsonContent['applicantAddressLine1'] != ''">
+          <label for="applicantAddressLine1" id="applicantAddressLine1Label">{{ 'ADDRESS' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantAddressLine1']}}</label>
+      </div>
+      <div id="applicantAddressLine2ViewRow" *ngIf= "jsonContent['applicantAddressLine2'] !=null && jsonContent['applicantAddressLine2'] != ''">
+          <label for="applicantAddressLine2" id="applicantAddressLine2Label">&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantAddressLine2']}}</label>
+      </div>
+      <div id="applicantDomViewRow" *ngIf= "jsonContent['applicantDom'] !=null && jsonContent['applicantDom'] != ''">
+          <label for="applicantDom" id="applicantDomLabel">&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantDom']}}</label>
+      </div>
+      <div id="applicantAddressLine4ViewRow"*ngIf= "jsonContent['applicantAddressLine4'] !=null && jsonContent['applicantAddressLine4'] != ''">
+          <label for="applicantAddressLine4" id="applicantAddressLine4Label">&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantAddressLine4']}}</label>
+      </div>
+      <div id="applicantReferenceViewRow" *ngIf= "jsonContent['applicantReference'] !=null && jsonContent['applicantReference'] != ''">
+          <label for="applicantReference" id="applicantReferenceLabel">{{ 'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['applicantReference']}}</label>
+      </div>
+    </div>
+      <fcc-iu-common-alt-applicant-details *ngIf="jsonContent && (commonDataService.getProductCode() === 'BG')" [bgRecord]="jsonContent">
+    </fcc-iu-common-alt-applicant-details>
+    </ng-template>
+</p-panel>

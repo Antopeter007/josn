@@ -1,0 +1,32 @@
+<mat-sidenav-container [hasBackdrop]="false">
+    <mat-sidenav  dir="{{dir}}" #rightSidenav [fixedInViewport]="true" position="start"
+        class="p-col-offset-2 p-lg-offset-2 p-sm-offset-1 mat-sidenav" [fixedTopGap]="0">
+        <div class="sub-menu-container">
+            <ul>
+                <li *ngFor= "let menu of subMenu">
+                    <div class="submenu-header" (click) = "onSubmenuClick(menu)">
+                        <div>
+                            <p class="submenu-name">{{menu?.subMenuLabel | translate}}</p>
+                            <p class="submenu-description" *ngIf="menu?.description">{{menu?.description}}</p>     
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="no-margin-left">
+        <mat-nav-list class="uxg-nav-list" dir="{{dir}}" tabindex="0">
+            <div class="m-list" tabindex="0">
+                <ng-container *ngFor="let menu of bankMenuJSON; let i = index">
+                    <a mat-list-item tabindex="0" class="menu-header" dir="{{dir}}" [class.uxg-list-item-selected]="menu.menuLabel === selectedMenu?.menuLabel">
+                        <div dir="{{dir}}" class="mat-list-item-dynamic-content" (keydown.enter)="onMenuClick(menu, i)"
+                        (click)="onMenuClick(menu, i)">
+                            <mat-icon mat-list-icon *ngIf="menu.icon">{{menu?.icon}}</mat-icon>
+                            <p>{{menu?.menuLabel | translate}}</p>
+                        </div>
+                    </a>
+                </ng-container>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

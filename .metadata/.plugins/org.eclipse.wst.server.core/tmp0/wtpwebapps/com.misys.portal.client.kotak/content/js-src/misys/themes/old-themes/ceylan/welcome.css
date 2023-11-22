@@ -1,0 +1,108 @@
+@import "../../../dojo/resources/dojo.css";
+@import url("../../../dijit/themes/dijit.css");
+@import url("../../../dijit/themes/tundra/Common.css");
+@import url("../../../dijit/themes/tundra/form/Common.css");
+@import url("../../../dijit/themes/tundra/form/Button.css");
+@import url("../../../dijit/themes/tundra/Dialog.css");
+
+@import url("css-imports/ceylan-all-portlets.css");
+@import url("css-imports/ceylan-layout.css");
+@import url("css-imports/ceylan-styles.css");
+@import url("css-imports/ceylan-all-portlets.css");
+@import url("css-imports/ceylan-navigation.css");
+@import url("css-imports/ceylan-portlet-carousel.css");
+/** Styles specific to the home page **/
+.ceylan .portlet-section-header{
+	display: none;
+}
+
+.ceylan #DefaultContent, .ceylan #TradeApplicationsDefault{
+	border: none;
+}
+
+.ceylan #DefaultContent{
+	margin-top:11px;
+}
+
+.ceylan #Welcome {
+	background-color: #f2f2f2;
+	border: 1px solid #999;
+	margin: 10px 0px 5px 0px;
+	padding: 0px 2px 2px 2px;
+	line-height: 1em;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+/** Login Form **/
+.ceylan #loginForm {
+ margin: 10% auto; 
+ width: 40%;
+}
+
+/** Login page **/
+.ceylan .toplevel-header{
+	width:80%;
+	padding: 0 0 0.5em 0;
+	margin: 5px auto 30px auto;
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	font-size:0.8em;
+}
+
+.ceylan .toplevel-header h2{
+    font-weight: bold;
+    /*background: transparent url("images/header_33px.png") repeat-x top;*/
+	background-color: #7AA1FF;
+    color: #FFFFFF;
+	padding: 1px 5px 0 5px;
+	height: 20px;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+.ceylan label,
+.ceylan .label{
+    width: 6em;
+    text-align: right; 
+    line-height:1.5em;
+    display: inline-block;
+}
+
+.ceylan #changePassword label,
+.ceylan #changePassword .label{
+	width:8em;
+}
+	
+
+.ceylan .dijitTextBox,
+.ceylan .dijitComboBox .dijitInputField                      
+{
+        padding:0.1em 0em 0.1em 0em;
+}
+
+.ceylan .small{
+	width:10em;
+}
+
+.ceylan #loginForm .field .dijitButton .dijitButtonNode{
+	border: 1px solid #c0c0c0;
+	border-bottom: 1px solid #9b9b9b;
+	background: #fff url("../../../dijit/themes/tundra/images/buttonEnabled.png") repeat-x bottom left;
+}
+
+/** News paragraph **/
+.ceylan .para .icon {
+ float:left;
+ width:55px;
+}
+
+.ceylan .para-quote {
+	font-style: italic;
+}
+
+.ceylan .message{
+	margin-left:6px;
+}

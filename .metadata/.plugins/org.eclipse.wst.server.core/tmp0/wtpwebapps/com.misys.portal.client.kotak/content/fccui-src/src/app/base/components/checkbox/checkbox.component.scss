@@ -1,0 +1,55 @@
+:host
+  ::ng-deep
+  .checkboxStyleClass
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .checkboxStyleClass .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .checkboxStyleClass
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active.ui-state-focus {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .checkboxStyleClass
+  .ui-chkbox
+  .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host
+  ::ng-deep
+  .checkboxStyleClass
+  .ui-chkbox-box
+  .ui-widget
+  .ui-corner-all
+  .ui-state-active
+  .ui-state-active {
+  border-color: #694ed6 !important;
+  background-color: #694ed6 !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .checkboxStyleClass .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  color: #ffffff !important;
+  box-shadow: none !important;
+  border-color: #a6a6a6 !important;
+  background-color: #fff !important;
+}

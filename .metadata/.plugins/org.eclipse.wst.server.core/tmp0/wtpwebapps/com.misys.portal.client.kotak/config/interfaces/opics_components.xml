@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2014 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<component name="opics_useridsanddttmmanager">
+		<description>Manage user id and dttm</description>
+		<classname>com.misys.portal.interfaces.incoming.treasury.UserIDandDTTMManager</classname>
+		<prerequisites>
+			<property name="tnx_id"/>
+		</prerequisites>
+	</component>
+	
+	<!-- WS based FX Processing service -->
+	<component name="treasuryfxWSrequestprocessor">
+		<description>Process FX request to Treasury Back office using Webservice</description>
+		<classname>com.misys.portal.interfaces.components.treasury.TreasuryFXWSRequestProcessor</classname>
+	</component>
+	
+	<component name="treasurycmeqWSrequestprocessor">
+		<description>Process CMEQ request to Treasury Back office using Webservice</description>
+		<classname>com.misys.portal.interfaces.components.treasury.TreasuryCMEQWSRequestProcessor</classname>
+	</component>
+	
+	<!-- JMS based FX Processing service -->
+	<component name="treasuryfxJMSrequestprocessor">
+		<description>Process FX request to Treasury Back office through JMS</description>
+		<classname>com.misys.portal.interfaces.components.treasury.TreasuryFXJMSRequestProcessor</classname>
+	</component>
+	
+	<!-- JMS based FX Processing service -->
+	<component name="treasuryfxJMSresponsetransformer">
+		<description>Transform JMS response from Treasury Back office through JMS</description>
+		<classname>com.misys.portal.interfaces.components.treasury.TreasuryFXJMSResponseTransformer</classname>
+	</component>
+	
+	<!-- Interface based RFQ processing to Opics BO -->
+	<component name ="treasuryOpicsRFQComponent">
+		<description>Process RFQ request to Opics Back office using Webservice</description>
+		<classname>com.finastra.portal.treasury.interfaces.components.TreasuryOpicsRFQComponent</classname>
+	</component>
+	
+	<!-- Interface based RFQ processing to Opics BO -->
+	<component name ="treasuryOpicsActionHandlerComponent">
+		<description>Submit the Deal order for the RFQ response received through Webservice</description>
+		<classname>com.finastra.portal.treasury.interfaces.components.TreasuryOpicsActionHandlerComponent</classname>
+	</component>
+	<component name ="treasurySfxRFQComponent">
+		<description>Process RFQ request to Opics Back office using Webservice</description>
+		<classname>com.finastra.portal.treasury.interfaces.components.TreasuryFFC2SFXComponent</classname>
+	</component>
+	<component name ="treasurySFXActionHandlerComponent">
+		<description>Submit the Deal order for the RFQ response received through SFX</description>
+		<classname>com.finastra.portal.treasury.interfaces.components.TreasurySFXActionHandlerComponent</classname>
+	</component>
+</components>

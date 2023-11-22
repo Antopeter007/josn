@@ -1,0 +1,48 @@
+<p-dialog tabindex="0" header="{{'SELECTED' | translate}} ({{selectedRowsData.length}})"
+[(visible)]="visible" [closable]="false" [focusTrap]="false"  [focusOnShow]="false" [draggable]="false" class="confirm"
+[baseZIndex]="10000"
+[autoZIndex]="false"
+[position]="position" [style]="{width: '100%', margin: '0em'}">
+  <div class="p-grid">
+    <div class="p-col-8">
+      <ng-container *ngIf="commentsRequired">
+        <mat-form-field floatLabel="false" appearance="fill" class="input-mat-width">
+          <mat-label>{{'comments' | translate}}</mat-label>
+          <textarea #comment="matInput" matInput [(ngModel)]="comments" id="multiCommentsTextArea" tabindex="0"
+          cols="135" rows="2" maxlength="{{maxCommentLn}}" class="fcc-ui-inputtextarea fcc-textarea-width disable-resize"></textarea>
+        </mat-form-field>
+        <fcc-common-narrative-character-count [enteredCharCount]="charactersEntered" [allowedCharCount]="255" [fieldSize]="50">
+        </fcc-common-narrative-character-count>
+        <div *ngIf="charactersEntered === 0 && disableReturn" id="commentRequired" class="comments">{{'commentsHintText' | translate}}</div>
+        <div *ngIf="!disableReturn && commentsMandatory" class="invalidCommentTop">
+          <mat-label id="invalidComment" align="start">{{'commentsRequiredViewPopup'|translate}}</mat-label>
+        </div>
+        <div *ngIf="CommonService.scrapCommentRequired">
+          <mat-label id="remarkComment" align="start">{{'remarkRequired'|translate}}</mat-label>
+        </div>
+      </ng-container>
+    </div>
+    <div class="p-col-4 rightDirect">
+      <ng-container *ngIf="buttonList && buttonList.length">
+        <ng-container  *ngFor="let button of buttonList">
+          <button role="button"  tabindex="0" pButton [type]="button.type" [ngClass]="button.styleClass"
+          [disabled]="anyBtnClicked || (button.disable === 'true')"
+          *ngIf="button.hide !== 'true'"
+          [label]="button.label" (click)="onClick($event, button, comments)"></button>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="bottomButtonList && bottomButtonList.length">
+        <ng-container  *ngFor="let bottomButton of bottomButtonList">
+          <button role="button"
+          pButton
+          class="{{bottomButton.buttonClass}}"
+          type="button"
+          label="{{bottomButton.localizationKey | translate}}"
+          (click)="onClick($event, bottomButton, comments)"
+          tabindex="0"
+          ></button>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</p-dialog>

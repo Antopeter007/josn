@@ -1,0 +1,19 @@
+<div class="dojoxFloatingPane" id="${id}" dojoAttachPoint="floatingWindow">
+ <div tabindex="0" waiRole="button" class="dojoxFloatingPaneTitle" dojoAttachPoint="titleBarNode,focusNode">
+  <span dojoAttachPoint="pinNode" dojoAttachEvent="onclick: pin" class="pinButton"></span>
+  <img src="${_blankGif}" dojoAttachEvent="onclick:toggle" alt="" dojoAttachPoint="arrowNode" class="dijitArrowNode" waiRole="presentation">
+  <span dojoAttachPoint="arrowNodeInner" dojoAttachEvent="onclick:toggle" class="dijitArrowNodeInner"></span>
+  <span dojoAttachPoint="titleNode" dojoAttachEvent="onclick:toggle" class="dijitInline dijitTitleNode"></span>
+ </div>
+ <div dojoAttachPoint="canvas,collabContentNode" class="dojoxFloatingPaneCanvas" id="collaborationWindowContent">
+  <div dojoAttachPoint="containerNode" waiRole="region" tabindex="-1" class="${contentClass}"></div>
+  <span dojoAttachPoint="resizeHandle" class="dojoxFloatingResizeHandle"></span>
+ </div>
+ <!-- These are needed by the inherited class, but we don't use them -->
+ <span style="display:none">
+  <span dojoAttachPoint="closeNode" class="dojoxFloatingCloseIcon"></span>
+  <span dojoAttachPoint="maxNode" class="dojoxFloatingMaximizeIcon"></span>
+  <span dojoAttachPoint="restoreNode" class="dojoxFloatingRestoreIcon"></span>    
+  <span dojoAttachPoint="dockNode" class="dojoxFloatingMinimizeIcon"></span>
+ </span>
+</div>

@@ -1,0 +1,26 @@
+<ng-container [formGroup]="form">
+  <div class="{{ control.params.layoutClass }}">
+    <div
+      class="{{ control.params.styleClass }}"
+      *ngIf="control.params.anchorNeeded"
+    >
+      <a [href]="control.params.homeUrl" target="_blank">
+        <img
+          src="{{ control.params.path }}"
+          id="{{ control.key }}"
+          alt="{{ control.params.altText }}"
+        />
+      </a>
+    </div>
+    <div
+      class="{{ control.params.styleClass }}"
+      *ngIf="!control.params.anchorNeeded"
+    >
+      <img
+        src="{{ control.params.path }}"
+        id="{{ control.key }}"
+        alt="{{ control.params.altText }}"
+      />
+    </div>
+  </div>
+</ng-container>

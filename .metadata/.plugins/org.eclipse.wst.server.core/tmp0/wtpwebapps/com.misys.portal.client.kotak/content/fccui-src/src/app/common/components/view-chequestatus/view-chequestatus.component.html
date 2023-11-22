@@ -1,0 +1,11 @@
+<ng-container
+  *ngIf="form"
+  fccFormResolver
+  [module]="module"
+  [formGroup]="form"
+  [mode]="mode"
+></ng-container>
+<div [dir]="dir" class="endbutton">
+  <button role="button"  [dir]="dir" mat-button class="secondaryButton cancelBtn" (click)="onFocusCancelBtn()">{{ 'cancel' | translate }}</button>
+  <button role="button"  *ngIf = "form.valid" [dir]="dir" mat-button class="primaryButton applyBtn" (click)="onFocusApplyBtn($event)">{{ 'apply' | translate }}</button>
+</div>

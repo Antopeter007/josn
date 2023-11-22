@@ -1,0 +1,11 @@
+:host ::ng-deep .mat-radio-button {
+    pointer-events: none !important;
+}
+
+:host ::ng-deep .mat-radio-container {
+    pointer-events: all !important;
+}
+
+:host ::ng-deep .mat-radio-label-content {
+    pointer-events: all !important;
+}

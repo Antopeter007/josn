@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.loan.ln_facility_outstanding_details"]){dojo._hasResource["misys.binding.loan.ln_facility_outstanding_details"]=true;dojo.provide("misys.binding.loan.ln_facility_outstanding_details");dojo.require("dojo.parser");dojo.require("dijit.layout.TabContainer");dojo.require("dijit.form.DateTextBox");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.NumberTextBox");dojo.require("dijit.form.FilteringSelect");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("misys.widget.Dialog");dojo.require("dijit.ProgressBar");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dojo.data.ItemFileReadStore");dojo.require("misys.form.file");dojo.require("misys.form.SimpleTextarea");dojo.require("misys.form.common");dojo.require("misys.validation.common");dojo.require("misys.widget.Collaboration");dojo.require("misys.binding.SessionTimer");dojo.require("dojox.xml.DomParser");dojo.require("dijit.layout.ContentPane");dojo.require("misys.common");dojo.require("misys.grid._base");(function(d,dj,m){d.mixin(m,{onFormLoad:function(){dijit.byId("escape").set("value","Y");m.animate("fadeOut","bo_deal_name_row");m.animate("fadeOut","bo_facility_name_row");dojo.style(dojo.byId("escape_row"),"display","none");}});})(dojo,dijit,misys);dojo.require("misys.client.binding.loan.ln_facility_outstanding_client");}

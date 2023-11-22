@@ -1,0 +1,9 @@
+<p-multiSelect [options]="params.options" [(ngModel)]="selectedoptionsmulti" styleClass="params.styleClass">
+    <ng-template let-selectedCars pTemplate="selectedItems">
+        <span *ngFor="let selectedCar of params.options">{{params.options.label}}</span>
+        <span *ngIf="!selectedItems || selectedItems.length === 0"
+            class="ui-multiselected-empty-token ui-corner-all">{{params.placeholder}}</span>
+    </ng-template>
+
+</p-multiSelect>
+<p>Selected values : {{selectedoptionsmulti}}</p>

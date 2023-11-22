@@ -1,0 +1,705 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep.summaryWrapper {
+    padding: 0.938em 0.938em;
+    font-size: 0.875em;
+}
+
+:host ::ng-deep.p-col-6 .summaryVal:nth-child(odd){
+ padding-right: 1em;
+}
+
+:host ::ng-deep .amendNarrativeSectionStyle {
+  width: 100%;
+}
+
+:host ::ng-deep .transactionTab .p-col-12 .blockLevel {
+  margin-left: 0em !important;
+}
+
+:host ::ng-deep .transactionTab .p-col-12 .blockLevel .valueStyle {
+  padding-left: 0.1em !important;
+}
+
+
+:host ::ng-deep.margintop15 {
+    margin-top: 0.938em;
+}
+
+:host ::ng-deep.margintop5 {
+    margin-top: 0.938em;
+}
+
+:host ::ng-deep.sectionHeader {
+    font-weight: bold;
+}
+
+
+:host ::ng-deep.summaryField{
+    font: 100% Roboto, sans-serif;
+    font-size: 0.75em;
+    font-weight: 350;
+    color:#545454;
+    font-weight: 500;
+    margin: 0em;
+    padding: 0em;
+}
+:host ::ng-deep.summaryVal{
+    font: 100% Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 0.85em;
+    color: $GRAY-DARKGRAY-01;
+    margin: 0;
+    padding: 0em !important;
+    line-height: 1.125em;
+    word-break: break-word;
+    font-weight: 500;
+    margin-bottom:1.5em;
+    white-space: pre-wrap;
+
+}
+:host ::ng-deep.summaryAmendVal{
+  font: 100% Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 0.85em;
+  color: $GRAY-DARKGRAY-01;
+  margin: 0;
+  padding: 0;
+  line-height: 1.125em;
+  word-break: break-word;
+  font-weight: 500;
+  padding-left: 0em;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep.summaryAmendNarrativeVal {
+  margin-top: -0.5em;
+  margin-bottom: 0.9em;
+}
+
+:host ::ng-deep.submit {
+  margin: 0.5em 3em;
+}
+
+.p-col-1, .p-col-2, .p-col-3, .p-col-4, .p-col-5, .p-col-6, .p-col-7, .p-col-8, .p-col-9, .p-col-10, .p-col-11, .p-col-12 {
+    padding: 0;
+    flex: 0 0 auto;
+}
+
+:host ::ng-deep .mat-expansion-panel-header{
+  color: $matExpansionPanelHeaderTextColor !important;
+  font-size: $matExpansionPanelHeaderFontSize !important;
+  font-weight: $matExpansionPanelHeaderFontWeight !important;
+  height: 2.5em !important;
+  background-color: $matExpansionBackgroundColor !important;
+  border-radius: $matExpansionPanelHeaderBorderRadius !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-header:focus {
+  outline: .125em solid $matExpansionOutlineColor !important;
+}
+
+:host ::ng-deep.p-grid {
+  margin-top: 0em !important;
+}
+:host ::ng-deep.labelStyle{
+  color: $labelstyleColor;
+  font-size: 0.975em;
+  letter-spacing: 0.0125em;
+  line-height: 1em;
+  font-weight: 400;
+}
+:host ::ng-deep.valueStyle{
+  color: $valuestyleColor !important;
+  font-size: 1em !important;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03125em !important;
+  line-height: 1.1875em !important;
+  top: 0em !important;
+  word-break: break-word;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+:host ::ng-deep.iconSize {
+  font-size: 1em !important;
+}
+:host ::ng-deep.mat-icon.notranslate.iconSize.material-icons.mat-ligature-font.mat-icon-no-color {
+  margin: -1em;
+}
+:host ::ng-deep.mat-icon-button {
+  width: 1em !important;
+  height: 0em !important;
+}
+
+:host ::ng-deep.masterAccordionStyle {
+  color: $masterAccordionStyleColor !important;
+  font-size: 1em !important;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  font-style: italic;
+  letter-spacing: 0.03125em !important;
+  top: 0em !important;
+  border: .2em dotted $masterAccordionBorderColor !important;
+  background-color: transparent !important;
+  padding: 0em 0.5em 0em 0.5em !important;
+  white-space: pre-wrap;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  word-break: break-word !important;
+  width: fit-content;
+}
+:host ::ng-deep.valueStyle.preValueStyle.ng-star-inserted {
+  margin-top: 0em;
+  margin-right: 30px;
+}
+:host ::ng-deep.tnxAccordionStyle {
+  color: $tnxAccordionStyleColor !important;
+  font-size: 1em !important;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03125em !important;
+  top: 0em !important;
+  border-left: .25em solid $tnxAccordionStyleBorderLeftColor !important;
+  background-color: $tnxAccordionStyleBackgroundColor !important;
+  padding: 0em 0.5em 0em 0.5em !important;
+  white-space: pre-wrap;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  word-break: break-word !important;
+  width: fit-content;
+}
+
+:host ::ng-deep[dir=rtl] .tnxAccordionStyle {
+  color: $tnxAccordionStyleColor !important;
+  font-size: 1em !important;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03125em !important;
+  top: 0em !important;
+  border-right: .25em solid $tnxAccordionStyleBorderLeftColor !important;
+  border-left: none !important;
+  background-color: $tnxAccordionStyleBackgroundColor !important;
+  padding: 0em 0.5em 0em 0.5em !important;
+  white-space: pre-wrap;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  word-break: break-word !important;
+  width: fit-content;
+}
+
+:host ::ng-deep.valueAccordionStyle {
+  color: $valueAccordionColor !important;
+  font-size: 1em !important;
+  font-family: Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03125em !important;
+  line-height: 1.1875em !important;
+  top: 0em !important;
+  white-space: pre-wrap;
+  border-width: 0 !important;
+  padding: 0.1em !important;
+  background-color: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  word-break: break-word !important;
+}
+
+:host ::ng-deep.masterStyle {
+  color: $masterStyleColor;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.03125em;
+  line-height: 1.1875em;
+  border-left: .25em solid $masterstyleBorderLeft;
+  background-color: $masterStyleBackgroundColor;
+  padding-left: .5em;
+}
+
+:host ::ng-deep.narrativeCurrentValueStyle {
+  color: $narrativeCurrentValueColor;
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.03125em;
+  line-height: 1.1875em;
+  border-left: .25em solid $narrativeCurrentValueBorderLeftColor;
+  background-color: $narrativeCurrentValueBackgroundColor;
+  margin-left: 0.8em;
+  margin-bottom: 0.5em;
+  padding-left: .5em;
+}
+
+:host ::ng-deep.masterValueStyle {
+  color: $masterValueStyleColor;
+  font-size: 1em;
+  letter-spacing: 0.03125em;
+  line-height: 1.1875em;
+  font-style: italic;
+  border: .2em dotted $masterValueStyleBorder;
+  padding-bottom: 0.2em;
+  padding-right: 1em;
+  padding-left: .5em;
+}
+
+:host ::ng-deep.narrativeMasterValueStyle {
+  color: $narrativeMasterValueStyleColor;
+  font-size: 0.85em;
+  letter-spacing: 0.03125em;
+  line-height: 1.1875em;
+  font-style: italic;
+  margin-left: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+:host ::ng-deep.rowStyle{
+  margin-bottom: 1em;
+  width: 50%;
+  float: left;
+}
+
+:host ::ng-deep[dir=rtl] .rowStyle {
+  margin-bottom: 1em;
+  width: 50%;
+  float: right;
+}
+
+:host ::ng-deep.fullRowStyle{
+  margin-bottom: 1em;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-all;
+  display: inline-block;
+  }
+
+:host ::ng-deep[dir=rtl] .fullRowStyle {
+  margin-bottom: 1em;
+  width: 100%;
+  float: right;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+:host ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]){
+  box-shadow: none !important;
+}
+:host ::ng-deep .mat-expansion-indicator::after{
+  transform: rotate(225deg) !important;
+}
+
+:host ::ng-deep.material-icons {
+  font-family: "Material Icons" !important;
+  position: inherit !important;
+  cursor: pointer;
+}
+
+:host ::ng-deep.panelDescription {
+  display: contents !important;
+}
+
+:host ::ng-deep.fcc-form-header{
+  margin-left: -0.4em !important;
+}
+
+:host ::ng-deep.subheader-title {
+  font-size: 0.9em;
+  margin-top: 0em;
+  margin-bottom: 0.6em !important;
+}
+:host ::ng-deep .mat-expansion-panel-body{
+  padding: 0.9375em 1.5em 1em !important;
+}
+:host ::ng-deep.narrativeSectionStyle{
+  padding: 0.625em 0 0.9375em 0 !important;
+}
+
+:host ::ng-deep .mat-card {
+  border-style: groove; //ridge;
+  /*margin-left: -1.2em;
+  margin-right: -1.2em;*/
+}
+:host ::ng-deep .childRefTable .ui-table .ui-table-thead > tr {
+  border-bottom: none !important;
+  background-color: $uiTableBackgroundColor;
+}
+
+:host ::ng-deep .childRefTable .ui-table .ui-table-tbody > tr {
+  border-bottom: none !important;
+  background-color: #fff !important;
+}
+
+:host ::ng-deep .childRefTable .ui-table .ui-table-thead > tr > th {
+  padding: 0px;
+  padding-bottom: 0em;
+  border: none !important;
+  font-weight: 400 !important;
+  background-color: transparent;
+  color: #545454;
+  text-align: left;
+  font-size: 0.975em !important;
+}
+
+:host ::ng-deep .childRefTable body .ui-table .ui-table-thead > tr > th {
+  background-color: transparent !important;
+}
+
+:host ::ng-deep .childRefTable .ui-table .ui-table-thead > tr > th {
+  background-color: #fff !important;
+}
+
+:host ::ng-deep .childRefTable .ui-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+:host ::ng-deep .childRefTable .ui-table .ui-table-tbody > tr > td {
+  background-color: #fff;
+  border: none;
+  line-height: 1em;
+  word-break: break-word;
+  text-align: left;
+  font-size: 1em;
+  padding-right: 2em;
+  font-weight: 500 !important;
+  height: 2em;
+  padding: 0px;
+}
+:host ::ng-deep .childRefTable .ui-table{
+  border: .5px !important;
+}
+
+:host ::ng-deep .childRefTable .ui-table .ui-table-tbody > tr > td > span {
+  padding-right: 0.5em;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-thead > tr {
+  border-bottom: none !important;
+  background-color:  #fff !important;
+  float: right;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-thead > tr > th {
+  padding: 0px;
+  padding-bottom: 0em;
+  border: none !important;
+  font-weight: 400 !important;
+  background-color: transparent;
+  color: #545454;
+  text-align: left;
+  font-family: Roboto;
+  font-size: 0.975em !important;
+  float: right;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable body .ui-table .ui-table-thead > tr > th {
+  background-color: transparent !important;
+  float: right;
+  margin-bottom: 1em;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-thead > tr > th {
+  background-color: #fff !important;
+  float: right;
+  margin-bottom: 1em;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table table {
+  width: 100%;
+  table-layout: fixed;
+  float: right;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-tbody > tr > td {
+  background-color: #fff;
+  border: none;
+  line-height: 1em;
+  word-break: break-word;
+  text-align: left;
+  font-size: 1em;
+  padding-right: 2em;
+  font-weight: 500 !important;
+  height: 2em;
+  padding: 0px;
+  float: right;
+}
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table{
+  border: .5px !important;
+  float: right;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-tbody > tr > td > span {
+  padding-right: 0.5em;
+  float: right;
+}
+
+:host ::ng-deep [dir=rtl] .childRefTable .ui-table .ui-table-tbody > tr {
+  border-bottom: none !important;
+  background-color: #fff !important;
+}
+:host {
+
+  ::ng-deep {
+    .p-cell-editing {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .ui-table .ui-table-thead > tr {
+      background-color: $uiTableBackgroundColor;
+    }
+    .ui-table .ui-table-thead > tr > th {
+      padding: 0px 0.857em;
+      padding-top: 1.875em;
+      padding-bottom: 0.3125em;
+      border: 0px solid $uiTableBorderBorder;
+      font-weight: bold;
+      background-color: transparent;
+      color: $uiTableColor;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .ui-table .ui-sortable-column:not(.ui-state-highlight):hover {
+      background-color: transparent;
+    }
+
+    .ui-table .ui-sortable-column .ui-state-highlight .ui-sortable-column-icon {
+      color: $uiTableSortableIconColor;
+    }
+
+
+    .ui-table .ui-table-caption {
+      padding: 0.2em;
+      background-color: $uiTableCaptionBackgroundColor;
+    }
+
+    .ui-table .ui-table-tbody .ui-state-highlight {
+      background: #e0e0e0 !important;
+    }
+
+    .ui-table .ui-table-tbody > tr {
+      border-bottom: 0.065em solid $uiTableTbodyBorderBottom;
+    }
+
+    .ui-table .ui-table-tbody > tr > td {
+      background-color: #fff;
+      border: none;
+      line-height: 1em;
+      word-break: break-word;
+      text-align: left;
+      font-size: 0.875em;
+      padding: 0.25em 1em;
+      height: 3em;
+    }
+    // .ui-table {
+    //   border: none !important;
+    // }
+
+    .ui-table .ui-table-tbody > tr > th {
+      text-transform: capitalize;
+    }
+
+    .ui-table{
+      border: 1px solid $uiTableBorderBorder !important;
+    }
+
+  }
+
+:host ::ng-deep[dir=ltr] .dateStyle{
+    font-style: italic;
+    font-size: 1em;
+    color: $GRAY-DARKGRAY-01;
+    float: right;
+    margin-right: .75em;
+}
+:host ::ng-deep[dir=rtl] .dateStyle{
+  font-style: italic;
+  font-size: 1em;
+  color: $GRAY-DARKGRAY-01;
+  float: left;
+  margin-left: .75em;
+}
+}
+
+
+:host ::ng-deep .bulkReferenceBlockStyle {
+  width: 50%;
+  float: left;
+  padding-bottom: 1em;
+}
+
+:host ::ng-deep[dir=rtl] .bulkReferenceBlockStyle {
+  width: 50%;
+  float: right;
+  padding-bottom: 1em;
+}
+
+
+:host ::ng-deep.labelStyleInRed > button {
+  width: 26px !important;
+  display: inline-block;
+  height: 26px !important;
+  line-height: 26px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  color: red;
+  background-color: transparent;
+  border: none;
+}
+
+:host ::ng-deep .ui-dropdown span.ui-dropdown-label{
+  border-bottom: none !important;
+}
+:host ::ng-deep .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon{
+  display: none;
+}
+
+:host ::ng-deep .previewTableStyle {
+  padding-bottom: 1.5em;
+}
+
+:host ::ng-deep .previewTableStyle .panelHeadStyle {
+  font-size: 0.975em;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 1.8em;
+  white-space: nowrap;
+}
+
+:host ::ng-deep #lnrpnInterestPayment .ui-table {
+  border: none !important;
+}
+
+:host ::ng-deep #lnrpnGeneralDetails .ui-table .ui-table-thead > tr > th,
+:host ::ng-deep #blfpFeeComponent .ui-table .ui-table-thead > tr > th
+ {
+  padding-right: 1em !important;
+}
+
+:host ::ng-deep .accountList .ui-table-wrapper{
+  overflow-x: auto !important;
+}
+
+:host ::ng-deep .accountList .ui-table table {
+  table-layout: auto !important;
+}
+
+:host ::ng-deep .accountList .ui-table {
+  margin-bottom: 1em !important;
+}
+
+.no-mr-pd.blockLevel {
+  margin-left: 0em !important;
+}
+
+:host ::ng-deep .no-mr-pd.blockLevel {
+  margin-left: 0em !important;
+}
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3em;
+  overflow-y: scroll;
+}
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3em;
+  overflow-y: scroll;
+}
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  :host ::ng-deep .ui-table table {
+  table-layout: auto !important;
+ }
+:host ::ng-deep .ui-table-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+ }
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+  width: 10em;
+  position: sticky;
+  text-align: left;
+  right: 0;
+  border: none;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th {
+  width: 10em;
+  position: sticky;
+  text-align: right !important;
+  left: 0 !important;
+  border: none;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+  width: 10em;
+  position: sticky;
+  right: 0;
+  border: none;
+  outline: 0.0675em solid $GREY-07;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-thead .Amount {
+  outline: none !important;
+}
+
+[dir="rtl"] :host ::ng-deep .ui-table-wrapper .ui-table-thead th:last-child {
+  width: 10em;
+  position: sticky !important;
+  left: 0 !important;
+  border: none;
+  outline: 0.0675em solid $GREY-07;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover em.pi {
+  display: inline-block;
+  font-size: 1.5em !important;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:hover,
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr:focus-within {
+  font-weight: bold !important;
+  background-color: $VIOLET-14 !important;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody td{
+  font-size: 0.875em !important;
+  padding-left: 1em !important;
+  border: none;
+}
+
+:host ::ng-deep .ui-table-wrapper{
+  overflow-x: auto;
+}
+
+:host ::ng-deep .ui-table-wrapper .ui-table-tbody tr {
+  border-bottom: 0.065em solid $GREY-07;
+  line-height: 2em !important;
+}
+:host ::ng-deep .hide-outline th:last-child {
+  outline: none !important;
+}
+:host ::ng-deep .fullRowStyleAttachment{
+  margin-bottom: 1em;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-all;
+  display: inline-block !important;
+  }
+
+  :host ::ng-deep .defaultAccountFlag {
+    width: 2em !important;
+  }

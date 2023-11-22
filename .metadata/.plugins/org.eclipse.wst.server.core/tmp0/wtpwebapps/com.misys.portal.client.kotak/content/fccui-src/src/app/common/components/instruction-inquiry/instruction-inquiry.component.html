@@ -1,0 +1,124 @@
+<div [ngClass]="menuToggleFlag === 'true' ? 'parentContainerToggle' : 'parentContainer'" dir={{dir}} >
+  <div class="headerContainer" dir={{dir}}>
+    <div class="p-col-12">
+      <div class="p-grid">
+      <h1 class="p-col-8 fcc-form-header">
+        <span tabindex="0" dir={{dir}} class="inqueryTitle" #inquiryID>{{ 'customerInstructionText' | translate }}</span>
+      </h1>
+      <div class="p-col-2">
+        <button role="button"  tabindex="0" mat-button (click)="onClick()" tooltipPosition="right" pTooltip="{{'Filters' | translate}}">
+          <em class="fa fa-search" aria-label="Apply Filter" ></em>
+        </button>
+      </div>
+      <div class="p-col-2">
+        <button role="button"  mat-button (click)="onCloseMatDrawer($event)" tooltipPosition="left" pTooltip="{{'close' | translate}}" title="{{'close' | translate}}" 
+        attr.aria-label="{{'close' | translate}}">
+          <mat-icon aria-hidden="true" >close</mat-icon>
+        </button>
+      </div>
+    </div>
+    </div>
+    <div  *ngIf="applyFilter" dir={{dir}}>
+      <form [formGroup]="setEntityForm" (ngSubmit)="onApply()" autocomplete="off">
+          <div class="ui-float-label applicant_bene_entity_class setEntityDropdown" dir={{dir}}>
+              <p-dropdown [options]=options formControlName="eventDropdown" id="eventDropdown" [autoDisplayFirst]="false"
+                (onShow)="onDropdownChange($event);"  (onChange)="filterSelect($event)" (keyup.escape)="oncloseDropdown($event);"
+                dropdownIcon="pi pi-caret-down" [filter]="true" styleClass="fcc-dropdown" ariaFilterLabel = "{{ 'search' | translate }}">
+                      <ng-template let-item pTemplate="item">
+                          <div class="p-grid" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+                              <div class="p-col-6">{{item.value.label}} </div>
+                          </div>
+                      </ng-template>
+              </p-dropdown>
+              <label class="dropdownlabel" dir="{{dir}}" for="eventDropdown">
+                  {{ 'tnx_type_code' | translate }}
+              </label>
+          </div>
+          <mat-form-field floatLabel="false" class="p-col-12">
+              <mat-label>{{ 'cust_ref_id' | translate }}</mat-label>
+              <input role="textbox" matInput id="bankRef"  formControlName="bankRef" autocomplete="off"/>
+            </mat-form-field>
+            <mat-form-field floatLabel="false" class="p-col-12" style="margin-top: -25px;">
+              <mat-label>{{ 'channelReference' | translate }}</mat-label>
+               <input role="textbox" matInput id="channelRef" formControlName="channelRef" autocomplete="off"/>
+          </mat-form-field>
+
+          <span id="invalid-error-text" class="invalid-error-text" *ngIf="hasError">{{errorMsg}}</span>
+          <br>
+          <div class="p-col-12 buttonStyle focus">
+            <button role="button"  pbutton="" class="primaryButton" type="submit">
+              <span class="ui-button-text ui-clickable">{{'apply' | translate}}</span>
+            </button>
+          </div>
+      </form>
+      </div>
+      <div class="p-col-12">
+         <h2 dir={{dir}} class="set-entity-sub-header" tabindex="0">{{ 'Instructions_Subheader' | translate }}</h2>
+      </div>
+    </div>
+      <div [class]="applyFilter === false ? 'bodyContainerf' : 'bodyContainer'" dir={{dir}} *ngIf="fields.length !==0">
+          <div *ngFor="let obj of fields;let index=index" class="p-col-12 fieldClass" >
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'inquiry_date' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12" >
+                  <mat-label tabindex="0" class="labelValueNav inqueryTitle">{{ obj.appl_date }}</mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'tnx_type_code' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12" >
+              <mat-label tabindex="0" class="labelValueNav inqueryTitle">{{ obj.full_type | translate}}</mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'inquiry_channel_reference' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12" >
+              <mat-label tabindex="0" class="labelValueNav inqueryTitle"  (keyup.enter)="onClickView(obj)" (click)="onClickView(obj)" style="cursor: pointer;">{{obj.ref_id }} </mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'cust_ref_id' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12" >
+              <mat-label tabindex="0" class="labelValueNav inqueryTitle" >{{ obj.cust_ref_id }}</mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'tnx_amt' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" class="labelValueNav inqueryTitle"> {{obj.cur_code}} {{ obj.tnx_amt }}</mat-label>
+            </div>
+            <div class="p-col-12 " >
+              <mat-label tabindex="0" >{{ 'inquiry_submited_by' | translate }}</mat-label>
+            </div>
+            <div class="p-col-12">
+              <div class="p-grid">
+                <div class="p-col-2 userIcon">
+                  <span aria-hidden="true" class="fa fa-user-circle"></span>
+                </div>
+                <div class="p-col-7">
+                  <p class="userName" tabindex="0">{{obj.full_name}}</p>
+                </div>
+                <div class="p-col-3">
+                  <button role="button"  type="submit" tabindex="0" mat-stroked-button color="primary" (click)="onClickView(obj)">{{'view' | translate}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr *ngIf="(index+1) < fields.length" style="height:2px;border-width:0;color:lightgrey;background-color:lightgrey ; margin-left: 1em;">
+      </div>
+  </div>
+  <div *ngIf="fields.length === 0 && !showSpinner" class="emptyMessage">
+      <p >{{'noRecordsFound' | translate}}</p>
+  </div>
+
+   <div *ngIf="showSpinner" class="spinnerStyle">
+    <p-progressSpinner
+      [style]="{ width: '4em', height: '4em' }"
+      strokeWidth="5"
+      fill="transparent"
+      animationDuration=".5s"
+    ></p-progressSpinner>
+  </div>
+</div>
+

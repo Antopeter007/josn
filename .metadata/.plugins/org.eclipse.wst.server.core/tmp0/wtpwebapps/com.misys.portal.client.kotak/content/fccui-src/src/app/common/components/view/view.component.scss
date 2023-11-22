@@ -1,0 +1,45 @@
+
+  :host ::ng-deep .ui-button{
+    margin-right: .6em;
+    margin-left: .6em;
+  }
+  .pageTitleBar {
+    font-size: 1.5625em;
+    font-weight: 300;
+    color: #4a4a4a;
+    padding-top:1em;
+    font-weight: bold;
+    margin-left: 0.75em;
+  }
+
+  .pdfIcon{
+    font-size: 0.75em;
+    cursor: pointer;
+    float: right;
+    color: #737274;
+    margin-right: 0.75em;
+  }
+
+  [dir="rtl"] .pdfIcon{
+    font-size: 0.75em;
+    cursor: pointer;
+    float: left;
+    margin-right: 0.75em;
+  }
+
+  .pdfIcon:hover{
+    color: #694ED6
+  }
+
+  .spinner{
+    margin: auto 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+
+  .view-rtol{
+    width: 100%;
+  }

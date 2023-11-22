@@ -1,0 +1,255 @@
+<div class="indented-header">
+  <div *ngIf="!viewMode  ;else view_content">
+    <form [formGroup]="genericBankDetails">
+      <div *ngIf="showAltFlag === 'y' && bankType ==='altApplicant'" id="forAccount" class="field">
+        <label class="label-checkbox">{{'ON_BEHALF_OF' | translate }}&nbsp;</label>
+        <p-checkbox formControlName="forAccount" id="forAccount" binary="true" (onChange)="toggleAltApplicantDetails()"></p-checkbox>
+      </div>
+      <div class="field" *ngIf="bankType ==='contact'">
+        <label class="label-checkbox">{{'BENEFICIARY_CONTACT_DETAILS' | translate }}&nbsp;</label>
+        <p-checkbox formControlName="beneficiaryContact" id="beneficiaryContact" binary="true" (onChange)="toggleBeneficiaryContactDetails('contact')"></p-checkbox>
+      </div>
+      <div class="field" *ngIf="bankType === 'cuContact'">
+        <label class="label-checkbox">{{'BENEFICIARY_CONTACT_DETAILS' | translate }}&nbsp;</label>
+        <p-checkbox formControlName="cuBeneficiaryContact" id="cuBeneficiaryContact" binary="true" (onChange)="toggleBeneficiaryContactDetails('cuContact')"></p-checkbox>
+      </div>
+      <div *ngIf="bankType ==='applicant' || bankType ==='beneficiary' || bankType === 'cuBeneficiary'
+                || (bankType ==='altApplicant'  && showAltAppSection) || (bankType ==='contact' && showBeneficiaryContact) || (bankType === 'cuContact' && showCuBeneficiaryContact)">
+
+        <div class="field">
+          <label>{{labelName | translate }}<span *ngIf="((bankType === 'applicant')||(bankType =='beneficiary') ||(bankType === 'altApplicant' && genericBankDetails.get('forAccount').value)|| (bankType === 'cuBeneficiary' && this.commonData.getIsBankUser()))" class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}Name" id="{{bankType}}Name" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'Name'))"
+            (change)="bankType !== 'cuBeneficiary' && updateLicenseList('input');" placeholder = "{{'PLACEHOLDER_APPLICANT_NAME' | translate }}">
+          <a *ngIf="!(commonData.disableTnx) && (bankType ==='beneficiary' || bankType ==='cuBeneficiary')" class="fa fa-search fa-lg" id="{{bankType}}_name_search"
+            (click)="updateLicenseList('dialog');"></a>
+          <fcc-common-error-message *ngIf="((bankType === 'applicant')||(bankType =='beneficiary') ||(bankType === 'altApplicant' && genericBankDetails.get('forAccount').value) || bankType === 'cuBeneficiary' || (bankType === 'cuContact' && showCuBeneficiaryContact) || (bankType ==='contact' && showBeneficiaryContact))"
+          [control]="genericBankDetails.get(bankType + 'Name')" ></fcc-common-error-message>
+        </div>
+        <div class="field">
+          <label>{{labelAddress | translate }}<span *ngIf="((bankType === 'applicant')||(bankType =='beneficiary') ||(bankType === 'altApplicant' && genericBankDetails.get('forAccount').value) || (bankType === 'cuBeneficiary' && this.commonData.getIsBankUser()))" class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}AddressLine1" id="{{bankType}}AddressLine1" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'AddressLine1'))" placeholder = "{{'PLACEHOLDER_APPLICANT_ADDRESS1' | translate }}">
+          <fcc-common-error-message *ngIf="((bankType === 'applicant')||
+          (bankType =='beneficiary') || bankType === 'cuBeneficiary' || (bankType === 'cuContact' && showCuBeneficiaryContact) || (bankType ==='contact' && showBeneficiaryContact) ||
+          (bankType === 'altApplicant' && genericBankDetails.get('forAccount').value))"
+          [control]="genericBankDetails.get(bankType + 'AddressLine1')" ></fcc-common-error-message>
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}AddressLine2" id="{{bankType}}AddressLine2" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'AddressLine2'))" placeholder = "{{'PLACEHOLDER_APPLICANT_ADDRESS2' | translate }}">
+          <fcc-common-error-message [control]="genericBankDetails.get(bankType + 'AddressLine2')" ></fcc-common-error-message>
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}Dom" id="{{bankType}}Dom" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'Dom'))" placeholder = "{{'PLACEHOLDER_APPLICANT_DOM' | translate }}">
+          <fcc-common-error-message [control]="genericBankDetails.get(bankType + 'Dom')" ></fcc-common-error-message>
+        </div>
+        <div *ngIf="!swiftMode" class="field">
+          <label>&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}AddressLine4" id="{{bankType}}AddressLine4" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'AddressLine4'))" placeholder = "{{'PLACEHOLDER_APPLICANT_ADDRESS4' | translate }}">
+          <fcc-common-error-message [control]="genericBankDetails.get(bankType + 'AddressLine4')" ></fcc-common-error-message>
+        </div>
+
+        <div class="field" *ngIf="bankType !== 'contact' && bankType !== 'cuContact' ">
+          <label>{{labelCountry | translate }}<span *ngIf="((bankType === 'applicant')||(bankType =='beneficiary') ||(bankType === 'altApplicant' && genericBankDetails.get('forAccount').value) || (bankType === 'cuBeneficiary' && this.commonData.getIsBankUser()))" class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText class="input-three-digit" maxlength="2" formControlName="{{bankType}}Country" id="{{bankType}}Country" type="text" oninput="this.value = this.value.toUpperCase()"
+          (change)="countryValidationService.validateCountry(genericBankDetails.get(bankType + 'Country'))"  [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get(bankType + 'Country'))">
+          <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" id="{{bankType}}_country_search" (click)="openCountryDialog()"></a>
+          <fcc-common-error-message *ngIf="((bankType === 'applicant')||
+          (bankType =='beneficiary') || (bankType =='cuBeneficiary') ||
+          (bankType === 'altApplicant' && genericBankDetails.get('forAccount').value))"
+          [control]="genericBankDetails.get(bankType + 'Country')" ></fcc-common-error-message>
+        </div>
+
+        <div class="field" *ngIf="commonData.getIsBankUser() && (bankType === 'beneficiary' || bankType === 'cuBeneficiary') && this.commonData.getProductCode() !== 'BG'">
+          <label for="{{bankType}}Reference">{{ 'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+          <input pInputText formControlName="{{bankType}}Reference" id="{{bankType}}Reference" type="text">
+        </div>
+
+        <div class="field" *ngIf="showBEICode === 'y' && bankType ==='beneficiary'">
+          <label>{{'PARTIESDETAILS_BEI_CODE' | translate }}&nbsp;</label>
+          <input pInputText formControlName="beiCode" id="beiCode" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get('beiCode'))">
+          <fcc-common-error-message [control]="genericBankDetails.get('beiCode')" ></fcc-common-error-message>
+        </div>
+
+        <div class="field" *ngIf="showBEICode === 'y' && bankType ==='cuBeneficiary'">
+          <label>{{'PARTIESDETAILS_BEI_CODE' | translate }}&nbsp;</label>
+          <input pInputText formControlName="cuBeiCode" id="cuBeiCode" type="text" [class.fieldError]="validationService.isFieldInvalid(genericBankDetails.get('cuBeiCode'))">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--View-->
+  <ng-template #view_content>
+    <!--Applicant Details-->
+    <div *ngIf="bankType ==='applicant'" id="applicantDetails">
+      <div id="applicantNameViewRow" *ngIf="bgRecord['applicantName'] && bgRecord['applicantName'] != null && bgRecord['applicantName'] != ''">
+        <label for="applicantName" id="applicantNameLabel">{{ 'PARTIESDETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantName']}}</label>
+      </div>
+      <div id="applicantAddressLine1ViewRow" *ngIf="bgRecord['applicantAddressLine1'] && bgRecord['applicantAddressLine1'] != null && bgRecord['applicantAddressLine1'] != ''">
+        <label for="applicantAddressLine1" id="applicantAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantAddressLine1']}}</label>
+      </div>
+      <div id="applicantAddressLine2ViewRow" *ngIf="bgRecord['applicantAddressLine2'] && bgRecord['applicantAddressLine2'] != null && bgRecord['applicantAddressLine2'] != ''">
+        <label for="applicantAddressLine2" id="applicantAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantAddressLine2']}}</label>
+      </div>
+      <div id="applicantDomViewRow" *ngIf="bgRecord['applicantDom'] && bgRecord['applicantDom'] != null && bgRecord['applicantDom'] != ''">
+        <label for="applicantDom" id="applicantDomLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantDom']}}</label>
+      </div>
+      <div id="applicantAddressLine4ViewRow" *ngIf="bgRecord['applicantAddressLine4'] && bgRecord['applicantAddressLine4'] != null && bgRecord['applicantAddressLine4'] != ''">
+        <label for="applicantAddressLine4" id="applicantAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantAddressLine4']}}</label>
+      </div>
+      <div id="applicantCountryViewRow" *ngIf="bgRecord['applicantCountry'] && bgRecord['applicantCountry'] != null && bgRecord['applicantCountry'] != ''">
+        <label for="applicantCountry" id="applicantCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['applicantCountry']}}</label>
+      </div>
+    </div>
+    <!-- Alternate Applicant Details: -->
+    <div *ngIf="bankType ==='altApplicant'" id="altApplicantDetails">
+      <div id="altApplicantViewRow" *ngIf="bgRecord['altApplicantName'] && bgRecord['altApplicantName'] != null && bgRecord['altApplicantName'] != ''">
+        <label for="altApplicantName" id="altApplicantLabel">{{ 'ALTERNATE_CONTACT_DETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantName']}}</label>
+      </div>
+      <div id="altApplicantAddressLine1ViewRow" *ngIf="bgRecord['altApplicantAddressLine1'] && bgRecord['altApplicantAddressLine1'] != null && bgRecord['altApplicantAddressLine1'] != ''">
+        <label for="altApplicantAddressLine1" id="altApplicantAddressLine1Label">{{ 'ALTERNATE_CONTACT_DETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantAddressLine1']}}</label>
+      </div>
+      <div id="altApplicantAddressLine2ViewRow" *ngIf="bgRecord['altApplicantAddressLine2'] && bgRecord['altApplicantAddressLine2'] != null && bgRecord['altApplicantAddressLine2'] != ''">
+        <label for="altApplicantAddressLine2" id="altApplicantAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantAddressLine2']}}</label>
+      </div>
+      <div id="altApplicantDomViewRow" *ngIf="bgRecord['altApplicantDom'] && bgRecord['altApplicantDom'] != null && bgRecord['altApplicantDom'] != ''">
+        <label for="altApplicantDom" id="altApplicantDomLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantDom']}}</label>
+      </div>
+      <div id="altApplicantAddressLine4ViewRow" *ngIf="bgRecord['altApplicantAddressLine4'] && bgRecord['altApplicantAddressLine4'] != null && bgRecord['altApplicantAddressLine4'] != ''">
+        <label for="altApplicantAddressLine4" id="altApplicantAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantAddressLine4']}}</label>
+      </div>
+      <div id="altApplicantCountryViewRow" *ngIf="bgRecord['altApplicantCountry'] && bgRecord['altApplicantCountry'] != null && bgRecord['altApplicantCountry'] != ''">
+        <label for="altApplicantCountry" id="altApplicantCountryLabel">{{ 'ALTERNATE_CONTACT_DETAILS_COUNTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['altApplicantCountry']}}</label>
+      </div>
+    </div>
+    <!--Beneficiary Details-->
+    <div *ngIf="bankType ==='beneficiary'" id="beneficiaryDetails">
+      <div id="beneficiaryNameViewRow" *ngIf="bgRecord['beneficiaryName'] && bgRecord['beneficiaryName'] != null && bgRecord['beneficiaryName'] != ''">
+        <label for="beneficiaryName" id="beneficiaryNameLabel">{{ 'PARTIESDETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryName']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine1ViewRow" *ngIf="bgRecord['beneficiaryAddressLine1'] && bgRecord['beneficiaryAddressLine1'] != null && bgRecord['beneficiaryAddressLine1'] != ''">
+        <label for="beneficiaryAddressLine1" id="beneficiaryAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryAddressLine1']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine2ViewRow" *ngIf="bgRecord['beneficiaryAddressLine2'] && bgRecord['beneficiaryAddressLine2'] != null && bgRecord['beneficiaryAddressLine2'] != ''">
+        <label for="beneficiaryAddressLine2" id="beneficiaryAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryAddressLine2']}}</label>
+      </div>
+      <div id="beneficiaryDomViewRow" *ngIf="bgRecord['beneficiaryDom'] && bgRecord['beneficiaryDom'] != null && bgRecord['beneficiaryDom'] != ''">
+        <label for="beneficiaryDom" id="beneficiaryDomLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryDom']}}</label>
+      </div>
+      <div id="beneficiaryAddressLine4ViewRow" *ngIf="bgRecord['beneficiaryAddressLine4'] && bgRecord['beneficiaryAddressLine4'] != null && bgRecord['beneficiaryAddressLine4'] != ''">
+        <label for="beneficiaryAddressLine4" id="beneficiaryAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryAddressLine4']}}</label>
+      </div>
+      <div id="beneficiaryCountryViewRow" *ngIf="bgRecord['beneficiaryCountry'] && bgRecord['beneficiaryCountry'] != null && bgRecord['beneficiaryCountry'] != ''">
+        <label for="beneficiaryCountry" id="beneficiaryCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beneficiaryCountry']}}</label>
+      </div>
+      <div id =  "beiCodeViewRow" *ngIf ="bgRecord['beiCode'] && bgRecord['beiCode'] != null && bgRecord['beiCode'] != ''">
+        <label for ="beiCode"  id =  "beiCodeLabel">{{ 'PARTIESDETAILS_BEI_CODE' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['beiCode']}}</label>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div *ngIf="bankType ==='contact'" id="contactDetails">
+      <div id="contactNameViewRow" *ngIf="bgRecord['contactName'] && bgRecord['contactName'] != null && bgRecord['contactName'] != ''">
+        <label for="contactName" id="contactNameLabel">{{ 'BENEFICIARY_CONTACT_DETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactName']}}</label>
+      </div>
+      <div id="contactAddressLine1ViewRow" *ngIf="bgRecord['contactAddressLine1'] && bgRecord['contactAddressLine1'] != null && bgRecord['contactAddressLine1'] != ''">
+        <label for="contactAddressLine1" id="contactAddressLine1Label">{{ 'BENEFICIARY_CONTACT_DETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactAddressLine1']}}</label>
+      </div>
+      <div id="contactAddressLine2ViewRow" *ngIf="bgRecord['contactAddressLine2'] && bgRecord['contactAddressLine2'] != null && bgRecord['contactAddressLine2'] != ''">
+        <label for="contactAddressLine2" id="contactAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactAddressLine2']}}</label>
+      </div>
+      <div id="contactCountryViewRow" *ngIf="bgRecord['contactDom'] && bgRecord['contactDom'] != null && bgRecord['contactDom'] != ''">
+        <label for="contactDom" id="contactCountryLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactDom']}}</label>
+      </div>
+      <div id="contactAddressLine4ViewRow" *ngIf="bgRecord['contactAddressLine4'] && bgRecord['contactAddressLine4'] != null && bgRecord['contactAddressLine4'] != ''">
+        <label for="contactAddressLine4" id="contactAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactAddressLine4']}}</label>
+      </div>
+      <div id="contactCountryViewRow" *ngIf="bgRecord['contactCountry'] && bgRecord['contactCountry'] != null && bgRecord['contactCountry'] != ''">
+        <label for="contactCountry" id="contactCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['contactCountry']}}</label>
+      </div>
+    </div>
+    <!--LU Beneficiary Details-->
+    <div *ngIf="bankType ==='cuBeneficiary' && bgRecord['cuBeneficiary'] && bgRecord['cuBeneficiary'] != null && bgRecord['cuBeneficiary'] != ''" id="cuBeneficiaryDetails">
+      <div id="cuBeneficiaryNameViewRow" *ngIf="bgRecord['cuBeneficiary']['name'] && bgRecord['cuBeneficiary']['name']  != null && ['cuBeneficiary']['name']  != ''">
+        <label for="cuBeneficiaryName" id="cuBeneficiaryNameLabel">{{ 'PARTIESDETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['name'] }}</label>
+      </div>
+      <div id="cuBeneficiaryAddressLine1ViewRow" *ngIf="bgRecord['cuBeneficiary']['addressLine1'] && bgRecord['cuBeneficiary']['addressLine1'] != null && bgRecord['cuBeneficiary']['addressLine1'] != ''">
+        <label for="cuBeneficiaryAddressLine1" id="cuBeneficiaryAddressLine1Label">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['addressLine1']}}</label>
+      </div>
+      <div id="cuBeneficiaryAddressLine2ViewRow" *ngIf="bgRecord['cuBeneficiary']['addressLine2'] && bgRecord['cuBeneficiary']['addressLine2'] != null && bgRecord['cuBeneficiary']['addressLine2'] != ''">
+        <label for="cuBeneficiaryAddressLine2" id="cuBeneficiaryAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['addressLine2']}}</label>
+      </div>
+      <div id="cuBeneficiaryDomViewRow" *ngIf="bgRecord['cuBeneficiary']['dom'] && bgRecord['cuBeneficiary']['dom'] != null && bgRecord['cuBeneficiary']['dom'] != ''">
+        <label for="cuBeneficiaryDom" id="cuBeneficiaryDomLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['dom']}}</label>
+      </div>
+      <div id="cuBeneficiaryAddressLine4ViewRow" *ngIf="bgRecord['cuBeneficiary']['addressLine4'] && bgRecord['cuBeneficiary']['addressLine4'] != null && bgRecord['cuBeneficiary']['addressLine4'] != ''">
+        <label for="cuBeneficiaryAddressLine4" id="cuBeneficiaryAddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['addressLine4']}}</label>
+      </div>
+      <div id="cuBeneficiaryCountryViewRow" *ngIf="bgRecord['cuBeneficiary']['country'] && bgRecord['cuBeneficiary']['country'] != null && bgRecord['cuBeneficiary']['country'] != ''">
+        <label for="cuBeneficiaryCountry" id="cuBeneficiaryCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['country']}}</label>
+      </div>
+      <div id="luBeiCodeRow"  *ngIf="bgRecord['cuBeneficiary']['beiCode'] && bgRecord['cuBeneficiary']['beiCode'] != null && bgRecord['cuBeneficiary']['beiCode'] != ''">
+        <label for="cuBeiCode" id="luBeiCodeLabel">{{ 'PARTIESDETAILS_BEI_CODE' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuBeneficiary']['beiCode']}}</label>
+      </div>
+    </div>
+    <!--LU Contact Details-->
+    <div *ngIf="bankType ==='cuContact' && bgRecord['cuContact'] && bgRecord['cuContact'] != null && bgRecord['cuContact'] != ''" id="cuContactDetails">
+      <div id="cuContactNameViewRow" *ngIf="bgRecord['cuContact']['name'] && bgRecord['cuContact']['name'] != null && bgRecord['cuContact']['name'] != ''">
+        <label for="cuContactName" id="cuContactNameLabel">{{ 'BENEFICIARY_CONTACT_DETAILS_NAME' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['name']}}</label>
+      </div>
+      <div id="cuContactAddressLine1ViewRow" *ngIf="bgRecord['cuContact']['addressLine1'] && bgRecord['cuContact']['addressLine1'] != null && bgRecord['cuContact']['addressLine1'] != ''">
+        <label for="cuContactAddressLine1" id="cuContactAddressLine1Label">{{ 'BENEFICIARY_CONTACT_DETAILS_ADDRESS' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['addressLine1']}}</label>
+      </div>
+      <div id="cuContactAddressLine2ViewRow" *ngIf="bgRecord['cuContact']['addressLine2'] && bgRecord['cuContact']['addressLine2'] != null && bgRecord['cuContact']['addressLine2'] != ''">
+        <label for="cuContactAddressLine2" id="cuContactAddressLine2Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['addressLine2']}}</label>
+      </div>
+      <div id="cuContactDomViewRow" *ngIf="bgRecord['cuContact']['dom'] && bgRecord['cuContact']['dom'] != null && bgRecord['cuContact']['dom'] != ''">
+        <label for="cuContactDom" id="cuContactDomLabel">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['dom']}}</label>
+      </div>
+      <div id="cuContactAddressLine4ViewRow" *ngIf="bgRecord['cuContact']['addressLine4'] && bgRecord['cuContact']['addressLine4'] != null && bgRecord['cuContact']['addressLine4'] != ''">
+        <label for="cuContactaddressLine4" id="cuContactaddressLine4Label">&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['addressLine4']}}</label>
+      </div>
+      <div id="cuContactCountryViewRow" *ngIf="bgRecord['cuContact']['country'] && bgRecord['cuContact']['country'] != null && bgRecord['cuContact']['country'] != ''">
+        <label for="cuContactCountry" id="cuContactCountryLabel">{{ 'PARTIESDETAILS_CONTRY' | translate }}&nbsp;</label>
+        <label class = "label-left">{{bgRecord['cuContact']['country']}}</label>
+      </div>
+    </div>
+  </ng-template>
+</div>

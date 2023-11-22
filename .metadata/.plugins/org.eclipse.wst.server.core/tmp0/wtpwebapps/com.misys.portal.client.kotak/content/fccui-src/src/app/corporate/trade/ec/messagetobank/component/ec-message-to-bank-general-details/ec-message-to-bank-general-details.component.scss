@@ -1,0 +1,12 @@
+.messageStyle {
+  width: 63% !important;
+}
+
+.textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0em !important;
+}
+
+[dir="rtl"] .textarea.characterCountDivfield .characterCountValueField {
+  text-align: left;
+  padding-left: 0em !important;
+}

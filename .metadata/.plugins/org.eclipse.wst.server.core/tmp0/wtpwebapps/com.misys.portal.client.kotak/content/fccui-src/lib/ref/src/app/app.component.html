@@ -1,0 +1,12 @@
+<div class="dashboradWrapper" dir="{{getCurrentLangDir()}}">
+  <!--<div class="contentWrapper">-->
+  <ng-container *ngIf="showHeaderFooter">
+    <div class="topMenu" [ngClass]="{ displayTopMenu: topMenuDisplay === 'true' }">
+      <fcc-common-header (topMenuDisplayValue)="receiveTopMenuDisplayValue($event)"></fcc-common-header>
+    </div>
+  </ng-container>
+  
+  
+  <router-outlet *ngIf="showRouter"></router-outlet>
+  <!--</div>-->
+  <fcc-common-footer *ngIf="showFooter"></fcc-common-footer>

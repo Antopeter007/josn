@@ -1,0 +1,65 @@
+<div [dir]="dir">
+    <h3 *ngIf="!groupname" class="ui-dialog-title editHeader">{{header | translate}}</h3>
+    <h3 *ngIf="groupname" class="ui-dialog-title editHeader">{{header | translate}} ({{groupname | translate}})</h3>
+    <div *ngIf="errorState && !displayGroupName" class="errorMessage">
+        <p class="fcc-error-message">{{errorMessage}}</p>
+    </div>
+    <div class="col-12" class="popup">
+        <div class="card">
+            <div class="p-col-6">
+                <mat-card class="inner-card-left">
+                    <h4 class="text">{{ 'AVAILABLE_ACCOUNTS' | translate }}</h4>
+                    <div class=innerdiv>
+                        <div class="innertxt" *ngFor="let vals of resultArray;let i = index;">
+                            <span>{{vals.accountNo}}</span>
+                            <div class="textdiv">{{vals.descriptionData}}</div>
+                            <button role="button"  [dir]="dir" (keyup.enter)="select(vals, i)" mat-icon-button class="example-icon filter-icon btn" aria-label="filter">
+                                <span class="container" (click)="select(vals, i)">+</span>
+                            </button>
+                            <hr class="solid">
+                        </div>
+
+                    </div>
+                </mat-card>
+            </div>
+            <div class="p-col-6">
+                <mat-card class="inner-card-right">
+                    <h4 class="text">{{ 'SELECTED_ACCOUNTS' | translate }}</h4>
+                    <div *ngIf="displayGroupName">
+                    <mat-form-field appearance="fill" input-mat-width class="groupName">
+                    <mat-label>{{ 'groupName' | translate }}</mat-label>
+                    <input role="textbox" [(ngModel)]="groupname" #groupnameRef matInput maxlength={{maxGroupNameLength}} (blur) = "onBlur($event)" (change)="checkIfModified()" (keyup)="checkIfModified()">
+                    <mat-hint>{{groupnameRef.value.length}}/{{maxGroupNameLength}}</mat-hint>
+                    </mat-form-field>
+                    <div *ngIf = "!isValidName" class="groupErrorMessage">
+                        <p class="fcc-error-message">{{ 'INVALID_GROUPNAME' | translate }}</p>
+                    </div>
+                    <div *ngIf="errorState" class="groupErrorMessage">
+                        <p class="fcc-error-message">{{errorMessage}}</p>
+                    </div>
+                    </div>
+                    <div [ngClass]="displayGroupName ? 'selectedGroupAccounts':'selectedAccounts'">
+                       <div class="innertxt" *ngFor="let vals of selectedItems;let i = index;">
+                            <span>{{vals.accountNo}}</span>
+                            <div class="textdiv">{{vals.descriptionData}}</div>
+                            <span>
+                                <button role="button"  [dir]="dir" (keyup.enter)="unSelect(vals, i)" mat-icon-button class="example-icon filter-icon btn" aria-label="filter">
+                                    <span class="container" (click)="unSelect(vals, i)">-</span>
+                                </button>
+                                <hr class="solid">
+                            </span>
+                        </div>
+                    </div>
+                </mat-card>
+                <div class="warningMessage">
+                    <p class="fcc-warning-message">{{groupWarningMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div [dir]="dir" class="endbutton">
+        <button role="button"  [dir]="dir" mat-button mat-dialog-close class="submitButton1">{{ 'cancel' | translate }}</button>
+        <button role="button"  [dir]="dir" mat-button class="submitButton" (click)="setAccountGroup()" [disabled]="submitDisabled">{{ 'submit' | translate }}</button>
+    </div>
+    <div>

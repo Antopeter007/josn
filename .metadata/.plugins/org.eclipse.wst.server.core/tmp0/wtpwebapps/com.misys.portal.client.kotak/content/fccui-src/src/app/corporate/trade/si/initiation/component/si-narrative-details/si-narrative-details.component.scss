@@ -1,0 +1,484 @@
+@import '../../../../../../common/components/review-tab/review-tab.component.scss';
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .p-grid {
+  margin: 0em;
+}
+
+:host ::ng-deep .fcc-input-checkbox {
+  width: 74.375em;
+}
+
+:host ::ng-deep .p-col-12 {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
+:host ::ng-deep .ui-card {
+  background-color: transparent;
+  color: $GRAY-HEX-20;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  color: $CHARCOAL-F75 !important;
+  padding: 0.571em 2em !important;
+}
+
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a {
+  padding: 0.571em 2em !important;
+}
+
+:host ::ng-deep .textAmendView textarea {
+  border: none;
+  background-color: transparent !important;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 300;
+  color: $GREY-09;
+  line-height: 1.4em;
+}
+:host ::ng-deep .textAmendView .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex {
+  border: 1px solid $GREY-12;
+  background-color: $GREY-11;
+  padding: 1em 1.5em;
+  border-radius: 0.25em;
+  margin-top: 0.75em;
+}
+
+:host ::ng-deep .textAmendView .mat-form-field-appearance-fill .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix {
+  border: none;
+  padding: 0em;
+}
+
+:host ::ng-deep .textAmendView .mat-form-field-underline {
+  display: none;
+}
+
+:host ::ng-deep .textAmendView .textarea.characterCountDivfield {
+  display: none;
+}
+
+:host ::ng-deep .textAmendView .ui-inputtext:enabled:focus:not(.ui-state-error),
+:host ::ng-deep .textAmendView .ui-inputtext:enabled:hover:not(.ui-state-error) {
+  border: 0.7em solid $GREY-10 !important;
+}
+
+:host ::ng-deep textarea {
+  resize: none !important;
+}
+
+:host ::ng-deep .nbdays.ui-float-label .ui-widget {
+  width: 6.5em !important;
+}
+
+/* selected button css start */
+
+:host ::ng-deep .ui-selectbutton .ui-button {
+  background-color: $WHITE !important;
+  color: $VIOLET-02 !important;
+  border: 1px solid $VIOLET-02 !important;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+:host ::ng-deep .ui-selectbutton .ui-button.ui-state-active {
+  background-color: $VIOLET-02 !important;
+  color: $WHITE !important;
+}
+
+:host ::ng-deep .ui-selectbutton .ui-button.ui-state-active:hover {
+  background-color: $VIOLET-02 !important;
+  color: $WHITE !important;
+}
+
+:host
+  ::ng-deep
+  .ui-selectbutton
+  .ui-button.ui-button-text-only
+  .ui-button-text {
+  padding: 0.429em 0em !important;
+  font-weight: 500;
+  text-align: center;
+  font-size: 1vw;
+  word-spacing: 0.08em;
+}
+
+/* selected button css end */
+
+:host ::ng-deep .characterCountDivfield .ui-inputtext {
+  background-color: transparent;
+  width: 39em;
+  padding-top: 0.5em;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  border: none;
+  border-bottom: 1px solid $CHARCOAL-F50;
+  font-size: 1rem;
+  letter-spacing: 0.13px;
+  font-weight: normal;
+  border-radius: 0px;
+  font-family: "Courier New" !important;
+  background-color: $WHITE-05;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-tabview .ui-tabview-panels {
+  background-color: transparent;
+  padding: 0.571em;
+  padding-left: 0em;
+  color: $GRAY-HEX-20;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+::ng-deep textarea::-webkit-scrollbar {
+  width: 7px !important;
+  background-color: $WHITE-14 !important;
+}
+
+::ng-deep textarea::-webkit-scrollbar-thumb {
+  background-color: $CHARCOAL-F100 !important;
+}
+
+::ng-deep .textAmendView textarea:focus {
+  outline-color: $VIOLET-F100 !important;
+}
+
+:host ::ng-deep .mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-flex {
+  background-color: $WHITE;
+}
+
+:host ::ng-deep .panelSpanClass {
+  padding: 1em 0em 1em 1em;
+}
+
+:host ::ng-deep .imgClass {
+  border: 0px;
+  background-color: transparent;
+}
+
+:host ::ng-deep .imgClass:focus {
+  outline: 0.125em solid $VIOLET-F100 !important;
+}
+
+:host ::ng-deep .imgClass img {
+  width: 20px;
+  height: 20px;
+}
+
+:host ::ng-deep .mat-expansion-panel {
+  margin: 16px 2px;
+}
+
+:host ::ng-deep .mat-expanded.mat-expansion-panel-spacing .mat-expansion-panel-header {
+  border-bottom: 1px solid $CHARCOAL-F25;
+  border-radius: 0px;
+}
+
+::ng-deep
+  .mat-expanded.mat-expansion-panel-spacing
+  .mat-expansion-panel-content
+  .mat-expansion-panel-body {
+  padding: 16px 24px;
+}
+
+:host ::ng-deep .repAllLtr .p-col-12 {
+  padding-left: 0em;
+}
+
+:host ::ng-deep .repAllRtl .p-col-12 {
+  padding-right: 0em;
+}
+
+::ng-deep .repAllRtl .ui-fluid label {
+  margin-right: 0em;
+  // margin-left: 1em;
+}
+
+/* selected button css start */
+
+:host
+  ::ng-deep
+  .amendOptions
+  .ui-fluid
+  .ui-buttonset.ui-buttonset-2
+  .ui-button {
+  width: auto;
+}
+
+:host ::ng-deep .amendOptions .ui-selectbutton .ui-button {
+  border-radius: 1.2em !important;
+  margin-right: 0.8em;
+}
+
+:host
+  ::ng-deep
+  .amendOptions
+  .ui-selectbutton
+  .ui-button.ui-button-text-only
+  .ui-button-text {
+  padding: 0.429em 2em !important;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+:host ::ng-deep .amendOptions .ui-selectbutton .ui-button.ui-state-default {
+  background-color: $WHITE !important;
+  border: 0.0625em solid $WHITE-08 !important;
+  color: $CHARCOAL-F100 !important;
+}
+
+:host ::ng-deep .amendOptions .ui-selectbutton .ui-button.ui-state-active {
+  background-color: $WHITE-09 !important;
+  border: 0.0625em solid $VIOLET-03 !important;
+  color: $VIOLET-03 !important;
+}
+
+/* selected button css end */
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0em;
+  margin-top: 0em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0em;
+  border-top: none;
+  margin-top: 7px;
+}
+
+:host ::ng-deep .amendEditor {
+  width: 99.5%;
+  border: none;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 3px;
+  padding: 0em 44px;
+  outline: none;
+  color: $GREY-01;
+  line-height: 1.4em;
+  font-size: 1.15em;
+}
+
+:host ::ng-deep .amendEditor.Add {
+  padding-left: 46px;
+}
+
+:host ::ng-deep .amendEditor.Delete {
+  padding-left: 60px;
+}
+
+:host ::ng-deep .amendEditor.Repall {
+  padding-left: 60px;
+}
+
+:host ::ng-deep [dir=rtl] .amendEditor.Add {
+  padding-right: 8%;
+}
+
+:host ::ng-deep [dir=rtl] .amendEditor.Delete {
+  padding-right: 8%;
+}
+
+:host ::ng-deep [dir=rtl] .amendEditor.Repall {
+  padding-right: 8%;
+}
+
+:host ::ng-deep .startClass {
+  top: 8px;
+  left: 5px;
+  font-size: 0.9em;
+}
+
+:host ::ng-deep .startClass.Add {
+  color: $GRASS-20;
+}
+
+:host ::ng-deep .startClass.Delete {
+  color: $RED-20;
+}
+
+:host ::ng-deep .startClass.Repall {
+  color: $GOLD-10;
+}
+
+:host ::ng-deep [dir=rtl] .startClass.Delete {
+  color: $RED-20;
+  left: 92%;
+}
+
+:host ::ng-deep [dir=rtl] .startClass.Repall {
+  color: $GOLD-10;
+  left: 92%;
+}
+
+:host ::ng-deep [dir=rtl] .startClass.Add {
+  color: $GRASS-20;
+  left: 92%;
+}
+
+:host ::ng-deep .amendEditTextArea .mat-icon {
+  position: absolute;
+  color: $CHARCOAL-F50;
+  right: 20px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+:host ::ng-deep.amendEditTextArea .mat-form-field {
+  width: 75%;
+}
+
+:host ::ng-deep [dir=rtl] .amendEditTextArea .mat-icon {
+  position: absolute;
+  color: $CHARCOAL-F50;
+  right: 20px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  right: 95%;
+}
+
+:host ::ng-deep .ui-selectbutton .ui-button:not(.ui-state-disabled).ui-state-focus {
+  box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100;
+  -webkit-box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100;
+  -moz-box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100;
+  z-index: 1;
+}
+
+:host ::ng-deep .selectedNarrativeItemStyle .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button,
+:host ::ng-deep .splPaymentNarrativesStyle .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: $VIOLET-02 !important;
+  border: 1px solid $VIOLET-02 !important;
+}
+
+:host ::ng-deep .selectedNarrativeItemStyle .ui-fluid .ui-buttonset.ui-buttonset-3 .ui-button.ui-state-active,
+:host ::ng-deep .splPaymentNarrativesStyle .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button.ui-state-active {
+  color: $WHITE !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100 !important;
+  -webkit-box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100 !important;
+  -moz-box-shadow: 0px 0px 0px 0.1em $FUCHSIA-F100 !important;
+  border-color: none;
+}
+
+:host ::ng-deep .panelContainer {
+  position: relative;
+}
+
+:host ::ng-deep .panelContainer .buttonDivClass {
+  position: absolute;
+  right: 0.5em;
+  top: -1.8em;
+}
+// MAT TAB CSS
+:host ::ng-deep .mat-tab-body-content{
+  overflow: hidden !important;
+}
+:host ::ng-deep .mat-ink-bar {
+  background: $VIOLET-F100 !important;
+}
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  color: $VIOLET-F100 !important;
+  opacity: 1 !important;
+}
+:host ::ng-deep .mat-tab-label-container{
+  margin-top: 1.5em !important;
+}
+:host ::ng-deep .indented-text-area-field-65 .mat-form-field-flex{
+  margin-top: 0.25em !important;
+}
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -1em !important;
+  margin-left: 0.8em !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title {
+  color: $CHARCOAL-F100;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4em;
+}
+
+:host ::ng-deep .mat-expansion-panel-content .mat-expansion-panel-body .optionContent div {
+  color: $CHARCOAL-F75;
+  font-size: 0.9em;
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+:host ::ng-deep .mat-expansion-panel-content .mat-expansion-panel-body .optionContent div .addAmendStyle {
+  color: $GRASS-20;
+}
+
+:host ::ng-deep .mat-expansion-panel-content .mat-expansion-panel-body .optionContent div .deleteAmendStyle {
+  color: $RED-20;
+}
+
+:host ::ng-deep .mat-expansion-panel-content .mat-expansion-panel-body .optionContent div .repallAmendStyle {
+  color: $GOLD-10;
+}
+
+:host ::ng-deep .currentAmendHeader {
+  font-size: 1.125em;
+}
+
+:host ::ng-deep .select-button-pd {
+  padding-left: 0em !important;
+}
+
+.noteForNarrative {
+  color: $primaryColor;
+  text-align: left;
+  letter-spacing: 0.02em;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+:host ::ng-deep .periodOfPresentation .indented-text-area-field-35 {
+  margin-top: 0em !important;
+  margin-left: 0em !important;
+}
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.70em 0 0.75em 0 !important;
+}
+:host ::ng-deep .mat-tab-label:focus {
+  border: 0.071em solid $BLACK !important;
+}
+
+@media screen and (min-width: 992px) {
+  :host ::ng-deep .p-lg-3 {
+    width: 25% !important;
+  }
+  :host ::ng-deep .p-lg-4 {
+    width: 37.5em !important;
+  }
+}
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0 !important;
+  margin-left: -0.4em !important;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+:host ::ng-deep .indented-text-area-field-65 {
+  width: auto !important;
+ }
+ :host ::ng-deep .characterCountDivfield .ui-inputtext {
+  width: 100% !important;
+}
+}

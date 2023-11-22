@@ -1,0 +1,27 @@
+<div class="modal">
+    <ion-header-bar class="bar bar-header bar-dark">
+        <button class="button button-clear button-secondary" ng-click="vm.clearModalValue()">{{"CLEAR" | translate}}</button>
+        <button class="button button-calm button-secondary" ng-click="vm.applyFilter()" ng-disabled="vm.filter.type=='6' && (vm.fromDate=='' || vm.toDate==='') || (vm.fromDateGreater===true || vm.exceeded===true )">{{"APPLY" | translate}}</button>
+        <button class="button button-clear ion-android-close" ng-click="vm.closeModal()"></button>
+    </ion-header-bar>
+    <ion-side-menus>
+        <ion-side-menu-content>
+            <ion-content>
+            	<form>
+            		<div>
+            			<ion-radio name="dateoptions" ng-model="vm.filter.type" ng-repeat="options in vm.dateOptions" ng-value="{{options.value}}" >{{options.name | translate }}</ion-radio>
+						<div  ng-if="vm.filter.type == '6'" class="row">
+							<div class="col col-8"></div>
+                        	<div class="col col-40">From: <input ng-change = "vm.validateDate($event)" type="date" ng-model="vm.fromDate" ng-model-options="{ debounce: 1000 }"/></div>
+                    		<div class="col col-4"></div>
+                    		<div class="col col-40">To: <input ng-change = "vm.validateDate($event)" type="date" ng-model="vm.toDate" ng-model-options="{ debounce: 1000 }"/></div>
+                    		<div class="col col-8"></div>
+                    	</div>
+                    	<p ng-if="vm.exceeded===true && vm.fromDateGreater===false" >{{'DATE_RANGE_MESSAGE' | translate}}</p>
+                    	<p ng-if="vm.fromDateGreater===true">{{'FROM_DATE_GREATER' | translate}}</p>
+            		</div>
+				</form>
+            </ion-content>
+        </ion-side-menu-content>
+    </ion-side-menus>
+</div>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2012 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	
+	<!--  This interface to be merged with xmlin /xmljmsin as the case once tested along with other incoming interfaces -->
+	<interface name="mhubportalcustomerintest" onerror="logger"
+		description="MHUB Customer profile incoming (company and user)">
+		<component name="environmentreader">
+			<component name="incominginitiator">
+				<properties>
+					<property name="stylesheet">core/xsl/incoming/incoming.xsl</property>
+
+				</properties>
+				<component name="documentparser">
+					<component name="databaseserializer" />
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.isDynamic">false</property>
+							<property name="property.name">companyFile</property>
+						</properties>
+					</component>
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.isDynamic">false</property>
+							<property name="property.name">incomingfile</property>
+						</properties>
+					</component>
+					<component name="filter">
+						<properties>
+							<property name="script">('FT' != event.product_code)</property>
+						</properties>
+						<component name="mhubxslselector">
+							<component name="jsstylesheetpicker">
+								<component name="xmloutprocessor">
+									<component name="xsltransformer">
+										<properties>
+											<property name="stylesheet.resource">xslname</property>
+											<property name="stylesheet.isDynamic">true</property>
+										</properties>
+										<!-- <component name="filewriter" /> -->
+										<component name="environmentwriter">
+											<properties>
+												<property name="property.isDynamic">false</property>
+												<property name="property.name">custenable</property>
+											</properties>
+										</component>
+										<!-- uncomment jmssender when mhub jms is enabled -->
+										<!-- <component name="jmssender" /> -->
+									</component>
+								</component>
+							</component>
+						</component>
+						<component name="mhubloginprintfilter">
+							<component name="xsltransformer">
+								<properties>
+									<property name="stylesheet.resource">xslname</property>
+									<property name="stylesheet.isDynamic">true</property>
+								</properties>
+								<!-- <component name="filewriter" /> -->
+								<component name="environmentwriter">
+									<properties>
+										<property name="property.isDynamic">false</property>
+										<property name="property.name">login</property>
+									</properties>
+								</component>
+								<!-- uncomment jmssender when mhub jms is enabled -->
+								<!-- <component name="jmssender" /> -->
+							</component>
+						</component>
+						<component name="mhubpwprintfilter">
+							<component name="xsltransformer">
+								<properties>
+									<property name="stylesheet.resource">xslname</property>
+									<property name="stylesheet.isDynamic">true</property>
+								</properties>
+								<component name="environmentwriter">
+									<properties>
+										<property name="property.isDynamic">false</property>
+										<property name="property.name">password</property>
+									</properties>
+								</component>
+								<!-- <component name="filewriter" /> -->
+								<!-- uncomment jmssender when mhub jms is enabled -->
+								<!-- <component name="jmssender" /> -->
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="mhubenablexmlouttest" onerror="logger"	description="MHUB Customer profile enable out">
+		<component name="environmentreader">
+				<component name="mhubxslselector">
+					<component name="jsstylesheetpicker">
+						<component name="xmloutprocessor">
+							<component name="xsltransformer">
+								<properties>
+									 <property name="stylesheet.resource">xslname</property> 
+									 <property name="stylesheet.isDynamic">true</property> 
+								</properties>
+								<!-- <component name="filewriter" /> -->
+								<component name="environmentwriter">
+									<properties>
+										<property name="property.isDynamic">false</property>
+										<property name="property.name">portalcustenable</property>
+									</properties>
+								</component>
+								<!--  uncomment jmssender when mhub jms is enabled -->
+								<!-- <component name="jmssender" />-->	
+	 						</component>
+	 					</component>	
+ 					</component>	
+				</component>
+		</component>
+	</interface>
+
+	<interface name="mhubloginprintouttest" onerror="logger" description="MHUB Login Printing">
+		<component name="environmentreader">
+				<component name="mhubloginprintfilter">			
+					<component name="xsltransformer">
+						<properties>
+							 <property name="stylesheet.resource">xslname</property> 
+							 <property name="stylesheet.isDynamic">true</property> 
+						 </properties>
+						<!-- <component name="filewriter" /> -->
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.isDynamic">false</property>
+								<property name="property.name">portallogin</property>
+							</properties>
+						</component>
+						<!--  uncomment jmssender when mhub jms is enabled -->
+						<!-- <component name="jmssender" />-->
+					</component>
+				</component>
+		</component>
+	</interface>
+	<interface name="mhubpasswordprintouttest" onerror="logger" description="MHUB Password Printing">
+		<component name="environmentreader">
+			<component name="mhubpwprintfilter">			
+				<component name="xsltransformer">
+					 <properties>
+						<property name="stylesheet.resource">xslname</property> 
+				 		<property name="stylesheet.isDynamic">true</property> 
+					 </properties>
+					<!-- <component name="filewriter" /> -->
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.isDynamic">false</property>
+							<property name="property.name">portalpassword</property>
+						</properties>
+					</component>
+					<!--  uncomment jmssender when mhub jms is enabled -->
+					<!-- <component name="jmssender" />-->
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="mhubpasswordresetprintouttest" onerror="logger" description="MHUB Reset Password Printing">
+		<component name="environmentreader">
+			<component name="mhubpwresetprintfilter">			
+				<component name="xsltransformer">
+					 <properties>
+						<property name="stylesheet.resource">xslname</property> 
+				 		<property name="stylesheet.isDynamic">true</property> 
+					 </properties>
+					<!-- <component name="filewriter" /> -->
+					<component name="environmentwriter">
+						<properties>
+							<property name="property.isDynamic">false</property>
+							<property name="property.name">portalresetpassword</property>
+						</properties>
+					</component>
+					<!--  uncomment jmssender when mhub jms is enabled -->
+					<!-- <component name="jmssender" />-->
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="swiftinfiletoGTPinterfaceTest" onerror="logger" description="Load account balances and statements from SWIFT MT94x messages">   
+            <component name="environmentreader">
+	                  <component name="meridiantransformer">
+	                  <properties>
+	                         <property name="stylesheet.folder">core/xsl/swift</property>
+	                         <property name="swift.system.name">${swift.system.name.mt940}</property>
+	                  </properties>
+	                         <component name="incominginitiator">
+	                                <component name="documentparser">
+	                                       <component name="databaseserializer"/>
+	                                </component>
+	                         </component>
+	                  </component>
+            </component>         
+     </interface>
+	
+</interfaces>

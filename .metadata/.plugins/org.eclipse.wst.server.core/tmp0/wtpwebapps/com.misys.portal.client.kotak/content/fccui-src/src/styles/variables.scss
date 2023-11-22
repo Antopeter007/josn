@@ -1,0 +1,1795 @@
+// Primary Violet color varients
+$VIOLET-F100-dark: #493694;
+$VIOLET-F100: #694ed6;
+$VIOLET-F75: #8f7be1;
+$VIOLET-F50: #b4a6ea;
+$VIOLET-F25: #d9d3f5;
+$VIOLET-PRIMARY-COLOR: $VIOLET-F100;
+$VIOLET-F10:#5b4a9f;
+$VIOLET-F20:#e9e5f9c9;
+$VIOLET-F30:#fbfbfe;
+
+// Primary FUCHSIA color varients
+$FUCHSIA-F100-dark: #862670;
+$FUCHSIA-F100: #c137a2;
+$FUCHSIA-F75: #d069b9;
+$FUCHSIA-F50: #df9ad0;
+$FUCHSIA-F25: #efcce7;
+$FUCHSIA-A01:#c546a9;
+$FUCHSIA-A02:#cf66b8;
+$FUCHSIA-PRIMARY-COLOR: $FUCHSIA-F100;
+
+// Primary Charcoal color varients
+$CHARCOAL-F100-dark: #2d2d2d;
+$CHARCOAL-F100: #414141;
+$CHARCOAL-F75: #707070;
+$CHARCOAL-F50: #9f9f9f;
+$CHARCOAL-F25: #cecece;
+$CHARCOAL-F10: #eaeaea;
+$CHARCOAL-c2: #fafafa;
+$CHARCOAL-A10: #777777;
+$GREY-100: #6f6f6f;
+$CHARCOAL-A20:#6f6f6f;
+$CHARCOAL-A30:#ababab;
+$CHARCOAL-PRIMARY-COLOR: $CHARCOAL-F100;
+
+// Secondary  CRIMSON color varients
+$CRIMSON-R100: #e40046;
+$CRIMSON-R75: #ea3f74;
+$CRIMSON-R50: #f17fa2;
+$CRIMSON-R25: #f8bdcf;
+$CRIMSON-PRIMARY-COLOR: $CRIMSON-R100;
+
+// Secondary  AMBER color varients
+$AMBER-O100: #ff8a3d;
+$AMBER-O75: #ffa76d;
+$AMBER-O50: #ffc39c;
+$AMBER-O25: #ffe1cd;
+$AMBER-PRIMARY-COLOR: $AMBER-O100;
+
+// Secondary  GOLD color varients
+$GOLD-Y100: #f0b323;
+$GOLD-Y75: #f3c65a;
+$GOLD-Y50: #f7d991;
+$GOLD-Y25: #fbebc7;
+$GOLD-PRIMARY-COLOR: $GOLD-Y100;
+
+// Secondary  LIME color varients
+$LIME-L100: #d2d755;
+$LIME-L75: #dde17f;
+$LIME-L50: #e8eaa9;
+$LIME-L25: #f3f4d3;
+$LIME-PRIMARY-COLOR: $LIME-L100;
+
+// Secondary  GRASS color varients
+$GRASS-G100: #56c271;
+$GRASS-G75: #80d194;
+$GRASS-G50: #a9e0b7;
+$GRASS-G25: #d4efda;
+$GRASS-PRIMARY-COLOR: $GRASS-G100;
+
+// Secondary  OCEAN color varients
+$OCEAN-B100: #5bc1d7;
+$OCEAN-B75: #84d0e1;
+$OCEAN-B50: #ade0eb;
+$OCEAN-B25: #d6eff5;
+$OCEAN-PRIMARY-COLOR: $OCEAN-B100;
+
+/* External colors*/
+$darkBlue:#0070E0;
+$RED-100: #ff0000;
+$GREY-A0 : #a0a0a0;
+$GREEN-01 : #008000;
+$FUCHSIA-01: #a65494;
+$VIOLET-01: #7262b4;
+$VIOLET-02: #6948d9;
+$VIOLET-03: #694ed7;
+$VIOLET-05 :#5151c9;
+$VIOLET-06 : #7246d5;
+$VIOLET-07: #6947d9;
+$OCEAN-01: #6aa6b4;
+$GOLD-01: #c6ae74;
+$GOLD-10: #A77C18;
+$WHITE-01: #f6e1f1;
+$WHITE-02: #e9e5f9;
+$WHITE-03: #e6f6f9;
+$WHITE-04: #fdf7e9;
+$WHITE-05: #f1f1f1;
+$WHITE-06: #efefef;
+$WHITE-07: #d9d9d9;
+$WHITE-08: #e3e3e3;
+$WHITE-09: #edebfa;
+$WHITE-10: #f8f8f8;
+$WHITE-11: #e7e6ea;
+$WHITE-12: #f6e8f3;
+$WHITE-13: #f4f4f4;
+$GREY-01: #575757;
+$GREY-02: #a6a6a6;
+$GREY-03: #ccc;
+$GREY-05: #4a4a4a;
+$GREY-06: #939395;
+$GREY-15: #d7d6d7;
+$BLACK-01: #333;
+$BLACK-02: #212121;
+$VIOLET-04: #d5cef4;
+$VIOLET-14: #fbfafe;
+$VIOLET-15: #f3f3fc;
+$GRAYISH-BLUE-02: #ecedf4;
+$GRAYISH-BLUE-30: #97a4ba;
+$ICONS: #757575;
+$GRAY-TROLLEYGREY-01: #808080;
+$GRAY-DARKGRAY-01: #2A2A2A;
+$ORANGE-DARK-BROWNTONE-01: #A77C18;
+$ORANGE-LIGHT-GRAYISH-01: #FBF4E4;
+$ORANGE-PALE-01: #ffe2a4;
+$GRAY-HEX-20: #333333;
+$GRAY-HEX-88: #e0e0e0;
+$BLUE-01: #007ad9;
+$RED-01: #bb0000;
+$RED-20: #EA3F74;
+$GREY-10: #f9f8fd;
+$GREY-11: #F5F3FA;
+$GREY-12: #E4DFDF;
+$GREY-13: #C7C8CA;
+$GREY-07: #c8c8c8;
+$GREY-08: #707072;
+$GREY-09: #828183;
+$GRASS-20: #3F8796;
+$White-Lilac: #F7F5FC;
+$DarkGrey-7    : #2a2a2a96;
+
+// Gradient color
+$GRADIENT_01: linear-gradient(#694ed6, #c137a2, #e40046);
+
+// Positions
+$POSITION-ABSOLUTE: absolute;
+
+//Text area scrollball color
+$WHITE-14: #f5f5f5;
+// Channel reference
+$GRAY-35: #595959;
+$GREY: grey;
+
+
+$GREY-22:#888;
+
+
+$WHITE: #ffffff;
+$BLACK: #000000;
+$BLACK_03: #545454;
+$INDIGO: #5151C9;
+$Link-Water: #E5E5F8;
+$GREEN: #00FF00;
+$GHOSTWHITE: #f8f8ff;
+$GRAY: #848484;
+$GRAY_O1:#8D8D8D;
+$Purple:#6948D9;
+$LIGHTGREY: #dadada;
+$primaryColorBlueBannerBg : #493595;
+$secondaryHoverBGColor:#fbf0f8;
+$DoveGray: #727171;
+$progressBar: #950088;
+$Melanie: #E6CAE0;
+$scorpion : #5c5c5c;
+$Alabaster :#fbfbfb;
+$BilobaFlower: #A8AFEB;
+$RadicalRed: #FC466B;
+$Nevada : #5C666A;
+$Gallery: #EEEEEE;
+$Mulberry : #C83FAC;
+$MineShaft: #3D3D3D;
+$Alto:#d0d0d0;
+$selago : #f9f8fe;
+$DarkGrey : darkgrey;
+$GrayShade:#e4e4e4;
+$GrayLight:#b5b5b5;
+$BlueViolet: #4d1a7f;
+$GreySilver: #C6C6C6;
+$DarkBlue1: #0E0EA0;
+$DarkGrey-6: #666666;
+$LightRed: #FECFCD;
+$DarkRed: #D60040;
+$ErrorMessageBackground: #FFEBEB;
+
+// Font-size Base is 14px.
+// Font-size Base is 14px.
+$font-size-0: 0em;
+$font-size-0_1: 0.0625em;
+$font-size-1: 0.071em;
+$font-size-1_1: 0.125em;
+$font-size-2: 0.143em;
+$font-size-3: 0.214em;
+$font-size-4: 0.286em;
+$font-size-5: 0.357em;
+$font-size-6: 0.429em;
+$font-size-7: 0.500em;
+$font-size-8: 0.571em;
+$font-size-9: 0.643em;
+$font-size-10: 0.714em;
+$font-size-11: 0.786em;
+$font-size-12: 0.857em;
+$font-size-12_1: 0.875em;
+$font-size-13: 0.929em;
+$font-size-14: 1.000em;
+$font-size-15: 1.071em;
+$font-size-15_1: 1.125em;
+$font-size-16: 1.143em;
+$font-size-17: 1.214em;
+$font-size-18: 1.286em;
+$font-size-19: 1.357em;
+$font-size-20: 1.429em;
+$font-size-21: 1.500em;
+$font-size-22: 1.571em;
+$font-size-23: 1.643em;
+$font-size-24: 1.714em;
+$font-size-25: 1.786em;
+$font-size-26: 1.857em;
+$font-size-27: 1.929em;
+$font-size-28: 2.000em;
+$font-size-29: 2.071em;
+$font-size-30: 2.143em;
+$font-size-31: 2.214em;
+$font-size-31_1: 2.25em;
+$font-size-56: 4.000em;//-------
+$font-size-04: 0.4em;
+$font-size-01: 0.1em;
+$font-size-1_4: 1.4em;
+$font-size-1_2: 1.2em;
+$font-size-1_6: 1.6em;
+$font-size-2_5: 2.5em;
+$font-size-0_75: 0.75em;
+$font-size-0_85: 0.85em;
+$font-size-1_5: 1.5625em;
+$font-size-1_0: 1em;
+$font-size-1_3: 1.313em;
+$font-size-0_9: 0.9em;
+$font-size-0_95: 0.975em;
+$font-size-0_8: 0.8em;
+$font-size-2_2: 2.28571em;
+
+// common font size
+$font-size-12_1: 0.875em;
+
+
+//line Hight
+$line-height-1: 1.25em;
+
+// FontWeight----------
+$fontWeight-100: 100;
+$fontWeight-200: 200;
+$fontWeight-300: 300;
+$fontWeight-400: 400;
+$fontWeight-500: 500;
+$fontWeight-600: 600;
+$fontWeight-700: 700;
+$fontWeight-800: 800;
+$fontWeight-900: 900;
+$fontWeight-bold: bold;
+$fontWeight-lighter: lighter;
+
+// margin
+$margin-0: 0em;
+$marginBottom-1_5: 1.5em;
+$marginTop-1_875: 1.875em;
+
+//padding
+$padding-0: 0em;
+$padding-bottom-1: 1em;
+$padding-top-1: 1em;
+$padding-left-0_3: 0.3em;
+
+//flex
+$flex-auto: 0 0 auto;
+
+
+// Display property
+$displayInline: inline;
+$displayBlock: block;
+$displayContents: contents;
+$displayFlex: flex;
+$displayGrid: grid;
+$displayInlineBlock: inline-block;
+$displayInlineFlex: inline-flex;
+$displayInlineGrid: inline-grid;
+$displayNone: none;
+$displayInitial: initial;
+$displayInherit: inherit;
+
+// Border property
+$borderDotted: dotted;
+$borderDashed: dashed;
+$borderSolid: solid;
+$borderDouble: double;
+$borderGroove: groove;
+$borderRidge: ridge;
+$borderInset: inset;
+$borderOutset: outset;
+$borderNone: none;
+$borderHidden: hidden;
+
+// Text property
+$textAlignCenter: center;
+$textAlignLeft: left;
+$textAlignRight: right;
+$textAlignJustify: justify;
+
+
+// ************ FCC theme Start here **********************//
+
+// Primary White and Black color varients
+
+
+// Default Variables
+$primaryColor: $VIOLET-F100;
+$primaryLight:$VIOLET-F25;
+$secondaryColor:$FUCHSIA-F100;
+$standardFontSize : '14px';
+$standardFontFamily:'Roboto';
+$MainHeadingColor:$CHARCOAL-F100;
+$MainHeadingFontSize:20px;
+$SubHeaderColor:$CHARCOAL-A10;
+$SubHeaderFontSize:'';
+$transimission-Tick-Color: $GREEN-01;
+$form-Wrapper-background:$VIOLET-F30;
+
+$successColor:'';
+$errorColor:'';
+$linkColor: $FUCHSIA-F100;
+$externalLink: $FUCHSIA-F100;
+$LinkHover:'';
+$iconcolor:'';
+$iconHoverColor:$WHITE-09;
+
+// Primary Button
+$primaryButtonColor:$WHITE;
+$primaryButtonBackground:$FUCHSIA-F100;
+$primaryButtonHoverBackgroundcolor:$VIOLET-F25;
+$primaryButtonFocusBackgroundcolor:$FUCHSIA-A02;
+$primaryButtonActiveBackgroundcolor:$FUCHSIA-A02;
+$primaryButtonBorderColor:$primaryColor;
+// Secondary Button
+$SecondaryButtonColor:$FUCHSIA-PRIMARY-COLOR;
+$SecondaryButtonBackground:$WHITE;
+$secondaryButtonBorder:$FUCHSIA-PRIMARY-COLOR;
+$secondaryButtonHoverBackgroundcolor:#fbf0f8;
+$secondaryButtonActive:$FUCHSIA-F25;
+$secondaryButtonhover:$VIOLET-F25;
+$secondaryButtonHoverBackgroundcolor:$secondaryHoverBGColor;
+
+$primaryjourneyButtonHoverBackgroundColor: $VIOLET-F25;
+$primaryjourneyButtonBackgroundColor:$primaryColor;
+
+
+//Widget Variables
+$widgetHeaderColor: $BLACK;
+$widgetHeaderFontSize:'1em';
+$WidgetborderColor:'';
+
+//Pagination
+$ActiveNumberbackgroundColor:$primaryColor;
+$paginationText:'';
+$paginationBackground:'';
+$nonActivePageColor:'';
+
+//Menu
+$MenuColor:$WHITE;
+$MenuFontSize:'14px';
+$menuHoverBackground:$VIOLET-F10;
+$menuBorder:$VIOLET-F100-dark;
+$menuBackground:$VIOLET-F100-dark;
+$activeMenuLeftBorder: $primaryColor;
+$menuitemFocus:$secondaryColor;
+
+    //Regular button
+    $regular-Button-Background:$VIOLET-F20;
+    $regular-Button-color:$primaryColor;
+    $regular-button-border-color:$primaryColor;
+
+
+
+//Narrative Tabs
+$narrative-active-tab-color:$primaryColor;
+$narrative-active-tab-bottomBorder-color:$primaryColor;
+$tab:'';
+$selectedtabcolor:'';
+$border:'';
+$background:'';
+
+// Forms
+$activeRadiobuttoncolor:'';
+$activeCheckboxColor:'';
+$togglebutton:'';
+$formLabelColor: $CHARCOAL-A20;
+$formFieldBorderBottom:$CHARCOAL-F50;
+$formFieldfocusedBorderBottom:$primaryColor;
+$formCheckboxColor:$secondaryColor;
+$formFieldbackground:$VIOLET-F20;
+$form-checkbox-active:'';
+$form-radioButton-active:$primaryColor;
+$dropdown-left-border-hover:$VIOLET-F25;
+$dropdown-left-background-hover:$VIOLET-F30;
+$mat-form-field-flex-border: $borderNone;
+
+// Wizard Stepper
+$steppercompletedcolor:$WHITE;
+$steppercompletedbackgroundcolor:$GREEN-01;
+$Progressbarincompletecolor:'';
+$stepper-error-label-color:$CHARCOAL-F100;
+$stepper-error-icon-color:$CRIMSON-R100;
+$stepper-active-header-backgroundcolor:$GrayShade;
+$stepper-active-label-color:'';
+
+// Hamburger Menu
+$Hamburgercolor:'';
+$Hamburgerhovercolor:'';
+$Selectedcolor:'';
+$selectedbackground:'';
+$Hamurgernormalcolor:'';
+
+//Footer
+$FooterMenuscolor:$secondaryColor;
+$FooterFontsize: 1em;
+$fontfamily:'';
+$FootercopyrightColor:$CHARCOAL-F100-dark;
+
+// table
+$tableEvenrowcolor : $VIOLET-14;
+$tableoddrowcolor:$WHITE;
+$headercolor:'';
+$tableRowHover:$VIOLET-15;
+
+//Header menu
+$avatarColor:'';
+$icon:'';
+$iconActiveColor:'';
+$bellIconColor:'';
+$beliconNumber:'';
+$headerIconscolor:'';
+
+//Enquiry
+$enquirybackground:'';
+$labelColor:'';
+$valuecolor:'';
+
+//Enquiry Header
+$enquiryChannelReferencecolor:$primaryColor;
+$enquiryeventtextColor:$primaryColor;
+$enquiryEventTypetextColor:$primaryColor;
+$enquiryButtonTextColr:$primaryColor;
+
+//Enquiry Details
+
+$enquirydetailsBackgroundColor:$primaryColorBlueBannerBg;
+$enquirydetailsmallTextColor:$WHITE;
+$enquiryDetailsMediumTextColor:$WHITE;
+$enquiryDetailsLargeTextColor:$WHITE;
+
+//Enquiry Tab
+$enquiryTabTextColor: '';
+$enquirtTabColor:'';
+
+
+// Calender
+$calenderActiveTabColor:$VIOLET-06;
+
+// advanced filter
+$advanced-filter-search:$primaryColor;
+
+// Toggle button
+$activeToggle:$secondaryColor;
+
+//Message
+$fccErrorMessageColor: red;
+
+//ErrorMessage
+$errorMessageColor: red;
+
+$fuchsiaColor:$FUCHSIA-F100-dark;
+
+// Information
+$information-icon-color:$primaryColor;
+$information-icon-background:$primaryColor;
+$information-wrapper-background:'';
+
+// mat-expansion-panel-header
+$matExpansionPanelHeaderTextColor: $primaryColor;
+$matExpansionBackgroundColor: $White-Lilac;
+$matExpansionOutlineColor: $primaryColor;
+$matExpansionPanelHeaderFontWeight: $fontWeight-500;
+$matExpansionPanelHeaderFontSize: $font-size-15_1;
+$matExpansionPanelHeaderBorderRadius: $font-size-1_1;
+$matExpansionPanelHeaderBorderBottom: $CHARCOAL-F25;
+
+//mat-tab-label-Focus
+$matTabLabelFocusBorder: $BLACK;
+
+//labelStyle
+$labelstyleColor: $BLACK_03;
+
+//label-header
+$labelHeaderColor: $VIOLET-PRIMARY-COLOR;
+
+//Inputswitch
+$InputSwitchBackgroundColor: $VIOLET-02;
+
+//valueStyle
+$valuestyleColor: $GRAY-DARKGRAY-01;
+
+//masterAccordionStyle
+$masterAccordionStyleColor:$GRAY-DARKGRAY-01;
+$masterAccordionBorderColor: $ORANGE-PALE-01;
+
+//tnxAccordionStyle
+$tnxAccordionStyleColor:$GRAY-DARKGRAY-01;
+$tnxAccordionStyleBorderLeftColor: $ORANGE-DARK-BROWNTONE-01;
+$tnxAccordionStyleBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+//valueAccordionStyle
+$valueAccordionColor: $GRAY-DARKGRAY-01;
+
+//masterstyle
+$masterStyleColor: $GRAY-DARKGRAY-01;
+$masterstyleBorderLeft: $ORANGE-DARK-BROWNTONE-01;
+$masterStyleBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+//narrativeCurrentValueStyle
+$narrativeCurrentValueColor:$GRAY-DARKGRAY-01;
+$narrativeCurrentValueBorderLeftColor:$ORANGE-DARK-BROWNTONE-01;
+$narrativeCurrentValueBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+//ui-radiobutton-label
+$uiRadiobuttonLabel: $CHARCOAL-F100;
+$uiRadiobuttonLabelFontSize: $uiRadiobuttonLabel;
+$uiRadiobuttonLabelLineHeight: $line-height-1;
+$uiRadiobuttonLabelSize: $font-size-12_1;
+
+
+//ui-radiobutton
+$uiRadiobuttonBackgroundcolor: $WHITE-10;
+$uiRadiobuttonColor: $WHITE;
+$uiradioButtonBorderColor: $VIOLET-PRIMARY-COLOR;
+
+//ui-radioButton state active hover
+$uiRadioButtonActiveHoverBackgroundColor: $WHITE;
+
+//ui-RadioButton SateActive
+$uiRadioButtonActiveBackgroundColor: $WHITE;
+$uiRadioButtonActiveColor: $WHITE;
+$uiRadioButtonActiveBoxShadow: $WHITE;
+
+$uiRadioButtonBoxBackgroundColor: none;
+
+//ui-float-label
+$uiFloatLabelFontWeight: $fontWeight-400;
+$uiFloatLabelColor: $GREY-A0;
+$uiFloatLabelBorderBottom: $CHARCOAL-F50;
+$uiFloatLabelBackgroundColor: $WHITE-05;
+
+//ui-float-label label
+$uiFloatLabel-LabelColor: $GREY-100;
+
+//tolplus
+$tolpluscolor : $CHARCOAL-F100;
+$tolplusFontSize-12-1:$font-size-12_1;
+
+//tolminus
+$tolminusColor: $CHARCOAL-F100;
+$tolminusFontSize-12-1: $font-size-12_1;
+
+//ui-dropdown
+$uiDropdownBorderBottom: $VIOLET-03;
+$uiDropdownLabelBackgroundColor: $WHITE-05;
+$uiDropDowntriggerIconColor:$VIOLET-03;
+
+//ui-dropdown panel
+$uidropdownPanelBackgroundColor: $WHITE;
+$uidropdownPanelColor:  $GRAY-HEX-20;
+
+//ui-dropdown label
+$uidropdownLabelBackgroundColor: $WHITE;
+
+//ui-Card
+$uiCardbackgroundColor: $WHITE-10;
+$uiCardColor: $GRAY-HEX-20;
+
+//ui-inputtext
+$uiInputTextBorderBottom: 0.06em solid $GREY-02;
+$uiInputTextBorderBottom01: 1px solid $GREY-02;
+$uiInputTextCOlor: $GRAY-HEX-20;
+$uiInputTextBorder: $borderNone;
+$uiInputTextBackgroundColor: $BLACK;
+
+//columnfreeze
+$frozenColumnBackgroundColor: #f7faff;
+
+//ui-inputtext.ng-dirty.ng-invalid
+$uiInputTextDirtyInvalid: $RED-100;
+
+//ui-fileupload
+$uiFileUploadBackgroundColor: $WHITE;
+
+//uploadButton
+$uploadButtonBackgroundColor: $WHITE;
+
+//ui-dialog
+$uiDialogColor: $WHITE;
+$uiDialogBackgroundColor: $WHITE;
+$uiDialogBorderBottom:$GREY-07;
+$uiDialogTitleColor:$primaryColor;
+$uiDialogTilebarColor: $GRAY-HEX-20;
+$uiDialogTilebarBorderBottom: $borderNone;
+$uiDialogTilebarBorder:0.0625em solid $WHITE;
+$uiDialogContentColor:$GRAY-HEX-20;
+$uiDialogContentBorder: $borderNone;
+$uiDialogFooterColor:$GRAY-HEX-20;
+$uiDialogFooterBorder: $borderNone;
+
+//fileUploadError
+$fileUploadErrorColor: $RED-01;
+
+//uibutton
+$uiButtonBorder: $BLUE-01;
+$uiButtonColor: $WHITE;
+
+//uibuttonHover
+$uiButtonHoverbordercolor:$BLACK-02;
+
+//ui-button-icon-only
+$uibuttonicononlyBackgroundColor:$BLACK;
+
+//ui-table
+$uiTableBorderBottom:$GREY-15;
+$uiTableBorderBorder: $GREY-07;
+$uiTableBackground: $GRAY-HEX-88;
+$uiTableBackgroundColor: $GHOSTWHITE;
+
+//ui-table-thead
+$uiTableColor: $CHARCOAL-F100;
+
+//ui-table-tbody
+$uiTableTbodyBorderBottom: $GREY-15;
+$uiTableTbodyBackgroundColor: $WHITE;
+$uiTableTbodyBorderTop:0.00625em solid $GREY-07;
+$uiTableTbodyBorderBottom: 0.00625em solid $GREY-07;
+$uiTableTbodyBorderLeft:none;
+$uiTableTbodyBorderRight:none;
+
+//ui-table-caption
+$uiTableCaptionBackgroundColor: $WHITE;
+//ui-table sortable icon
+$uiTableSortableIconColor: $GRAY;
+
+//ui-selectbutton
+$uiSelectButtoncolor: $VIOLET-02;
+$uiSelectButtonBackgroundColor: $VIOLET-02;
+$uiselectButtonBorder: $VIOLET-02;
+$uiSelectButtonActiveColor: $WHITE;
+$uiSelectButtonActiveHoverColor: $WHITE;
+$uiSelectButtonActiveBackgroundColor: $VIOLET-02;
+
+
+//bankHeader
+$bankHeaderColor: $GREY-05;
+
+//iconStyleConfirm
+$iconStyleConfirmColor: $ICONS;
+
+//iconStyle
+$iconStyleColor: $ICONS;
+
+//indented-header
+$indentedHeadercolor:$GREY-05;
+
+//summaryfield
+$summaryFieldColor: $BLACK_03;
+
+//body
+$bodyBackground: $WHITE;
+$bodyColor: $BLACK;
+
+//ng-header
+$ngheaderBackground: $WHITE;
+$ngheaderBorderBottom: $FUCHSIA-PRIMARY-COLOR;
+
+//ng-menu
+$ngmenuBackground: $WHITE;
+
+//mat-option.mat-active
+$matoptionmatactiveColor: $primaryColor;
+
+//Product code color
+$LCColor: $FUCHSIA-01;
+$LC_backgroundColor: $WHITE-01;
+$BGColor: $VIOLET-01;
+$BG_backgroundColor: $WHITE-02;
+$SRColor: $OCEAN-01;
+$SR_backgroundColor: $WHITE-03;
+$ECColor: $GOLD-01;
+$EC_backgroundColor: $WHITE-04;
+
+//TNX State Code color
+$N004_01Color: $GRASS-G25;
+$N004_02Color: $AMBER-O25;
+$N004_01_leftBorderColor:$GRASS-G25;
+$N004_02_leftBorderColor: $AMBER-O25;
+
+//EventBackgroundColor
+$N002_01BackgroundColor: $WHITE-01;
+$N002_02BackgroundColor: $WHITE-02;
+$N002_03BackgroundColor: $WHITE-03;
+$N002_13BackgroundColor: $WHITE-04;
+
+//checkbox css
+$fccUIChkboxStateActiveFocusBorderColor: $VIOLET-PRIMARY-COLOR;
+$fccUIChkboxStateActiveFocusBackgroundColor: $VIOLET-PRIMARY-COLOR;
+$fccUIChkboxStateActiveBackgroundColor: $VIOLET-PRIMARY-COLOR;
+$fccUIChkboxStateActiveBorderColor: $VIOLET-PRIMARY-COLOR;
+
+$fccUIChkboxStateFocusBorderColor: $VIOLET-PRIMARY-COLOR;
+$fccUIChkboxStateFocusBackgroundColor: $WHITE;
+$fccUIChkboxStateFocusColor: $WHITE;
+
+//viewModeSubHeader
+$viewmodeHeaderColor: $GREY-05;
+
+//fileuploadclass
+$fileuploadclassBackgroundColor: $VIOLET-PRIMARY-COLOR;
+$fileUploadColor: $WHITE;
+
+//reauthclass
+$reauthBackgroundColor: $WHITE;
+$reauthColor: $VIOLET-PRIMARY-COLOR;
+$reauthBorderBottomColor: $GREY-07;
+
+//sessionClass
+$sessionBackgroundColor:$WHITE;
+
+//searchLayout ui-dialogcontent
+$sessionLayoutDialogBackgroundColor: $WHITE;
+
+//uiselectbutton default state
+$selectbuttonBackgroundColor: $WHITE;
+$selectButtonBorderColor: $WHITE-08;
+$selectButtonColor: $CHARCOAL-PRIMARY-COLOR;
+
+//uiselectbutton default:hover
+$selectButtonDefaultHoverBackgroundColor: $WHITE-09;
+$selectButtonDefaultHoverBorder: $VIOLET-03;
+$selectButtonDefaultHoverColor: $VIOLET-03;
+
+//uiselectButton state disabled
+$selectButtonDisabledBackgroundColor: $WHITE-11;
+$selectButtonDisabledBorder:$GREY-06;
+$selectButtonDisabledColor: $GREY-06;
+
+//uiSelectButton state disabled Hover
+$selectButtonDisabledHoverBackgroundColor: $WHITE-11;
+$selectButtonDisabledHoverBorder: $GREY-06;
+$selectButtonDisabledHoverColor: $GREY-06;
+
+$disableSaveBeneficiaryColor: $GREY-06;
+
+//uiselectButton state active disabled hover
+$selectButtonActivedisabledHoverBackGroundC:$WHITE-09;
+$selectButtonActivedisabledHoverBorder: $VIOLET-03;
+$selectButtonActivedisabledColor:$VIOLET-03;
+
+//uiselectButton state active
+$selectButtonActiveBackgroundColor: $WHITE-09;
+$selectButtonActiveBorder: $VIOLET-03;
+$selectButtonActiveColor: $VIOLET-03;
+
+//uiselectButton state active:Hover
+$selectButtonActiveHoverBackgroundColor:$VIOLET-04;
+$selectButtonActiveHoverBorder: $VIOLET-03;
+$selectButtonActiveHoverColor: $VIOLET-03;
+
+//infoLabel
+$infoLabelColor:$WHITE;
+$infolabelHoverColor:$WHITE;
+
+//infoicon
+$infoIconColor: $GRAY-TROLLEYGREY-01;
+
+//InfoDropdown icon
+$infoDropDownColor: $GRAY-TROLLEYGREY-01;
+
+//Bank view
+$bankViewOptionColor: $BLACK;
+
+//iconStyleConfirm
+$iconstyleConfirmColor: $ICONS;
+
+//mat-tooltip
+$mattooltipBackgroundColor:$WHITE;
+$mattooltipcolor:$BLACK;
+$mattooltipBordercolor:$BLACK;
+
+//Form-Header
+$formHeaderColor: $INDIGO;
+
+//filemaxLimit
+$fileMaxLimitColor: $BLACK;
+
+//Browse Button
+$browseButtonBackgroundColor: $WHITE;
+
+//DragDropArea
+$dragDropAreaBorder: $GREY-07;
+
+//success
+$successTickColor: $GRASS-G100;
+$successColor: $GREY-05;
+
+//activeclass
+$activeclassBackgroundColor: $Link-Water;
+$activecolor: $GRAY-HEX-20;
+
+//ui-button-text-icon-left
+$uiButtonTextIonLeftColor: $GREEN;
+
+//expiryDateStyle
+$expiryDateStyleBorderColor: $GREY-100;
+
+//ui-datepicker
+$uidatePickerBackgroundColor: $WHITE;
+$uidatePickerColor: $WHITE;
+
+//ui-datepicker table
+$uidatepickertableColor: $WHITE;
+
+//referenceSelectedStyle
+$refrenceSelectedStyleColor: $GREY-100;
+$selectedStyleColor: $GREY-100;
+
+//templateselection
+$templateSelectionStyleColor: $GREY-100;
+
+//SRN Number
+$SRNNumberColor: $GREY-100;
+
+//textArea webkit Scrollbar
+$textAreaWebkitScrollBackgroundColor: $WHITE-14;
+$textAreaWebkitScrollthumbBackgroundColor: $CHARCOAL-F100;
+//textAreacharacterCountDivfield
+$textAreacharacterCountDivfieldBackgroundColor: transparent;
+
+//imgclass focus
+$imgclassfocusOutline: $primaryColor;
+
+//ui-button state default
+$uibuttonDefaultBackgroundColor: $WHITE;
+$uibuttonDefaultBorder: $WHITE-08;
+$uibuttonDefaultColor: $CHARCOAL-F100;
+
+//ui-Button state active
+$uibuttonActiveBackgroundColor: $WHITE-09;
+$uibuttonActiveBorder: $VIOLET-03;
+$uibuttonActiveColor: $VIOLET-03;
+
+//startClass
+$startClassAddColor: $GRASS-20;
+$startClassDeleteColor: $RED-20;
+$startClassRepAllColor: $GOLD-10;
+
+//mat-icon
+$maticonColor: $CHARCOAL-F50;
+
+//ui-button statedefault
+$uiButtonDefaultSecondaryColor: $GRAY-HEX-20;
+$uiButtonDefaultBackgroundColor: $CHARCOAL-c2;
+$uiButtonDefaultBorder: $GREY-02;
+
+//ui-button enabled Hover
+$uiButtonEnabledHoverBorderColor: $BLACK-02;
+
+$uiButtonIconLeftColor:$GREEN;
+
+//Visible Mat Icons
+$visiblematIconColor: $GRAY-TROLLEYGREY-01;
+$visiblematIconHoverColor: $GOLD-10;
+
+//ui-calendar Hover
+$uicalendarHoverBackground: $WHITE-05;
+
+//pre
+$preBackground:$VIOLET-F30;
+
+//masterValueStyle
+$masterValueStyleColor: $CHARCOAL-F75;
+$masterValueStyleBorder: $ORANGE-PALE-01;
+
+//narrativeMasterValueStyle
+$narrativeMasterValueStyleColor: $CHARCOAL-F75;
+
+//Styling  -------
+//mat-tab
+$mat-tab-label-opacity: 1;
+$mat-tab-label-content-display: $displayInlineFlex;
+$mat-tab-label-content-justifyContent : $textAlignCenter;
+$mat-tab-label-content-alignitems : $textAlignCenter;
+$mat-tab-label-content-color: $primaryColor;
+$mat-tab-label-content-border: 0.071em $borderSolid $BLACK;
+
+
+//ui-tab
+$ui-tabview-backgroundcolor: transparent;
+$ui-tabview-border : $borderNone;
+$ui-tabview-borderBottom :0.25em $borderSolid $primaryColor ;
+$ui-tabview-color:$CHARCOAL-F100;
+//ui tabview state-active li a
+$ui-tabview-Active-a-color: $primaryColor;
+$ui-tabview-ActiveHover-BackgroundColor: transparent;
+$ui-tabview-DisabledHover-BackgroundColor : transparent;
+$ui-tabview-DisabledHover-Border: $borderNone;
+
+$ui-tabview-panels-borderTop: 0.0625em $borderSolid #979797;
+$ui-tabview-panels-borderLeft : $borderNone;
+$ui-tabview-panels-borderRight: $borderNone;
+$ui-tabview-panels-borderBottom: $borderNone;
+$ui-tabview-panels-backgroundColor: #ffffff;
+$ui-tabview-panels-Color: $GRAY-HEX-20;
+$ui-tabview-top-Color: $GRAY-HEX-20;
+$ui-tabview-title-VerticalAlign: middle;
+$ui-tabview-title-fontFamily: Roboto;
+$ui-tabview-title-fontSize: 1.125em;;
+
+
+//Tabs
+$Tabcolor:$VIOLET-03;
+$Tabfontsize:'';
+$tabActiveBackgroundcolor:$VIOLET-07;
+$tabBorderColor:$VIOLET-03;
+$ui-tabmenu-focus:$primaryColor;
+$uitabmenu-hover-background:$WHITE-09;
+// ----------- UI Tabmenu
+$ui-tabmenu-nav-active:$WHITE;
+$ui-tabmenu-item-active-color: $Purple ;
+$ui-tabmenuItem-CornerTopActive-Border :  $borderNone;
+$ui-tabmenuItem-CornerTopActive-Background : transparent;
+$ui-tabmenuItem-CornerTopActive-BorderBottom: 0.3em $borderSolid $primaryColor;
+
+$Ui-tabmenu-nav-item-Border: $borderNone;
+$Ui-tabmenu-nav-item-BackgroundColor:transparent;
+$Ui-tabmenu-nav-item-DisableHover-BackgroundColor: transparent;
+$Ui-tabmenu-nav-item-DisableHover-Border: $borderNone;
+
+$ui-tabmenu-nav-background: transparent;
+$ui-tabenu-nav-itemLinkFocusBoxShadow:0 0 0 0.2em #8dcdff;
+
+$ui-tabmenu-nav-li-BackgroundColor: $WHITE;
+$ui-tabmenu-nav-li-Border: 0.0625em $borderSolid $tabBorderColor;
+$ui-tabmenu-nav-liHover-Border:0.0625em $borderSolid $ui-tabmenu-focus;
+$ui-tabmenu-nav-liHover-BackgroundColor: $uitabmenu-hover-background;
+
+$ui-tabmenu-nav-liHover-Color:$ui-tabmenu-focus;
+$ui-tabmenu-menuitemtext-color: $primaryColor;
+
+$ui-cornerright-border-top-right-radius: 3rem;
+$ui-cornerright-border-bottom-right-radius: 3rem;
+$ui-cornerright-border: $borderNone;
+$ui-cornerright-border-left: $borderNone;
+$ui-cornerTop-border-top-left-radius: 0px;
+$ui-cornerTop-border-top-right-radius:0px;
+
+
+// STYLING OF BUTTON / SELECT BUTTON / TAB-----------
+// primaryButton styling--------
+$primaryBtnColor: $primaryButtonColor;
+$primaryBtnBorderRadius: $font-size-15_1;
+$primaryBtnPadding: $font-size-0 $font-size-21;
+$primaryBtnMinWidth: $font-size-56;
+$primaryBtnLineHeight: $font-size-31_1;
+$primaryBtnFontSize: $font-size-12_1;
+$primaryBtnFontWeight: $fontWeight-500;
+$primaryBtnOutline: $font-size-0;
+$primaryBtnBorder: $borderNone;
+$primaryBtnDisplay: $displayInline;
+$primaryBtnTextDecoration: '';
+$primaryBtnVerticalAlign: '';
+$primaryBtnTextAlign: $textAlignCenter;
+$primaryBtnBackgroundColor: $primaryButtonBackground;
+$primaryBtnWidth: '';
+// secondaryButton styling----------
+$secondaryBtnColor: $secondaryColor;
+$secondaryBtnBorderRadius: $font-size-15_1;
+$secondaryBtnPadding: $font-size-0 $font-size-21;
+$secondaryBtnMinWidth: $font-size-56;
+$secondaryBtnLineHeight: $font-size-31_1;
+$secondaryBtnFontSize: $font-size-12_1;
+$secondaryBtnFontWeight: $fontWeight-500;
+$secondaryBtnOutline: $font-size-0;
+$secondaryBtnBorder: $font-size-0_1 solid $secondaryColor ;
+$secondaryBtnDisplay: $displayInline;
+$secondaryBtnTextDecoration: '';
+$secondaryBtnVerticalAlign: '';
+$secondaryBtnTextAlign: $textAlignCenter;
+$secondaryBtnBackgroundColor: $SecondaryButtonBackground;
+$secondaryBtnWidth: '';
+// tertiaryButton styling--------------
+$tertiaryBtnColor: $FUCHSIA-PRIMARY-COLOR;
+$tertiaryBtnBorderRadius: $font-size-15_1;
+$tertiaryBtnPadding: $font-size-0 $font-size-21;
+$tertiaryBtnMinWidth: $font-size-56;
+$tertiaryBtnLineHeight: $font-size-31_1;
+$secondaryBtnFontSize: $font-size-12_1;
+$tertiaryBtnFontWeight: $fontWeight-500;
+$tertiaryBtnOutline: $font-size-0;
+$tertiaryBtnBorder: $font-size-0_1 solid $secondaryColor ;
+$tertiaryBtnDisplay: $displayInline;
+$tertiaryBtnTextDecoration: '';
+$tertiaryBtnVerticalAlign: '';
+$tertiaryBtnTextAlign: $textAlignCenter;
+$tertiaryBtnBackgroundColor: transparent;
+$tertiaryBtnWidth: '';
+
+//ui selectbutton
+$ui-selectbutton-Border: -0.1em solid $primaryColor;
+$ui-selectbutton-taskButton-Border: 1px solid $VIOLET-02;
+$ui-selectbutton-active-Border: 0.0625em solid $primaryColor;
+$ui-selectbutton-taskButton-BackgroundColor: $LIGHTGREY;
+$ui-selectbutton-taskButton-Border: 1px solid $VIOLET-02;
+$ui-selectbutton-taskButton-Color: $GRAY-HEX-20;
+$ui-selectbutton-login-Color: transparent;
+$ui-selectbutton-login-active-Color: $GREEN-01;
+$ui-selectbutton-login-active-disabled-hover-Color: transparent;
+$ui-selectbutton-filterSection-active-Border: 0.0625em solid $VIOLET-02;
+$ui-selectbutton-filterSection-active-BackgroundColor: $VIOLET-02;
+$ui-selectbutton-filterSection-active-Color: $WHITE;
+$ui-selectbutton-filterSection-button-Border: 0.065em solid $VIOLET-02;
+$ui-selectbutton-filterSection-active-focus-BackgroundColor: $VIOLET-02;
+$ui-selectbutton-filterSection-focus-BackgroundColor: $WHITE-09;
+$ui-selectbutton-filterSection-BackgroundColor: $WHITE;
+$ui-selectbutton-filterSection-Border: -0.1em solid $VIOLET-02;
+$ui-selectbutton-rtl-BorderRadius: 0em;
+$ui-selectbutton-rtl-BorderTopRightRadius: 0.1875em;
+$ui-selectbutton-rtl-BorderBottomRightRadius: 0.1875em;
+$ui-selectbutton-filterSection-Color: $VIOLET-02;
+$ui-selectbutton-active-hover-Color: transparent;
+$ui-selectbutton-filterSection-button-BackgroundColor: $LIGHTGREY;
+$ui-selectbutton-DefaultState-Border: 0.0625em solid $WHITE-08;
+$ui-selectbutton-DefaultState-hover-Border: 0.0625em solid $VIOLET-03;
+$ui-selectbutton-DefaultState-disabled-Border: 0.0625em solid $GREY-06;
+$ui-selectbutton-filterSection-button-Color: $GRAY-HEX-20;
+$ui-selectbutton-active-Color: $WHITE;
+$ui-selectbutton-active-hover-Color: transparent;
+$ui-selectbuttpn-BackgroundColor: $WHITE;
+
+//lc-no-text
+$lcnotextColor: $VIOLET-02;
+
+//ui-menuitem
+$ui-menuitemColor:$CHARCOAL-F100;
+
+//comment-class
+$comment-classColor:$CHARCOAL-F100;
+//sec-comment-class
+$secCommentClassColor: $GRAY_O1;
+
+//middle-lc-wrapper
+$middleLCWrapperBorderBottom: 0.1em solid $DoveGray;
+
+//headerStyle
+$headerStyleColor: $BLACK_03;
+
+//fileuploadTable
+$fileuploadTableColor : $GREY-08;
+
+//orgLCAmtStyle
+$orgLCAmtStyleColor:$CHARCOAL-F75;
+
+//sectionHeader
+$sectionHeaderColor: $CHARCOAL-F75;
+
+//ui-progressbar
+$ui-progressbar-valueBackground: $progressBar;
+$ui-progressbarBackground:$Melanie;
+$ui-progressBarItemColor:$progressBar;
+
+$ui-progressSpinnerColor:$progressBar;
+
+//savedTimer
+$savedTimerColor: $scorpion;
+
+//overDrawWrapper
+$overDrawWrapperColor: $RED-01;
+
+//leftNews
+$leftNewBorderRight: 0.0625em solid $CHARCOAL-F10;
+
+//threeDots
+$threeDotsColor:$WHITE;
+$threeDotsBackgroundColor: $primaryColor;
+$threeDotsFocusBoxShadow: 0 0 0 0.125em $secondaryColor;
+
+//tab-block
+$tabblockBackgroundColor: $Alabaster;
+
+//saved-view-block
+$saved-view-blockBackgroundColor:$Alabaster;
+
+//main-start
+$mainstartBackgroundColor:$WHITE;
+
+$otpTimerBackgroundColor:$BilobaFlower;
+$otpMessageColor: $GRAY-TROLLEYGREY-01;
+$otpHeaderColor:$BLACK;
+
+$textMessageColor:$BLACK;
+
+$label-belowColor:$CHARCOAL-F50;
+
+//mat-input-element
+$mat-inputElementColor:$BLACK;
+
+//tooltipstyle
+$tooltipstyleBackgroundColor: $RED-100;
+
+//border-class
+$borderClassBorderRight: 0.0625em solid $WHITE;
+
+//top-wrapper
+$topWrapperBoxShadow: 0 0.125em 0.5em 0 rgba(0,0,0,0.21);
+
+// Variables for Enquiry Page
+$borderSize: 1px;
+$tabBottomBorder: 0.25em;
+$transparent:transparent;
+$labelColorEventSection:#999999;
+$enquiryTabBorderColor:#979797;
+$borderSizeFeedbackBox: 1.1px;
+$LIGHT-PURPLE:#b8ace9;
+$DARK-BLACK:#252525;
+$ASH-BLACK:#505050;
+$globalSearchInputBorder:0px;
+$globalSearchInputBottomBorder:2px;
+$submitCircleIconRadius:50%;
+
+// variable for Amendment comparison screen
+$comparisonTextFont:100% Roboto, sans-serif;
+$border-right-width-2: 2.0em;
+$breakWord: break-word;
+$preWrap: pre-wrap;
+$onlyAmendedDisplay: inline-flex;
+
+//************FCC theme End here **********************//
+
+
+// // ************ ING theme Start here **********************//
+
+
+
+// // Primary White and Black color varients
+$WHITE: #ffffff;
+$BLACK: #000000;
+$YELLOW-F10:#ff6200;
+$CHARCOAL-I01:#1f1f1f;
+$CHARCOAL-I02:#7c7171;
+$YELLOW-F11:#f3d9c9;
+$YELLOW-F12:#fefaf7;
+$YELLOW-F13: #eb7c15
+// // Default Variables
+
+// $primaryColor:$YELLOW-F10;
+// $primaryLight:$YELLOW-F11;
+// $secondaryColor:$CHARCOAL-I02;
+// $standardFontSize : '14px';
+// $standardFontFamily:'Roboto';
+// $MainHeadingColor:$CHARCOAL-F100;
+// $MainHeadingFontSize:20px;
+// $SubHeaderColor:$CHARCOAL-A10;
+// $SubHeaderFontSize:'';
+// $transimission-Tick-Color: $YELLOW-F10;
+// $form-Wrapper-background:$YELLOW-F12;
+
+// $successColor:'';
+// $errorColor:'';
+// $linkColor:'';
+// $LinkHover:'';
+// $iconcolor:'';
+// $iconHoverColor:$GREY-03;
+
+// // Primary Button
+// $primaryButtonColor:$CHARCOAL-I01;
+// $primaryButtonBackground:$YELLOW-F10;
+// $primaryButtonHoverBackgroundcolor:$YELLOW-F10;
+// $primaryButtonFocusBackgroundcolor:$YELLOW-F10;
+// $primaryButtonActiveBackgroundcolor:$YELLOW-F10;
+// $primaryButtonBorderColor:$YELLOW-F10;
+// // Secondary Button
+// $SecondaryButtonColor:$CHARCOAL-I01;
+// $SecondaryButtonBackground:$WHITE;
+// $secondaryButtonBorder:$CHARCOAL-I01;
+// $secondaryButtonActive:$CHARCOAL-I01;
+// $secondaryButtonhover:$CHARCOAL-I01;
+
+// //Regular button
+// $regular-Button-Background:$YELLOW-F11;
+// $regular-Button-color:$YELLOW-F10;
+// $regular-button-border-color:$YELLOW-F10;
+
+// //Widget Variables
+// $widgetHeaderColor: $BLACK;
+// $widgetHeaderFontSize:'1em';
+// $WidgetborderColor:'';
+
+// //Pagination
+// $ActiveNumberbackgroundColor:$YELLOW-F10;
+// $paginationText:'';
+// $paginationBackground:'';
+// $nonActivePageColor:'';
+
+// //Menu
+// $MenuColor:$WHITE;
+// $MenuFontSize:'14px';
+// $menuHoverBackground:$CHARCOAL-I01;
+// $menuBorder:$YELLOW-F10;
+// $menuBackground:$YELLOW-F10;
+// $activeMenuLeftBorder:$YELLOW-F10;
+// $menuitemFocus:$YELLOW-F10;
+
+// //Tabs menu
+// $Tabcolor:$GREY-100;
+// $Tabfontsize:'';
+// $tabActiveBackgroundcolor:$YELLOW-F10;
+// $tabBorderColor:$YELLOW-F10;
+// $ui-tabmenu-focus:$YELLOW-F10;
+// $uitabmenu-hover-background:$WHITE-13;
+
+
+// //Narrative Tabs
+// $narrative-active-tab-color:$YELLOW-F10;
+// $narrative-active-tab-bottomBorder-color:$YELLOW-F10;
+// $selectedtabcolor:'';
+// $border:'';
+// $background:'';
+
+// // Forms
+// $activeRadiobuttoncolor:'';
+// $activeCheckboxColor:'';
+// $togglebutton:'';
+// $formLabelColor: $YELLOW-F10;
+// $formFieldBorderBottom:$CHARCOAL-F50;
+// $formFieldfocusedBorderBottom:$YELLOW-F10;
+// $formCheckboxColor:$YELLOW-F10;
+// $formFieldbackground:$CHARCOAL-F25;
+// $form-checkbox-active:'';
+// $form-radioButton-active:$YELLOW-F10;
+// $dropdown-left-border-hover:$YELLOW-F11;
+// $dropdown-left-background-hover:$YELLOW-F12;
+// $mat-form-field-flex-border: $borderNone;
+
+// // Wizard Stepper
+// $steppercompletedcolor:$WHITE;
+// $steppercompletedbackgroundcolor:$GREEN-01;
+// $Progressbarincompletecolor:'';
+
+// // Hamburger Menu
+// $Hamburgercolor:'';
+// $Hamburgerhovercolor:'';
+// $Selectedcolor:'';
+// $selectedbackground:'';
+// $Hamurgernormalcolor:'';
+
+// //Footer
+// $FooterMenuscolor:$YELLOW-F10;
+// $FooterMenuscolor:$YELLOW-F10;
+// $FooterFontsize: 1em;
+// $fontfamily:'';
+// $FootercopyrightColor:$CHARCOAL-A30;
+
+
+// // table
+// $tableEvenrowcolor : $VIOLET-14;
+// $tableoddrowcolor:$WHITE;
+// $headercolor:'';
+// $tableRowHover:$VIOLET-15;
+
+// //Header menu
+// $avatarColor:'';
+// $icon:'';
+// $iconActiveColor:'';
+// $bellIconColor:'';
+// $beliconNumber:'';
+// $headerIconscolor:'';
+
+// //Enquiry
+// $enquirybackground:'';
+// $labelColor:'';
+// $valuecolor:'';
+
+// // Calender
+//  $calenderActiveTabColor:$YELLOW-F10;
+
+// //advanced filter
+// $advanced-filter-search:$YELLOW-F10;
+
+// //Toggle button
+// $activeToggle:$YELLOW-F10;
+
+// //Information
+// $information-icon-color:$YELLOW-F10;
+// $information-icon-background:$YELLOW-F10;
+// $information-wrapper-background:'';
+
+// // mat-expansion-panel-header
+// $matExpansionPanelHeaderTextColor: $YELLOW-F10;
+// $matExpansionBackgroundColor: $YELLOW-F11;
+// $matExpansionOutlineColor: $YELLOW-F10;
+// $matExpansionPanelHeaderFontWeight: $fontWeight-500;
+// $matExpansionPanelHeaderFontSize: $font-size-15_1;
+// $matExpansionPanelHeaderBorderRadius: $font-size-1_1;
+// $matExpansionPanelHeaderBorderBottom: $CHARCOAL-F25;
+
+// //Enquiry
+// $enquirybackground:'';
+// $labelColor:'';
+// $valuecolor:'';
+
+// //Enquiry Header
+// $enquiryChannelReferencecolor:$YELLOW-F10;
+// $enquiryeventtextColor:$YELLOW-F10;
+// $enquiryEventTypetextColor:$YELLOW-F10;
+// $enquiryButtonTextColr:$BLACK-01;
+
+// //Enquiry Details
+// $enquirydetailsBackgroundColor:$YELLOW-F10;
+// $enquirydetailsmallTextColor:$WHITE;
+// $enquiryDetailsMediumTextColor:$WHITE;
+// $enquiryDetailsLargeTextColor:$WHITE;
+
+// //Enquiry Tab
+// $enquiryTabTextColor: '';
+// $enquirtTabColor:'';
+
+// //Enquiry Event Tab
+
+// // Added by ravi
+// //Message
+// $fccErrorMessageColor: red;
+
+// //ErrorMessage
+// $errorMessageColor: red;
+// //mat-tab-label-Focus
+// $matTabLabelFocusBorder: $BLACK;
+
+// //labelStyle
+// $labelstyleColor: $BLACK_03;
+
+// //label-header
+// $labelHeaderColor: $VIOLET-PRIMARY-COLOR;
+
+// //Inputswitch
+// $InputSwitchBackgroundColor: $VIOLET-02;
+
+// //valueStyle
+// $valuestyleColor: $GRAY-DARKGRAY-01;
+
+// //masterAccordionStyle
+// $masterAccordionStyleColor:$GRAY-DARKGRAY-01;
+// $masterAccordionBorderColor: $ORANGE-PALE-01;
+
+// //tnxAccordionStyle
+// $tnxAccordionStyleColor:$GRAY-DARKGRAY-01;
+// $tnxAccordionStyleBorderLeftColor: $ORANGE-DARK-BROWNTONE-01;
+// $tnxAccordionStyleBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+// //valueAccordionStyle
+// $valueAccordionColor: $GRAY-DARKGRAY-01;
+
+// //masterstyle
+// $masterStyleColor: $GRAY-DARKGRAY-01;
+// $masterstyleBorderLeft: $ORANGE-DARK-BROWNTONE-01;
+// $masterStyleBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+// //narrativeCurrentValueStyle
+// $narrativeCurrentValueColor:$GRAY-DARKGRAY-01;
+// $narrativeCurrentValueBorderLeftColor:$ORANGE-DARK-BROWNTONE-01;
+// $narrativeCurrentValueBackgroundColor: $ORANGE-LIGHT-GRAYISH-01;
+
+// //ui-radiobutton-label
+// $uiRadiobuttonLabel: $CHARCOAL-F100;
+// $uiRadiobuttonLabelFontSize: $uiRadiobuttonLabel;
+// $uiRadiobuttonLabelLineHeight: $line-height-1;
+// $uiRadiobuttonLabelSize: $font-size-12_1;
+
+
+// //ui-radiobutton
+// $uiRadiobuttonBackgroundcolor: $WHITE-10;
+// $uiRadiobuttonColor: $WHITE;
+// $uiradioButtonBorderColor: $VIOLET-PRIMARY-COLOR;
+
+// //ui-radioButton state active hover
+// $uiRadioButtonActiveHoverBackgroundColor: $WHITE;
+
+// //ui-RadioButton SateActive
+// $uiRadioButtonActiveBackgroundColor: $WHITE;
+// $uiRadioButtonActiveColor: $WHITE;
+// $uiRadioButtonActiveBoxShadow: $WHITE;
+
+// //ui-float-label
+// $uiFloatLabelFontWeight: $fontWeight-400;
+// $uiFloatLabelColor: $GREY-A0;
+// $uiFloatLabelBorderBottom: $CHARCOAL-F50;
+// $uiFloatLabelBackgroundColor: $WHITE-05;
+
+// //ui-float-label label
+// $uiFloatLabel-LabelColor: $GREY-100;
+
+// //tolplus
+// $tolpluscolor : $CHARCOAL-F100;
+// $tolplusFontSize-12-1:$font-size-12_1;
+
+// //tolminus
+// $tolminusColor: $CHARCOAL-F100;
+// $tolminusFontSize-12-1: $font-size-12_1;
+
+// //ui-dropdown
+// $uiDropdownBorderBottom: $VIOLET-03;
+// $uiDropdownLabelBackgroundColor: $WHITE-05;
+
+// //ui-dropdown panel
+// $uidropdownPanelBackgroundColor: $WHITE;
+// $uidropdownPanelColor:  $GRAY-HEX-20;
+
+// //ui-Card
+// $uiCardbackgroundColor: $WHITE-10;
+// $uiCardColor: $GRAY-HEX-20;
+
+// //ui-inputtext
+// $uiInputTextBorderBottom: $GREY-02;
+// $uiInputTextCOlor: $GRAY-HEX-20;
+
+// //ui-inputtext.ng-dirty.ng-invalid
+// $uiInputTextDirtyInvalid: $RED-100;
+
+// //ui-fileupload
+// $uiFileUploadBackgroundColor: $WHITE;
+
+// //uploadButton
+// $uploadButtonBackgroundColor: $WHITE;
+
+// //ui-dialog
+// $uiDialogColor: $WHITE;
+// $uiDialogBackgroundColor: $WHITE;
+// $uiDialogBorderBottom:$GREY-07;
+
+// //fileUploadError
+// $fileUploadErrorColor: $RED-01;
+
+// //uibutton
+// $uiButtonBorder: $BLUE-01;
+
+// //uibuttonHover
+// $uiButtonHoverbordercolor:$BLACK-02;
+
+// //ui-button-icon-only
+// $uibuttonicononlyBackgroundColor:$BLACK;
+
+// //ui-table
+// $uiTableBorderBottom:$GREY-15;
+// $uiTableBorderBorder: $GREY-07;
+// $uiTableBackground: $GRAY-HEX-88;
+// $uiTableBackgroundColor: $GHOSTWHITE;
+
+// //ui-table-thead
+// $uiTableColor: $CHARCOAL-F100;
+
+// //ui-table-tbody
+// $uiTableTbodyBorderBottom: $GREY-15;
+
+// //ui-table-caption
+// $uiTableCaptionBackgroundColor: $WHITE;
+// //ui-table sortable icon
+// $uiTableSortableIconColor: $GRAY;
+
+// //ui-selectbutton
+// $uiSelectButtoncolor: $VIOLET-02;
+// $uiSelectButtonBackgroundColor: $VIOLET-02;
+// $uiselectButtonBorder: $VIOLET-02;
+// $uiSelectButtonActiveColor: $WHITE;
+// $uiSelectButtonActiveHoverColor: $WHITE;
+// $uiSelectButtonActiveBackgroundColor: $VIOLET-02;
+
+
+// //bankHeader
+// $bankHeaderColor: $GREY-05;
+
+// //iconStyleConfirm
+// $iconStyleConfirmColor: $ICONS;
+
+// //iconStyle
+// $iconStyleColor: $ICONS;
+
+// //indented-header
+// $indentedHeadercolor:$GREY-05;
+
+// //summaryfield
+// $summaryFieldColor: $BLACK_03;
+
+// //body
+// $bodyBackground: $WHITE;
+// $bodyColor: $BLACK;
+
+// //ng-header
+// $ngheaderBackground: $WHITE;
+// $ngheaderBorderBottom: $FUCHSIA-PRIMARY-COLOR;
+
+// //ng-menu
+// $ngmenuBackground: $WHITE;
+
+// //mat-option.mat-active
+// $matoptionmatactiveColor: $VIOLET-F100;
+
+// //Product code color
+// $LCColor: $FUCHSIA-01;
+// $LC_backgroundColor: $WHITE-01;
+// $BGColor: $VIOLET-01;
+// $BG_backgroundColor: $WHITE-02;
+// $SRColor: $OCEAN-01;
+// $SR_backgroundColor: $WHITE-03;
+// $ECColor: $GOLD-01;
+// $EC_backgroundColor: $WHITE-04;
+
+// //TNX State Code color
+// $N004_01Color: $GRASS-G25;
+// $N004_02Color: $AMBER-O25;
+// $N004_01_leftBorderColor:$GRASS-G25;
+// $N004_02_leftBorderColor: $AMBER-O25;
+
+// //EventBackgroundColor
+// $N002_01BackgroundColor: $WHITE-01;
+// $N002_02BackgroundColor: $WHITE-02;
+// $N002_03BackgroundColor: $WHITE-03;
+// $N002_13BackgroundColor: $WHITE-04;
+
+// //checkbox css
+// $fccUIChkboxStateActiveFocusBorderColor: $VIOLET-PRIMARY-COLOR;
+// $fccUIChkboxStateActiveFocusBackgroundColor: $VIOLET-PRIMARY-COLOR;
+// $fccUIChkboxStateActiveBackgroundColor: $VIOLET-PRIMARY-COLOR;
+// $fccUIChkboxStateActiveBorderColor: $VIOLET-PRIMARY-COLOR;
+
+// $fccUIChkboxStateFocusBorderColor: $VIOLET-PRIMARY-COLOR;
+// $fccUIChkboxStateFocusBackgroundColor: $WHITE;
+// $fccUIChkboxStateFocusColor: $WHITE;
+
+// //viewModeSubHeader
+// $viewmodeHeaderColor: $GREY-05;
+
+// //fileuploadclass
+// $fileuploadclassBackgroundColor: $VIOLET-PRIMARY-COLOR;
+// $fileUploadColor: $WHITE;
+
+// //reauthclass
+// $reauthBackgroundColor: $WHITE;
+// $reauthColor: $VIOLET-PRIMARY-COLOR;
+// $reauthBorderBottomColor: $GREY-07;
+
+// //sessionClass
+// $sessionBackgroundColor:$WHITE;
+
+// //searchLayout ui-dialogcontent
+// $sessionLayoutDialogBackgroundColor: $WHITE;
+
+// //uiselectbutton default state
+// $selectbuttonBackgroundColor: $WHITE;
+// $selectButtonBorderColor: $WHITE-08;
+// $selectButtonColor: $CHARCOAL-PRIMARY-COLOR;
+
+// //uiselectbutton default:hover
+// $selectButtonDefaultHoverBackgroundColor: $WHITE-09;
+// $selectButtonDefaultHoverBorder: $VIOLET-03;
+// $selectButtonDefaultHoverColor: $VIOLET-03;
+
+// //uiselectButton state disabled
+// $selectButtonDisabledBackgroundColor: $WHITE-11;
+// $selectButtonDisabledBorder:$GREY-06;
+// $selectButtonDisabledColor: $GREY-06;
+
+// //uiSelectButton state disabled Hover
+// $selectButtonDisabledHoverBackgroundColor: $WHITE-11;
+// $selectButtonDisabledHoverBorder: $GREY-06;
+// $selectButtonDisabledHoverColor: $GREY-06;
+
+// //uiselectButton state active disabled hover
+// $selectButtonActivedisabledHoverBackGroundC:$WHITE-09;
+// $selectButtonActivedisabledHoverBorder: $VIOLET-03;
+// $selectButtonActivedisabledColor:$VIOLET-03;
+
+// //uiselectButton state active
+// $selectButtonActiveBackgroundColor: $WHITE-09;
+// $selectButtonActiveBorder: $VIOLET-03;
+// $selectButtonActiveColor: $VIOLET-03;
+
+// //uiselectButton state active:Hover
+// $selectButtonActiveHoverBackgroundColor:$VIOLET-04;
+// $selectButtonActiveHoverBorder: $VIOLET-03;
+// $selectButtonActiveHoverColor: $VIOLET-03;
+
+// //infoLabel
+// $infoLabelColor:$WHITE;
+// $infolabelHoverColor:$WHITE;
+
+// //infoicon
+// $infoIconColor: $GRAY-TROLLEYGREY-01;
+
+// //InfoDropdown icon
+// $infoDropDownColor: $GRAY-TROLLEYGREY-01;
+
+// //Bank view
+// $bankViewOptionColor: $BLACK;
+
+// //iconStyleConfirm
+// $iconstyleConfirmColor: $ICONS;
+
+// //mat-tooltip
+// $mattooltipBackgroundColor:$WHITE;
+// $mattooltipcolor:$BLACK;
+// $mattooltipBordercolor:$BLACK;
+
+// //Form-Header
+// $formHeaderColor: $INDIGO;
+
+// //filemaxLimit
+// $fileMaxLimitColor: $BLACK;
+
+// //Browse Button
+// $browseButtonBackgroundColor: $WHITE;
+
+// //DragDropArea
+// $dragDropAreaBorder: $GREY-07;
+
+// //success
+// $successTickColor: $GRASS-G100;
+// $successColor: $GREY-05;
+
+// //activeclass
+// $activeclassBackgroundColor: $Link-Water;
+// $activecolor: $GRAY-HEX-20;
+
+// //ui-button-text-icon-left
+// $uiButtonTextIonLeftColor: $GREEN;
+
+// //expiryDateStyle
+// $expiryDateStyleBorderColor: $GREY-100;
+
+// //ui-datepicker
+// $uidatePickerBackgroundColor: $WHITE;
+// $uidatePickerColor: $WHITE;
+
+// //ui-datepicker table
+// $uidatepickertableColor: $WHITE;
+
+// //referenceSelectedStyle
+// $refrenceSelectedStyleColor: $GREY-100;
+// $selectedStyleColor: $GREY-100;
+
+// //templateselection
+// $templateSelectionStyleColor: $GREY-100;
+
+// //SRN Number
+// $SRNNumberColor: $GREY-100;
+
+// //textArea webkit Scrollbar
+// $textAreaWebkitScrollBackgroundColor: $WHITE-14;
+// $textAreaWebkitScrollthumbBackgroundColor: $CHARCOAL-F100;
+
+// //imgclass focus
+// $imgclassfocusOutline: $VIOLET-F100;
+
+// //ui-button state default
+// $uibuttonDefaultBackgroundColor: $WHITE;
+// $uibuttonDefaultBorder: $WHITE-08;
+// $uibuttonDefaultColor: $CHARCOAL-F100;
+
+// //ui-Button state active
+// $uibuttonActiveBackgroundColor: $WHITE-09;
+// $uibuttonActiveBorder: $VIOLET-03;
+// $uibuttonActiveColor: $VIOLET-03;
+
+// //startClass
+// $startClassAddColor: $GRASS-20;
+// $startClassDeleteColor: $RED-20;
+// $startClassRepAllColor: $GOLD-10;
+
+// //mat-icon
+// $maticonColor: $CHARCOAL-F50;
+
+// //ui-button statedefault
+// $uiButtonDefaultSecondaryColor: $GRAY-HEX-20;
+// $uiButtonDefaultBackgroundColor: $CHARCOAL-c2;
+// $uiButtonDefaultBorder: $GREY-02;
+
+// //ui-button enabled Hover
+// $uiButtonEnabledHoverBorderColor: $BLACK-02;
+
+// $uiButtonIconLeftColor:$GREEN;
+
+// //Visible Mat Icons
+// $visiblematIconColor: $GRAY-TROLLEYGREY-01;
+// $visiblematIconHoverColor: $GOLD-10;
+
+// //ui-calendar Hover
+// $uicalendarHoverBackground: $WHITE-05;
+
+// //pre
+// $preBackground:$VIOLET-F30;
+
+// //masterValueStyle
+// $masterValueStyleColor: $CHARCOAL-F75;
+// $masterValueStyleBorder: $ORANGE-PALE-01;
+
+// //narrativeMasterValueStyle
+// $narrativeMasterValueStyleColor: $CHARCOAL-F75;
+
+// //Styling  -------
+// //mat-tab
+// $mat-tab-label-opacity: 1;
+// $mat-tab-label-content-display: $displayInlineFlex;
+// $mat-tab-label-content-justifyContent : $textAlignCenter;
+// $mat-tab-label-content-alignitems : $textAlignCenter;
+// $mat-tab-label-content-color: $primaryColor;
+// $mat-tab-label-content-border: 0.071em $borderSolid $BLACK;
+
+
+// //ui-tab
+// $ui-tabview-backgroundcolor: transparent;
+// $ui-tabview-border : $borderNone;
+// $ui-tabview-borderBottom :0.25em $borderSolid $primaryColor ;
+// //ui tabview state-active li a
+// $ui-tabview-Active-a-color: $primaryColor;
+// $ui-tabview-ActiveHover-BackgroundColor: transparent;
+// $ui-tabview-DisabledHover-BackgroundColor : transparent;
+// $ui-tabview-DisabledHover-Border: $borderNone;
+
+// $ui-tabview-panels-borderTop: 0.0625em $borderSolid #979797;
+// $ui-tabview-panels-borderLeft : $borderNone;
+// $ui-tabview-panels-borderRight: $borderNone;
+// $ui-tabview-panels-borderBottom: $borderNone;
+// $ui-tabview-panels-backgroundColor: #ffffff;
+// $ui-tabview-panels-Color: $GRAY-HEX-20;
+
+// $ui-tabview-title-VerticalAlign: middle;
+// $ui-tabview-title-fontFamily: Roboto;
+// $ui-tabview-title-fontSize: 1.125em;;
+
+
+// //Tabs
+// $Tabcolor:$VIOLET-03;
+// $Tabfontsize:'';
+// $tabActiveBackgroundcolor:$VIOLET-07;
+// $tabBorderColor:$VIOLET-03;
+// $ui-tabmenu-focus:$VIOLET-F100;
+// $uitabmenu-hover-background:$WHITE-09;
+// // ----------- UI Tabmenu
+
+// $ui-tabmenu-item-active-color: $Purple ;
+// $ui-tabmenuItem-CornerTopActive-Border :  $borderNone;
+// $ui-tabmenuItem-CornerTopActive-Background : transparent;
+// $ui-tabmenuItem-CornerTopActive-BorderBottom: 0.3em $borderSolid $VIOLET-F100;
+
+// $Ui-tabmenu-nav-item-Border: $borderNone;
+// $Ui-tabmenu-nav-item-BackgroundColor:transparent;
+// $Ui-tabmenu-nav-item-DisableHover-BackgroundColor: transparent;
+// $Ui-tabmenu-nav-item-DisableHover-Border: $borderNone;
+
+// $ui-tabmenu-nav-background: transparent;
+
+// $ui-tabmenu-nav-li-BackgroundColor: $WHITE;
+// $ui-tabmenu-nav-li-Border: 0.0625em $borderSolid $tabBorderColor;
+// $ui-tabmenu-nav-liHover-Border:0.0625em $borderSolid $ui-tabmenu-focus;
+// $ui-tabmenu-nav-liHover-BackgroundColor: $uitabmenu-hover-background;
+
+// $ui-tabmenu-nav-liHover-Color:$ui-tabmenu-focus;
+// $ui-tabmenu-menuitemtext-color: $primaryColor;
+
+// $ui-cornerright-border-top-right-radius: 3rem;
+// $ui-cornerright-border-bottom-right-radius: 3rem;
+// $ui-cornerright-border: $borderNone;
+// $ui-cornerright-border-left: $borderNone;
+// $ui-cornerTop-border-top-left-radius: 0px;
+// $ui-cornerTop-border-top-right-radius:0px;
+
+
+
+// // ************ING theme End here **********************//

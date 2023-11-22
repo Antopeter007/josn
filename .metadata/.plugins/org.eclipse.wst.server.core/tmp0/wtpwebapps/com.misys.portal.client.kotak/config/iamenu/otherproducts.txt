@@ -1,0 +1,166 @@
+{
+	"statementRelated": [
+		{
+			"subcategory": "Credit Card Statement",
+			"icon": "content/FCCUI/assets/icons/Credit_Card.svg",
+			"widget_name": "widget_CreditCardStatement"
+		},
+		{
+			"subcategory": "Tax Credit Statement (Form 26AS)",
+			"icon": "content/FCCUI/assets/icons/TaxCreditStatement.svg",
+			"widget_name": "widget_TaxCreditStatement"
+		},
+		{
+			"subcategory": "Loan Statement",
+			"icon": "content/FCCUI/assets/icons/Loan_Statement.svg",
+			"widget_name": "widget_LoanStatement"
+		},
+		{
+			"subcategory": "NPS Statement",
+			"icon": "content/FCCUI/assets/icons/Loan_Statement.svg",
+			"widget_name": "widget_NPSStatement"
+		},
+		{
+			"subcategory": "Mutual Fund Statement",
+			"icon": "content/FCCUI/assets/icons/Loan_Statement.svg",
+			"widget_name": "widget_MutualFundStatement"
+		},
+		{
+			"subcategory": "Demat Statement",
+			"icon": "content/FCCUI/assets/icons/Demat_Statement.svg",
+			"widget_name": "widget_DematStatement"
+		},
+		{
+			"subcategory": "Link Debit Card",
+			"icon": "content/FCCUI/assets/icons/Interest_Certificate.svg",
+			"widget_name": "widget_LinkDebitCardRedirection"
+		}
+	],
+	"deposits": [
+		{
+			"subcategory": "Simulate Preclosure",
+			"icon": "content/FCCUI/assets/icons/Simulate_Preclosure.svg",
+			"widget_name": "acct_simulate_preclosure_redirect"
+		}
+	],
+	"debitCard": [
+		{
+			"subcategory": "Block Card",
+			"icon": "content/FCCUI/assets/icons/Block_Card.svg",
+			"widget_name": "widget_BlockCard"
+		},
+		{
+			"subcategory": "Image Card",
+			"icon": "content/FCCUI/assets/icons/Image_Card.svg",
+			"widget_name": "widget_ImageCard"
+		},
+		{
+			"subcategory": "Add-on Card Request",
+			"icon": "content/FCCUI/assets/icons/Add_onCardRequest.svg",
+			"widget_name": "widget_AddOnCardRequest"
+		},
+		{
+			"subcategory": "Physical Pin Request",
+			"icon": "content/FCCUI/assets/icons/Physical_PIN_Request.svg",
+			"widget_name": "widget_PhysicalPinRequest"
+		}
+	],
+	"creditCard": [
+		{
+			"subcategory": "Replacement Card",
+			"icon": "content/FCCUI/assets/icons/Replacement_Card.svg",
+			"widget_name": "widget_ReplacementCard"
+		},
+		{
+			"subcategory": "Add-on Card Request",
+			"icon": "content/FCCUI/assets/icons/Add_onCreditCardRequest.svg",
+			"widget_name": "widget_AddOnCardRequest"
+		},
+		{
+			"subcategory": "Block Card",
+			"icon": "content/FCCUI/assets/icons/Block_Card.svg",
+			"widget_name": "widget_BlockCard"
+		}
+	],
+	"forexCard": [
+		{
+			"subcategory": "Refund Money",
+			"icon": "content/FCCUI/assets/icons/Interest_Certificate.svg",
+			"widget_name": "widget_RefundMoney"
+		},
+		{
+			"subcategory": "Block Card",
+			"icon": "content/FCCUI/assets/icons/Block_Card.svg",
+			"widget_name": "widget_BlockCard"
+		},
+		{
+			"subcategory": "Backup Card",
+			"icon": "content/FCCUI/assets/icons/Add_onCardRequest.svg",
+			"widget_name": "widget_BackupCard"
+		},
+		{
+			"subcategory": "Replacement Card",
+			"icon": "content/FCCUI/assets/icons/Replacement_Card.svg",
+			"widget_name": "widget_ReplacementCard"
+		}
+	],
+	"demat": [
+		{
+			"subcategory": "Transaction Statement",
+			"icon": "content/FCCUI/assets/icons/Transaction_Statement.svg",
+			"widget_name": "widget_TransactionStatement"
+		},
+		{
+			"subcategory": "Holding Statement",
+			"icon": "content/FCCUI/assets/icons/Holding_Statement.svg",
+			"widget_name": "widget_HoldingStatement"
+		},
+		{
+			"subcategory": "Billing Statement",
+			"icon": "content/FCCUI/assets/icons/Billing_Statement.svg",
+			"widget_name": "widget_BillingStatement"
+		},
+		{
+			"subcategory": "Client Master List",
+			"icon": "content/FCCUI/assets/icons/ClientMasterList.svg",
+			"widget_name": "widget_ClientMasterList"
+		},
+		{
+			"subcategory": "Pledge Form",
+			"icon": "content/FCCUI/assets/icons/PledgeForm.svg",
+			"widget_name": "widget_PledgeForm"
+		},
+		{
+			"subcategory": "Nomination Form",
+			"icon": "content/FCCUI/assets/icons/NominationForm.svg",
+			"widget_name": "widget_NominationForm"
+		}
+	],
+	"deliverables": [
+		{
+			"subcategory": "Debit Card",
+			"icon": "content/FCCUI/assets/icons/DebitCard.svg",
+			"widget_name": "widget_DebitCard"
+		},
+		{
+			"subcategory": "Credit Card",
+			"icon": "content/FCCUI/assets/icons/Credit_Card.svg",
+			"widget_name": "widget_CreditCard"
+		},
+		{
+			"subcategory": "Physical PIN",
+			"icon": "content/FCCUI/assets/icons/PhysicalPIN.svg",
+			"widget_name": "widget_PhysicalPIN"
+		},
+		{
+			"subcategory": "Chequebook",
+			"icon": "content/FCCUI/assets/icons/Chequebook.svg",
+			"widget_name": "widget_Chequebook"
+		},
+		{
+			"subcategory": "Welcome Kit",
+			"icon": "content/FCCUI/assets/icons/WelcomeKit.svg",
+			"widget_name": "widget_WelcomeKit"
+		}
+	]
+}

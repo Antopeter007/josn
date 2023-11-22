@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2009 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/mtp/interfaces/xsd/interfaces.xsd">
+	
+	<properties>
+		<property name="smtp_host">localhost</property>
+		<property name="attachments">disk</property>
+		<property name="errorlogger">interfaceserror</property>
+		
+	</properties>
+	
+	<interface name="file2db" onerror="logger" description="Load a Product Transaction from a File">
+		<component name="filedescriptor">
+			<transaction>
+				<component name="filepathprocessor">
+					<component name="incominginitiator">
+						<properties>
+								<property name="validation">true</property>
+						</properties>
+						<component name="documentparser">
+							<component name="useridsanddttmmanager">
+								<component name="attachmentsmanager">
+									<properties>
+										<property name="mode">${attachments}</property>
+									</properties>
+									<component name="databaseserializer"/>
+									<component name="filter">
+										<properties><property name="script">event.tnx_stat_code == 04</property></properties>
+										<component name="mailformatter" failsafe="true">
+											<properties>
+												<property name="destination">00</property>
+												<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+												<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+											</properties>
+											<component name="sendmail"/>
+										</component>
+									</component>
+									<component name="filter">
+										<properties><property name="script">event.tnx_stat_code == 03</property></properties>
+										<component name="mailformatter" failsafe="true">
+											<properties>
+												<property name="destination">01</property>
+												<property name="titlekey">BANK_SUBMISSION_ALERT_EMAIL_TITLE</property>
+												<property name="bodykey">BANK_SUBMISSION_ALERT_EMAIL_BODY</property>
+											</properties>
+											<component name="sendmail"/>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+			</transaction>
+		</component>		
+	</interface>
+
+	<interface name="logger" description="Log interface error">
+		<component name="logger">
+			<properties><property name="logger">${errorlogger}</property></properties>
+		</component>
+	</interface>
+	
+	<interface name="dynamicdataretrieval" description="Extract from Database to a file a specific PDF.">
+		<component name="jdbcreader">
+			<properties>
+				<property name="jdbc.query">select GTP_OUTPUT_KEYS.OUTPUT_ID\, GTP_OUTPUT_KEYS.KEY_4\, GTP_OUTPUT_KEYS.KEY_5\, GTP_OUTPUT_KEYS.FILE_NAME\, GTP_OUTPUT_CONTENT.CONTENT from GTP_OUTPUT_CONTENT\, GTP_OUTPUT_KEYS where GTP_OUTPUT_CONTENT.OUTPUT_ID = GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_KEYS.KEY_1 = '$refid' and GTP_OUTPUT_KEYS.KEY_2 = '$tnxid' and GTP_OUTPUT_KEYS.SUB_TYPE_CODE = '04' order by GTP_OUTPUT_KEYS.CREATION_DTTM asc</property>
+				<property name="pamameter.isDynamic">true</property>
+				<property name="hasPamameters">true</property>
+				<property name="pamameter.parameter_1" description="Ref Id of the concerned PDF">refid</property>
+				<property name="pamameter.parameter_2" description="Tnx Id of the concerned PDF">tnxid</property>
+			</properties>
+			<component name="outputserializer">
+				<properties>
+					<property name="extractor" description="The name of the interface played added in the column 'extractor' of GTP_OUTPUT_EXTRACTION table">dynamicdataretrieval</property>
+				</properties>
+				<component name="filewriter">
+					<properties>
+						<property name="directory.isDynamic" description="">false</property>
+						<property name="directory.name" description="">${output_directory}</property>
+					</properties>
+				</component>
+			</component>
+		</component>
+	</interface>
+	
+	<interface name="fixdataretrieval" description="Extract from Database to files all PDFs.">
+		<component name="jdbcreader">
+			<properties>
+				<property name="jdbc.query">select GTP_OUTPUT_KEYS.OUTPUT_ID\, GTP_OUTPUT_KEYS.KEY_4\, GTP_OUTPUT_KEYS.KEY_5\, GTP_OUTPUT_KEYS.FILE_NAME\, GTP_OUTPUT_CONTENT.CONTENT from GTP_OUTPUT_CONTENT\, GTP_OUTPUT_KEYS where GTP_OUTPUT_CONTENT.OUTPUT_ID = GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_KEYS.SUB_TYPE_CODE = '04' and ROWNUM &lt; 50 and GTP_OUTPUT_KEYS.OUTPUT_ID not in (select GTP_OUTPUT_EXTRACTION.OUTPUT_ID from GTP_OUTPUT_EXTRACTION\, GTP_OUTPUT_KEYS where GTP_OUTPUT_EXTRACTION.OUTPUT_ID=GTP_OUTPUT_KEYS.OUTPUT_ID and GTP_OUTPUT_EXTRACTION.EXTRACTOR='fixdataretrieval') order by GTP_OUTPUT_KEYS.CREATION_DTTM asc </property>
+				<property name="pamameter.isDynamic">false</property>
+				<property name="hasPamameters">false</property>
+			</properties>
+			<component name="outputserializer">
+				<properties>
+					<property name="extractor" description="The name of the interface played added in the column 'extractor' of GTP_OUTPUT_EXTRACTION table">fixdataretrieval</property>
+				</properties>
+				<component name="filewriter">
+					<properties>
+						<property name="directory.isDynamic" description="">false</property>
+						<property name="directory.name" description="">${output_directory}</property>
+					</properties>
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="swiftmt798in" onerror="logger" description="Load a Product Transaction from SWIFT MT798 messages">	
+		<component name="environmentreader">
+			<transaction>
+				<component name="swiftmt798extractor">
+					<component name="meridiantransformer">
+						<properties>
+							<property name="stylesheet.folder">/core/xsl/incoming/swift</property>
+						</properties>
+						<component name="transformNarrative">
+						<component name="incominginitiator">
+							<properties>
+								<property name="validation">false</property>
+							</properties>
+							<component name="documentparser">
+								<component name="orphantransactionfilter">
+									<component name="productamountmanager">
+										<component name="useridsanddttmmanager">
+										  <component name="fileactattachmentmanager">
+										  	<component name="mt798handler">
+												<component name="swiftmt798attachmentsmanager">
+													<component name="filter">
+														<properties><property name="script">event.getProduct().getAttachmentsAvailable() == true &amp;&amp; true == interface_processing_mt798_event_handler</property></properties>
+														<component name="databaseserializer"/> 
+													</component>
+												</component>
+											</component>
+										</component>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				  	</component>
+				  </component>
+				</component>
+			</transaction>
+		</component>		
+	</interface>
+	
+	<interface name="swiftacknak" onerror="logger" description="Load a SWIFT Ack Nak">	
+		<component name="environmentreader">
+			<transaction>			
+				<component name="swiftmt798acknakprocessor">
+					<component name="databaseserializer"/>
+				</component>
+			</transaction>		
+		</component>
+	</interface>
+	
+	<interface name="swiftdeliverynotification" onerror="logger" description="Load a SWIFT Delivery Notification">	
+		<component name="environmentreader">
+			<transaction>			
+				<component name="swiftdeliverynotificationprocessor">
+					<component name="databaseserializer"/>
+				</component>
+			</transaction>		
+		</component>
+	</interface>				
+	
+	<interface name="swiftmt798output" description="Save SWIFT MT798 messages in OUTPUT tables">
+		<component name="environmentreader">
+			<component name="swiftoutputprocessor">
+				<transaction>			
+					<component name="outputwriter"/>
+				</transaction>
+			</component>
+		</component>
+	</interface>
+
+	<!-- TI 4.1.7 Incoming Interface --> 
+	<!--
+	<interface name="ti2mtpoutput" description="Store message from B/O to Output tables">
+		<component name="environmentreader">
+			<component name="tiprocessor">
+				<component name="binaryoutputprocessor">
+					<component name="outputwriter"/>
+				</component>
+			</component>
+		</component>
+	</interface>
+	<interface name="mtpoutput2mtp" description="Store message Output tables to Product tables">
+		<component name="environmentreader">
+			<component name="xmlinprocessor">
+				<component name="timergeprocessor">
+					<component name="coverlettergenerator">
+						<component name="xmlinsaveIntoDBserializer"/>
+						<component name="filter">
+							<properties><property name="script">event.tnx_stat_code == 04</property></properties>
+							<component name="mailformatter" failsafe="true">
+								<properties>
+									<property name="destination">00</property>
+									<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+									<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+								</properties>
+								<component name="sendmail"/>
+							</component>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	-->
+
+	<!-- TI Plus 2 Incoming Interface --> 
+	<!--
+	<interface name="ti2mtp" description="Store message from B/O to Product tables">
+		<component name="environmentreader">
+			<component name="xmlinprocessor">
+				<component name="coverlettergenerator">
+					<component name="xmlinsaveIntoDBserializer"/>
+					<component name="filter">
+						<properties><property name="script">event.tnx_stat_code == 04</property></properties>
+						<component name="mailformatter" failsafe="true">
+							<properties>
+								<property name="destination">00</property>
+								<property name="titlekey">CUSTOMER_SUBMISSION_ALERT_EMAIL_TITLE</property>
+								<property name="bodykey">CUSTOMER_SUBMISSION_ALERT_EMAIL_BODY</property>
+							</properties>
+							<component name="sendmail"/>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+	-->
+			
+</interfaces>

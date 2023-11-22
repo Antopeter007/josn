@@ -1,0 +1,49 @@
+Sample Response XML:- 
+
+<?xml version="1.0" encoding="utf-8" ?>  
+
+              <Response xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd"> 
+
+              <header> 
+
+              <sourceappcode>JARVIS</sourceappcode> 
+
+              <RqUID>2</RqUID> 
+
+              <action_type>FETCH_COMP_MSTR_DET</action_type> 
+
+              <crn>69914730</crn> 
+
+            <company_code>SUGUNA</company_code> 
+
+              </header><record_id>64</record_id>         
+
+            <corp_crn>997369</corp_crn> 
+
+                                    <company_name>SUGUNA POULTRY FARM LTD</company_name> 
+
+                                      <effective_from>12-08-15</effective_from>                   
+
+                                    <effective_to></effective_to> 
+
+                                    <email_advice_flag>N</email_advice_flag> 
+
+                                    <netbanking_flag>Y</netbanking_flag> 
+
+                    <created_by>MIGRATION</created_by> 
+
+                    <created_date>12-08-15</created_date> 
+
+                    <account_no></account_no> 
+
+                    <email_id></email_id> 
+
+                <account_no></account_no><ifsc_list></ifsc_list><send_conf_flag></send_conf_flag><number_of_approvar></number_of_approvar><authorized_by></authorized_by><authorized_date></authorized_date><request_status> 
+
+                <error_flag>N</error_flag> 
+
+                <error_desc></error_desc> 
+
+              </request_status> 
+
+          </Response> 

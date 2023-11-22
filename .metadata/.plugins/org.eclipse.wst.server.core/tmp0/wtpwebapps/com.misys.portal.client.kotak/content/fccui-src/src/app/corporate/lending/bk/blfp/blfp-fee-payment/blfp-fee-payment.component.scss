@@ -1,0 +1,171 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $GREY-05 !important;
+  font-weight: bold !important;
+  font-size: 1.2em;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $primaryColor;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a:focus {
+  box-shadow: 0 0 0 0.1em $primaryColor;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a .ui-accordion-toggle-icon {
+  color: #a0a0a0;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon {
+  position: absolute;
+  right: 1em;
+}
+
+:host ::ng-deep [dir="rtl"] .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon {
+  left: 1em;
+  right: auto;
+}
+
+:host ::ng-deep [dir="rtl"] .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon.pi-chevron-right {
+  transform: rotate(180deg);
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-content {
+  border: none;
+  background-color: transparent;
+  padding: 0.571em 0em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:first-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:last-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus + tr > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .checkboxWidth {
+  width: 2em;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  border: black 2px solid !important;
+}
+
+:host ::ng-deep td:focus {
+  outline: black 2px solid !important;
+  // outline: black 1px solid !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tfoot > tr > td {
+  border-left-width: 0em;
+  border-right-width: 0em;
+}
+
+:host ::ng-deep .chk-box {
+  font-size: 1.4em !important;
+  padding: 0em!important;
+}
+
+
+:host ::ng-deep .nobtnMsg {
+  display: none !important;
+}
+
+:host ::ng-deep .iconImage{
+  margin-right: 1em;
+  vertical-align: bottom;
+}
+
+:host ::ng-deep .error{
+  border: 2px solid $fccErrorMessageColor;
+}
+
+:host ::ng-deep .error :hover{
+  outline : 0;
+}
+
+:host ::ng-deep .fcc-field-message  {
+  margin-top: -1em !important;
+  display: block;
+}
+
+
+
+@media screen and (max-width: 60em) {
+  :host ::ng-deep .ui-table-responsive .ui-table-thead>tr>th
+  // ,
+  // :host ::ng-deep .ui-table-responsive .ui-table-tfoot>tr>td
+  {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  :host ::ng-deep .ui-table-responsive .ui-table-tbody>tr>td .ui-column-title,
+  :host ::ng-deep .ui-table-responsive .ui-table-tfoot>tr>td .ui-column-title {
+    padding: 0.4em;
+    min-width: 30%;
+    display: inline-block;
+    margin: -0.4em 1em -0.4em -0.4em;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  :host ::ng-deep .ui-table-responsive .ui-table-tbody>tr>td,
+  :host ::ng-deep .ui-table-responsive .ui-table-tfoot>tr>td {
+    text-align: left !important;
+    display: block;
+    border: 0 none;
+    width: 100% !important;
+    box-sizing: border-box;
+    float: left;
+    clear: left;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  :host ::ng-deep .ui-table .ui-table-tbody>tr>td.ui-editing-cell p-celleditor>* {
+    width: 50%;
+  }
+}
+
+.spinnerStyle {
+  text-align: center;
+  padding: 3em 0em;
+}
+
+:host ::ng-deep [dir="rtl"] p-tableheadercheckbox .ui-chkbox {
+  margin-left: 8px;
+}
+:host ::ng-deep .mat-checkbox-inner-container {
+  margin: 0 !important;
+}
+:host ::ng-deep [dir="rtl"] .mat-checkbox-inner-container {
+  margin-left: 8px !important;
+  margin-right: auto !important;
+}

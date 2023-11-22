@@ -1,0 +1,86 @@
+/**
+ Refer to /themes/base/common/dijit_override.css
+**/
+
+/** --------------------------------- DataGrid, EnhanceGrid Rules ------------------------- **/
+
+.misys .dojoxGridHeader .dojoxGridCell {
+	background: none #CEC7B5;
+}
+
+.misys .dojoxGridRowOver .dojoxGridCell {
+	background-color:#616265;
+	color: white;
+}
+
+.misys .dojoxGridCellOver .dojoxGridSortNode {
+	background: #9E8F6C;
+}
+
+.misys .dojoxGridRowOver .dojoxGridCell a,
+.misys .dojoxGridRowOver .dojoxGridCell a:hover {
+	color: white;
+}
+
+.misys .dojoxGridPaginator {
+	background-color: #EAEAEA;
+}
+
+/** ---------------------------------------- Calendar Rules -------------------------------- **/
+
+#TradeCalendarPortlet .dijitCalendarSelectedYear,
+#TradeCalendarPortlet .dijitCalendarSelectedDate,
+#default .dijitCalendarSelectedYear,
+#default .dijitCalendarSelectedDate {
+	background-color: #6B8F00;
+	color: white;
+}
+
+.misys .dijitCalendar,
+.misys .dijitCalendarHover,
+.misys .dijitCalendarActive {
+	background: white;
+	border: none;
+	padding: 0;
+}
+
+.misys .dijitCalendarHoveredDate .dijitCalendarDateLabel  {
+	background-color:#FBE5D8 !important;
+	border: 0;
+}
+
+.misys .dijitCalendarPreviousMonth, 
+.misys .dijitCalendarNextMonth {
+	background: none;
+	border: 0;
+}
+
+#TradeCalendarPortlet .dijitCalendarMonthLabel {
+	color: white;	
+}
+
+#TradeCalendarPortlet .dijitCalendarMonthContainer th {
+	background: #9E8F6C none;	
+}
+
+/** ------------------------------------------- Dialog Rules -------------------------------- **/
+
+.misys .dijitDialog {
+	border: 3px ridge #7eabcd;
+}
+
+.misys .dijitDialogTitle {
+	color: white;
+}
+
+.misys .dijitDialogTitleBar {
+	background: #9E8F6C none;
+}
+
+/** ----------------------------- Collaboration / FloatingPane Rules ------------------------- **/
+
+#collaborationWindow .dojoxFloatingPaneTitle {
+    background-color: #6B8F00;
+    background-image: none;
+    color: white;
+}

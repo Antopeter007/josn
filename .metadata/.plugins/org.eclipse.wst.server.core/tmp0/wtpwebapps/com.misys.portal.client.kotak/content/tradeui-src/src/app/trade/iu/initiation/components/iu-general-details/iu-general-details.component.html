@@ -1,0 +1,291 @@
+
+    <div *ngIf ="!viewMode ;else view_content">
+      <p-panel id="generalDetailPanel" header="{{ 'HEADER_GENERAL_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+      <div [formGroup] = "generaldetailsSection">
+    <!-- System Id: -->
+      <div *ngIf="!this.commonData.getIsBankUser()" id =  "generalRefIdViewRow" class="field">
+        <label for =  "refId" id =  "refIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <input id = "refId" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-right' : 'content'}}" pInputText formControlName="refId" readonly>
+      </div>
+      <div *ngIf="!this.commonData.getIsBankUser()" id =  "generalTnxIdViewRow">
+          <input id="tnxId" type = "hidden" formControlName="tnxId">
+      </div>
+    <!-- Application Date -->
+      <div *ngIf="!this.commonData.getIsBankUser()" id =  "applDateViewRow" class="field" >
+        <label id="applDateLabel" for = "applDate">{{ 'GENERALDETAILS_APPLICATION_DATE' | translate }}&nbsp;</label>
+        <input id = "applDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-right' : 'content'}}" pInputText formControlName="applDate" readonly>
+      </div>
+      <!-- Template Id: -->
+      <div *ngIf="!this.commonData.getIsBankUser()" id = "templateIdRow" class="field" >
+        <label for ="templateId" id = "templateIdLabel">{{ 'GENERALDETAILS_TEMPLATE_ID' | translate }}&nbsp;</label>
+        <input id = "templateId" pInputText formControlName = "templateId" type = "text"
+        [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('templateId'))">
+        <fcc-common-error-message [control]="generaldetailsSection.get('templateId')" ></fcc-common-error-message>
+      </div>
+    <!-- Customer Reference -->
+      <div id = "custRefIdRow" class="field">
+        <label for = "custRefId" id = "customerRefLabel">{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+        <input id = "custRefId" pInputText formControlName = "custRefId"
+        [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('custRefId'))">
+        <fcc-common-error-message [control]="generaldetailsSection.get('custRefId')" ></fcc-common-error-message>
+      </div>
+      <!-- Additional Customer Reference -->
+      <div id = "additionalCustRefRow" class="field">
+        <label for = "additionalCustRef" id = "additionalCustRef">{{ 'GENERALDETAILS_ADDITIONAL_CUST_REF_ID' | translate }}&nbsp;</label>
+        <input id = "additionalCustRef" pInputText formControlName = "additionalCustRef"
+        [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('additionalCustRef'))">
+        <fcc-common-error-message [control]="generaldetailsSection.get('additionalCustRef')" ></fcc-common-error-message>
+      </div>
+    <!-- Beneficiary Reference -->
+      <div id= "beneficiaryReferenceRow" class="field">
+        <label for = "beneficiaryReference" id = "beneficiaryReference">{{'BENEFICIARY_REFERENCE' | translate }}&nbsp;</label>
+        <input id = "beneficiaryReference" pInputText formControlName="beneficiaryReference" type="text"
+        [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('beneficiaryReference'))">
+        <fcc-common-error-message [control]="generaldetailsSection.get('beneficiaryReference')" ></fcc-common-error-message>
+      </div>
+      <!-- Provisional -->
+      <div id= "provisionalRow" *ngIf="provisionalStatus === 'Y' && !this.commonData.getIsBankUser()" class="field">
+        <label id="provisionalStatusLabel" class="label-checkbox">{{ 'GENERAL_DETAILS_PROVISIONAL' | translate}}&nbsp;</label>
+        <p-checkbox id = "provisionalStatus" formControlName="provisionalStatus" binary="true"></p-checkbox>
+      </div>
+      <!-- Method of Transmission-->
+    <div id= "advSendModeRow" class="field">
+        <label id="advSendModeLabel" for="advSendMode">{{'INSTRUCTIONS_METHOD_OF_TRANS' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown id = "advSendMode" placeholder=" " [options]="transmissionMethodObj" [showClear]="false"
+           formControlName = "advSendMode" (ngModelChange)="changeMethodOfTransmission(); setSwiftModeIfSelected();"
+           [styleClass]="validationService.isFieldInvalid(generaldetailsSection.get('advSendMode')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+        <fcc-common-error-message [control]="generaldetailsSection.get('advSendMode')" ></fcc-common-error-message>
+    </div>
+    <!-- Method of Transmission Other text-->
+    <div id= "advSendModeTextRow" *ngIf="generaldetailsSection.get('advSendMode').value === '99'" class="field">
+        <label id="advSendModeTextLabel" for="advSendModeText"><span class="required-field-symbol">*</span>&nbsp;</label>
+        <input id ="advSendModeText" pInputText type="text" formControlName="advSendModeText"
+         [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('advSendModeText'))">
+        <fcc-common-error-message [control]="generaldetailsSection.get('advSendModeText')" ></fcc-common-error-message>
+    </div>
+    <!-- Form of Undertaking-->
+    <div id="subProductCodeRow" class="field" *ngIf="!(this.isBankUser && (this.commonData.getOption() === 'EXISTING') || this.isExistingDraftMenu)">
+      <label id="subProductCodeLabel" class="label-radiobutton" for="subProductCode">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+        <p-radioButton *ngIf = "displayDgar" id="subProductCode" name="undertakingFormGroup"  value="DGAR" label="{{'AMOUNTDETAILS_DEMAND_GUARANTEE' | translate}}" formControlName="subProductCode" name="subProductCodeSelected"
+          [(ngModel)]="selected" (onClick)="this.commonDataService.setSubProdCode(generaldetailsSection.get('subProductCode').value, ''); onChangeSubProdCode();">
+        </p-radioButton>
+
+        <p-radioButton *ngIf = "displayStby" id="subProductCode" name="undertakingFormGroup"  value="STBY" label="{{'AMOUNTDETAILS_STAND_BY_LC' | translate}}" formControlName="subProductCode"  name="subProductCode"
+          [(ngModel)]="selected" (onClick)="this.commonDataService.setSubProdCode(generaldetailsSection.get('subProductCode').value, ''); onChangeSubProdCode();">
+        </p-radioButton>
+
+        <p-radioButton *ngIf = "displayDepu" id="subProductCode" name="undertakingFormGroup"  value="DEPU" label="{{'AMOUNTDETAILS_DEPENDENT_UNDERTAKING' | translate}}" formControlName="subProductCode" [(ngModel)]="selected"
+           name="subProductCode" (onClick)="this.commonDataService.setSubProdCode(generaldetailsSection.get('subProductCode').value, ''); onChangeSubProdCode();">
+        </p-radioButton>
+      <fcc-common-error-message [control]="generaldetailsSection.get('subProductCode')" ></fcc-common-error-message>
+    </div>
+
+    <!-- Form of Undertaking and Purpose should be only read only values for Existing records for Bank User -->
+    <!-- Form of Undertaking-->
+    <div id="subProductCodeViewRow" *ngIf="(this.isBankUser && (this.commonData.getOption() === 'EXISTING' || this.isExistingDraftMenu))
+    && bgRecord['subProductCode'] && bgRecord['subProductCode'] != null && bgRecord['subProductCode'] != ''">
+      <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+      <label id="subProductCode" class="label-left">{{commonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+    </div>
+    <!-- Purpose -->
+    <div id="purposeRow" *ngIf="(this.isBankUser && (this.commonData.getOption() === 'EXISTING' || this.isExistingDraftMenu))
+    && bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] !== ''">
+      <label for="purpose" id="purposeLabel">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+      <label id="purpose" class="label-left">{{commonDataService.getPurpose(bgRecord['purpose']) | translate}}</label>
+    </div>
+
+     <!-- Purpose -->
+     <div id="purposeRow" class="field" *ngIf="!(this.isBankUser && (this.commonData.getOption() === 'EXISTING' || this.isExistingDraftMenu))">
+      <label id="purposeLabel" for="purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+      <p-dropdown id = "purpose" formControlName="purpose" placeholder=" " [options]="purposeTypeObj" [showClear]="false"
+        (onChange)="setStatusOfLuSection();" (onFocus)="setOldPurposeVal();"
+        [styleClass]="validationService.isFieldInvalid(generaldetailsSection.get('purpose')) ? 'dropDownFieldError fcc-dropdown-larger' : 'inherit fcc-dropdown-larger'">
+      </p-dropdown>
+      <fcc-common-error-message [control]="generaldetailsSection.get('purpose')" ></fcc-common-error-message>
+    </div>
+
+    <!-- Confirm Instructions -->
+      <div  *ngIf="(this.commonDataService.getSubProdCode() === 'STBY')" class="field">
+        <label id="confirmationInstructionsLabel" class="label-radiobutton">{{'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+
+          <p-radioButton id="bgConfInstructions" value="01" label="{{'AMOUNTDETAILS_CFM_INST_CONFIRM' | translate }}" formControlName="bgConfInstructions"   name="bgConfInstructions" (ngModelChange)="setConfInstValue(generaldetailsSection.get('bgConfInstructions').value);">
+          </p-radioButton>
+
+          <p-radioButton id="bgConfInstructions" value="02" label="{{'AMOUNTDETAILS_CFM_INST_MAY_ADD' | translate }}" formControlName="bgConfInstructions"  name="bgConfInstructions" (ngModelChange)="setConfInstValue(generaldetailsSection.get('bgConfInstructions').value);">
+          </p-radioButton>
+
+          <p-radioButton id="bgConfInstructions" value="03" label="{{'AMOUNTDETAILS_CFM_INST_WITHOUT' | translate }}" formControlName="bgConfInstructions"   name="bgConfInstructions" (ngModelChange)="setConfInstValue(generaldetailsSection.get('bgConfInstructions').value);">
+          </p-radioButton>
+
+        <fcc-common-error-message [control]="generaldetailsSection.get('bgConfInstructions')" ></fcc-common-error-message>
+      </div>
+      <!--Transfer indicator and transfer narratives-->
+      <div  *ngIf="(this.commonDataService.getSubProdCode() === 'STBY')" class="field">
+        <label id="bgTransferIndicatorLabel" class="label-checkbox">{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate}}&nbsp;</label>
+        <p-checkbox id = "bgTransferIndicator" formControlName="bgTransferIndicator" binary="true" (onChange)="onCheckedTransferIndicator()"></p-checkbox>
+      </div>
+      <div *ngIf="generaldetailsSection.get('bgTransferIndicator').value && !(this.commonData.getIsBankUser() && this.commonData.getProductCode() === 'BR') && generaldetailsSection.get('advSendMode').value === '01'" class="field">
+        <label id="narrativeTransferConditionsLabel" for="transfer_conditions">{{'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+        <textarea id = "narrativeTransferConditions" fccCommonTextArea [controlName]="generaldetailsSection.get('narrativeTransferConditions')" pInputTextarea
+          [rows]="12" [cols]="65" formControlName="narrativeTransferConditions"
+          [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('narrativeTransferConditions'))">
+        </textarea>
+        <fcc-common-narrative-character-count [enteredCharCount]="generaldetailsSection.get('narrativeTransferConditions').value ? generaldetailsSection.get('narrativeTransferConditions').value.length : 0"
+        [allowedCharCount]="780" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+        <fcc-common-error-message [control]="generaldetailsSection.get('narrativeTransferConditions')" ></fcc-common-error-message>
+      </div>
+      <div *ngIf="generaldetailsSection.get('bgTransferIndicator').value && (generaldetailsSection.get('advSendMode').value !== '01' || (this.commonData.getIsBankUser() && this.commonData.getProductCode() === 'BR'))" class="field">
+        <label id="narrativeTransferConditionsLabel" for="transfer_conditions">{{'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+        <textarea id = "narrativeTransferConditions" fccCommonTextArea [controlName]="generaldetailsSection.get('narrativeTransferConditions')" pInputTextarea
+          [rows]="12" [cols]="65" formControlName="narrativeTransferConditions" [nonSwiftValidation]="true"
+          [class.fieldError]="validationService.isFieldInvalid(generaldetailsSection.get('narrativeTransferConditions'))">
+        </textarea>
+        <fcc-common-error-message [control]="generaldetailsSection.get('narrativeTransferConditions')" ></fcc-common-error-message>
+      </div>
+
+     </div>
+    </p-panel>
+    </div>
+    <!--View screen content-->
+    <!-- Event Details-->
+    <ng-template #view_content>
+      <fcc-trade-event-details *ngIf="bgRecord &&  this.mode !== 'UNSIGNED' && commonService.getTnxType() !== '03' && commonService.getTnxType() !== '13' && commonDataService.getTnxStatCode() !== '04' && !commonData.getIsBankUser()" [bgRecord]="bgRecord" [formReady]="bgRecord"></fcc-trade-event-details>
+      <!-- Disclaimer for Event Details showed only for Master View icon in Inquiry -->
+      <div  class = "disclaimer" *ngIf ="!this.commonData.getIsBankUser() && isMaster && commonDataService.getPreviewOption() !== 'SUMMARY'">
+      <h2>{{ 'REPORTING_DISCLAIMER_LABEL' | translate}}</h2>
+      <p>{{ 'REPORTING_DISCLAIMER' | translate}}</p>
+      </div>
+
+  <!-- General Details -->
+      <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'">
+      	<p-panel header="{{ 'HEADER_GENERAL_DETAILS' | translate }}" [toggleable]="true" [collapsed]="false">
+        <div id="referenceDetails">
+      <!-- System Id: -->
+        <div *ngIf="!this.commonData.getIsBankUser()" id =  "generalRefIdViewRow">
+          <label for =  "systemId" id =  "systemIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+          <label class="label-left">{{bgRecord['refId']}}</label>
+        </div>
+      <!-- Application Date -->
+      <div id =  "applDateViewRow" *ngIf="!this.commonData.getIsBankUser() && bgRecord['applDate'] && bgRecord['applDate'] != null && bgRecord['applDate'] !== ''">
+          <label id="applDateLabel" for = "applDate">{{ 'GENERALDETAILS_APPLICATION_DATE' | translate }}&nbsp;</label>
+          <label id="applDate" class="label-left">{{bgRecord['applDate']}}</label>
+          </div>
+      <!-- Bank Reference -->
+        <div id =  "generalBoRefIdViewRow"  *ngIf="!this.commonData.getIsBankUser() && bgRecord['boRefId'] && bgRecord['boRefId'] != null && bgRecord['boRefId'] !== ''">
+          <label for =  "boRefId" id =  "boRefIdLabel">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+          <label id="boRefId" class="label-left">{{bgRecord['boRefId']}}</label>
+        </div>
+       <!-- RU Issue date -->
+       <div id="issDateRow" *ngIf="!this.commonData.getIsBankUser() && bgRecord['productCode'] == 'BR' && bgRecord['issDate'] && bgRecord['issDate'] != null && bgRecord['issDate'] != ''">
+        <label id="issDateLabel" for ="issDate">{{'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <label id="issDate" class="label-left">{{bgRecord['issDate']}}</label>
+      </div>
+        <!-- Template Id: -->
+        <div id="templateIdRow"  *ngIf="!this.commonData.getIsBankUser() && bgRecord['templateId'] && bgRecord['templateId'] != null && bgRecord['templateId'] !== ''">
+          <label for ="templateId" id = "templateIdLabel">{{ 'GENERALDETAILS_TEMPLATE_ID' | translate }}&nbsp;</label>
+          <label id="templateId" class="label-left">{{bgRecord['templateId']}}</label>
+        </div>
+        <!-- Customer Reference -->
+        <div id = "custRefIdRow"  *ngIf="bgRecord['custRefId'] && bgRecord['custRefId'] != null && bgRecord['custRefId'] !== ''">
+          <label for = "custRefId" id = "customerRefLabel">{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+          <label id="custRefId" class="label-left">{{bgRecord['custRefId']}}</label>
+        </div>
+        <!-- Additional Customer Reference -->
+        <div id = "additionalCustRefRow"  *ngIf="bgRecord['additionalCustRef'] && bgRecord['additionalCustRef'] != null && bgRecord['additionalCustRef'] !== ''">
+          <label for = "additionalCustRef" id = "additionalCustRefLabel">{{ 'GENERALDETAILS_ADDITIONAL_CUST_REF_ID' | translate }}&nbsp;</label>
+          <label id="additionalCustRef" class="label-left">{{bgRecord['additionalCustRef']}}</label>
+        </div>
+        <!-- Beneficiary Reference -->
+        <div id = "beneficiaryReferenceViewRow"  *ngIf ="bgRecord['beneficiaryReference'] && bgRecord['beneficiaryReference'] != null && bgRecord['beneficiaryReference'] != ''">
+        <label for ="beneficiaryReference" id = "beneficiaryReferenceLabel">{{ 'BENEFICIARY_REFERENCE' | translate }}&nbsp;</label>
+        <label id="beneficiaryReference" class="label-left">{{bgRecord['beneficiaryReference']}}</label>
+        </div>
+        <!-- Provisional-->
+        <div *ngIf="!this.commonData.getIsBankUser()">
+          <div id="provisionalStatusRow" *ngIf="bgRecord['provisionalStatus'] && bgRecord['provisionalStatus'] != null && bgRecord['provisionalStatus'] != '' && bgRecord['provisionalStatus'] === 'Y'">
+            <label for="provisionalStatus" id="provisionalStatusLabel">&nbsp;</label>
+            <label id="provisionalStatus" class="label-left"><strong>{{ 'GENERAL_DETAILS_PROVISIONAL' | translate }}</strong></label>
+          </div>
+        </div>
+        <!--Method of Transmission-->
+        <div id = "advSendModeRow" *ngIf ="bgRecord['advSendMode'] && bgRecord['advSendMode'] != null && bgRecord['advSendMode'] != ''">
+          <label for =  "advSendMode" id =  "advSendModeLabel">{{ (bgRecord['productCode']==='BR' ? 'UA_INSTRUCTIONS_METHOD_OF_TRANS' : 'INSTRUCTIONS_METHOD_OF_TRANS') | translate }}&nbsp;</label>
+          <label id="advSendMode" class="label-left">{{commonDataService.getTransmissionMethod(bgRecord['advSendMode']) | translate}}</label>
+      </div>
+      <!--Method of Transmission Other text-->
+      <div id =  "advSendModeTextRow" *ngIf ="bgRecord['advSendModeText'] && bgRecord['advSendMode'] ==='99' && bgRecord['advSendModeText'] != null && bgRecord['advSendModeText'] != ''">
+          <label for =  "advSendModeText" id =  "advSendModeTextLabel">&nbsp;</label>
+          <label id="advSendModeText" class="label-left">{{bgRecord['advSendModeText']}}</label>
+      </div>
+      <div id="subProductCodeViewRow" *ngIf="bgRecord['subProductCode'] && bgRecord['subProductCode'] != null && bgRecord['subProductCode'] != ''">
+        <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+        <label id="subProductCode" class="label-left">{{commonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+      </div>
+      <!-- Purpose -->
+      <div id="purposeRow" *ngIf="bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] !== ''">
+        <label for="purpose" id="purposeLabel">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+        <label id="purpose" class="label-left">{{commonDataService.getPurpose(bgRecord['purpose']) | translate}}</label>
+      </div>
+      <!-- Confirmation instructions -->
+      <div id="bgConfInstructionsViewRow" *ngIf="bgRecord['productCode'] == 'BG' && bgRecord['bgConfInstructions'] && bgRecord['bgConfInstructions'] != null && bgRecord['bgConfInstructions'] != ''">
+        <label for="bgConfInstructions" id="bgConfInstructionsLabel">{{ 'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+        <label id="bgConfInstructions" class="label-left">{{commonDataService.getConfirmationInstructions(bgRecord['bgConfInstructions']) | translate}}</label>
+      </div>
+      <!-- RU Confirmation Instructions -->
+      <div id="bg_conf_instructions_view_row" *ngIf="bgRecord['productCode'] == 'BR' && bgRecord['cfmInstCode'] && bgRecord['cfmInstCode'] != null && bgRecord['cfmInstCode'] != ''">
+        <label for="cfmInstCode" id="cfmInstCodeLabel">{{ 'AMOUNTDETAILS_CFM_INST_LABEL' | translate }}&nbsp;</label>
+        <label id="cfmInstCode" class="label-left">{{commonDataService.getConfirmationInstructions(bgRecord['cfmInstCode']) | translate}}</label>
+      </div>
+      <!-- Transfer Indicator -->
+      <div id="bgTransferIndicatorViewRow" *ngIf="bgRecord['productCode'] == 'BG' && bgRecord['bgTransferIndicator'] && bgRecord['bgTransferIndicator'] != null && bgRecord['bgTransferIndicator'] != '' && bgRecord['bgTransferIndicator'] === 'Y'">
+        <label for="bgTransferIndicator" id="bgTransferIndicatorLabel">&nbsp;</label>
+        <label id="bgTransferIndicator" class="label-left"><strong>{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate }}</strong></label>
+      </div>
+      <!-- RU Transfer Indicator -->
+      <div id="bgTransferIndicatorViewRow" *ngIf="bgRecord['productCode'] == 'BR' && bgRecord['bgTransferIndicator'] && bgRecord['bgTransferIndicator'] != null && bgRecord['bgTransferIndicator'] != '' && bgRecord['bgTransferIndicator'] === 'N'">
+        <label for="bgTransferIndicator" id="bgTransferIndicatorLabel">&nbsp;</label>
+        <label id="bgTransferIndicator" class="label-left"><strong>{{ 'GTEEDETAILS_TRANSFER_INDICATOR_RULES_LABEL' | translate }}</strong></label>
+      </div>
+       <!-- Transfer Narratives -->
+      <div id="narrativeTransferConditionsViewRow" *ngIf="bgRecord['narrativeTransferConditions'] && bgRecord['narrativeTransferConditions'] != null && bgRecord['narrativeTransferConditions'] != ''">
+        <label for="narrativeTransferConditions" id="narrativeTransferConditionsLabel">{{ 'GTEEDETAILS_TRANSFER_CONDITIONS_RULES_LABEL' | translate }}&nbsp;</label>
+        <label id="narrativeTransferConditions" class="label-left-narrative">{{bgRecord['narrativeTransferConditions']}}</label>
+      </div>
+      <!-- Expiry Type -->
+      <div id="{{undertakingType}}ExpDateTypeCodeRow" *ngIf="commonData.getProductCode()==='BR' && commonService.isFieldsValuesExists([bgRecord['expDateTypeCode']])">
+        <label for="{{undertakingType}}ExpDateTypeCode" id="{{undertakingType}}ExpDateTypeCodeLabel">{{ 'GENERALDETAILS_EXPIRY_TYPE' | translate }}&nbsp;</label>
+        <label id="{{undertakingType}}ExpDateTypeCode" class="label-left">{{commonDataService.getExpiryType(bgRecord['expDateTypeCode']) | translate}}</label>
+      </div>
+      <!-- Expiry Date -->
+      <div id="{{undertakingType}}ExpDateRow" *ngIf="commonData.getProductCode()==='BR' && commonService.isFieldsValuesExists([bgRecord['expDate']])">
+        <label for="{{undertakingType}}ExpDate" id="{{undertakingType}}ExpDateLabel">{{ 'GENERALDETAILS_EXPIRY_DATE' | translate}}&nbsp;</label>
+        <label id="{{undertakingType}}ExpDate" class="label-left">{{bgRecord['expDate']}}</label>
+      </div>
+      <!-- Approximate Expiry Date -->
+      <div id="{{undertakingType}}ApproxExpiryDateRow" *ngIf="commonData.getProductCode()==='BR' && commonService.isFieldsValuesExists([bgRecord['projectedExpiryDate']]) && commonService.isFieldsValuesExists([bgRecord['expDateTypeCode']])">
+        <label id="{{undertakingType}}ApproxExpiryDateLabel" for="{{undertakingType}}ApproxExpiryDate">
+          <span *ngIf="bgRecord['expDateTypeCode'] == '03'">{{ 'GENERALDETAILS_PROJ_EXPIRY_TYPE' | translate }}</span>&nbsp;
+          <span *ngIf="bgRecord['expDateTypeCode'] == '01'">{{ 'GENERALDETAILS_APPR_EXPIRY_TYPE' | translate }}</span>&nbsp;
+        </label>
+        <label id="{{undertakingType}}ApproxExpiryDate" class="label-left">{{bgRecord['projectedExpiryDate']}}</label>
+      </div>
+      <!-- Expiry Event -->
+      <div id="{{undertakingType}}ExpEventRow" *ngIf="commonData.getProductCode()==='BR' && commonService.isFieldsValuesExists([bgRecord['expEvent']])">
+        <label for="{{undertakingType}}ExpEvent" id="{{undertakingType}}ExpEventLabel">{{ 'GENERALDETAILS_EXPIRY_EVENT' | translate }}&nbsp;</label>
+        <label id="{{undertakingType}}ExpEvent" class="label-left-narrative">{{bgRecord['expEvent']}}</label>
+      </div>
+
+      <!-- Added for RU components for quick fix of defect MPS-62274. Needs to be removed once its addressed for RU -->
+        <div id="bg_type_code_view_row" *ngIf="bgRecord['productCode'] == 'BR' && bgRecord['bgTypeCode'] && bgRecord['bgTypeCode'] != null && bgRecord['bgTypeCode'] != ''">
+          <label for="bgTypeCode" id="bgTypeCodeLabel">{{ 'UNDERTAKING_DETAILS_TYPE' | translate }}&nbsp;</label>
+          <label id="bgTypeCode" class="label-left">{{commonDataService.getUndertakingType(bgRecord['bgTypeCode']) | translate}}</label>
+        </div>
+        <div id="bg_type_details_view_row" *ngIf="bgRecord['productCode'] == 'BR' && bgRecord['bgTypeCode'] ==='99' && bgRecord['bgTypeDetails'] && bgRecord['bgTypeDetails'] != null && bgRecord['bgTypeDetails'] != ''">
+          <label for="bgTypeDetails" id="bgTypeDetailsLabel">&nbsp;</label>
+          <label id="bgTypeDetails" class="label-left">{{bgRecord['bgTypeDetails']}}</label>
+        </div>
+      </div>
+      </p-panel>
+      </div>
+    </ng-template>

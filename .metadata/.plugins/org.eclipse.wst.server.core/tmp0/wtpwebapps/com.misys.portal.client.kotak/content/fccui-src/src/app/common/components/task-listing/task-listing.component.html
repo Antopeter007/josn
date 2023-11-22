@@ -1,0 +1,102 @@
+<ng-container>
+  <div [ngClass]="enableViewMore ? '' : 'side_bar'">
+    <mat-card class="tasksCard cardPadding" *ngFor="let task of viewCardsList">
+      <mat-card-header>
+        <mat-card-title>{{ task.name }}</mat-card-title>
+        <mat-card-subtitle style="font-style: italic">{{
+          getType(task.type) | translate
+        }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="p-grid">
+          <div class="p-col-12">
+            <span class="material-icons" aria-hidden="true" id="accountCircle">
+              account_circle
+            </span>
+
+            <span class="user-info1">
+              {{ task.issuerName }}
+            </span>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col-6">
+            <span class="material-icons" aria-hidden="true" id="event">
+              event
+            </span>
+
+            <span>
+              {{task.date}}
+            </span>
+          </div>
+          <div class="p-col-6 p-justify-end">
+            <button role="button" 
+              tabindex="0"
+              id="{{'taskAction_' + task.taskId}}"
+              pButton
+              class="TaskActionButton"
+              title="{{getStatus(task.performed)}}"
+              label="{{ getStatus(task.performed) | translate }}"
+              [ngClass]="getStatus(task.performed) === 'Completed' ? 'completedButton' : 'pendingButton'"
+              (click)="onClickTaskAction(task.performed, task.taskId)"
+            ></button>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="descHeader p-col-12">{{ 'description' | translate }}</div>
+          <div class="p-col-12 wordBreak">{{task.description}}</div>
+        </div>
+      </mat-card-content>
+      <!-- <mat-card-actions > -->
+        <div class="p-grid p-col-12 posRel">
+          <!-- <div class="p-col-10 posRel"> -->
+            <span
+              tabindex="0"
+              title="{{'comments' | translate}}"
+              (click)="onClickComment($event, task)"
+              (keydown)="keyPressOptionsForComment($event, task)"
+              class="p-col-6 commentsButton"
+            >
+              {{ task.commentLength }} {{ 'comments' | translate }}
+            </span>
+            <div class="p-col-3" ></div>
+          <!-- </div> -->
+          <!-- <div tabindex="0"  class="p-col-2 posRel"> -->
+          <span
+            *ngIf="task.canEdit"
+            tabindex="0"
+            class="material-icons p-col-3"
+            aria-hidden="true"
+            id="editIcon"
+            title="{{'editTask' | translate}}"
+            (click)="onClickEdit($event, task)"
+            (keydown)="keyPressOptionsForEdit($event, task)"
+          >
+            mode_edit_outline
+          </span>
+          <!-- </div> -->
+        </div>
+      <!-- </mat-card-actions> -->
+    </mat-card>
+  </div>
+  <div
+    *ngIf="enableViewMore"
+    class="viewMoreButton"
+    tabindex="0"
+    title="{{'viewMore' | translate}}"
+    (click)="onClickMore($event)"
+  >
+  {{'viewMore' | translate}}
+  </div>
+  <div
+    *ngIf="enableViewLess"
+    class="viewMoreButton"
+    tabindex="0"
+    title="{{'viewLess' | translate}}"
+    (click)="onClickLess($event)"
+  >
+  {{'viewLess' | translate}}
+  </div>
+</ng-container>

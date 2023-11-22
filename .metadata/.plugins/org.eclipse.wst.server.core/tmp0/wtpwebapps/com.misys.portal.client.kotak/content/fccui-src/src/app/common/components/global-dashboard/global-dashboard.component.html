@@ -1,0 +1,1098 @@
+<!-- add this in 2nd line for left to right p-grid nested-grid p-dir-rev -->
+
+<ng-container [ngSwitch]="getDashboardLayout">
+  <!-- {{getDashboardLayout}} -->
+  <div class="dashboardLayout">
+    <div id="subDashboardLayout">
+      <p-toast
+        key="myKey1"
+        [style]="{ marginTop: '115px', width: '400px' }"
+        position="top-center"
+      ></p-toast>
+      <!-- Dashboard 1 / layout 1 -->
+      <div [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'">
+        <div
+        class="p-grid dashboard-background"
+        *ngSwitchCase="'layout1'"
+        [ngStyle]="
+          checkCustomise == true
+            ? { 'background-image': 'none' }
+            : { 'background-image': 'url(' + dashboardBG + ')' }
+        "
+      >
+        <div class="p-col-{{rowOfRow[0].width}} p-sm-{{rowOfRow[0].smallDevice}} p-lg-{{rowOfRow[0].largeDevice}}
+        p-xl-{{rowOfRow[0].xtraLargeDevice}} p-md-{{rowOfRow[0].mediumDevice}" [ngStyle]="styleObject1()">
+          <div
+            class="p-grid side-panel-boundary1"
+            cdkDropList
+            (cdkDropListDropped)="droplayout1sidePanel($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            style="position: relative; padding: 0px;"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div
+              class="p-col-12 sphereDiv"
+              *ngIf="checkCustomise"
+              (click)="SidepanelOverlay('side-panel-boundary1')"
+              [ngClass]="addSidePanelIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+            <div class="sphere"
+            >
+            <em class="pi pi-plus" (keyup.enter)="SidepanelOverlay('side-panel-boundary1')" tabindex="0"></em></div>
+            </div>
+              <div
+                class="p-col-12 side-panel-botm-m"
+                *ngFor="let widgets of sidePanel; let i = index"
+                cdkDragBoundary=".side-panel-boundary1"
+                cdkDrag
+              >
+                <div>
+                  <dynamic-component-content  context="readonly" class="dynamicCompStyle" tabindex="0"
+                    type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                  ></dynamic-component-content>
+                </div>
+              </div>
+
+              <div *ngIf="checkForOverlayDisplaySidepanel" class="p-lg-12">
+                  <p-card class="overlayMainClass">
+                    <div class="p-grid">
+                      <div
+                        *ngFor="let widgets of sidePanelAll; let i = index"
+                        class="p-col-12"
+                      >
+                        <p-card class="overlayCardClass">
+                          <div>
+                            <span>
+                              {{ widgets.widgetName | translate }}
+                            </span>
+                          <span class="actionIcons">
+                            <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'sidePanel');
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'sidePanel');
+                            "
+                            tabindex="0"
+                            ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                          </span>
+                        </div>
+                        </p-card>
+                      </div>
+                    </div>
+                  </p-card>
+                </div>
+              </div>
+            </div>
+        <div [ngClass]="classObject1()" [ngStyle]="styleObject1()">
+          <div
+            class="p-grid right-top-boundary1"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="droplayout1rightTop($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+            *ngIf="rightTop.length || rightTop.length > 0"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightTopIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                <em class="pi pi-plus" role="button" aria-label="Add" title="Add" (click)="RightTopOverlay()" (keyup.enter)="RightTopOverlay()" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+              *ngFor="let widgets of rightTop; let i = index"
+              class="p-col-6"
+              cdkDragBoundary=".right-top-boundary1"
+              cdkDrag
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle" tabindex="0"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+
+            <div *ngIf="checkForOverlayDisplay" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightTopAll; let i = index"
+                    class="p-col-4"
+
+                  >
+                    <p-card class="overlayCardClass" tabindex="0">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                          class="pi pi-plus-circle"
+                          (click)="
+                            addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                            widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'rightTop');
+                          "
+                          (keyup.enter)="
+                            addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                            widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'rightTop');
+                          "
+                          tabindex="0"
+                          ></em>
+                        <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+
+          <div class="p-grid right-bottom-boundary1" [ngStyle]="styleObject1()"
+            cdkDropList
+            (cdkDropListDropped)="droplayout1rightBottom($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="
+              checkCustomise == true ? 'customiseON' : 'customiseOFF'
+            ">
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightBottomIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+                <div class="sphere">
+                    <em class="pi pi-plus" role="button" aria-label="Add" title="Add" (click)="RightBottomOverlay('right-bottom-boundary1')"
+                    (keyup.enter)="RightBottomOverlay('right-bottom-boundary1')" tabindex="0"></em>
+                </div>
+            </div>
+              <div
+
+                *ngFor="let widgets of rightBottom"
+                class="p-col-{{rowOfRow[1].sc_width}} p-md-{{rowOfRow[1].sc_mediumDevice}} p-sm-{{rowOfRow[1].sc_smallDevice}} p-lg-{{rowOfRow[1].sc_largeDevice}}"
+                cdkDragBoundary=".right-bottom-boundary1"
+                cdkDrag
+              >
+                <div>
+                  <dynamic-component-content class="dynamicCompStyle"
+                    type="{{ widgets?.widgetSelector}}"  widgetDetails="{{ widgets | json }}" #container
+                  ></dynamic-component-content>
+                </div>
+              </div>
+              <div *ngIf="checkForOverlayDisplayRightBottom" class="p-lg-12">
+                <p-card class="overlayMainClass">
+                  <div class="p-grid">
+                    <div
+                      *ngFor="let widgets of rightBottomAll; let i = index"
+                      class="p-col-4"
+                    >
+                      <p-card class="overlayCardClass">
+                        <div>
+                          <span>
+                            {{ widgets.widgetName | translate }}
+                          </span>
+                          <span class="actionIcons">
+                            <em
+                              class="pi pi-plus-circle"
+                              (click)="
+                                addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                                widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightBottom');
+                              "
+                              (keyup.enter)="
+                                addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                                widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightBottom');
+                              "
+                              tabindex="0"
+                            ></em>
+                            <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                          </span>
+                        </div>
+                      </p-card>
+                    </div>
+                  </div>
+                </p-card>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- dashboard 2 -->
+      <div  [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'">
+        <div
+        class="p-grid dashboard-background"
+        [ngClass]="secondDashboardLayout()"
+        *ngSwitchCase="'layout2'"
+        [ngStyle]="
+          checkCustomise == true
+            ? { 'background-image': 'none' }
+            : { 'background-image': 'url(' + dashboardBG + ')' }
+        "
+      >
+        <div class="p-col-12 p-lg-3 p-sm-12 p-md-12" [ngStyle]="styleObject1()">
+          <div
+            class="p-grid side-panel-boundary2"
+            cdkDropList
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+            (cdkDropListDropped)="droplayout1sidePanel($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+          >
+            <div
+              class="p-col-12 sphereDiv"
+              *ngIf="checkCustomise"
+              (click)="SidepanelOverlay('side-panel-boundary2')"
+              (keyup.enter)="SidepanelOverlay('side-panel-boundary2')" tabindex="0"
+              [ngClass]="addSidePanelIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere"><em class="pi pi-plus"></em></div>
+            </div>
+            <div
+             cdkDragBoundary=".side-panel-boundary2"
+              class="p-col-12 side-panel-botm-m"
+              *ngFor="let widgets of sidePanel"
+              cdkDrag
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector}}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForSecondOverlaySidePanel" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of sidePanelAll; let i = index"
+                    class="p-col-12"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'sidePanel')
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'sidePanel')
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="classObject2()" [ngStyle]="styleObject2()">
+          <div
+            class="p-grid small-card-boundary2"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="droplayout1rightTop($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightTopIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                <em class="pi pi-plus" (click)="RightTopOverlay()" (keyup.enter)="RightTopOverlay()" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+              *ngFor="let widgets of rightTop"
+              cdkDrag
+              class="p-col-6"
+              cdkDragBoundary=".side-panel-boundary2"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForSecondOverlayRightTop" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightTopAll; let i = index"
+                    class="p-col-4"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'rightTop');
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'rightTop');
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+
+          <div class="p-grid large-card-boundary2" [ngStyle]="styleObject1()"
+              cdkDropList
+              (cdkDropListDropped)="droplayout1rightBottom($event)"
+              cdkDropListDisabled="{{ !isDraggingEnabled }}"
+              [ngClass]="
+                checkCustomise == true ? 'customiseON' : 'customiseOFF'
+              "
+            >
+              <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+              [ngClass]="addRightBottomIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+              >
+                <div class="sphere">
+                   <em class="pi pi-plus" (click)="RightBottomOverlay('large-card-boundary2')" (keyup.enter)="RightBottomOverlay('large-card-boundary2')" tabindex="0"></em>
+                </div>
+              </div>
+              <div *ngFor="let widgets of rightBottom" class="p-col-12"
+              cdkDragBoundary=".large-card-boundary2" cdkDrag
+              >
+                <div>
+                  <dynamic-component-content class="dynamicCompStyle"
+                    type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                  ></dynamic-component-content>
+                </div>
+              </div>
+              <div *ngIf="checkForSecondOverlayRightBottom" class="p-lg-12">
+                <p-card class="overlayMainClass">
+                  <div class="p-grid">
+                    <div
+                      *ngFor="let widgets of rightBottomAll; let i = index"
+                      class="p-col-4"
+                    >
+                      <p-card class="overlayCardClass">
+                        <div>
+                          <span>
+                            {{ widgets.widgetName | translate }}
+                          </span>
+                          <span class="actionIcons">
+                            <em
+                              class="pi pi-plus-circle"
+                              (click)="
+                                addCardToLAyout(
+                                  widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                  widgets.widgetName, widgets.widgetConfig, 'rightBottom'
+                                );
+                              "
+                              (keyup.enter)="
+                                addCardToLAyout(
+                                  widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                  widgets.widgetName, widgets.widgetConfig, 'rightBottom'
+                                );
+                              "
+                              tabindex="0"
+                            ></em>
+                            <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                          </span>
+                        </div>
+                      </p-card>
+                    </div>
+                  </div>
+                </p-card>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Dashboard 3 -->
+      <div
+        class="p-grid dashboard-background"
+        *ngSwitchCase="'layout3'"
+        [ngStyle]="
+          checkCustomise == true
+            ? { 'background-image': 'none' }
+            : { 'background-image': 'url(' + dashboardBG + ')' }
+        "
+        [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'"
+      >
+        <div class="p-col-12 p-sm-12 p-md-12">
+          <div
+            class="p-grid small-card-boundary3"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="droplayout1rightTop($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightTopIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                <em class="pi pi-plus" (click)="RightTopOverlay()" (keyup.enter)="RightTopOverlay()" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+              *ngFor="let widgets of rightTop"
+              class="p-col-12 p-lg-4 p-md-12 p-sm-12"
+              cdkDrag
+              cdkDragBoundary=".small-card-boundary3"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForThirdOverlayRightTop" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightTopAll; let i = index"
+                    class="p-col-4"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightTop');
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightTop');
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <div
+           class="p-grid widgetsBoundary"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="droplayout1sidePanel($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addSidePanelIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                  <em class="pi pi-plus" (click)="SidepanelOverlay('widgetsBoundary')" (keyup.enter)="SidepanelOverlay('widgetsBoundary')" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+              *ngFor="let widgets of sidePanel"
+              class="p-col-12 p-lg-4 p-md-12 p-sm-12"
+              cdkDrag
+              cdkDragBoundary=".widgetsBoundary"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForThirdOverlaySidePanel" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of sidePanelAll; let i = index"
+                    class="p-col-12"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout( widgets.widgetId, widgets.widgetColumn , widgets.widgetRow ,
+                              widgets.widgetSelector,widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'sidePanel');
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout( widgets.widgetId, widgets.widgetColumn , widgets.widgetRow ,
+                              widgets.widgetSelector,widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'sidePanel');
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12">
+          <div
+            class="p-grid right-bottom-boundary3"
+            cdkDropList
+            (cdkDropListDropped)="droplayout1rightBottom($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightBottomIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                 <em class="pi pi-plus" (click)="RightBottomOverlay('right-bottom-boundary3')"
+                 (keyup.enter)="RightBottomOverlay('right-bottom-boundary3')" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+               cdkDragBoundary=".right-bottom-boundary3"
+              *ngFor="let widgets of rightBottom"
+              cdkDrag
+              class="p-col-12"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForThirdOverlayRightBottom" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightBottomAll; let i = index"
+                    class="p-col-4"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(
+                                widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                widgets.widgetName, widgets.widgetConfig,'rightBottom'
+                              );
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(
+                                widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                widgets.widgetName, widgets.widgetConfig,'rightBottom'
+                              );
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard 4 -->
+      <div class="{{layoutObject.params?.layoutClass}} {{layoutObject?.params?.gridClass}}" *ngSwitchCase="'layout4'">
+        <div class="{{layoutObject.params?.colWidth[0].width}} {{layoutObject.params?.colWidth[0].smallDevice}} {{layoutObject.params?.colWidth[0].mediumDevice}}
+        {{layoutObject.params?.colWidth[0].largeDevice}} {{layoutObject.params?.colWidth[0].xtraLargeDevice}} {{layoutObject.params?.panelBGColor}} {{layoutObject.params?.centerPanelStyle}}">
+          <div class="{{layoutObject.params?.gridClass}} {{layoutObject.params?.colWidth[1].cdkClass}}"
+            cdkDropList
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+            (cdkDropListDropped)="droplayoutCenterPanel($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}">
+            <div class="{{layoutObject.params?.overlayClass}} {{layoutObject.params?.addWidgetClass}}" *ngIf="checkCustomise"
+              [ngClass]="addCenterPanelIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'">
+              <div class="{{layoutObject.params?.addWidgetChildClass}}">
+                <em class="{{layoutObject.params?.addWidgetIcon}}" (click)="centerPanelOverlay()"></em>
+              </div>
+            </div>
+            <div *ngFor="let widgets of centerPanel; let i = index" cdkDrag
+              class="{{layoutObject.params?.overlayClass}}"
+              cdkDragBoundary=".{{layoutObject.params?.colWidth[0].cdkClass}}">
+              <dynamic-component-content context="readonly" class="{{layoutObject.params?.widgetClass}}" tabindex="0"
+                type="{{ widgets?.widgetSelector }}" widgetDetails="{{ widgets | json }}" #container>
+              </dynamic-component-content>
+            </div>
+            <div *ngIf="checkForOverlayDisplayCenterpanel" class="{{layoutObject.params?.overlayClass}}">
+              <p-card class="{{layoutObject.params?.widgetCardClass}}">
+                <div class="{{layoutObject.params?.gridClass}}">
+                  <div
+                    *ngFor="let widgets of centerPanelAll; let i = index"
+                    class="{{layoutObject.params?.overlayClass}}"
+                  >
+                    <p-card class="{{layoutObject.params?.widgetChildCardClass}}">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="{{layoutObject.params?.actionClass}}">
+                          <em
+                            class="{{layoutObject.params?.cardIcon}}"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'centerPanel');
+                            "
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="{{layoutObject.params?.checkIcon}}"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+
+          <ng-container *ngIf="layoutObject?.params?.customizeOptionCenter">
+            <div *ngIf="(this.centerPanel.length == 0 && this.sidePanel.length == 0 && this.rightTop.length == 0 &&
+            this.rightBottom.length == 0 && this.rightPanel.length == 0) && isDraggingEnabled" class="errMsgPlatinum">
+              <span >{{ 'empyDashboardErrMsg' | translate }}</span>
+            </div>
+            <div class="p-grid p-justify-end widgetCustomButtons">
+              <div
+                class="p-col-12 p-md-6 p-lg-2 cursorCustomize"
+                style="text-align: right;"
+                [ngClass]="
+                  checkCustomise == true ? 'showWidgetIcons' : 'hideWidgetIcons'
+                "
+              >
+                <button role="button" 
+                  pButton
+                  class="tertiaryButton"
+                  type="button"
+                  label="{{'cancel' | translate}}"
+                  (click)="cancelCustomization()"
+                ></button>
+              </div>
+              <div
+                class="p-col-12 p-md-6 p-lg-2 cursorCustomize"
+                style="text-align: right;"
+                [ngClass]="
+                  checkCustomise == true && getDetailsOfLoadedDashbord.dashboardVisibility === 'private' ? 'showWidgetIcons' : 'hideWidgetIcons'
+                "
+              >
+                <button role="button" 
+                  pButton
+                  class="primaryButton"
+                  type="button" [disabled]="toggleSavebutton()"
+                  label="{{'save' | translate}}"
+                  (click)="saveCustomise()"
+                ></button>
+              </div>
+              <div
+              class="p-col-12 p-md-6 p-lg-1 cursorCustomize"
+              style="text-align: right;"
+              [ngClass]="
+                checkCustomise == true ? 'showWidgetIcons' : 'hideWidgetIcons'
+              "
+            >
+              <button role="button" 
+                mat-flat-button
+                class="primaryButton"
+                type="button" [disabled]="toggleSavebutton()"
+                (click)="saveAsCustomise()"
+              >{{'saveAs' | translate}}</button>
+            </div>
+              <div
+                class="p-col-12 p-md-6 p-lg-2 cursorCustomize"
+                style="text-align: right;"
+                [ngClass]="
+                  checkCustomise == false ? 'showWidgetIcons' : 'hideWidgetIcons'
+                "
+              >
+                <button role="button" 
+                  pButton
+                  class="primaryButton"
+                  type="button"
+                  label="{{'customize' | translate}}"
+                  (click)="customize()"
+                ></button>
+              </div>
+
+            </div>
+          </ng-container>
+        </div>
+        <div class="{{layoutObject.params?.colWidth[1].width}} {{layoutObject.params?.colWidth[1].smallDevice}}
+            {{layoutObject.params?.colWidth[1].mediumDevice}}
+            {{layoutObject.params?.colWidth[1].largeDevice}} {{layoutObject.params?.colWidth[1].xtraLargeDevice}}
+            {{layoutObject.params?.panelBGColor}} {{layoutObject.params?.dynamicClass}}"
+          >
+          <div class="{{layoutObject.params?.gridClass}} {{layoutObject.params?.colWidth[1].cdkClass}}"
+          cdkDropList
+          [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          (cdkDropListDropped)="droplayoutRightPanel($event)"
+          cdkDropListDisabled="{{ !isDraggingEnabled }}">
+            <div class="{{layoutObject.params?.overlayClass}} {{layoutObject.params?.addWidgetClass}}" *ngIf="checkCustomise"
+              [ngClass]="addRightPanelIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'">
+            <div class="{{layoutObject.params?.addWidgetChildClass}}">
+              <em class="{{layoutObject.params?.addWidgetIcon}}" (click)="rightPanelOverlay()"></em>
+            </div>
+          </div>
+          <div *ngFor="let widgets of rightPanel; let i = index" cdkDrag
+            class="{{layoutObject.params?.overlayClass}}"
+          cdkDragBoundary=".{{layoutObject.params?.colWidth[1].cdkClass}}">
+            <dynamic-component-content context="readonly" class="{{layoutObject.params?.widgetClass}}" tabindex="0"
+              type="{{ widgets?.widgetSelector }}" widgetDetails="{{ widgets | json }}" #container>
+            </dynamic-component-content>
+          </div>
+          <div *ngIf="checkForOverlayDisplayRightpanel" class="{{layoutObject.params?.overlayClass}}">
+            <p-card class="{{layoutObject.params?.widgetCardClass}}">
+              <div class="{{layoutObject.params?.gridClass}}">
+                <div
+                  *ngFor="let widgets of rightPanelAll; let i = index"
+                  class="{{layoutObject.params?.overlayClass}}"
+                >
+                  <p-card class="{{layoutObject.params?.widgetChildCardClass}}">
+                    <div>
+                      <span>
+                        {{ widgets.widgetName | translate }}
+                      </span>
+                      <span class="{{layoutObject.params?.actionClass}}">
+                        <em
+                          class="{{layoutObject.params?.cardIcon}}"
+                          (click)="
+                            addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                            widgets.permissionName, widgets.widgetName, widgets.widgetConfig,'rightPanel');
+                          "
+                        ></em>
+                        <em *ngIf="widgets.existing == 'YES'" class="{{layoutObject.params?.checkIcon}}"></em>
+                      </span>
+                    </div>
+                  </p-card>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Dashboard 5 / Layout 5 -->
+      <div
+        class="p-grid dashboard-background"
+        *ngSwitchCase="'layout5'"
+        [ngStyle]="
+          checkCustomise == true
+            ? { 'background-image': 'none' }
+            : { 'background-image': 'url(' + dashboardBG + ')' }
+        "
+        [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'"
+      >
+        <div class="p-col-12 p-sm-12 p-md-12">
+          <div
+            class="p-grid small-card-boundary3"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="droplayout1rightTop($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightTopIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                <em class="pi pi-plus" (click)="RightTopOverlay()" (keyup.enter)="RightTopOverlay()" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+              *ngFor="let widgets of rightTop"
+              class="p-col-12"
+              cdkDrag
+              cdkDragBoundary=".small-card-boundary3"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForThirdOverlayRightTop" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightTopAll; let i = index"
+                    class="p-col-12"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightTop');
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector,
+                              widgets.permissionName, widgets.widgetName, widgets.widgetConfig, 'rightTop');
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <div
+            class="p-grid right-bottom-boundary3"
+            cdkDropList
+            (cdkDropListDropped)="droplayout1rightBottom($event)"
+            cdkDropListDisabled="{{ !isDraggingEnabled }}"
+            [ngClass]="checkCustomise == true ? 'customiseON' : 'customiseOFF'"
+          >
+            <div class="p-col-12 sphereDiv" *ngIf="checkCustomise"
+            [ngClass]="addRightBottomIconsDisabled == true ? 'pointerDisable' : 'pointerEnable'"
+            >
+              <div class="sphere">
+                <em class="pi pi-plus" (click)="RightBottomOverlay('right-bottom-boundary3')" (keyup.enter)="RightBottomOverlay('right-bottom-boundary3')" tabindex="0"></em>
+              </div>
+            </div>
+            <div
+               cdkDragBoundary=".right-bottom-boundary3"
+              *ngFor="let widgets of rightBottom"
+              cdkDrag
+              class="p-col-12"
+
+            >
+              <div>
+                <dynamic-component-content class="dynamicCompStyle"
+                  type="{{ widgets?.widgetSelector }}"  widgetDetails="{{ widgets | json }}" #container
+                ></dynamic-component-content>
+              </div>
+            </div>
+            <div *ngIf="checkForThirdOverlayRightBottom" class="p-lg-12">
+              <p-card class="overlayMainClass">
+                <div class="p-grid">
+                  <div
+                    *ngFor="let widgets of rightBottomAll; let i = index"
+                    class="p-col-4"
+                  >
+                    <p-card class="overlayCardClass">
+                      <div>
+                        <span>
+                          {{ widgets.widgetName | translate }}
+                        </span>
+                        <span class="actionIcons">
+                          <em
+                            class="pi pi-plus-circle"
+                            (click)="
+                              addCardToLAyout(
+                                widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                widgets.widgetName, widgets.widgetConfig,'rightBottom'
+                              );
+                            "
+                            (keyup.enter)="
+                              addCardToLAyout(
+                                widgets.widgetId, widgets.widgetColumn , widgets.widgetRow , widgets.widgetSelector, widgets.permissionName,
+                                widgets.widgetName, widgets.widgetConfig,'rightBottom'
+                              );
+                            "
+                            tabindex="0"
+                          ></em>
+                          <em *ngIf="widgets.existing == 'YES'" class="pi pi-check"></em>
+                        </span>
+                      </div>
+                    </p-card>
+                  </div>
+                </div>
+              </p-card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard 6 / Layout 6 -->
+      <div
+        class="p-grid dashboard-background white-bg"
+        *ngSwitchCase="'layout6'"
+        [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'"
+      >
+
+        <!-- Fixed Component for navigation -->
+        <div *ngIf="layoutObject?.params?.navigation" class="p-col-12 white-bg">
+          <div class="p-col-12 white-bg">
+            <div class="p-col-12 white-bg">
+              <div class="p-col-12 white-bg dashboardLayout">
+                <app-fcc-navigation  (filterApplied)="reloadAccountSummaryWidgets()" (coruoselClick)="onCoruoselClick()"></app-fcc-navigation>
+                <div *ngIf="showAccountSummaryWidgets" class="listdef-table" (scroll)="onScroll($event)" #accountListContainer>
+                  <div *ngFor="let widgets of rightBottom" #listdefTable>
+                    <dynamic-component-content class="dynamicCompStyle"
+                    type="{{ widgets?.widgetSelector }}" id="{{widgets?.widgetName}}"  widgetDetails="{{ widgets | json }}" #container
+                  ></dynamic-component-content>
+                  </div>
+                  <div></div>
+                  <div class="disclaimer-style">
+                    <span >{{ 'disclaimer' | translate }}</span>
+                  </div>
+                  <div class="disclaimerMessage-style">
+                    <span>{{ 'disclaimerMessageAccountSummary' | translate }}</span>
+                  </div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Layout Ends here -->
+    <ng-container *ngIf="!(layoutObject?.params && layoutObject?.params?.customizeOptionCenter)">
+      <div *ngIf="(this.centerPanel.length == 0 && this.sidePanel.length == 0 && this.rightTop.length == 0 &&
+            this.rightBottom.length == 0 && this.rightPanel.length == 0) && isDraggingEnabled" class="errMsg">
+              <span >{{ 'empyDashboardErrMsg' | translate }}</span>
+      </div>
+      <div class="p-grid p-justify-end widgetCustomButtons" *ngIf="allowPersonalization">
+        <div
+          class="p-col-12 p-md-6 p-lg-1 cursorCustomize"
+          style="text-align: right;"
+          [ngClass]="
+            checkCustomise == true ? 'showWidgetIcons' : 'hideWidgetIcons'
+          "
+        >
+          <button role="button" 
+            mat-flat-button
+            class="tertiaryButton"
+            type="button" [disabled]="buttonDisabled"
+            (click)="cancelCustomization()"
+          >{{'cancel' | translate}}</button>
+        </div>
+          <div
+          class="p-col-12 p-md-6 p-lg-1 cursorCustomize"
+          style="text-align: right;"
+          [ngClass]="
+            checkCustomise == true && getDetailsOfLoadedDashbord.dashboardVisibility === 'private' ? 'showWidgetIcons' : 'hideWidgetIcons'
+          "
+        >
+          <button role="button" 
+            mat-flat-button
+            class="secondaryButton"
+            type="button" [disabled]="toggleSavebutton()"
+            (click)="saveCustomise()"
+          >{{'save' | translate}}</button>
+        </div>
+        <div
+          class="p-col-12 p-md-6 p-lg-1 cursorCustomize"
+          style="text-align: right;"
+          [ngClass]="
+            checkCustomise == true ? 'showWidgetIcons' : 'hideWidgetIcons'
+          "
+        >
+          <button role="button" 
+            mat-flat-button
+            class="primaryButton"
+            type="button" [disabled]="toggleSavebutton()"
+            (click)="saveAsCustomise()"
+          >{{'saveAs' | translate}}</button>
+        </div>
+        <div
+          class="p-col-12 p-md-6 p-lg-2 cursorCustomize"
+          style="text-align: right;"
+          [ngClass]="
+            checkCustomise == false ? 'showWidgetIcons' : 'hideWidgetIcons'
+          "
+          *ngIf="allowPersonalization"
+        >
+          <button role="button" 
+            mat-flat-button
+            class="primaryButton"
+            type="button"
+            (click)="customize()"
+          >{{'customize' | translate}}</button>
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+
+  <p-dialog [(visible)]="display" (onHide)="onCloseDialog()" [modal]="true" (onShow)="onShowDialog()" [style]="{width: '25vw'}">
+    <div>
+      <p class="headerTitle">{{ 'saveDashboard' | translate }}</p>
+    </div>
+    <div class="">
+      <p class="base-label">{{ 'dashboardName' | translate}}</p>
+    </div>
+    <form [formGroup]="dashNameForm" (ngSubmit)="submitDashboardName()">
+    <div class="dash-save">
+        <span class="ui-float-label implementation">
+        <input role="textbox" id="float-input" type="text" OnFocusInput="true" (ngModelChange)="onKeyUpInput($event)"
+        [maxlength]="dashboardValidationMaxLen"
+        [minlength]="dashboardValidationMinLen" formControlName="dashboardName" (focus)="onFocusInput()"
+         pInputText>
+        </span>
+    </div>
+    <div *ngIf="dashboardOverRide" class="chk-box">
+      <p-checkbox name = "group2" formControlName= "dashboardCheckBox" (onChange)="onCheck($event)" value ="agree" label="{{'dashboardCustomize' | translate}}" >
+      </p-checkbox>
+    </div>
+    <div *ngIf="errorState" class="chk-box">
+      <p class="fcc-error-message">{{errorMessage}}</p>
+    </div>
+    <div class="m-top">
+      <button role="button"  styleClass="saveBtn"
+      mat-flat-button [disabled]="disableSaveButton"
+      type="submit" class="ui-button ui-button-rounded ui-button-text-only"
+      ><span class="ui-button-text ui-clickable">{{'save' | translate}}</span></button>
+    </div>
+  </form>
+
+  </p-dialog>
+</ng-container>

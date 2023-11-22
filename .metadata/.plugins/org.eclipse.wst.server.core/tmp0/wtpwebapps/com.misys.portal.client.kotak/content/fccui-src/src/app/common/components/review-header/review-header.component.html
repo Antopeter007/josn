@@ -1,0 +1,60 @@
+<div [dir]="dir" class="p-lg-12 p-md-12 p-sm-12">
+  <p-card>
+    <div class="p-grid p-justify-end">
+      <div class="p-col-3 p-md-6 removeSpace" >
+        <h1 class = "refnum" >
+          <p  tabindex="0">{{referenceNum}}</p><br>
+          <div class="blockStyle" *ngIf="displayEvent">
+            <h2 class="block1" tabindex="0" >{{event}}</h2>
+            <span class="block2" tabindex="0" >{{eventType}}</span>
+          </div>
+        </h1>
+      </div>
+    <div class="p-col-9 p-md-6  p-col-align-end buttons" >
+      <div class="{{dir}}" *ngIf="displayButtons">
+        <div class="p-sm-12 p-md-12 p-lg-12 create-btn-block" >
+          <ng-container *ngFor= "let button of buttonItemList">
+            <button role="button"  *ngIf = "button.render && button.buttonType !== 'threeDots'"
+              pButton
+              class="primaryButton {{button.styleClass}}"
+              type="button"
+              label="{{button.buttonName | translate}}"
+              (click)="navigateButtonUrl(button.routerLink , button.buttonType , button.queryParams)"
+              (keyup.enter)="navigateButtonUrl(button.routerLink , button.buttonType , button.queryParams)"
+              tabindex="0"
+              [disabled]="button['disable']">
+            </button>
+          </ng-container>
+
+          <button role="button"  *ngIf = "isJourneyButtonRequired"
+            id="journeyButton"
+            pButton
+            class="primaryButton journey-button"
+            type="button"
+            label="{{'journey' | translate}}"
+            (click)="journey()"
+            tabindex="0">
+          </button>
+            <div *ngIf = "threeDotsButton">
+            <a style= "margin-left: 1.4em"><em class="pi pi-ellipsis-v threeDots" tabindex="0"></em></a>
+          </div>
+        </div>
+    </div>
+    </div>
+      </div>
+  </p-card>
+  <div *ngIf="displayErrorContent" class="p-col-12" tabindex="0">
+    <div class="p-grid textalign">
+        <div class="p-col-12 p-md-12 p-lg-12 p-sm-12">
+          <div class="p-grid">
+              <div class="p-col-12 paddingAll">
+                <div  class="p-col-12 p-message-error"  >
+                  <img class="dialogImage" src="{{contextPath}}/content/FCCUI/assets/images/Circle.svg" alt= "{{'error' | translate }}" />
+                  <span>{{msgs}}</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

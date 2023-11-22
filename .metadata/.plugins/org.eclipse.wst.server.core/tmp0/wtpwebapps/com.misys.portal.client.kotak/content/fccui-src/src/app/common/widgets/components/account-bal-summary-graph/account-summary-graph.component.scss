@@ -1,0 +1,14 @@
+::ng-deep .mat-tab-label {
+    border: none !important;
+    border-top-left-radius: none !important;
+    border-top-right-radius: none !important;
+    margin-left: none !important;
+    margin-right: none !important;
+    height: 3em;
+   }
+::ng-deep .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+    display: none;
+}
+.graphDisplay{
+    display: block; height: 8.625em; width: 51.75em; padding-top: 1em;
+}

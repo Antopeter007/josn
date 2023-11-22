@@ -1,0 +1,220 @@
+@import "../../../../../styles/variables.scss";
+:host ::ng-deep .ui-table .ui-table-thead > tr > th {
+  padding-top: 1.25em !important;
+  padding-bottom: 1.25em !important;
+  border: none !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  font-size: 0.875em !important;
+  line-height: 0.875em !important;
+  text-align: left;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td {
+  background-color: transparent;
+  border: 0px solid #c8c8c8;
+  color: #545454;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1em;
+  word-break: break-word;
+  padding-top: 0.1875em;
+  padding: 0.875em 0.857em;
+}
+
+@media screen and (max-width: 40em) {
+  :host ::ng-deep .ui-table.ui-table-responsive .ui-table-tbody > tr > td {
+    padding-left: 0em;
+    padding-right: 0em;
+  }
+}
+
+// tables
+
+:host
+  ::ng-deep
+  .ui-table.ui-table-transaction
+  .ui-table-caption.ui-widget-header {
+  border: 0 none;
+  padding: 0.75em;
+  text-align: left !important;
+  font-size: 1.25em;
+}
+
+:host ::ng-deep .ui-column-filter {
+  margin-top: 1em;
+}
+
+:host ::ng-deep .ui-column-filter .ui-multiselect-label {
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-table.ui-table-transaction .ui-table-thead > tr > th {
+  border: 0 none;
+  text-align: left !important;
+}
+
+:host ::ng-deep .ui-table-globalfilter-container {
+  display: inline;
+}
+
+:host ::ng-deep .ui-table.ui-table-transaction .ui-table-tbody > tr > td {
+  border: 0 none;
+}
+
+:host
+  ::ng-deep
+  .ui-table.ui-table-transaction
+  .ui-table-tbody
+  .ui-column-title {
+  font-size: 1em;
+}
+
+:host ::ng-deep .ui-table.ui-table-transaction .ui-paginator {
+  border: 0 none;
+  padding: 1em;
+}
+tr > td {
+  text-align: left !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr {
+  background-color: transparent;
+  color: #333333;
+}
+.col-drop-down-select {
+  line-height: 5em;
+}
+
+// responsive table
+:host ::ng-deep .ui-datatable .ui-datatable-data > tr > td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// .loading-text {
+//             display: block;
+//             background-color: #f1f1f1;
+//             min-height: 19px;
+//             animation: pulse 1s infinite ease-in-out;
+//             text-indent: -99999px;
+//             overflow: hidden;
+//         }
+.slice {
+  height: 2em;
+}
+
+.imageMove {
+  position: relative;
+  left: 4.8125em;
+  bottom: 1.25em;
+}
+
+.dateChange {
+  text-align: center;
+  color: $VIOLET-PRIMARY-COLOR;
+  font-size: 1.7em;
+  border-bottom: 0.8em solid transparent;
+}
+
+.debit {
+  color: $BLACK-02;
+  padding-left: 0.6em;
+}
+
+.credit {
+  color: $GREEN-01;
+  padding-left: 0.6em;
+}
+
+.dateDesc {
+  white-space: nowrap;
+}
+
+.line-breaker1 {
+  white-space: nowrap;
+  width: 12em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+tr > td.amtLabel, th#amountCol {
+  text-align: right !important;
+}
+.line-breaker {
+  cursor: pointer;
+}
+
+.info-button{
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.material-icons {
+  font-size: 14px;
+}
+
+:host ::ng-deep p-table table {
+  table-layout: auto !important;
+}
+
+.wrap{
+  white-space: nowrap;
+}
+
+//ipad-pro styles
+@media screen and (max-width: 1439px) and (min-width: 992px) {
+  .padding-x-2{
+    padding-left: 0.2em !important;
+    padding-right: 0.2em !important;
+  }
+  .date-width{
+    width: 28% !important;
+  }
+  .desc-width{
+    width: 40% !important;
+  }
+  .amount-width{
+    width: 32% !important;
+  }
+  .dateChange {
+    font-size: 1.5em !important;
+    border-bottom: 0.4em solid transparent !important;
+  }
+  .year{
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+  
+  .dateDesc {
+    white-space: initial !important;
+  }
+  .line-breaker1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    
+  }
+  .info-button{
+    display: initial;
+  }
+
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  :host ::ng-deep p-table table{
+    table-layout: fixed !important;
+  }
+  
+}

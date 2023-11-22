@@ -1,0 +1,12 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 editorPadding">
+    <angular-editor
+      id="{{ control.key }}"
+      [(ngModel)]="hostComponentData.htmlContent"
+      [ngModelOptions]="{ standalone: true }"
+      tabindex="0"
+      (keypress)="onEventRaised($event, control.key)"
+      (focus)="onEventRaised($event, control.key)"
+    ></angular-editor>
+  </div>
+</ng-container>

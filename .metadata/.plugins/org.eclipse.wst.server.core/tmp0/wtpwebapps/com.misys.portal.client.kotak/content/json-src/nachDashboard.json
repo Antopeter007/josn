@@ -1,0 +1,11 @@
+{
+ "responseCode":"00",
+ "totalAmount":"2000",                            
+ "requestId": "1",                                                                                             
+ "timeStamp": "201912041530689",
+ "description":"Operation perform successfully",
+"details":  [ {
+        "crnNumber": "CRN00001",
+        "amount": "2000",
+    }]
+}

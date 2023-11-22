@@ -1,0 +1,34 @@
+    <div id =  "entity_row" class = "field">
+      <label for =  "entity" id =  "entity_label">{{'ABBVNAME' | translate}}&nbsp;</label>
+      <input id = "entity" type = "text" [(ngModel)]="entity" class="content" pInputText/>
+    </div>
+    <div id =  "name_row" class = "field">
+      <label for =  "name" id =  "name_label">{{'NAME' | translate}}&nbsp;</label>
+      <input id = "name" type = "text"  [(ngModel)]="name" class="content" pInputText/>
+    </div>
+    <div id =  "search_button_row" class="field">
+      <label for =  "search_button" >&nbsp;</label>
+      <button pButton type="button" label="{{ 'USER_ACTION_SEARCH' | translate}}"  (click)="getFilteredListOfCustomerEntities()" class="primary-button"></button>
+    </div>
+<p-table #data [value]="filteredListOfCustomerEntities" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id = "abvname" pSortableColumn="ABBVNAME">{{ "ABBVNAME" | translate }}<p-sortIcon field="ABBVNAME"></p-sortIcon></th>
+            <th id = "entity-name">{{ "ENTITY" | translate }} </th>
+            <th id = "ename">{{ "NAME" | translate }} </th>
+            <th id = "addrline">{{ "ADDRESSLINE1" | translate }} </th>
+            <th id = "addr-line">{{ "ADDRESSLINE2" | translate }} </th>
+            <th id = "domicile">{{ "DOMICILE" | translate }} </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td class="word-wrap"><a (click)= "ref.close(customer)">{{customer.ABBVNAME}}</a></td>
+            <td class="word-wrap">{{customer.ENTITY}}</td>
+            <td class="word-wrap">{{customer.NAME}}</td>
+            <td class="word-wrap">{{customer.ADDRESSLINE1}}</td>
+            <td class="word-wrap">{{customer.ADDRESSLINE2}}</td>
+            <td class="word-wrap">{{customer.DOMICILE}}</td>
+        </tr>
+    </ng-template>
+</p-table>

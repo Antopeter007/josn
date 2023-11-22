@@ -1,0 +1,231 @@
+@import '../../../../styles/variables.scss';
+
+.dynamic-dialog {
+    padding: 0 1.5em;
+
+    .dynamic-dialog-title {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.01em solid $GREY-13;
+        padding: 0.5em 0;
+        height: 4em;
+
+        .dynamic-dialog-status {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+
+            .dynamic-dialog-status-color {
+                height: 0.5em;
+                width: 0.5em;
+                border-radius: 0.5em;
+            }
+
+            .dynamic-dialog-status-title {
+                margin-left: 0.5em;
+                margin-right: 0.5em;
+                color: $GREY-08;
+                font-weight: bold;
+                font-size: 0.75em;
+            }
+        }
+    }
+}
+
+[dir="rtl"] mat-dialog-content {
+    .p-col-12 {
+        flex-direction: row-reverse;
+    }
+    .dynaic-dialog-content-container {
+        text-align: right;
+    }
+}
+
+
+.dynaic-dialog-content-container {
+    display: flex;
+    flex-direction: column;
+
+    .dynaic-dialog-content-container-label {
+        color: $GREY-08;
+        font-weight: 300;
+    }
+
+    .dynaic-dialog-content-container-value {
+        padding-top: 0.3em;
+        color: $BLACK;
+        font-weight: 400;
+        word-break: break-all;
+        min-height: 1.5em;
+    }
+}
+
+mat-dialog-actions {
+    align-items: baseline;
+    padding: 1em 1em 1.5em 1em;
+    box-shadow: 0px -1px 5px -1px $GREY-A0;
+    display: flex;
+    justify-content: space-between !important;
+
+    .footer-buttons {
+        padding-bottom: 1em;
+        button {
+            margin-right: 0.5em !important;
+            margin-bottom: 0em !important;
+            margin-left: 0.5em !important;
+        }
+    }
+}
+
+mat-form-field {
+    min-width: 20em;
+}
+@media only screen and (min-device-width: 400px) and (max-device-width: 480px) {
+    mat-form-field {
+        min-width: 17em;
+    }
+}
+
+@media only screen and (max-device-width: 400px) {
+    mat-form-field {
+        min-width: 16em;
+    }
+}
+.mat-typography::-webkit-scrollbar{
+width: 0.3125em;
+height: 0.0625em;
+}
+
+.mat-typography::-webkit-scrollbar-track {
+box-shadow: inset 0 0 0.0625em $GRAY-TROLLEYGREY-01;
+border-radius : 0.3125em;
+}
+
+.mat-typography::-webkit-scrollbar-thumb{
+background: $GREY-22 !important;
+border-radius: 0.3125em;
+}
+.comment-field{
+    width: 100% !important;
+}
+.action-button{
+    margin-top: 0.5em !important;
+}
+.close-icon{
+    margin-bottom: 1.1em;
+    margin-right: 1em;
+}
+[dir="rtl"] .close-icon{
+    margin-bottom: 1.2em !important;
+    margin-left: 1em;
+}
+.dynamic-dialog-actions{
+    justify-content: end !important;
+}
+.comment-textarea{
+    min-height: 1.75em !important;
+    max-height: 1.75em !important;
+}
+
+:host ::ng-deep .no-remarks {
+    .mat-form-field-flex {
+        background-color: rgba(228, 0, 70,.08);;
+    }
+}
+
+.min-width {
+    min-width: 40em;
+    margin-bottom: 2em;
+}
+
+.loop-button {
+    margin-right: 1em;
+  }
+#invalidComment{
+    color:$RED-100;
+    font-size: small;
+}
+
+@media screen and (min-width: 768px) and (max-width: 834px) {
+    :host ::ng-deep .min-width {
+        min-width: 38em !important;
+    }
+}
+
+.enrichmentTable {
+    margin-top: 1em;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.enrichmentTable::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    overflow-y: scroll;
+}
+.enrichmentTable::-webkit-scrollbar-thumb {
+    background: $GREY-22;
+    border-radius: 10px;
+}
+
+.text-left {
+    text-align: left;
+    width: 12em;
+}
+
+.text-right {
+    text-align: right;
+    width: 12em;
+}
+
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+    overflow-y: scroll;
+}
+
+:host ::ng-deep .ui-table-scrollable-body::-webkit-scrollbar-thumb {
+    background: $GREY-22;
+    border-radius: 10px;
+}
+
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+    overflow-y: scroll;
+}
+
+:host ::ng-deep .ui-table-wrapper::-webkit-scrollbar-thumb {
+    background: $GREY-22;
+    border-radius: 10px;
+}
+
+:host ::ng-deep .ui-table-scrollable-header-box {
+    margin-right: 3px !important;
+    padding-right: 0px !important;
+}
+
+:host ::ng-deep .ui-table-scrollable-body {
+    margin-right: 3px !important;
+}
+
+.blue-label {
+    color:$VIOLET-05 !important;
+}
+
+.align-title {
+    margin-top: 0.625em;
+}
+
+.chequeImg {
+    padding-top: 0.3em;
+}
+
+:host ::ng-deep .ui-table-scrollable-body{
+    overflow: initial !important;
+}
+
+:host ::ng-deep .ui-table-scrollable-header{
+    overflow: initial !important;
+}

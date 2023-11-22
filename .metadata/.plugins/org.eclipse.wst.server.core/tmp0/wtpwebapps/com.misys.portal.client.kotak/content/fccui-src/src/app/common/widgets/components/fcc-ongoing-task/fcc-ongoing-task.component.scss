@@ -1,0 +1,26 @@
+@import "./../../../../../styles/variables.scss";
+.taskMonitoring {
+  background-color: $primaryColor !important;
+  width: 100%;
+}
+.imgStyle {
+  position: relative;
+  top: 0.45em;
+  font-size: 2.57em;
+  color: $FUCHSIA-F100;
+}
+.desc {
+  color: $CHARCOAL-A30;
+  text-align: justify;
+  font-size: 0.86875em !important;
+  word-break: break-all;
+}
+.commentsMargin {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 0.85em;
+  cursor: pointer;
+  color: $CHARCOAL-A30;
+}
+
+ 

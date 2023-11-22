@@ -1,0 +1,30 @@
+@import './../../../../../../styles/variables.scss';
+
+:host::ng-deep .mainSubHeader {
+  font-size: 1.14em;
+  color: #4a4a4a;
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+// :host::ng-deep .currencyView {
+//   margin-top: 1em;
+// }
+
+:host::ng-deep .currencyView {
+  width: 2.5em;
+  margin-top: 1.2em;
+}
+
+:host::ng-deep .widthForCur{
+  width: 38% !important;
+}
+
+:host ::ng-deep .warningStyle {
+  font-style: italic;
+  color: $GREY-01;
+  font-weight: 500;
+  bottom: 1em;
+  position: relative;
+}

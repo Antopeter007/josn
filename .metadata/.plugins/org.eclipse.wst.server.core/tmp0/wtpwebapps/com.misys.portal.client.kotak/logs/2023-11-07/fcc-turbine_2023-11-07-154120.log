@@ -1,0 +1,413 @@
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /configuration
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getDefaultDashbaord
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /clientMenuDetails/
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /entities
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /user-details
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:41:20 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getChatConfiguration
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getlocalizationdetails
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /fbcclogout/
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getString
+[Tue Nov 07 15:41:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:41:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-5 -- ERROR -- com.misys.portal.services.db.GTPDBPoolService - Unable to get a connection
+org.apache.torque.TorqueException: org.apache.commons.dbcp.SQLNestedException: Could not retrieve connection info from pool
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:673) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.Torque.getConnection(Torque.java:262) ~[torque-3.1.1.jar:?]
+	at com.misys.portal.services.db.GTPDBPoolService.getConnection(GTPDBPoolService.java:306) ~[com.misys.portal.common.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.services.db.GTPDBPoolService.getConnection(GTPDBPoolService.java:269) ~[com.misys.portal.common.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.services.db.PoolBrokerService.getConnection(PoolBrokerService.java:64) ~[com.misys.portal.common.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.common.tools.CodeData.fetchListLanguage(CodeData.java:175) ~[com.misys.portal.common.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.webservices.apis.controller.ConfigurationController.addCodeDataLocalization(ConfigurationController.java:1058) ~[com.misys.portal.webapp.jar:?]
+	at com.misys.portal.webservices.apis.controller.ConfigurationController.getlocalizationdetails(ConfigurationController.java:972) ~[com.misys.portal.webapp.jar:?]
+	at com.misys.portal.webservices.apis.controller.ConfigurationController$$FastClassBySpringCGLIB$$80979a1.invoke(<generated>) ~[com.misys.portal.webapp.jar:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.misys.portal.webservices.apis.aop.InternalApiAuditAspect.permissionCheck(InternalApiAuditAspect.java:72) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at sun.reflect.GeneratedMethodAccessor97.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:49) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.29.jar:5.3.29]
+	at com.misys.portal.webservices.apis.controller.ConfigurationController$$EnhancerBySpringCGLIB$$1976acb1.getlocalizationdetails(<generated>) ~[com.misys.portal.webapp.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[servlet-api.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.29.jar:5.3.29]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at org.springframework.mobile.device.DeviceResolverRequestFilter.doFilterInternal(DeviceResolverRequestFilter.java:60) ~[spring-mobile-device-1.1.5.RELEASE.jar:1.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at net.sf.ehcache.constructs.web.filter.GzipFilter.doFilter(GzipFilter.java:95) ~[ehcache-web-2.0.4.jar:?]
+	at net.sf.ehcache.constructs.web.filter.Filter.doFilter(Filter.java:86) ~[ehcache-web-2.0.4.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:218) ~[spring-security-web-5.8.5.jar:5.8.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:190) ~[spring-security-web-5.8.5.jar:5.8.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.29.jar:5.3.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at com.misys.portal.webservices.apis.interceptors.RequestDecrypterFilter.doFilter(RequestDecrypterFilter.java:30) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at com.misys.portal.webservices.apis.interceptors.RateLimitingFilter.doFilter(RateLimitingFilter.java:61) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at com.misys.portal.services.rundata.HostFilter.doFilter(HostFilter.java:41) ~[com.misys.portal.common.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[catalina.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-coyote.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-coyote.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-coyote.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[?:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[?:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_241]
+Caused by: org.apache.commons.dbcp.SQLNestedException: Could not retrieve connection info from pool
+	at org.apache.commons.dbcp.datasources.SharedPoolDataSource.getPooledConnectionAndInfo(SharedPoolDataSource.java:184) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:701) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:676) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:662) ~[torque-3.1.1.jar:?]
+	... 98 more
+Caused by: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:858) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_241]
+	at java.sql.DriverManager.getConnection(DriverManager.java:247) ~[?:1.8.0_241]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:205) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:150) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.KeyedCPDSConnectionFactory.makeObject(KeyedCPDSConnectionFactory.java:125) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:747) ~[commons-pool-1.2.jar:1.2]
+	at org.apache.commons.dbcp.datasources.SharedPoolDataSource.getPooledConnectionAndInfo(SharedPoolDataSource.java:181) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:701) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:676) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:662) ~[torque-3.1.1.jar:?]
+	... 98 more
+Caused by: oracle.net.ns.NetException: The Network Adapter could not establish the connection
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:571) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:548) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:682) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:309) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1600) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:591) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_241]
+	at java.sql.DriverManager.getConnection(DriverManager.java:247) ~[?:1.8.0_241]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:205) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:150) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.KeyedCPDSConnectionFactory.makeObject(KeyedCPDSConnectionFactory.java:125) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:747) ~[commons-pool-1.2.jar:1.2]
+	at org.apache.commons.dbcp.datasources.SharedPoolDataSource.getPooledConnectionAndInfo(SharedPoolDataSource.java:181) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:701) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:676) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:662) ~[torque-3.1.1.jar:?]
+	... 98 more
+Caused by: java.io.IOException: No route to host: connect, socket connect lapse 2 ms. /192.168.1.139 1521 0 1 true
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:233) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:174) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:510) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:548) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:682) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:309) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1600) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:591) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_241]
+	at java.sql.DriverManager.getConnection(DriverManager.java:247) ~[?:1.8.0_241]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:205) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:150) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.KeyedCPDSConnectionFactory.makeObject(KeyedCPDSConnectionFactory.java:125) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:747) ~[commons-pool-1.2.jar:1.2]
+	at org.apache.commons.dbcp.datasources.SharedPoolDataSource.getPooledConnectionAndInfo(SharedPoolDataSource.java:181) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:701) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:676) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:662) ~[torque-3.1.1.jar:?]
+	... 98 more
+Caused by: java.net.NoRouteToHostException: No route to host: connect
+	at sun.nio.ch.Net.connect0(Native Method) ~[?:1.8.0_241]
+	at sun.nio.ch.Net.connect(Net.java:454) ~[?:1.8.0_241]
+	at sun.nio.ch.Net.connect(Net.java:446) ~[?:1.8.0_241]
+	at sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:648) ~[?:1.8.0_241]
+	at java.nio.channels.SocketChannel.open(SocketChannel.java:189) ~[?:1.8.0_241]
+	at oracle.net.nt.TimeoutSocketChannel.connect(TimeoutSocketChannel.java:99) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.TimeoutSocketChannel.<init>(TimeoutSocketChannel.java:77) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:192) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:174) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:510) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:548) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:682) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:309) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1600) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:591) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.7.0.0.jar:19.7.0.0.0]
+	at java.sql.DriverManager.getConnection(DriverManager.java:664) ~[?:1.8.0_241]
+	at java.sql.DriverManager.getConnection(DriverManager.java:247) ~[?:1.8.0_241]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:205) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.cpdsadapter.DriverAdapterCPDS.getPooledConnection(DriverAdapterCPDS.java:150) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.KeyedCPDSConnectionFactory.makeObject(KeyedCPDSConnectionFactory.java:125) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:747) ~[commons-pool-1.2.jar:1.2]
+	at org.apache.commons.dbcp.datasources.SharedPoolDataSource.getPooledConnectionAndInfo(SharedPoolDataSource.java:181) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:701) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.datasources.InstanceKeyDataSource.getConnection(InstanceKeyDataSource.java:676) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.torque.TorqueInstance.getConnection(TorqueInstance.java:662) ~[torque-3.1.1.jar:?]
+	... 98 more
+[Tue Nov 07 15:41:21 IST] -- http-nio-8086-exec-5 -- ERROR -- com.misys.portal.common.tools.CodeData - org.apache.commons.dbcp.SQLNestedException: Could not retrieve connection info from pool
+[Tue Nov 07 15:41:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:41:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:42:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:42:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:42:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:42:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:42:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:42:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:43:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:43:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:43:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:43:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:43:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:43:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:44:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:44:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:44:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:44:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:44:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:44:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:45:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:45:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:45:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:45:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:45:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:45:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:46:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:46:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:46:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:46:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:46:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:46:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:47:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:47:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:47:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:47:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:47:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:47:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:48:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:48:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:48:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:48:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:48:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:48:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:49:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:49:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:49:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:49:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:49:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:49:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:50:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:50:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:50:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:50:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:50:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:50:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:51:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:51:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:51:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:51:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:51:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:51:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:52:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:52:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:52:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:52:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:52:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:52:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:53:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:53:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:53:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:53:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /configuration
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getDefaultDashbaord
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /clientMenuDetails/
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /entities
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /user-details
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getChatConfiguration
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getlocalizationdetails
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 15:53:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 15:53:34 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /fbcclogout/
+[Tue Nov 07 15:53:34 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getString
+[Tue Nov 07 15:53:34 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 15:53:34 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 15:53:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:53:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:54:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:54:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:54:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:54:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:54:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:54:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:55:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:55:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:55:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:55:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:55:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:55:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:56:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:56:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:56:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:56:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:56:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:56:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:57:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:57:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:57:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:57:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:57:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:57:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:58:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:58:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:58:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:58:21 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:58:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:58:41 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 15:59:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 15:59:01 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error

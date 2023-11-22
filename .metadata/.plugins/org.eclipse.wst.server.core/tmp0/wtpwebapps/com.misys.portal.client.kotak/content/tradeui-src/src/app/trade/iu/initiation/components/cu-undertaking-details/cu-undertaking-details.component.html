@@ -1,0 +1,9 @@
+<div *ngIf="commonDataService.displayLUSection() && commonDataService.getPreviewOption() !== 'SUMMARY'">
+    <p-panel header="{{'COUNTER_UNDERTAKING_DETAILS_LABEL' | translate}}" [toggleable]="true" [collapsed] ="!this.collapsible">
+      <div [formGroup]="cuUndertakingDetailsForm">
+          <fcc-iu-common-undertaking-details [undertakingType]="'cu'" *ngIf="bgRecord" [bgRecord]="bgRecord" [formName]="cuUndertakingDetailsForm"></fcc-iu-common-undertaking-details>
+      </div>
+    </p-panel>
+</div>
+
+

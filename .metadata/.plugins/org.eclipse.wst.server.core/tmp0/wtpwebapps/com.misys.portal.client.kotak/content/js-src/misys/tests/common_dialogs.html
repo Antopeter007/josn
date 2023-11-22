@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Functions for common.js</title>
+        <style type="text/css">
+         @import "../../dojo/resources/dojo.css";
+         @import "../../misys/themes/demobank/demobank.css";
+        </style>
+        
+        <script src="../../dojo/dojo.js"  
+        	djConfig="isDebug: true, parseOnLoad: false, locale:'en-us'"></script>
+        
+        <script src="../../dijit/tests/helpers.js"></script>	
+        
+        <script>
+        dojo.require("dojo.parser");
+        dojo.require("doh.runner");
+        dojo.require("dijit.dijit");
+        dojo.require("dijit.form.TextBox");
+        dojo.require("dijit.form.ValidationTextBox");
+        dojo.require("dijit.form.Form");
+        dojo.require("dijit.form.DateTextBox");
+        dojo.require("misys.form.DateTermField");
+        dojo.require("misys.form.PercentNumberTextBox");
+        dojo.require("misys.form.SpreadTextBox");
+        dojo.require("dijit.form.FilteringSelect");
+        dojo.require("misys.form._FilteringTermSelect");
+        dojo.require("dijit.form.RadioButton");
+        dojo.require("dijit.form.CheckBox");
+        dojo.require("dijit.Editor");
+        dojo.require("dijit.form.TimeTextBox");
+        dojo.require("dijit.form.NumberTextBox");
+        dojo.require("misys.form.CurrencyTextBox");
+        dojo.require("misys.form.SimpleTextarea");
+        dojo.require("dijit.form.SimpleTextarea");
+        dojo.require("dijit.form.MultiSelect");
+        dojo.require("dijit.layout.TabContainer");
+        dojo.require("dojox.grid.DataGrid");
+        dojo.require("dojox.data.CsvStore");
+        dojo.require("dojox.xml.DomParser");
+
+        dojo.requireLocalization("misys", "common", "en-us");
+        misys._config = (misys._config) || {};
+        dojo.mixin(misys._config, { context: "/", servlet: "/portal", client: "misys"});
+         
+         // Get the context and servlet and set it on the misys object
+         var str = window.location.href.substr(window.location.href.indexOf("?")+1).split(/#/);
+		 var ary  = str[0].split(/&/);
+         if(window.location.href.indexOf("?") > -1){
+        	 for(var i=0; i<ary.length; i++){
+        		 var split = ary[i].split("="),
+					 key = split[0],
+					 value = split[1];	// replace() to prevent XSS attack
+				 switch(key){
+					case "context":
+						misys._config.context = value;
+						break;
+					case "servlet":
+						misys._config.servlet = value;
+						break;
+				}
+			}
+		}
+        
+        dojo.require("misys._base");
+        dojo.require("misys.common");
+
+        submittedValues = function(values) {
+        	console.log(values);
+        };
+        
+        dojo.ready(function(){
+        	
+        	dojo.query(".parseOnLoad").forEach(function(container){
+        		dojo.parser.parse(container);
+       	 	});
+        	
+        	// Prepare the grid
+	        var store4 = new dojox.data.CsvStore({
+	            url: 'resources/movies.csv'
+	        });
+	
+	        // set the layout structure:
+	        var layout4 = [{
+	            field: 'Title',
+	            name: 'Title of Movie',
+	            width: '200px'
+	        },
+	        {
+	            field: 'Year',
+	            name: 'Year',
+	            width: '50px'
+	        },
+	        {
+	            field: 'Producer',
+	            name: 'Producer',
+	            width: 'auto'
+	        }];
+	
+	        // create a new grid:
+	        var grid4 = new dojox.grid.DataGrid({
+	            query: {
+	                Title: '*'
+	            },
+	            store: store4,
+	            clientSort: true,
+	            rowSelector: '20px',
+	            structure: layout4,
+	            id: "testGrid",
+	            "class": "grid"
+	        },
+	        document.createElement('div'));
+	
+	        // append the new grid to the div "gridContainer4":
+	        dojo.byId("gridContainer").appendChild(grid4.domNode);
+	
+	        // Call startup, in order to render the grid:
+	        grid4.startup();
+	        
+	        var result = 
+	    		 "<test><hidden1>hidden1</hidden1><hidden2>hidden2</hidden2><emptyhidden>" + 
+	    		 "</emptyhidden><template_id></template_id><validationTextBoxTest>validationTextBoxTest</validationTextBoxTest>"  + 
+	    	 	"<emptyValidationTextBoxTest></emptyValidationTextBoxTest><datetest>05/05/2011</datetest>" + 
+	    	 	"<emptyDatetest></emptyDatetest><mdatetest_date>" + 
+	    	 	"</mdatetest_date><mdatetest_code></mdatetest_code>"+ 
+	    	 	"<emptyMdatetest_date></emptyMdatetest_date>" + 
+	    	 	"<emptyMdatetest_code></emptyMdatetest_code>" + 
+	    	 	"<percenttest>10</percenttest><emptyPercenttest></emptyPercenttest><spreadtest>1100" + 
+	    	 	"</spreadtest><emptySpreadtest></emptySpreadtest><filteringtest>x</filteringtest>" + 
+	    	 	"<emptyFilteringtest></emptyFilteringtest><radioTest>02</radioTest>" + 
+	    	 	"<checkTest>Y</checkTest>" + "<checkTest2>N</checkTest2><editorTest><![CDATA[&lt;b&gt;" + 
+	    	 	"Test&lt;/b&gt;&lt;br /&gt;   				&lt;span&gt;test2&lt;/span&gt;" + 
+	    	 	"]]></editorTest><emptyEditorTest></emptyEditorTest>"+ 
+	    	 	"<timetest>01/01/1970 15:00:00</timetest><emptyTimetest></emptyTimetest>" + 
+	    	 	"<numbertest>10</numbertest><emptyNumbertest></emptyNumbertest>" + 
+	    	 	"<currencytest>10</currencytest><emptyCurrencytest></emptyCurrencytest>" + 
+	    	 	"<msimpletextarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit"+
+	    	 	"	   		    Phasellus commodo tristique justo     </msimpletextarea>" + 
+	    	 	"<emptyMsimpletextarea></emptyMsimpletextarea>" + 
+	    	 	"<simpletextarea>Simples</simpletextarea><multipleselecttest></multipleselecttest></test>";
+	        
+
+        	doh.register("misys.tests.common_dialogs", [
+
+			 {
+			     name : "Test toggle transaction (with confirmation)",
+			     timeout :40000,
+			     runTest : function(){
+			    	 var d = new doh.Deferred();
+					 doh.t(isHidden(dojo.byId("transactionDetails")));
+					 doh.t(isVisible(dojo.byId("editTransactionDetails")));
+					 doh.t(isHidden(dojo.byId("hideTransactionDetails")));
+	
+					 // Click OK
+					 misys.toggleTransaction(true, true, function(){
+						 doh.t(isVisible(dojo.byId("transactionDetails")));
+						 doh.t(isHidden(dojo.byId("editTransactionDetails")));
+						 doh.t(isVisible(dojo.byId("hideTransactionDetails")));
+						 setTimeout(function(){
+							 misys.toggleTransaction(false, true, function(){
+								 doh.t(isHidden(dojo.byId("transactionDetails")));
+								 doh.t(isVisible(dojo.byId("editTransactionDetails")));
+								 doh.t(isHidden(dojo.byId("hideTransactionDetails")));
+								 console.log("DONE");
+								 d.callback(true);
+							 });
+						 }, 1000);
+					 });
+					 setTimeout(function(){
+						 doh.t(isVisible(dijit.byId("alertDialog")));
+						 dijit.byId("okButton").onMouseUp();
+					 }, 500);
+					return d;
+			     }
+			 },
+				 {
+					 name : "Test form submit (SAVE)",
+					 timeout: 40000,
+					 setUp : function(){
+						 misys._config.xmlTagName = "test";
+						 BEFORE_SAVE = false;
+						 misys.beforeSubmit = function(){
+							 BEFORE_SAVE = true; 
+						 };
+					 },
+					 tearDown: function(){
+						dijit.byId("alertDialog").hide();
+						delete(BEFORE_SAVE);
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 doh.isNot("SAVE", dijit.byId("realform_operation").get("value"));
+						 doh.isNot(result, misys.trim(dijit.byId("TransactionData").get("value")));
+						 doh.f(BEFORE_SAVE);
+						 misys.submit("SAVE");
+						 dijit.byId("okButton").onMouseUp();
+						 setTimeout(function(){
+							 doh.is("SAVE", dijit.byId("realform_operation").get("value"));
+							 doh.is(result, misys.trim(dijit.byId("TransactionData").get("value")));
+							 doh.t(BEFORE_SAVE);
+							 d.callback(true);
+						 }, 4000);
+						 return d;
+					 }
+				 },
+				 {
+					 name : "Test form submit (SUBMIT, fail)",
+					 timeout: 40000,
+					 setUp : function(){
+						 misys._config.xmlTagName = "test";
+						 dijit.byId("TransactionData").set("value", "");
+						 BEFORE_SUBMIT = false;
+						 BEFORE_SUBMIT_VALIDATIONS = false;
+						 misys.beforeSubmit = function(){
+							BEFORE_SUBMIT = true; 
+						 };
+						 misys.beforeSubmitValidations = function(){
+							 BEFORE_SUBMIT_VALIDATIONS = true;
+							 return true;
+						 };
+					 },
+					 tearDown: function(){
+						//dijit.byId("okButton").onMouseUp();
+						delete BEFORE_SUBMIT;
+						delete BEFORE_SUBMIT_VALIDATIONS;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 doh.isNot("SUBMIT", dijit.byId("realform_operation").get("value"));
+						 doh.isNot(result, misys.trim(dijit.byId("TransactionData").get("value")));
+						 doh.f(BEFORE_SUBMIT);
+						 doh.f(BEFORE_SUBMIT_VALIDATIONS);
+						 misys.submit("SUBMIT");
+						 setTimeout(function(){
+							 dijit.byId("okButton").onMouseUp();
+							 setTimeout(function(){
+									// Form should be in error now
+									doh.t(isVisible(dijit.byId("alertDialog"))); 
+									doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("must be in a valid state"));
+									setTimeout(function(){
+										dijit.byId("okButton").onMouseUp();
+										d.callback(true);
+									}, 1000);
+								 }, 4000);
+						 }, 1000);
+						 return d;
+					 }
+				 },
+				 {
+					 name : "Test form submit (SUBMIT, fail SWIFT)",
+					 timeout: 50000,
+					 setUp : function(){
+						 misys._config.xmlTagName = "test";
+						 dijit.byId("TransactionData").set("value", "");
+						 BEFORE_SUBMIT = false;
+						 BEFORE_SUBMIT_VALIDATIONS = false;
+						 misys.beforeSubmit = function(){
+							BEFORE_SUBMIT = true; 
+						 };
+						 misys.beforeSubmitValidations = function(){
+							 BEFORE_SUBMIT_VALIDATIONS = true;
+							 return true;
+						 };
+						 
+						// Setup valid values
+						 dijit.byId("mdatetest_code").focus();
+						 dijit.byId("mdatetest_date").focus();
+						 dijit.byId("mdatetest_date").set("value", new Date());
+						 dijit.byId("emptyMdatetest_code").focus();
+						 dijit.byId("emptyMdatetest_date").focus();
+						 dijit.byId("emptyMdatetest_date").set("value", new Date());
+						 dijit.byId("emptyPercenttest").set("value", 100);
+						 
+						 // Add an invalid SWIFT value
+						 dijit.byId("validationTextBoxTest").set("value", "&é\"'(-è_çà)€€'");
+						 dijit.byId("msimpletextarea").set("value", "&é\"'(-è_çà)€€'");
+					 },
+					 tearDown: function(){
+						//dijit.byId("alertDialog").hide();
+						delete BEFORE_SUBMIT;
+						delete BEFORE_SUBMIT_VALIDATIONS;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 setTimeout(function(){
+							 doh.isNot("SUBMIT", dijit.byId("realform_operation").get("value"));
+							 doh.isNot(result, misys.trim(dijit.byId("TransactionData").get("value")));
+							 doh.f(BEFORE_SUBMIT);
+							 doh.f(BEFORE_SUBMIT_VALIDATIONS);
+							 misys.submit("SUBMIT");
+	
+							 setTimeout(function(){
+								 dijit.byId("okButton").onMouseUp();
+	
+								// Check field state
+								setTimeout(function(){
+									// Form should be in error now
+									doh.t(isVisible(dijit.byId("alertDialog"))); 
+									doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("Based on the selected SWIFT send mode"));
+									setTimeout(function(){
+										dijit.byId("okButton").onMouseUp();
+										setTimeout(function(){
+											d.callback(true);
+										}, 4000);
+									}, 4000);
+								}, 4000);
+							 }, 4000);
+						 }, 4000);
+						 return d;
+					 }
+				 },
+				 {
+					 name : "Test form submit (SUBMIT, success)",
+					 timeout: 30000,
+					 setUp : function(){
+						 misys._config.xmlTagName = "test";
+						 dijit.byId("TransactionData").set("value", "");
+						 BEFORE_SUBMIT = false;
+						 BEFORE_SUBMIT_VALIDATIONS = false;
+						 misys.beforeSubmit = function(){
+							BEFORE_SUBMIT = true; 
+						 };
+						 misys.beforeSubmitValidations = function(){
+							 BEFORE_SUBMIT_VALIDATIONS = true;
+							 return true;
+						 };
+						 
+						 // Setup valid values
+						 dijit.byId("mdatetest_code").focus();
+						 dijit.byId("mdatetest_date").focus();
+						 dijit.byId("mdatetest_date").set("value", new Date());
+						 dijit.byId("emptyMdatetest_code").focus();
+						 dijit.byId("emptyMdatetest_date").focus();
+						 dijit.byId("emptyMdatetest_date").set("value", new Date());
+						 dijit.byId("emptyPercenttest").set("value", 100);
+						 
+						 dijit.byId("validationTextBoxTest").set("value", "abc");
+						 dijit.byId("msimpletextarea").set("value", "def");
+						 
+					 },
+					 tearDown: function(){
+						dijit.byId("alertDialog").hide();
+						delete BEFORE_SUBMIT;
+						delete BEFORE_SUBMIT_VALIDATIONS;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 doh.isNot("SUBMIT", dijit.byId("realform_operation").get("value"));
+						 doh.isNot(result, misys.trim(dijit.byId("TransactionData").get("value")));
+						 doh.f(BEFORE_SUBMIT);
+						 doh.f(BEFORE_SUBMIT_VALIDATIONS);
+						 misys.submit("SUBMIT");
+						 setTimeout(function(){
+							 dijit.byId("okButton").onMouseUp();
+							 setTimeout(function(){
+								 d.callback(true);
+							 }, 4000);
+ 						 }, 4000);
+						 return d;
+					 }
+				 },
+				{
+					 name : "Test form submit (SYSTEM_SUBMIT, success)",
+					 timeout: 30000,
+					 setUp : function(){
+						 misys._config.xmlTagName = "test";
+						 dijit.byId("TransactionData").set("value", "");
+						 BEFORE_SUBMIT = false;
+						 BEFORE_SUBMIT_VALIDATIONS = false;
+						 misys.beforeSubmit = function(){
+							BEFORE_SUBMIT = true; 
+						 };
+						 misys.beforeSubmitValidations = function(){
+							 BEFORE_SUBMIT_VALIDATIONS = true;
+							 return true;
+						 };
+						 
+						 // Setup valid values
+						 dijit.byId("mdatetest_code").focus();
+						 dijit.byId("mdatetest_date").focus();
+						 dijit.byId("mdatetest_date").set("value", new Date());
+						 dijit.byId("emptyMdatetest_code").focus();
+						 dijit.byId("emptyMdatetest_date").focus();
+						 dijit.byId("emptyMdatetest_date").set("value", new Date());
+						 dijit.byId("emptyPercenttest").set("value", 100);
+					 },
+					 tearDown: function(){
+						dijit.byId("alertDialog").hide();
+						delete BEFORE_SUBMIT;
+						delete BEFORE_SUBMIT_VALIDATIONS;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 setTimeout(function(){
+							 doh.isNot("SUBMIT", dijit.byId("realform_operation").get("value"));
+							 doh.isNot(result, misys.trim(dijit.byId("TransactionData").get("value")));
+							 doh.f(BEFORE_SUBMIT);
+							 doh.f(BEFORE_SUBMIT_VALIDATIONS);
+							 misys.submit("SYSTEM_SUBMIT");
+							 setTimeout(function(){
+								// dijit.byId("okButton").onMouseUp();
+								// setTimeout(function(){
+									 d.callback(true);
+								// }, 1000);
+	 						 }, 1000);
+						 }, 4000);
+						 return d;
+					 }
+				 },
+				 {
+					 name: "Test form submit (SAVE_TEMPLATE)",
+					 timeout: 30000,
+					 setUp : function(){
+						 dijit.byId("TransactionData").set("value", "");
+						 dijit.byId("template_id").set("value", "");
+						 misys._config = misys._config ||  {};
+						 misys._config.productCode = "LC";
+					 },
+					 tearDown : function(){
+						 dijit.byId("okButton").onMouseUp();
+						delete misys._config.productCode;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 setTimeout(function(){
+							 misys.submit("SAVE_TEMPLATE");
+							 setTimeout(function(){
+								 dijit.byId("okButton").onMouseUp();
+								 setTimeout(function(){
+									 doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("The Template ID is a mandatory field"));
+									 dijit.byId("template_id").set("value", "test_template");
+									 dijit.byId("okButton").onMouseUp();
+									 setTimeout(function(){
+										 misys.submit("SAVE_TEMPLATE");
+										 setTimeout(function(){
+											 dijit.byId("okButton").onMouseUp();
+											 // Will fail too, unless you're logged in
+											 setTimeout(function(){
+												 //doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("Saving the template"));
+												 //doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("test_template"));
+												 doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("You are not authenticated or have lost your session"));
+												 d.callback(true);
+											 }, 4000);
+										 }, 4000);
+									 }, 4000);
+								 }, 4000);
+							 }, 4000);
+						 }, 4000);
+						 return d;
+					 }
+				 },
+				 /*{
+					 name: "Test form submit (SAVE_REPORT_TEMPLATE)",
+					 timeout: 30000,
+					 setUp : function(){
+						 dijit.byId("TransactionData").set("value", "");
+						 dijit.byId("template_id").set("value", "");
+						 misys._config = misys._config ||  {};
+						 misys._config.productCode = "LC";
+					 },
+					 tearDown : function(){
+						dijit.byId("alertDialog").hide(); 
+						delete misys._config.productCode;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 setTimeout(function(){
+							 misys.submit("SAVE_REPORT_TEMPLATE");
+							 setTimeout(function(){
+								 dijit.byId("okButton").onMouseUp();
+								 setTimeout(function(){
+									 //doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("The Template ID is a mandatory field"));
+									 dijit.byId("template_id").set("value", "test_template");
+									 dijit.byId("okButton").onMouseUp();
+									 setTimeout(function(){
+										 misys.submit("SAVE_REPORT_TEMPLATE");
+										 
+										 setTimeout(function(){
+											 dijit.byId("okButton").onMouseUp();
+											 setTimeout(function(){
+												 //doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("Saving the template"));
+												 //doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("test_template"));
+												 doh.isNot(-1, dojo.byId("alertDialogContent").innerHTML.indexOf("You are not authenticated or have lost your session"));
+												 d.callback(true);
+											 }, 2000);
+										 }, 2000);
+									 }, 4000);
+								 }, 2000);
+							 }, 2000);
+						 }, 4000);
+						
+						 return d;
+					 }
+				 },*/
+				 {
+					 name : "Testing population of URL Dialog",
+					 timeout : 10000,
+					 setUp : function() {
+						 // Refer to the file misys/tests/resources/popupDialogBindingTest.js 
+						BINDING_CALLED = false;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 doh.f(BINDING_CALLED);
+						 doh.isNot("popupDialogBindingTest", misys._config.popupType);
+						 misys.dialog.show("URL", "", "test", null, null, 
+								 "http://localhost:8080" + misys._config.context + 
+								 "/content/js-src/misys/tests/resources/url_popup_content.html");
+						 setTimeout(function(){
+							 doh.isNot(-1, dojo.byId("popupDialogBindingTestdata").innerHTML.indexOf("URL dialog test content"));
+							 misys.dialog.populate("popupDialogBindingTest", 
+								"http://localhost:8080/cf/content/js-src/misys/tests/resources/url_popup_content_new.html", 
+								"misys.tests.resources");
+							 setTimeout(function(){
+								 doh.isNot(-1, dojo.byId("contentPane").innerHTML.indexOf("Hello"));
+								 doh.t(isHidden(dojo.byId("popupDialogBindingTestdata")));
+								 doh.t(BINDING_CALLED);
+								 doh.is("popupDialogBindingTest", misys._config.popupType);
+
+								 d.callback(true);
+							 }, 3000);
+						 }, 3000);
+
+						 return d;
+					 }
+				 },
+				 {
+					 name : "Testing button event binding (cancel)",
+					 timeout : 10000,
+					 setUp : function() {
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 doh.t(isHidden(dojo.byId("popupDialogBindingTestdata")));
+						 dijit.byId("popupCancelButton").onClick();
+						 setTimeout(function(){
+							 doh.f(isHidden(dojo.byId("popupDialogBindingTestdata")));
+							 d.callback(true);
+						 }, 3000);
+						 return d;
+					 }
+				},
+				{
+					 name : "Testing popup submit",
+					 timeout : 30000,
+					 setUp : function() {
+						 TEST_XML = "<static_test><popup_field>popup field value</popup_field></static_test>"
+							 misys.dialog.show("URL", "", "test", null, null, 
+									 "http://localhost:8080" + misys._config.context + 
+									 "/content/js-src/misys/tests/resources/url_popup_content_tosubmit.html");
+					 },
+					 tearDown : function() {
+						delete TEST_XML; 
+						delete opened;
+					 },
+					 runTest : function(){
+						 var d = new doh.Deferred;
+						 setTimeout(function(){
+							 doh.isNot(TEST_XML, dijit.byId("popup_TransactionData").get("value"));
+							 misys.dialog.submit("SUBMIT");
+							 setTimeout(function(){
+								 dijit.byId("okButton").onMouseUp();
+								 setTimeout(function(){
+									 doh.is(TEST_XML, dijit.byId("popup_TransactionData").get("value"));
+									 d.callback(true);
+								 }, 1000);
+							 }, 2000);
+						 }, 4000);
+						 return d;
+					 }
+				},
+				{
+					name : "Testing popup cancel",
+					timeout : 10000,
+					setUp : function(){
+						 misys.dialog.show("URL", "", "test", null, null, 
+								 "http://localhost:8080" + misys._config.context + 
+								 "/content/js-src/misys/tests/resources/url_popup_content.html");
+					},
+					tearDown : function() {
+						
+					},
+					runTest : function() {
+						
+						var d = new doh.Deferred;
+						setTimeout(function(){
+							misys.dialog.populate("popupDialogBindingTest", 
+									"http://localhost:8080/cf/content/js-src/misys/tests/resources/url_popup_content_new.html", 
+									"misys.tests.resources");
+					 		setTimeout(function(){
+					 			doh.isNot(-1, dojo.byId("contentPane").innerHTML.indexOf("Hello"));
+							 	doh.t(isHidden(dojo.byId("popupDialogBindingTestdata")));
+							 	misys.dialog.clear(dojo.byId(misys._config.popupType+"data"), dijit.byId("contentPane"));
+							 	setTimeout(function(){
+							 		doh.f(isHidden(dojo.byId("popupDialogBindingTestdata")));
+								 	d.callback(true);
+							 	}, 1000);
+						 	}, 3000);
+						}, 1000);
+						return d;
+					}
+				}
+        	]);
+        	
+            doh.run();
+        });
+        </script>
+    </head>
+    <body class="tundra demobank">
+    <div class="parseOnLoad">
+    	<h1>Starting form</h1>
+    	<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="company_id" value="100"><br>
+    	<div dojoType="dijit.form.Form" name="testform" id="testform" method="POST" action="" class="validate"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="hidden1" id="hidden1_id" value="hidden1"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="hidden2" id="hidden2" value="hidden2"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="emptyhidden" id="emptyhidden"><br>
+    		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" id="hiddenNoName"><br>
+    		<label for="template_id">templateID</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="template_id" id="template_id" maxLength="29" class="medium swift" value=""></div><br>
+    		<label for="validationTextBoxTest">validationTextBoxTest</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="validationTextBoxTest" id="validationTextBoxTest" maxLength="29" class="medium swift" value="validationTextBoxTest" required="true"></div><br>
+    		<label for="emptyValidationTextBoxTest">empty validationTextBoxTest</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="emptyValidationTextBoxTest" id="emptyValidationTextBoxTest" class="medium swift"></div><br>
+    		<label for="nosendValidationTextBoxTest">validationTextBoxTest that won't be sent</label><div trim="true" dojoType="dijit.form.ValidationTextBox" id="nosendValidationTextBoxTest" class="medium swift" value="nosend value"></div><br>
+    		<label for="datetest">datetest</label><div trim="true" dojoType="dijit.form.DateTextBox" displayedValue="5/5/2011" name="datetest" id="datetest" maxLength="10" class="small" required="true"></div><br><br>
+    		<label for="emptyDatetest">emptyDatetest</label><div trim="true" dojoType="dijit.form.DateTextBox" name="emptyDatetest" id="emptyDatetest" maxLength="10" class="small"></div><br><br>
+    		<label for="noSendDatetest">don't send Datetest</label><div trim="true" dojoType="dijit.form.DateTextBox" id="noSendDatetest" maxLength="10" class="small"></div><br><br>
+    		<label for="mdatetest">mdatetest</label>
+    		<div trim="true" dojoType="misys.form.DateTermField" displayedValue="5/4/2011" id="mdatetest" maxLength="10" class="small" required="true">
+    			<select>
+    				<option value="term1">term1</option>
+    				<option value="term2">term2</option>
+    			</select>
+    			<select>
+    				<option value="static1">static1</option>
+    			</select>
+    		</div><br>
+    		<label for="emptyMdatetest">empty mdatetest</label>
+    		<div trim="true" dojoType="misys.form.DateTermField" id="emptyMdatetest" maxLength="10" class="small" required="true">
+	    		<select>
+	    			<option value="emptyTerm1">emptyTerm1</option>
+	    			<option value="emptyTerm2">emptyTerm2</option>
+	    		</select>
+	    		<select>
+	    			<option value="emptyStatic1">emptyStatic1</option>
+	    		</select>
+    		</div><br>
+    		<div style="width: 350px; height: 300px">
+		     <div dojoType="dijit.layout.TabContainer" style="width: 100%; height: 100%;">
+		        <div dojoType="dijit.layout.ContentPane" title="First Tab" selected="true">
+    				<label for="percenttest">percenttest</label><div trim="true" dojoType="misys.form.PercentNumberTextBox" value="10" name="percenttest" id="percenttest" maxLength="10" class="small" required="true"></div><br>
+    				<label for="emptyPercenttest">empty percenttest</label><div trim="true" dojoType="misys.form.PercentNumberTextBox" name="emptyPercenttest" id="emptyPercenttest" maxLength="10" class="small" required="true"></div><br>
+    				<label for="spreadtest">spreadtest</label><div trim="true" dojoType="misys.form.SpreadTextBox" name="spreadtest" value="11" id="spreadtest" maxLength="10" class="small" required="true"></div><br>
+    			</div>
+    			<div dojoType="dijit.layout.ContentPane" title="Second Tab">
+		    		<label for="emptySpreadtest">empty spreadtest</label><div trim="true" dojoType="misys.form.SpreadTextBox" name="emptySpreadtest" id="emptySpreadtest" maxLength="10" class="small"></div><br>
+		    		<label for="filteringtest">filteringtest</label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="filteringtest" id="filteringtest" class="medium nofocusonerror" required="false" value="x">
+		    			<option></option>
+		    			<option value="x">x</option>
+		    			<option value="y">y</option>
+		    			<option value="z">z</option>
+		    		</select><br>
+    			</div>
+    		 </div>
+    		</div>
+    
+    		<label for="emptyFilteringtest">empty filteringtest</label><select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="emptyFilteringtest" id="emptyFilteringtest" class="medium nofocusonerror" required="false">
+    			<option></option>
+    		</select><br>
+    	    <label for="radioTest_1"><input dojoType="dijit.form.RadioButton" type="radio" name="radioTest" id="radioTest_1" value="01">01</label><br>
+    	    <label for="radioTest_2"><input dojoType="dijit.form.RadioButton" type="radio" name="radioTest" id="radioTest_2" value="02" checked>02</label><br>
+    	    <label for="checkTest"><input dojoType="dijit.form.CheckBox" type="checkbox" name="checkTest" id="checkTest" checked>checked</label><br>
+    	    <label for="checkTest2"><input dojoType="dijit.form.CheckBox" type="checkbox" name="checkTest2" id="checkTest2">unchecked</label><br>
+    	    <label for="editorTest">editorTest</label><div dojoType="dijit.Editor" id="editorTest" name="editorTest" style="width:60%;">
+   				<strong>Test</strong><br>
+   				<span>test2</span>
+	   		</div><br>
+	   		<label for="emptyEditorTest">empty editorTest</label><div dojoType="dijit.Editor" id="emptyEditorTest" name="emptyEditorTest" style="width:60%;"></div><br>
+	   		<label for="timetest">timetest</label><input type="text" name="timetest" id="timetest" value="T15:00:00" dojoType="dijit.form.TimeTextBox" required="true"><br>
+	   		<label for="emptyTimetest">empty timetest</label><input type="text" name="emptyTimetest" id="emptyTimetest" dojoType="dijit.form.TimeTextBox"><br>
+	   		<label for="numbertest">numbertest</label><input type="text" name="numbertest" id="numbertest" value="10" dojoType="dijit.form.NumberTextBox" required="true"><br>
+	   		<label for="emptyNumbertest">empty numbertest</label><input type="text" name="emptyNumbertest" id="emptyNumbertest" dojoType="dijit.form.NumberTextBox"><br>
+	   		<label for="currencytest">currencytest</label><input type="text" name="currencytest" id="currencytest" constraints="{fractional:true}" currency="USD" value="10" dojoType="misys.form.CurrencyTextBox" required="true"><br>
+	   		<label for="emptyCurrencytest">empty currencytest</label><input type="text" name="emptyCurrencytest" id="emptyCurrencytest" dojoType="misys.form.CurrencyTextBox"><br>
+	   		<label for="msimpletextarea">msimpletextarea</label><textarea dojoType="misys.form.SimpleTextarea" class="swift" name="msimpletextarea" id="msimpletextarea" rows="6" cols="65" maxSize="6">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+	   		    Phasellus commodo tristique justo     </textarea><br>
+	   		<label for="emptyMsimpletextarea">empty msimpletextarea</label><textarea dojoType="misys.form.SimpleTextarea" name="emptyMsimpletextarea" id="emptyMsimpletextarea" rows="6" cols="65" maxSize="6"></textarea><br>
+	   		<label for="simpletextarea">simpletextarea</label><textarea dojoType="dijit.form.SimpleTextarea" name="simpletextarea" id="simpletextarea" rows="6" cols="65" maxSize="6">Simples</textarea><br>
+	   		<label for="multipleselecttest_nosend">multipleselecttest_nosend</label>
+	   		<select autocomplete="true" dojoType="dijit.form.MultiSelect" id="multipleselecttest_nosend" class="medium multi-select" required="false" value="" multiple="true" size="10">
+	   			<option value="value1">value2</option>
+	   			<option value="value2">value2</option>
+	   			<option value="value3">value3</option>
+	   		</select>
+	   		<label for="multipleselecttest">multipleselecttest</label>
+	   		<select autocomplete="true" dojoType="dijit.form.MultiSelect" id="multipleselecttest" name="multipleselecttest" class="medium multi-select" required="false" value="" multiple="true" size="10">
+	   		</select>
+		</div>
+		<h2>Ending form</h2>
+		
+		<h2>TOC Items follow</h2>
+		<div class="toplevel-fieldset">
+          <h3 id="toc-item1" class="toc-item"><span class="title">test</span></h3>
+        </div>
+		<div class="toplevel-fieldset">
+          <h3 id="toc-item2" class="toc-item"><span class="title">test2</span></h3>
+        </div>
+        <div id="toc">
+        	<p>
+        		<a id="toggleTocLink" href="javascript:void(0)">Show Form Summary</a>&nbsp;|&nbsp;<a href="#">Top</a>
+        	</p>
+        	<div style="display:none;" id="toccontent"></div>
+        </div>
+        
+        <br>
+        <select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="toggleFieldsTest" id="toggleFieldsTest" class="medium nofocusonerror" required="false" value="N">
+    		<option value="N">N</option>
+    		<option value="Y">Y</option>
+    	</select>
+    	<div id="toggleFieldsValidationTextBox_row" class="field required">
+    	<label for="toggleFieldsValidationTextBox" id="toggleFieldLabel">toggleFieldsValidationTextBox</label>
+    	<div trim="true" dojoType="dijit.form.ValidationTextBox" name="toggleFieldsValidationTextBox" id="toggleFieldsValidationTextBox" maxLength="29" class="medium swift" value="toggleFieldsValidationTextBox" required="false" disabled="true" readOnly="true"></div><br>
+    	</div>
+		
+		<p><span><span>NodeAsXMLTest</span></span></p>
+		
+
+		<a href="" id="editTransactionDetails">Edit Transaction Details</a>
+		<a href="" id="hideTransactionDetails" style="display:none">Hide Transaction Details</a>
+		<div id="transactionDetails" class="hidden">
+			<label for="hiddenValidationTextbox">hiddenValidationTextbox</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="hiddenValidationTextbox" id="hiddenValidationTextbox" maxLength="29" class="medium swift" value="hiddenValidationTextbox" required="true"></div><br>
+			<div style="width: 350px; height: 300px">
+		     <div dojoType="dijit.layout.TabContainer" style="width: 100%; height: 100%;">
+		        <div dojoType="dijit.layout.ContentPane" title="First Tab" selected="true">
+		           <label for="hiddentextarea">hiddentextarea</label><textarea dojoType="dijit.form.SimpleTextarea" name="hiddentextarea" id="hiddentextarea" rows="6" cols="65" maxSize="6">hiddentextarea</textarea><br>
+		        </div>
+		        <div dojoType="dijit.layout.ContentPane" title="Second Tab">
+		            <label for="hiddenValidationTextbox2">hiddenValidationTextbox2</label><div trim="true" dojoType="dijit.form.ValidationTextBox" name="hiddenValidationTextbox2" id="hiddenValidationTextbox2" maxLength="29" class="medium swift" value="hiddenValidationTextbox" required="true"></div><br>
+		        </div>
+		        <div dojoType="dijit.layout.ContentPane" title="Third Tab">
+		            Lorem ipsum and all around - last...
+		        </div>
+		     </div>
+			</div>
+		</div>
+		<br><br><br>
+	</div>
+	
+
+	<div id="gridContainer" style="width: 500px; height: 200px"></div>
+	
+
+	<div dojoType="dijit.form.Form" name="TransactionSearchForm" id="TransactionSearchForm" method="POST" class="form" action="common.html">
+		<div class="widgetContainer">
+			<label for='ref_id'>System ID:&nbsp;</label>
+			<input trim='true' style='width: 12em' class='medium' id='ref_id' name='ref_id' dojoType='dijit.form.TextBox' maxlength='12' value='' size='12'>
+			<label for='export_list'>Output Format:</label>
+			<select dojoType='dijit.form.FilteringSelect' autocomplete='true' id='export_list' class='medium' name='export_list'>
+				<option value='screen'>Screen</option>
+				<option selected value='csv'>CSV</option>
+				<option value='xls'>Spreadsheet</option>
+			</select>
+			<input dojoType='dijit.form.TextBox' id='filename' class='medium' trim='true' name='filename' type='hidden'>
+			<div trim="true" dojoType="dijit.form.ValidationTextBox" name="listenerField" id="listenerField" subscribe_topic="testTopic" maxLength="29" class="medium swift subscribeTopic" value="listenerField" required="true"></div>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<!-- Submit iFrame -->
+	<iframe name="formSubmitIframe" src="about:blank" onload="if(this.values)submittedValues(this.values)" style="display:none;"></iframe>
+	
+	<!-- realform -->
+	<div class="parseOnLoad">
+		<div dojoType="dijit.form.Form" name="realform" id="realform" action="resources/formAction.html" target="formSubmitIframe" method="POST">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="referenceid" id="referenceid" value="testRefID">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="tnxid" id="tnxid" value="testTnxId">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="operation" id="realform_operation">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="mode" id="mode" value="DRAFT">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="tnxtype" id="tnxtype" value="01">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="attIds" id="attIds">
+			<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="TransactionData" id="TransactionData">
+		</div>
+		<input readOnly="true" dojoType="dijit.form.TextBox" type="hidden" name="adv_send_mode" id="adv_send_mode" value="01">
+	</div>
+	
+    </body>
+</html>

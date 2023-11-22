@@ -1,0 +1,40 @@
+<div [formGroup] = "irregularDetailsForm">
+
+      <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+        <label>{{ 'INCREASE_DECREASE_OPERATION' | translate }}&nbsp;</label>
+        <p-dropdown placeholder=" " id="{{undertakingType}}OperationType" [options]="operationTypeObj" [showClear]="false" formControlName="{{undertakingType}}OperationType"
+        (onChange)="commonService.validateVariationAmt(reductionForm, undertakingType, irregularDetailsForm); commonService.validateVariationPercentage(reductionForm, undertakingType, irregularDetailsForm);"></p-dropdown>
+        <fcc-common-error-message [control]="irregularDetailsForm.get(undertakingType + 'OperationType')"></fcc-common-error-message>
+      </div>
+      <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+          <label>{{ 'INCREASE_DECREASE_FIRST_DATE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="{{undertakingType}}VariationFirstDate"
+            onkeydown="return false" dateFormat="{{ this.dateFormat }}" id="{{undertakingType}}VariationFirstDate"
+            (onSelect)="commonService.setFirstDateValidator(undertakingType+ 'VariationFirstDate', reductionForm, undertakingType, irregularDetailsForm);" [maxDate]="checkMaxDate()" [minDate]="this.commonService.getMinFirstDate()"
+            [styleClass]="validationService.isFieldInvalid(irregularDetailsForm.get(undertakingType +'VariationFirstDate')) ? 'calendarFieldError' : 'inherit'">
+          </p-calendar>
+          <fcc-common-error-message [control]="irregularDetailsForm.get(undertakingType + 'VariationFirstDate')"></fcc-common-error-message>
+      </div>
+      <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+          <label>{{ 'INCREASE_DECREASE_PERCENTAGE' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText type="text" class = "input-three-digit" id="{{undertakingType}}VariationPct" formControlName="{{undertakingType}}VariationPct" autocomplete="off"
+          (change)="commonService.disableCurrencyAmtField(reductionForm, undertakingType, irregularDetailsForm); commonService.validateForNullTnxAmtCurrencyField(irregularDetailsForm.get(undertakingType + 'VariationPct'), reductionForm, undertakingType, irregularDetailsForm);
+          commonService.calculateVariationAmt(reductionForm, undertakingType, irregularDetailsForm);" [class.fieldError]="validationService.isFieldInvalid(irregularDetailsForm.get(undertakingType + 'VariationPct'))">
+          <fcc-common-error-message [control]="irregularDetailsForm.get(undertakingType + 'VariationPct')"></fcc-common-error-message>
+      </div>
+      <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+          <label>{{ 'INCREASE_DECREASE_AMOUNT' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+          <input pInputText class="input-three-digit" type="text" id="{{undertakingType}}VariationCurCode" formControlName="{{undertakingType}}VariationCurCode" size="3" oninput="this.value = this.value.toUpperCase()"
+              (change)="validateCurrency(irregularDetailsForm.get(undertakingType + 'VariationCurCode')); commonService.transformAmtAndSetValidators(irregularDetailsForm.get(undertakingType + 'VariationAmt'), irregularDetailsForm.get(undertakingType + 'VariationCurCode'), undertakingType+'VariationCurCode');"
+              [class.fieldError]="validationService.isFieldInvalid(irregularDetailsForm.get(undertakingType +'VariationCurCode'))" placeholder="{{ 'CCY' | translate}}" width="auto" maxlength="3"
+              [(ngModel)]="this.currencyCode">
+          <input pInputText type="text" id="{{undertakingType}}VariationAmt" formControlName="{{undertakingType}}VariationAmt" autocomplete="off" pKeyFilter="num"
+          (change)="commonService.transformAmtAndSetValidators(irregularDetailsForm.get(undertakingType+ 'VariationAmt'),irregularDetailsForm.get(undertakingType+ 'VariationCurCode'), undertakingType+ 'VariationCurCode');
+          commonService.validateVariationAmt(reductionForm, undertakingType, irregularDetailsForm);
+          commonService.disablePercentageField(reductionForm, undertakingType, irregularDetailsForm);" [class.fieldError]="validationService.isFieldInvalid(irregularDetailsForm.get(undertakingType + 'VariationAmt'))">
+          <fcc-common-error-message [control]="irregularDetailsForm.get(undertakingType + 'VariationAmt')"></fcc-common-error-message>
+      </div>
+      <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label></label><button pButton type="button" label="{{ 'USER_ACTION_OK' | translate}}"  (click)="pushIrregularDetails()" class="primary-button"></button>
+      </div>
+</div>

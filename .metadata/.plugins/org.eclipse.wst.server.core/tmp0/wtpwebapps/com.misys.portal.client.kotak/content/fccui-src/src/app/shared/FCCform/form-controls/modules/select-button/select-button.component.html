@@ -1,0 +1,123 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 select-button-pd">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="fcc-input fcc-width65 {{ control.params.styleClass }}"
+      #selBtn
+    >
+      <ng-container *ngIf="control.params.showLabel">
+        <label class="infodisplaylabel" tabindex="0">
+          {{ control.params.label }}
+          <a class="infoLabel" *ngIf="control.params.infoIcon">
+            {{ control.params.infolabel | translate }}</a
+          >
+        </label>
+      </ng-container>
+      <!-- <div class="ui-fluid" *ngIf="!control.params.showHorizontal">
+        <p-selectButton [options]="control.options" [disabled]="control.params.readonly"
+        formControlName="{{control.key}}" id="{{control.key}}" tabindex="0"
+        (onChange)="onCustomEventRaised($event,control.key,control)" (onKeydown)="onEventRaised($event,control.key)"></p-selectButton>
+        <ng-container *ngIf = "control.options" >
+          <a class = "infoSelectIcon" *ngIf = "control.params.infoIcon">
+            <span class="material-icons" (mouseenter)="op.show($event)" (mouseleave) = "op.hide()">info</span>
+            <p-overlayPanel #op class="previosInfoOLPanel" [dismissable]="true" appendTo="body">
+              <p class = "previous-info">{{'previousInfo' | translate}}</p>{{control.params.previousValue}}
+            </p-overlayPanel>
+          </a>
+        </ng-container>
+      </div>
+      <div *ngIf="control.params.showHorizontal">
+        <p-selectButton [options]="control.options" [disabled]="control.params.readonly"
+        formControlName="{{control.key}}" id="{{control.key}}"
+        (onChange)="onCustomEventRaised($event,control.key,control)"></p-selectButton>
+        <ng-container *ngIf = "control.options" >
+          <a class = "infoSelectIcon" *ngIf = "control.params.infoIcon">
+            <span class="material-icons" (mouseenter)="op.show($event)" (mouseleave) = "op.hide()">info</span>
+            <p-overlayPanel #op class="previosInfoOLPanel" [dismissable]="true" appendTo="body">
+              <p class = "previous-info">{{'previousInfo' | translate}}</p>{{control.params.previousValue}}
+            </p-overlayPanel>
+          </a>
+        </ng-container>
+      </div>-->
+      <mat-button-toggle-group
+        formControlName="{{ control.key }}"
+        class="uxg-filtering-toggle-group"
+        tabindex="0"
+      >
+        <mat-button-toggle
+          id="{{ control.key + opt.label.split(' ').join('') }}"
+          *ngFor="let opt of control.options; let i = index"
+          [value]="opt.value"
+          [disabled]="opt.disabled"
+          [hidden]="opt.hidden"
+          tabindex="0"
+          (change)="onMatSelectionEventRaised($event, control.key, control)"
+          aria-label="{{opt.ariaLabelValue}}"
+          [ngStyle]="{'margin-left': (i === 0 && control.params.previewMultiple) ? '0.8em' : '0em'}"
+          [class]="control.params.previewMultiple ? 'mat-button-toggle mat-button-toggle-appearance-standard mat-button-toggle-checked' : ''"
+          >
+          <em class="material-icons mat-button-icon" id="{{opt.label.split(' ').join('')}}">{{
+            control.params.matIcon
+          }}</em
+          >{{ opt.label }}
+          <mat-icon *ngIf="control.params.crossIcon" (click)="onCancelEventRaised($event, 'cancelIcon', control)"
+          tabindex="0" (keypress)="onCancelEventRaised($event, 'cancelIcon', control)"
+          [class]="control.params.previewMultiple ? 'cancelStyle' : ''">{{
+            control.params.crossIcon
+          }}</mat-icon>
+        </mat-button-toggle>
+        <a class="infoIcon" *ngIf="control.params.infoIcon">
+          <em
+            class="material-icons visibleMatIcon"
+            (mouseenter)="op.show($event)"
+            (mouseleave)="op.hide()"
+            >info</em
+          >
+          <p-overlayPanel
+            #op
+            class="previosInfoOLPanel"
+            [dismissable]="true"
+            appendTo="body"
+          >
+            <div
+              *ngIf="
+                control.params.previousValue !== '' &&
+                  control.params.previousValue !== undefined &&
+                  control.params.previousValue !== null;
+                else previousValueNotentered
+              "
+            >
+              <p class="previous-info">{{ "previousInfo" | translate }}</p>
+              {{ control.params.previousValue }}
+            </div>
+            <ng-template #previousValueNotentered>
+              <ng-container *ngIf="control.params.srcElementId !== 'timeframe'; else isTimeframe">
+                <p class="previous-info">{{ "previousInfo" | translate }}</p>
+                {{ "NOT_ENTERED" | translate }}
+              </ng-container>
+            </ng-template>
+            <ng-template #isTimeframe>
+              {{ "listingMessage" | translate }} {{ control.params.dateParam | translate }}
+            </ng-template>
+          </p-overlayPanel>
+        </a>
+      </mat-button-toggle-group>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label
+        for="{{ control.key }}"
+        class="p-col-12 form-header"
+        tabindex="0"
+        >{{ control.params.label }}</label
+      >
+      <div
+        class="{{ control.params.styleClass }} "
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

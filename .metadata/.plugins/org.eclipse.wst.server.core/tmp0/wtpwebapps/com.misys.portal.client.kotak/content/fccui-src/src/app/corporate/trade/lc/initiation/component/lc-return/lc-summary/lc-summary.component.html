@@ -1,0 +1,84 @@
+<div class="p-grid top-lc-wrapper">
+    <div class="p-col-12">
+        <div class="top-wrapper">
+            <div class="p-grid padd-all">
+               <div class="p-col-3 p-md-4 p-lg-3 p-sm-12">
+                  <div class="p-grid">
+                      <div *ngIf="applicantEntity === 'applicant'" class="p-col-12 p-lg-12 p-md-12 p-sm-12">
+                          <span class="lc-small-text">{{'applicant' | translate}}</span>
+                      <span class="lc-large-text">{{this.summarydata.applicant.entity}}</span>
+                      </div>
+                      <div *ngIf="applicantEntity === 'entity'" class="p-col-12 p-lg-12 p-md-12 p-sm-12">
+                        <span class="lc-small-text">{{'entity' | translate}}</span>
+                        <span class="lc-large-text">{{this.summarydata.applicant.name}}</span>
+                    </div>
+                  </div>
+               </div>
+               <div class="p-col-3 p-md-4 p-lg-3 p-sm-12">
+                <div class="p-grid">
+                    <div class="p-col-12 p-lg-12 p-md-12 p-sm-12">
+                        <span class="lc-small-text">{{'EXPIRES_ON' | translate}}</span>
+                        <span class="lc-large-text">{{summarydata.lcDetails.expiryDate | date:'dd-MM-yyyy' }}</span>
+                    </div>
+                </div>
+             </div>
+            </div>
+            <div class="p-grid textalign" >
+               <div class="p-col-6 p-md-6 p-lg-6 p-sm-12">
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="p-grid padd-lft">
+                                <div class="p-col-4">
+                                    <div class="border-class">
+                                        <div class="lc-small-text">{{'CREATED_ON' | translate}}</div>
+                                        <div class="medium-text">{{summarydata.generalDetails.applicationDate | date:'dd-MM-yyyy' }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-col-4">
+                                    <div class="border-class">
+                                        <div class="lc-small-text">{{'BENEFICIARY_NAME' | translate}}</div>
+                                    <div class="medium-text">{{summarydata.beneficiary.name}}</div>
+                                    </div>
+                                </div>
+                                <div class="p-col-4">
+                                  <div class="border-class">
+                                      <div class="lc-small-text">{{'LC_AMOUNT' | translate}}</div>
+                                      <div class="medium-text">{{summarydata.amount.currency}} {{lcAmount }}</div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+               <!--  -->
+               <div class="p-col-6 p-md-6 p-lg-6 p-sm-12">
+                <div class="p-grid">
+                    <div class="p-col-12">
+                        <div class="p-grid padd-lft">
+
+                            <div class="p-col-4">
+                                <div class="border-class">
+                                    <div class="lc-small-text">{{'ModeofTransmission' | translate}}</div>
+                                    <div class="medium-text">{{summarydata.lcDetails.issueBy}}</div>
+                                </div>
+                            </div>
+                            <div class="p-col-4">
+                                <div class="border-class">
+                                    <div class="lc-small-text">{{'ConfirmationInstruction' | translate}}</div>
+                                    <div class="medium-text">{{summarydata.confirmation.instruction}}</div>
+                                </div>
+                            </div>
+                            <div class="p-col-4">
+                                <div class="">
+                                    <div class="lc-small-text">{{'paymentDetailscreditAvailBy' | translate}}</div>
+                                    <div class="medium-text">{{summarydata.paymentDetails.creditAvailableBy}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+             </div>
+        </div>
+    </div>
+</div>

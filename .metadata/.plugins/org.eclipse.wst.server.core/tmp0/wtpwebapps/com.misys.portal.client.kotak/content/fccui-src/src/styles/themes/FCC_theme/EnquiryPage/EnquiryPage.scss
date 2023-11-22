@@ -1,0 +1,234 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_enquiryPage($enquiryChannelReferencecolor,$enquiryeventtextColor,$enquiryEventTypetextColor,
+$enquirydetailsBackgroundColor,$enquirydetailsmallTextColor,$enquiryDetailsMediumTextColor,$EnquiryBackgroundColorButton,
+$enquiryButtonBorder,$primaryButtonBorderColor,$primaryjourneyButtonBackgroundColor,$enquiryButtonTextColr,$journeyButtonText,
+$ui-tabview-color,$ui-tabview-Active-a-color,$ui-tabview-backgroundcolor,$ui-tabview-border,$ui-tabview-borderBottom,
+$ui-menuitemColor,$matExpansionBackgroundColor,$matExpansionPanelHeaderBorderRadius,$labelstyleColor,$valuestyleColor,
+$accordionLabelValBackgroundColor,$labelEventsTabColor,$CHARCOAL-PRIMARY-COLOR,$ui-tabview-panels-backgroundColor,$ui-tabview-panels-Color,
+$ui-tabview-panels-borderTop,$ui-tabview-panels-borderLeft,$ui-tabview-panels-borderRight,$ui-tabview-panels-borderBottom,
+$enquiryEventBorderLeft,$eventsTabLeftSectionBGColor,$landingButtonBorder,$amendcomparisonField,$amendComparisonrightBorderColor,
+$onlyAmendedFieldsColor,$transactionHeaderBackGroundColor,$transactionHeaderColor) {
+  // Reference Number color.
+  .refnum {
+    color: $enquiryChannelReferencecolor !important;
+  }
+  // Event Label color
+  .block1{
+    color: $enquiryeventtextColor !important;
+  }
+  // Event Status color
+  .block2 {
+    color: $enquiryEventTypetextColor !important;
+  }
+  // Blue Banner background color
+  .top-wrapper{
+    background-color: $enquirydetailsBackgroundColor !important;
+  }
+  // Blue Banner label color
+  .lc-small-text{
+    color: $enquirydetailsmallTextColor !important;
+  }
+  // Blue Banner Value color
+  .medium-text{
+    color:$enquiryDetailsMediumTextColor !important;
+  }
+  // Landing button
+  app-review-header .primaryButton1{
+    background-color: $EnquiryBackgroundColorButton !important;
+    border: $landingButtonBorder !important;
+  }
+  // Landing Button's Label
+  app-review-header .primaryButton1.ui-button.ui-button-text-only .ui-button-text {
+    color: $enquiryButtonTextColr !important;
+  }
+  // Journey button
+  app-review-header .journey-button {
+    background-color: $primaryjourneyButtonBackgroundColor !important;
+    color: $journeyButtonText !important;
+  }
+  // Tab label color
+  app-review-tab .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+    color: $ui-tabview-color !important;
+  }
+  // Tab label color when Active
+  app-review-tab .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a {
+    color: $ui-tabview-Active-a-color !important;
+  }
+  // Tab border Styling
+  app-review-tab .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active{
+    background-color: $ui-tabview-backgroundcolor !important;
+    border: $ui-tabview-border !important;
+    border-bottom: $ui-tabview-borderBottom !important;
+    color: $ui-menuitemColor;
+  }
+  // Accordion header Styling
+  fcc-summary-details .mat-expansion-panel-header{
+    background-color: $matExpansionBackgroundColor !important;
+    border-radius: $matExpansionPanelHeaderBorderRadius !important;
+  }
+  // Accordion Expansion Panel Label Text
+  fcc-summary-details .labelStyle{
+    color: $labelstyleColor !important;
+  }
+  // Accordion Expansion Panel Value Text
+  fcc-summary-details .valueStyle{
+    color: $valuestyleColor !important;
+  }
+  // Accordion expansion value styling
+  .preValueStyle {
+    background-color: $accordionLabelValBackgroundColor !important;
+    border: $borderNone !important;
+  }
+  // Accordion header Label color
+  .subheader-title {
+    color: $primaryColor !important;
+  }
+  // Accordion Sub header in Expansion panel
+  .panelHeadStyle {
+    color: $primaryColor !important;
+  }
+  // Events tab left section Label when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .labelTag {
+    color: $primaryColor !important;
+  }
+  // Events tab left section Value when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .valueTag {
+    color: $primaryColor !important;
+  }
+  // Events tab left section Title when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .titleTag {
+    color: $primaryColor !important;
+  }
+  // Events tab left section Label when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .labelTag {
+    color: $labelEventsTabColor !important;
+  }
+  // Events tab left section Value when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .valueTag {
+  color: $CHARCOAL-PRIMARY-COLOR !important;
+  }
+  // Events tab left section Title when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .titleTag {
+    color: $labelEventsTabColor !important;
+  }
+  // Events Tab Styling
+  app-review-tab .ui-tabview .ui-tabview-panels {
+    background-color: $ui-tabview-panels-backgroundColor !important;
+    color:  $ui-tabview-panels-Color !important;
+    border-top: $ui-tabview-panels-borderTop !important;
+    border-left: $ui-tabview-panels-borderLeft !important;
+    border-right: $ui-tabview-panels-borderRight !important;
+    border-bottom: $ui-tabview-panels-borderBottom !important;
+    }
+  // Events Left section LTR Styling
+  app-review-history .ltr .ui-listbox {
+    background-color: $eventsTabLeftSectionBGColor !important;
+    border: $ui-tabview-panels-borderRight !important;
+    border-right: $ui-tabview-panels-borderTop !important;
+  }
+  // Events Left section RTL Styling
+  app-review-history .rtl .ui-listbox {
+    background-color: $eventsTabLeftSectionBGColor !important;
+    border: $ui-tabview-panels-borderRight !important;
+    border-left: $ui-tabview-panels-borderTop !important;
+  }
+  // Events Tab Left section border LTR styling
+  app-review-history .ltr .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight {
+    color: $primaryColor !important;
+    background-color: $ui-tabview-backgroundcolor !important;
+    border-left: $enquiryEventBorderLeft !important;
+  }
+  // Events Tab Left section border RTL styling
+  app-review-history .rtl .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight {
+    color: $primaryColor !important;
+    background-color: $ui-tabview-backgroundcolor !important;
+    border-right: $enquiryEventBorderLeft !important;
+  }
+  // Additional Info tab header
+  app-additional-info-tab .additionalClass {
+    color: $primaryColor !important;
+  }
+
+  fcc-amend-comparison-view .summaryField {
+    color:$amendcomparisonField;
+    border-right-color: $amendComparisonrightBorderColor;
+  }
+
+  fcc-amend-comparison-view .summaryVal{
+    color:  $valuestyleColor;
+    border-right-color: $amendComparisonrightBorderColor;
+  }
+
+  fcc-amend-comparison-view .only-amended-fields {
+    color: $onlyAmendedFieldsColor;
+  }
+
+  fcc-amend-comparison-view  .transaction-header {
+    background-color: $transactionHeaderBackGroundColor;
+    color: $transactionHeaderColor;
+    border-right-color:$amendComparisonrightBorderColor;
+  }
+
+  fcc-amend-comparison-view  .license {
+    border-right-color: $amendComparisonrightBorderColor;
+  }
+
+}
+
+.FCC {
+  // Default Variables
+  $journeyButtonText: $WHITE;
+  $enquiryButtonBorder: $borderSize;
+  $primaryColor: $VIOLET-F100;
+  $enquiryChannelReferencecolor:$CHARCOAL-F75;
+  $enquiryeventtextColor:$CHARCOAL-F75;
+  $enquiryEventTypetextColor:$FUCHSIA-F100;
+  $enquirydetailsBackgroundColor:$primaryColorBlueBannerBg;
+  $enquirydetailsmallTextColor:$WHITE;
+  $enquiryDetailsMediumTextColor:$WHITE;
+  $EnquiryBackgroundColorButton:$transparent;
+  $enquiryButtonBorder:$borderSize;
+  $primaryButtonBorderColor:$primaryColor;  
+  $primaryjourneyButtonBackgroundColor:$primaryColor;
+  $enquiryButtonTextColr:$primaryColor;
+  $journeyButtonText:$WHITE;
+  $ui-tabview-color:$CHARCOAL-F100;
+  $ui-tabview-Active-a-color:$primaryColor;
+  $ui-tabview-backgroundcolor:$transparent;
+  $ui-tabview-border:$borderNone;
+  $ui-tabview-borderBottom:$tabBottomBorder $borderSolid $primaryColor;
+  $ui-menuitemColor:$CHARCOAL-F100;
+  $matExpansionBackgroundColor: $White-Lilac;
+  $matExpansionPanelHeaderBorderRadius: $font-size-1_1;
+  $labelstyleColor: $BLACK_03;
+  $valuestyleColor: $GRAY-DARKGRAY-01;
+  $accordionLabelValBackgroundColor:$transparent;
+  $labelEventsTabColor:$labelColorEventSection;
+  $CHARCOAL-PRIMARY-COLOR:$CHARCOAL-F100;
+  $ui-tabview-panels-backgroundColor:$WHITE;
+  $ui-tabview-panels-Color:$GRAY-HEX-20;
+  $ui-tabview-panels-borderTop: $font-size-0_1 $borderSolid $enquiryTabBorderColor;
+  $ui-tabview-panels-borderLeft:$borderNone;
+  $ui-tabview-panels-borderRight:$borderNone;
+  $ui-tabview-panels-borderBottom:$borderNone;
+  $enquiryEventBorderLeft:$font-size-04 $borderSolid $primaryColor;
+  $eventsTabLeftSectionBGColor:$WHITE;
+  $landingButtonBorder:$enquiryButtonBorder $borderSolid $primaryButtonBorderColor;
+  $amendcomparisonField: $BLACK_03;
+  $amendComparisonrightBorderColor: $WHITE;
+  $onlyAmendedFieldsColor: $MainHeadingColor;
+  $transactionHeaderBackGroundColor: $VIOLET-F100;
+  $transactionHeaderColor: $WHITE;
+
+
+  @include Styling_of_enquiryPage($enquiryChannelReferencecolor,$enquiryeventtextColor,$enquiryEventTypetextColor,
+  $enquirydetailsBackgroundColor,$enquirydetailsmallTextColor,$enquiryDetailsMediumTextColor,$EnquiryBackgroundColorButton,
+  $enquiryButtonBorder,$primaryButtonBorderColor,$primaryjourneyButtonBackgroundColor,$enquiryButtonTextColr,$journeyButtonText,
+  $ui-tabview-color,$ui-tabview-Active-a-color,$ui-tabview-backgroundcolor,$ui-tabview-border,$ui-tabview-borderBottom,
+  $ui-menuitemColor,$matExpansionBackgroundColor,$matExpansionPanelHeaderBorderRadius,$labelstyleColor,$valuestyleColor,
+  $accordionLabelValBackgroundColor,$labelEventsTabColor,$CHARCOAL-PRIMARY-COLOR,$ui-tabview-panels-backgroundColor,$ui-tabview-panels-Color,
+  $ui-tabview-panels-borderTop,$ui-tabview-panels-borderLeft,$ui-tabview-panels-borderRight,$ui-tabview-panels-borderBottom,
+  $enquiryEventBorderLeft,$eventsTabLeftSectionBGColor,$landingButtonBorder,$amendcomparisonField,$amendComparisonrightBorderColor,
+  $onlyAmendedFieldsColor,$transactionHeaderBackGroundColor,$transactionHeaderColor);
+}

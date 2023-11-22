@@ -1,0 +1,34 @@
+<div mat-dialog-content>
+<form [formGroup]="discardForm" class="discard-payment">
+    <textarea 
+        pInputTextarea
+        class="fcc-ui-inputtexarea p-col-12"
+        id="textareaIdx"
+        aria-label="textarea"
+        formControlName="remarks"
+        [rows] = "rows"
+        [cols] = "cols"
+        tabindex="0"
+        placeholder="{{'enterRemarks' | translate}}"
+        maxlength="255"
+        [(ngModel)]="textAreaValue"
+        matTextareaAutosize = "autoResize"
+    >
+    </textarea>
+    <span class="invalidComment" *ngIf=" isConfirmClicked && textAreaValue.length === 0  "> {{getValidationText()}}</span>
+     <span class="scrap-label" dir={{langDir}}> {{textAreaValue.length}}/{{maxChars}}</span>
+    <br/>
+    </form>
+</div>
+<div mat-dialog-actions class="discard-footer">
+  <button role="button"  class="secondaryButton right-align" mat-button (click)="onClickCancel()">{{'cancel' | translate}}</button>
+  <span *ngIf="!paymentDashboardWidget && !beneApproveRejectWidget">
+  <button role="button" [disabled]="isDisableConfirmButton" dir={{langDir}} class="primaryButton confirm-btn" mat-button cdkFocusInitial (click)="onClickConfirm()">{{'CONFIRM' | translate}}</button>
+  </span>
+  <span *ngIf="paymentDashboardWidget && !beneApproveRejectWidget">
+    <button role="button" [disabled]="isDisableConfirmButton"  class="primaryButton" mat-button cdkFocusInitial (click)="onClickConfirmPaymentsWidget()">{{'CONFIRM' | translate}}</button>
+  </span>
+  <span *ngIf="beneApproveRejectWidget">
+    <button role="button"  [disabled]="isDisableConfirmButton" class="primaryButton" mat-button cdkFocusInitial (click)="onClickConfirmBeneRejectWidget()">{{'CONFIRM' | translate}}</button>
+  </span>
+</div>

@@ -1,0 +1,24 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_globalSearchStyle($searchIconSize,$searchTextSize,$searchTextWeight) {
+
+ fcc-common-global-search .autoCompleteSearch i {
+    font-size: $searchIconSize !important;
+ }
+ fcc-common-global-search .searchID {
+     font-size: $searchTextSize !important;
+     font-weight: $searchTextWeight !important;
+ }
+}
+
+.finastra {
+
+// Default Variables
+$searchIconSize:$font-size-2_2;
+$searchTextSize:$font-size-20;
+$searchTextWeight:$fontWeight-500;
+
+
+@include Styling_of_globalSearchStyle($searchIconSize,$searchTextSize,$searchTextWeight);
+
+}

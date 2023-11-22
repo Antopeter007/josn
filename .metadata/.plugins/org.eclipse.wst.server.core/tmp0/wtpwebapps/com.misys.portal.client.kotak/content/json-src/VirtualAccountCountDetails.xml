@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+
+              <Response xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd"> 
+
+              <header> 
+
+              <sourceappcode>JARVIS</sourceappcode> 
+
+              <RqUID>2</RqUID> 
+
+              <action_type>FETCH_VA_COUNT</action_type> 
+
+     <crn>13402308</crn> 
+
+          </header><va_count> 
+
+                     <status>ACTIVATED</status> 
+
+<count>6096</count> 
+
+                        </va_count><va_count> 
+
+                     <status>DEACTIVATED</status> 
+
+<count>0</count> 
+
+                        </va_count><va_count> 
+
+                     <status>REJECTED</status> 
+
+<count>4</count> 
+
+                        </va_count><va_count> 
+
+                     <status>PENDING_APPROVAL</status> 
+
+<count>24</count> 
+
+                        </va_count><request_status> 
+
+                <error_flag>N</error_flag> 
+
+                <error_desc>VA count Found</error_desc> 
+
+            <error_code>KOT000</error_code> 
+
+              </request_status> 
+
+          </Response> 

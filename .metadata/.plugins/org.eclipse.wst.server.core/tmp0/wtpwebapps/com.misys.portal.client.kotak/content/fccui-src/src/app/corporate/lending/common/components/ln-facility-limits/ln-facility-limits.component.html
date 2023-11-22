@@ -1,0 +1,27 @@
+<div *ngIf="borrowers && borrowers.length !== 0">
+  <mat-accordion dir={{dir}} >
+    <div *ngFor="let borrower of borrowers;let index = index" class="p-col-12">
+      <mat-expansion-panel [expanded]="index === 0" >
+        <mat-expansion-panel-header>
+          <mat-panel-title class="subheader-title"><h2>{{borrower.fccReference}}&nbsp;
+            <div *ngIf="borrowerEntitiesMap.get(borrower.fccReference)" style="display: inline-flex;">
+              <div *ngFor="let entry of borrowerEntitiesMap.get(borrower.fccReference); let last = last;let first = first" >
+                <div class="divLeft" *ngIf="first" > (</div>
+                <div class="divLeft">{{entry.label}}</div>
+                <div class="divLeft" *ngIf="!last" >,&nbsp;</div>
+                <div class="divLeft" *ngIf="last" >)</div>
+              </div>
+            </div>
+          </h2>
+          </mat-panel-title>
+          </mat-expansion-panel-header>
+        <ng-container >
+          <div class="{{item.grid}} padd-lft" [ngStyle]="{'float': setDirection()}" *ngFor="let item of listDefData" >
+            <h3 class="headerCss"  tabindex="0">{{item.header | translate}}</h3>
+            <fcc-common-transactions-listdef [inputParams]="item.inputParams" *ngIf="item.inputParams" ></fcc-common-transactions-listdef>
+          </div>
+        </ng-container>
+      </mat-expansion-panel>
+    </div>
+  </mat-accordion>
+</div>

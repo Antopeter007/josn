@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+   <header>
+      <sourceappcode>JARVIS</sourceappcode>
+      <RqUID>2</RqUID>
+      <action_type>VAM_AUTHZ_REJ</action_type>
+      <crn>7850116</crn>
+      <mode>AUTH</mode>
+   </header>
+   <request_status>
+      <error_flag>N</error_flag>
+      <error_desc>Record Authorised Sucessfully for AUTH</error_desc>
+      <error_code>KOT000</error_code>
+   </request_status>
+</Response>

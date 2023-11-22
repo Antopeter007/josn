@@ -1,0 +1,16 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank (Secured Pages)
+
+	summary:
+  		CSS rules loaded by all *secured* pages
+	
+*/
+
+/** Import the base theme **/
+@import "../base/base.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";

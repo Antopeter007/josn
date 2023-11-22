@@ -1,0 +1,18 @@
+
+@import '../../../variables.scss';
+
+
+@mixin common_class_selectBtn_mixin($bgStepperColor, $textColor) {
+    fcc-product-component .tabButton.ui-selectbutton .ui-button.ui-state-active, .taskButton.ui-selectbutton .ui-button.ui-state-active {
+        background-color: $bgStepperColor !important;
+        border: 0.0625em solid $bgStepperColor !important;
+        color: $textColor !important;
+    }
+}
+
+.Bank-One {
+    // primary color
+    $bgStepperColor: $primaryColor;
+    $textColor: $WHITE;
+    @include common_class_selectBtn_mixin($bgStepperColor, $textColor);
+}

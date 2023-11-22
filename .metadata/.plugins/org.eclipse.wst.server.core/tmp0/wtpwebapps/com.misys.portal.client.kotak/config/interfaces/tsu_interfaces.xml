@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Misys Trade Portal Interfaces Schema Copyright (c) 2000-2010 Misys (http://www.misys.com) 
+	All Rights Reserved. -->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<interface name="tsu2openaccount" description="Process the incoming TMA messages">
+		<component name="environmentreader">
+			<component name="tmaxsdvalidator">
+				<component name="filter">
+					<properties>
+						<property name="script">false == xsdValidationFailed</property>
+					</properties>
+					<component name="xcltsu2po">
+						<component name="xsltransformer">
+							<component name="incominginitiator">
+								<properties>
+									<property name="validation">false</property>
+								</properties>
+								<component name="documentparser">
+									<component name="tmvalidator">
+										<transaction>
+											<component name="databaseserializer" />										
+										<component name="filter">
+											<properties>
+												<property name="script">false == genericValidationFailed
+													&amp;&amp; false == contextValidationFailed</property>
+											</properties>
+
+											<component name="filter">
+												<properties>
+													<property name="script">'037' == event.product.message_type
+														|| '016' == event.product.message_type</property>
+												</properties>
+												<component name="reportAndActivityHandler" />
+											</component>
+											<!-- Invoke Tm2OAGenerator only when the processing involves IO/EA -->
+											<component name="filter">
+												<properties>
+													<property name="script">!('037' ==
+														event.product.message_type || '016' ==
+														event.product.message_type)</property>
+												</properties>
+													<component name="tm2oagenerator" />
+											</component>
+											<component name="filter">
+												<properties>
+													<property name="script">true == businessValidationFailed
+													</property>
+												</properties>
+												<component name="genericmailformatter">
+													<properties>
+														<property name="destination">01</property>
+														<property name="alerttype">12</property>
+													</properties>
+													<component name="genericSendMail" />
+												</component>
+											</component>
+											<component name="filter">
+												<properties>
+													<property name="script">true == tmaBankAlert</property>
+												</properties>
+												<component name="genericmailformatter">
+													<properties>
+														<property name="destination">01</property>
+														<property name="alerttype">15</property>
+													</properties>
+													<component name="genericSendMail" />
+												</component>
+											</component>
+										</component>
+										</transaction>
+										<component name="filter">
+											<properties>
+												<property name="script">true == genericValidationFailed ||
+													true == contextValidationFailed</property>
+											</properties>
+											<component name="genericmailformatter">
+												<properties>
+													<property name="destination">01</property>
+													<property name="alerttype">14</property>
+												</properties>
+												<component name="genericSendMail" />
+											</component>
+										</component>
+
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+				<component name="filter">
+					<properties>
+						<property name="script">true == xsdValidationFailed</property>
+					</properties>
+					<component name="genericmailformatter">
+						<properties>
+							<property name="destination">01</property>
+							<property name="alerttype">13</property>
+						</properties>
+						<component name="genericSendMail" />
+					</component>
+				</component>
+			</component>
+
+
+
+			<!-- <component name="xcltsu2pobn"> <component name="xsltransformer"> 
+				<component name="incominginitiator"> <component name="databaseserializer"/> 
+				</component> </component> </component> -->
+
+			<!-- <component name="xcltsu2openaccount"> <component name="namespacefilter"> 
+				<component name="xsltransformer"> <component name="incominginitiator"> <component 
+				name="invoiceGenerator"> <component name="databaseserializer"/> </component> 
+				</component> </component> </component> </component> -->
+
+		</component>
+	</interface>
+<!-- 
+# Purchase Order Outgoing
+#interface.openaccount2tsu = environmentreader (apply2advisefilter (apply2adviseconnector)\, 
+#						advice2applyfilter (advice2applyconnector)\, 
+#						apply2ftfilter (apply2ftconnector)\, 
+#						apply2invoicefilter (apply2invoiceconnector)\, 
+#						invoice2applyfilter (invoice2applyconnector)\, 
+#						xmlouttsuprocessor (fileoutwriter\, 
+#						xclopenaccount2tsu (xsltsax (xmlinprocessor (tsubaselinegenerator (saveIntoDBserializer)\, 
+#						messagemanageroutgoingprocessor (fileoutwriter))))))
+#interface.openaccount2tsu = environmentreader (apply2advisefilter (apply2adviseconnector)\,	advice2applyfilter (advice2applyconnector)\, apply2ftfilter (apply2ftconnector)\, apply2invoicefilter (apply2invoiceconnector)\, invoice2applyfilter (invoice2applyconnector)\,	xmlouttsuprocessor (fileoutwriter\, xclopenaccount2tsu (xsltsax (xmlinprocessor (tsubaselinegenerator (saveIntoDBserializer)\, messagemanageroutgoingprocessor (fileoutwriter))))))
+
+interface.openaccount2tsu = environmentreader (xmlouttsuprocessor (xclopenaccount2tsu (xsltsaxopenaccount2tsu (xmlinprocessor (tsubaselinegenerator (saveIntoDBserializer)\, filteropenaccount2tsu (messagemanageroutgoingprocessor (fileoutwriter)))))))
+interface.openaccount2tsu.isMandatory = true
+
+# TSU XML Outgoing
+#interface.tsuxmlout = environmentreader (tsufilter (tsuxmloutprocessor (fileoutwriter)))
+interface.tsuxmlout = environmentreader (tsufilter (v2tsuxmloutprocessor (fileoutwriter)))
+interface.tsuxmlout.isMandatory = false
+
+#
+# TSU interfaces
+#
+
+# XML Incoming (TSU + PTSAGBPP dedicated)
+#interface.tsu2openaccount = environmentreader (xcltsu2openaccount (namespacefilter (xsltsax (infileoutwriter\, xmlinprocessor (saveIntoDBserializer)))))
+#interface.tsu2openaccount = environmentreader (xcltsu2openaccount (xsltsax (fileoutwriter)))
+#interface.PTSAGBPPtsu2openaccount = environmentreader (xcltsu2po (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2pobn (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2openaccount (namespacefilter (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))))
+
+
+#interface.PTSAGBPPtsu2openaccount = environmentreader (xcltsu2po (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2pobn (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2openaccount (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer))))
+
+#interface.PTSAGBPPtsu2openaccount = environmentreader (xcltsu2openaccount (PTSAGBPPxsltsax (emptymessagefilter (fileoutwriter\, incominginitiator (documentparser (useridsanddttmmanager (attachmentsmanager (databaseserializer)))))))\, xcltsu2po (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2pobn (PTSAGBPPxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer))))
+interface.PTSAGBPPtsu2openaccount = environmentreader (xcltsu2openaccount (PTSAGBPPxsltsax (emptymessagefilter (incominginitiator (documentparser (useridsanddttmmanager (attachmentsmanager (invoiceGenerator (databaseserializer))))))))\, xcltsu2pobn (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer)))\, xcltsu2po (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer))))
+interface.PTSAGBPPtsu2openaccount.isMandatory = true
+
+# XML Incoming (TSU + PTSAGBPPTSU dedicated)
+#interface.PTSAGBPPTSUtsu2openaccount = environmentreader (xcltsu2po (PTSAGBPPTSUxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2pobn (PTSAGBPPTSUxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer)))\, xcltsu2openaccount (PTSAGBPPTSUxsltsax (fileoutwriter\, xmlinprocessor (saveIntoDBserializer))))
+interface.PTSAGBPPTSUtsu2openaccount = environmentreader (xcltsu2openaccount (PTSAGBPPTSUxsltsax (emptymessagefilter (incominginitiator (documentparser (useridsanddttmmanager (attachmentsmanager (databaseserializer)))))))\, xcltsu2po (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer)))\, xcltsu2pobn (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer))))
+interface.PTSAGBPPTSUtsu2openaccount.isMandatory = true
+
+
+#
+# TSU v2 interfaces
+#
+
+# XML Incoming (TSU + PTSAGBPP dedicated)
+#interface.v2PTSAGBPPtsu2openaccount = environmentreader (documentnamespaceremover (v2xcltsu2openaccount (PTSAGBPPxsltsax (emptymessagefilter (incominginitiator (documentparser (useridsanddttmmanager (attachmentsmanager (invoiceGenerator (databaseserializer))))))))\, v2xcltsu2pobn (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer)))\, v2xcltsu2po (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer)))))
+interface.v2PTSAGBPPtsu2openaccount = environmentreader (documentnamespaceremover (v2xcltsu2pobn (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer)))\, v2xcltsu2po (PTSAGBPPxsltsax (xmlinprocessor (saveIntoDBserializer)))))
+interface.v2PTSAGBPPtsu2openaccount.isMandatory = true
+
+# XML Incoming (TSU + PTSAGBPPTSU dedicated)
+#interface.v2PTSAGBPPTSUtsu2openaccount = environmentreader (documentnamespaceremover (v2xcltsu2openaccount (PTSAGBPPTSUxsltsax (emptymessagefilter (incominginitiator (documentparser (useridsanddttmmanager (attachmentsmanager (databaseserializer)))))))\, v2xcltsu2pobn (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer)))\, v2xcltsu2po (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer)))))
+interface.v2PTSAGBPPTSUtsu2openaccount = environmentreader (documentnamespaceremover (v2xcltsu2pobn (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer)))\, v2xcltsu2po (PTSAGBPPTSUxsltsax (xmlinprocessor (saveIntoDBserializer)))))
+interface.v2PTSAGBPPTSUtsu2openaccount.isMandatory = true
+
+
+# Purchase Order outgoing
+interface.openaccount2tsu = environmentreader (xmlouttsuprocessor (v2xclopenaccount2tsu (xsltsaxopenaccount2tsu (xmlinprocessor (tsubaselinegenerator (saveIntoDBserializer)\, filteropenaccount2tsu (messagemanageroutgoingprocessor (fileoutwriter)))))))
+interface.openaccount2tsu.isMandatory = true
+
+#
+# TSU Incoming Interface
+#
+interface.tsuxmlin = xmlinreader (tsuxmlinprocessor (saveIntoDBserializer, tsuincomingfilter (tsuxmlprocessor)))
+
+ -->
+
+</interfaces>

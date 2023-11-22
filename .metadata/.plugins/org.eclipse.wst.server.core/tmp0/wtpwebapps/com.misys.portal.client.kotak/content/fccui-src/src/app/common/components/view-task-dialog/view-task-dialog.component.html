@@ -1,0 +1,95 @@
+<div class="p-grid">
+    <div class="p-col-12 ">
+        <div class="p-grid taskDescription">
+            <div class="p-col-6 p-grid p-justify-start">
+                <span [ngClass]="dir === 'rtl' ? 'typeDescriptionRtl' : 'typeDescription'" tabindex="0">
+                    {{taskDetailsRequest.type}}
+                </span>
+                <span class="material-icons" aria-hidden="true" id ="accountCircle">
+                    account_circle
+                </span>
+                <span [ngClass]="dir === 'rtl' ? 'userNameRtl' : 'userName'" tabindex="0">
+                    {{taskDetailsRequest.name}}
+                </span>
+            </div>
+            <div class="p-col-6 p-grid p-justify-end">
+                <span class="material-icons" aria-hidden="true" id ="event">
+                    event
+                    </span>
+                <span [ngClass]="dir === 'rtl' ? 'dateRtl' : 'date'" tabindex="0">
+                    {{taskDetailsRequest.date}}
+                </span>
+                <span class="performed" tabindex="0">
+                  <button role="button" 
+                    tabindex="0"
+                    pButton
+                    class="TaskActionButton"
+                    title="{{getStatus(taskDetailsRequest.performed)}}"
+                    label="{{ getStatus(taskDetailsRequest.performed) | translate }}"
+                    (click)="onClickTaskAction(taskDetailsRequest.performed, taskDetailsRequest.taskId)"
+                    [ngClass]="getStatus(taskDetailsRequest.performed) === 'Completed' ? 'completedButton' : 'pendingButton'"
+                  ></button>
+                </span>
+            </div>
+            <div class="p-col-12 taskDesc" tabindex="0">
+              <span>{{description}} :  </span>
+              <span [innerHTML]="taskDetailsRequest.description"></span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf = "addCommentPermission" class="p-col-12">
+        <div [ngClass]="dir === 'rtl' ? 'p-grid postCommentsRtl' : 'p-grid postComments'">
+            <div class="p-col-12 p-grid p-justify-start">
+                <span>
+                    <img src={{iconImagePath}} alt="iconImg" class="userCommentImage" />
+                </span>
+                <form [formGroup]="commentForm">
+                  <ng-container *ngFor="let control of commentForm.productControls">
+                  <mat-form-field floatLabel="false" class="input-mat-width">
+                      <textarea matInput maxlength="160" [controlName]= "commentForm.controls.comments"
+                      cols="40" rows="4" #fccCommonTextAreaId fccCommonTextArea (focus) = "onFocusComment($event)"
+                      (click)="onFocusComment($event)"  (blur)="onFocusComment($event)"
+                      [ngClass]="dir === 'rtl' ? 'fcc-ui-inputtextarea fcc-textarea-width multiCommentsDescriptionRtl' : 'fcc-ui-inputtextarea fcc-textarea-width multiCommentsDescription'"
+                      tabindex="0"></textarea>
+                  </mat-form-field>
+                  <div *ngIf="commentForm.controls.comments.dirty || commentForm.controls.comments.touched">
+                    <ng-container *ngFor="let error of control.getValidationMessages()">
+                        <span class="fcc-field-message">
+                          <p-message severity="error" text="{{errorHeader | translate}}: {{ error | translate }}"></p-message>
+                        </span>
+                    </ng-container>
+                  </div>
+                  </ng-container>
+                </form>
+
+
+
+            </div>
+            <div class="p-col-12 p-grid p-justify-end">
+                <button role="button"  tabindex="0" pButton class="addCommentButton" title="{{addComment}}" class="primaryButton" label={{addComment}} (click)="onPostComment($event)" id="comment"></button>
+            </div>
+            </div>
+        </div>
+    <div class="p-col-12" *ngIf="commentLength > 0">
+        <h4 [ngClass]="dir === 'rtl' ? 'commentHeader4Rtl' : 'commentHeader4'" tabindex="0">
+            {{commentLength}} {{commentsLabel}}
+        </h4>
+    </div>
+    <div class= "p-col-12 p-grid boxForPreviousComments">
+        <div class="p-col-12 commentDescription" *ngFor="let comment of commentDetailsRequest" tabindex="0">
+            <div class="p-grid" >
+                <div class="p-col-12">
+                    <span>{{comment.fullName}} | </span>
+                    <span>{{comment.issueDate}}</span>
+                </div>
+                <div class="p-col-12 p-grid p-align-center vertical-container">
+                    <div class="p-col-1 otherCommentImg">
+                        <img src={{iconImagePath}} alt="iconImg" class="userCommentImage iconCommentDescription" />
+                    </div>
+                    <div class="p-col-11 otherCommentText" [innerHTML]="comment.descriptionOfComment">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .ui-card {
+  background-color: $uiCardbackgroundColor;
+  color: $uiCardColor;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  margin-left: 0px;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: none;
+  border-bottom: $uiInputTextBorderBottom01;
+}
+
+:host ::ng-deep.appl-detail-header {
+  color: $MainHeadingColor;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+:host ::ng-deep.pd-all-twelve {
+  padding: 2em;
+}
+:host ::ng-deep.pd-right-six {
+  padding: 0em 3em 0em 0em;
+}
+:host ::ng-deep.pd-left-six {
+  padding: 0em 0em 0em 3em;
+}
+
+:host ::ng-deep .pi-chevron-down:before {
+  display: block;
+}
+
+:host ::ng-deep.appl-detail-header label {
+  line-height: 2.5em;
+}
+:host ::ng-deep.prev-btn-margin-rt {
+  margin-right: 20px;
+}
+:host ::ng-deep.btn-class {
+  margin-right: 10px;
+}
+:host ::ng-deep.fcc-field-message {
+  margin-left: 0.2em;
+}
+label.switch-label-class {
+  margin-left: 15px;
+}
+
+:host ::ng-deep .ui-dropdown,
+:host ::ng-deep .ui-inputtext {
+  background: transparent !important;
+}
+
+:host ::ng-deep .ui-dropdown-items-wrapper {
+  overflow-x: hidden !important;
+}
+:host ::ng-deep.align-left{
+  text-align: left;
+  word-break: break-all;
+}
+:host ::ng-deep .indented-text-area-field-35 {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+
+:host ::ng-deep .indented-text-area-field-35-with-scrollbar {
+  width: 100% !important;
+  margin-top: 2em;
+  margin: 0em !important;
+}
+textarea {
+  resize: none !important;
+}
+
+:host ::ng-deep.applicant_bene_entity_class.singleBeneficiary .dropdownlabel {
+  font-size: 0.75em !important;
+  top: 0.8em !important;
+  left: 1.4em !important;
+}
+
+:host ::ng-deep .p-col-12{
+  width : 98% !important;
+}

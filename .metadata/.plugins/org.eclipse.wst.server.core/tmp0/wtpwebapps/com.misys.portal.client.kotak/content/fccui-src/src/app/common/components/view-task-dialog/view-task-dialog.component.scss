@@ -1,0 +1,266 @@
+@import './../../../../styles/variables.scss';
+
+.p-grid {
+    margin: 0em;
+}
+
+.taskDescription {
+    background-color: #F6F5FC;
+    padding: 0.5em;
+    padding-top: 1em;
+}
+
+.typeDescription {
+    margin-right: 1em;
+    color: $CHARCOAL-F75;
+    font-style: italic;
+}
+
+.typeDescriptionRtl {
+  margin-left: 1em;
+    color: $CHARCOAL-F75;
+    font-style: italic;
+}
+
+.userName {
+  padding-left: 0.3em;
+}
+
+.userNameRtl {
+  padding-right: 0.3em;
+}
+
+.taskDesc {
+  line-height: 1.4em;
+  color: #414141;
+}
+
+.date {
+    margin-left: 0.2em;
+    margin-right: 1em;
+}
+
+.dateRtl {
+  margin-right: 0.2em;
+  margin-left: 1em;
+}
+
+#accountCircle, #event {
+    position: relative !important;
+    top: -10px;
+}
+
+.date, .dateRtl {
+    position: relative;
+    top: -1px;
+}
+
+.performed {
+  position: relative;
+  top: -1.5em;
+}
+
+#accountCircleComment {
+    position: relative !important;
+}
+
+// task action button
+.TaskActionButton {
+  border-radius: 1.125em !important;
+  min-width: 8em !important;
+  line-height: 2.25em !important;
+  font-size: 0.7em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $WHITE !important;
+  position: relative;
+  top: 1em;
+}
+
+.TaskActionButton:hover {
+  background-color: #f5f3fe !important;
+  color: #414141 !important;
+}
+.TaskActionButton:active {
+  background-color: #f1eeff !important;
+  box-shadow: none !important;
+}
+
+.userCommentImage {
+    border: 1px solid transparent;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+}
+
+.completedButton {
+  color: #56c271;
+  border-color: #56c271;
+}
+
+.pendingButton {
+  color: #414141;
+}
+
+.postComments, .postCommentsRtl {
+    border: 1px solid #d7d7d7;
+    padding: 0.5em;
+    padding-top: 1em;
+}
+
+:host ::ng-deep .postComments .mat-form-field-appearance-legacy .mat-form-field-underline,
+:host ::ng-deep .postCommentsRtl .mat-form-field-appearance-legacy .mat-form-field-underline{
+  display: none;
+}
+
+.multiCommentsDescription {
+    margin-left: 10px;
+    border: 1px solid #e1e1e1;
+    resize: none;
+    padding: 2px 0.4em;
+}
+
+.multiCommentsDescriptionRtl {
+  margin-right: 10px;
+  border: 1px solid #e1e1e1;
+  resize: none;
+  float: right;
+  padding: 2px 0.4em;
+  text-align: right;
+}
+
+.addCommentButton {
+    border-radius: 1.125em !important;
+    padding: 0 1.5em !important;
+    min-width: 4em !important;
+    line-height: 2.25em !important;
+    font-size: 0.875em !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: $WHITE !important;
+    color: $VIOLET-F100 !important;
+    border: 0.0625em solid $WHITE-07 !important;
+  }
+
+  .addCommentButton:hover {
+    background-color: #f5f3fe !important;
+  }
+  .addCommentButton:active {
+    background-color: #f1eeff !important;
+    box-shadow: none !important;
+  }
+
+  :host ::ng-deep .addCommentButton.ui-button.ui-button-text-only .ui-button-text {
+    color: $VIOLET-F100 !important;
+  }
+
+.viewTaskLayoutClass {
+    background-color: $WHITE !important;
+    border: none !important;
+    font-weight: normal !important;
+    padding: 1em !important;
+    top: 3em;
+  }
+  :host ::ng-deep .viewTaskLayoutClass .ui-dialog-titlebar.ui-widget-header {
+    background-color: $WHITE !important;
+    color: $GREY-05 !important;
+    border: none !important;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    padding-top: 1.35em;
+    padding-left: 1.75em;
+  }
+  .viewTaskLayoutClass .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 1.5em !important;
+  }
+  :host ::ng-deep .viewTaskLayoutClass .ui-dialog .ui-dialog-content {
+    border: none !important;
+  }
+
+  .viewTaskLayoutClass.ui-dialog .ui-dialog-content{
+    border: none !important;
+  }
+
+  .commentDescription {
+    border-bottom: 1px SOLID #ececec;
+}
+
+.boxForPreviousComments {
+  height: 15em;
+  overflow: auto;
+}
+
+.otherCommentImg {
+  width: 48px !important;
+}
+
+.commentHeader4 {
+  color: $VIOLET-F100 !important;
+  margin-top: 0.5em;
+  padding-left: 1em;
+}
+
+.commentHeader4Rtl {
+  color: $VIOLET-F100 !important;
+  margin-top: 0.5em;
+  padding-right: 1.3em;
+}
+
+.boxForPreviousComments::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+.boxForPreviousComments::-webkit-scrollbar-track {
+  background: $WHITE; // Chrome, Safari and Opera
+}
+
+/* Handle */
+.boxForPreviousComments::-webkit-scrollbar-thumb {
+  background: $WHITE; // Chrome, Safari and Opera
+}
+
+/* Track */
+.boxForPreviousComments:hover::-webkit-scrollbar-track {
+  background: $WHITE-05; // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+.boxForPreviousComments:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+}
+
+:host ::ng-deep .postComments .mat-form-field-appearance-legacy .mat-form-field-wrapper,
+:host ::ng-deep .postCommentsRtl .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0em;
+}
+
+.postComments form {
+  width: 94%;
+  float: right;
+  margin-top: -1em;
+}
+
+.postCommentsRtl form {
+  width: 94%;
+  float: left;
+  margin-top: -1em;
+}
+
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0em;
+}
+
+.otherCommentText {
+  white-space:pre-line;
+}

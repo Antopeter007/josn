@@ -1,0 +1,139 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12 globalPadding {{ control.params.parentStyleClass }}">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="ui-float-label {{ control.params.styleClass }}"
+    >
+      <!-- <input role="textbox" pInputText class="fcc-ui-inputtext" id={{control.key}} tabindex="0"
+       (click)="onEventRaised($event,control.key)"  (blur)="onEventRaised($event,control.key)"  [readonly]="control.params.readonly"
+       (focus)="onEventRaised($event,control.key)" (change)="onCustomEventRaised($event,control.key,control)" formControlName={{control.key}} maxlength={{control.params.maxlength}}
+       [required]="control.params.required" minlength={{control.params.minlength}} />
+        <label for="{{control.key}}" tabindex="-1">
+          {{ control.params.label }}<a *ngIf = "control.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+          <a class = "infoLabel" *ngIf = "control.params.infoIcon"> {{control.params.infolabel | translate}}</a>
+        </label> -->
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <div
+            *ngIf="
+              control.params.staticInfoMsg !== '' &&
+                control.params.staticInfoMsg !== undefined &&
+                control.params.staticInfoMsg !== null;
+              else staticInfoMsgNotEntered
+            "
+          >
+            <p class="static-msg-info"></p>
+            {{ control.params.staticInfoMsg | translate }}
+          </div>
+          <ng-template #staticInfoMsgNotEntered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+
+          </ng-template>
+
+        </p-overlayPanel>
+      </a>
+      <mat-form-field
+        floatLabel="false"
+        appearance="{{ control.params.appearance }}"
+        class="input-mat-width"
+        [ngClass]="{'mat-form-field-disabled': control.params.disabled, 'pointerEnable': control.params.readonly}"
+      >
+        <mat-label *ngIf="!control.params.hideLabel"
+          >{{ control.params.label
+          }}<a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon &&!control.params.groupLabel && !control.params.disableStaticInfoLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          ></mat-label
+        >
+        <input role="textbox"
+          matInput
+          id="{{ control.key }}"
+          formControlName="{{ control.key }}"
+          (click)="onEventRaised($event, control.key)"
+          (blur)="onEventRaised($event, control.key)"
+          [readonly]="control.params.readonly"
+          (focus)="onEventRaised($event, control.key)"
+          (change)="onCustomEventRaised($event, control.key, control)"
+          (keyup)="onEventRaised($event, control.key)"
+          maxlength="{{ control.params.maxlength }}"
+          [required]="control.params.required"
+          [readonly]="control.params.readonly"
+          [disabled]="control.params.readonly"
+          [aria-describedby]="control.key" 
+          minlength="{{ control.params.minlength }}"
+          autocomplete="{{control.params.disableAutocomplete==true?'off':'new-password'}}"
+          type="{{control.params.type=== 'number'?'number' : control.params.enableMask==true?'password':'input-text'}}"
+          (paste)="onPaste($event)"
+          (copy)="onCopy($event)"
+          (cut)="onCut($event)"
+          style="text-overflow: ellipsis;"
+          min="{{ control.params.minValue }}"
+          max="{{ control.params.maxValue }}"
+        />
+      </mat-form-field>
+      <div *ngIf="control.params.addHyperlinkWithInput" class="imageIcon">
+          <a  *ngIf="!control.params.switchHyperlinkAndImg" href="#"  class="saveBeneStyle"  (click)="onEventRaised($event, control.key)" tabindex="0">{{ 'SAVE_BENEFICIARY' | translate }}</a>
+          <span *ngIf="control.params.switchHyperlinkAndImg">
+            <span *ngIf="control.params.switchImgPath; else switchImg">
+              <img *ngIf="control.params.switchHyperlinkAndImg" id="" class = "iconImage" tabindex="0"   title="{{'view' | translate}}" src='{{contextPath}}{{control.params.successImgPath}}' alt="Saved">
+            </span>
+            <ng-template #switchImg>
+              <img *ngIf="control.params.switchHyperlinkAndImg" id="" class = "iconImage" tabindex="0"   title="{{'view' | translate}}" src='{{contextPath}}{{control.params.failureImgPath}}' alt="Failed">
+            </ng-template>
+          </span>
+
+      </div>
+    </div>
+    <div *ngIf="control.params.warning">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div
+      class="{{ control.viewParams.viewLayoutClass }} viewmode "
+      *ngIf="mode === 'view'"
+    >
+      <label for="{{ control.key }}" class="form-header" tabindex="-2">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }}"
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+    <div class="shortDesc" *ngIf="control.params.shortDescription">
+      <span>{{control.params.shortDescription}}</span>
+    </div>
+  </div>
+</ng-container>

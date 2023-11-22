@@ -1,0 +1,41 @@
+@import "./../../../../../../styles/variables.scss";
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8em;
+}
+:host ::ng-deep .ui-table-wrapper{
+  border: 1px solid #D7D6D7;
+  overflow-x: hidden !important;
+}
+.headerCss{
+  color: $MainHeadingColor !important;
+  margin: 0.5em 0 1em 0 !important;
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 1.286em;
+}
+
+.divLeft{
+  float: left;
+}
+:host ::ng-deep .mat-expansion-panel-header{
+  color: $matExpansionPanelHeaderTextColor !important;
+  font-size: $matExpansionPanelHeaderFontSize !important;
+  font-weight: $matExpansionPanelHeaderFontWeight !important;
+  height: 2.5em !important;
+  background-color: $matExpansionBackgroundColor !important;
+  border-radius: $matExpansionPanelHeaderBorderRadius !important;
+}
+:host ::ng-deep .mat-expansion-panel-header:focus {
+  outline: .125em solid $matExpansionOutlineColor !important;
+}

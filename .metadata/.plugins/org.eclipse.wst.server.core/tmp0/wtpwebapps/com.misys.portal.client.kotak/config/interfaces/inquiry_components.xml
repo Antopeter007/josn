@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Misys Trade Portal Interfaces Schema Copyright (c) 2000-2010 Misys (http://www.misys.com) 
+	All Rights Reserved. -->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<component name="userfileretriever">
+		<description>Retrieves User details as an instance of GTPUserFile</description>
+		<classname>com.misys.portal.interfaces.components.UserFileRetriever</classname>
+		<prerequisites>
+			<property name="interface_processing_user" description="User in context" type="GTPUser"/>
+			<property name="interface_processing_company_type" description="Company type of the inquired User" type="String"/>
+			<property name="company_abbv_name" description="Abbreviated name of the Company of the inquired User" type="String"/>
+			<property name="login_id" description="Login ID of the inquired User" type="String"/>
+			<property name="interface_processing_operation" description="Operation type" type="String"/>
+			<property name="rundata" description="Rundata" type="GTPRunData"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="NULL"/>
+		<producer type="ObjectProducer" object="Map"/>
+	</component>
+	
+	<component name="companyinquiryhandler">
+		<description>Get company details using company abbreviated name</description>
+		<classname>com.misys.portal.interfaces.incoming.CompanyInquiryHandler</classname>
+		<consumer type="ObjectConsumer" object="NULL"/>
+		<producer type="ObjectProducer" object="Map"/>		
+	</component>
+			
+	<component name="entityinquiryhandler">
+		<description>Retrieves User details as an instance of GTPUserFile</description>
+		<classname>com.misys.portal.interfaces.components.EntityInquiryHandler</classname>
+		<prerequisites>
+			<property name="interface_processing_user" description="User in context" type="GTPUser"/>
+			<property name="interface_processing_company_type" description="Company type of the inquired User" type="String"/>
+			<property name="company_abbv_name" description="Abbreviated name of the Company of the inquired User" type="String"/>
+			<property name="login_id" description="Login ID of the inquired User" type="String"/>
+			<property name="interface_processing_operation" description="Operation type" type="String"/>
+			<property name="rundata" description="Rundata" type="GTPRunData"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="NULL"/>
+		<producer type="ObjectProducer" object="Map"/>
+	</component>
+	
+	<component name="authorisationinquiryhandler">
+		<description>Retrieves User details as an instance of GTPUserFile</description>
+		<classname>com.misys.portal.interfaces.components.AuthorisationInquiryHandler</classname>
+		<prerequisites>
+			<property name="interface_processing_user" description="User in context" type="GTPUser"/>
+			<property name="interface_processing_company_type" description="Company type of the inquired User" type="String"/>
+			<property name="company_abbv_name" description="Abbreviated name of the Company of the inquired User" type="String"/>
+			<property name="login_id" description="Login ID of the inquired User" type="String"/>
+			<property name="interface_processing_operation" description="Operation type" type="String"/>
+			<property name="__interface_data_source" description="Authorisation search DTO" type="com.misys.portal.systemfeatures.authorisation.Authorisation"/>
+			<property name="rundata" description="Rundata" type="GTPRunData"/>
+		</prerequisites>
+		<consumer type="ObjectConsumer" object="NULL"/>
+		<producer type="ObjectProducer" object="Map"/>
+	</component>
+	
+</components>

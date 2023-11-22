@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university>
+   <campus>
+      <campus_name>Main Campus</campus_name>
+      <address>
+         <street>123 University Ave</street>
+         <city>University Town</city>
+         <state>Tirunelveli</state>
+         <zipcode>627808</zipcode>
+      </address>
+      <departments>
+         <department>
+            <department_name>Computer Science</department_name>
+            <chairperson>Dr. Smith</chairperson>
+            <courses>
+               <course>
+                  <course_code>CS101</course_code>
+                  <course_name>Introduction to Programming</course_name>
+               </course>
+               <course>
+                  <course_code>CS201</course_code>
+                  <course_name>Data Structures</course_name>
+               </course>
+            </courses>
+         </department>
+         <department>
+            <department_name>Physics</department_name>
+            <chairperson>Dr. Johnson</chairperson>
+            <courses>
+               <course>
+                  <course_code>PH101</course_code>
+                  <course_name>Mechanics</course_name>
+               </course>
+               <course>
+                  <course_code>PH202</course_code>
+                  <course_name>Quantum Physics</course_name>
+               </course>
+            </courses>
+         </department>
+      </departments>
+   </campus>
+   <campus>
+      <campus_name>West Campus</campus_name>
+      <address>
+         <street>456 West University Dr</street>
+         <city>West Town</city>
+         <state>Tamil Nadu</state>
+         <zipcode>600001</zipcode>
+      </address>
+      <contact_info>
+         <phone>+1 (987) 654-3210</phone>
+         <email>westcampus@example.edu</email>
+      </contact_info>
+   </campus>
+</university>

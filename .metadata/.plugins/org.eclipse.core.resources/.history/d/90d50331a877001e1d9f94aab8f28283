@@ -1,0 +1,10 @@
+package com.demo.annotations;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class College {
+	public void CollegeName() {
+		System.out.println("Sardar Raja College Of Engineering");
+	}
+}

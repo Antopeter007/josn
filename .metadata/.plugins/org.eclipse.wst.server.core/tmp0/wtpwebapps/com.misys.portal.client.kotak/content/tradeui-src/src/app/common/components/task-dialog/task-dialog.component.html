@@ -1,0 +1,60 @@
+<div [formGroup] = "taskDetailsForm">
+    <div *ngIf = "this.task.type === '02' || this.task.type === '03';else private_task_content">
+        <div id =  "descriptionRow" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label id="descriptionLabel" for = "description">{{ 'PARTIESDETAILS_DESCRIPTION' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+            <input pInputText formControlName="description" id="description" type="text" [class.fieldError]="validationService.isFieldInvalid(taskDetailsForm.get('description'))">
+            <fcc-common-error-message [control]="taskDetailsForm.get('description')"></fcc-common-error-message>
+        </div>
+    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label id="emailNotificationLabel" class="label-checkbox">{{ 'EMAIL_NOTIFY_ME' | translate}}&nbsp;</label>
+            <p-checkbox id = "emailNotification" formControlName="emailNotification" binary="true" (ngModelChange)="onCheckEmailNotification(taskDetailsForm.get('emailNotification').value, '01');"></p-checkbox>
+    </div>
+    <div id =  "EmailRow" *ngIf="taskDetailsForm.get('emailNotification').value" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label id="emailLabel" for = "email">{{ 'TASK_EMAIL' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="email" readonly id="email" type="text" [class.fieldError]="validationService.isFieldInvalid(taskDetailsForm.get('email'))">
+        <fcc-common-error-message [control]="taskDetailsForm.get('email')"></fcc-common-error-message>
+    </div>
+    <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+        <label id="typeLabel" class="label-radiobutton">{{ 'TASK_TYPE' | translate }}&nbsp;</label>
+        <p-radioButton id="type" value="02" label="{{'PUBLIC' | translate }}" formControlName="type" name="type" (onClick)="onChangeTaskType(taskDetailsForm.get('type').value);">
+        </p-radioButton>
+        <p-radioButton id="type" value="03" label="{{'ASSIGNED' | translate }}" formControlName="type" name="type" (onClick)="onChangeTaskType(taskDetailsForm.get('type').value);">
+        </p-radioButton>
+    </div>
+    <div *ngIf="showAssignee && taskDetailsForm.get('assigneeType').value">
+    <div class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}" >
+        <label id="assigneeTypeLabel" for = "assigneeType" class="label-radiobutton">{{ 'TASK_ASSIGNEE_TYPE' | translate }}&nbsp;</label>
+        <p-radioButton id="assigneeType" value="01" label="{{'OTHER_USER' | translate }}" formControlName="assigneeType" name="assigneeType" (onClick)="onChangeAssigneeType(taskDetailsForm.get('assigneeType').value);">
+        </p-radioButton>
+        <p-radioButton id="assigneeType" value="02" label="{{'BANK' | translate }}" formControlName="assigneeType" name="assigneeType" (onClick)="onChangeAssigneeType(taskDetailsForm.get('assigneeType').value);">
+        </p-radioButton>
+    </div>
+    <div id =  "destUserLoginIdRow" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label id="destUserLoginIdLabel" for = "destUserLoginId">{{ (taskDetailsForm.get('assigneeType').value === '02' ? 'BANK' : 'ASSIGNEE') | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="destUserLoginId" id="destUserLoginId" type="text" readonly [class.fieldError]="validationService.isFieldInvalid(taskDetailsForm.get('destUserLoginId'))">
+        <a *ngIf= "taskDetailsForm.get('assigneeType').value === '01'" class="fa fa-search fa-lg" (click)="selectUser();"></a>
+        <fcc-common-error-message [control]="taskDetailsForm.get('destUserLoginId')"></fcc-common-error-message>
+    </div> 
+    <div id="destUserEmailNotifRow" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label id="destUserEmailNotifLabel" class="label-checkbox">{{ 'EMAIL_NOTIFY_ASSIGNEE' | translate}}&nbsp;</label>
+        <p-checkbox id = "destUserEmailNotif" formControlName="destUserEmailNotif" binary="true" (ngModelChange)="onCheckEmailNotification(taskDetailsForm.get('destUserEmailNotif').value, '02');"></p-checkbox>
+    </div>
+    <div id =  "destUserEmailRow" *ngIf="taskDetailsForm.get('destUserEmailNotif').value && taskDetailsForm.get('assigneeType').value === '01'" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label id="destUserEmail" for = "destUserEmail">{{ 'TASK_EMAIL' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <input pInputText formControlName="destUserEmail" id="destUserEmail" type="text" readonly [class.fieldError]="validationService.isFieldInvalid(taskDetailsForm.get('destUserEmail'))">
+        <fcc-common-error-message [control]="taskDetailsForm.get('destUserEmail')"></fcc-common-error-message>
+    </div> 
+    </div>   
+    </div>
+    <ng-template #private_task_content>
+        <div id =  "descriptionRow" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+            <label id="descriptionLabel" for = "description">{{ 'PARTIESDETAILS_DESCRIPTION' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+            <textarea id="description"  fccCommonTextArea [controlName]="taskDetailsForm.get('description')" [rows]="5" [cols]="40" formControlName="description" pInputTextarea [class.fieldError]="validationService.isFieldInvalid(taskDetailsForm.get('description'))"></textarea>
+            <fcc-common-error-message [control]="taskDetailsForm.get('description')"></fcc-common-error-message>
+        </div>
+    </ng-template>
+    <div class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+        <label></label><button id="taskSaveButton" pButton type="button" label="{{ 'USER_ACTION_OK' | translate}}" [disabled]="disableOK" (click)="saveTask()" class="primary-button"></button>
+  </div>
+  <p-confirmDialog id="entityWarning" appendTo="body" class="lf-confirm-dialog" key='entityWarningDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+</div>

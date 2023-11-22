@@ -1,0 +1,23 @@
+<span *ngIf="showPagination" class="custom-paginator-container">
+  <span class="record-count">
+    {{'showMessage' | translate}} {{state.totalRecords === 0 ? state.first : state.first + 1}} - {{state.page === (state.pageCount -1) ? state.totalRecords : (state.rows * (state.page +1))}} {{'of' | translate}} {{state.totalRecords}} {{'records' | translate}}
+  </span>
+  <span>
+    <span class="row-per-table">
+      {{'rows_per_table' | translate}}:
+      <mat-select class="pagination-rows" #pageRows (focus)="pageRows.open()" [value]="paginatorParams.defaultRows" (selectionChange)="setPageSize($event.value);pageRows.close()">
+          <mat-option [value]="rpp" *ngFor="let rpp of paginatorParams.rppOptions" >
+            {{ rpp }}
+          </mat-option>
+      </mat-select>
+    </span>
+    <span class="goto">
+      {{'page' | translate}}
+      <span><input role="textbox" title="{{'currentPageNumber' | translate}}" [(ngModel)]="currentPage" matInput type="text" (keypress)="numberOnly($event)" (keyup.enter)="numberOnlyAndSetPage($event, state)" class="page-number" autocomplete="off" (focusout)="setCurrentPage($event,state)"></span>
+        {{state.pageCount}}
+    </span>
+    <div [dir]="langDir" *ngIf="showError" class="fcc-error-message page-bound-msg">
+        {{ 'pagination-range-message' | translate : {pageCount : state.pageCount} }}
+    </div>
+  </span>
+</span>

@@ -1,0 +1,100 @@
+<div class="p-lg-12" *ngIf="!hideShowCard" [@moveState] >
+<p-card class="{{classCheck}}">
+  <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+    <em tabindex="0" (keyup.enter)="deleteCards()"  class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+  </p-header>
+
+  <div class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+    <div class="p-col-12">
+      <h1 class="headerTitle">
+        {{ 'currencyConverter' | translate }}
+      </h1>
+    </div>
+    <div class="p-col-12">
+      <div class="p-grid">
+        <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" class="p-col-5 {{currenciesDiv51}}">
+          <div class="converterTitle" >{{ 'fromCurrency' | translate }}</div>
+          <p-dropdown *ngIf="currency.length!=0" tabindex= "{{tabIndex}}" [options]="currency" scrollHeight="100px" (onChange)="calculateFromCurrency()" class="{{dirDropDownStyle}}"
+            [(ngModel)]="fromCurrency" filter="true" dropdownIcon="pi pi-caret-down" filterBy= "label,value.label" resetFilterOnHide="true">
+            <ng-template *ngIf="!defaultFlag" let-item pTemplate="selectedItem">
+              <img src="{{imagePath}}flags/{{item.value.country.toLowerCase()}}.png" class="{{dirFieldFlagStyle}}"  alt="" />
+              <span class="{{dirFieldTextStyle}}">{{item.value.iso}}</span>
+            </ng-template>
+            <ng-template *ngIf="defaultFlag" let-item pTemplate="selectedItem">
+              <img src="{{imagePath}}flags/{{fromCurrency.country.toLowerCase()}}.png" class="{{dirFieldFlagStyle}}"  alt="" />
+              <span class="{{dirFieldTextStyle}}">{{fromCurrency.iso}}</span>
+            </ng-template>
+            <ng-template let-currency pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                <img src="{{imagePath}}flags/{{currency.value.country.toLowerCase()}}.png" class="{{dirFlagStyle}}"   alt="" />
+                <div class="{{dirTextStyle}}">{{currency.value.iso}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="p-col-2 toggleDiv focus">
+          <div id="toggleCurrency1">
+            <a href="#" onclick="return false;" (click)="toggleCurrency()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+              <img src="{{imagePath}}toggle.png" alt="{{'textualDescriptionOfCurrencyToggle' | translate}}">
+            </a>
+          </div>
+        </div>
+        <div tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" class="p-col-5 {{currenciesDiv52}}">
+          <div class="converterTitle">{{ 'toCurrency' | translate }}</div>
+          <p-dropdown *ngIf="currency.length!=0" tabindex= "{{tabIndex}}" [options]="currency" scrollHeight="100px" (onChange)="calculateToCurrency()" class="{{dirDropDownStyle}}"
+            [(ngModel)]="toCurrency" filter="true" dropdownIcon="pi pi-caret-down" filterBy= "label,value.label" resetFilterOnHide="true">
+            <ng-template *ngIf="!defaultFlag" let-item pTemplate="selectedItem">
+              <img src="{{imagePath}}flags/{{item.value.country.toLowerCase()}}.png" class="{{dirFieldFlagStyle}}"  alt="" />
+              <span class="{{dirFieldTextStyle}}">{{item.value.iso}}</span>
+            </ng-template>
+            <ng-template *ngIf="defaultFlag" let-item pTemplate="selectedItem">
+              <img src="{{imagePath}}flags/{{toCurrency.country.toLowerCase()}}.png" class="{{dirFieldFlagStyle}}"  alt="" />
+              <span class="{{dirFieldTextStyle}}">{{toCurrency.iso}}</span>
+            </ng-template>
+            <ng-template let-currency pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                <img src="{{imagePath}}flags/{{currency.value.country.toLowerCase()}}.png" class="{{dirFlagStyle}}"  alt="" />
+                <div class="{{dirTextStyle}}">{{currency.value.iso}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}">
+      <div class="amountTitle" id="amount">{{ 'amount' | translate }}</div>
+      <input role="textbox" type="text" pInputText [(ngModel)]="fromAmount" 
+      tabindex= "{{tabIndex}}"
+      (change)="calculateFromAmount();fromAmtMaxlength();isNumber($event)" (keypress)="isNumber($event)"
+      (keyup)="fromAmtMaxlength()" (keydown) ="fromAmtMaxlength()"
+      (blur)="onBlurFromAmt()" (focus)="removeDelimiters()" class="input-amount" aria-labelledby="amount"
+      [maxlength]="fromAmtSize"/>
+      </div>
+  </div>
+  <div class="p-grid fullDetail">
+    <div *ngIf="fromAmount==undefined" class="p-col-12 from-empty"></div>
+    <div *ngIf="fromAmount!=undefined && fromCurrency!= undefined && fromCurrency.iso!=undefined && fromAmountStr === ''"
+      class="p-col-12 from-full">
+      {{ fromAmount }} {{ " " + fromCurrency.iso + " ="}}
+    </div>
+    <div *ngIf="fromAmountStr !== ''" pTooltip="{{ fromAmount }}" tooltipPosition="top" class="p-col-12 from-full">
+      {{ fromAmountStr }} {{ "... " + fromCurrency.iso + " ="}}
+    </div>
+    <div *ngIf="toCurrency==undefined || toCurrency.iso==undefined" class="p-col-12 to-empty">0</div>
+    <div *ngIf="toAmount!=undefined && toCurrency!=undefined && toCurrency.iso!=undefined && toAmountStr === ''" class="p-col-12 to-full">
+      <img src="{{imagePath}}flags/{{toCurrency.country.toLowerCase()}}.png" class="to-flag" alt="" />
+      {{" "}} {{ toAmount }} {{" "}}
+      <span class="to-ccy-span">{{ toCurrency.iso }}</span>
+    </div>
+    <div *ngIf="toAmountStr !== ''" class="p-col-12 to-full"
+      pTooltip="{{ toAmount | number:toAmtDecimalPlaces }}{{ ' ' + toCurrency.iso }}" tooltipPosition="top">
+      <img src="{{imagePath}}flags/{{toCurrency.country.toLowerCase()}}.png" class="to-flag" alt="" />
+      {{" "}} {{ toAmountStr | number:'.0' }} {{"... "}}
+      <span class="to-ccy-span">{{ toCurrency.iso }}</span>
+    </div>
+    <div class="compensate"></div>
+  </div>
+  <app-nudges [nudges] = "nudges">
+  </app-nudges>
+</p-card>
+</div>

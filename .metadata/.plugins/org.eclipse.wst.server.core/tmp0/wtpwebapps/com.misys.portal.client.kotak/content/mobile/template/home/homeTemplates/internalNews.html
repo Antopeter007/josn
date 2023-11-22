@@ -1,0 +1,28 @@
+<div class="card">
+	<div ng-if="vm.hasNews">
+	 	 <div ng-repeat="newsDetails in vm.newsJSON" class="list card">
+			 <div class="item">
+			 <div ng-if="newsDetails.topic_link == ''">
+			   <img ng-if="newsDetails.topic_img_id != ''" ng-src = "{{newsDetails.topic_img_id}}"></img>
+			  </div>
+			  <div ng-if="newsDetails.topic_link != ''">
+			   <a href="{{vm.sanitizeURL(newsDetails.topic_link)}}" target="_blank">
+         		<img ng-if="newsDetails.topic_img_id != ''" ng-src = "{{newsDetails.topic_img_id}}"></img>
+      			</a>
+			  </div>
+			   <div ng-if="newsDetails.news_link == ''">
+			   	{{newsDetails.title}}
+			   	</div>
+			   	<div ng-if="newsDetails.news_link != ''">
+			   	<a  href="{{vm.sanitizeURL(newsDetails.news_link)}}" target="_blank">{{newsDetails.title}}</a>
+			   	</div>
+			 </div>
+			 <div class="item item-body">
+				<div ng-bind-html="newsDetails.description"></div>
+			 </div>
+		</div>
+	</div>
+	<div ng-if="!vm.hasNews">
+		{{vm.errMsg}}
+	</div>
+</div>

@@ -1,0 +1,11 @@
+{
+	"head": {
+		"requestId": "ahd6x41a31d711ea8cba005056bslfedc2d",
+		"ts": "2020-07-25 10:55:23",
+		"crn": "SETU004"
+	},
+	"fileUploadReq": {
+		"billerId": "KMBL1233456006",
+		"fileName": "Sample_document.xlsx"
+	}
+}

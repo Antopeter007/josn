@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Response
+	xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+
+	<header>
+
+		<sourceappcode>JARVIS</sourceappcode>
+
+		<RqUID>9de948b1-8493-4eb3-b1b5-ade10f720f1a</RqUID>
+
+		<action_type>DWNLD_FILE_STAT_DET</action_type>
+
+		<crn>10003540</crn>
+
+		<file_id>17180</file_id>
+
+	</header>
+
+	<file_upload_info>
+
+		<file_name>ABC.txt</file_name>
+
+		<file_details>
+
+			<record_detail>
+				C,TATA,TATASTEEL,09582650000173,TATABOM123,TATABOM,TATA
+				Bombay,1,tatabom@tata.com,9123456787,,,,,,,,,,,,,</record_detail>
+
+			<record_status>ACCEPTED</record_status>
+
+			<record_detail>
+				M,TATA,TATAPOWER,09582650000173,TATAPOWER465,TATAPWR,TATABijli,2,tatapower23@tata.com,88734746838,,,,,,,,,,,,,
+			</record_detail>
+
+			<record_status>ACCEPTED</record_status>
+
+			<record_detail>
+				D,TATA,TATACHEM,09582650000173,TATACHEM286568,,,,,,,,,,,,,,,,,,
+			</record_detail>
+
+			<record_status>FAILED</record_status>
+
+		</file_details>
+
+	</file_upload_info>
+
+	<request_status>
+
+		<error_flag>N</error_flag>
+
+		<error_desc>File record Found</error_desc>
+
+		<error_code></error_code>
+
+	</request_status>
+
+</Response>

@@ -1,0 +1,32 @@
+@import '../../../../../styles//variables.scss';
+:host ::ng-deep .newstitle{
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+:host ::ng-deep .newsimage img{
+border: 0.0625em solid $CHARCOAL-c2;
+padding: 0.625em;
+border-radius: 1em;
+height: 5.1875em;
+width: 8.9375em;
+}
+
+:host ::ng-deep .desc {
+  max-height: 3.8em;;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+:host ::ng-deep .newsheader{
+  margin-top:0em;
+  font-size: 1.5em;
+}
+:host ::ng-deep .form-header{
+  margin-top:1em;
+  color:$BLACK;
+}
+
+:host ::ng-deep .form-render-wrapper  > div:last-child hr:last-child{
+ display: none;
+}

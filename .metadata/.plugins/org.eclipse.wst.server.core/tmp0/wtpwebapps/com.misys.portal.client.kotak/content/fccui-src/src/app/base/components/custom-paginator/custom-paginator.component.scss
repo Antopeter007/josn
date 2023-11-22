@@ -1,0 +1,47 @@
+@import './../../../../styles/variables.scss';
+.custom-paginator-container{
+    display: flex;
+    justify-content: space-between;
+    .row-per-table{
+        margin-right: 2em;
+    }
+}
+.page-number{
+    width: 2em;
+    border: 0.0625em solid $DoveGray;
+    background: $WHITE;
+    height: 2em;
+    margin: 0.125em;
+}
+.page-bound-msg{
+    text-align: right;
+    padding: unset;
+    height: unset;
+    font-size: unset;
+    font-weight: unset;
+    padding-top: unset;
+}
+.page-bound-msg[dir='rtl']{
+    text-align: left;
+}
+
+ .pagination-rows{
+    width: 3em;
+    color: $GRAY;
+ }
+
+ .record-count{
+    margin-left: 2em;
+    margin-right: 2em;
+ }
+
+ .custom-paginator-container{
+    display: flex;
+    justify-content: space-between;
+    line-height: 2.286em;
+    margin-left: 1em;
+    margin-right: 1em;
+    .row-per-table{
+        margin-right: 2em;
+    }
+}

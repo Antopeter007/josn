@@ -1,0 +1,17 @@
+
+$themeFCC: 'fcc';
+$themeING: 'ing';
+$theme: '';
+$path : './themes/FCCTheme.scss';
+$path1 : './themes/INGTheme.scss';
+@mixin selectTheme($theme){
+    @if $theme == 'fcc' {
+       @import url($path);
+      } @else if $theme == 'ing' {
+        @import url($path1);
+      } @else if $theme == '' {
+      }
+}
+@include selectTheme($theme);
+@import './responsiveStyle/breakpoints.scss';
+@import '../styles/responsiveStyle/mobile.scss';

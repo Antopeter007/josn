@@ -1,0 +1,201 @@
+@import './../../../../styles/variables.scss';
+
+.formSubHeader {
+    height: 1em;
+    color: $SubHeaderColor;
+    font-size: $SubHeaderFontSize;
+    padding-top: 0.6em;
+    padding-bottom: 0em;
+    font-weight: 700;
+  }
+
+  .tabSection {
+    padding-left: 1em;
+    padding-top: 0.3em;
+  }
+
+  .sysID {
+    float: none !important;
+    display: flex;
+    justify-content: flex-end;
+}
+
+  .rightHeaderSection {
+    display: flex;
+    padding: 0;
+    justify-content: right;
+    align-items: baseline;
+    float: right;
+    margin-left: auto;
+  }
+
+  .rightHeaderSection[dir="rtl"] {
+    justify-content: left;
+    float: left;
+    margin-right: auto;
+    margin-left: 0em;
+  }
+
+  .viewButton {
+    position: relative;
+    cursor: pointer !important;
+    color: $linkColor;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding-left: 0.5em;
+    margin-top: 0.4em;
+  }
+
+  .hyperlink {
+    margin: 0 1em;
+    cursor: pointer;
+    p {
+      color: $primaryColor;
+      font-size: 0.9em;
+    }
+  }
+
+  ::ng-deep.mat-tab-link,  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 0em !important;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+  :host ::ng-deep .tabGroup .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    color: $infoLabelColor !important;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-label-active {
+    background-color: $VIOLET-03 !important;
+    color: $infoLabelColor !important;
+    opacity: 1;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-group {
+    margin: 0 0 0 1em;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-group[dir="rtl"] {
+    margin: 0 1em 0 0;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-labels  {
+    height: 1.8em;
+  }
+
+  :host ::ng-deep .tabGroup .mat-tab-label {
+    height: 1.8em !important;
+    margin: 0em !important;
+    border-radius: unset !important;
+    border: 1px solid $VIOLET-03 !important;
+    color: $VIOLET-03 !important;
+    opacity: 1 !important;
+  }
+
+  .mainheader {
+    height: 2em;
+    color: $indentedHeadercolor;
+    font-size: 1.5em;
+    font-weight: 500;
+    // margin-left: -0.8em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    font-family: "Roboto";
+    display: flex;
+  }
+
+  .mainheader span {
+    height: 2em;
+    color: $indentedHeadercolor;
+    font-size: 1.5em;
+    font-weight: 500;
+    // margin-left: -0.8em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    font-family: "Roboto";
+    white-space: nowrap;
+  }
+
+  .mainheaderArabic , .mainheaderArabic span {
+    height: 2em;
+    color: $indentedHeadercolor;
+    font-size: 1.5em;
+    font-weight: 500;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    font-family: "Roboto";
+  }
+
+  .descriptionStyle {
+    position: absolute !important;
+  }
+
+  :host ::ng-deep .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+    display: none !important;
+  }
+
+  .widget-container {
+    padding-top: 3em;
+    margin-right: 0em;
+
+    .widget-header {
+      margin-top: 2em;
+      color: $primaryColor !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        margin: 0 0.5em;
+        color: $WHITE;
+        background-color: $VIOLET-F100;
+      }
+    }
+  }
+
+  .widget-body {
+    padding-top: 0 !important;
+  }
+
+  :host ::ng-deep .innerTabGroup .mat-tab-label .mat-tab-label-content {
+    font-weight: 500;
+    font-size: $font-size-14;
+  }
+
+  :host ::ng-deep .innerTabGroup .mat-tab-label-active {
+    color: $VIOLET-F100 !important;
+    opacity: 1 !important;
+  }
+
+  :host ::ng-deep .innerTabGroup .mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+  :host ::ng-deep .innerTabGroup .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    color: $VIOLET-F100 !important;
+    opacity: $mat-tab-label-opacity !important;
+  }
+
+  :host ::ng-deep .mat-tab-group.mat-primary .mat-tab-label.cdk-keyboard-focused:not(.mat-tab-disabled) {
+    border: 0.125em solid $VIOLET-03 !important;
+  }
+
+  :host ::ng-deep .savedInfo {
+    font-size: 0.65em !important;
+    color: $GRAY-TROLLEYGREY-01 !important;
+    padding: 1em !important;
+    font-weight: 400 !important;
+}
+
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+  .mainheader, .mainheader span{
+      font-size: 1em !important;
+     }
+    .mainheaderArabic {
+      font-size: 1em !important;
+     }
+    }
+
+@media screen and  (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .viewButton {
+    margin-top: 0.2em !important;
+  }
+}

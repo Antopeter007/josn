@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\Peter\peter\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3039601121.index
+\com.misys.portal.client.kotak\src
+C:\Peter\peter\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\698244923.index
+\com.misys.portal.client.kotak\src
+C:\Peter\peter\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2357540121.index
+\com.misys.portal.client.kotak\src

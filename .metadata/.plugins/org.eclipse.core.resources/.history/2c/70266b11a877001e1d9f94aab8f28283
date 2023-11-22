@@ -1,0 +1,15 @@
+package com.demo.annotations;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+@SpringBootApplication
+public class Main {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(College.class);
+		context.scan("com.demo.annotations");
+		College college = context.getBean(College.class);
+		college.CollegeName();
+
+	}
+}

@@ -1,0 +1,122 @@
+@import './../../../../styles/variables.scss';
+  :host ::ng-deep .ui-table .ui-table-thead > tr {
+    border-bottom: 1px solid #d7d6d7 !important;
+    background-color: #fbfafe;
+  }
+.iconvisible .iconsWrapper {
+    visibility: visible;
+    text-align: center !important;
+}
+.iconsWrapper {
+    visibility: visible;
+}
+
+:host ::ng-deep .ltr.ui-toolbar-group-right {
+    float: right;
+    cursor: pointer;
+    margin-bottom: 0.7em;
+}
+:host ::ng-deep .rtl.ui-toolbar-group-right {
+  float: left;
+  cursor: pointer;
+  margin-bottom: 0.7em;
+}
+
+.centeredPos{
+  text-align: center !important;
+}
+:host ::ng-deep .ui-table table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #E4E4E4;
+}
+
+.rtl {
+  text-align: right !important;
+  padding-right: 2em !important;
+}
+
+.norecfoundtextcss{
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.fcc-icon {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  font-size: 1.429em;
+}
+
+.fcc-download-icon {
+  color: #505050;
+}
+
+.fcc-empty-icon-block {
+  margin: 1.6em;
+}
+
+.fcc-view-file-icon {
+  width: 1.2em;
+  // margin-right: 0.75em;
+}
+
+[dir=ltr] .fcc-view-file-div {
+  width: 50%;
+  float: left;
+  margin-top: 0.4em;
+}
+[dir=rtl] .fcc-view-file-div {
+  width: 50%;
+float: right;
+margin-top: 0.4em;
+}
+
+:host ::ng-deep .ui-paginator {
+  background-color: #f4f4f4;
+  border: 0.065em solid #c8c8c8;
+  padding: 0;
+  background-color: rgba(217, 211, 245, 0.31);
+  border: 0.065em solid rgba(217, 211, 245, 0.31);
+}
+
+:host ::ng-deep .ui-paginator-right-content,
+:host ::ng-deep .ui-paginator-left-content {
+  line-height: 2.286em;
+  color: #848484;
+}
+:host ::ng-deep .ui-paginator-right-content{
+  width : 100%;
+  margin-top: -2.4em;
+}
+:host ::ng-deep .ui-paginator-left-content {
+  width : 100%;
+  margin-bottom: -2.4em;
+}
+
+
+:host ::ng-deep .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+  color: #848484;
+}
+
+:host
+  ::ng-deep
+  .ui-paginator
+  .ui-paginator-pages
+  .ui-paginator-page.ui-state-active {
+  background-color: $ActiveNumberbackgroundColor;
+}
+
+//UI Pagination icons for arabic style
+[dir="rtl"] :host ::ng-deep .ui-paginator-prev {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-first {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-next {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :host ::ng-deep .ui-paginator-last {
+  transform: scaleX(-1);
+}

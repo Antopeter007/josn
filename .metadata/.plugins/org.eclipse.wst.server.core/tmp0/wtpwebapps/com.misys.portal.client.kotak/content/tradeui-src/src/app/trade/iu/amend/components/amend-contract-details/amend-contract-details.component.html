@@ -1,0 +1,171 @@
+<p-panel header="{{ 'KEY_HEADER_CONTRACT_DETAILS' | translate }}"[toggleable]="true" [collapsed] ="true">
+    <div *ngIf ="!unsignedMode  ;else unsigned_content">
+      <div [formGroup]="amendContractDetailsSection">
+        <div class = "field" id = "contractRefViewRow" *ngIf="orgData?.contractReference && orgData?.contractReference != null && orgData?.contractReference != '' ; then thenContractRef; else elseContractRef">
+        </div>
+        <ng-template #thenContractRef>
+          <label>{{ 'ORG_CONTRACT_REF' | translate }}&nbsp;</label>
+          <label class="label-left">{{commonDataService.getContractReference(orgData?.contractReference) | translate}}</label>
+        </ng-template>
+        <ng-template #elseContractRef>
+          <label>{{ 'ORG_CONTRACT_REF' | translate }}&nbsp;</label>
+          <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+        </ng-template>
+
+        <div id = "contractRefRow" class = "field">
+          <label>{{ 'NEW_CONTRACT_REF' | translate }}&nbsp;</label>
+          <p-dropdown formControlName="contractReference" [options]="contractReferences" (ngModelChange)="toDisplay($event);" styleClass="fcc-width30" placeholder="Select" [showClear]="true"></p-dropdown>
+        </div>
+
+        <div class = "field" id = "contractNarrativeViewRow" *ngIf="orgData?.contractNarrative && orgData?.contractNarrative != null && orgData?.contractNarrative != '' ; then thenContractNar; else elseContractNar">
+        </div>
+        <ng-template #thenContractNar>
+          <label>{{ 'ORG_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+          <label class="label-left">{{orgData?.contractNarrative}}</label>
+        </ng-template>
+        <ng-template #elseContractNar>
+          <label>{{ 'ORG_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+          <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+        </ng-template>
+
+        <div class = "field">
+            <label>{{ 'NEW_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+            <input formControlName="contractNarrative" maxlength="35"
+            [class.fieldError]="validationService.isFieldInvalid(amendContractDetailsSection.get('contractNarrative'))"
+            type="text" pInputText>
+        </div>
+
+        <div class = "field" id = "contractDateViewRow" *ngIf="orgData?.contractDate && orgData?.contractDate != null && orgData?.contractDate != ''; then thenContractDate; else elseContractDate">
+        </div>
+        <ng-template #thenContractDate>
+          <label>{{ 'ORG_CONTRACT_DATE' | translate }}&nbsp;</label>
+          <label class="label-left">{{orgData?.contractDate}}</label>
+        </ng-template>
+        <ng-template #elseContractDate>
+          <label>{{ 'ORG_CONTRACT_DATE' | translate }}&nbsp;</label>
+          <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+        </ng-template>
+
+        <div class = "field">
+          <label>{{ 'NEW_CONTRACT_DATE' | translate }}&nbsp;</label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="contractDate" onkeydown="return false"
+          class="content" dateFormat="{{ this.dateFormat }}" (onSelect) = "validateNewContractDate()" [showButtonBar]="true"></p-calendar>
+          <a *ngIf="hasContractDateValue()" class="fa fa-remove fa-lg text-danger" (click)="clearContractDate($event);"></a>
+          <fcc-common-error-message [control]="amendContractDetailsSection.get('contractDate')"></fcc-common-error-message>
+        </div>
+
+        <div class = "field" *ngIf="displayTenderDate">
+          <div id = "tenderExpDateViewRow" *ngIf="orgData?.tenderExpiryDate && orgData?.tenderExpiryDate != null && orgData?.tenderExpiryDate != ''; then thenTenderExpDate; else elseTenderExpDate">
+          </div>
+          <ng-template #thenTenderExpDate>
+            <label>{{ 'ORG_TENDER_DATE' | translate }}&nbsp;</label>
+            <label class="label-left">{{orgData?.tenderExpiryDate}}</label>
+          </ng-template>
+          <ng-template #elseTenderExpDate>
+            <label>{{ 'ORG_TENDER_DATE' | translate }}&nbsp;</label>
+            <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+          </ng-template>
+         </div>
+
+        <div class = "field" *ngIf="displayTenderDate">
+          <label>{{ 'NEW_TENDER_DATE' | translate }}&nbsp;</label>
+          <p-calendar [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" dataType="string" formControlName="tenderExpiryDate"
+          onkeydown="return false" class="content" dateFormat="{{ this.dateFormat }}" [showButtonBar]="true"></p-calendar>
+          <a *ngIf="hasTenderExpDateValue()" class="fa fa-remove fa-lg text-danger" (click)="clearTenderExpiryDate($event);"></a>
+        </div>
+
+        <div class = "field" id = "contractAmtViewRow" *ngIf="orgData?.contractAmt && orgData?.contractAmt && orgData?.contractAmt != ''; then thenContractAmt; else elseContractAmt">
+        </div>
+        <ng-template #thenContractAmt>
+          <label>{{ 'ORG_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{orgData?.contractCurCode}}&nbsp;{{orgData?.contractAmt}}</label>
+        </ng-template>
+        <ng-template #elseContractAmt>
+          <label>{{ 'ORG_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+          <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+        </ng-template>
+
+        <div class = "field">
+            <label>{{ 'NEW_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+            <input formControlName="contractCurCode" type="text" size="3" maxlength="3" class="input-three-digit" oninput="this.value = this.value.toUpperCase()"
+             (change)="validateCurrency();this.commonService.transformAmtAndSetValidators(this.amendContractDetailsSection.get('contractAmt'),
+             this.amendContractDetailsSection.get('contractCurCode'), 'contractCurCode'); this.amendContractDetailsSection.get('contractAmt').updateValueAndValidity();"
+             pInputText>
+             <a class="fa fa-search fa-lg" placeholder="clear" id="currencySearch" (click)="selectCurrency()"></a>
+            <input formControlName="contractAmt"  type="text" pInputText type="text" pKeyFilter="num"
+            (blur) = "this.commonService.transformAmtAndSetValidators(this.amendContractDetailsSection.get('contractAmt'),
+            this.amendContractDetailsSection.get('contractCurCode'), 'contractCurCode');" >
+            <fcc-common-error-message [control]="amendContractDetailsSection.controls.contractCurCode" ></fcc-common-error-message>
+            <fcc-common-error-message [control]="amendContractDetailsSection.controls.contractAmt" ></fcc-common-error-message>
+
+        </div>
+
+        <div class = "field" id = "contractPctViewRow" *ngIf="orgData?.contractPct && orgData?.contractPct != null && orgData?.contractPct != ''; then thenContractPct; else elseContractPct">
+        </div>
+        <ng-template #thenContractPct>
+          <label>{{ 'ORG_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+          <label class="label-left">{{orgData?.contractPct}}</label>
+        </ng-template>
+        <ng-template #elseContractPct>
+          <label>{{ 'ORG_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+          <label class="label-left">{{ 'KEY_NO_VALUE' | translate }}</label>
+        </ng-template>
+
+        <div class = "field">
+            <label>{{ 'NEW_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+            <input formControlName="contractPct" type="text" pInputText pKeyFilter="int" maxlength="3" class="input-three-digit" (blur)="this.commonService.transformNumber(this.amendContractDetailsSection.get('contractPct'))">
+            <fcc-common-error-message [control]="amendContractDetailsSection.controls.contractPct" ></fcc-common-error-message>
+        </div>
+      </div>
+    </div>
+    <ng-template #unsigned_content>
+          <div *ngIf="orgData.contractReference && orgData.contractReference != null &&  orgData.contractReference != ''">
+              <label for = "orgContractReference" >{{ 'ORG_CONTRACT_REF' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getContractReference(orgData.contractReference) | translate}}</label>
+          </div>
+          <div *ngIf="bgRecord['contractReference'] && bgRecord['contractReference'] != null && bgRecord['contractReference'] != ''">
+              <label for = "newContractReference" >{{ 'NEW_CONTRACT_REF' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getContractReference(bgRecord['contractReference']) | translate}}</label>
+          </div>
+          <div *ngIf="orgData.contractNarrative && orgData.contractNarrative != null &&  orgData.contractNarrative != ''">
+              <label for = "orgContractNarrative" >{{ 'ORG_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.contractNarrative}}</label>
+          </div>
+          <div *ngIf="bgRecord['contractNarrative'] && bgRecord['contractNarrative'] != null &&   bgRecord['contractNarrative'] != ''">
+              <label for = "newContractNarrative" >{{ 'NEW_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['contractNarrative']}}</label>
+          </div>
+          <div *ngIf="orgData.contractDate && orgData.contractDate != null &&  orgData.contractDate != ''">
+              <label for = "orgContractDate" >{{ 'ORG_CONTRACT_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.contractDate}}</label>
+          </div>
+          <div *ngIf="bgRecord['contractDate'] && bgRecord['contractDate'] != null &&  bgRecord['contractDate'] != ''">
+              <label for = "newContractDate" >{{ 'NEW_CONTRACT_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['contractDate']}}</label>
+          </div>
+          <div *ngIf="orgData.tenderExpiryDate && orgData.tenderExpiryDate != null &&  orgData.tenderExpiryDate != ''">
+              <label for = "orgTenderExpiryDate" >{{ 'ORG_TENDER_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.tenderExpiryDate}}</label>
+          </div>
+          <div *ngIf="bgRecord['tenderExpiryDate'] && bgRecord['tenderExpiryDate'] != null && bgRecord['tenderExpiryDate'] != ''">
+              <label for = "newTenderExpiryDate" >{{ 'NEW_TENDER_DATE' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['tenderExpiryDate']}}</label>
+          </div>
+          <div *ngIf="orgData.contractAmt && orgData.contractAmt != null &&  orgData.contractAmt != ''">
+              <label for = "orgContractAmt" >{{ 'ORG_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.contractCurCode}}&nbsp;{{orgData.contractAmt}}</label>
+          </div>
+          <div *ngIf="bgRecord['contractAmt'] && bgRecord['contractAmt'] != null &&   bgRecord['contractAmt'] != ''">
+              <label for = "newContractAmt" >{{ 'NEW_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['contractCurCode']}}&nbsp;{{bgRecord['contractAmt']}}</label>
+          </div>
+          <div *ngIf="orgData.contractPct && orgData.contractPct != null &&  orgData.contractPct != ''">
+              <label for = "orgContractPct" >{{ 'ORG_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{orgData.contractPct}}</label>
+          </div>
+          <div *ngIf="bgRecord['contractPct'] && bgRecord['contractPct'] != null && bgRecord['contractPct'] != ''">
+              <label for = "newContractPct" >{{ 'NEW_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['contractPct']}}</label>
+          </div>
+    </ng-template>
+  </p-panel>

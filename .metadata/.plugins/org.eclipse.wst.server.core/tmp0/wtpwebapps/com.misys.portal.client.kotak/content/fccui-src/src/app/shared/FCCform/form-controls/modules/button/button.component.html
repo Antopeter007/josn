@@ -1,0 +1,18 @@
+<ng-container [formGroup]="form">
+  <div>
+    <button role="button" 
+      pButton
+      type="button"
+      class="{{ control.params.styleClass }}"
+      id="{{ control.key }}"
+      label="{{ control.params.label }}"
+      icon="{{ control.params.icon }}"
+      tabindex="0"
+      (click)="onEventRaised($event, control.key)"
+      (blur)="onEventRaised($event, control.key)"
+      (focus)="onEventRaised($event, control.key)"
+      [disabled]="control.params.btndisable"
+      (keydown.enter)="onEventRaised($event, control.key)"
+    ></button>
+  </div>
+</ng-container>

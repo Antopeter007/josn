@@ -1,0 +1,62 @@
+  <div [dir]="dir" class="mat-elevation-z2">
+    <div class="pt-3 pl-3 pr-3 advanceSearchContainer"  >
+      <mat-form-field appearance="fill" class="search-box" >
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'search' | translate}}">
+        <mat-icon aria-hidden="false" aria-label="" fontIcon="search" id="idSearchIcon">search</mat-icon>
+      </mat-form-field>
+      <!-- <button mat-icon-button tabindex="0" (click)="onClickFilter()" (keyup.enter)="onClickFilter()" class="iconClass" title="{{'filter' | translate}}" 
+      [ngClass]="{'highlightFilterApplied': filterApplied === true }">
+        <mat-icon fontIcon="filter_alt"></mat-icon>
+      </button> -->
+      <mat-icon (click)="onClickFilter()" (keyup.enter)="onClickFilter()" title="{{'filter' | translate}}"  
+      [ngClass]="{'highlightFilterApplied': filterApplied === true }" svgIcon="filter_alt" class="iconClass" ></mat-icon>
+      <button mat-icon-button tabindex="0" (click)="op.toggle($event)" (keyup.enter)="op.toggle($event)" class="iconClass" title="{{'sort' | translate}}">
+        <mat-icon>sort</mat-icon>
+      </button>
+    </div>
+
+    <p-overlayPanel #op class="eventListingSortingPanel">
+      <mat-selection-list #sortOptionSelected [multiple]="false" #selected 
+      (selectionChange)="onSelectSort($event, sortOptionSelected)" [dir]="dir">
+        {{sortByLabel}}
+        <mat-list-option *ngFor="let sortOption of listBoxSortData" [value]="sortOption">
+          {{sortOption.name || sortOption.label}}
+        </mat-list-option>
+      </mat-selection-list>
+    </p-overlayPanel>
+        
+
+        
+  <!-- code to display the list of cards using mat-table -->
+  <div class="example-container">
+    <div class="example-table-container">
+      <table role="presentation" aria-describedby="eventsListingTable" mat-table [dataSource]="dataSource" matSort>
+        <ng-container *ngFor="let column of eventsListColumns" [matColumnDef]="column">
+          <ng-container *matCellDef="let object;">
+            
+            <td mat-cell  *ngIf="column === 'Event_Action'" 
+            title="{{ 'Event_Action_Icon'|translate}}"
+            [ngClass]="dir === 'rtl' ? 'iconListStyleRtl' : 'event-action-icon'">
+              <mat-icon class="event-action-mat-icon" *ngIf="object[column] === null">
+              <img [src]="(selectedRowIndex == object.row_index) ? eventActionIcon : eventActionIconGrey" class="event-mat-icon" alt=""></mat-icon></td>
+            <td mat-cell  class="m-card-title" style="" 
+              title="{{!object[column] ? '' : ((column|translate) +' - ' + object[column] )}}"
+            *ngIf="column !== 'Event_Action'">{{object[column]}}</td>
+          </ng-container>
+        </ng-container>
+        <tr mat-row *matRowDef="let row; columns: eventsListColumns;"  
+        [ngClass]="{'highlightSelectedRow': selectedRowIndex == row.row_index}" 
+        (keyup.enter)="onSelectEvent(row)" (click)="onSelectEvent(row)" class="p-3" tabindex="0"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell noRecordsMessage" [attr.colspan]="eventsListColumns.length">
+            {{'noRecordsFound' | translate}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <mat-paginator id="eventListingPaginator" number-paginator showFirstLastButtons [pageSizeOptions]="pageSizeOptions" ></mat-paginator>
+  </div>    
+</div>
+  
+
+  

@@ -1,0 +1,74 @@
+/**
+ Refer to /themes/base/common/forms.css
+**/
+
+/** ----------------------------------- Headers & Sub-headers --------------------------------- **/
+
+.toplevel-header{
+    border: 1px solid #0079a7;
+    -moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.toplevel-header h2{
+	background-color: #7AA1FF;
+    color: #FFFFFF;
+}
+
+.indented-header h3,
+#event-summary .attachments-container .toplevel-header h2{
+	background-image:none;
+    background-color: #F0F0F0;
+    color: #000000;
+}
+
+/** -------------------------------- Table of Contents (TOC) ---------------------------------- **/
+
+#toc {
+     background-color: #7AA1FF;
+     right: 165px;
+     top: 100px;
+}
+
+/** ---------------------------------- Collaboration Window ----------------------------------- **/
+
+#collaborationWindow {
+	top: 170px;
+	left: 330px;
+}
+
+/** ------------------------------------------- Dialogs --------------------------------------- **/
+
+#xhrDialog .dijitDialogPaneContent #edit {
+	border: 0;
+}
+
+/** ------------------------------------- Tables / Grids -------------------------------------- **/
+
+.attachments{
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+}
+
+.attachments td {
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
+}
+
+.attachments th {
+	border-bottom: 1px solid #999;
+	border-left:1px solid #999;
+}
+
+.attachments thead th {
+	background:#f4f9fe;
+}
+
+.disclaimer {
+	border: 1px solid #999;
+	background-color: #F2F2F2;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}

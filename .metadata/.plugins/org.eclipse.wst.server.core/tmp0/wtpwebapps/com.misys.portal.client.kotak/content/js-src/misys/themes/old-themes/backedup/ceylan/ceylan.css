@@ -1,0 +1,61 @@
+/*
+    Copyright (c) 2000-2011 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Ceylan (Secured Pages)
+
+	summary:
+  		CSS rules loaded by all *secured* pages
+  		
+  		To use the Ceylan theme you must make the following changes to your configuration
+  		
+  		In portal.properties
+  		
+  			navigations.top=MTPNavigation
+  		
+  		In turbine.properties
+  		
+  			services.GTPDefaultTemplateService.default.navigation.top=TopCeylan.vm
+  			services.GTPDefaultTemplateService.default.navigation.bottom=BottomCeylan.vm
+  		
+	description:
+	  	Refer to themes/base/base.css
+
+	version:   1.0
+	date:      11/10/2011
+	author:    Cormac Flynn
+	email:     cormac.flynn@misys.com
+*/
+@import "../../../dojo/resources/dojo.css";
+@import "../../../dijit/themes/dijit.css";
+@import "../../../dojox/layout/resources/FloatingPane.css";
+@import "../../../dojox/layout/resources/ResizeHandle.css";
+@import "../../../dojox/layout/resources/ToggleSplitter.css";
+@import "../../../dijit/themes/claro/Common.css";
+@import "../../../dijit/themes/claro/Tree.css";
+@import "../../../dijit/themes/claro/layout/ContentPane.css";
+@import "../../../dijit/themes/claro/layout/TabContainer.css";
+@import "../../../dijit/themes/claro/layout/BorderContainer.css";
+@import "../../../dijit/themes/claro/form/Common.css";
+@import "../../../dijit/themes/claro/form/Button.css";
+@import "../../../dijit/themes/claro/form/Checkbox.css";
+@import "../../../dijit/themes/claro/form/RadioButton.css";
+@import "../../../dijit/themes/claro/form/Select.css";
+@import "../../../dijit/themes/claro/ProgressBar.css";
+@import "../../../dijit/themes/claro/TitlePane.css";
+@import "../../../dijit/themes/claro/Calendar.css";
+@import "../../../dijit/themes/claro/Dialog.css";
+@import "../../../dijit/themes/claro/Editor.css";
+@import "../../../dijit/icons/editorIcons.css";
+@import "../../../dojox/editor/plugins/resources/editorPlugins.css";
+@import "../../../dojox/grid/enhanced/resources/claro/EnhancedGrid.css";  /* Imports 6 more */
+
+/** Import the base theme **/
+@import "../base/base.css";
+
+/** Override with our own styles **/
+@import "common/document.css";
+@import "common/layout.css";
+@import "common/portlets.css";
+@import "common/forms.css";
+@import "common/dijit_overrides.css";

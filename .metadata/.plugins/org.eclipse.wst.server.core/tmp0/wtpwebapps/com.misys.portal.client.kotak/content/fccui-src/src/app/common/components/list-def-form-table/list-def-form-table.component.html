@@ -1,0 +1,8 @@
+<p-card class="pCardClass">
+    <h3 *ngIf="tableName" class="title table-name-title"><span tabindex="0" class="additionalClass">{{tableName  | translate}}</span></h3>
+    <div class="p-grid">
+        <div *ngIf="showTable" class="p-col-12">
+          <fcc-common-transactions-listdef [inputParams]="inputParams" (refreshTableDataList)="refreshTableData()"></fcc-common-transactions-listdef>
+        </div>
+    </div>
+</p-card>

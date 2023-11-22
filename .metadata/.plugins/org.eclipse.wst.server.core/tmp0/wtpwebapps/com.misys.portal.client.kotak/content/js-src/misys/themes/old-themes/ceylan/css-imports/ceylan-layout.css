@@ -1,0 +1,75 @@
+/**
+ Page Row-Column Layout
+ 
+ This CSS has been adapted from those freely available at 
+ http://matthewjamestaylor.com/blog/perfect-3-column.htm
+ 
+ Widths and additional details are set inline, in accordance with the PSML
+ 
+*/
+
+/** Classes shared between pixel and percentage layouts **/
+.colmask {
+	position:relative;	/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	float:left;
+	clear:both;
+	width:100%;			    /* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+
+.colmid {
+    position:relative;
+	float:left;
+	width:200%;
+}
+.colright {
+    position:relative;
+	float:left;
+	width:100%;
+	left:50%;               
+}
+.col1wrap {
+    position:relative;
+	float:right;
+	width:50%;
+	right:100%;
+}
+.col1pad {
+	margin-top:0px;
+	margin-right: 5px; /* Right padding*/
+	margin-bottom:0px; 
+	overflow:hidden;
+}
+.col1 {
+	width:100%;
+	overflow:hidden;
+}
+.col2 {
+	float:left;
+	position:relative;
+	margin-left:-50%;	  /* ?*/
+	overflow:hidden;
+	padding-left:5px;
+}
+.col3 {
+	float:left;
+	position:relative;
+	left:5px;           /* Padding */
+	overflow:hidden;
+}
+
+/** Percentage layout classes */
+.percent .colmid,
+.percent .colright,
+.percent .colleft {
+		width:100%;		/* width of page */
+		position:relative;
+}
+
+.percent .col1,
+.percent .col2,
+.percent .col3 {
+		float:left;
+		position:relative;
+		margin-left:auto;
+}

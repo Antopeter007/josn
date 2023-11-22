@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.common.reauth_listdef_common"]){dojo._hasResource["misys.binding.common.reauth_listdef_common"]=true;dojo.provide("misys.binding.common.reauth_listdef_common");(function(d,dj,m){d.subscribe("ready",function(){var _1=d.create("div",{innerHTML:"",id:"reauth_dialog_container"});d.place(_1,d.body());var _2=dj.findWidgets(dojo.byId("reauth_dialog_container"));dojo.forEach(_2,function(w){w.destroyRecursive(false);});dojo.empty("reauth_dialog_container");m.xhrPost({url:m.getServletURL("/screen/AjaxScreen/action/ReAuthenticationAjax"),handleAs:"json",sync:true,preventCache:true,content:{reauth_operation:"GET_REAUTH_DIALOG"},load:function(_3,_4){m._config=(m._config)||{};if(_3.html_response){d.byId("reauth_dialog_container").innerHTML=_3.html_response;}var _5=document.getElementsByTagName("head")[0];if(_3.js_imports){for(var i=0;i<_3.js_imports.length;i++){var _6=document.createElement("script");_6.setAttribute("type","text/javascript");_6.setAttribute("src",_3.js_imports[i]);_5.appendChild(_6);}}if(dj.byId("reauth_dialog")){var _7=dijit.findWidgets(dojo.byId("reauth_dialog"));dojo.forEach(_7,function(w){w.destroyRecursive(true);});dj.byId("reauth_dialog").destroy(true);}dojo.parser.parse("reauth_dialog_container");},customError:function(_8,_9){console.error(_8);d.byId("reauth_dialog_container").innerHTML=_8;dojo.parser.parse("reauth_dialog_container");}});});})(dojo,dijit,misys);dojo.require("misys.client.binding.common.reauth_listdef_common_client");}

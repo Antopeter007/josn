@@ -1,0 +1,9 @@
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    :host ::ng-deep .mat-radio-button {
+      width: fit-content;
+   }
+}
+
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-bottom: 1em !important;
+}

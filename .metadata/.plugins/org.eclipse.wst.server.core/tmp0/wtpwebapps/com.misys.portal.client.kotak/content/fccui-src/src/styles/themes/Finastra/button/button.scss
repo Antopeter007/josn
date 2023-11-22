@@ -1,0 +1,121 @@
+@import '../../../variables.scss';
+
+@mixin button_mixin(
+     $primaryButtonBackground, $primaryButtonHoverBackgroundcolor, $secondaryButtonBorder, $secondaryButtonActive,
+     $primaryButtonColor,$primaryButtonFocusBackgroundcolor,$primaryButtonActiveBackgroundcolor,$primaryButtonDisabledBackgroundcolor,
+     $primaryButtonDisabledtextcolor,$secondaryBtnColor,$secondaryBtnBackgroundColor, $secondaryButtonHoverBackgroundcolor,
+     $SecondaryButtonColor,$tertiaryBtnColor,$tertiaryBtnBackgroundColor,$tertiaryBtnHover,$tertiaryBtnActive,$tertiaryBtnText
+    ) {
+
+   .primaryButton{
+       background:$primaryButtonBackground !important ;
+       color: $primaryButtonColor !important;
+   }
+   .primaryButton:hover {
+    background-color: $primaryButtonHoverBackgroundcolor !important;
+  }
+  .primaryButton:focus {
+    background-color: $primaryButtonFocusBackgroundcolor !important;
+  }
+  
+  .primaryButton:active {
+    background-color: $primaryButtonActiveBackgroundcolor !important;
+  }
+  .primaryButton:disabled {
+    background-color: $primaryButtonDisabledBackgroundcolor !important;
+    color: $primaryButtonDisabledtextcolor !important;
+  }
+  .secondaryButton {
+    color: $secondaryBtnColor !important;
+    background-color: $secondaryBtnBackgroundColor !important;
+  }
+  .secondaryButton:hover {
+    background-color: $secondaryButtonHoverBackgroundcolor !important;
+  }  
+  .secondaryButton:active {
+    background-color: $secondaryButtonActive !important;
+  }
+  app-review-history .secondaryButton:hover {
+    background-color: $secondaryButtonHoverBackgroundcolor !important;
+  }
+  .secondaryButton.ui-button.ui-button-text-only .ui-button-text {
+    color: $SecondaryButtonColor !important;
+  }
+  .tertiaryButton {
+    color: $tertiaryBtnColor !important;
+    background-color: $tertiaryBtnBackgroundColor !important;
+  }
+  
+  .tertiaryButton:hover {
+    background-color: $tertiaryBtnHover !important;
+  }
+  
+  .tertiaryButton:active {
+    background-color: $tertiaryBtnActive !important;
+  }
+  
+  .tertiaryButton.ui-button.ui-button-text-only .ui-button-text {
+    color: $tertiaryBtnText !important;
+  }
+  fcc-trade-file-upload-dialog .ui-button {
+    background-color: $CRIMSON-R50 !important;
+  }
+  // Yes or No buttons in Pop up
+  fcc-trade-confirmation-dialog .ConfirmButton {
+    color: $primaryButtonColor !important;
+    background-color: $CRIMSON-R25 !important;
+    }
+  app-license-details .browseButton:focus {
+    box-shadow: 0 0 0 0.125em $FUCHSIA-A02 !important;
+  }
+  app-review-header .primaryButton.primaryButton1:hover, .primaryButton.primaryButton1:focus {
+    background-color: $VIOLET-F25 !important;
+    box-shadow: none !important;
+  }
+
+  app-review-header .primaryButton.journey-button:hover, .primaryButton.journey-button:focus {
+    background-color:  $VIOLET-F75 !important;
+    box-shadow: none !important;
+  }    
+
+}
+
+
+
+.finastra {
+
+// Primary Button 
+$primaryButtonColor:$CHARCOAL-I01;
+$primaryButtonBackground:$YELLOW-F10;
+$primaryButtonHoverBackgroundcolor:$YELLOW-F10;
+$primaryButtonFocusBackgroundcolor:$YELLOW-F10;
+$primaryButtonActiveBackgroundcolor:$YELLOW-F10;
+$primaryButtonBorderColor:$YELLOW-F10;
+$primaryButtonDisabledBackgroundcolor:$GrayShade;
+$primaryButtonDisabledtextcolor:$GrayLight;
+
+// Secondary Button
+$SecondaryButtonColor:$CHARCOAL-I01;
+$SecondaryButtonBackground:$WHITE;
+$secondaryButtonBorder:$font-size-01 $borderSolid $RED-01;
+$secondaryButtonActive:$CHARCOAL-I01;
+$secondaryButtonhover:$CHARCOAL-I01;
+$bankViewOptionColor:$VIOLET-F25;
+$secondaryBtnColor: $FUCHSIA-A02;
+$secondaryBtnBackgroundColor: $SecondaryButtonBackground;
+$secondaryButtonHoverBackgroundcolor:$GHOSTWHITE;
+
+// Tertiary Button
+$tertiaryBtnColor: $VIOLET-F75;
+$tertiaryBtnBackgroundColor: $transparent;
+$tertiaryBtnHover:$WHITE-12;
+$tertiaryBtnActive:$FUCHSIA-F25;
+$tertiaryBtnText:$VIOLET-F75;
+
+
+  @include button_mixin($primaryButtonBackground ,$primaryButtonHoverBackgroundcolor, $secondaryButtonBorder, $secondaryButtonActive,
+  $primaryButtonColor,$primaryButtonFocusBackgroundcolor,$primaryButtonActiveBackgroundcolor,$primaryButtonDisabledBackgroundcolor,
+  $primaryButtonDisabledtextcolor,$secondaryBtnColor,$secondaryBtnBackgroundColor, $secondaryButtonHoverBackgroundcolor,
+  $SecondaryButtonColor,$tertiaryBtnColor,$tertiaryBtnBackgroundColor,$tertiaryBtnHover,$tertiaryBtnActive,$tertiaryBtnText
+  );
+}

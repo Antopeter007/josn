@@ -1,0 +1,10 @@
+<div dir="{{dir}}" class="navigation-container">
+  <ng-container
+    *ngIf="form"
+    fccFormResolver
+    [module]="module"
+    [formGroup]="form"
+    [mode]="mode">
+  </ng-container>
+</div>
+

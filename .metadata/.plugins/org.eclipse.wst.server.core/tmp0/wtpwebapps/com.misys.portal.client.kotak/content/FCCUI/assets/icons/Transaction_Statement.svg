@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_2325" data-name="Path 2325" d="M106.23,12.01,119.7,26.05v2.29l-13.67-.61Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_68005" data-name="Group 68005" transform="translate(-8636 -2710)">
+    <g id="Netbanking_Icons_NACH_Cancellation" data-name="Netbanking Icons_NACH Cancellation" transform="translate(8636 2710)">
+      <path id="Path_2323" data-name="Path 2323" d="M115.56,23.27a.32.32,0,0,1-.08-.09q-3.06-3-6.1-6.1a.53.53,0,0,1-.1-.06c-.33-.35-.68-.67-1-1H34.78a5.27,5.27,0,0,0-5.28,5.27V132.72A5.27,5.27,0,0,0,34.78,138h76.48a5.27,5.27,0,0,0,5.27-5.27V24.07a12.491,12.491,0,0,0-.97-.8Z" fill="#cbd8dc"/>
+      <path id="Path_2324" data-name="Path 2324" d="M33.47,16.73V129.31A4.72,4.72,0,0,0,38.19,134h77.58a4.72,4.72,0,0,0,4.73-4.72l-.82-90.91V25.92l-4.28-.87c0-2.61-1.32-1.4-3.93-1.4L113,21.91,106.22,12h-68a4.72,4.72,0,0,0-4.75,4.73Z" fill="#eaf2f5"/>
+      <rect id="Rectangle_1082" data-name="Rectangle 1082" width="69.04" height="6.96" rx="3.48" transform="translate(42.51 100.1)" fill="#dee9ec"/>
+      <rect id="Rectangle_1083" data-name="Rectangle 1083" width="69.04" height="6.96" rx="3.48" transform="translate(42.51 114.1)" fill="#dee9ec"/>
+      <g id="Group_21577" data-name="Group 21577" clip-path="url(#clip-path)">
+        <rect id="Rectangle_1084" data-name="Rectangle 1084" width="18.17" height="18.67" rx="5.2" transform="translate(106.05 7.46)" fill="#cbd8dc"/>
+      </g>
+      <circle id="Ellipse_1833" data-name="Ellipse 1833" cx="32.88" cy="32.88" r="32.88" transform="translate(44.1 24.9)" fill="#dee9ec"/>
+      <circle id="Ellipse_1834" data-name="Ellipse 1834" cx="32.88" cy="32.88" r="32.88" transform="translate(42.1 26.08)" fill="#dee9ec"/>
+      <rect id="Rectangle_1085" data-name="Rectangle 1085" width="150" height="150" fill="none"/>
+      <g id="Layer_2" data-name="Layer 2" transform="translate(134.966 147.14)">
+        <g id="Layer_1" data-name="Layer 1" transform="translate(-78 -106)">
+          <g id="Group_67425" data-name="Group 67425">
+            <g id="Line_2010" data-name="Line 2010">
+              <path id="Path_23820" data-name="Path 23820" d="M34,11.89H2a2,2,0,1,1,0-4H34a2,2,0,1,1,0,4Z" fill="#e0121b"/>
+            </g>
+            <g id="Line_2011" data-name="Line 2011">
+              <path id="Path_23821" data-name="Path 23821" d="M34,11.89a2,2,0,0,1-1.41-.58l-7.9-7.9A2,2,0,0,1,27.52.59l7.89,7.89A2,2,0,0,1,34,11.89Z" fill="#e0121b"/>
+            </g>
+            <g id="Line_2012" data-name="Line 2012">
+              <path id="Path_23822" data-name="Path 23822" d="M26.11,19.79a2,2,0,0,1-1.42-3.42l7.9-7.89a2,2,0,1,1,2.82,2.83L27.52,19.2A2,2,0,0,1,26.11,19.79Z" fill="#e0121b"/>
+            </g>
+            <g id="Line_2013" data-name="Line 2013">
+              <path id="Path_23823" data-name="Path 23823" d="M34,27.68H2a2,2,0,0,1,0-4H34a2,2,0,0,1,0,4Z" fill="#e0121b"/>
+            </g>
+            <g id="Line_2014" data-name="Line 2014">
+              <path id="Path_23824" data-name="Path 23824" d="M2,27.68A2,2,0,0,1,.59,24.26l7.89-7.89a2,2,0,0,1,2.83,2.83l-7.9,7.89A2,2,0,0,1,2,27.68Z" fill="#e0121b"/>
+            </g>
+            <g id="Line_2015" data-name="Line 2015">
+              <path id="Path_23825" data-name="Path 23825" d="M9.89,35.57A2,2,0,0,1,8.48,35L.59,27.09a2,2,0,1,1,2.83-2.83l7.89,7.9a2,2,0,0,1-1.42,3.41Z" fill="#e0121b"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

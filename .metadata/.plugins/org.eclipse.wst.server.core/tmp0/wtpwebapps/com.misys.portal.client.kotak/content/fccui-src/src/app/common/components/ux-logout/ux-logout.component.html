@@ -1,0 +1,53 @@
+<div dir={{dir}} class="p-grid entirePage">
+  <div class="p-col-12 p-md-12 p-lg-6">
+    <div class="{{ dirPaddingLogo }}">
+      <div class="p-col-12 focus">
+        <a [href]="homeUrl" target="_blank" tabindex="0">
+          <img src="{{imagePath}}" class="logo-img" alt="{{'C102_Home_*_*' | translate }}"/>
+        </a>
+      </div>
+    </div>
+    <div class="{{ dirPaddingStyle }}">
+      <div class="p-col-12 generic-text-bold">
+        <div class="corpName">{{ 'finastraBank' | translate }}</div>
+        <div class="margin-top-5 prodName">{{ 'corporatechannels' | translate }}</div>
+      </div>
+
+      <div class="p-col-12 generic-text margin-top-30" [ngClass]="enableLogoutRating === false ? 'msgDist' : ''">
+        <div>{{ 'logoutSuccess' | translate }}</div>
+        <div class="margin-top-15 timedOutLongMsg">{{ 'thanksForUsingCC' | translate }}</div>
+      </div>
+
+      <div class="p-col-12 margin-top-5" [ngClass]="enableLogoutRating === false ? 'buttonDist' : ''">
+        <p-button role="button" styleClass="primaryButton" label="{{ 'loginAgainMsg' | translate }}" (click)="goToLogin()"></p-button>
+      </div>
+
+      <div *ngIf="enableLogoutRating">
+        <div class="p-col-12 margin-top-30" id="feedback-request">{{ 'rateYourExperience' | translate }}</div>
+        <div class="p-col-12 rating" tabindex="0">
+          <p-rating [(ngModel)]="rating" [cancel]="false" name="rate" aria-labelledby="rating" [stars]="starRatingSize" ngDefaultControl></p-rating>
+        </div>
+        <label id="rating" style="display: none;">Star widget to rate experience out of {{starRatingSize}} stars</label>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="feedbackForm">
+          <div class="p-col-12 margin-top-5 feedBackTextArea">
+            <textarea pInputTextarea attr.aria-label="{{ 'shareAdditionalFeedback' | translate }}" id="feedback-text" placeholder="{{ 'shareAdditionalFeedback' | translate }}" [maxlength]="feedbackCharLength" formControlName="feedback" [rows]="6" [cols]="65" (focus)="resetForm()"></textarea>
+            <div id="char-left" tabindex="0">{{'Entered'| translate}}  {{charactersEntered}}  {{'of'| translate}}  {{feedbackCharLength}} {{ 'characters'| translate }}</div>
+          </div>
+          <span class="p-col-12 feedbackSuccessMsg" aria-live = "polite" *ngIf="feedbackSubmitted">{{'feedbackSubmitted' | translate}}</span>
+          <span class="p-col-12 feedbackFailureMsg" aria-live = "polite" *ngIf="invalidFeedback || feedbackForm.controls['feedback'].touched && feedbackForm.controls['feedback'].errors?.maxlength">{{ 'invalidFeedback' | translate }}</span>
+
+          <div class="p-col-12 margin-top-5 focus">
+            <button role="button" mat-stroked-button color="accent" matTooltip="Submit Feedback"
+                    matTooltipPosition="right" [disabled]="rating < 1">
+              {{ 'submit' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12 p-md-12 p-lg-6 rightImage">
+    <img src="{{loginImageFilePath}}"  alt="{{'C102_Banner_*_*' | translate}}" class="logout-img"/>
+  </div>
+</div>

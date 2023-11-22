@@ -1,0 +1,22 @@
+<ng-container>
+    <div class="p-col-12 p-md-12 p-lg-12 p-sm-12 summary-container">
+        <mat-card>
+            <mat-card-title>
+                <strong>{{summaryLayout?.heading}}</strong>
+            </mat-card-title>
+            <mat-card-content>
+                <div class="p-grid">
+                    <div *ngFor="let item of summaryDetails" class="p-col-4 card-content">
+                        <ng-container *ngFor="let test of item | keyvalue">
+                            <span class="item-label">{{test.key | translate}}</span>
+                            <span class="item-value">{{test.value}}
+                            </span>
+		                </ng-container>       
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</ng-container>
+
+

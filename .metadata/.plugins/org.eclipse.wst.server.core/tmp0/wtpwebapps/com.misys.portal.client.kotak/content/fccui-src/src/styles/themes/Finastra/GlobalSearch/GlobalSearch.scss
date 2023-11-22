@@ -1,0 +1,68 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_globalSearch($searchIcon,$globalSearchInputBoxBorder,$globalSearchInputBoxBorderBottom,$globalSearchBoxBackgrndColor,
+$globalSearchBoxTextColor,$searchTextColor,$dropdownTextColor,$dropdownBgColor,$dropdownBorder,$dropdownSelectedText,$dropdownSelectedBorder,
+$dropdownNotSelectedText,$dropDownNotSelectedColor,$cancelIconColor) {
+
+ fcc-common-global-search .autoCompleteSearch i {
+    color: $searchIcon !important;
+ }
+ fcc-common-global-search .autoCompleteSearch .ltr .ui-inputtext:enabled:not(.ui-state-error) {
+    border: $globalSearchInputBoxBorder !important;
+    border-bottom: $globalSearchInputBoxBorderBottom !important;
+    background-color: $globalSearchBoxBackgrndColor !important;
+    color: $globalSearchBoxTextColor !important;
+ }
+ fcc-common-global-search .autoCompleteSearch .rtl .ui-inputtext:enabled:not(.ui-state-error) {
+    border: $globalSearchInputBoxBorder !important;
+    border-bottom: $globalSearchInputBoxBorderBottom !important;
+    background-color: $globalSearchBoxBackgrndColor !important;
+    color: $globalSearchBoxTextColor !important;
+ }
+ fcc-common-global-search .searchID {
+     color:$searchTextColor !important;
+ }
+ fcc-common-global-search .drop-down-select .ui-inputtext {
+    color: $dropdownTextColor !important;
+    background: $dropdownBgColor !important;
+    border: $dropdownBorder !important;
+ }
+ .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+    background-color: $dropdownBgColor !important;
+    color: $dropdownSelectedText !important;
+    border-left: $dropdownSelectedBorder !important;
+ }
+ .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
+    border-left: $dropdownNotSelectedText !important;
+    color: $dropDownNotSelectedColor !important;
+ }
+ fcc-common-global-search .closeSearch i {
+     color: $cancelIconColor !important;
+ }
+}
+
+.finastra {
+
+// Default Variables
+$primaryColor: $VIOLET-F100;
+$searchIcon:$GRASS-G50;
+$globalSearchInputBoxBorder:$globalSearchInputBorder $borderSolid $BLACK;
+$globalSearchInputBoxBorderBottom:$globalSearchInputBottomBorder $borderSolid $GRASS-G50;
+$globalSearchBoxBackgrndColor: $CHARCOAL-c2;
+$globalSearchBoxTextColor:$DARK-BLACK;
+$searchTextColor:$BLUE-01;
+$dropdownBorder:$borderSize $borderSolid $GREY-02;
+$dropdownBgColor:$transparent;
+$dropdownTextColor:$ORANGE-DARK-BROWNTONE-01;
+$dropdownSelectedText:$GOLD-Y100;
+$dropdownSelectedBorder:$font-size-04 $borderSolid $GOLD-Y25;
+$dropdownNotSelectedText:$font-size-04 $borderSolid $transparent;
+$dropDownNotSelectedColor:$GRAY-HEX-20;
+$cancelIconColor:$CRIMSON-R75;
+
+
+@include Styling_of_globalSearch($searchIcon,$globalSearchInputBoxBorder,$globalSearchInputBoxBorderBottom,$globalSearchBoxBackgrndColor,
+$globalSearchBoxTextColor,$searchTextColor,$dropdownTextColor,$dropdownBgColor,$dropdownBorder,$dropdownSelectedText,$dropdownSelectedBorder,
+$dropdownNotSelectedText,$dropDownNotSelectedColor,$cancelIconColor);
+
+}

@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_submitPageStyle($successTickText,$successText,$successTextWeight,$dataText,$dataTextWeight,$iconText,
+$iconImageText) {
+
+ app-review-submit-detail .successTick em {
+    font-size: $successTickText !important;
+ }
+ app-review-submit-detail .success {
+    font-size: $successText !important;
+    font-weight: $successTextWeight !important;
+ }
+ app-review-submit-detail .iconImage {
+    font-size: $iconImageText !important;
+ }
+ app-review-submit-detail .icon {
+    font-size: $iconText !important;
+ }
+ app-review-submit-detail .dataFont1 {
+    font-size: $dataText !important;
+    font-weight: $dataTextWeight !important;
+ }
+}
+
+
+.Bank-One {
+
+// Default Variables
+$successTickText:$font-size-2_5;
+$successText:$font-size-2_5;
+$successTextWeight:$fontWeight-bold;
+$dataText:$font-size-1_2;
+$dataTextWeight:$fontWeight-500;
+$iconText:$font-size-21;
+$iconImageText:$font-size-18;
+
+
+@include Styling_of_submitPageStyle($successTickText,$successText,$successTextWeight,$dataText,$dataTextWeight,$iconText,
+$iconImageText);
+
+}

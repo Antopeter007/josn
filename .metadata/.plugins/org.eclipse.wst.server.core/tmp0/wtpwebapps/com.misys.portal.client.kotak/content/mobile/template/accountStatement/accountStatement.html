@@ -1,0 +1,43 @@
+<ion-view>
+	<div class="bar bar-stable bar-subheader">
+        <h2 class="title">{{"ACCOUNT_STATEMENT" | translate}}</h2>
+        <button ng-class="vm.filterApplied ? 'button button-clear filter-applied' : 'button button-clear'" ng-click="vm.openModal()"><em class="fa fa-filter fa-1x"></em>
+        </button>
+    </div>
+   <ion-content scroll="false" class="has-subheader">
+	 <div class="list">
+			  <div align="center" class="item item-divider entity">
+			  <span  ng-show="vm.entity !=''">
+    			{{vm.entity}}
+    			</span>
+			  </div>
+			  <div class="item item-divider account-balance-total-balance-content">
+	          	  <div class="row row-item-label">&nbsp;{{"ACCOUNT_NO" | translate}} &nbsp; {{vm.parameters.account_no}} &nbsp; ({{vm.parameters.cur_code}})&#x200E; </div>
+	              <div class="row row-item-label" wrap="hard">&nbsp;{{vm.parameters.cur_code}} &nbsp; {{vm.parameters.account_no}} &nbsp; {{vm.parameters.account_type}}</div>
+	          </div>
+		</div>
+	</ion-content>
+   
+   <ion-content class="has-statement-header">   
+   	 <p class="message" ng-show="vm.count===0">&nbsp;<em class="ion-document"></em>&nbsp; {{"NO_STATEMENT_MESSAGE" | translate}}</p>
+   	  <ion-list>
+   	  		<ion-item ng-show="vm.entityname != ''" align="center">{{"ENTITY" | translate}}:
+	    		<span>{{vm.entityname | translate}}</span>
+    	  	</ion-item>
+            <ion-item class="misys-item" collection-repeat="accountStatements in vm.statements">
+            <div class="card card-layout">
+            	<div class="row" ng-if="accountStatements.label">
+                       <div align="center" class="col col-100">{{accountStatements.label | translate}} </div>
+                 </div>
+                <div class="item item-text-wrap account-balance-items" ng-repeat="item in accountStatements" ng-if="item.label">
+                    <div ng-if="item.value !== ''">
+                        <div class="row row-item-label">{{item.label | translate}}:</div>
+                        <div class="row">{{item.value}}</div>
+                    </div>
+                </div>
+             </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="vm.moreDataCanBeLoaded()" on-infinite="vm.addItems()"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

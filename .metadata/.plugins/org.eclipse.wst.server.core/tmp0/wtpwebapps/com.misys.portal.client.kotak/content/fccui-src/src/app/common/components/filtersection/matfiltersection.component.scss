@@ -1,0 +1,378 @@
+@import '../../../../styles/variables.scss';
+
+/* Selectbutton css */
+.select-label{
+  display: block;
+  font-weight: bold;
+}
+
+.fcc-form-header{
+  display: none;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active {
+  border: $ui-selectbutton-filterSection-active-Border !important;
+}
+
+:host ::ng-deep p-multiselect > div.ui-multiselect.ui-state-focus {
+  border-bottom: 0.08em solid $primaryColor !important
+}
+
+:host ::ng-deep .request .ui-selectbutton{
+  padding-top: 1em;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  background-color: $ui-selectbutton-filterSection-BackgroundColor !important;
+  border: $ui-selectbutton-filterSection-Border;
+  color: $ui-selectbutton-filterSection-Color !important;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active {
+  background-color: $ui-selectbutton-filterSection-active-BackgroundColor !important;
+  border: $ui-selectbutton-filterSection-active-Border;
+  color: $ui-selectbutton-filterSection-active-Color !important;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  background-color: $ui-selectbutton-filterSection-button-BackgroundColor;
+  border: $ui-selectbutton-filterSection-button-Border !important;
+  color: $ui-selectbutton-filterSection-button-Color;
+  -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-active.ui-state-focus {
+  background-color: $ui-selectbutton-filterSection-active-focus-BackgroundColor !important;
+  box-shadow: 0 0 0.125em 0.125em $secondaryColor !important;
+  z-index: 1;
+}
+:host ::ng-deep .request .ui-selectbutton .ui-button.ui-state-focus {
+  background-color: $ui-selectbutton-filterSection-focus-BackgroundColor !important;
+  box-shadow: 0 0 0.125em 0.125em $secondaryColor !important;
+  z-index: 1;
+}
+
+:host ::ng-deep .request .ui-selectbutton .ui-button {
+  font-size: 0.94em;
+  font-weight: bold;
+}
+
+/* multiselect CSS */
+:host ::ng-deep .triggerIcon .pi-chevron-down:before {
+  content: "\e906" !important;
+}
+
+:host ::ng-deep .ui-multiselect-panel .ui-multiselect-empty-message{
+  display: none !important;
+}
+
+:host ::ng-deep .ui-multiselect-panel {
+  max-width: -webkit-fill-available;
+}
+
+:host ::ng-deep .ui-corner-right {
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  border: none !important;
+  border-left: none !important;
+}
+
+/* Input Text Css */
+.inputStyle{
+padding-left: 1em;
+}
+
+
+/* Date CSS */
+
+.calendarStyle {
+padding-left: 1em;
+}
+:host ::ng-deep .dateStyle {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 0.5em;
+  padding-top: 0.7em !important;
+}
+
+:host ::ng-deep .dateStyle.ui-float-label {
+  padding-top: 0.2em !important;
+}
+
+:host ::ng-deep .triggerIcon.ui-float-label {
+  padding-top: 0em !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar-button:hover {
+  border-bottom: 0.065em solid $formFieldBorderBottom;
+  border-bottom-right-radius: 0em;
+}
+:host ::ng-deep .dateStyle .ui-inputtext:enabled:hover {
+  border-color: $uiFloatLabel-LabelColor;
+}
+
+:host ::ng-deep .dateStyle p-calendar {
+  width: 100%;
+  padding-top: 0.5em !important;
+  padding-bottom: 1em !important;
+}
+
+:host ::ng-deep .ui-float-label .ui-widget {
+  line-height: 1.9375em !important;
+  padding-right: 0.1em !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar {
+  position: relative !important;
+  display: -webkit-box !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+:host ::ng-deep .dateStyle label {
+  color: $uiInputTextCOlor;
+  font-size: 0.875em !important;
+  top: 35% !important;
+  padding-top: inherit;
+}
+
+[dir=rtl] :host ::ng-deep .dateStyle label {
+  color: $uiInputTextCOlor;
+  font-size: 0.875em !important;
+  top: 35% !important;
+  padding-top: inherit;
+  left: auto !important;
+}
+
+:host ::ng-deep .dateStyle.ui-float-label>input:focus ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>input.ui-state-filled ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-focus ~ label,
+:host ::ng-deep .dateStyle.ui-float-label>.ui-inputwrapper-filled ~ label {
+  top: -.75em !important;
+  font-size: 0.75em !important;
+}
+
+:host ::ng-deep .dateStyle .ui-calendar .ui-datepicker.ui-widget {
+  background-color: $WHITE !important;
+  width: auto !important;
+  top: 0em !important;
+}
+
+:host ::ng-deep .ui-datepicker {
+  background-color: $WHITE !important;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker
+  .ui-datepicker-header
+  .ui-datepicker-title
+  select {
+  border: none;
+  font-weight: 500;
+}
+
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: transparent;
+  border-color: $uiButtonEnabledHoverBorderColor;
+}
+
+:host ::ng-deep .ui-datepicker table td > a.ui-state-active,
+:host ::ng-deep .ui-datepicker table td > span.ui-state-active {
+  color: $WHITE;
+  background-color: $calenderActiveTabColor;
+}
+
+:host ::ng-deep .ui-datepicker table td.ui-datepicker-today > a.ui-state-active,
+:host
+  ::ng-deep
+  .ui-datepicker
+  table
+  td.ui-datepicker-today
+  > span.ui-state-active {
+  background-color: $calenderActiveTabColor;
+}
+
+:host ::ng-deep .ui-button:enabled:focus {
+  box-shadow: none;
+}
+
+:host
+  ::ng-deep
+  .ui-calendar.ui-calendar-w-btn
+  .ui-datepicker-trigger.ui-button {
+  color: white;
+  height: auto;
+}
+
+:host
+  ::ng-deep
+  .ui-datepicker:not(.ui-state-disabled)
+  table
+  td
+  a:not(.ui-state-active):not(.ui-state-highlight):hover {
+  font-weight: normal;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary {
+  color: $uiInputTextCOlor;
+  background-color: $uiButtonDefaultBackgroundColor;
+  border: 0.0625em solid $uiButtonDefaultBorder;
+}
+
+:host ::ng-deep .ui-button.ui-state-default.ui-button-secondary:hover {
+  border-radius: 0em !important;
+  color: $uiInputTextCOlor;
+}
+
+:host ::ng-deep .ui-datepicker-buttonbar .ui-button-secondary {
+  width: 100% !important;
+}
+
+/*Date CSS End */
+
+:host ::ng-deep .ui-selectbutton {
+  padding-top: 0em !important;
+}
+
+:host ::ng-deep .triggerIcon .mat-form-field-wrapper,
+:host ::ng-deep .textFieldStyle .mat-form-field-wrapper {
+  width: auto;
+  left: 0em;
+  top: 0.9em;
+}
+
+.triggerIcon {
+  padding-top: 0.7em !important;
+}
+
+
+:host ::ng-deep .ui-multiselect .ui-multiselect-label {
+    padding: 0.75em;
+    padding-right: 2em;
+    color: $uiInputTextCOlor;
+}
+
+
+:host ::ng-deep .ui-float-label {
+  display: block;
+  position: relative;
+}
+:host ::ng-deep .textFieldStyle .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $uiInputTextCOlor;
+  top: 1em;
+}
+
+:host ::ng-deep .textFieldStyle .mat-form-field-label-wrapper {
+   overflow: visible;
+}
+
+:host ::ng-deep .ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container {
+  width: 80% !important;
+}
+
+.filterButton {
+  margin-top: 1em !important;
+  background-color: $secondaryColor !important;
+  text-align: center !important;
+  font-weight: 500 !important;
+  border-color: $secondaryColor !important;
+  position: relative;
+  top: 10em;
+
+}
+:host ::ng-deep mat-form-field {
+  .mat-form-field-flex {
+    background: none;
+    margin-top: 0.3em;
+  }
+
+  .mat-select-arrow-wrapper {
+    position: relative;
+  }
+
+  .mat-form-field-infix {
+    border: none;
+    padding-bottom: 1em;
+  }
+}
+:host ::ng-deep #mat-form-field-label-23 {
+  color: $GRAY-HEX-20 !important;
+  font: 0.749875em Roboto, sans-sarif !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: $CHARCOAL-F50 !important;
+}
+
+:host ::ng-deep .mat-form-field-label {
+  color: $GRAY-HEX-20 !important;
+  font-weight: normal !important;
+}
+
+:host ::ng-deep .mat-select-value-text {
+  font-weight: normal !important;
+  font-size: 0.9em !important;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 1024px) {
+  .filterButton {
+    top: 8em !important;
+  }
+}
+
+.dynamic-dialog {
+  padding: 0 1.5em;
+
+  .dynamic-dialog-title {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.01em solid $GREY-08;
+      padding: 0.5em 0;
+  }
+}
+
+:host ::ng-deep .mat-dialog-content::-webkit-scrollbar {
+  width: 0.375em;
+  overflow-y: scroll;
+}
+
+:host ::ng-deep .mat-dialog-content::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 0.625em;
+}
+
+:host ::ng-deep .mat-form-field-label-wrapper {
+  padding-top: 0em !important;
+}
+
+:host ::ng-deep .mat-form-field-suffix {
+  right: -1em;
+}
+
+:host ::ng-deep fcc-input-text label {
+  font-size: 0.875em;
+  padding-top: 0.2em;
+  padding-left: 1em;
+}
+
+mat-dialog-actions {
+  align-items: baseline;
+  box-shadow: 0em -0.0625em 0.3125em -0.0625em $GREY-A0;
+  height: 5.5em;
+  padding-top: 0.85em;
+}
+
+:host ::ng-deep .cdk-overlay-container {
+  z-index: 900;
+}
+
+.closeButton {
+  padding: 0em;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.closeButton[dir="rtl"] {
+  justify-content: left;
+}

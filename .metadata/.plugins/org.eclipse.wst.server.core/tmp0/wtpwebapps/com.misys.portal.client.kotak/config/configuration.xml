@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+  <!-- client Property file for finacle rest api services -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/fi_api.properties"/>
+
+  <!--jndi className="org.apache.commons.configuration.JNDIConfiguration" prefix="java:comp/env"/-->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/client.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/turbine.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/environment.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/portal.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/secret.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/audit.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/a11y.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/fcc_els.properties"/>
+    
+  <!-- Adding new config files related to Rest API changes -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/restapi.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/restapi-request-param.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/language_mapping.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/finshare.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/cashManagement.properties"/>
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/sso.properties"/>    
+
+  
+  
+
+  <!-- Adding config file for azure rest api -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/azure-restapi.properties"/>  
+  
+  <xml fileName="config/services.xml"/>
+  
+  <!-- Opics Loan IQ and Summit configuration files commented out, 
+  as the're not part of V5.0. -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/opics/opics.properties"/>
+  
+  <!-- Seamless FX  -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/seamlessfx/seamlessfx.properties"/>
+  
+  <!-- Loan IQ  -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/loan/loan.properties"/>
+  
+  <!-- Liquidity back office -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/liquidity/liquidity.properties"/>
+
+  <!--  Bank Fusion SSO  -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/fusion_banking_sso.properties"/> 
+  <!-- Summit
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/summit/summit.properties"/>
+   -->
+  <!-- FTS (GMS Service Bureau) -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/gms/fts.properties"/>
+  <!-- Flyway -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/flyway.properties"/>
+  
+  <!-- ElasticSearch -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/elasticsearch.properties"/>
+  
+  <!-- Fees And Billing  -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/feesandbilling/feesandbilling.properties"/>
+  
+  <!-- Interface properties configuration file -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/interfaces/interfaces.properties"/>
+  
+  <!-- KTP  -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/ktp/ktp.properties"/>
+
+   <!-- Payments -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/payment/payment.properties"/>
+  
+  <!-- FCC New UX Properties -->
+  <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/ux/fcc_ux.properties"/>
+  
+  <!-- Dwe properties -->
+   <!-- <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/dwe/dwe.properties"/> -->
+
+   <!-- User Provisioning -->
+  <!-- <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/userprovisioning/userprovisioning.properties"/>-->
+  
+    <properties className="org.apache.commons.configuration.PropertiesConfiguration" fileName="config/beneficiaries/beneficiaries.properties"/>
+  
+      
+</configuration>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Functions for validation/common.js</title>
+        <style type="text/css">
+         @import "/cf/content/js-src/dojo/resources/dojo.css";
+         @import "/cf/content/js-src/dijit/themes/claro/claro.css";
+        </style>
+        <script type="text/javascript" src="../../../dojo/dojo.js" 
+                djConfig="isDebug: true, parseOnLoad: true, locale:'en-us'"></script>
+        <script type="text/javascript">
+        dojo.requireLocalization("misys", "common", "en-us");
+        dojo.require("dojo.parser");
+        dojo.require("dijit.form.ValidationTextBox");
+        dojo.require("dijit.form.DateTextBox");
+        dojo.require("dijit.form.NumberTextBox");
+        dojo.require("dijit.form.FilteringSelect");
+        dojo.require("misys.form.CurrencyTextBox");
+        dojo.require("doh.runner");
+
+		// Other requires here, should at least include misys._base     
+
+        dojo.mixin(misys, {_config: { context: "/", servlet: "/portal", client: "misys"}});
+
+		// Get the context and servlet and set it on the misys object
+        var str = window.location.href.substr(window.location.href.indexOf("?")+1).split(/#/);
+		var ary  = str[0].split(/&/);
+        if(window.location.href.indexOf("?") > -1){
+         for(var i=0; i<ary.length; i++){
+        	 var split = ary[i].split("="),
+				 key = split[0],
+				 value = split[1];
+			 switch(key){
+				case "context":
+					misys._config.context = value;
+					break;
+				case "servlet":
+					misys._config.servlet = value;
+					break;
+			 }
+		 }
+	    }
+
+        dojo.require("misys._base");
+        dojo.require("misys.common");
+        dojo.require("misys.validation.common");
+
+        dojo.ready(function(){
+        	doh.register("misys.tests.validation.common", [                                   
+        	       function testValidateTemplateId() {
+        	    	 	misys.setValidation("template_id", misys.validateTemplateId);
+  			    	 	doh.is("", dijit.byId("template_id").get("state"));
+  			    	 	dijit.byId("template_id").set("value", "''");
+  			    	 	doh.is("Error", dijit.byId("template_id").get("state"));
+  			    	 	dijit.byId("template_id").set("value", "");
+  			    	 	doh.is("", dijit.byId("template_id").get("state"));
+        	       },
+        	       
+        	       function testValidateTradeExpiryDate() {
+        	    	   misys.setValidation("exp_date", misys.validateTradeExpiryDate);
+        	    	   doh.is("", dijit.byId("exp_date").get("state"));
+        	    	   
+        	    	   // 1. Expiry date must be greater than or equal to the application date
+        	    	   dijit.byId("exp_date").set("displayedValue", "05/15/2011");
+        	    	   dijit.byId("appl_date").set("displayedValue", "05/16/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("Error", dijit.byId("exp_date").get("state"));
+        	    	   dijit.byId("exp_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("exp_date").get("state"));
+        	    	   
+        	    	   // 2. The issue date must be less than or equal to the app date
+        	    	   dijit.byId("iss_date").set("displayedValue", "05/24/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("Error", dijit.byId("exp_date").get("state"));
+        	    	   dijit.byId("iss_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("exp_date").get("state"));
+        	    	   
+        	    	   // 3. 
+        	    	   dijit.byId("last_ship_date").set("displayedValue", "05/24/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("Error", dijit.byId("exp_date").get("state"));
+        	    	   dijit.byId("last_ship_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("exp_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("exp_date").get("state"));
+        	       },
+        	       
+        	       function testValidateOrderedDates() {
+        	    	   doh.t(false);
+        	       },
+        	       
+        	       function testValidateDateGreaterThan() {
+        	    	   doh.t(false);
+        	       },
+        	       
+        	       function testValidateDateSmallerThan() {
+        	    	   doh.t(false);
+        	       },
+        	       
+        	       function testValidateLastShipmentDate() {
+        	    	   misys.setValidation("last_ship_date", misys.validateLastShipmentDate);
+        	    	   
+        	    	   // 1. Check that application date is less than or equal to last_ship_date
+        	    	   dijit.byId("last_ship_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("appl_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("last_ship_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("last_ship_date").get("state"));
+        	    	   dijit.byId("appl_date").set("displayedValue", "05/19/2011");
+        	    	   dijit.byId("last_ship_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("Error", dijit.byId("last_ship_date").get("state"));
+        	    	   dijit.byId("appl_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("last_ship_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("last_ship_date").get("state"));
+        	    	   
+        	    	   // 2. LAst shipment should be less than the exp_date
+        	    	   dijit.byId("exp_date").set("displayedValue", "05/10/2011");
+        	    	   dijit.byId("last_ship_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("Error", dijit.byId("last_ship_date").get("state"));
+        	    	   dijit.byId("exp_date").set("displayedValue", "05/17/2011");
+        	    	   dijit.byId("last_ship_date").focus();
+        	    	   dijit.byId("template_id").focus();
+        	    	   doh.is("", dijit.byId("last_ship_date").get("state"));
+        	       },
+        	       
+        	       {
+        	    	   name: "Test Validate Tolerence",
+        	    	   timeout: 10000,
+        	    	   runTest: function() {
+        	    		   var d = new doh.Deferred;
+        	    		   
+        	    		   misys.setValidation("max_cr_desc_code", misys.validateMaxCreditTerm);
+            	    	   doh.is("", dijit.byId("max_cr_desc_code").get("state"));
+            	    	   
+            	    	   // pstv_tol_pct
+            	    	   dijit.byId("pstv_tol_pct").set("value", 10);
+            	    	   dijit.byId("max_cr_desc_code").set("value", "3");
+            	    	   
+            	    	   setTimeout(function(){
+            	    		   doh.is("Error", dijit.byId("max_cr_desc_code").get("state"));
+            	    		   dijit.byId("max_cr_desc_code").set("value", "");
+                	    	   setTimeout(function(){
+                    	    	   doh.is("", dijit.byId("max_cr_desc_code").get("state"));
+                	    	   	   dijit.byId("pstv_tol_pct").set("value", "");
+       
+                	    	   	   // neg_tol_pct
+                	    	       dijit.byId("neg_tol_pct").set("value", 10);
+                	    	       dijit.byId("max_cr_desc_code").set("value", "3");
+                	    	   	   setTimeout(function(){
+                	    	   		   doh.is("Error", dijit.byId("max_cr_desc_code").get("state"));
+                	    	   		   dijit.byId("max_cr_desc_code").set("value", "");
+                	    	   		   
+                	    	   		   setTimeout(function(){
+                	    	   			   doh.is("", dijit.byId("max_cr_desc_code").get("state"));
+                          	    	   	   dijit.byId("neg_tol_pct").set("value", "");
+                          	    	       d.callback(true);
+                      	    	       }, 1000);
+                	    	   	   }, 1000);
+                	    	   }, 1000);
+            	    	   }, 1000);
+      
+        	    		   return d;
+        	    	   }
+        	       },
+        	       
+        	       function testValidateCurrency() {
+        	    	   doh.t(false);
+        	       },
+        	       
+        	       function testValidateExecDate() {
+        	    	   doh.t(false);
+        	       },
+        	       
+        	       function testValidateIssueDate() {
+        	    	    misys.setValidation(dijit.byId("iss_date"), misys.validateIssueDate);
+        	    		dijit.byId("appl_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("iss_date").set("displayedValue", "5/21/2011");
+        	    		doh.is("", dijit.byId("iss_date").get("state"));
+        	    		dijit.byId("iss_date").set("displayedValue", "5/15/2011");
+        	    		doh.is("Error", dijit.byId("iss_date").get("state"));
+        	    		dijit.byId("iss_date").set("displayedValue", "5/21/2011");
+        	    		doh.is("", dijit.byId("iss_date").get("state"));
+        	       }, 
+        	       
+        	       function testValidateLatestAnswerDate() {
+        	    	    misys.setValidation(dijit.byId("latest_answer_date"), misys.validateLatestAnswerDate);
+        	    		
+        	    		dijit.byId("latest_answer_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("iss_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("exp_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    	    dijit.byId("latest_answer_date").focus();
+        	    		doh.is("", dijit.byId("latest_answer_date").get("state"));
+        	    		
+        	    		// 1. Iss_date should be less than the last_answer date
+        	    		dijit.byId("iss_date").set("displayedValue", "5/22/2011");
+        	    		dijit.byId("latest_answer_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("Error", dijit.byId("latest_answer_date").get("state"));
+        	    		dijit.byId("iss_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("latest_answer_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("", dijit.byId("latest_answer_date").get("state"));
+        	    		
+        	    		// 2. last_answer_date should be less than the exp_date
+        	    		dijit.byId("latest_answer_date").set("displayedValue", "5/22/2011");
+        	    		dijit.byId("latest_answer_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("Error", dijit.byId("latest_answer_date").get("state"));
+        	    		dijit.byId("latest_answer_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("latest_answer_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("", dijit.byId("latest_answer_date").get("state"));
+        	    	},
+        	    	
+        	    	function testValidateTFMaturityDate() {
+        	    	    misys.setValidation(dijit.byId("maturity_date"), misys.validateTFMaturityDate);
+        	    		
+        	    		dijit.byId("maturity_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("appl_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("iss_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    	    dijit.byId("maturity_date").focus();
+        	    		doh.is("", dijit.byId("maturity_date").get("state"));
+        	    		
+        	    		// 1. application date should be less than maturity date
+        	    		dijit.byId("appl_date").set("displayedValue", "5/22/2011");
+        	    		dijit.byId("maturity_date").focus();
+        	    		dijit.byId("appl_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("Error", dijit.byId("maturity_date").get("state"));
+        	    		dijit.byId("appl_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("maturity_date").focus();
+        	    		dijit.byId("appl_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("", dijit.byId("maturity_date").get("state"));
+        	    		
+        	    		// 2. last_answer_date should be less than the exp_date
+        	    		dijit.byId("iss_date").set("displayedValue", "5/22/2011");
+        	    		dijit.byId("maturity_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("Error", dijit.byId("maturity_date").get("state"));
+        	    		dijit.byId("iss_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("maturity_date").focus();
+        	    		dijit.byId("iss_date").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("", dijit.byId("maturity_date").get("state"));
+        	    	},
+        	    	
+        	    	function testValidateIncAmt() {
+        	    		misys.setValidation('inc_amt', function(isFocused){
+        	    			return misys.validateAmendAmount(isFocused, this, 'lc');
+        	    		}, true);
+        	    		misys.setValidation('dec_amt', function(isFocused){
+        	    			return misys.validateAmendAmount(isFocused, this, 'lc');
+        	    		}, true);
+        	    		
+        	    		dijit.byId("dec_amt").set("value", "");
+        	    		dijit.byId("inc_amt").set("value", "");
+        	    		
+        	    		doh.is("", dijit.byId("inc_amt").get("state"));
+        	    		doh.is("", dijit.byId("dec_amt").get("state"));
+
+        	    		dijit.byId("dec_amt").set("value", 11);
+        	    		dijit.byId("dec_amt").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("Error", dijit.byId("dec_amt").get("state"));
+        	    		dijit.byId("dec_amt").set("value", "");
+        	    		dijit.byId("dec_amt").focus();
+        	    		dijit.byId("template_id").focus();
+        	    		doh.is("", dijit.byId("dec_amt").get("state"));
+        	    	},
+        	    	
+        	    	function testValidateTransferAmt() {
+        	    		misys.setValidation('tnx_amt', misys.validateTransferAmount);
+        	    		doh.is("", dijit.byId("tnx_amt").get("state"));
+        	    		dijit.byId("tnx_amt").set("value", 20);
+        	    		doh.is("Error", dijit.byId("tnx_amt").get("state"));
+        	    	},
+        	    	
+        	    	function testValidateTransferExpiryDate() {
+        	    		misys.setValidation('transfer_expiry_date', misys.validateTransferExpiryDate);
+        	    		
+        	    		dijit.byId("exp_date").set("displayedValue", "5/21/2011");
+        	    		dijit.byId("iss_date").set("displayedValue", "5/20/2011");
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/20/2011");
+        	    		
+        	    		doh.is("", dijit.byId("transfer_expiry_date").get("state"));
+        	    		
+        	    		// Must be greater than iss date
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/18/2011");
+        	    		doh.is("Error", dijit.byId("transfer_expiry_date").get("state"));
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/20/2011");
+        	    		doh.is("", dijit.byId("transfer_expiry_date").get("state"));
+        	    		
+        	    		// Must be less than exp date
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/20/2011");
+        	    		doh.is("", dijit.byId("transfer_expiry_date").get("state"));
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/22/2011");
+        	    		doh.is("Error", dijit.byId("transfer_expiry_date").get("state"));
+        	    		dijit.byId("transfer_expiry_date").set("displayedValue", "5/20/2011");
+        	    		doh.is("", dijit.byId("transfer_expiry_date").get("state"));
+        	    	}
+        	    	
+        	 
+        	       
+        	       
+        	]);
+        	
+            doh.run();
+        });
+        </script>
+    </head>
+    <body class="claro notready">
+    	<label for="template_id">Template ID:</label>
+    	<div trim="true" dojoType="dijit.form.ValidationTextBox" name="template_id" id="template_id" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="exp_date">Exp date</label>
+    	<div trim="true" dojoType="dijit.form.DateTextBox" name="exp_date" id="exp_date" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="transfer_expiry_date">Transfer Exp date</label>
+    	<div trim="true" dojoType="dijit.form.DateTextBox" name="transfer_expiry_date" id="transfer_expiry_date" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="exp_date">Appl date</label>
+    	<div trim="true" dojoType="dijit.form.DateTextBox" name="appl_date" id="appl_date" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="iss_date">Iss date</label>
+    	<div trim="true" dojoType="dijit.form.DateTextBox" name="iss_date" id="iss_date" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="last_ship_date">Last ship date</label>
+    	<div trim="true" dojoType="dijit.form.DateTextBox" name="last_ship_date" id="last_ship_date" maxLength="20" class="small swift"></div><br>
+    	
+    	<label for="pstv_tol_pct">Tolerance (+):</label>
+        <div trim="true" dojoType="dijit.form.NumberTextBox" name="pstv_tol_pct" id="pstv_tol_pct" maxLength="2" constraints="{min:0}" class="x-small block"></div><br>
+        
+        <label for="neg_tol_pct">Tolerance (-):</label>
+        <div trim="true" dojoType="dijit.form.NumberTextBox" name="neg_tol_pct" id="neg_tol_pct" maxLength="2" constraints="{min:0}" class="x-small block"></div><br>
+        
+        <label for="max_cr_desc_code">Max Credit Amount:</label>
+        <select autocomplete="true" dojoType="dijit.form.FilteringSelect" name="max_cr_desc_code" id="max_cr_desc_code" class="medium" required="false" value=""><option></option><option value="3">NOT EXCEEDING</option></select><br>
+        
+        <label for="latest_answer_date">Latest Answer Date:</label>
+        <div trim="true" dojoType="dijit.form.DateTextBox" name="latest_answer_date" id="latest_answer_date" maxLength="20" class="small swift"></div><br>
+        
+        <label for="maturity_date">Maturity Date:</label>
+        <div trim="true" dojoType="dijit.form.DateTextBox" name="maturity_date" id="maturity_date" maxLength="20" class="small swift"></div><br>
+        
+        <label for="org_lc_amt">Org LC Amount:</label>
+        <div trim="true" dojoType="dijit.form.TextBox" name="org_lc_amt" id="org_lc_amt" maxLength="20" class="small swift" value="10.00"></div><br>
+        
+        <label for="org_lc_amt">Tnx Amount:</label>
+        <div trim="true" dojoType="dijit.form.ValidationTextBox" name="tnx_amt" id="tnx_amt" maxLength="20" class="small swift" value="10.00"></div><br>
+
+        <label for="inc_amt">Increase Amount:</label>
+        <div dojoType="misys.form.CurrencyTextBox" trim="true" class="small " name="inc_amt" id="inc_amt"></div><br>
+        
+        <label for="dec_amt">Decrease Amount:</label>
+        <div dojoType="misys.form.CurrencyTextBox" trim="true" class="small " name="dec_amt" id="dec_amt"></div><br>
+	    	   
+    </body>
+</html>

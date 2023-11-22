@@ -1,0 +1,442 @@
+@import "./../../../../styles/variables.scss";
+
+.dashboardLayout {
+  min-height: 100%;
+  background-color: #fafafa;
+}
+
+#subDashboardLayout {
+  padding-bottom: 0px;
+  min-height: 10.750em;
+}
+
+:host ::ng-deep .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+  border-color: #694ed6;
+  outline: 0 none;
+  box-shadow: none;
+}
+
+:host {
+  .p-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left:  0px;
+    margin-top: 0.06em;
+  }
+}
+
+
+:host {
+  @media screen and (max-width: 1180px) and (min-width: 680px){
+    .p-grid {
+      margin-top: 3em;
+    }
+  }
+}
+
+.actionIcons {
+  float: right;
+}
+
+.actionIcons em {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.centerPanelStyle {
+  overflow-y: scroll;
+  height: 120vh;
+  scrollbar-width: thin; // Firefox
+  -ms-overflow-style: scrollbar; // Edge, IE 10
+}
+
+.centerPanelStyle::-webkit-scrollbar {
+  width: 4px;
+  overflow-y: scroll;
+}
+
+.centerPanelStyle::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $GREY-22;
+}
+:host ::ng-deep .overlayMainClass .ui-card {
+  background-color: transparent;
+  box-shadow: none;
+  opacity: 1;
+}
+
+:host ::ng-deep .overlayMainClass .ui-card:hover {
+  opacity: 1;
+}
+
+.overlayCardClass em {
+  color: #d069b9;
+}
+
+:host ::ng-deep .overlayCardClass .ui-card-body {
+  background-color: #fff;
+  border-left: 11px solid rgba(105, 78, 214, 0.2);
+  color: #414141;
+}
+
+:host ::ng-deep .overlayCardClass .ui-card-body:hover {
+  background-color: #fff;
+  border-left: 11px solid #694ed6;
+  color: #694ed6;
+  font-weight: 500;
+}
+
+.img_container2 {
+  text-align: center;
+  height: 100px;
+}
+.img_container2 {
+  height: 125px;
+}
+.img_container2 > em {
+  position: relative;
+  top: calc(50% - 30px); /* 50% - 3/4 of icon height */
+}
+
+.errMsgPlatinum{
+  margin-top: 1em;
+  margin-left: 20em;
+  color: $errorMessageColor !important;
+}
+
+.errMsg{
+  margin-top: 1em;
+  margin-left: 35em;
+  color: $errorMessageColor !important;
+}
+
+.text-widgets-align {
+  font-size: 20px;
+  padding-top: 50px;
+}
+
+:host ::ng-deep .dashboard-background {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 172px;
+  /* background-image: url("../../../../assets/images/dashboard.png"); */
+  padding-top: 32px;
+  min-height: 10.750em;
+}
+
+:host ::ng-deep .overlayCardsList .ui-card-body {
+  background-color: cornflowerblue;
+}
+
+.corp-avatar {
+  background: $GRADIENT_01;
+}
+
+.corp-av {
+  font-size: large;
+  text-align: center;
+  line-height: 2em;
+  padding-top: 14px;
+}
+
+.corp-avatar:before {
+  content: " \25CF";
+  font-size: 200px;
+}
+
+.sphereDiv {
+  /* position: absolute; */
+  z-index: 999;
+  text-align: right;
+  padding-bottom: 0em;
+}
+
+.sphere {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  background-color: #d069b9;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.paddingClass {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.sphere-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sphere em {
+  font-size: 15px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.sphere em:focus-visible {
+  height: 30px;
+  width: 30px;
+}
+
+:host ::ng-deep button {
+  margin-right: 0.25em;
+}
+
+:host ::ng-deep .custom-toast .ui-toast-message {
+  color: #ffffff;
+  background: #fc466b;
+  background: -webkit-linear-gradient(to right, #3f5efb, #fc466b);
+  background: linear-gradient(to right, #3f5efb, #fc466b);
+}
+
+:host ::ng-deep .custom-toast .ui-toast-close-icon {
+  color: #ffffff;
+}
+
+.listdef-table {
+  max-height: 20em;
+  overflow-y: auto;
+}
+
+:host ::ng-deep .headerTitle {
+  padding-bottom: 0.5em !important;
+}
+
+.listdef-table::-webkit-scrollbar{
+  width: 0.3125em;
+  height: 0.0625em;
+ }
+
+ .listdef-table::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.0625em grey;
+  border-radius : 0.3125em;
+ }
+
+ .listdef-table::-webkit-scrollbar-thumb{
+  background: #a3a1a1 !important;
+  border-radius: 0.3125em;
+  }
+
+:host ::ng-deep .white-bg {
+  background-color: #ffffff !important;
+  padding: 0 !important;
+  margin-top: 1em;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 820px) {
+  :host ::ng-deep .white-bg {
+    margin-top: 2.5em !important;
+  }
+}
+
+.widgetCustomButtons {
+  padding: 3em 0.75em 4em 0em;
+  margin: 0em;
+}
+
+.widgetsBoundary{
+  padding:8px;
+}
+.side-panel-botm-m{
+  margin-bottom: 0px;
+}
+.cursorCustomize{
+  cursor: initial;
+}
+
+// styling left empty for right panel
+.rightPanelStyle {}
+
+.cursorCustomize button{
+  cursor: pointer !important;
+}
+
+.no-margin-left {
+  margin-left: 0 !important;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  border: 1px solid #c8c8c8;
+  background-color: #ffffff;
+  color: #333333;
+  padding: .2em;
+  font-weight: 700;
+  border-bottom: none;
+}
+.base-label{
+  margin-top: 1.375em;
+  margin-bottom: 0em;
+  color: #707070;
+  font-size: 0.85em;
+  line-height: 1em;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: none;
+  padding: 0.571em 1em;
+  border-left: 1px solid #c8c8c8;
+  border-right: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
+}
+.dash-save {
+  margin-top: 1em;
+}
+// button
+:host ::ng-deep .ui-button.ui-button-rounded {
+  height: 36px;
+  border-radius: 18px;
+  background-color: #6948d9;
+  box-shadow: none;
+  float: right;
+}
+
+:host ::ng-deep .ui-button:enabled:active {
+  background-color: #6948d9;
+  color: #fff;
+  border-color: #6948d9;
+}
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: #6948d9;
+  color: #fff;
+  border-color: #6948d9;
+}
+:host ::ng-deep .ui-button.ui-button-text-only .ui-button-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+:host ::ng-deep .ui-button {
+  margin: 0;
+  color: #ffffff;
+  background-color: #6948d9;
+  border: 1px solid #6948d9;
+  font-size: 14px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 25px;
+  margin-bottom: 0.5em;
+}
+:host ::ng-deep .ui-button.ui-button-rounded {
+  height: 30px;
+  border-radius: 18px;
+  background-color: #6948d9;
+  box-shadow: none;
+  float: right;
+  width: 50%;
+}
+.m-top {
+  margin-top: 2em;
+}
+:host ::ng-deep .ui-chkbox .ui-chkbox-box {
+  border: 1px solid #a6a6a6;
+  background-color: #ffffff;
+  width: 13px;
+  height: 13px;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+:host ::ng-deep .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  width: 13px;
+  height: 13px;
+}
+:host ::ng-deep .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+  overflow: hidden;
+  position: relative;
+  font-size: 12px;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: #c137a2 !important;
+  background-color: #c137a2 !important;
+  color: #ffffff !important;
+}
+.chk-box {
+  font-size: .9em;
+  color: black;
+}
+.horMenuCssClass {
+  margin-top: 2em;
+}
+.verMenuCssClass {
+  margin-top: 0em;
+}
+.saveBtn{
+  position: relative;
+  right: 1.5em;
+}
+.leftPanelStyle {
+  padding: 1.5em 0;
+}
+
+mat-sidenav {
+  padding: 0;
+}
+@media screen and  (max-width: 990px) {
+  .dynamicField {
+    display: none;
+  }
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  @media screen and (max-width: 834px) and (min-width: 768px){
+    .dashboardLayout {
+      margin-right: 1.5em !important;
+      width: 125% !important;
+    }
+    .right-bottom-boundary1 {
+      width: 130% !important;
+    }
+  }
+}
+
+@media screen and  (min-width: 768px) {
+  .cursorCustomize {
+    margin-right: 1.5em !important;
+  }
+}
+
+@media screen and (max-width: 820px) and (min-width: 768px) {
+  :host ::ng-deep .dashboardLayout {
+    margin-right: 1.5em !important;
+  }
+  :host ::ng-deep .p-md-9 {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 860px) {
+  :host ::ng-deep .ui-widget {
+    font-size: 10px !important;
+  }
+}
+
+.disclaimer-style{
+  margin-left: 2em;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: Roboto, roboto, "Helvetica Neue", sans-serif;
+  padding-top: 1em;
+  margin-right: 2em;
+}
+
+.disclaimerMessage-style{
+  margin-left: 2em;
+  font-size: 1em;
+  font-family: Roboto, roboto, "Helvetica Neue", sans-serif;
+  padding-bottom: 1em;
+  margin-right: 2em;
+}

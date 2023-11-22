@@ -1,0 +1,15 @@
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  :host ::ng-deep .mat-radio-button {
+    width: fit-content;
+  }
+  :host ::ng-deep .mat-radio-button.p-col-6.padding_zero {
+    padding: 0em 5em 0.2em 0.5em;
+  }
+  :host ::ng-deep .infoIconMultiSelect {
+    left: -2em;
+    top: 0.5em;
+  }
+}
+:host ::ng-deep .messageStyle {
+  width: 100% !important;
+}

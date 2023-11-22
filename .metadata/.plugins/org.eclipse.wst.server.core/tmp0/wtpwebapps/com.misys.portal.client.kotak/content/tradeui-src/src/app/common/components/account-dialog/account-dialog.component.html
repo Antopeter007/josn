@@ -1,0 +1,36 @@
+    <div id =  "account_no_row" class = "field">
+      <label for =  "account_no" id =  "account_no_label">{{ 'ACCOUNT_NUMBER' | translate }}&nbsp;</label>
+      <input id = "account_no" type = "text" [(ngModel)]="accountNo" maxlength="34" class="content" pInputText/>
+    </div>
+    <div id =  "cur_code_row">
+      <label for =  "cur_code" id =  "cur_code_label">{{ 'CURCODE' | translate }}&nbsp;</label>
+      <input id = "cur_code" type = "text"  [(ngModel)]="currencyCode" pKeyFilter="alpha" maxlength="3" class="content input-three-digit" oninput="this.value = this.value.toUpperCase()" pInputText/>
+    </div>
+    <div id =  "description_row" class = "field">
+      <label for =  "description" id =  "description_label">{{ 'DESCRIPTION' | translate }}&nbsp;</label>
+      <input id = "description" type = "text"  [(ngModel)]="description" maxlength="34" class="content" pInputText/>
+    </div>
+    <div id =  "search_button_row" class="field">
+      <label for =  "search_button" >&nbsp;</label>
+      <button pButton type="button" label="{{ 'USER_ACTION_SEARCH' | translate}}"  (click)="getAccounts()" class="primary-button"></button>
+    </div>
+<p-table #data [value]="listOfAccount" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id = "account-number">{{ "ACCOUNT_NUMBER" | translate }} </th>
+            <th id = "entity">{{ "ENTITY" | translate }} </th>
+            <th id = "curcode">{{ "CURCODE" | translate }} </th>
+            <th id = "desc">{{ "DESCRIPTION" | translate }} </th>
+            <th id = "formataccounttype">{{ "FORMAT_ACCOUNT_TYPE" | translate }} </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-account>
+        <tr>
+            <td><a (click)= "ref.close(account)">{{account.ACCOUNTNO}}</a></td>
+            <td>{{account.ENTITY}}</td>
+            <td>{{account.CURCODE}}</td>
+            <td>{{account.DESCRIPTION}}</td>
+            <td>{{account.FORMAT}}</td>
+        </tr>
+    </ng-template>
+</p-table>

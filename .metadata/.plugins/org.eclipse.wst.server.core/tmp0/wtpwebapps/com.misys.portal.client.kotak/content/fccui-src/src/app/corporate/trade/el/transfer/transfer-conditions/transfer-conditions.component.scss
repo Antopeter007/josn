@@ -1,0 +1,77 @@
+@import './../../../../../../styles/variables.scss';
+.originallcamt {
+color:$BLACK
+}
+
+.currencyView {
+  width: 2.5em;
+  margin-top: 1.2em;
+}
+
+:host ::ng-deep .p-col-6.padding_zero.ng-star-inserted {
+  padding: 0 0.5em 0 0 !important;
+}
+
+:host ::ng-deep .transmission .ui-selectbutton .ui-button {
+  margin-right: 3em;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-fluid
+  .ui-buttonset.ui-buttonset-3
+  .ui-button {
+  width: 25%;
+}
+:host ::ng-deep .transmission .ui-button.ui-button-text-only .ui-button-text {
+  padding: 1.2em 2em !important;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button.ui-state-default
+  .ui-button-icon-left {
+  color: $ui-selectbutton-login-Color;
+}
+
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button.ui-state-active
+  .ui-button-icon-left {
+  color: $ui-selectbutton-login-active-Color !important;
+}
+:host
+  ::ng-deep
+  .transmission
+  .ui-selectbutton
+  .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover
+  .ui-button-icon-left {
+  color: $ui-selectbutton-login-active-disabled-hover-Color;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  width: 22% !important;
+  min-width: fit-content;
+  max-width: 275px;
+}
+
+.transmission .mat-button-toggle-label-content .material-icons {
+  right: auto;
+  left: -15%;
+}
+
+:host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+  right: auto;
+  left: -20%;
+}
+

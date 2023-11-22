@@ -1,0 +1,72 @@
+/**
+ Refer to /themes/base/common/forms.css
+**/
+
+/** ------------------------------------ Standard Field Sizes --------------------------------- **/
+
+.required-field-symbol {
+	color: #DE7100;
+}
+
+/** ----------------------------------- Headers & Sub-headers --------------------------------- **/
+
+.toplevel-header h2 {
+    font-weight: bold;
+    background: none #9E8F6C;
+    color: #FFFFFF;
+}
+
+.indented-fieldset h3,
+#event-summary .attachments-container .toplevel-header h2 {
+	background-image:none;
+    background-color: #CEC7B5;
+    color: #000000;
+}
+
+
+/** -------------------------------- Table of Contents (TOC) ---------------------------------- **/
+
+#toc {
+     border-style: solid;
+     border-width: 2px;
+     background-color: #6B8F00;
+     border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+     top: 92px;
+}
+
+/** ------------------------------------------- Dialogs --------------------------------------- **/
+
+#xhrDialog .dijitDialogPaneContent #edit{
+	border: 0 solid #ffff00;
+}
+
+/** ------------------------------------- Tables / Grids -------------------------------------- **/
+
+.attachments {
+	border-top: 1px solid #dbdbdb;
+	border-right: 1px solid #dbdbdb;
+}
+
+.attachments td, 
+.attachments th {
+	border-bottom: 1px solid #dbdbdb;
+	border-left: 1px solid #dbdbdb;
+}
+
+.attachments thead th {
+	background: #CEC7B5;
+}
+
+.fscmDisclaimerContent {
+	display: inline;
+    text-align: left;	
+}
+
+.fscmMultiChoiceField {
+	font-weight:bold;
+}
+
+.fscmTextAreaField{
+	width:542px;
+	height: 198px;
+}

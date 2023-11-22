@@ -1,0 +1,21 @@
+<p-panel header="{{ 'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}"[toggleable]="true" [collapsed] ="true">
+      <div *ngIf ="!unsignedMode  ;else unsigned_content" [formGroup]="amendNarrativeSection" id = "amdDetailsRow" class = "field textarea">
+            <div *ngIf="swiftMode">
+                <label id="bgAmdDetailsSwiftLabel" for="bgAmdDetails">{{'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}</label>
+                <textarea class="textarea-fixed-height" fccCommonTextArea [controlName]="amendNarrativeSection.get('bgAmdDetails')" [rows]="150" [cols]="65" formControlName="bgAmdDetails" pInputTextarea></textarea>
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgAmdDetails')"></a>
+                <fcc-common-narrative-character-count [enteredCharCount]="amendNarrativeSection.get('bgAmdDetails').value ? amendNarrativeSection.get('bgAmdDetails').value.length : 0" [allowedCharCount]="9750" [fieldSize]="'L'"></fcc-common-narrative-character-count>
+                <fcc-common-error-message [control]="amendNarrativeSection.get('bgAmdDetails')" ></fcc-common-error-message>
+            </div>
+            <div *ngIf="!swiftMode">
+              <label id="bgAmdDetailsLabel" for="bgAmdDetails">{{'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}</label>
+                <textarea fccCommonTextArea [controlName]="amendNarrativeSection.get('bgAmdDetails')" [rows]="12" [cols]="65" [nonSwiftValidation]="true" formControlName="bgAmdDetails" pInputTextarea></textarea>
+                <a *ngIf="!(commonData.disableTnx)" class="fa fa-pencil-square-o fa-lg vertical-top-align" (click)="openPhraseDialog('bgAmdDetails')"></a>
+                <fcc-common-error-message [control]="amendNarrativeSection.get('bgAmdDetails')" ></fcc-common-error-message>
+            </div>
+        </div>
+      <ng-template #unsigned_content>
+        <label id="bgAmdDetailsUnsignedLabel" for="bgAmdDetails">{{'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-narrative' : 'label-left-narrative'}}">{{bgRecord['bgAmdDetails']}}</label>
+      </ng-template>
+</p-panel>

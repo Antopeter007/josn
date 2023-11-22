@@ -1,0 +1,52 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12" class="{{ control.params.dialogStyleClass }}">
+    <p-dialog
+      header="{{ control.params.label }}"
+      [(visible)]="control.params.displayPosition"
+      [modal]="true"
+      [style]="{ width: '20vw' }"
+      [maximizable]="false"
+      [baseZIndex]="10000"
+      [draggable]="false"
+      [resizable]="false"
+    >
+      <div class="{{ control.params.styleClass }}">
+        <p-table
+          formControlName="{{ control.key }}"
+          id="{{ control.key }}"
+          [columns]="control.params.columns"
+          [value]="control.params.data"
+        >
+          <ng-template
+            pTemplate="body"
+            let-rowData
+            let-columns="{{ control.params.columns }}"
+            let-index="rowIndex"
+          >
+            <tr>
+              <td *ngFor="let cols of control.params.columns">
+                <span innerHTML="{{ rowData[cols.field] }}"></span>
+              </td>
+              <td>
+                <div class="{{ control.params.SpinnerStyle }}">
+                  <a *ngIf="control.params.showSpinner; else doNotShowSpinner">
+                    <em
+                      class="pi pi-spin pi-spinner"
+                      style="font-size: 3em; color: #9c03a1"
+                    ></em>
+                  </a>
+                  <ng-template #doNotShowSpinner>
+                    <em
+                      class="pi pi-check"
+                      style="font-size: 3em; color: #047a04"
+                    ></em>
+                  </ng-template>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-dialog>
+  </div>
+</ng-container>

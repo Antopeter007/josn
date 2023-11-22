@@ -1,0 +1,8 @@
+
+Linting "FCCUI"...
+
+C:\Users\U726158\Documents\eslint-new\fbcc-5.x\com.finastra.portal.ui\src\app\common\services\common.service.ts
+  2323:5  error  Definition for rule 'prefer-arrow/prefer-arrow-functions' was not found  prefer-arrow/prefer-arrow-functions
+
+✖ 1 problem (1 error, 0 warnings)
+

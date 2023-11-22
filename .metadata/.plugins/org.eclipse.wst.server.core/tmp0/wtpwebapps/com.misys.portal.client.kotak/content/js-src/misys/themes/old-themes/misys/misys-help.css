@@ -1,0 +1,117 @@
+/**
+ Styles for the Help interface
+**/
+.misys #onlinehelp-loading-message{
+    position:absolute;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    z-index:999;
+    background-color:#fff;
+}
+
+.misys #onlinehelp-loading-message p {
+     font-weight:bold;
+     font-style:italic;
+     margin-left:5px;
+     font-size:1.4em;     
+}
+
+.misys #onlinehelp_popup label, .misys #onlinehelp_popup .label {
+	display:inline-block;
+	line-height:1.5em;
+	text-align:right;
+	width:200px;
+}
+
+.misys #helpSearchForm .dijitTextBox{
+	width:30em;	
+}
+
+.misys #onlinehelp_popup .toplevel-header{
+	background-color:#F2F2F2;
+	margin: 5px 0 0 0;
+	padding:1em 0 0.5em;
+	border: 1px solid #D0D0D0;	
+}
+
+.misys #standardSearchContainer{
+	display:block;
+	background-color:#F2F2F2;
+	border:1px solid #999999;
+	padding:8px;
+	margin-top:4px;
+}
+
+.misys #advancedSearchContainer{
+	display:none;
+}
+
+.misys #advancedSearchInputContainer {
+	background-color:#F2F2F2;
+	border:1px solid #999999;
+	padding:8px;
+	margin-top:4px;
+}
+
+.misys .dijitTabContainerTop-dijitContentPane, .misys .dijitTabContainerLeft-dijitContentPane, .misys .dijitTabContainerBottom-dijitContentPane, .misys .dijitTabContainerRight-dijitContentPane, .misys .dijitAccordionContainer-dijitContentPane{
+	background-color: #f2f2f2;
+}
+
+.misys #onlineHelpPortlet{
+	width: 100%;
+	height:620px;
+	margin-top:8px;
+}
+
+.misys #onlineHelpPortlet #onlineHelpMenu{
+	width: 400px;
+}
+
+.misys #onlineHelpPortlet #onlineHelpContent ul{
+    padding-left:10px;
+}
+
+.misys #onlineHelpPortlet #onlineHelpContent ul li{
+    list-style-type:circle;
+}
+
+.misys .onlinehelp .float-right {
+	float: right;
+}
+
+.misys #searchsummary {
+	background-color: #F0F0F0;
+	border-top: 1px solid #0079A7;
+	padding: 0.1em;
+	clear: left;
+	margin-top:8px;
+}
+
+.misys #searchsummary .emphasize {
+	font-weight: bold;
+}
+
+.misys #onlineHelpNav{
+	margin-bottom:5px;
+}
+
+.misys #searchresults li {
+	padding: 0.5em;
+}
+
+.misys .section-nav-separator {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.misys #onlinehelp {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.misys #onlinehelp_popup .field .dijitButton .dijitButtonNode{
+	background-color:transparent;
+	border-width:1px ;
+}

@@ -1,0 +1,357 @@
+<p-panel *ngIf= "this.commonDataService.getOption() !== 'SUMMARY' || this.iuCommonDataService.getMode() === 'UNSIGNED'" header="{{'HEADER_TRANSACTION_BRIEF' | translate}}"  [collapsed]="this.collapse">
+  <p-header>
+    <span class = "{{commonService.getUserLanguage() === 'ar' ? 'panel-icon-left' : 'panel-icon'}}">
+    <span class ="comparision-icon" *ngIf = "(!viewMode || this.iuCommonDataService.getMode() === 'UNSIGNED') &&
+    ((!(this.commonDataService.getProductCode() === 'BR') &&
+      (jsonContent['tnxTypeCode'] ==='03' && (jsonContent['subTnxTypeCode'] ==='01' || jsonContent['subTnxTypeCode'] ==='02' ||
+      jsonContent['subTnxTypeCode'] ==='03')))
+      || (jsonContent['prodStatCode'] ==='08' && jsonContent['tnxTypeCode'] ==='15'))">
+     <img src="{{imagePath}}comparision_icon.svg" class="cursor" alt="Comparison view" title="Comparison view" (click)="showTwoColumnPreview(jsonContent['refId'])">
+    </span>
+    <span class="master-file-icon" *ngIf = "((!viewMode || this.iuCommonDataService.getMode() === 'UNSIGNED') && !(this.commonDataService.getProductCode() === 'BR' && jsonContent['tnxTypeCode'] ==='01')
+    || (viewMode && this.iuCommonDataService.getMode() === 'RELEASE'))">
+    <span *ngIf="masterIcon" >
+      <img src="{{imagePath}}master_file_icon.svg" class="cursor master-file-icon" alt="Master view" title="Master view" (click)="showDailog(jsonContent['refId'])">
+    </span>
+    <span  *ngIf="tnxIcon" >
+       <a class="fa fa-search fa-lg" alt="Transaction view" title="Transaction view" (click)= "showDailog(jsonContent['refId'])"></a>
+    </span>
+    </span>
+    <span *ngIf = "!this.collapse">
+    <a class="pi pi-minus pi-collapse-icon" (click)="collapsePanel()"></a>
+    </span>
+    <span *ngIf = "this.collapse">
+      <a class="pi pi-plus pi-collapse-icon" (click)="collapsePanel()"></a>
+      </span>
+      </span>
+  </p-header>
+        <!-- Restricted the below block for RU initiation-->
+  <div class="fieldset-content" *ngIf= "!(this.commonDataService.getProductCode() === 'BR' && jsonContent['tnxTypeCode'] ==='01') ;else ru_intitiation_content" id="transactionDetails">
+  <div [formGroup]="transactionDetailsSection">
+   <div *ngIf ="!viewMode ;else view_content">
+    <div id="refIdRow" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null && jsonContent['refId'] != ''">
+      <label for="refId" id="refIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+      <label id="refId" class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['refId']}}</label>
+    </div>
+    <div *ngIf="!(('EXISTING' === this.commonDataService.getOption()) || isExistingDraftMenu
+    || this.jsonContent.tnxTypeCode === '15')">
+      <div id="applDateViewRow">
+        <label for = "applDate">{{ 'GENERALDETAILS_APPLICATION_DATE' | translate }}&nbsp;</label>
+        <input id = "applDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="applDate" readonly>
+      </div>
+    </div>
+    <div *ngIf="('EXISTING' === this.commonDataService.getOption()) || isExistingDraftMenu || (this.jsonContent.tnxTypeCode === '15')">
+      <div id="boInpDttmRow">
+        <label for = "boInpDttmLabel">{{dateLabel}}&nbsp;</label>
+        <input id = "boInpDttm" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="boInpDttm" readonly>
+      </div>
+    </div>
+    <div *ngIf="this.commonDataService.getProductCode() === 'BR'">
+    <div id="issuingBankReferenceRow" *ngIf="jsonContent['issuingBankReference'] && jsonContent['issuingBankReference'] != null
+      && jsonContent['issuingBankReference'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')">
+      <label for="issuingBankReference" id="issuingBankReferenceLabel">{{ 'ISSUING_BANK_REFERENCE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issuingBankReference']}}</label>
+    </div>
+
+    <div id="advisingBankReferenceRow" *ngIf="this.commonService.getSwiftVersion() >= 2023 && jsonContent['advisingBank'] && jsonContent['advisingBank'].reference && jsonContent['advisingBank'].reference != null
+      && jsonContent['advisingBank'].reference != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] != '01')
+    && ('EXISTING' != this.commonDataService.getOption())">
+      <label for="advisingBankReference" id="advisingBankReferenceLabel">{{ 'ADVISING_BANK_REFERENCE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['advisingBank'].reference}}</label>
+    </div>
+    
+    <div id="issDateRow" *ngIf="jsonContent['issDate'] && jsonContent['issDate'] != null &&   jsonContent['issDate'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')">
+        <label for = "issDate">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <input id = "issDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="issDate" readonly>
+    </div>
+    </div>
+    <div id="boRefIdRow" *ngIf="jsonContent['boRefId'] && jsonContent['boRefId'] != null &&   jsonContent['boRefId'] != ''">
+      <label for="boRefId" id="boRefIdlabel">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['boRefId']}}</label>
+    </div>
+    <div id="issDateRow" *ngIf="jsonContent['issDate'] && jsonContent['issDate'] != null &&   jsonContent['issDate'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')
+    && !(this.commonDataService.getProductCode() === 'BR') && !isProvisional">
+        <label for = "issDate">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <input id = "issDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="issDate" readonly>
+    </div>
+    <div id="adviseDateRow" *ngIf="jsonContent['adviseDate'] && jsonContent['adviseDate'] != null && jsonContent['adviseDate'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')
+      && (this.commonDataService.getProductCode() === 'BR')">
+        <label for = "adviseDate">{{ 'ADVISE_DATE' | translate }}&nbsp;</label>
+        <input id = "adviseDate" class="read-only-field {{commonService.getUserLanguage() === 'ar' ? 'content-readonly-right' : 'content-readonly'}}" pInputText formControlName="adviseDate" readonly>
+      </div>
+    <div id="custRefIdRow" *ngIf="jsonContent['custRefId'] && jsonContent['custRefId'] != null && jsonContent['custRefId'] != ''">
+      <label for="custRefId" id="custRefIdLabel">{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['custRefId']}}</label>
+    </div>
+    <div id="companyNameViewRow" *ngIf="jsonContent['companyName'] && jsonContent['companyName'] != null && jsonContent['companyName'] != ''">
+      <label for="companyName" id="companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+      <span *ngIf="(companyFullName && companyFullName !==null && companyFullName !== ''); else companyName">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{companyFullName}}</label>
+      </span>
+      <ng-template #companyName>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['companyName']}}</label>
+      </ng-template>
+    </div>
+    <div id="productCodeRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null && jsonContent['productCode'] != ''
+        && jsonContent['prodStatCode'] && !isProvisional">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['productCode'] | translate }}</label>
+    </div>
+    <div id="productCodeProvisionalRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null && jsonContent['productCode'] != ''
+        && jsonContent['prodStatCode'] && jsonContent['prodStatCode'] != null && jsonContent['prodStatCode'] != '' && isProvisional">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['productCode'] | translate }}&nbsp;{{ 'PROVISIONAL' | translate }}</label>
+    </div>
+    <div id="subProductCodeViewRow" *ngIf="jsonContent['subProductCode'] && jsonContent['subProductCode'] != null && jsonContent['subProductCode'] != ''">
+      <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getSubProductCode(jsonContent['subProductCode']) | translate}}</label>
+    </div>
+    <div id="tnxTypeCodeRow" *ngIf="(jsonContent['tnxTypeCode'] && jsonContent['tnxTypeCode'] != null && jsonContent['tnxTypeCode'] != '') ;else from_existing_type">
+      <label id="tnxTypeCodeLabel" for="tnxTypeCode">{{ 'TRANSACTIONDETAILS_MO_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+      <span *ngIf="(jsonContent['subTnxTypeCode'] && jsonContent['subTnxTypeCode'] != null && jsonContent['subTnxTypeCode'] != ''); else tnxTypeOnly">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTnxTypeCode(jsonContent['tnxTypeCode']) }} {{commonDataService.getTnxSubTypeCode(jsonContent['subTnxTypeCode'])}}</label>
+      </span>
+      <ng-template #tnxTypeOnly>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTnxTypeCode(jsonContent['tnxTypeCode']) }}</label>
+      </ng-template>
+    </div>
+      <div id="prodStatCodeRow" *ngIf="!viewMode && this.iuCommonDataService.getMode() !== 'UNSIGNED' && (!(this.commonDataService.getProductCode() === 'BR' && jsonContent['tnxTypeCode'] ==='01')
+    && !((this.commonDataService.getOption() === 'SCRATCH') ||
+    (this.commonDataService.getMode() === 'DRAFT' && jsonContent['tnxTypeCode'] !== '15')))">
+      <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_NEW_TRANSACTION_STATUS' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+      <p-dropdown id = "prodStatCode" placeholder=" " [options]="prodStatusObj" formControlName="prodStatCode" [showClear]="false"
+      (ngModelChange)="onProdStatChange($event);" [styleClass]="validationService.isFieldInvalid(transactionDetailsSection.get('prodStatCode')) ? 'dropDownFieldError' : 'inherit'">
+      </p-dropdown>
+      <fcc-common-error-message [control]="transactionDetailsSection.get('prodStatCode')"></fcc-common-error-message>
+    </div>
+    <ng-template #from_existing_type>
+      <div id="tnxTypeCodeRow" *ngIf="this.iuCommonDataService.getOption() !== 'HISTORY' && this.commonDataService.getmasterorTnx() !== 'master'">
+        <label for="tnxTypeCode" id="tnxTypeCodeLabel">{{ 'TRANSACTIONDETAILS_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ 'Reporting' | translate}}</label>
+      </div>
+    </ng-template>
+  </div>
+
+
+  <ng-template #view_content>
+  <div id="transactionDetailsView">
+   <div id="refIdRowView" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null && jsonContent['refId'] != ''">
+      <label for="refIdView" id="refIdViewLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['refId']}}</label>
+    </div>
+    <div id="applDateViewRow" *ngIf="!(('EXISTING' === this.commonDataService.getOption()) || isExistingDraftMenu
+          || this.jsonContent.tnxTypeCode === '15') && jsonContent['applDate'] && jsonContent['applDate'] != null && jsonContent['applDate'] != ''">
+          <label for="applDateView" id="applDateIdLabel">{{ 'GENERALDETAILS_APPLICATION_DATE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['applDate']}}</label>
+    </div>
+   <div id="boInpDttmViewRow" *ngIf="('EXISTING' === this.commonDataService.getOption()) || isExistingDraftMenu || (this.jsonContent.tnxTypeCode === '15')
+        && jsonContent['boInpDttm'] && jsonContent['boInpDttm'] != null && jsonContent['boInpDttm'] != ''">
+          <label for="boInpDttmView" id="boInpDttmViewLabel">{{dateLabel}}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{boInpDate}}</label>
+    </div>
+    <div id="issuingBankReferenceViewRow" *ngIf="this.commonDataService.getProductCode() === 'BR' && jsonContent['issuingBankReference'] && jsonContent['issuingBankReference'] != null
+      && jsonContent['issuingBankReference'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')">
+      <label for="issuingBankReferenceView" id="issuingBankReferenceLabelView">{{ 'ISSUING_BANK_REFERENCE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issuingBankReference']}}</label>
+    </div>
+
+    <div id="advisingBankReferenceViewRow" *ngIf="this.commonService.getSwiftVersion() >= 2023 && this.commonDataService.getProductCode() === 'BR' && jsonContent['advisingBank'].reference && jsonContent['advisingBank'].reference != null
+      && jsonContent['advisingBank'].reference != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] != '01')
+    && ('EXISTING' != this.commonDataService.getOption())">
+      <label for="advisingBankReferenceView" id="advisingBankReferenceLabelView">{{ 'ADVISING_BANK_REFERENCE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['advisingBank'].reference}}</label>
+    </div>
+    
+    <div *ngIf=" this.commonDataService.getProductCode() === 'BR' && jsonContent['issDate'] && jsonContent['issDate'] != null &&   jsonContent['issDate'] != ''
+      && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')"
+      id="issDateViewRow">
+      <label for="issDateView" id="issDateViewLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issDate']}}</label>
+    </div>
+    <div id="boRefIdViewRow" *ngIf="jsonContent['boRefId'] && jsonContent['boRefId'] != null &&   jsonContent['boRefId'] != ''">
+      <label for="boRefIdView" id="boRefIdlabelView">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['boRefId']}}</label>
+    </div>
+    <div id="issDateViewRow" *ngIf="jsonContent['issDate'] && jsonContent['issDate'] != null &&   jsonContent['issDate'] != ''
+    && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')
+    && !(this.commonDataService.getProductCode() === 'BR') && !isProvisional">
+      <label for="issDateView" id="issDateViewLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issDate']}}</label>
+    </div>
+    <div id="adviseDateViewRow" *ngIf="jsonContent['adviseDate'] && jsonContent['adviseDate'] != null && jsonContent['adviseDate'] != ''
+      && !(this.iuCommonDataService.getMode() === 'UNSIGNED' && jsonContent['tnxTypeCode'] === '01')
+        && (this.commonDataService.getProductCode() === 'BR')">
+      <label for="adviseDateView" id="issDateViewLabel">{{ 'ADVISE_DATE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['adviseDate']}}</label>
+    </div>
+    <div id="custRefIdRow" *ngIf="jsonContent['custRefId'] && jsonContent['custRefId'] != null && jsonContent['custRefId'] != ''">
+      <label for="custRefId" id="custRefIdLabel">{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['custRefId']}}</label>
+    </div>
+    <div id="companyNameViewRow" *ngIf="jsonContent['companyName'] && jsonContent['companyName'] != null && jsonContent['companyName'] != ''">
+      <label for="companyName" id="companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+      <span *ngIf="(companyFullName && companyFullName !==null && companyFullName !== ''); else companyName">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{companyFullName}}</label>
+      </span>
+      <ng-template #companyName>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['companyName']}}</label>
+      </ng-template>
+    </div>
+    <div id="productCodeRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null && jsonContent['productCode'] != ''
+        && jsonContent['prodStatCode'] && !isProvisional">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['productCode'] | translate }}</label>
+    </div>
+    <div id="productCodeProvisionalRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null && jsonContent['productCode'] != ''
+        && jsonContent['prodStatCode'] && jsonContent['prodStatCode'] != null && jsonContent['prodStatCode'] != '' && isProvisional">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['productCode'] | translate }}&nbsp;{{ 'PROVISIONAL' | translate }}</label>
+    </div>
+    <div id="subProductCodeViewRow" *ngIf="jsonContent['subProductCode'] && jsonContent['subProductCode'] != null && jsonContent['subProductCode'] != ''">
+      <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getSubProductCode(jsonContent['subProductCode']) | translate}}</label>
+    </div>    
+    <div id="tnxTypeCodeRow" *ngIf="(jsonContent['tnxTypeCode'] && jsonContent['tnxTypeCode'] != null && jsonContent['tnxTypeCode'] != '') ;else from_existing_type">
+      <label id="tnxTypeCodeLabel" for="tnxTypeCode">{{ 'TRANSACTIONDETAILS_MO_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+      <span *ngIf="(jsonContent['subTnxTypeCode'] && jsonContent['subTnxTypeCode'] != null && jsonContent['subTnxTypeCode'] != ''); else tnxTypeOnly">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTnxTypeCode(jsonContent['tnxTypeCode']) }} {{commonDataService.getTnxSubTypeCode(jsonContent['subTnxTypeCode'])}}</label>
+      </span>
+      <ng-template #tnxTypeOnly>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTnxTypeCode(jsonContent['tnxTypeCode']) }}</label>
+      </ng-template>
+    </div>
+    
+    <!--Requested New Date of Expiry Field Display-->
+    <div id="extendedDate_view_row" *ngIf="viewMode && commonService.isFieldsValuesExists([jsonContent['extendedDate']])
+    && this.commonDataService.getProductCode() === 'BG'">
+      <label id="extendedDate_label" for ="extendedDate" id="extendedDate">{{ 'KEY_EXTENDED_DATE' | translate}}&nbsp;</label>
+      <label id="extendedDate" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['extendedDate'] }}</label>
+    </div>
+
+  <!----Requested New Date of Expiry of local Undertaking Field Display-->
+    <div id="extendedDatelocal_view_row" *ngIf="(this.commonService.getSwiftVersion() >= 2023)
+       && viewMode && commonService.isFieldsValuesExists([jsonContent['extendedDatelocal']])
+    && this.commonDataService.getProductCode() === 'BG'">
+      <label id="extendedDatelocal_label" for ="extendedDatelocal" id="extendedDatelocal">{{ 'KEY_EXTENDED_DATE_LOCAL' | translate}}&nbsp;</label>
+      <label id="extendedDatelocal" class="{{commonService.getUserLanguage()==='ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['extendedDatelocal'] }}</label>   
+    </div>
+
+      <div id="prodStatCodeRow" *ngIf="viewMode && jsonContent['prodStatCode'] && jsonContent['prodStatCode'] != null && jsonContent['prodStatCode'] != '' && jsonContent['tnxTypeCode'] === '15'">
+      <label for="prodStatCode" id="prodStatCodeLabel">{{ 'MO_NEW_TRANSACTION_STATUS' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{tradeCommonDataService.getProdStatusCode(jsonContent['prodStatCode']) | translate}}</label>
+      <label class="label-left"></label>
+    </div>
+    <ng-template #from_existing_type>
+      <div id="tnxTypeCodeRow" *ngIf="this.iuCommonDataService.getOption() !== 'HISTORY' && this.commonDataService.getmasterorTnx() !== 'master'">
+        <label for="tnxTypeCode" id="tnxTypeCodeLabel">{{ 'TRANSACTIONDETAILS_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ 'Reporting' | translate}}</label>
+      </div>
+    </ng-template>
+    <div id="bgAmdDetailsRow" *ngIf="jsonContent['bgAmdDetails'] && jsonContent['bgAmdDetails'] != null && jsonContent['bgAmdDetails'] != ''">
+      <label for="bgAmdDetails" id="bgAmdDetailsLabel">{{ 'HEADER_AMEND_NARRATIVE_DETAILS' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['bgAmdDetails']}}</label>
+    </div>
+  </div>
+</ng-template>
+  </div>
+  </div>
+  <!-- RU Initiation -->
+  <ng-template #ru_intitiation_content>
+    <div *ngIf="this.commonDataService.getOption() !== 'SUMMARY' && !isRUScratchUnsignedMode && !isRUUnsignedViewMode ;else ru_unsigned_content" id="ruTransactionDetails">
+    <div id="companyNameViewRow" *ngIf="viewMode && jsonContent['companyName'] && jsonContent['companyName'] != null && jsonContent['companyName'] != ''">
+      <label for="companyName" id="companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+      <span *ngIf="(companyFullName && companyFullName !==null && companyFullName !== ''); else companyName">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{companyFullName}}</label>
+      </span>
+      <ng-template #companyName>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['companyName']}}</label>
+      </ng-template>
+    </div>
+    <div id="refIdRow" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null &&   jsonContent['refId'] != ''">
+      <label for="refId" id="refIdLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+      <label id="refId" class="read-field label-left">{{jsonContent['refId']}}</label>
+    </div>
+    <div id="boRefIdViewRow" *ngIf="viewMode && jsonContent['boRefId'] && jsonContent['boRefId'] !== null && jsonContent['boRefId'] !== ''">
+      <label for="boRefId" id="boRefIdLabel">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+      <label class="label-left">{{jsonContent['boRefId']}}</label>
+    </div>
+    <div id="adviseDateRow" *ngIf="this.adviseDate && this.adviseDate !== null && this.adviseDate !== ''">
+      <label for="adviseDate" id="adviseDateLabel">{{ 'ADVISE_DATE' | translate }}&nbsp;</label>
+      <label id="adviseDate" class="label-left">{{this.adviseDate}}</label>
+    </div>
+    <div id="productCodeRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null &&   jsonContent['productCode'] != ''">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label id="productCode" class="label-left">{{ jsonContent['productCode'] | translate }}</label>
+    </div>
+    <div id="subProductCodeViewRow" *ngIf="viewMode && jsonContent['subProductCode'] && jsonContent['subProductCode'] != null && jsonContent['subProductCode'] != ''">
+      <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+      <label id="subProductCode" class="label-left">{{iuCommonDataService.getSubProductCode(jsonContent['subProductCode']) | translate}}</label>
+    </div>
+    <div id="tnxTypeCodeRow">
+      <label for="tnxTypeCode" id="tnxTypeCodeLabel">{{ 'TRANSACTIONDETAILS_MO_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+      <label id="tnxTypeCode" class="label-left">{{ 'NEW' | translate }}</label>
+    </div>
+  </div>
+</ng-template>
+  <ng-template #ru_unsigned_content>
+  <div *ngIf="this.commonDataService.getOption() !== 'SUMMARY' && (isRUScratchUnsignedMode || isRUUnsignedViewMode)" id="ruUnsignedTransactionDetails">
+    <div id="refIdRowView" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null && jsonContent['refId'] != ''">
+      <label for="refIdView" id="refIdViewLabel">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['refId']}}</label>
+    </div>
+    <div id="issuingBankReferenceViewRow" *ngIf="jsonContent['issuingBankReference'] && jsonContent['issuingBankReference'] != null
+      && jsonContent['issuingBankReference'] != ''">
+      <label for="issuingBankReferenceView" id="issuingBankReferenceLabelView">{{ 'ISSUING_BANK_REFERENCE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issuingBankReference']}}</label>
+    </div>
+    <div id="advisingBankReferenceViewRow" *ngIf="this.commonService.getSwiftVersion() >= 2023 && this.commonDataService.getProductCode() === 'BR' && jsonContent['advisingBank'].reference && jsonContent['advisingBank'].reference != null
+    && jsonContent['advisingBank'].reference != ''">
+    <label for="advisingBankReferenceView" id="advisingBankReferenceLabelView">{{ 'ADVISING_BANK_REFERENCE' | translate }}&nbsp;</label>
+    <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['advisingBank'].reference}}</label>
+  </div>
+    <div *ngIf="jsonContent['issDate'] && jsonContent['issDate'] != null &&   jsonContent['issDate'] != ''"
+      id="issDateViewRow">
+      <label for="issDateView" id="issDateViewLabel">{{ 'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['issDate']}}</label>
+    </div>
+    <div id="boRefIdViewRow" *ngIf="jsonContent['boRefId'] && jsonContent['boRefId'] != null &&   jsonContent['boRefId'] != ''">
+      <label for="boRefIdView" id="boRefIdlabelView">{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['boRefId']}}</label>
+    </div>
+    <div id="adviseDateViewRow" *ngIf="jsonContent['adviseDate'] && jsonContent['adviseDate'] != null
+    && jsonContent['adviseDate'] != ''">
+      <label for="adviseDateView" id="issDateViewLabel">{{ 'ADVISE_DATE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['adviseDate']}}</label>
+    </div>
+    <div id="companyNameViewRow" *ngIf="jsonContent['companyName'] && jsonContent['companyName'] != null && jsonContent['companyName'] != ''">
+      <label for="companyName" id="companyNameLabel">{{ 'TRANSACTIONDETAILS_COMPANY_NAME' | translate }}&nbsp;</label>
+      <span *ngIf="(companyFullName && companyFullName !==null && companyFullName !== ''); else companyName">
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{companyFullName}}</label>
+      </span>
+      <ng-template #companyName>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{jsonContent['companyName']}}</label>
+      </ng-template>
+    </div>
+    <div id="productCodeRow" *ngIf="jsonContent['productCode'] && jsonContent['productCode'] != null && jsonContent['productCode'] != ''
+        && jsonContent['prodStatCode'] && jsonContent['prodStatCode'] != '98'">
+      <label for="productCode" id="productCodeLabel">{{ 'TRANSACTIONDETAILS_PRODUCT' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{ jsonContent['productCode'] | translate }}</label>
+    </div>
+    <div id="subProductCodeViewRow" *ngIf="jsonContent['subProductCode'] && jsonContent['subProductCode'] != null && jsonContent['subProductCode'] != ''">
+      <label for="subProductCode" id="subProductCodeLabel">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getSubProductCode(jsonContent['subProductCode']) | translate}}</label>
+    </div>
+    <div id="tnxTypeCodeRow" *ngIf="(jsonContent['tnxTypeCode'] && jsonContent['tnxTypeCode'] != null && jsonContent['tnxTypeCode'] != '')">
+      <label id="tnxTypeCodeLabel" for="tnxTypeCode">{{ 'TRANSACTIONDETAILS_MO_TRANSACTION_TYPE' | translate }}&nbsp;</label>
+      <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{commonDataService.getTnxTypeCode(jsonContent['tnxTypeCode']) }}</label>
+    </div>
+  </div>
+ </ng-template>
+</p-panel>

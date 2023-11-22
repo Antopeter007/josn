@@ -1,0 +1,73 @@
+<p-panel id="contractDetailsPanel" header="{{'HEADER_UNDERTAKING_CONTRACT_DETAILS' | translate}}" *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY'" [toggleable]="true" [collapsed] ="!this.collapsible">
+    <div [formGroup]="contractDetails">
+      <div *ngIf ="!viewMode ;else view_content">
+      <div id="contractReferenceRow" class="field">
+        <label id="contractReferenceLabel">{{ 'KEY_CONTRACT_REF' | translate }}&nbsp;</label>
+        <p-dropdown id="contractReference" placeholder="{{'SELECT_MESSAGE' | translate }}&nbsp;" [options]="contractReferenceObj"
+           [showClear]="true" formControlName = "contractReference" (ngModelChange)="clearTenderExpDate();">
+        </p-dropdown>
+      </div>
+      <div id="contractNarrativeRow" class="field">
+        <label id="contractNarrativeLabel">{{ 'KEY_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+        <input id="contractNarrative" pInputText formControlName="contractNarrative" maxlength="35">
+        <fcc-common-error-message [control]="contractDetails.get('contractNarrative')"></fcc-common-error-message>
+      </div>
+      <div id="contractDateRow" class="field">
+        <label id="contractDateLabel">{{ 'KEY_CONTRACT_DATE' | translate }}&nbsp;</label>
+        <p-calendar id="contractDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="contractDate" onkeydown="return false" dateFormat="{{ this.dateFormat }}" dataType="string" [showButtonBar]="true"></p-calendar>
+        <a *ngIf="!(commonData.disableTnx) && hasContractDateValue()" class="fa fa-remove fa-lg text-danger" id="contractDateserach" (click)="clearContractDate($event);"></a>
+        <fcc-common-error-message [control]="contractDetails.get('contractDate')"></fcc-common-error-message>
+      </div>
+      <div id="tenderExpiryDateRow" class="field" *ngIf="toDisplay()">
+          <label id="tenderExpiryDateLabel">{{ 'KEY_TENDER_DATE' | translate }}&nbsp;</label>
+          <p-calendar id="tenderExpiryDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="tenderExpiryDate" onkeydown="return false" dateFormat="{{ this.dateFormat }}" dataType="string" [showButtonBar]="true"></p-calendar>
+          <a *ngIf="!(commonData.disableTnx) && hasTenderExpDateValue()" class="fa fa-remove fa-lg text-danger" id="tenderExpDateserch" (click)="clearTenderExpiryDate($event);"></a>
+      </div>
+      <div id="contractAmtRow" class="field">
+        <label id="contractAmtLabel">{{ 'KEY_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+        <input id="contractCurCode" formControlName="contractCurCode" pInputText type="text" size="3" maxlength="3" (change)="contractDetails.get('contractAmt').updateValueAndValidity()"
+        oninput="this.value = this.value.toUpperCase()" (change)="validateCurrency(); this.commonService.transformAmtAndSetValidators(this.contractDetails.get('contractAmt'),
+        this.contractDetails.get('contractCurCode'), 'contractCurCode');" class="input-three-digit" placeholder="{{ 'CCY' | translate}}">
+        <a *ngIf="!(commonData.disableTnx)" class="fa fa-search fa-lg" placeholder="clear" id="currencySearch" (click)="selectCurrency()"></a>
+        <input id="contractAmt" formControlName="contractAmt" pInputText type="text" name="contractAmt" pKeyFilter="num"  (blur)="this.commonService.transformAmtAndSetValidators(this.contractDetails.get('contractAmt'),
+         this.contractDetails.get('contractCurCode'), 'contractCurCode');">
+        <fcc-common-error-message [control]="contractDetails.controls.contractAmt"></fcc-common-error-message>
+        <fcc-common-error-message [control]="contractDetails.controls.contractCurCode"></fcc-common-error-message>
+      </div>
+      <div id="contractPctRow" class="field">
+        <label id="contractPctLabel">{{ 'KEY_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+        <input class = "input-three-digit" type="text" pInputText id="contractPct" formControlName="contractPct" pInputText pKeyFilter="int" maxlength="3" (blur)="this.commonService.transformNumber(this.contractDetails.get('contractPct'))">
+      </div>
+      </div>
+      <!--View screen content-->
+      <ng-template #view_content>
+        <div id = "contractDetailsView">
+          <div id =  "contractRefViewRow" *ngIf ="bgRecord['contractReference'] && bgRecord['contractReference'] != null && bgRecord['contractReference'] != ''">
+            <label for = "contractRef" id = "contractRefLabel">{{ 'KEY_CONTRACT_REF' | translate }}&nbsp;</label>
+            <label class="label-left">{{commonDataService.getContractReference(bgRecord['contractReference']) | translate}}</label>
+          </div>
+          <div id =  "contractNarrativeViewRow" *ngIf ="bgRecord['contractNarrative'] && bgRecord['contractNarrative'] != null && bgRecord['contractNarrative'] != ''">
+              <label for = "contractNarrative" id = "contractNarrativeLabel">{{ 'KEY_CONTRACT_NARRATIVE' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['contractNarrative']}}</label>
+          </div>
+          <div id =  "contractDateViewRow" *ngIf ="bgRecord['contractDate'] && bgRecord['contractDate'] != null && bgRecord['contractDate'] != ''">
+              <label for = "contractDate" id = "contractDateLabel">{{ 'KEY_CONTRACT_DATE' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['contractDate']}}</label>
+          </div>
+          <div id = "tenderExpDateViewRow" *ngIf="bgRecord['tenderExpiryDate'] && bgRecord['tenderExpiryDate'] != null && bgRecord['tenderExpiryDate'] != ''">
+              <label for = "tenderExpiryDate" id = "tenderExpiryDateLabel">{{ 'KEY_TENDER_DATE' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['tenderExpiryDate']}}</label>
+          </div>
+          <div id =  "contractAmtViewRow" *ngIf ="bgRecord['contractAmt'] && bgRecord['contractAmt'] != null && bgRecord['contractAmt'] != ''">
+              <label for =  "contractAmt" id = "contractAmtLabel">{{ 'KEY_CONTRACT_AMOUNT' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['contractCurCode']}} {{bgRecord['contractAmt']}}</label>
+          </div>
+          <div id =  "contractPctViewRow" *ngIf ="bgRecord['contractPct'] && bgRecord['contractPct'] != null && bgRecord['contractPct'] != ''">
+              <label for = "contractPct" id = "contractPctLabel">{{ 'KEY_PERCENTAGE_COVERED' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['contractPct']}}</label>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+</p-panel>
+

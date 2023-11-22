@@ -1,0 +1,24 @@
+<span class="calendarStyleClass">
+  <p-calendar
+    [(ngModel)]="valueDate"
+    id="{{ calendarID }}"
+    [placeholder]="placeholder ? placeholder : calendarLabel"
+    [inline]="inline ? inline : false"
+    [showIcon]="showIcon ? showIcon : false"
+    [showButtonBar]="showButtons ? showButtons : false"
+    [dateFormat]="dateFormat ? dateFormat : 'dd/MM/yyyy'"
+    [showTime]="showTime ? showTime : false"
+    [hourFormat]="hourFormat ? hourFormat : '24'"
+    [minDate]="minDate ? minDate : ''"
+    [maxDate]="maxDate ? maxDate : ''"
+    [readonlyInput]="readOnly ? readOnly : false"
+    [disabledDates]="disabledDates ? disabledDates : false"
+    [disabledDays]="disabledDays ? disabledDays : []"
+    [numberOfMonths]="numberOfMonths ? numberOfMonths : 1"
+    [monthNavigator]="monthNavigator ? monthNavigator : false"
+    [yearNavigator]="yearNavigator ? yearNavigator : false"
+    (click)="registerOnChange($event)"
+    [yearRange]="getYearRange(yearRange)"
+  ></p-calendar>
+</span>
+

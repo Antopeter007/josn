@@ -1,0 +1,96 @@
+<p-toast key="loginKey" [style]="{ marginTop: '0em', width: '38em' }" [position]="positionStyle"></p-toast>
+<div *ngIf= "translationServiceloaded && (!ssoEnabled)">
+<div class="p-grid entirePage">
+  <div class="p-col-12 p-md-12 p-lg-4 left-form">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <div class="pd-lang" [ngClass]="{'pd-lang-right': styleClassName === 'labelStyleArabic'}">
+          <span id="changeLanguage" class="changeLanguageLabel">{{'changeLanguage' | translate}}</span>
+          <p-dropdown id="language" *ngIf="language.length !== 1" [options]="language" autoWidth="true" [(ngModel)]="selectedLanguage"
+            (onChange)="switchLanguage(selectedLanguage)" ariaLabelledBy="changeLanguage" title="{{'changeLanguage' | translate}}"></p-dropdown>
+        </div>
+      </div>
+      <div class="p-col-12 main-form-container">
+        <div class="p-grid">
+          <div class="p-col-12 logo-grid" >
+            <div class="logo-img">
+              <a [href]="homeUrl" target="_blank" tabindex="0">
+                <img src="{{logoFilePath}}" alt= "{{'C102_Home_*_*' | translate }}" />
+              </a>
+            </div>
+          </div>
+          <h1>
+            <div class="p-col-12 login_header" >
+             <span class="h-text-1">{{'bankCompName' | translate}} {{'bank' | translate}}</span><br>
+             <span class="h-text-2">{{'corporatechannels' | translate}}</span>
+            </div>
+          </h1>
+         
+          <div class="p-col-12">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(this.loginForm.value)" autocomplete="off">
+              <div class="p-grid">
+                <div class="p-col-12" aria-live="polite">
+                  <span class="ui-float-label implementation">
+                    <input role="textbox" OnFocusInput="true" id="corporateid" type="text" size="30" pInputText
+                      formControlName="corporateid" (blur)="onBlurCorporateMethod()" autocomplete="off" >
+                    <label [class]="styleClassName" for="corporateid">{{'Corporate_ID' | translate}}</label>
+                  </span>
+                  <span class="label-below">{{'EnterCorporateId' | translate}}</span>
+                  <span class="ui-float-label implementation">
+                    <input role="textbox" id="username" type="text" size="30" autofocus pInputText formControlName="username"
+                      (blur)="onBlurUserMethod()" autocomplete="off" >
+                    <label [class]="styleClassName" for="username">{{'username' | translate}}</label>
+                  </span>
+                  <span class="label-below">{{'EnterUserName' | translate}}</span>
+                  <span class="ui-float-label implementation">
+                    <input role="textbox" appBlockPaste id="password" type="password" size="30" pInputText formControlName="password"
+                      autocomplete="new-password">
+                   <label [class]="styleClassName" for="password">{{'password' | translate}}</label>
+                  </span>
+                  <span class="label-below">{{'EnterPassword' | translate}}</span>
+                </div>
+                <div *ngIf= "isRecaptchaV2Enabled">
+                  <re-captcha formControlName="recaptcha" (resolved)="onClickCaptcha($event)"></re-captcha>
+                </div>
+                <div aria-live="polite">
+                 <span *ngIf = "formSubmitAttempt" id="invalid-error-text" class="invalid-error-text">{{errorHeader | translate}}: {{loginError}}</span>
+                </div>
+                <div class="p-col-12 margi-top">
+                  <div class="p-grid">
+                    <div class="p-col-12">
+                      <p-button role="button" [disabled]="loginBtnState" type="submit" label="{{'loginButton' | translate}}" class="p-col-12" styleClass="primaryButton"></p-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="displayForgotPwd" class="p-col-12 margi-top-retrieval">
+            <div class="p-grid right right-retrieval">
+              <a class="retrieve-details" (click)="navigateToRetrieveDetails()">{{'forgotUserNamePwd' | translate}}</a>
+            </div>
+          </div>
+          <div class="p-col-12 margin-top-hyperLink">
+            <div class="p-grid center">
+              <div class="supportLink">
+                
+                  <a [href]="loginPageSupportUs" class="supportStyle" target="_blank">{{'support' | translate}}</a>
+                
+              </div>
+            </div>
+          </div>
+          <div class="p-col-12">
+            <div class="center-align">
+              <img src="{{contextPath}}/content/FCCUI/assets/images/sec.png" alt="{{'SecureLoginImage' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-col-12 p-md-12 p-lg-8 no-mr-pd">
+    <img src="{{loginImageFilePath}}" alt="{{'C102_Banner_*_*' | translate}}" class="login-img"/>
+  </div>
+ </div>
+</div>

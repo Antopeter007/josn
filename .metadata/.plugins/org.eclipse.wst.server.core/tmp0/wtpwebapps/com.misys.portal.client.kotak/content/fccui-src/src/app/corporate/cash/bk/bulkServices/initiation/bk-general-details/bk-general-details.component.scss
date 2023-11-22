@@ -1,0 +1,9 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .bk-pab {
+    margin: 0em 0em 1em 0em !important;
+}
+
+:host ::ng-deep .subheader-title {
+    margin-top: 0.5em !important;
+}

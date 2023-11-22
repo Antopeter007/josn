@@ -1,0 +1,1035 @@
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Configured log4j from C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\log4j2.xml
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Loaded configuration  (XML) from /config/configuration.xml (C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\configuration.xml)
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GenericDocumentService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BrowserDetectionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FOProcessorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EntityFileValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReCaptchaValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MultiFactorAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoginModesService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ColumnActionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProvisioningAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ComponentService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FactoryService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PoolService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: RunDataService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ServletService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AssemblerBrokerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LocalizationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MimeTypeService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GlobalCacheService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SchedulerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UploadService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SecurityService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PullService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SessionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TemplateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XSLTService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: VelocityService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPDefaultTemplateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AuditService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DowntimeService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ThreadPool
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PortletCache
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: URLManager
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlManager
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlScreenManager
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlImportManager
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CompanyPsmlService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FacilityValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FacilityProcessingCoreService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MailFormatterService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseOnlineHelpService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TreasurySFXService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LiquidityHelperService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CommonWebAppService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReportWebAppHelperService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkMapperService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SynchronousInterfaceService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TargetDeviceService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPSecurityService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPBOReferenceManagerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPPoolBrokerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPInitializationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionResponseService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPAuthorisationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BoardRateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TDInterestRateInquiryService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ChequeStatusInquiryService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PostingDetailsService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SweepService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AccountService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StandingOrderService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: POGroupingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseLineGroupingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPIndexManagerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SWIFTProcessorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CustomerReferenceValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: HolidaysAndCutOffService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CryptoService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InstanceIdentificationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PayeeReferenceValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProductInitializerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StopoverService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoanStopoverService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FTValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseProductValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MasterPayeeValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CustomerPayeeValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ISOInvoiceService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SimplifiedInvoiceService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MultipartUploadService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IBANValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CNValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CRValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IUValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: RUValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: POValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IOValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EAValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyProgramAssociationValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TMAValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterPartyService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: INSimplifiedValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IPSimplifiedValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FSCMConnectorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CreditNoteConnectorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionConfirmationDetailsService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyUploadValidateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryUploadValidateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkUploadFileFormatService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkFileUploadValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DMSAttachmentService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AntivirusBrokerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DisplayChangesetService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionAuthoriserIdentificationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProvisioningService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CompanyFileValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UserFileValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LCValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ELValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SIValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SRValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BGValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BRValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ECValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ICValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LIValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FXValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LSValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SEValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BKValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TFValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SGValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IPValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: INValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TDValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IRValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LNValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BKFileUploadValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SingleFinanceRequestService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GuaranteeTemplateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UndertakingTemplateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StandByLCTemplateService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SourceValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FXProcessingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FTProcessingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CMEQProcessingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LSClientAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ListDefAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InquiryAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: WebServiceAuthorizationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BankerGuranteeCalculateTenorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReceivedBankerGuranteeCalculateTenorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DataGridHeaderService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReferenceIdGeneratorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoginApiService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ListDefTransactionProcessingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPDownloadValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPUploadValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProductUserValidatorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionValidationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SecurityCheckService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FavouriteNudgesService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryGroupIdGeneratorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ExternalAPICallService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ExternalStaticDataConvertorService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FCCFeedbackService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CourierTrackerService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EntitlementManagementService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InterfacesService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PortalResourcesService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XMLCatalogService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XMLReaderService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SchematronService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DaemonFactory
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FxTokenService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoanService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: OustandingAliasService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PoolingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FBSSOUserAuthenticationService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FeesAndBillingService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BankInvoiceService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PaymentService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiariesService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CDPService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PaymentsService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BrowserDetectionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BrowserDetectionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ColumnActionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ColumnActionService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ComponentService
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- com.misys.portal.services.component.GTPComponentService - Added torque as a component
+[Tue Nov 07 12:41:10 IST] -- main -- INFO  -- org.apache.stratum.component.ComponentLoader - loading component: name=torque class=org.apache.torque.Torque config=C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\torque.properties
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ComponentService
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GlobalCacheService
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GlobalCacheService
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SchedulerService
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): InstanceIdentificationService
+[Tue Nov 07 12:41:11 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): InstanceIdentificationService
+[Tue Nov 07 12:41:12 IST] -- main -- ERROR -- com.misys.portal.common.services.schedule.GTPSchedulerService - Could not initialize the scheduler service
+org.apache.torque.TorqueException: java.lang.NullPointerException
+	at org.apache.torque.util.BasePeer.throwTorqueException(BasePeer.java:188) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.getSelectResults(BasePeer.java:1390) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.executeQuery(BasePeer.java:1265) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.doSelect(BasePeer.java:1139) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.doSelect(BasePeer.java:1106) ~[torque-3.1.1.jar:?]
+	at com.misys.portal.common.services.schedule.GTPBaseJobEntryPeer.doSelect(GTPBaseJobEntryPeer.java:127) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.common.services.schedule.GTPSchedulerService.init(GTPSchedulerService.java:160) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at org.apache.turbine.services.BaseServiceBroker.initService(BaseServiceBroker.java:250) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.doInitService(BaseServiceBroker.java:323) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.initServices(BaseServiceBroker.java:297) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.init(BaseServiceBroker.java:136) ~[turbine.jar:?]
+	at org.apache.turbine.Turbine.configure(Turbine.java:352) ~[turbine.jar:?]
+	at org.apache.turbine.Turbine.init(Turbine.java:175) ~[turbine.jar:?]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1089) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:983) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4902) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5211) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[catalina.jar:9.0.41]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_241]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-util.jar:9.0.41]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[?:1.8.0_241]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:843) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[catalina.jar:9.0.41]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_241]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-util.jar:9.0.41]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[?:1.8.0_241]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:434) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) ~[catalina.jar:9.0.41]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:342) ~[bootstrap.jar:9.0.41]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473) ~[bootstrap.jar:9.0.41]
+Caused by: java.lang.NullPointerException
+	at com.workingdogs.village.Value.<init>(Value.java:236) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.Record.createValues(Record.java:174) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.Record.<init>(Record.java:114) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:608) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:540) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:524) ~[village-2.0-dev-20100301.jar:?]
+	at org.apache.torque.util.BasePeer.getSelectResults(BasePeer.java:1361) ~[torque-3.1.1.jar:?]
+	... 45 more
+[Tue Nov 07 12:41:12 IST] -- main -- ERROR -- org.apache.turbine.services.BaseServiceBroker - org.apache.turbine.services.InitializationException: Could not initialize the scheduler service
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PullService
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): PoolService
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.pool.TurbinePoolService - Activated Pool Debugging!
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): FactoryService
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): FactoryService
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): PoolService
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Pull Model tools will be refreshed on a per request basis.
+[Tue Nov 07 12:41:12 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): VelocityService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): TemplateService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): AssemblerBrokerService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 action factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 screen factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 navigation factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 layout factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 page factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 scheduledjob factories.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): AssemblerBrokerService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.DirectMapper to map page elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map screen elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map layout elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map navigation elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.LayoutTemplateMapper to map layout.template elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ScreenTemplateMapper to map screen.template elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.DirectTemplateMapper to map navigation.template elements
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): TemplateService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): VelocityService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.services.pull.tools.TemplateLink to add to the context as '$link'
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.util.template.HtmlPageAttributes to add to the context as '$page'
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.services.pull.tools.ContentTool to add to the context as '$content'
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): UploadService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): UploadService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Starting initialization.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.client.product.util.builder.ClientProductBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): GTPPoolBrokerService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): GTPPoolBrokerService
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [TF]
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): BulkMapperService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): BulkMapperService
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [SE]
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [LC]
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - Loading LC sub products
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - LCSTD
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - CSTIN
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - DISP
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - IRSTD
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.product.util.builder.ProductBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [TF]
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [SE]
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [LC]
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - Loading LC sub products
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - LCSTD
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.cash.product.util.builder.ProductBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [FT]
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.PurchaseOrderBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.InvoiceBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.InvoicePayableBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.loan.product.util.builder.ProductBuilder
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Ending initialization.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): LocalizationService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): LocalizationService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads resource bundle for language: en
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): PortalResourcesService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Reads the master registry.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resource registry: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/classes/master_registry.xml
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Reads the customer registry.
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resource registry: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/classes/client_registry.xml
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): PortalResourcesService
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: localization
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/core_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/codes_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: trade/localization/trade_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: openaccount/localization/openaccount_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: tsu/localization/tsu_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: cash/localization/cash_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: loan/localization/loan_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: treasury/localization/treasury_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: fcm/localization/fcm_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_en.properties
+[Tue Nov 07 12:41:13 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_codes_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads resource bundle for language: en
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: localization
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/core_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/codes_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: trade/localization/trade_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: openaccount/localization/openaccount_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: tsu/localization/tsu_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: cash/localization/cash_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: loan/localization/loan_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: treasury/localization/treasury_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: fcm/localization/fcm_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_en.properties
+[Tue Nov 07 12:41:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_codes_en.properties
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): FOProcessorService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): FOProcessorService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.localization.Localization to add to the context as '$l10n'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.ConvertTools to add to the context as '$convertTools'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.Turbine to add to the context as '$config'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.security.GTPSecurityCheck to add to the context as '$security'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.SecurityUtils to add to the context as '$securityUtils'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.search.common.Search to add to the context as '$search'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.resources.DefaultResourceProvider to add to the context as '$defaultresource'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.security.GTPSecurity to add to the context as '$gtpsecurity'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.GTPApplicationData to add to the context as '$gtpapp'
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PullService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SessionService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SessionService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): VelocityService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): VelocityService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPDefaultTemplateService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPDefaultTemplateService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PsmlScreenManager
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PsmlScreenManager
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPAuthenticationService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPAuthenticationService
+[Tue Nov 07 12:41:32 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPBOReferenceManagerService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPBOReferenceManagerService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPPoolBrokerService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPPoolBrokerService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPInitializationService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- com.misys.portal.common.services.GTPInitializationService - N00030 - GTPInitializationService : Portal core version is: FCC_6.1.1.3_HF3_KOTAK_20231026.14-demobank
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- com.misys.portal.common.services.GTPInitializationService - N00030 - GTPInitializationService : Xalan Environment Check successful:
+#---- BEGIN writeEnvironmentReport($Revision: 1.29 $): Useful stuff found: ----
+version.DOM.draftlevel=2.0fd
+java.class.path=C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\bootstrap.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\commons-daemon.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\tomcat-juli.jar;C:\Program Files\Java\jdk1.8.0_241\lib\tools.jar
+version.JAXP=1.1 or higher
+java.ext.dirs=C:\Program Files\Java\jdk1.8.0_241\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+version.xerces2=Xerces-J 2.12.0
+version.xerces1=not-present
+version.xalan2_2=Xalan Java 2.7.0
+version.xalan1=not-present
+version.ant=not-present
+java.version=1.8.0_241
+version.DOM=2.0
+version.crimson=not-present
+sun.boot.class.path=C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\resolver.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\serializer-2.7.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xalan-2.7.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xercesImpl-2.12.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xml-apis-2.10.0.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes
+version.SAX=2.0
+version.xalan2x=Xalan Java 2.7.0
+#----- END writeEnvironmentReport: Useful properties found: -----
+# YAHOO! Your environment seems to be OK.
+
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPInitializationService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): TransactionResponseService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): TransactionResponseService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPAuthorisationService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPAuthorisationService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): POGroupingService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): POGroupingService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BaseLineGroupingService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BaseLineGroupingService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPIndexManagerService
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.compass.core.config.CompassConfiguration - Configuring from file [C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\compass.cfg.xml]
+[Tue Nov 07 12:41:33 IST] -- main -- INFO  -- org.compass.core.config.CompassConfiguration - Mapping file [C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\portal_online_help.cpm.xml]
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [default]
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [en-analyzer]
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [fr-analyzer]
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.compass.core.lucene.engine.manager.DefaultLuceneSearchEngineIndexManager - Not starting scheduled index manager
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPIndexManagerService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): HolidaysAndCutOffService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): HolidaysAndCutOffService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ProductInitializerService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ProductInitializerService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): StopoverService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): StopoverService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): LoanStopoverService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): LoanStopoverService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): DataGridHeaderService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): DataGridHeaderService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ReferenceIdGeneratorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ReferenceIdGeneratorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): LoginApiService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): LoginApiService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ListDefTransactionProcessingService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ListDefTransactionProcessingService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ProductUserValidatorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ProductUserValidatorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): TransactionValidationService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): TransactionValidationService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SecurityCheckService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SecurityCheckService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BeneficiaryGroupIdGeneratorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BeneficiaryGroupIdGeneratorService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): InterfacesService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Encoding set to: UTF-8
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Asynchronous mode is supported
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XMLReaderService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XMLReaderService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XMLCatalogService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: catalog
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XMLCatalogService
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to initialize Factory from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml and file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Tue Nov 07 12:41:34 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 168 Interface(s) and 555 Bundle(s) have been loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 310 Component(s) have been loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - Factory successfully initialized
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Components and Interfaces loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml, file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to initialize Factory from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml and C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 168 Interface(s) and 555 Bundle(s) have been loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 310 Component(s) have been loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - Factory successfully initialized
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Custom Components and Interfaces loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml, C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): InterfacesService
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PortalResourcesService
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PortalResourcesService
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SchematronService
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XSLTService
+[Tue Nov 07 12:41:35 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XSLTService
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: schematron
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.services.schematron.SchematronCachingService - Schematron Service initialized (1 entries)
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SchematronService
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): DaemonFactory
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Early init for DaemonFactory called...
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Early init for DaemonFactory done
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - DaemonFactory:  Starting up necessary daemons.
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - DaemonFactory:  start(): starting daemon -> filetogtpinterfacedaemon
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Creating daemon: filetogtpinterfacedaemon
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Late init for DaemonFactory called
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): DaemonFactory
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): FxTokenService
+[Tue Nov 07 12:41:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:41:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:41:36 IST] -- main -- ERROR -- com.finastra.portal.treasury.services.seamlessfx.SeamlessFxTokenService - SFX application is not enabled through configuration
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): FxTokenService
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finished initializing all services!
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): RunDataService
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): RunDataService
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Turbine: init() Ready to Rumble!
+[Tue Nov 07 12:41:36 IST] -- main -- INFO  -- org.apache.axis2.deployment.WarBasedAxisConfigurator - Could not find axis2.xml, loading default org/apache/axis2/deployment/axis2_default.xml from classpath
+[Tue Nov 07 12:41:37 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - No modules directory was found under C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\WEB-INF.
+[Tue Nov 07 12:41:38 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPInquiryService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPInquiryService.aar
+[Tue Nov 07 12:41:38 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPListDefService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPListDefService.aar
+[Tue Nov 07 12:41:38 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPProvisioningService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPProvisioningService.aar
+[Tue Nov 07 12:41:38 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPService.aar
+[Tue Nov 07 12:41:38 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: version-1.7.9.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/version-1.7.9.aar
+[Tue Nov 07 12:41:38 IST] -- main -- WARN  -- org.apache.axis2.transport.http.AxisServlet - No transportReceiver for org.apache.axis2.transport.http.AxisServletListener found. An instance for HTTP will be configured automatically. Please update your axis2.xml file!
+[Tue Nov 07 12:41:39 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.core.RestAPIDispatcherServlet - Initializing Servlet 'restportal'
+[Tue Nov 07 12:41:45 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(java.lang.String,java.lang.Object[],java.lang.String,java.util.Locale)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Tue Nov 07 12:41:45 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(java.lang.String,java.lang.Object[],java.util.Locale) throws org.springframework.context.NoSuchMessageException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Tue Nov 07 12:41:45 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(org.springframework.context.MessageSourceResolvable,java.util.Locale) throws org.springframework.context.NoSuchMessageException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Tue Nov 07 12:41:48 IST] -- main -- INFO  -- org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+[Tue Nov 07 12:41:53 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.security.oidc.SecurityConfig$$EnhancerBySpringCGLIB$$600a60dc.authenticationManagerBean()
+[Tue Nov 07 12:41:54 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.security.oidc.SecurityConfig$$EnhancerBySpringCGLIB$$600a60dc.authenticationManagerBean()
+[Tue Nov 07 12:41:54 IST] -- main -- WARN  -- org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/restportal/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[Tue Nov 07 12:41:54 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/restportal/**']
+[Tue Nov 07 12:41:54 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will secure Or [Ant [pattern='/restportal/oauth/authorize']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@7dc20f93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1040a217, org.springframework.security.web.context.SecurityContextPersistenceFilter@1523698a, org.springframework.security.web.header.HeaderWriterFilter@681dacd, org.springframework.security.web.csrf.CsrfFilter@7d58d507, org.springframework.security.web.authentication.logout.LogoutFilter@27a23096, com.finastra.openapi.security.oidc.CustomSecurityFilter@ba86bdc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1042276e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37ab789f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5084187f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@726ca71e, org.springframework.security.web.session.SessionManagementFilter@3fb73a9a, org.springframework.security.web.access.ExceptionTranslationFilter@638084f4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ae466cd]
+[Tue Nov 07 12:41:54 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.security.OAuth2ResourceServerSecurityConfiguration$$EnhancerBySpringCGLIB$$a41f6b2f.jwtDecoder()
+[Tue Nov 07 12:41:55 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.security.OAuth2ResourceServerSecurityConfiguration$$EnhancerBySpringCGLIB$$a41f6b2f.jwtDecoder()
+[Tue Nov 07 12:41:55 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will secure Or [Ant [pattern='/restportal/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@798b019b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44f7f18b, org.springframework.security.web.context.SecurityContextPersistenceFilter@34b95aa8, org.springframework.security.web.header.HeaderWriterFilter@6eee7051, com.finastra.openapi.security.oidc.AccessTokenVerifierFilter@44f7f6c7, org.springframework.security.web.csrf.CsrfFilter@3d67f1ce, org.springframework.security.web.authentication.logout.LogoutFilter@2f9f3531, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3ba6e1db, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b28e144, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76d97888, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1008033a, org.springframework.security.web.session.SessionManagementFilter@36d2243d, org.springframework.security.web.access.ExceptionTranslationFilter@6e563308, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@532ae38d]
+[Tue Nov 07 12:41:56 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.core.RestAPIDispatcherServlet - Completed initialization in 17787 ms
+[Tue Nov 07 12:41:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:41:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.core.util.JetspeedInitializer - N00030 - JetspeedInitializer : Initializing the DaemonFactory
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.core.util.JetspeedInitializer - N00030 - JetspeedInitializer : JetspeedInitializer -> DONE
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.Turbine - Turbine: first Request successful
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): TargetDeviceService
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): TargetDeviceService
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-2 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): TargetDeviceService
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-2 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): TargetDeviceService
+[Tue Nov 07 12:41:57 IST] -- http-nio-8086-exec-2 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): GTPSecurityService
+[Tue Nov 07 12:41:58 IST] -- http-nio-8086-exec-2 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): GTPSecurityService
+[Tue Nov 07 12:41:58 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): GTPSecurityService
+[Tue Nov 07 12:41:58 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): GTPSecurityService
+[Tue Nov 07 12:41:58 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): SecurityService
+[Tue Nov 07 12:41:58 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): SecurityService
+[Tue Nov 07 12:41:59 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): CryptoService
+[Tue Nov 07 12:41:59 IST] -- http-nio-8086-exec-1 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): CryptoService
+[Tue Nov 07 12:41:59 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: menu
+[Tue Nov 07 12:41:59 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: menu
+[Tue Nov 07 12:41:59 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: menu
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getDefaultDashbaord
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /configuration
+[Tue Nov 07 12:42:05 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /clientMenuDetails/
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /entities
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /user-details
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getChatConfiguration
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getlocalizationdetails
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 12:42:07 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-1 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-4 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): AuditService
+[Tue Nov 07 12:42:08 IST] -- http-nio-8086-exec-4 -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): AuditService
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-6 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-4 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-7 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-9 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-3 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-1 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-5 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /fbcclogout/
+[Tue Nov 07 12:42:09 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getString
+[Tue Nov 07 12:42:10 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:10 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:42:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 12:42:30 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 12:42:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:42:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:42:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:42:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:43:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:43:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:43:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:43:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:43:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:43:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:44:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:44:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:44:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:44:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:44:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:44:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:45:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:45:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:45:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:45:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:45:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:45:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:46:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:46:16 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:46:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:46:36 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:46:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:46:56 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:47:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:47:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:47:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:47:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:47:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:47:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:48:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:48:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:48:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:48:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:48:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:48:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:49:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:49:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:49:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:49:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:49:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:49:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:50:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:50:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:50:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:50:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:50:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:50:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:51:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:51:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:51:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:51:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:51:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:51:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:52:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:52:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:52:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:52:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:52:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:52:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:53:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:53:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:53:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:53:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:53:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:53:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:54:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:54:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:54:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:54:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:54:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:54:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:55:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:55:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:55:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:55:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:55:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:55:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:56:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:56:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:56:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:56:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:56:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:56:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:57:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:57:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:57:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:57:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:57:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:57:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:58:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:58:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:58:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:58:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:58:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:58:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:59:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:59:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:59:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:59:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 12:59:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 12:59:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:00:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:00:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:00:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:00:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:00:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:00:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:01:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:01:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:01:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:01:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:01:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:01:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:02:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:02:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:02:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:02:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:02:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:02:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:03:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:03:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:03:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:03:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:03:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:03:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:04:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:04:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:04:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:04:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:04:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:04:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:05:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:05:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:05:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:05:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:05:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:05:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:06:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:06:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:06:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:06:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:06:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:06:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:07:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:07:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:07:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:07:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:07:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:07:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:08:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:08:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:08:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:08:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:08:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:08:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:09:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:09:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:09:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:09:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:09:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:09:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:10:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:10:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:10:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:10:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:10:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:10:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:11:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:11:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:11:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:11:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:11:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:11:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:12:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:12:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:12:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:12:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:12:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:12:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:13:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:13:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:13:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:13:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:13:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:13:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:14:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:14:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:14:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:14:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:14:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:14:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:15:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:15:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:15:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:15:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:15:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:15:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:16:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:16:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:16:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:16:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:16:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:16:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:17:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:17:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:17:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:17:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:17:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:17:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:18:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:18:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:18:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:18:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:18:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:18:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:19:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:19:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:19:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:19:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:19:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:19:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:20:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:20:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:20:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:20:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:20:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:20:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:21:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:21:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:21:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:21:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:21:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:21:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:22:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:22:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:22:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:22:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:22:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:22:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:23:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:23:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:23:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:23:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:23:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:23:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:24:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:24:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:24:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:24:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:24:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:24:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:25:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:25:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:25:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:25:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:25:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:25:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:26:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:26:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-5 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /configuration
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getDefaultDashbaord
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /clientMenuDetails/
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /user-details
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /entities
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getChatConfiguration
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:26:33 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getlocalizationdetails
+[Tue Nov 07 13:26:34 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /fbcclogout/
+[Tue Nov 07 13:26:34 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getString
+[Tue Nov 07 13:26:34 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:26:34 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:26:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:26:37 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:26:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:26:57 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:27:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:27:17 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:27:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:27:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:27:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:27:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:28:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:28:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:28:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:28:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:28:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:28:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:29:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:29:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:29:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:29:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:29:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:29:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:30:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:30:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:30:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:30:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:30:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:30:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:31:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:31:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:31:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:31:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:31:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:31:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:32:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:32:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:32:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:32:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:32:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:32:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-1 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /configuration
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getConfigurationDetails
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-4 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-6 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getDefaultDashbaord
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-3 -- INFO  -- com.misys.portal.webservices.apis.repository.GtpDashboardDetailsRepositoryImpl -  Entered into getDefaultUserDashbaord : GtpDashboardDetailsRepositoryImpl
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /entities
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /clientMenuDetails/
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /user-details
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.client.controller.ClientMenuDetailsController -  calling MenuDetailsController method to get menu details
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-8 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.EntityDetailsApiController.getEntityDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getChatConfiguration
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Etag Validation starts here
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.OpenApiEtagValidationAspect - Done with Etag Validation.
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-10 -- INFO  -- com.finastra.openapi.api.corporateprofile.UserDetailsApiController - Overriden ClientUserDetailsApiController - getUserDetails() Called -> 
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.api.corporateprofile.UserDetailsApiController.getUserDetails()
+[Tue Nov 07 13:33:04 IST] -- http-nio-8086-exec-7 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getlocalizationdetails
+[Tue Nov 07 13:33:05 IST] -- http-nio-8086-exec-9 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /fbcclogout/
+[Tue Nov 07 13:33:05 IST] -- http-nio-8086-exec-2 -- INFO  -- com.misys.portal.webservices.apis.interceptors.RateLimitingHelper - Adding rate limiting bucket for public endpoint /getString
+[Tue Nov 07 13:33:05 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.webservices.apis.controller.ConfigurationController - Entered into getConfigurationDetails: method
+[Tue Nov 07 13:33:05 IST] -- http-nio-8086-exec-10 -- INFO  -- com.misys.portal.common.tools.RestAPIUtils - Creating string token list
+[Tue Nov 07 13:33:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:33:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:33:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:33:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:33:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:33:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:34:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:34:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:34:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:34:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:34:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:34:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:35:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:35:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:35:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:35:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:35:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:35:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:36:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:36:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:36:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:36:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:36:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:36:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:37:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:37:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:37:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:37:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:37:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:37:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:38:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:38:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:38:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:38:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:38:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:38:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:39:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:39:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:39:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:39:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:39:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:39:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:40:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:40:18 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:40:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:40:38 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Tue Nov 07 13:40:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Tue Nov 07 13:40:58 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error

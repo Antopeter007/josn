@@ -1,0 +1,211 @@
+@import '../../../../../../../../styles/variables.scss';
+.top-lc-wrapper {
+    padding: 2em 2em 0em 2em;
+}
+.middle-lc-wrapper{
+    border-bottom: $middleLCWrapperBorderBottom;
+}
+.rtl-float{
+    float: right;
+}
+.lc-no-text {
+    color: $lcnotextColor;
+    font-family: Roboto;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0.09375em;
+}
+/* tab menu css overide */
+:host ::ng-deep .ui-menuitem-link .ui-menuitem-text {
+    color: $ui-menuitemColor !important;
+    font-size: 1.25em !important;
+    font-weight: 500 !important;
+    line-height: 1.5em !important;
+  }
+
+  :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-link .ui-menuitem-text {
+   color: #6948D9 !important;
+  }
+
+  :host ::ng-deep li.ui-tabmenuitem.ui-corner-top.ui-state-active {
+    border: $ui-tabmenuItem-CornerTopActive-Border !important;
+    background: $ui-tabmenuItem-CornerTopActive-Background !important;
+    font-weight: 500 !important;
+    border-bottom: $ui-tabmenuItem-CornerTopActive-BorderBottom !important;
+  }
+  :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem{
+    border: $Ui-tabmenu-nav-item-Border !important;
+    background-color: $Ui-tabmenu-nav-item-BackgroundColor !important;
+    position: static !important;
+    margin: -0.01em 0em !important;
+    transition: background-color 0.5s !important;
+    font-weight: 500 !important;
+  }
+  :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover {
+    background-color: $Ui-tabmenu-nav-item-DisableHover-BackgroundColor !important;
+    border: $Ui-tabmenu-nav-item-DisableHover-Border !important;
+  }
+
+  :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav {
+    padding: 0 !important;
+    background: $ui-tabmenu-nav-background !important;
+    pointer-events: none !important;
+  }
+
+  :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text {
+    margin-right: 0em !important;
+    margin-left: 0em !important;
+    pointer-events: auto;
+  }
+  /* End */
+:host ::ng-deep .ui-corner-all {
+    border-radius: 0em;
+}
+.tab-class{
+  position: relative;
+  text-align: center;
+  min-width: 7em
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active{
+  background-color: $ui-tabview-backgroundcolor !important;
+  border: $ui-tabview-border !important;
+  border-bottom: $ui-tabview-borderBottom  !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a {
+  color: $ui-tabview-Active-a-color !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover{
+  background-color: $ui-tabview-ActiveHover-BackgroundColor !important;
+  border-bottom: $ui-tabview-borderBottom !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover{
+  background-color: $ui-tabview-DisabledHover-BackgroundColor !important;
+  border: $ui-tabview-DisabledHover-Border !important;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li{
+  border: $ui-tabview-border !important;
+  background-color: $ui-tabview-backgroundcolor !important;
+  -webkit-transition: background-color 0.2s !important;
+  transition: background-color 0.2s !important;
+}
+:host ::ng-deep .ui-state-default .ui-corner-top .ui-tabview-selected .ui-state-active{
+  border: none !important;
+}
+:host ::ng-deep .ui-tabview .ui-tabview-panels {
+  background-color: $ui-tabview-panels-backgroundColor;
+  padding: 0.571em;
+  color: $ui-tabview-panels-Color;
+  border-top: $ui-tabview-panels-borderTop;
+  border-left: $ui-tabview-panels-borderLeft;
+  border-right: $ui-tabview-panels-borderRight;
+  border-bottom: $ui-tabview-panels-borderBottom;
+}
+:host ::ng-deep .ui-tabview .ui-tabview-title {
+  vertical-align: $ui-tabview-title-VerticalAlign;
+  font-family: $ui-tabview-title-fontFamily;
+  font-size: $ui-tabview-title-fontSize;
+  line-height: 1.3125em;
+}
+/* end */
+.size-class {
+  height: 2.25em;
+  width: 14.375em;
+  margin-left: 1em;
+}
+.sm-size-class {
+  height: 2.25em;
+  width: 8.125em;
+}
+.margin-class {
+  text-align: right;
+}
+/* Dialog box css */
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar .ui-dialog-title{
+  color: $uiDialogTitleColor;
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.1875em;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  border: $uiDialogTilebarBorder;
+  background-color: $uiDialogBackgroundColor;
+  color: $uiDialogTilebarColor;
+  padding: 1em;
+  font-weight: 700;
+  border-bottom: $uiDialogTilebarBorderBottom !important;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-content {
+  background-color: $uiDialogBackgroundColor;
+  color: $uiDialogContentColor;
+  border: $uiDialogContentBorder !important;
+  padding: 0.571em 1em;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-footer {
+  border: $uiDialogFooterBorder !important;
+  background-color: $uiDialogBackgroundColor;
+  color: $uiDialogFooterColor;
+  padding: 0.571em 1em;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  top: -1px;
+}
+
+.dialog-small-btn{
+  height: 2.25em;
+  width: 9.375em;
+}
+.comment-class {
+  color: $comment-classColor;
+  font-family: Roboto;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1em;
+}
+.sec-comment-class {
+  color: $secCommentClassColor;
+  font-family: Roboto;
+  font-size: 0.875em;
+  line-height: 1em;
+}
+.class-b{
+margin-top: 1em;
+}
+.class-a{
+  margin-top: 2em;
+  margin-bottom: 6em;
+}
+:host ::ng-deep .ui-float-label .ui-widget {
+  margin-left: 0px;
+  width: 100%;
+}
+
+:host ::ng-deep .ui-inputtext {
+  border: $uiInputTextBorder;
+  border-bottom: $uiInputTextBorderBottom01;
+  background-color: $uiInputTextBackgroundColor;
+}
+/* end */
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+  float: none;
+  display: inline-block;
+  color: $ui-tabview-top-Color;
+  padding: 0.571em 1em;
+  font-weight: 500;
+}
+
+.comments {
+  height : 2.5em;
+  resize: none;
+}
+
+:host ::ng-deep .ui-float-label textarea.ui-state-filled ~ label {
+  top: -1.5em;
+}
+
+:host ::ng-deep .button-class {
+  width: 8.375em;
+  height: 2.25em;
+  margin-left: 1em;
+}

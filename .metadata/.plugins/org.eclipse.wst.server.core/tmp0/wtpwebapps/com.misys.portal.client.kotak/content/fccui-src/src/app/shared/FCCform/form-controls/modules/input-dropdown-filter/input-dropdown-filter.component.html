@@ -1,0 +1,119 @@
+<ng-container [formGroup]="form">
+  <div
+    class="p-col-12 globalPadding {{ control.params.dropdownFilterClass }}"
+    [ngStyle]="{'margin-bottom': getMarginBottom()}"
+  >
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      [class]="getStyleClass"
+    >
+      <span [id]="labelId" class="hidden"></span>
+      <p-dropdown
+      #dropdown
+        [options]="control.params.options"
+        formControlName="{{ control.key }}"
+        [filter]="control.params.filter"
+        [readonly]="control.params.readonly"
+        id="{{ control.key }}"
+        [autoDisplayFirst]="control.params.autoDisplayFirst"
+        (onChange)="changeEvent($event, control)"
+        (onClick)="onCustomEventRaised($event, control.key, control)"
+        (keyup)="focus($event);onCustomEventRaised($event, control.key, control)"
+        (onBlur)="focusOut()"
+        dropdownIcon="pi pi-caret-down"
+        [required]="control.params.required"
+        [disabled]="control.params.disabled"
+        formControlName="{{ control.key }}"
+        [ngClass]="control.params.disabled ? 'currency-disable' : 'fcc-dropdown'"
+        [filterBy]="control.params.filterBy"
+        [ngClass]="control.params.readonly ? 'hideDropdown' : 'displayDropdown'"
+        [ariaLabelledBy]="labelId"
+        ariaFilterLabel = "{{ 'search' | translate }}"
+        aria-required="true"
+        [appendTo]="control.params.appendToBody?'body':null"
+      >
+        <ng-template *ngIf="!control.params.accountLookup" let-item pTemplate="item">
+          <div *ngIf="(item.value.name && item.value.name !== ''); else labelOnly" class="p-grid" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+            <div class="{{control.params.labelClass}}">{{item.value.label}} </div>
+            <div class="{{control.params.valueClass}}">{{item.value.name}}</div>
+          </div>
+          <ng-template #labelOnly>
+            <div class="p-col-12">{{item.value.label}}</div>
+          </ng-template>
+        </ng-template>
+        <ng-template *ngIf="control.params.accountLookup" let-item pTemplate="item">
+          <div *ngIf="(item.value.info && item.value.info !== ''); else labelOnly" class="p-grid" [ngStyle]="{'text-align' : (dir === 'rtl') ? 'right' : 'left'}">
+            <div class="{{control.params.infoClass}}" *ngIf="item.value.info">{{item.value.info}} </div>
+            <div class="{{control.params.labelClass}}" *ngIf="item.value.label">{{item.value.label}}</div>
+            <div class="{{control.params.valueClass}}" *ngIf="item.value.description">{{item.value.description}} </div>
+          </div>
+          <ng-template #labelOnly>
+            <div class="p-col-12">{{item.value.label}}</div>
+          </ng-template>
+        </ng-template>
+      </p-dropdown>
+      <a class="infoIcon" *ngIf="control.params.infoIcon">
+        <span
+          class="material-icons"
+          (mouseenter)="op.show($event)"
+          (mouseleave)="op.hide()"
+          >info</span
+        >
+        <p-overlayPanel
+          #op
+          class="previosInfoOLPanel"
+          [dismissable]="true"
+          appendTo="body"
+        >
+          <div
+            *ngIf="
+              control.params.previousValue !== '' &&
+                control.params.previousValue !== undefined &&
+                control.params.previousValue !== null;
+              else previousValueNotentered
+            "
+          >
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ control.params.previousValue }}
+          </div>
+          <ng-template #previousValueNotentered>
+            <p class="previous-info">{{ "previousInfo" | translate }}</p>
+            {{ "NOT_ENTERED" | translate }}
+          </ng-template>
+        </p-overlayPanel>
+      </a>
+      <label class="dropdownlabel" dir="{{ dir }}" for="{{ control.key }}">
+        {{ control.params.label
+        }}<a *ngIf="control.params.required"
+          ><span class="asterisk">*</span></a>
+        <a
+          class="infoLabel"
+          *ngIf="control.params.infoIcon && !control.params.groupLabel"
+        >
+          {{ control.params.infolabel | translate }}</a
+        >
+      </label>
+    </div>
+    <div *ngIf="control.params.warning" [class] = "control.params.warningStyleClass">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }} "
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value.shortName }}
+      </div>
+    </div>
+    <div class="shortDesc" *ngIf="control.params.shortDescription">
+      <span>{{control.params.shortDescription}}</span>
+    </div>
+  </div>
+</ng-container>

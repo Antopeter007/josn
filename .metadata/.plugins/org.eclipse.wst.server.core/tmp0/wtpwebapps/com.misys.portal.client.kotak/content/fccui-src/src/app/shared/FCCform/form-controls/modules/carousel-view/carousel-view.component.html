@@ -1,0 +1,41 @@
+<ng-container>
+    <p-carousel *ngIf="carouselList && carouselList.length > 4; else nocarousel" dir="ltr" [value]="carouselList" styleClass="custom-carousel" [numVisible]="numVisible"
+        [numScroll]="numScroll" #carousel>
+        <ng-template let-product pTemplate="item">
+            <div class="p-col-12 carousel-item"
+                [style.background]="product.selected ? gradientPath : whitePath"
+                [ngClass]="product.selected ? 'with-background' : 'without-background'"
+                (click)=" onClickCarousel(product);onEventRaised($event, control.key)"
+                (keydown.enter)=" onClickCarousel(product);onEventRaised($event, control.key)"
+                tabindex="0">
+                <div class="product-category" dir={{dir}}>
+                    <span> {{product.category|translate}}</span>
+                </div>
+                <div class="product-amount-currency" dir={{dir}}>
+                    <p dir={{dir}} class="product-currecy">{{viewInCurrency}}</p>
+                    <h3 dir={{dir}} class="product-amount"> {{product.amount}}</h3>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    <ng-template #nocarousel>
+        <div class="no-carousel-container">
+            <ng-container *ngFor="let product of carouselList">
+                <div class="no-carousel-item"
+                    [style.background]="product.selected ? gradientPath : whitePath"
+                    [ngClass]="product.selected ? 'with-background' : 'without-background'"
+                    (click)=" onClickCarousel(product);onEventRaised($event, control.key)"
+                    (keydown.enter)=" onClickCarousel(product);onEventRaised($event, control.key)"
+                    tabindex="0">
+                    <div class="product-category" dir={{dir}}>
+                        <span> {{product.category|translate}}</span>
+                    </div>
+                    <div class="product-amount-currency" dir={{dir}}>
+                        <p dir={{dir}} class="product-currecy">{{viewInCurrency}}</p>
+                        <h3 dir={{dir}} class="product-amount"> {{product.amount}}</h3>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-template>
+</ng-container>

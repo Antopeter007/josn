@@ -1,0 +1,39 @@
+@import './../../../../styles/variables.scss';
+
+.stickyDiv {
+  position: absolute;
+  bottom: 1em;
+  right: 2.5em;
+}
+
+.stickyDivArabic {
+  position: absolute;
+  bottom: 1em;
+  left: 2.5em;
+}
+.stickyDivIE {
+  position: absolute;
+  right: 4.2em;
+}
+
+.stickyDivIEArabic {
+  position: absolute;
+  left: 4.2em;
+}
+
+.stickyDivArabic .secondaryButton {
+  right: -1em;
+}
+
+button#next, button#submit {
+  margin-left: 1em;
+}
+
+.prevButtonArabic {
+  left: 1em;
+}
+
+.buttonStyle {
+  padding: 0.5em;
+}
+

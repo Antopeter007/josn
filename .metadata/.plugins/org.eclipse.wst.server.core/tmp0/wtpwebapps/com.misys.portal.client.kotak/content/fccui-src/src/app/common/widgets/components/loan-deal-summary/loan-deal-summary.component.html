@@ -1,0 +1,17 @@
+<div class="p-col-`12 p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard" >
+  <p-card>
+    <p-header *ngIf="!currentPathLoanDeals" [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+      <em class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()" (keyup.enter)="deleteCards()" tabindex="0"></em>
+    </p-header>
+    <div [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+      <div class="p-col-12 headerDiv">
+        <h1 class="headerTitle">
+          {{ 'loanDealSummary' | translate }}
+        </h1>
+      </div>
+      <fcc-carousel [params] = "carouselParams" *ngIf="carouselParams" (cardSelectEvent)="captureSelectedCardDetails($event)" [selectedPage]="selectedPage"></fcc-carousel>
+    </div>
+    <app-nudges [nudges] = "nudges">
+    </app-nudges>
+  </p-card>
+</div>

@@ -1,0 +1,266 @@
+@import './../../../../../styles/variables.scss';
+
+.cardStyle {
+    padding-left: .5em !important;
+    background-image: url('/content/FCCUI/assets/images/white-card-pattern@1x.png');
+    width: 15.25em;
+    height: 5.7em;
+}
+
+.labelStyle {
+    font-size: 0.95em;
+    word-wrap: break-word !important;
+}
+
+.noGroup {
+    margin-left: 0.6em;
+}
+.toolbarclass {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4em;
+  }
+
+  .rtlSpan {
+    float : left !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 0.25em;
+  }
+
+  .groupDownloadIcon {
+    color: $CHARCOAL-F100 !important;
+    opacity: 0.75;
+    text-align: center;
+    padding: 0.6em;
+    text-decoration: none;
+    font-size: inherit !important;
+    line-height: 0em;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+}
+
+.groupDownloadIcon:hover {
+    background-color: rgba(158, 158, 158, 0.2);
+    opacity: 0.94;
+}
+
+  .ltlSpan {
+    float : right !important;
+    margin-left: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 0.25em;
+  }
+
+.currencyType {
+    width: auto !important;
+    font-weight: 500 !important;
+    color:$CHARCOAL-F100;
+}
+
+.amountSpan {
+    width: auto !important;
+    margin-left: 0.3em !important;
+    font-weight: bold !important;
+    font-size: 1.3em !important;
+}
+
+:host ::ng-deep .multipleTabHeading {
+  color:$widgetHeaderColor;
+  font-size: 1.3em;
+  font-weight: 900;
+  margin-top: 1em;
+
+	label {
+		white-space: nowrap;
+	}
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content {
+    line-height: 2em !important;
+    color: $CHARCOAL-F100;
+
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle .mat-button-toggle-button {
+    text-align: left !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+    padding-bottom: 2em;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content span {
+    position: initial !important;
+}
+
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle .mat-button-toggle-label-content {
+    font-weight: 400 !important;
+}
+
+.disableGroup, .disableGroup:hover, .disableGroup:focus, .disableGroup:active {
+    background-color: $GrayShade !important;
+    color: $GrayLight !important;
+    cursor: default !important;
+    border:1px solid $GrayShade;
+    pointer-events: none;
+}
+
+.currencyList select{
+    border: 1px solid $GrayLight;
+    float: right;
+    position: relative;
+    top: 0.5em;
+    width: 6em;
+    border-radius: 0.2em;
+}
+
+.currencyList select.focus, .currencyList select.active, .currencyList select.hover{
+    border: 1px solid $GrayLight;
+}
+:host ::ng-deep .ui-carousel-item {
+    em{
+        visibility: hidden;
+    }
+
+}
+.noofaccounts{
+    font-style: italic;
+    margin-bottom: 0.5em !important;
+}
+:host ::ng-deep  .ui-carousel-item:hover {
+    em{
+        visibility: visible;
+    }
+
+}
+.Groupwrapper {
+    border:2px solid $GREY-02;
+    width:95%;
+    padding:1em;
+    border-radius: 0.3em;
+    height: 105px !important;
+}
+
+.activeGroup{
+    border:1px solid $VIOLET-F75;
+
+    .currencyType{
+        color:$VIOLET-F100;
+    }
+}
+
+:host ::ng-deep {
+    .ui-accordion {
+        display: none;
+    }
+    .ui-carousel-items-container{
+        padding-left: 1em;
+    }
+
+}
+:host ::ng-deep {
+    .toolbarclass .mat-form-field-infix{
+    width:7em;
+    font-size: 0.8em !important;
+    }
+    .ui-carousel-item{
+    max-width: 26em;
+    }
+#groupListingWrapper{
+    .mat-button-toggle-group{
+        width:100%;
+        display: block;
+    }
+    .pi-chevron-right {
+        margin-left: 0.8em;
+        width: 0.67em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+    }
+}
+}
+.button_wrapper{
+    text-align: right;
+    position: relative;
+    top: 4em;
+}
+.activeGroup .active{
+color:$VIOLET-F100;
+font-weight: bold;
+margin-bottom: 0.7em !important;
+}
+.iconWrapper{
+    position: relative;
+    right: -0.06em;
+    text-align: right;
+    float: right;
+    color:$VIOLET-F100;
+}
+:host ::ng-deep {
+    .ui-carousel-dots-container{
+        display: none;
+    }
+.enableaero .ui-carousel-prev{
+display: block;
+}
+.disableaero .ui-carousel-prev{
+    display: none;
+}
+:host ::ng-deep .mat-button-toggle-standalone, .mat-button-toggle-group  {
+    white-space: normal;
+}
+.enableaero .ui-carousel-next{
+    display: block;
+    }
+    .disableaero .ui-carousel-next{
+        display: none;
+    }
+
+}
+@media only screen and (max-width: 1030px) {
+    .button_wrapper{
+        margin-left:-4em;
+    }
+
+}
+
+@media only screen and (max-width: 1030px) {
+.iconWrapper{
+    left: 0.75em;
+    margin-top: -1em;
+    position: relative;
+    right: -0.06em;
+    text-align: right;
+    float: right;
+    color:$VIOLET-F100;
+}
+}
+
+::ng-deep .downloadMatMenu {
+
+    ul {
+        list-style-type: none;
+        li {
+            cursor: pointer;
+        }
+    }
+}
+
+.iconWrapper button:focus{
+    em{
+        visibility: visible !important;
+    }
+}
+
+::ng-deep mat-toolbar {
+    mat-form-field {
+        .mat-form-field-wrapper {
+            margin-top: 1em;
+        }
+    }
+}

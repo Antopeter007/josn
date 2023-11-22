@@ -1,0 +1,74 @@
+<div class="p-grid widget-container">
+    <div class="p-col-12 widget-header widget-padding widget-header-margin pageTitle">
+        <span class="chequeTitle">{{tabListingHeader | translate}}</span>
+        <div>
+            <ng-container *ngFor="let button of buttonItemList">
+                <button role="button"  *ngIf = "!button.filterDialogEnable" mat-raised-button (click)="navigateButtonUrl(button.routerLink)">{{button.localizationKey | translate}}</button>
+                <button role="button"  *ngIf = "button.filterDialogEnable" class="{{button.buttonClass}}" mat-raised-button (click)="handlefilterPopup()">{{button.localizationKey | translate}}</button>
+            </ng-container>
+        </div>
+        <ng-container>
+          <div *ngIf=identifyRedirection() class="hyperlink">
+            <p (click)="onClickBackToPaymentList()" id="ViewPaymentList" tabindex= "0" >
+                {{ 'backToPaymentList' | translate }}
+            </p>
+            <br>
+            <br>
+          </div>
+          <div *ngIf=!identifyRedirection() class="hyperlink">
+            <p (click)="onClickBackToDashboard()" id="ViewPaymentList" tabindex= "0" >
+                {{ 'backToDashboard' | translate }}
+            </p>
+            <br>
+            <br>
+          </div>
+        </ng-container>
+    </div>
+    <div class="returnCommentsStyle" dir={{dir}} *ngIf="operation === 'MODIFY_BATCH' && reviewComments">
+      <p-inplace active=true>
+        <span pInplaceDisplay  tabindex="0" class="material-icons">message</span>
+        <span pInplaceContent>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{ reviewCommentsHeader }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="workBreak" [innerHTML]="reviewComments"></p>
+            </mat-card-content>
+          </mat-card>
+        </span>
+      </p-inplace>
+    </div>
+    <div>
+      <div *ngIf="operation !== 'MODIFY_BATCH'" class="viewChequeStatus">
+        <fcc-review-detail-table [generalDetails]="generalDetails" [inputParams]="inputParams"
+            [componentTitle]="componentTitle" 
+            (rowUnSelectEventListdef)="getRowUnSelectEvent(true,$event)" (rowSelectEventListdef)="getRowSelectEvent($event)"></fcc-review-detail-table>
+      </div>
+      <div *ngIf="operation === 'MODIFY_BATCH'" class="viewChequeStatusModifyBatch">
+        <dynamic-component-content *ngIf="showForm" [parentForm] ="form" (checkSubmitStatus)="setSubmitStatus($event)" class="dynamicCompStyle" 
+        tabindex="0" type="{{componentType}}" #container id="autoFocusComp1"></dynamic-component-content>
+      </div>
+    </div>
+    <div id="accountNumbers_confirmation" *ngIf="(successAccArr.length>0||checkEmptyObject(failedAccounts))">
+        <div *ngIf="successAccArr.length>0">
+          <strong><p>{{ confirmationMsg | translate}}</p></strong>
+          <div *ngFor="let accNo of successAccArr">{{accNo}}</div>
+        </div>
+       
+        <div *ngIf="checkEmptyObject(failedAccounts);" class="failure-msg">
+          <strong><p>{{ failureMsg | translate}}</p></strong>
+          <div *ngFor="let accNo of failedAccounts | keyvalue">{{accNo.key}} as {{accNo.value}}</div>
+        </div>
+
+      </div>
+    <div *ngIf="operation === 'MODIFY_BATCH'" class="viewChequeStatus submit-button-container stickyDiv">
+      <button role="button" pButton class="primaryButton submit-button" 
+        [disabled]="isSubmitButtonDisable || isSubmitButtonDisableOnBalance"
+        label="{{Submit}}"  (click)="submit()" id="submit"></button>
+    </div>
+    <div *ngIf="showButtons && buttonList && buttonList.length && showCommentSection() && operation !== 'MODIFY_BATCH'" class="p-col-12">
+        <fcc-comment-section [visible]="true" position="bottom" [disableReturn]="disableReturn" [selectedRowsData]="selectedRowsdata"
+          [commentsRequired]="commentsRequired" [commentsMandatory]="commentsMandatory" [buttonList]="buttonList" (handleAction)="handleAction($event)"></fcc-comment-section>
+      </div>
+</div>

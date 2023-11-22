@@ -1,0 +1,15 @@
+<div class="p-lg-12 p-md-12 p-sm-12 removeSpace">
+  <p-card>
+    <p-tabView class = "tabStyle {{dir}}" (onChange)="onTabChange($event)">
+      <p-tabPanel [header]="item.label" *ngFor="let item of items; let i = index" [selected]="i == 0"
+        tooltip="{{item.label}}" role="tab" [activeItem]="selectedIndex" aria-selected="{{selectedIndex === i }} ? 'true' : 'false'" tooltipStyleClass="tooltipStyle">
+        <dynamic-component-content class="dynamicCompStyle"
+        type="{{ item?.child?.componentKey}}" widgetDetails="{{ widgets | json }}" #container
+        ></dynamic-component-content>
+        <div *ngIf = "item.id === itemIdTnx" class="sticky">
+          <fcc-common-dynamic-button [inputParams] = 'params'></fcc-common-dynamic-button>
+        </div>
+      </p-tabPanel>
+    </p-tabView>
+  </p-card>
+</div>

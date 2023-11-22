@@ -1,0 +1,1514 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank (Secured Pages)
+
+	summary:
+  		CSS rules loaded by all *secured* pages
+	
+*/
+
+/** Import the base theme **/
+@import "../base/base.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";
+
+@import "../../../dojox/grid/enhanced/resources/claro/EnhancedGrid.css";  /* for IE grid */
+
+/*-------------------body-----------------*/
+body {
+    /* font: 100%/1.125em gotham-book,Arial,Helvetica,sans-serif !important; */
+   /*  font: 100%/1.125em  */
+    
+    font-family:'Roboto', sans-serif !important;
+    color:#101010 !important;
+    background: #ececec !important;
+}
+p{
+	margin-top: 0.5em !important;
+	margin-bottom: 1em !important;
+}
+/** Custom Css for LCOutstanding portal alignment in LC dashboard **/
+#LcOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+#tc_document{
+	margin: 20px;
+}
+#LcOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+#discrepants_grid{
+	min-height:182px;
+}
+.checkbox label{
+	width:800px !important;
+}
+#inquiryOutstandingGridForKMBBANK0_0{
+	min-height: 182px;
+	margin-top: -10px;
+}
+#inquiryOutstandingGridForKMBBANK0_0Hdr2{
+	text-align: right;
+}
+.dijitTextBox:focus{
+	
+	border:  1px solid #0070e0 !important;
+}
+#ECOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+.content{
+	font-family: 'Roboto', sans-serif !important;
+}
+#newsDisplay{
+	padding-left: 10px;
+}
+
+.claro .dijitCalendarPreviousMonth .dijitCalendarDateLabel, .claro .dijitCalendarNextMonth .dijitCalendarDateLabel{
+	color: #000!important;
+    border-color: #fafafa!important;
+}
+.base .dijitCalendarCurrentDate{
+	color: #fff!important;
+    text-decoration: underline;
+    background-color: #0070e0!important;
+}
+.claro .dijitCalendarPreviousMonth, .claro .dijitCalendarNextMonth{
+	background-color: #EBEBEB!important;
+}
+.base .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected{
+	background-color: #0070e0 !important;
+	color: #fff !important;
+}
+.dijitTreeRow:hover{
+	background-color: #0070e0 !important;
+	color: #fff !important;
+	/* width: 100%; */
+}
+#ECOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+#OutstandingPortlet{
+	padding-bottom: 40px;
+}
+.myPendingTittle{
+	font-weight:bold;
+	font-size:20px !important;
+
+}
+#mypendingTransactionsList_grid{
+	margin-top: 10px;
+	    min-height: 182px;
+}
+#SIOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+.base #ratesGrid{
+	padding-top: 0px;
+    margin-top: 5px;
+}
+
+#SIOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+#ELOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+#ELOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+#recentNotifications_grid_ir a:link {
+    color: red;
+}
+
+#ICOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+#ICOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+#BGOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+#BGOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+#SGOutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+#SGOutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+#recentNotifications_grid_ir .dojoxGridContent {
+    color: red;
+   
+}
+
+#IROutstandingPortlet .dojoxGrid.grid {
+    margin-top: 17px !important;
+}
+
+#IROutstandingPortlet .dojoxGridScrollbox {
+    height: auto !important;
+}
+
+.tranSummery table {
+	 font-family:'Roboto', sans-serif !important; 
+	/* font: 100%/1.125em Familiar Pro; */
+	color:#666;
+	font-size:12px !important;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	margin:20px;
+	border:#ccc 1px solid !important;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+
+.tranSummery table th {
+	padding:1px 23px !important;
+	border-top:1px solid #fafafa !important;
+	border-bottom:1px solid #e0e0e0 !important;
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+
+.tranSummery table th:first-child {
+	text-align: left;
+	padding-left:20px;
+}
+
+.tranSummery table tr:first-child th:first-child {
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+
+.tranSummery table tr:first-child th:last-child {
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+
+.tranSummery table tr {
+	text-align: center;
+	padding-left:20px;
+}
+
+.tranSummery table td:first-child {
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}
+
+.tranSummery table td {
+	padding:2px;
+	border-top: 1px solid #ffffff !important;
+	border-bottom:1px solid #e0e0e0 !important;
+	border-left: 1px solid #e0e0e0 !important;
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+
+.tranSummery table tr.even td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+
+.tranSummery table tr:last-child td {
+	border-bottom:0;
+}
+
+.tranSummery table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+
+.tranSummery table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+.tranSummery table tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+/*------------------------change font -------------------------*/
+.dojoxGrid {
+    /* font-family: gotham-book,Geneva,Arial,Helvetica,sans-serif; */
+    font-family:  'Roboto', sans-serif !important;
+}
+.portlet-font {
+    /* font-family: gotham-book,Arial,Helvetica,sans-serif; */
+    font-family: 'Roboto', sans-serif !important;
+}
+/*------------------------change font end-------------------------*/
+#default #GTPRootPortlet .portlet-title {
+    font-size: 1.58em !important;
+    padding: 0 !important;
+}
+/* top menu  */
+#helpDesk {
+    color: #0070e0;
+        font-size: 12px !important;
+    float: right;
+    /* margin-right: 8px; */
+    margin-top: 4px;
+}
+#helpDesk:hover{
+    color: #0058b1;
+
+}
+#myPendingPortlet{
+	padding-bottom: 40px;
+}
+.lastLoginContainer{
+	
+	display:none;
+}
+
+#myPending {
+    color: #0070e0;
+    font-size: 12px !important;
+    float: right;
+    margin-top: 4px;
+    display:none;
+}
+
+#myPending:hover{
+    color: #0058b1;
+}
+.header_bar {
+    margin: 0 0 12px;
+    width: 100%;
+}
+.bookmarkMenu #bookmarkDropDownButton{
+	/* padding: 5px 5px 0 25px; */
+	padding: 13px 5px 0 25px;
+}
+.panel1 {
+	/* border-bottom: 2px solid #9d1d27 !important; */
+    background-color: #fff;
+    color: #ffffff;
+    /* height: 56px; */
+    padding: 2px 0 3px 0;
+    height: 27px;
+}
+/*------------------All Button style-----------------*/
+.claro .dijitButton .dijitButtonNode, .claro .dijitDropDownButton .dijitButtonNode, .claro .dijitComboButton .dijitButtonNode, .claro .dijitToggleButton .dijitButtonNode {
+    background-image: none;
+    /* border: 1px solid #9d1d27 !important;
+    background-color: #9d1d27 !important; */
+}
+.claro .dijitButton .dijitButtonNode:hover{
+	background-color: #D31820 ;
+	
+}
+.cancelButton.dijitButton .dijitButtonNode{
+	background-color: #fff !important;
+	/* border-color: #ee1c25 !important; */
+	color:#ee1c25 !important;
+
+    border: 0.1px solid #ee1c25 !important;
+}
+/* .claro.dijitDropDownButton.dijitReset.dijitInline.dijitButtonNode{
+	background-color: #fff !important;
+	border-color: #ee1c25 !important;
+	color:#ee1c25 !important;
+
+    border: 0.1px solid #ee1c25 !important;
+} */
+.cancelButton.dijitButton .dijitButtonNode:hover{
+	font-weight:bold !important;
+}
+.saveTemplateButton.dijitButton .dijitButtonNode:hover{
+	font-weight:bold !important;
+}
+.helpButton.dijitButton .dijitButtonNode:hover{
+	font-weight:bold !important;
+}
+.saveTemplateButton.dijitButton .dijitButtonNode{
+	background-color: #fff !important;
+	/* border-color: #ee1c25 !important; */
+	color:#ee1c25 !important;
+
+    border: 0.1px solid #ee1c25 !important;
+}
+#default #GTPRootPortlet .portlet-section-header{
+	margin-bottom: 0px !important;
+}
+.menu.widgetContainer.noprint{
+	background: #ececec;
+}
+.menu{
+	margin: 0px 0 0px auto !important;
+}
+#fakeform1{
+	background-color:#fff !important;
+}
+.helpButton.dijitButton .dijitButtonNode{
+	background-color: #fff !important;
+	/* border-color: #ee1c25 !important; */
+	color:#ee1c25 !important;
+
+    border: 0.1px solid #ee1c25 !important;
+}
+
+.submitButton.dijitButton .dijitButtonNode{
+	background-color: #ee1c25 !important;
+	/* border-color: #ee1c25 !important; */
+	color:#fff !important;
+
+    border: 0.1px solid #ee1c25 !important;
+}
+.submitButton.dijitButton .dijitButtonNode:hover{
+	background-color: #d31820 !important;
+	
+}
+.dijitButtonNode, .dijitButtonNode *:focus{
+	outline:none;
+}
+.saveButton.dijitButton .dijitButtonNode{
+	background-color: #ee1c25 !important;
+	/* border-color: #ee1c25 !important; */
+	color:#fff !important;
+
+    border: 0.1px solid #ee1c25 !important;
+}
+.saveButton.dijitButton .dijitButtonNode:hover{
+	background-color: #d31820 !important;
+}
+.claro .dijitButton .dijitButtonNode{
+	background-color: #ee1c25 ;
+	 border:none; 
+	/* border: 0.1px solid #ee1c25; */
+	color:#fff;
+	
+	/* min-width: 94px;
+	min-width: 74px; */
+    padding: 2px 4px 4px 4px;
+    background-image: url(images/button.png);
+    background-position: center top;
+    background-repeat: repeat-x;
+   
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+}
+/* .claro .dijitButtonText{
+	color:#fff !important;
+} */
+/*------------------------link color-------------------*/
+
+.paracontent{
+	    margin-top: 16px;
+	        padding-left: 12px;
+    /* padding-bottom: 12px; */
+    padding-right: 12px;
+}
+#MenuBuilder .dijitCalendarDayLabelTemplate, #TradeCalendarPortlet .dijitCalendarDayLabelTemplate{
+	padding:0px !important;
+}
+.claro.dijitCalendarDateTemplate .dijitCalendarDateLabel{
+	padding:0px;
+}
+.homepage a:hover{
+	color: #0058b1 !important;
+}
+/*------------------All Button style end-----------------*/
+
+/* menu*/
+/*----------------------top sub menu----------------*/
+.base .portalMenu {
+    background-color: #fff;
+    border-color: #fffff -moz-use-text-color !important;
+    border-width: 1px 0 0;
+	
+}
+.base .dijitMenuSeparatorTop {
+    border-bottom: 1px solid #DDDDDD !important;
+}
+
+.outstandingAmountTitle {
+	/* font-weight: bold; */
+	color: transparent !important;
+}
+#discrepants_grid{
+	margin-top: -7px;
+}
+#TradeEventsGridPortlet h3 {
+		color: #ee1c25 !important;
+	}
+
+.claro .dijitMenuItem:hover {
+    background-color:  #0070e0 !important;
+	color: #fff !important;
+	outline: none;
+
+}
+.dijitReset.dijitMenuItemLabel a:hover{
+	color:#fff !important;
+}
+
+/*----------SideMenu start--------------------*/
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer {
+    background: #fff none repeat scroll 0 0;
+}
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow {
+    background: #fff none repeat scroll 0 0;
+}
+.base .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected {
+    border-color: -moz-use-text-color -moz-use-text-color #9a6c9d !important;
+}
+
+.base .tree-product-menu-container .dijitTreeRow {
+    background-color: #fff;
+    background-image: none;
+    border-bottom: 1px solid #ffffff !important;
+    color: #000;
+    font-size: 12px !important;
+    line-height: 29px;
+    margin: 0;
+    min-height: 30px;
+    padding: 4px 0 0 7px !important;
+}
+/*--------Hover---------*/
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover {
+    background-color: transparent; 
+    -webkit-appearance: none; 
+	outline: 0px;
+	border: 0 none !important;
+    border-radius: 0px;
+    color: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
+	margin: 0 6px;
+}
+.dijitTreeContent.dijitTreeContentExpanded{
+	outline: 0px !important;
+}
+.dijitTreeLabel:hover{
+	color: #fff !important;
+	  /*   background-color: #0070e0 !important; */
+}
+ .dijitTreeLabel:focus{
+	/* color: #fff !important; */
+	/* background-color: #0070e0 !important; */
+	outline:0px !important;
+}
+.dijitTreeRow:focus{
+	background-color: #0070e0 !important;
+}
+.dijitTreeNodeUNCHECKEDHover.dijitUNCHECKEDHover{
+	background-color: #0070e0 !important;
+}
+/* .base .tree-product-menu-container .dijitTreeRow, .dijitTreeContent:focus{
+	border-color:transparent !important;
+} */
+/*---active--------*/
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected {
+    background-color: #07274c;
+	-webkit-appearance: none; 
+	outline: 0px;
+    border-bottom: 0 none !important;
+    border-image: none !important; 
+    border-left: 0px solid #9f9f9f !important;
+    border-radius: 0 !important;
+    color: #ffffff;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+/*----------SideMenu end--------------------*/
+/*-----------------input-------------------------*/
+.claro .dijitTextBoxHover {
+  background-color: #EEEEEE;
+  background-image: url('images/textBox_back.png');
+  background-repeat: repeat-x;
+}
+.claro .dijitTextBox, .claro .dijitTextBox .dijitButtonNode {
+  /* color for (outer) border on *TextBox widgets, and border between input and buttons on ComboBox and Spinner */
+
+  border-color: #dddddd !important;
+  -webkit-transition-property: background-color, border;
+  -moz-transition-property: background-color, border;
+  transition-property: background-color, border;
+  -webkit-transition-duration: 0.35s;
+  -moz-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+}
+.claro .dijitComboBoxOpenOnClickHover .dijitButtonNode, .claro .dijitComboBox .dijitDownArrowButtonHover {
+  background-color: #dddddd;
+}
+/* Arrow Button change when drop down is open */
+.claro .dijitComboBox .dijitHasDropDownOpen {
+  background-color: #666666;
+  background-position: 0 -177px;
+  padding: 1px;
+}
+/*-----------panelHeader-----------*/
+#default #GTPRootPortlet .portlet-section-header h2 {
+    color: #666666;
+}
+.portlet-section-header .portlet-title {
+	-webkit-appearance: none;
+	outline: 0px;	
+    border-bottom: medium none transparent !important;
+    color: #292929 !important;
+    font-size: 20px !important;
+}
+/*-----------panelbody-----------*/
+.dijitContentPane.tabContentDiv.dijitTabPane.dijitTabContainerTop-child.dijitTabContainerTop-dijitContentPane.dijitVisible {
+    background-color: #ffffff !important;
+}
+.claro .dijitTabChecked .dijitTabInnerDiv {
+    background-color: #dddddd;
+}
+.claro .dijitTabHover .dijitTabInnerDiv {
+  background-color: #d0d0d0;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  color: #000000;
+}
+.claro .dijitTabHover .dijitTabContent {
+  border-color: #666666 !important;
+}
+/*--------panel end-----------*/
+/*----------tasks bar-----------*/
+.base .dojoxFloatingPaneTitle {
+    background-color: #dddddd;
+    background-image: none;
+    color: #000;
+}
+/*-----tasks bar detail---------*/
+.base .dijitDialogTitleBar {
+    background: #ee1c25 none repeat scroll 0 0;
+    color: white;
+}
+/*----------tasks bar end-----------*/
+/*--------home icons---------------*/
+.menubarImg {
+  width: 27px;
+    /* height: 27px; */
+     height: 29px;
+    padding: 1px 5px 0;
+    vertical-align: middle;
+    background-color: #0070e0;
+}
+.menubarImg:hover {
+    background-color: #0070e0;
+}
+.menubarImg:active {
+    background-color: #0070e0;
+}
+.menubarImg:focus {
+    background-color: #0070e0;
+}
+/*-------------show from summary-----------*/
+#toc {
+    background-color: #dddddd;
+}
+#toc p {
+    color: #000;
+}
+#toc a {
+    color: #000;
+}
+/*-------------show from summary end-----------*/
+/* border for top menu */
+.base .dijitMenuBar .dijitMenuItemLabel {
+   /*  background: none repeat scroll 0 0 #036; */
+   background: none repeat scroll 0 0 #fff;
+	outline: 0px;
+	-webkit-appearance: none; 
+    border-image: none !important;
+    border-style: none solid !important;
+    /* border-width: 1px; */
+    color: #101010 ;
+    font-weight: bold;
+	font-family:'Roboto', sans-serif !important;
+    text-align: center;
+	border-color: #c1c1c0 !important;
+	padding: 6px 10px 7px;
+}
+.base .portalMenu {
+    border-color: #ebebeb !important;
+}
+.claro .dijitPopup {
+    margin-top: 2px;
+}
+/* bookmark */
+#bookmarkDropDownButton {
+   background-color: #fff !important;
+}
+
+/* top menu color */
+#portalMenuBar
+{
+  background-color: #cde3ef !important;
+}
+.dojoxGridCell.dojoDndItem{
+	background-color: #D8D8D8  !important;
+	
+}
+/* menubar seperator from menu */
+.base .menuBarSeperator
+ {
+    color: #919191;
+    display: none;
+}
+
+/* highlight menu */
+.base .dijitMenuBar .menuBarHighlight
+{
+ background-color: #0070e0 !important;  
+color: white !important;
+}
+
+/* hover for menu */
+#portalMenuBar   :hover
+{
+ background-color:#0070e0 !important  ; 
+color:#FFFFFF !important;
+}
+
+/* logout button */
+.homepageButtons  {
+    height: 24px;
+}
+
+/* for grid cell */
+/* .dojoxGridCell.dojoDndItem
+{
+background-color: #dddddd !important;
+} */
+
+/* Grid */
+.dojoxGridCell {
+    background-color: #fafafa !important;
+    color: #666;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+.claro .dojoxGridSortNode{
+	padding: 2px;
+}
+#PendingNotificationPortlet{
+	padding-bottom: 40px;
+	
+}
+#RecentNotificationPortlet{
+	padding-bottom: 40px;
+}
+#PendingDiscrepanciesPortlet{
+	padding-bottom: 40px;
+}
+/* grid header */
+.dojoxGridSortNode {
+    font-size: 12px !important;
+    font-weight: bold;
+	color:#000;
+}
+
+/* calendar */
+#calendar_7
+{
+background-color:#dddddd !important;
+}
+
+/* calendar background */
+#MenuBuilder .dijitCalendarContainer th, #TradeCalendarPortlet .dijitCalendarContainer th
+{
+background-color:#103566 !important;
+}
+#MenuBuilder .dijitCalendarMonthLabel, #TradeCalendarPortlet .dijitCalendarMonthLabel{
+	color:#fff !important;
+}
+.dijitCalendarDayLabel{
+	color:#fff !important;
+}
+
+/* portal background */
+#layout
+ {
+    background: url("../images/header.gif") no-repeat scroll center top #fff;
+    min-width: 1200px;
+    /* padding: 0 24px; */
+    padding: 0 5px;
+	background-color: #ececec;
+}
+#default #GTPRootPortlet .portlet-section-header h1{
+	color:#101010 !important;
+	font-size: 24px !important;
+}
+#default #GTPRootPortlet .portlet-section-header{
+	background-color: #ececec !important;
+}
+/* grid background */
+.claro .dojoxGridMasterMessages
+ {
+    background-color: #fafafa;
+    min-height: 148px;
+}
+/* .dojoxGridMasterView{
+	
+    min-height: 155px;
+} */
+#inquiryOutstandingGridForKOTAK0_0{
+	min-height: 182px;
+	margin-top: -10px;
+}
+
+.portlet-section-header .portlet-title{
+	border-bottom: 2px solid #103566;
+}
+/* .panel2{
+	display:none;
+} */
+/* for footer */
+.portlet-title-addons{
+	display:none;
+}
+#RatePortlet{
+	    margin-top: 85px;
+	    display:none;
+}
+.base #ratesGrid{
+	/* padding-top: 20px; */
+	border: none;
+    background: #ececec;
+}
+.homepage .portlet-section-body, .homepage #BookmarkPortlet .portlet-section-body{
+	padding: 16px 4px 0 0;
+}
+#RecentNotificationPortlet.portlet-section-header .portlet-title{
+	display:none;
+}
+.footer 
+{
+    background: url("../images/footer.gif") repeat-x scroll 0 0 #54565b;
+    border-top: 1px solid #d8d5d8 !important;
+    width: 100% !important;
+    display:none;
+    /* bottom: 0;
+    left: 0;
+    position: fixed; */
+}
+
+/* Recent notification header background color */
+#GTPRootPortlet .portlet-section-header .portlet-title
+{
+background-color:#ececec !important;
+line-height: 32px !important;
+font-size: 24px !important;
+color:#101010;
+}
+
+/* menu highlight */
+.base .dijitMenuBar .menuBarHighlight 
+{
+    color: #ccc;
+    text-decoration: none;
+}
+
+/* menu border */
+#MODULE_ACCOUNT_SERVICES
+{
+	-webkit-appearance: none; 
+	outline: 0px;
+border-right:none !important;
+}
+
+/* grid header */
+.dojoxGridHeader
+{
+background-color:#DDDDDD !important;
+}
+
+a.menubarImg:hover {
+    text-decoration: none;
+}
+ #MenuBuilder .dijitCalendar, #TradeCalendarPortlet .dijitCalendar{
+	padding-top: 10px;
+	padding-left: 15px;
+} 
+/* footer style */
+.footerDiv2 > span
+ {
+    color: #fff ! important;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+.footer {
+    height: 90px !important;
+}
+
+#TradeCalendarPortlet .dijitCalendarSelectedYear, #TradeCalendarPortlet .dijitCalendarSelectedDate, #default .dijitCalendarSelectedYear, #default .dijitCalendarSelectedDate{
+	background-color: #0070E0 !important;
+    color: white;
+}
+ 
+    #sumOfEvents{
+margin-left: -33px;
+    text-align: left;
+}
+ #TradeCalendarPortlet{
+	/* margin-top: 37px;
+	margin-bottom: 60px;
+	margin-top: 40px;  */
+	text-align: center;
+	padding-bottom: 40px;
+	 padding-top: 40px; 
+} 
+#EventsPortlet{
+	/* margin-top: 94px; */
+	  /*   margin-bottom: 92px; */
+	background: #fff;
+  /*   min-height: 190px; */
+    text-align: center;
+    padding-bottom: 40px;
+    margin-left: 5px;
+}
+.colLeft{
+	background: #ececec;
+	/* margin-right:200.0px !important; */
+	margin-top: 40px;
+}
+.colRight{
+	background: #ffff !important;
+	 margin-top: 40px; 
+}
+.DHLClickTrack{
+	padding-top: 12px;
+}
+.maincontent.homepage{
+	padding-left: 40px;
+    padding-right: 40px;
+}
+#AWBTrackingPortlet .AWBClickTrack{
+	margin-top: 25px;
+	
+}
+#OutstandingPerProductChartPortlet{
+	display:none;
+}
+#EventsPortlet.portlet-section-header .portlet-title{
+	background:transparent;
+}
+#TradeCalendarPortlet .portlet-section-header{
+	display: block;
+}
+/* .dijitCalendarContainer.dijitCalendar{
+	margin-top: 20px;
+} */
+#AWBTrackingPortlet{
+	/* margin-top: 80px;
+	margin-bottom: 200px; */
+	text-align: center;
+	 padding-bottom: 40px;
+}
+#AWBTrackingPortlet a{
+	color: #0070e0 !important;
+}
+#InternalNewsPortlet{
+	text-align: center;
+}
+/* #RatePortlet{
+	margin-top: 90px;
+} */
+/* calendar */
+#MenuBuilder .dijitCalendarMonthLabel, #TradeCalendarPortlet .dijitCalendarMonthLabel 
+{
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+}
+/* menu list font style */
+.dijitReset.dijitMenuItemLabel {
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+/* search button */
+#beneficiary_img
+ {
+   /*  background-color: #9d1d27; */
+	padding: 2px 4px 4px 4px;
+    border-radius: 4px;
+}
+#recentNotifications_grid{
+	min-height: 182px;
+	margin-top: 16px;
+}
+#pendingTransactionsList_grid{
+	min-height: 182px;
+	/* margin-top: 7px; */
+	margin-top: 16px;
+}
+#pendingTransactionsList_gridHdr5{
+	text-align: right;
+}
+#recentNotifications_gridHdr6{
+	text-align: right;
+}
+#inquiryOutstandingGridForKOTAK0_0Hdr2{
+	text-align: right;
+}
+#mypendingTransactionsList_gridHdr6{
+	text-align: right;
+}
+.left{
+/* 	padding-left: 10px; */
+	float:none;
+}
+.right{
+	/* padding-right: 10px; */
+	float:none;
+}
+.paracontent a {
+    color: #0070e0 !important;
+}
+/* left menu for selected menu */
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected{
+	padding-left: 7px !important;
+	background-color: #0070e0 !important;
+	color: white !important;
+}
+
+/* left menu font color */
+.base .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected:active
+{
+color: white;
+}
+
+/* layout background color */
+.dijitContentPane.tabContentDiv.dijitTabPane.dijitTabContainerTop-child.dijitTabContainerTop-dijitContentPane.dijitVisible
+{
+background-color:#EBEBEB;
+}
+
+/* layout border */
+.widgetContainer.toplevel-header 
+{
+    border-color: #d5d5d5 !important; 
+    /* margin-top: 0px; */
+    margin-top: 6px;
+}
+
+/* file upload border */
+.toplevel-header 
+{
+    border-color: #d5d5d5 !important;
+}
+/* amount field from grid  */
+ .dojoxGridCell.align-right 
+{
+    text-align: right;
+} 
+/* .align-right >seeAllBtn{
+	padding-top:8px;
+} */
+/* .seeAllBtn>span{
+	padding-top:8px !important;
+} */
+.rightSeelAll{
+	padding-top: 8px;
+    float: right;
+}
+
+.align-rightSeeAll{
+	padding-top: 8px;
+    float: right;
+}
+#discrepants_gridHdr4{
+	text-align:right;
+}
+/* fields in grid */
+ .dojoxGridCell.align-center
+ {
+    text-align: center;
+} 
+
+.para .icon{
+	display: none;
+}
+/* min height for content area */
+/* .col1 { */
+	/* min-height: 500px; */
+	
+	/* } */
+	
+/*  .dojoxGridCell{
+	text-align: center ;
+}  */
+.col1{
+	left: 101% !important;
+}
+/* .claro .dojoxGridHeader tr:first-child .dojoxGridCell{
+	text-align: left;
+} */
+/* .dojoxGridCell.dojoDndItem{
+	text-align: left !important;
+} */
+.attachments thead th{
+	
+	background: #ee1c25!important;
+}
+.imgButton.dijitButton .dijitButtonNode {
+	background:transparent !important;
+	box-shadow: none !important;
+}
+
+.toplevel-header h2 {
+    background: #cfcfcf none repeat scroll 0 0 !important;
+    color: #101010 !important;
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 15px;
+}
+.indented-header h3, #event-summary .attachments-container .toplevel-header h2 {
+    background-color: #cfcfcf !important;
+    background-image: none;
+    color: #101010;
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 15px;
+}
+.errorDialog{
+	/* background: #fcd3cc url(../images/error.png) no-repeat left center !important;  */
+}
+.claro .dijitDialogPaneContent{
+	/* background: #fcd3cc repeat-x top left !important; */
+	border-top: none !important;
+}
+.claro .dijitDialog{
+	border-top: none !important;
+}
+.claro .dijitDialogPaneActionBar{
+	/* background-color: #fcd3cc !important; */
+	border-top: none  !important;
+}
+/*-------------------------------grid-----------------*/
+.claro .dojoxGridRowOver .dojoxGridCell {
+    background: #ddd url("images/row_back.png") repeat-x scroll 0 0;
+    border-bottom: 1px solid #ddd !important;
+    border-top: 1px solid #ddd !important;
+}
+.colmask {
+	position: relative;
+	/* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+	float: left;
+	clear: both;
+	width: 100%; /* width of whole page */
+	overflow: hidden; /* This chops off any overhanging divs */
+	/* */
+	/* Alignment for Administration dashboard done by prasanna*/
+	top:80px !important;
+}
+#module_ec_dashboard .col1 .col1{
+width:0px;
+}
+
+#check_terms {
+    bottom: 27px;
+    position: absolute;
+}
+#overduereportexport{
+	display: none;
+}
+#finance_offer_flag_row{
+	display: none;
+}
+#sessionOverDialogContent > div{
+	display: none !important; 
+}
+
+#loader {
+	
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../../../../images/page-loader.gif') 50% 50% no-repeat  rgba(255, 255, 255, 0.8);
+}
+
+#old_Text_label {
+	font-weight: bold;
+	 margin-top: 10px;
+    margin-left: 150px;
+}
+
+#diffr_Text {
+	 margin-top: 5px;
+    margin-left: 150px;
+	 margin-bottom: 20px;
+}
+
+#old_Text{
+	 margin-top: 15px;
+    margin-left: 150px;
+	 margin-bottom: 20px;
+}
+
+
+
+
+#indicative_doc_1 a {
+    font-weight: bold;
+    margin: 20px;
+
+}
+
+#indicative_doc_2 a {
+    font-weight: bold;
+    margin: 20px;
+
+}
+
+#indicative_doc_3 a {
+    font-weight: bold;
+    margin: 20px;
+
+}
+
+#term_1_div a {
+    font-weight: bold;
+	color: #000000;
+
+}
+#term_2_div a {
+    font-weight: bold;
+	color: #000000;
+
+}
+
+#term_3_div a {
+    font-weight: bold;
+	color: #000000;
+
+}
+
+#goods_condition {
+	 margin: 20px;
+
+}
+#fwd_msg {
+	 margin: 20px;
+
+}
+
+#fee_act_no_clear_img {
+    display: none;
+}
+
+#available #fx_rem_net_rate_1 {
+   width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_indicative_rate {
+    width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_ref {
+   width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_error_msg {
+    min-width: 500px;
+	text-align: center;
+}
+#available #fx_error_code {
+    width: 70px;
+}
+
+#available #fx_rem_indicative_ccy {
+width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_indicative_amt {
+   width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_indicative_date {
+    width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_indicative_notional {
+    width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_deal_ccy {
+    width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_deal_amt {
+   width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_deal_date {
+   width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#available #fx_rem_deal_notional {
+    width: 200px;
+text-align: left;
+padding-left: 15px;
+padding-top: 5px;
+}
+#disc_1 label {
+    width: 550px;
+    text-align: left;
+    margin: 5px;
+    font-size: small;
+}
+#disc_2 label {
+    width: 550px;
+    text-align: left;
+    margin: 5px;
+    font-size: small;
+}
+#disc1 label {
+   
+    text-align: left;
+   margin: 0;
+    
+}
+
+#disc2 label {
+   
+    text-align: left;
+    margin: 0;
+    
+}
+
+#po_static_content {
+    margin: 10px 10px 20px 10px;
+   
+}
+
+#clfMenu {
+    color: #666666;
+    font-weight: bold;
+    text-align: center;
+	font-size: 12px !important;
+}
+
+#clfMenu   :hover
+{
+ background-color:#9A6C9D; 
+ color:#FFFFFF !important;
+ text-decoration: none;
+  padding: 16px;
+}
+
+#boe-details-grid #searchAddSubmitButton_row {
+    margin-top: 20px;
+}
+
+#boe-details-grid #searchAddSubmitButton_row label {
+   width: 88.5%;
+}
+
+#transaction-boe-details-grid #searchAddManuelButton_row label {
+   width: 92.99%;
+}
+
+#transaction-details-grid #searchORMTransactionButton_row label {
+   width: 90.6%;
+}
+
+#boe-details-grid #searchBOETransactionButton_row label {
+   width: 90.8%;
+}
+
+#orm_transaction_data_grid .dojoxGridScrollbox{
+	    overflow-x: hidden;
+}
+
+#boe_details_data_grid .dojoxGridScrollbox{
+	    overflow-x: hidden;
+}
+
+#shipping-boe-details-grid #searchIRMFIRCAddSubmitButton_row {
+    margin-top: 20px;
+}
+
+#shipping-boe-details-grid #searchIRMFIRCAddSubmitButton_row label {
+   width: 88.5%;
+}
+
+#irm_firc_transaction_data_grid .dojoxGridScrollbox{
+	    overflow-x: hidden;
+}
+
+#shipping_boe_details_data_grid .dojoxGridScrollbox{
+	    overflow-x: hidden;
+}
+
+#product_fx_details_data_grid .dojoxGridScrollbox{
+	    overflow-x: hidden;
+}
+
+.claro .dijitCalendarActiveDate .dijitCalendarDateLabel {
+	 background-color: #0070e0 !important; 
+	 color:#fff!important;
+
+	}
+	
+	.claro .dijitCalendarNextYearActive, .claro .dijitCalendarPreviousYearActive {
+	background-color: #ebebeb !important;
+	 
+	}
+
+	.claro .dijitCalendarNextYearHover, .claro .dijitCalendarPreviousYearHover {
+	background-color: #0070e0 !important;
+	 color:#fff!important;
+	}
+	
+	.claro .dijitCalendarHoveredDate .dijitCalendarDateLabel {
+	background-color: #0070e0 !important;
+	 color:#fff!important;
+	}
+	
+	.claro .dijitCalendar {
+	 /*  background-color: #ebebeb !important; */
+	  color:#000!important;
+	}
+	
+	/* .claro .dijitCalendarHover, .claro .dijitCalendarActive {
+	background-color: #ebebeb!important;
+	} */
+	
+	
+	.claro .dijitCalendarSelectedDate .dijitCalendarDateLabel {
+	background-color: #0070e0 !important;
+	 color:#fff!important;
+	}
+	
+	.claro .dijitCalendarDayLabelTemplate {
+	
+	background-color: #0070e0 !important;
+	}
+	
+	.claro .dijitCalendarDisabledDate .dijitCalendarDateLabel {
+	background-color: #ebebeb!important;
+	}
+	
+	
+a:link{
+	color: #0070e0;
+	} 
+.seeAllBtn a{
+	color: #0070e0 !important;
+}
+#loading-message{
+	margin-top: 33px !important;
+}
+#loadingProgressBar{
+	margin-top: -22px !important;
+}
+.homepage a:link {
+    color: #0070e0 !important;
+}
+
+/* style for the goods desc */
+#goods_style {
+    width: 90% !important;
+}
+#goods_style .checkbox label
+{
+    margin-left: 6%;
+    text-align: left;
+    width: 95%;
+}
+
+ .header{
+	background: #fff !important;
+	
+}
+
+#goods_style .radio label {
+    margin-left: 6%;
+    text-align: left;
+    width: 95%;
+}
+
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow {
+	border-left: 5px solid transparent;
+	border-right: 0px solid transparent;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowHover
+	{
+	border-left: 5px solid #b4a6ea;
+	border-right: 0px solid #b4a6ea;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected
+	{
+	border-left: 5px solid #694ed6;
+	border-right: 0px solid #694ed6;
+}
+#footerHtml{
+	display: none !important;
+}
+
+.legalType label,
+.legalType .label {
+	width: -1px;
+}
+
+.noprint.helpButton.dijitButton{
+	display: none !important;
+}

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Portal Interfaces Schema
+	Copyright (c) 2000-2011 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<!-- specific incoming interface for Opics -->
+	<interface name="opics2portal" onerror="logger" description="Load an Opics message">
+		<component name="environmentreader">
+			<component name="xsltransformer">
+				<properties>
+					<property name="stylesheet.resource">/opics/incoming/opics2portal.xsl</property>
+				</properties>
+				<component name="processmultipletransactions">
+					<component name="productparser">
+						<component name="incominginitiator">
+							<component name="documentparser">
+								<component name="fxbuysellmidratemerger">
+									<component name="opics_useridsanddttmmanager">
+										<transaction>
+											<component name="databaseserializer">
+												<component name="updatetreasurycrossreferences">													
+													<component name="filter">
+														<properties><property name="script">event.tnx_stat_code == 04</property></properties>
+														<component name="mailformatter" failsafe="true">
+															<properties>
+																<property name="destination">00</property>
+																<property name="titlekey">OPICS_SUBMISSION_ALERT_EMAIL_TITLE</property>
+																<property name="bodykey">OPICS_SUBMISSION_ALERT_EMAIL_BODY</property>
+															</properties>
+															<component name="sendmail"/>
+														</component>
+													</component>
+												</component>											
+										  	</component>										  	
+										</transaction>
+									</component>
+								</component>
+								<component name="filter">
+									<properties>
+										<property name="script">(${export.tnxdata2fbi.enable}==true)</property>
+									</properties>
+								<component name="tnxdata2fbiprocessor">
+									<component name="multibranchjmssender">
+				                            <properties> 
+				                                    <property name="initialContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</property> 
+				                                    <property name="providerURL">${provider_url}</property> 
+				                                    <property name="factory">QueueConnectionFactory</property> 
+				                                    <property name="queue">dynamicQueues/${fbi_tnx_queue_name}</property> 
+				                   		  	</properties>
+				                            <component name="filewriter"/>
+				                     </component>
+								</component>								
+							</component>
+						</component>	
+					</component>
+				</component>
+			</component>
+		</component>		
+		</component>		
+	</interface>
+
+	<!-- 
+		specific sendmailclient interface for Opics (email content) 
+		for FT only (other products will get an alert on incoming messages from Opics)
+	-->
+	<interface name="opicsmailclient" description="Notify Customer by Email">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">event.prod_stat_code != 01</property>
+				</properties>
+				<component name="mailformatter">
+					<properties>
+						<property name="destination">00</property>
+						<property name="titlekey">OPICS_SUBMISSION_ALERT_EMAIL_TITLE</property>
+						<property name="bodykey">OPICS_SUBMISSION_ALERT_EMAIL_BODY</property>
+					</properties>
+					<component name="sendmail"/>
+				</component>
+			</component>
+		</component>		
+	</interface>
+
+	
+	<!-- Bundles for Treasury Request processing -->
+	<bundle name="RequestTreasury.FX">
+		<interface asynchronous="false">treasuryFXrequestWS</interface>
+	</bundle>
+	
+	<bundle name="RequestTreasury.CMEQ">
+		<interface asynchronous="false">treasuryCMEQrequestWS</interface>
+	</bundle>
+	
+ 	<!-- Bundle for Treasury Certificate of Deposit -->
+	<bundle name="SubmitAcceptTreasuryTDInitiation">
+ 		<interface asynchronous="true">tnxdata2fbi</interface>          
+ 	</bundle> 	
+ 	
+ 	<!-- Bundle for Treasury Standing Instruction -->
+	<bundle name="SaveTreasuryTDStandingInstruction">
+ 		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<bundle name="SubmitTreasuryTDStandingInstruction">
+ 		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+ 	
+ 	<bundle name="SubmitAcceptTDUpdate">
+ 		<interface asynchronous="true">tnxdata2fbi</interface>
+	</bundle>
+	
+	<!-- interfaces for Treasury Request processing -->	
+	<interface name="treasuryFXrequestWS" onerror="logger" description="Load an Treasury back office request">
+		<component name="environmentreader">
+			<component name="treasuryfxWSrequestprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.name">SYNC_JMS_RESPONSE</property>
+					</properties>
+				</component>
+			</component>
+		</component>		
+	</interface>	
+		
+	<interface name="treasuryCMEQrequestWS" onerror="logger" description="Load an Treasury back office request">
+		<component name="environmentreader">
+			<component name="treasurycmeqWSrequestprocessor">
+				<component name="environmentwriter">
+					<properties>
+						<property name="property.name">SYNC_JMS_RESPONSE</property>
+					</properties>
+				</component>
+			</component>
+		</component>		
+	</interface>
+	
+	<interface name="treasuryFXrequestJMS" onerror="logger" description="Load an Treasury back office request">
+		<component name="environmentreader">
+			<component name="treasuryfxJMSrequestprocessor">
+				<component name="jmssender">
+					<!-- Treasury MQ Server properties for outgoing queue -->
+					<properties>
+						<property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+						<property name="providerURL">file:/C:/workspace_standard/com.misys.portal/clients/misys/TI/jndi/jms</property>
+						<property name="factory">TREASURYMQJMSFactory</property>
+						<property name="queue">TREASURYOutputQueue</property>
+					</properties>
+				</component>
+				<component name="jmsmessagereceiver">
+					<!-- Treasury MQ Server properties for incoming queue -->
+					<properties>
+						<property name="initialContextFactory">com.sun.jndi.fscontext.RefFSContextFactory</property>
+						<property name="providerURL">file:/C:/workspace_standard/com.misys.portal/clients/misys/TI/jndi/jms</property>
+						<property name="factory">TREASURYMQJMSFactory</property>
+						<property name="queue">TREASURYIncomingQueue</property>
+					</properties> 		
+					<component name="treasuryfxJMSresponsetransformer">
+						<component name="environmentwriter">
+							<properties>
+								<property name="property.name">SYNC_JMS_RESPONSE</property>
+							</properties>
+						</component>
+					</component>
+				</component>			
+			</component>
+		</component>		
+	</interface>
+	
+	<!-- Trigger Web service to fetch Request for quote details from back office  -->
+	<interface name="treasuryRFQInterface" onerror="logger" description="Request rate from Rate Provider">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties><property name="script">event.get(0).toString() == "OPICS"</property></properties>
+				<component name="treasuryOpicsRFQComponent"></component>
+			</component>
+			 <component name="filter">
+				<properties><property name="script">event.get(0).toString() == "SFX"</property></properties>
+				<component name="treasurySfxRFQComponent"></component>
+			</component>
+		</component>
+	</interface>
+	
+	<!-- Trigger Web service to Accept the rate to back office  -->
+	<interface name="treasuryActionHandlerInterface" onerror="logger" description="Accept Rate Handler for RFQ">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties><property name="script">event.get(0).toString() == "OPICS"</property></properties>
+				<component name="treasuryOpicsActionHandlerComponent"></component>
+			</component>
+			 <component name="filter">
+				<properties><property name="script">event.get(0).toString() == "SFX"</property></properties>
+				<component name="treasurySFXActionHandlerComponent"></component>
+			</component>
+		</component>
+	</interface>
+</interfaces>

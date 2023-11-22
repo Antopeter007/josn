@@ -1,0 +1,126 @@
+<div class="sort" *ngIf="purchaseOrders && purchaseOrders.length > 1"> 
+  <mat-form-field appearance="fill">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(value)]="selectedPurchaseOrderSortOrder" (selectionChange)="sortPurchaseOrders($event, purchaseOrders, $event.value)">
+      <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+        {{option.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-accordion class="example-headers-align" multi *ngIf="isExpanded()">
+  <mat-expansion-panel id="purchase-order-card" class="po-expansion-panel" *ngFor='let purchaseOrderObj of purchaseOrders;let i = index'
+    [expanded]="expandedPanelData === purchaseOrderObj" (opened)="setExpandedPanelData(purchaseOrderObj)">
+    <mat-expansion-panel-header  
+    [ngClass]="(purchaseOrderObj.isValidRow === false) ? 'borderred':'' "
+    [ngStyle]="{ 'display': purchaseOrderObj.newlyPurchaseOrder ? 'none' : '' }">
+      <div class="outer">
+        <div class="top">
+          <!-- <mat-panel-title id="selectBox">
+            <mat-checkbox class="custom-frame"></mat-checkbox>
+          </mat-panel-title> -->
+          <mat-panel-title id="leftbox">
+            {{poNum|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+           {{poDate|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+            {{noOfItems|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+            {{netAmount|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+            {{taxes|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+            {{grossAmount|translate}}
+          </mat-panel-title>
+          <mat-panel-title id="leftbox">
+
+          </mat-panel-title>
+        </div>
+        <div class="bot">
+          <div id="boxes">
+            <!-- <div id="selectBoxVal"> </div> -->
+            <div id="leftboxVal">{{purchaseOrderObj.PurchaseOrderID}}</div>
+            <div id="leftboxVal">{{purchaseOrderObj.PurchaseOrderDate | date: 'dd/MM/yyyy'}}</div>
+            <div id="leftboxVal">{{purchaseOrderObj.PurchaseOrderLineItems.length}}</div>
+            <div id="leftboxVal" style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;"
+            matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getNetAmount(purchaseOrderObj)}}"><span>{{getNetAmount(purchaseOrderObj)}}</span></div>
+            <div id="leftboxVal"   style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;"
+            matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getTaxes(purchaseOrderObj)}}">{{getTaxes(purchaseOrderObj)}}</div>
+            <div id="leftboxVal"  style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;"
+            matTooltipClass="mat-tooltip" matTooltipPosition="below" matTooltip="{{ getGrossAmount(purchaseOrderObj)}}"><span>{{getGrossAmount(purchaseOrderObj)}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top: 35px;">
+        <mat-icon _ngcontent-ran-c827="" role="img" class="mat-icon icon-hover" style="font-size:24px" aria-hidden="true"
+          data-mat-icon-type="font" (click)="onClickDeletePurchaseOrder($event, purchaseOrderObj)"
+          (keyup.enter)="onClickDeletePurchaseOrder($event, purchaseOrderObj)" style="cursor: pointer;">delete
+        </mat-icon>
+      </div>
+    </mat-expansion-panel-header>
+
+    <div>
+      <div id="boxes">
+        <div id="purchaseOrderID">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>{{purchaseOrderNum|translate}}</mat-label>
+            <input matInput required [ngModelOptions]="{ standalone: true }" maxlength="12"
+            [value]="purchaseOrderObj.PurchaseOrderID"
+              [(ngModel)]="purchaseOrderObj.PurchaseOrderID">
+          </mat-form-field>
+        </div>
+
+        <div id="purchaseOrderDate">
+          <mat-form-field appearance="fill" class="input-mat-width purchaseOrderDate">
+            <mat-label>{{purchaseOrderDATE|translate}} </mat-label>
+            <input required matInput [matDatepicker]="picker"  (click)="picker.open()" #pickerInput [ngModelOptions]="{ standalone: true }" name="purchaseOrderDate" #purchaseOrderDate="ngModel"
+              [value]="purchaseOrderObj.PurchaseOrderDate" [(ngModel)]="purchaseOrderObj.PurchaseOrderDate" (dateChange)="purchaseOrderDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-error  class="errorMsg" *ngIf="(purchaseOrderDate.dirty || purchaseOrderDate.touched) && purchaseOrderDate.invalid">
+            {{dateValidationError|translate}}
+          </mat-error>
+            <mat-error  class="errorMsg" *ngIf="poDateError">
+              {{poDateAndApplicationValidation|translate}}
+            </mat-error>
+        </div>
+      </div>
+
+      <fcc-expansion-panel-edit-form-table [control]="expControl" [form]="form" [mode]="mode"
+        [purchaseOrder]="purchaseOrderObj" [purchaseOrders]="purchaseOrders" [hostComponentData]="hostComponentData">
+      </fcc-expansion-panel-edit-form-table>
+
+      <div id="purchaseOrderTaxes">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> {{purchaseOrderTaxes|translate}}</mat-label>
+          <input matInput [ngModelOptions]="{ standalone: true }" id="taxes"  [maxlength]="12" (blur)="onKeyUpInnerTextFields($event, purchaseOrderObj)"
+           [value]="purchaseOrderObj.PurchaseOrderTaxes"
+            [(ngModel)]="purchaseOrderObj.PurchaseOrderTaxes">
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-action-row style="justify-content: left;">
+      <button mat-button class="primaryButton saveButton"
+        (click)="onClickSavePurchaseOrderButton($event, purchaseOrderObj);expandedPanelData = expandedPanelData === purchaseOrderObj ? null : purchaseOrderObj"  [disabled]="isFormValid(purchaseOrderObj)">{{SavePurchaseButton|translate}}</button>
+      <button mat-button class="primaryButton saveButton"
+        (click)="onClickSaveAddNewPurchaseOrderButton($event, purchaseOrderObj)" [disabled]="isFormValid(purchaseOrderObj)">{{SaveAddNewPurchaseButton|translate}}</button>
+      <button mat-button class="primaryButton deleteButton"
+        (click)="onClickCancelPurchaseOrderButton($event, purchaseOrderObj);expandedPanelData = expandedPanelData === purchaseOrderObj ? null : purchaseOrderObj">{{cancelLabel|translate}}</button>
+        <div class="main_div">
+          <div class="footerLabel" *ngIf="purchaseOrderObj.grossAmount!='' && purchaseOrderObj.grossAmount !=0"> {{grossAmountLabel|translate}}
+          </div>
+          <div class="sub_div">
+            <div class="footerMessage" *ngIf="purchaseOrderObj.grossAmount !='' && purchaseOrderObj.grossAmount!=0"> {{ purchaseOrderObj.grossAmount }}</div>
+          </div>
+        </div>
+    </mat-action-row>
+
+
+  </mat-expansion-panel>
+</mat-accordion>

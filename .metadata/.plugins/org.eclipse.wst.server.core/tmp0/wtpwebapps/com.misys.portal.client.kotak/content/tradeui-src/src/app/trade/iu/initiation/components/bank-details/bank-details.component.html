@@ -1,0 +1,5 @@
+<div [formGroup]="bankDetailsSection">
+  <fcc-iu-common-bank-details [undertakingType]="''" *ngIf="bgRecord" [bgRecord]="bgRecord" [formName]="bankDetailsSection"
+  (bankName)="emitBankName($event)" (issuerReferenceChange)="emitIssuerRef($event)"></fcc-iu-common-bank-details>
+</div>
+

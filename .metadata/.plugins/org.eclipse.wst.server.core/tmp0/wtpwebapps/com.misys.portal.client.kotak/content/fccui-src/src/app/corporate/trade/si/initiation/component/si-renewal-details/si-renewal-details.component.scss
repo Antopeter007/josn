@@ -1,0 +1,73 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .subheader-title{
+    margin-left: 0em;
+    margin-top: 0.5em;
+  }
+
+  :host ::ng-deep .ui-float-label label {
+    font-weight: 400;
+  }
+
+  :host ::ng-deep .ui-float-label .ui-widget {
+    min-width: 100%;
+    resize: none;
+  }
+
+  :host ::ng-deep .no-margin-multiselect {
+      margin : 0em !important;
+      background-color : $WHITE !important;
+      padding-top: 0em !important;
+  }
+  :host ::ng-deep .renewflag {
+    margin-top: 0.8em !important;
+  }
+
+  :host ::ng-deep .radiocontainer.p-grid,
+  :host ::ng-deep .radiocontainer .p-grid {
+    width: 100%;
+  }
+
+  :host ::ng-deep .allow-renewal-toggle {
+    color: $CHARCOAL-F100;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+
+  :host ::ng-deep .renewFor {
+    margin-bottom: -2em !important;
+    margin-top: -1.5em !important;
+  }
+
+  :host ::ng-deep .renew-on {
+    margin-top: 1em !important;
+  }
+
+  :host ::ng-deep .warningStyle {
+    padding: 0.5em 0em 0em 2em !important;
+  }
+
+  :host ::ng-deep .purchaseTermsValue {
+    margin-bottom: -1em !important;
+  }
+
+  :host ::ng-deep .infoDropDownIcon {
+    color: #808080;
+    float: right;
+    margin-top: 1em;
+ }
+
+ :host ::ng-deep .p-col-12 {
+  flex: 0 0 auto;
+  // padding: 0.9rem;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+  :host ::ng-deep .numberOf  {
+  width: 45% !important;
+ }
+}

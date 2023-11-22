@@ -1,0 +1,53 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_submitPage($tickColor,$successColor,$successMessageColor,$iconImageColor,$circleRadius,$LCBackgrndColor,
+$circleTextColor,$headerLabelColor,$headerValueColor) {
+
+ app-review-submit-detail .successTick em {
+    color: $tickColor !important;
+ }
+ app-review-submit-detail .success {
+     color: $successColor !important;
+ }
+ app-review-submit-detail .successMessage {
+    color: $successMessageColor !important;
+ }
+ app-review-submit-detail .iconImage {
+    color: $iconImageColor !important;
+ }
+ app-review-submit-detail .circleBackgroundLC {
+    border-radius: $circleRadius !important;
+ }
+ app-review-submit-detail .icon {
+    color: $circleTextColor !important;
+ }
+ .LC_background {
+    background-color: $LCBackgrndColor !important;     
+ }
+ app-review-submit-detail .headerFont {
+    color: $headerLabelColor !important;
+ }
+ app-review-submit-detail .dataFont1 {
+    color: $headerValueColor !important;
+ }
+}
+
+
+.finastra {
+
+// Default Variables
+$tickColor:$VIOLET-07;
+$successColor:$OCEAN-B100;
+$successMessageColor:$BLUE-01;
+$iconImageColor:$CHARCOAL-F100;
+$circleRadius:$submitCircleIconRadius;
+$LCBackgrndColor:$GRASS-G50;
+$circleTextColor:$GRAY-HEX-20;
+$headerLabelColor:$GREEN-01;
+$headerValueColor:$GOLD-Y75;
+
+
+@include Styling_of_submitPage($tickColor,$successColor,$successMessageColor,$iconImageColor,$circleRadius,$LCBackgrndColor,
+$circleTextColor,$headerLabelColor,$headerValueColor);
+
+}

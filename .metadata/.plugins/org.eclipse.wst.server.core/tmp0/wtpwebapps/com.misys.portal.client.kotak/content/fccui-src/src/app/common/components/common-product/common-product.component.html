@@ -1,0 +1,124 @@
+<div [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass productCompGrid' : 'verMenuCssClass productCompGrid'" *ngIf="leftSectionEnabled !== undefined && !inputParams" >
+  <div #header class="p-grid tabSection stickyHeader" dir={{dir}} [ngStyle]="{ 'top': calcTop('top') }">
+    <div class="p-grid p-col-12">
+      <div class="p-col-8">
+      </div>
+    </div>
+    <div class="p-col-3 sectionHeader" *ngIf="leftSectionEnabled">
+    <span>{{lcHeaderKey | translate}}</span>
+    <div class="p-col-3 p-md-3 progress" dir={{dir}}>
+      <p-selectButton tabindex="0" [options]="types" [(ngModel)]="selectedType" (onOptionClick)="onOptionClick($event)" styleClass="tabButton"></p-selectButton>
+      <div class="progressBarItem">
+      <div [ngClass]="{ displayStepper: tasks === true }" >
+      <div class="progressBarValue">{{ value }} %</div>
+      <div class="proBar">
+        <mat-progress-bar  [value]="value"></mat-progress-bar>
+      </div>
+    </div>
+    </div>
+    <div *ngIf="tasks && hasCreateTaskPermission">
+      <button role="button"  tabindex="0" pButton class="createTaskButton" title="{{'createTask' | translate}}" label="{{'createTask' | translate}}" (click)="onCreateTask()">
+      </button>
+    </div>
+  </div>
+    </div>
+    <div [ngClass]="{ 'p-col-9 p-grid rightSideForm': leftSectionEnabled, 'p-col-12 p-grid rightSideForm': !leftSectionEnabled }">
+           <div class="p-col-12">
+            <dynamic-component-content class="dynamicCompStyle"
+                  type= "{{ formHeaderComponent }}" (checkAutosavedTimestamp)="updateTimestamp($event)"  [data] = "formHeaderInputData">
+            </dynamic-component-content>
+          </div>
+  </div>
+</div>
+  <div class='p-grid' [ngStyle]="{ 'padding-top': calcTop('paddingTop') }">
+    <div class="p-col-3 stepperTop" [ngClass]="{ displayStepper: tasks === true }" *ngIf="leftSectionEnabled">
+      <mat-fcc-stepper [inputParams]="stepperParams" (indexChangeEvent)="updateIndexEvent($event)" #stepper></mat-fcc-stepper>
+    </div>
+    <div *ngIf="tasks && leftSectionEnabled" class="p-col-3">
+      <div dir={{dir}} class="leftSection">
+        <fcc-task-listing [taskInputParams]="taskInputParams" ></fcc-task-listing></div>
+    </div>
+    <div [ngClass]="{ 'p-col-9 sectionCol9': leftSectionEnabled, 'p-col-12 sectionCol9': !leftSectionEnabled }">
+      <div class="returnCommentsStyle" dir={{dir}} *ngIf="reviewComments && container && (container.type !== 'summaryDetails')">
+        <p-inplace closable="closable" active=true>
+          <span pInplaceDisplay  tabindex="0" class="material-icons">message</span>
+          <span pInplaceContent>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>{{ reviewCommentsHeader }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p class="workBreak" [innerHTML]="reviewComments"></p>
+              </mat-card-content>
+            </mat-card>
+          </span>
+        </p-inplace>
+      </div>
+      <div class="section-top" id="autoFocusDiv" [ngStyle]="dir === 'rtl' ? {'padding': '1em 3.125em 1em 7em'} : {'padding': '1em 4.125em 1em 3.125em'}">
+        <dynamic-component-content (checkSubmitStatus)="setSubmitStatus($event)" class="dynamicCompStyle" tabindex="0" type="{{componentType}}" #container id="autoFocusComp1"></dynamic-component-content>
+        <dynamic-component-content style="display: none;" #hiddenContainer id="autoFocusComp2"></dynamic-component-content>
+      </div>
+    </div>
+  </div>
+  <!-- TODO: JSON to have the list of buttons displayed -->
+  <div dir="dir" [ngClass] = "{ 'buttonDisplayIE p-grid': IEview, 'buttonDisplay p-grid': !IEview}"
+    [ngStyle]="container && (container.type === 'summaryDetails') && (dir === 'ltr') ? {'backgroundColor':'white','float': 'none'}
+    : container && (container.type !== 'summaryDetails') && (dir === 'ltr') ? {'backgroundColor':'transparent','float': 'right'}
+    : container && (container.type === 'summaryDetails') && (dir === 'rtl') ? {'backgroundColor':'white','float': 'none'}
+    : {'backgroundColor':'transparent','float': 'left'}">
+    <div class="p-col-3"></div>
+    <div class="p-col-9 sectionMessageStyle" dir = {{dir}}>
+      <span class="warningHeaderStyle" *ngIf="container && (container.type === 'summaryDetails') && !isParentFormValid">
+        <span class="material-icons warningAmberStyle">
+           warning_amber
+        </span>
+        <p class="warningBodyStyle" [innerHTML]="warningBody"></p>
+      </span>
+      <ng-container *ngIf="fcmContainerType && fcmContainerType.includes(container.type); else displayFormButton">
+        <div [ngClass] = "buttonStyle" >
+          <button role="button"  *ngIf="container " pButton class="primaryButton" label="{{Submit}}" [disabled]="!isSubmitEnabled" (click)="submit()" id="submit"></button>
+        </div>
+
+    </ng-container>
+    <ng-template #displayFormButton>
+      <dynamic-component-content 
+        [containerType]="container"
+        [isSubmitEnabled]="isSubmitEnabled" [buttonStyle]="buttonStyle"
+        [submitClicked]="submitClicked"
+        (previousClick)="onClickPrevious()"
+        (nextClick)="onClickNext()"
+        (submitClick)="onclickSubmit()"
+        tabindex="0" type="{{getComponentType()}}" id="nextButton">
+      </dynamic-component-content>
+    </ng-template>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Below Code is used to render view screen. Not yet handled -->
+<div class="p-col-12" *ngIf="inputParams" >
+      <div *ngIf="componentType === 'summaryDetails'">
+        <dynamic-component-content stateType = "{{stateType}}"  stateId = "{{stateId}}" isMasterView = "{{isMasterView}}" accordionViewRequired="{{accordionViewRequired}}" class="dynamicCompStyle" type="{{componentType}}" #container></dynamic-component-content>
+        <dynamic-component-content  style="display: none;" #hiddenContainer ></dynamic-component-content>
+      </div>
+
+      <div *ngIf="componentType !== 'summaryDetails'">
+        <dynamic-component-content class="dynamicCompStyle" tabindex="0" type="{{componentType}}" #container></dynamic-component-content>
+      </div>
+</div>
+<div class="p-col-12" *ngIf="secondInputParams">
+  <div *ngIf="showSpinner; else elseBlock">
+    <mat-spinner [diameter]="30"></mat-spinner>
+  </div>
+  <ng-template #elseBlock>
+  <div *ngIf="componentType === 'summaryDetails'">
+    <div style="display:flex">
+      <fcc-amend-comparison-view [productCode] = "productCode" [masterTransactionHeader] = 'transaction1Header' [TransactionHeader] = 'transaction2Header' #container3></fcc-amend-comparison-view>
+    </div>
+  </div>
+</ng-template>
+<dynamic-component-content style="display: none;" #hiddenContainer></dynamic-component-content>
+</div>
+<dynamic-component-content style="display: none;" #container2></dynamic-component-content>

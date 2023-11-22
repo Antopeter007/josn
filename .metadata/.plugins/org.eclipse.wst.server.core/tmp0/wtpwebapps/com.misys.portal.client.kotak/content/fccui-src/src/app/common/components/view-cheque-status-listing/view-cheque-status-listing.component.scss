@@ -1,0 +1,308 @@
+@import './../../../../styles/variables.scss';
+
+.viewChequeStatusModifyBatch {
+    margin-top: 2em !important;
+    width: 100% !important;
+    padding: 1em 4.125em 1em 3.125em;
+}
+
+.viewChequeStatus {
+  margin-top: 4em !important;
+  padding-left: 1em !important;
+  width: 100% !important;
+}
+
+.widget-container {
+    padding-top: 3em;
+    margin-right: 0.5em;
+    background-color: $WHITE;
+    display: block !important;
+
+    .widget-header {
+      margin-top: 2em;
+      color: $primaryColor !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        margin: 0 0.5em;
+        color: $WHITE;
+        background-color: $FUCHSIA-F100;
+      }
+    }
+
+    .widget-padding {
+      padding: 1.2em 3em;
+      background-color: $WHITE;
+      
+    }
+
+    .widget-listing {
+      overflow-y: auto;
+      padding: 0 3em;
+      height: 40em;
+      margin-right: 0;
+    }
+
+    .active-tab {
+      background-color: $VIOLET-F100 !important;
+      color: $WHITE !important;
+    }
+
+}
+:host ::ng-deep .viewChequeStatus .ui-card {
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: none !important;
+}
+
+.chequeTitle{
+  font-size: 1.5em;
+  font-weight: 500;
+  min-height: 1em;
+  margin-left: -0.8em !important
+}
+
+.pageTitle {
+  margin-bottom: -4em !important;
+  margin-top: 4em !important;
+}
+
+:host ::ng-deep .secondaryButton {
+  box-shadow: none !important;
+}
+
+#accountNumbers_confirmation {
+  padding-left: 2em;
+}
+
+
+:host ::ng-deep fcc-review-detail-table fcc-common-transactions-listdef fcc-table .tableAlign {
+  min-height: 16em;
+}
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+  :host ::ng-deep .widget-container{
+      margin-top: 2em;
+  }
+}
+
+.submit-button-container {
+  margin-top : 0em !important;
+  padding-top: unset;
+  margin-right: 4em;
+}
+
+.submit-button {
+  float : right;
+}
+
+.workBreak {
+  word-break: break-all;
+}
+
+:host ::ng-deep .returnCommentsStyle[dir="rtl"]  .ui-inplace .ui-inplace-display {
+  right: inherit;
+  left: 4em;
+  top: 1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-display
+  .material-icons {
+  color: $uiSelectButtoncolor;
+}
+
+:host ::ng-deep .returnCommentsStyle .ui-inplace .ui-inplace-content .mat-card {
+  padding: 2.5em 2.5em 2.1em;
+  background-color: #f9f9fd;
+  border: 1.5px solid rgb(234, 230, 249);
+  box-shadow: none;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header-text {
+  margin-left: 0em !important;
+  color: $primaryColor;
+  font-size: 1.125em;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.125em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-header
+  .mat-card-title {
+  font-size: 1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card
+  .mat-card-content {
+  color: #4a4a4a;
+  letter-spacing: 0;
+  line-height: 1.4em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  box-shadow: 0 0 0 0.1em $primaryColor;
+  width: 1.2em;
+  right: 1.1em;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-icon-left {
+  background-color: transparent;
+  color: $primaryColor;
+}
+
+.workBreak {
+  word-break: break-all;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button.ui-button-icon-only
+  .ui-button-text {
+  padding: 0em;
+}
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    :host
+      ::ng-deep
+      .returnCommentsStyle{
+        top: 17.5em;
+      }
+
+  }
+
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p {
+  max-height: 9em;
+  overflow: auto;
+}
+
+// return comments scrollbar styles
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar {
+  width: 5px; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar-track {
+  background: transparent; // Chrome, Safari and Opera
+}
+
+/* Handle */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p::-webkit-scrollbar-thumb {
+  background: transparent; // Chrome, Safari and Opera
+}
+
+/* Track */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p:hover::-webkit-scrollbar-track {
+  background: #f1f1f1; // Chrome, Safari and Opera
+}
+
+/* Handle on hover */
+:host
+  ::ng-deep
+  .returnCommentsStyle
+  .ui-inplace
+  .ui-inplace-content
+  .mat-card-content p:hover::-webkit-scrollbar-thumb {
+  background: #888; // Chrome, Safari and Opera
+  cursor: pointer;
+}
+
+:host
+  ::ng-deep
+  .returnCommentsStyle[dir = rtl]
+  .ui-inplace
+  .ui-inplace-content
+  .ui-button:enabled:focus{
+  left: 1em;
+  right: inherit;
+}
+
+.returnCommentsStyle {
+  margin: 4em 2em 0 2em;
+  width: 100%;
+}
+
+.hyperlink {
+  margin: 0 1em;
+  cursor: pointer;
+}
+
+.hyperlink p {
+  color: $VIOLET-F100 !important;
+  font-size: 0.9em;
+}
+
+.failure-msg {
+  color:$RED-100;
+}
+:host ::ng-deep fcc-table  {
+  .ui-table-scrollable-header::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.6em;
+}
+.ui-table-scrollable-header::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+}

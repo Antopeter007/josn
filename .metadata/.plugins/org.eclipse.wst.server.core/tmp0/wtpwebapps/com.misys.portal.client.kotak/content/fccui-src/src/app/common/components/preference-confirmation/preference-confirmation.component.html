@@ -1,0 +1,24 @@
+<ng-container>
+  <div class="">
+    <p class="base-label" tabindex="0">{{ filterPreferenceTitle | translate}}</p>
+  </div>
+<form [formGroup]="filterPreferenceForm" (ngSubmit)="submitDashboardName()" tabindex="0">
+  <div class="dash-save">
+      <span class="ui-float-label implementation">
+      <input role="textbox" id="float-input" type="text" OnFocusInput="true" (ngModelChange)="onKeyUpInput($event)"
+      [maxlength]="preferenceValidationMaxLen"
+      [minlength]="preferenceValidationMinLen" formControlName="filterPreferenceName" (focus)="onFocusInput()"
+       pInputText tabindex="0">
+      </span>
+  </div>
+  <div class="chk-box">
+    <mat-checkbox name = "group2" formControlName="PreferenceCheckBox"> {{'defaultPreference' | translate}} </mat-checkbox> 
+  </div>
+  <br>
+  <div class="p-justify-end buttonDisplay">
+    <button role="button"  styleClass="saveBtn" pButton type="submit" class="ui-button-rounded"
+    label="{{'saveBtn' | translate}}" tabindex="0"></button>
+  </div>
+</form>
+</ng-container>
+

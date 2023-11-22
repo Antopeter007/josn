@@ -1,0 +1,13 @@
+  <div class="templateDownload">
+
+    <ng-container>
+    <div *ngFor= "let data of templateData" class="templateIcon">
+      <img id="" class = "iconImage" tabindex="0" matTooltip="{{'download' | translate}}" matTooltipPosition="below" (keydown.enter)="keyPressRoute($event,data)"  (click)="exportTemplate(data)" src='{{contextPath}}{{data.path}}' alt="{{data.type | translate}}">
+      <span class="caption">{{data.type}}</span>
+    </div>
+    
+    </ng-container>
+  <div class="bulk-message">
+      <p>{{'templateMsg' | translate}}</p>
+  </div>
+</div>

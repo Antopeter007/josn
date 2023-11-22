@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.system.customer_payee"]){dojo._hasResource["misys.binding.system.customer_payee"]=true;dojo.provide("misys.binding.system.customer_payee");dojo.require("misys.form.MultiSelect");dojo.require("dijit.form.FilteringSelect");dojo.require("dijit.form.Form");dojo.require("dijit.form.Button");dojo.require("dijit.form.TextBox");dojo.require("dijit.form.ValidationTextBox");dojo.require("dijit.form.NumberTextBox");dojo.require("misys.form.CurrencyTextBox");dojo.require("dijit.form.CheckBox");dojo.require("dijit.layout.ContentPane");dojo.require("misys.validation.common");dojo.require("misys.form.common");dojo.require("dojox.xml.DomParser");(function(d,dj,m){d.mixin(m._config,{initReAuthParams:function(){var _1={productCode:"CP",subProductCode:"",transactionTypeCode:dj.byId("tnx_type_code")?dj.byId("tnx_type_code").get("value"):"01",entity:"",currency:"",amount:"",es_field1:"",es_field2:""};return _1;}});d.mixin(m,{bind:function(){},onFormLoad:function(){},showHelp:function(_2){var _3=dj.byId(_2);var _4=dj.byId("help"+"_"+_2).get("value");if(_3){dijit.hideTooltip(_3.domNode);dijit.showTooltip(_4,_3.domNode,0);}}});m._config=m._config||{};d.mixin(m._config,{});})(dojo,dijit,misys);dojo.require("misys.client.binding.system.customer_payee_client");}

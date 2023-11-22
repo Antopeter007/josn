@@ -1,0 +1,491 @@
+@import './../../../../styles/variables.scss';
+
+.main-start {
+  padding: 1em 2em;
+  background-color: $mainstartBackgroundColor;
+}
+
+
+.toggle{
+  padding : 1em !important;
+}
+
+
+.pageContent {
+  padding-bottom: 1em;
+  padding-top: 0em;
+}
+.pageContent {
+  padding-bottom: 0em;
+}
+
+.pageTitle {
+  font-size: 1.2em;
+  font-weight: 500;
+  min-height: 1em;
+  margin: 1em 0 !important;
+}
+
+.pageTitleBar {
+  font-size: 20px;
+  font-weight: 400;
+  color: $primaryColor;
+  padding-bottom: 0;
+  min-height: 2em;
+}
+
+.create-btn-block {
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  padding-top: 1em !important;
+}
+
+:host ::ng-deep .ui-corner-right {
+  border-top-right-radius: $ui-cornerright-border-top-right-radius !important;
+  border-bottom-right-radius: $ui-cornerright-border-bottom-right-radius !important;
+  border: $ui-cornerright-border !important;
+  border-left: $ui-cornerright-border-left !important;
+}
+
+:host ::ng-deep .ui-corner-top {
+  border-top-left-radius: $ui-cornerTop-border-top-left-radius !important;
+  border-top-right-radius: $ui-cornerTop-border-top-right-radius !important;
+}
+
+#accordionHeaderId label{
+  cursor:pointer;
+}
+
+:host ::ng-deep .view-drp .ui-dropdown-label {
+  padding-top: 0.429em !important;
+  padding-left: 1.429em !important;
+  color: $primaryColor;
+  font-weight: 500;
+}
+
+:host ::ng-deep .pi-chevron-down:before {
+  content: "\e906" !important;
+}
+
+.saved-view-block {
+  padding: 0.5em;
+  padding-left: 0.7em;
+  background-color: $saved-view-blockBackgroundColor;
+}
+
+.tab-block {
+  padding-top: 1.5em;
+  padding-left: 0.7em;
+  background-color: $tabblockBackgroundColor;
+}
+
+.tab-block {
+  padding-top: 0.5em !important;
+}
+
+:host ::ng-deep p-tabmenu {
+  ul {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+}
+
+:host ::ng-deep .ui-tabmenu ul {
+  border-bottom: none !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav li {
+  margin: 0em !important;
+  background-color: $ui-tabmenu-nav-li-BackgroundColor !important;
+  border: $ui-tabmenu-nav-li-Border !important;
+  line-height: 0.825em !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav li:hover {
+  background-color: $ui-tabmenu-nav-liHover-BackgroundColor !important;
+  border: $ui-tabmenu-nav-liHover-Border !important;
+  color: $ui-tabmenu-nav-liHover-Color !important;
+}
+
+:host ::ng-deep  .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link:focus
+{
+  box-shadow: 0 0 0 0.2em #8dcdff;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+  background-color: $tabActiveBackgroundcolor  !important;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active .ui-menuitem-text {
+  color: #FFFFFF;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-default .ui-menuitem-text {
+  color: $Tabcolor;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav a {
+  padding: 0;
+}
+
+.create-btn-block .primaryButton {
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+
+
+.threeDots{
+  font-size: 0.9em;
+  color: $threeDotsColor;
+  border-radius: 0.25em !important;
+  background-color: $threeDotsBackgroundColor;
+  line-height: 2.1em;
+  cursor: pointer;
+}
+
+.threeDots:focus{
+  box-shadow: $threeDotsFocusBoxShadow !important;
+  outline: none !important;
+}
+
+.pi-ellipsis-v:before, .pi-question:before{
+  line-height: 1.75em !important;
+}
+
+.horMenuCssClass {
+  margin-top: 4.5em;
+}
+.verMenuCssClass {
+  margin-top: 2em;
+}
+
+.rightDirect {
+  text-align: end;
+  margin: auto;
+}
+
+.approveButton {
+  background-color: $secondaryColor !important;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+
+.deleteButton {
+  background-color: $secondaryColor !important;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+
+
+.rejectButton {
+  color: $secondaryColor   !important;
+  margin-right: 0.6em;
+  margin-left: 0.6em;
+}
+:host ::ng-deep .textarea.characterCountDivfield {
+  margin-top: -1em;
+}
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0.429em !important;
+  background-color: $textAreacharacterCountDivfieldBackgroundColor;
+  width: 39em;
+}
+
+[dir=rtl] :host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  padding-right: 0.429em !important;
+  background-color: $textAreacharacterCountDivfieldBackgroundColor;
+  width: 39em;
+  text-align: left;
+  padding-left: 0.429em;
+}
+
+[dir=rtl] :host ::ng-deep p-tabmenu ul {
+  display: flex !important;
+  flex-direction: row-reverse;
+}
+
+
+:host ::ng-deep .mat-form-field-wrapper {
+  position: relative;
+  width: 35em;
+}
+
+:host ::ng-deep textarea.mat-input-element {
+  resize: none;
+}
+
+.comments{
+  margin-top: -2em;
+  color: $RED-100;
+  position: absolute;
+}
+:host ::ng-deep .ui-tabmenu ul li > a:focus {
+  border: .125em solid $ui-tabmenu-focus !important;
+}
+
+.mat-drawer.mat-drawer-end {
+  width: 24em;
+  top: 1.9em;
+  height: -webkit-fill-available;
+}
+
+.mat-icon{
+  right: -10em;
+}
+
+[dir=rtl].mat-icon{
+  right: 13.5em;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+  .header-margin {
+    margin-top: 3em;
+  }
+}
+
+.primaryButton1:hover {
+  cursor: pointer !important;
+  background-color: $VIOLET-F50 !important;
+  border: 0.0625em solid $VIOLET-F50 !important;
+  box-shadow: none !important;
+}
+
+.primaryButton1 {
+  border: 0.0625em solid $VIOLET-F100 !important;
+  background-color: $VIOLET-F100 !important;
+  color: $WHITE !important;
+}
+
+.primaryButton1.ui-button.ui-button-text-only .ui-button-text {
+  color: $WHITE !important;
+  padding: 0em !important;
+  line-height: 2.25em !important;
+}
+
+
+ .with-background {
+  padding-left: .5em !important;
+  background-image:
+    url('/content/FCCUI/assets/images/gradient-card-pattern@1x.png'),linear-gradient(to bottom, $VIOLET-F100, $FUCHSIA-F100);
+  width: 12.25em;
+  height: 5.7em;
+}
+
+.without-background {
+  padding-left: .5em !important;
+  background-image: url('/content/FCCUI/assets/images/white-card-pattern@1x.png');
+  width: 12.25em;
+  height: 5.7em;
+}
+@media screen and (min-width: 680px) {
+  .with-background {
+    width: 11.25em !important;
+  }
+}
+@media screen and (min-width: 680px) {
+  .without-background {
+    width: 11.25em !important;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .with-background {
+    width: 7.5em !important;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .without-background {
+    width: 7.5em !important;
+  }
+}
+
+.rtlWithout-Background {
+  @extend .without-background;
+  margin-left: 0.7em !important;
+  margin-right: 0.2em !important;
+}
+
+.rtlWith-Background {
+  @extend .with-background;
+  margin-left: 0.7em !important;
+  margin-right: 0.2em !important;
+}
+.cardTypeActive {
+  color: $WHITE !important;
+  font-weight: 400 !important;
+  width: auto !important;
+  bottom: -30px !important;
+}
+
+.cardTypeInactive {
+  font-weight: 400 !important;
+  width: auto !important;
+  bottom: -30px !important;
+}
+.cardLabel {
+  color: $CHARCOAL-F100;
+  font-size: 1em !important;
+}
+.cardValue {
+  color: $VIOLET-02;
+  font-size: 1.3em !important;
+}
+:host ::ng-deep .with-background .mat-button-toggle-label-content {
+  color: $WHITE !important;
+  line-height: 2.5em !important;
+  float: right !important;
+}
+
+:host ::ng-deep .without-background .mat-button-toggle-label-content{
+  color: $BLACK !important;
+  line-height: 2.5em !important;
+  float: right !important;
+}
+.cardPadding {
+  padding-top: 1.4em !important;
+  padding-bottom: 1em !important;
+}
+.backDashboardButton {
+  border-radius: 1.125em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  border: 0.0625em solid $VIOLET-F100 !important;
+  color: $VIOLET-F100 !important;
+  background-color: #ffffff !important;
+}
+button.backDashboardButton:hover {
+  background-color: #d9d3f5 !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .mat-drawer-content {
+  overflow: hidden !important;
+  background: $WHITE;
+}
+:host ::ng-deep .mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle{
+  border-left: solid 0.06em  !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+
+:host ::ng-deep {
+  .ui-dialog .ui-dialog-titlebar {
+    padding: 1em !important;
+    border: none;
+    border-radius: 0.3em 0.3em 0 0;
+  }
+
+  .ui-dialog .ui-dialog-footer {
+    padding: 1.571em 1em !important;
+    border-radius: 0 0 0.3em 0.3em;
+    .margin-left {
+        margin-left: 1em;
+    }
+  }
+
+  .ui-dialog .ui-dialog-content {
+    border-bottom: none;
+    p {
+        font-weight: 500;
+        font-size: 0.875em;
+        color: $GREY;
+    }
+  }
+
+  [dir="rtl"] .ui-dialog-titlebar-icons {
+    float: left !important;
+  }
+
+  .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button .ui-button-icon-left {
+    background-color: $WHITE;
+    color: $CHARCOAL-F75;
+    font-size: 1.7em;
+  }
+
+  #accountNumbers_confirmation{
+    margin-left: 1em;
+    padding: 0em;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-top: -1em;
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 15em;
+    width: 100%;
+  }
+  #accountNumbers_confirmation div, p{
+    padding-bottom:0.25em;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .pageContent {
+      margin: 1em 0 1em 0 !important;
+    }
+
+  }
+
+}
+@media screen and  (min-width: 768px) and (max-width: 820px){
+  .without-background {
+    width: 5.5em !important;
+  }
+  .with-background {
+    width: 5.5em !important;
+  }
+  :host ::ng-deep .with-background .mat-button-toggle-label-content{
+    padding: 0 1em !important;
+  }
+  :host ::ng-deep .without-background .mat-button-toggle-label-content{
+    padding: 0 1em !important;
+  }
+  .backDashboardButton{
+    margin-right: 1em !important;
+  }
+  .pageContent {
+    margin: 4em 0 1em 0 !important;
+  }
+}
+
+.viewTransaction {
+  color: #C139A3;
+  padding-top: 0.2em;
+}
+
+.viewTransaction a {
+  color: $secondaryColor !important;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  font-weight: 400;
+  display: block;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.viewTransaction a:hover {
+  color: $secondaryColor;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.focus a:focus {
+  outline: .125em solid #694ed6 !important;
+}
+
+
+:host ::ng-deep fcc-table  {
+  .ui-table-scrollable-header::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.6em;
+}
+.ui-table-scrollable-header::-webkit-scrollbar-thumb {
+  background: $GREY-22;
+  border-radius: 10px;
+}
+}
+:host ::ng-deep .p-col-12.ng-star-inserted{
+  z-index: 1;
+  }

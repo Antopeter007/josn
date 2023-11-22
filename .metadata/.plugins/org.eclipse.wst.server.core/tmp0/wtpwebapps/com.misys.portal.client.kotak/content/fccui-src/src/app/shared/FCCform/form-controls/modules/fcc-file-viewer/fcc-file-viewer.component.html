@@ -1,0 +1,24 @@
+<!-- <p>File Viewer</p>
+<div>
+  <button role="button"  (click)="onClickExtPDF()" style="margin: 1em; border-radius: 0.5em;">Extended PDF Viewer</button>
+  <button role="button"  (click)="onClickNg2PDFjsViewer()" style="margin: 1em; border-radius: 0.5em;">Ng2 PDFjs Viewer</button>
+</div> -->
+<ng-container [formGroup]="form">
+
+  <!-- <div class="fcc-file-viewer-header">
+    <p>File Name</p>
+  </div> -->
+  <div class="fcc-file-viewer">
+    <ngx-extended-pdf-viewer [src]="docUrl" [useBrowserLocale]="true" [textLayer]="true"
+    [showHandToolButton]="false"
+    [showOpenFileButton]="false"
+    [showBookmarkButton]="false"
+    [showRotateButton]="false"
+    [showPresentationModeButton]="true"
+    [zoom]="'page-width'">
+    </ngx-extended-pdf-viewer>
+  </div>
+  <!-- <div *ngIf="ng2pdfjsViewer" class="fcc-file-viewer">
+    <ng2-pdfjs-viewer [pdfSrc]="ng2pdfjsSrc"  [viewerFolder]="'assets/js/pdfjs'"></ng2-pdfjs-viewer>
+  </div> -->
+</ng-container>

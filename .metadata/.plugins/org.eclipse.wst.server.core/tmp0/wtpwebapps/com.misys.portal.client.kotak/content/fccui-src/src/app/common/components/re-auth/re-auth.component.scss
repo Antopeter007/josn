@@ -1,0 +1,90 @@
+@import './../../../../styles/variables.scss';
+
+:host ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  border: 0px solid $GREY-07;
+  background-color: $WHITE;
+  color: $GRAY-HEX-20;
+  padding: 1em;
+  font-size: 2em;
+  font-weight: 700;
+  border-bottom: none;
+}
+
+:host ::ng-deep .ui-dialog-titlebar.ui-widget-header {
+  background-color: $WHITE !important;
+  color: #0c0c0c !important;
+  padding: none !important;
+  font-size: 1em !important;
+}
+
+:host ::ng-deep #validateBtn {
+  float: right;
+  background-color: $FUCHSIA-F100 !important;
+  border: none !important;
+}
+
+:host ::ng-deep .validateBtnArabic {
+  float: left !important;
+  border-radius: 2em !important;
+  background-color: $VIOLET-02 !important;
+}
+
+.messageArabic {
+  text-align: right;
+}
+
+#resendOTP {
+  position: relative;
+  bottom: 1.4375em;
+}
+
+:host ::ng-deep #errorMsg {
+  position: relative;
+  bottom: 0.6875em;
+  font-weight: 100;
+  color: $RED-100;
+  height: 0.875em;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.00625em;
+  line-height: 1em;
+}
+
+[dir=rtl] #errorMsg {
+  position: relative;
+  bottom: 1.6875em;
+  color: red;
+  text-align: right !important;
+}
+
+.p-col-12 .ng-star-inserted {
+  position: relative;
+  bottom: 0.6875em;
+}
+
+:host ::ng-deep .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0em;
+}
+
+:host ::ng-deep [dir=rtl] .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 1.6em;
+  float: right;
+  margin-right: -12.5em;
+}
+
+:host ::ng-deep [dir=rtl] .ui-float-label > label {
+  left: 0.5em;
+  color: #6f6f6f;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  right: 0em;
+}
+
+[dir=rtl] .fileUploadTitle {
+ float: right;
+}
+
+[dir=rtl] .ui-float-label .ui-widget {
+  padding-right: 0.1em !important;
+}

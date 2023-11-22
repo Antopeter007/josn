@@ -1,0 +1,27 @@
+
+@import '../../../../styles/variables.scss';
+
+
+:host ::ng-deep .secondaryButton {
+    right: 2em !important;
+  }
+
+  .cancelBtn[dir='rtl'] {
+    margin-right: 55em !important;
+  }
+
+  .endbutton{
+    text-align: right;
+}
+
+.applyBtn[dir='rtl'] {
+  right: 4em !important;
+}
+
+:host ::ng-deep .warningStyle {
+  color: $GREY-01;
+  font-weight: 300 !important;
+  font-size: 0.85em !important;
+  bottom: 1em !important;
+  position: relative;
+}

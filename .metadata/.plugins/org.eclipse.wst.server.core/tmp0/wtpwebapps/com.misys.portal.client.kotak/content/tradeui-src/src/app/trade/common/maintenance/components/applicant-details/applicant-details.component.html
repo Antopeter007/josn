@@ -1,0 +1,39 @@
+  <div class="indented-header">
+      <h3>{{'HEADER_APPLICANT_DETAILS' | translate }}</h3>
+        <div class="fieldset-content">
+        <div [formGroup]="applicantDetailsForm">
+          <div>
+            <label> {{ 'PARTIESDETAILS_NAME' | translate }} &nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}"> {{bgRecord['applicantName']}}</label>
+          </div>
+          <div>
+            <label> {{ 'PARTIESDETAILS_ADDRESS' | translate }} &nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['applicantAddressLine1']}}</label>
+          </div>
+          <div *ngIf="bgRecord['applicantAddressLine2'] && bgRecord['applicantAddressLine2'] != null && bgRecord['applicantAddressLine2'] !== ''">
+            <label></label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['applicantAddressLine2']}}</label>
+          </div>
+          <div *ngIf="bgRecord['applicantDom'] && bgRecord['applicantDom'] != null && bgRecord['applicantDom'] !== ''">
+            <label></label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['applicantDom']}}</label>
+          </div>
+          <div>
+            <label> {{ 'PARTIESDETAILS_REFERENCE' | translate }} &nbsp;</label>
+            <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}"> {{bgRecord['applicantReference']}}</label>
+          </div>
+
+           <div *ngIf="option === 'UPDATE_ENTITY'">
+            <label>{{ 'PARTIESDETAILS_ENTITY' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+              <input formControlName="entity" type="text" readonly pInputText/>
+              <a *ngIf="!(commonDataService.disableTnx)" class="fa fa-search fa-lg" (click)="openEntityDialog('entity')"></a>
+            </div>
+
+          <div *ngIf="option === 'UPDATE_CUSTOMER_REF'">
+            <label>{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+            <input formControlName="applicantCustReference" id="applicantCustReference" type="text"/>
+             <fcc-common-error-message [control]="applicantDetailsForm.get('applicantCustReference')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+          </div>
+        </div>
+      </div>
+    </div>

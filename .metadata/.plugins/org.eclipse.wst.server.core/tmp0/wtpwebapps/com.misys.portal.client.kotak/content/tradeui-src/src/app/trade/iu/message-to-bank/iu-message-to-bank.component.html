@@ -1,0 +1,278 @@
+<form [formGroup]="messageToBankForm">
+
+  <!-- Buttons for create message to bank -->
+  <fcc-common-actions *ngIf ="!viewMode && bgRecord" [bgRecord]="bgRecord" [showTask] ="true" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- Buttons for unsigned message to bank -->
+  <fcc-common-actions *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED' && bgRecord" [bgRecord]="bgRecord" [showTask]="true" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+ <div *ngIf ="!viewMode ; else view_content">
+  <p-panel id="referenceDet" header="{{'HEADER_REFERENCE' | translate}}" [toggleable]="true">
+    <p-header *ngIf="!viewMode">
+      <a class="fa fa-search fa-lg {{commonService.getUserLanguage() === 'ar' ? 'master-icon-left' : 'master-icon'}}" (click)="showDailog(bgRecord['refId'], bgRecord['tnxId'])"></a>
+   </p-header>
+    <div class = "fieldset-content">
+       <!-- System Id: -->
+      <div id =  "general_ref_id_view_row" class="field" *ngIf ="bgRecord && bgRecord['refId'] && bgRecord['refId'] != null && bgRecord['refId'] != ''">
+        <label for =  "system_id" id =  "system_id_label">{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-field' : 'label-left-field'}}">{{bgRecord['refId']}}</label>
+      </div>
+       <!--Customer Reference -->
+      <div id = "customer_reference_view_row" class="field" *ngIf ="bgRecord && bgRecord['custRefId'] && bgRecord['custRefId'] != null && bgRecord['custRefId'] != ''">
+        <label for="customer_reference">{{'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['custRefId']}}</label>
+      </div>
+      <!-- Bank Reference -->
+      <div id = "general_bo_ref_id_view_row" class="field" *ngIf ="bgRecord && bgRecord['boRefId'] && bgRecord['boRefId'] != null && bgRecord['boRefId'] != ''">
+        <label for ="boRefId" id ="bo_ref_id_label">{{'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['boRefId']}}</label>
+      </div>
+      <!--Purpose-->
+      <div id = "purpose_row" class = "field" *ngIf="bgRecord && bgRecord['purpose'] && bgRecord['purpose'] != null && bgRecord['purpose'] !== ''">
+          <label for = "purpose">{{ 'GENERALDETAILS_PURPOSE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right-max' : 'label-left-max'}}">{{iuCommonDataService.getPurpose(bgRecord['purpose']) | translate}}</label>
+      </div>
+      <!--Form of Undertaking-->
+      <div id="sub_product_code_view_row" class="field" *ngIf ="bgRecord && bgRecord['subProductCode'] && bgRecord['subProductCode'] != null && bgRecord['subProductCode'] != ''">
+          <label for="subProductCode" id="sub_product_code_label">{{ 'AMOUNTDETAILS_FORM_OF_UNDERTAKING' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{iuCommonDataService.getSubProductCode(bgRecord['subProductCode']) | translate}}</label>
+      </div>
+      <!-- Beneficiary Reference -->
+      <div id = "beneficiaryReferenceViewRow" class = "field" *ngIf ="bgRecord && bgRecord['beneficiaryReference'] && bgRecord['beneficiaryReference'] != null && bgRecord['beneficiaryReference'] != ''">
+          <label for ="beneficiaryReference" id = "beneficiaryReferenceLabel">{{ 'PARTIESDETAILS_BENEFICIARY_REFERENCE' | translate }}&nbsp;</label>
+          <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['beneficiaryReference']}}</label>
+      </div>
+      <!--Issue date -->
+      <div id = "iss_date_row" class="field" *ngIf="option && option != null && option != '' && (option == 'CANCEL'  || option == 'EXISTING' || option == 'ACTION_REQUIRED') && bgRecord && bgRecord['issDate'] && bgRecord['issDate'] != null && bgRecord['issDate'] != ''">
+        <label for ="issDate">{{'AMEND_GENERALDETAILS_ISSUE_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['issDate']}}</label>
+      </div>
+      <!--Expiry date -->
+      <div id = "exp_date_row" class="field" *ngIf ="bgRecord && bgRecord['bgExpDate'] && bgRecord['bgExpDate'] != null && bgRecord['bgExpDate'] != ''">
+        <label for ="bgExpDate">{{'GENERALDETAILS_EXPIRY_DATE' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgExpDate']}}</label>
+      </div>
+      <!--Available IU amount in case of Extend/Pay -->
+      <div id="bg_amt_row" class="field" *ngIf="bgRecord && bgRecord['purpose'] === '01' && (messageToBankForm.get('subTnxTypeCode').value === '21'
+                                || prodStatCode === '86' || prodStatCode === '84') && commonService.isFieldsValuesExists([bgRecord['bgAmt']])">
+        <label for="tnxAmt" >{{'AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['bgCurCode']}}&nbsp;{{commonService.transformAmt(bgRecord['bgAvailableAmt'], bgRecord['bgCurCode'])}}</label>
+       </div>
+
+       <!-- Counter IU Amount-->
+       <div id="bg_amt_row" class="field" *ngIf="bgRecord && bgRecord['purpose'] !== '01' && (messageToBankForm.get('subTnxTypeCode').value === '21'
+                                || prodStatCode === '86'  || prodStatCode === '84') && commonService.isFieldsValuesExists([bgRecord['cuAmt']])">
+        <label for="tnxAmt" >{{'COUNTER_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['cuCurCode']}}&nbsp;{{commonService.transformAmt(bgRecord['cuAvailableAmt'], bgRecord['cuCurCode'])}}</label>
+       </div>
+    </div>
+  </p-panel>
+      <p-panel id="msgToBank" header="{{'HEADER_MESSAGE_TO_BANK' | translate}}" [toggleable]="true">
+          <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || (option == 'ACTION_REQUIRED' && (prodStatCode === '84' || prodStatCode === '86')))">
+              <!--Claim Presentation Date -->
+             <div id =  "claim_present_date_row" class="field" *ngIf ="bgRecord && bgRecord['claimPresentDate'] && bgRecord['claimPresentDate'] != null && bgRecord['claimPresentDate'] != ''">
+               <label for = "claimPresentDate" >{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}&nbsp;</label>
+               <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['claimPresentDate']}}</label>
+             </div>
+             <div id =  "claim_reference_row" class="field" *ngIf ="bgRecord && bgRecord['claimReference'] && bgRecord['claimReference'] != null && bgRecord['claimReference'] != ''">
+               <label for = "claimReference" >{{ 'CLAIM_REFERENCE_LABEL' | translate }}&nbsp;</label>
+               <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['claimReference']}}</label>
+             </div>
+             <div id =  "claim_amt_row" class="field" *ngIf ="bgRecord && bgRecord['claimAmt'] && bgRecord['claimAmt'] != null && bgRecord['claimAmt'] != ''">
+               <label for = "claimAmt" >{{ 'CLAIM_AMOUNT_LABEL' | translate }}&nbsp;</label>
+               <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['claimCurCode']}}&nbsp;{{bgRecord['claimAmt']}}</label>
+             </div>
+           </div>
+           <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || option == 'EXISTING')">
+             <div id= "sub_tnx_type_code_row" class="field" enable>
+               <label for = "subTnxTypeCode"> {{ 'MESSAGE_TYPE_LABEL' | translate }}&nbsp;</label>
+               <p-dropdown id = "subTnxTypeCode" appendTo = "body" name="sub_tnx_type_code_selected" formControlName="subTnxTypeCode"
+                 [options]="subTnxTypeCodes" optionLabel="name">
+               </p-dropdown>
+               <fcc-common-error-message [control]="messageToBankForm.get('subTnxTypeCode')"></fcc-common-error-message>
+             </div>
+           </div>
+           <div *ngIf="option && option != null && option != '' && option == 'ACTION_REQUIRED' && !(prodStatCode === '78' || prodStatCode === '79')">
+             <div id= "sub_tnx_type_code_row" class="field" enable>
+               <label for = "subTnxTypeCode"> {{ 'MESSAGE_TYPE_LABEL' | translate }}&nbsp;</label>
+               <p-dropdown   id = "subTnxTypeCode" appendTo = "body" name="sub_tnx_type_code_selected" formControlName="subTnxTypeCode"
+                 [options]="subTnxTypeObj">
+               </p-dropdown>
+               <fcc-common-error-message [control]="messageToBankForm.get('subTnxTypeCode')"></fcc-common-error-message>
+             </div>
+           </div>
+           <div *ngIf="option && option != null && option != '' && option == 'ACTION_REQUIRED' && (prodStatCode === '78' || prodStatCode === '79')">
+            <div id= "sub_tnx_type_code_row" class="field" enable>
+              <span *ngFor="let subtnxType of subTnxTypeObj; index as i">
+              <label *ngIf="i === 0" for = "subTnxTypeCode"> {{ 'ACTION_LABEL' | translate }}
+                <span class = "required-field-symbol">*</span>&nbsp;</label>
+                <p-radioButton id="actionSubtnxTypeCode" value="{{subtnxType.value}}" label= "{{subtnxType.label | translate}}"formControlName="subTnxTypeCode"
+                    name="subTnxTypeCode">
+                </p-radioButton>
+              </span>
+            </div>
+          </div>
+           <div *ngIf="option && option != null && option != '' && option == 'ACTION_REQUIRED' && prodStatCode === '86'">
+            <div id= "acceptRejectSubTnxTypeCode" class="field">
+              <label class="label-radiobutton" for = "acceptRejectSubTnxTypeCode"> {{ 'KEY_CLAIM_DISPOSAL_INSTRUCTIONS' | translate }}&nbsp;</label>
+              <p-radioButton id="acceptRejectSubTnxTypeCode" value="63" label= "{{'Reject' | translate}}"formControlName="acceptRejectSubTnxTypeCode"
+                  name="acceptRejectSubTnxTypeCode" (onClick)="updatePayExtendValue()">
+              </p-radioButton>
+              <p-radioButton id="acceptRejectSubTnxTypeCode" value="62" label = "{{'Accept' | translate }}" formControlName="acceptRejectSubTnxTypeCode"
+                  name="acceptRejectSubTnxTypeCode" (click)="updatePayExtendValue()">
+              </p-radioButton>
+            </div>
+          <div id= "sub_tnx_type_code_row" *ngIf="displaySubTnx" class="field">
+              <label class="label-radiobutton" for = "subTnxTypeCode"></label>
+              <p-radioButton *ngIf="(bgRecord && bgRecord['purpose']==='01' && bgRecord['tnxAmt'] && bgRecord['tnxAmt'] !== null && bgRecord['tnxAmt'] !== '') || (bgRecord['purpose']!=='01' && bgRecord['cuTnxAmt'] && bgRecord['cuTnxAmt'] !== null && bgRecord['cuTnxAmt'] !== '') || messageToBankForm.get('subTnxTypeCode').value === '21'"
+              id="subTnxTypeCode" value="21" formControlName="subTnxTypeCode" name="subTnxTypeCode" label= "{{'KEY_PAY' | translate}}" (onClick)="updateSettlementAmount()">
+              </p-radioButton>
+              <p-radioButton *ngIf="bgRecord && bgRecord['extendedDate'] && bgRecord['extendedDate'] !== null && bgRecord['extendedDate'] !== ''" id="subTnxTypeCode" value="20" formControlName="subTnxTypeCode"
+                  name="subTnxTypeCode" label= "{{'KEY_EXTEND' | translate}}" (onClick)="updateSettlementAmount()">
+              </p-radioButton>
+            </div>
+            <div *ngIf="bgRecord && bgRecord['extendedDate'] && bgRecord['extendedDate'] !== null && bgRecord['extendedDate'] !== '' && (messageToBankForm.get('subTnxTypeCode').value === '20')">
+              <label for = "extendedDate">{{'KEY_EXTENDED_DATE' | translate}}&nbsp;</label>
+              <label class="{{commonService.getUserLanguage() === 'ar' ? 'label-right' : 'label-left'}}">{{bgRecord['extendedDate']}}</label>
+            </div>
+          </div>
+           <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || (option == 'ACTION_REQUIRED' &&  (messageToBankForm.get('subTnxTypeCode').value === '25' || messageToBankForm.get('subTnxTypeCode').value === '62' || messageToBankForm.get('subTnxTypeCode').value === '21')))">
+                 <div class="field" id="tnxAmtRow">
+                   <label for="tnxAmt">{{'SETTLEMENT_AMT_LABEL' | translate }}
+                     <span *ngIf="!tnxAmtReadOnly" class = "required-field-symbol">*</span>&nbsp;
+                   </label>
+                    <input type="text"name="tnxCurCode" class="input-three-digit" value="{{(this.bgRecord['purpose'] === '01' ? this.bgRecord['tnxCurCode'] : this.bgRecord['cuCurCode'])}}" readonly pInputText>&nbsp;&nbsp;
+                    <input formControlName="tnxAmt" name="tnxAmt" type="text" [readonly] = "tnxAmtReadOnly" pInputText
+                    (blur) = "this.messageToBankForm.get('tnxAmt').setValue(commonService.transformAmt(this.messageToBankForm.get('tnxAmt').value, this.messageToBankForm.get('tnxCurCode').value));
+                    validatePaymentDocumentAmount()">
+                   <fcc-common-error-message [control]="messageToBankForm.controls['tnxAmt']"></fcc-common-error-message>
+                 </div>
+             <div class="field">
+              <label for="bgPrincipalActNo" class="label">{{'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+              <input pInputText type="text" id="bgPrincipalActNo" formControlName="bgPrincipalActNo" (click)="openAccountDialog('bgPrincipalActNo')" [readonly]="true" pInputText>
+              <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgPrincipalActNo')"></a>
+              <a *ngIf="hasPrincipalAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearPrincipalAcc($event);"></a>
+              <fcc-common-error-message [control]="messageToBankForm.get('bgPrincipalActNo')" ></fcc-common-error-message>
+             </div>
+
+            <div class="field">
+              <label for="bgFeeActNo" >{{'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+              <input pInputText type="text" id="bgFeeActNo" formControlName="bgFeeActNo" [readonly]="true" (click)="openAccountDialog('bgFeeActNo')">
+              <a class="fa fa-search fa-lg" (click)="openAccountDialog('bgFeeActNo')"></a>
+              <a *ngIf="hasFeeAccountValue()" class="fa fa-remove fa-lg text-danger" (click)="clearFeeAcc($event);"></a>
+              <fcc-common-error-message [control]="messageToBankForm.get('bgFeeActNo')" ></fcc-common-error-message>
+            </div>
+          </div>
+          <fcc-common-free-format-message *ngIf="jsonContent" [labelName]="'CUSTOMER_INSTRUCTIONS_LABEL'" [bgRecord]="jsonContent" (formReady)="addToForm('freeFormatMessageSection', $event)"></fcc-common-free-format-message>
+        </p-panel>
+      <fcc-common-fileupload-component *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('fileUploadSection', $event)"></fcc-common-fileupload-component>
+      <p-confirmDialog id="fieldError" class="lf-confirm-dialog" key='fieldErrorDialog' icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  </div>
+
+
+<!-- view screen content-->
+<ng-template #view_content>
+  <!-- Header Buttons for the preview screen -->
+  <fcc-common-actions *ngIf ="bgRecord && this.iuCommonDataService.getMode() !== 'UNSIGNED'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <fcc-trade-event-details *ngIf="bgRecord" [isMessageToBank]="true" [bgRecord]="bgRecord" [formReady]="bgRecord"></fcc-trade-event-details>
+        <p-panel id="msgToBank" header="{{'HEADER_MESSAGE_TO_BANK' | translate}}" [toggleable]="true">
+            <div class="fieldset-content">
+            <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || (option == 'ACTION_REQUIRED' && (prodStatCode === '84' || prodStatCode === '86')))" id="claimSection">
+                <!--Claim Presentation Date -->
+               <div id =  "claim_present_date_row" *ngIf ="bgRecord && bgRecord['claimPresentDate'] && bgRecord['claimPresentDate'] != null && bgRecord['claimPresentDate'] != ''">
+                 <label for = "claimPresentDate" >{{ 'CLAIM_PRESENT_DATE_LABEL' | translate }}&nbsp;</label>
+                 <label class="label-left">{{bgRecord['claimPresentDate']}}</label>
+               </div>
+               <!--Claim Reference -->
+               <div id =  "claim_reference_row" *ngIf ="bgRecord && bgRecord['claimReference'] && bgRecord['claimReference'] != null && bgRecord['claimReference'] != ''">
+                <label for = "claimReference" >{{ 'CLAIM_REFERENCE_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['claimReference']}}</label>
+               </div>
+               <!--Claim amount -->
+               <div id =  "claim_amt_row" *ngIf ="bgRecord && bgRecord['claimAmt'] && bgRecord['claimAmt'] != null && bgRecord['claimAmt'] != ''">
+                <label for = "claimAmt" >{{ 'CLAIM_AMOUNT_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['claimCurCode']}}&nbsp;{{bgRecord['claimAmt']}}</label>
+               </div>
+            </div>
+               <!--Message type-->
+          <div id='messageTypeAndAccounts'>
+              <div id= "sub_tnx_type_code_row" *ngIf ="bgRecord && bgRecord['subTnxTypeCode'] && bgRecord['subTnxTypeCode'] != null && bgRecord['subTnxTypeCode'] != ''">
+                <label *ngIf="bgRecord['subTnxTypeCode'] === '88' || bgRecord['subTnxTypeCode'] === '89'" for = "subTnxTypeCode" id="sub_tnx_type_code_label">{{ 'ACTION_LABEL' | translate }}&nbsp;</label>
+                <label *ngIf="bgRecord['subTnxTypeCode'] === '20' || bgRecord['subTnxTypeCode'] === '21' || bgRecord['subTnxTypeCode'] === '63'" for = "subTnxTypeCode" id="sub_tnx_type_code_label">{{ 'KEY_CLAIM_DISPOSAL_INSTRUCTIONS' | translate }}&nbsp;</label>
+                <label *ngIf="bgRecord['subTnxTypeCode'] !== '20' && bgRecord['subTnxTypeCode'] !== '21' && bgRecord['subTnxTypeCode'] !== '63' && bgRecord['subTnxTypeCode'] !== '88' && bgRecord['subTnxTypeCode'] !== '89'" for = "subTnxTypeCode" id="sub_tnx_type_code_label">{{ 'MESSAGE_TYPE_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{iuCommonDataService.getTnxSubTypeCode(bgRecord['subTnxTypeCode']) | translate}}</label>
+              </div>
+              <div *ngIf ="bgRecord['extendedDate'] && bgRecord['extendedDate'] != null && bgRecord['extendedDate'] != '' && bgRecord && bgRecord['subTnxTypeCode'] && bgRecord['subTnxTypeCode'] === '20'">
+              <label for = "extendedDate" id="extendedDate">{{ 'KEY_EXTENDED_DATE' | translate}}&nbsp;</label>
+              <label class="label-left">{{ bgRecord['extendedDate'] }}</label>
+              </div>
+              <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || (option == 'ACTION_REQUIRED' && bgRecord &&  (bgRecord['subTnxTypeCode'] === '25' || bgRecord['subTnxTypeCode'] === '62'))) && bgRecord['tnxAmt'] && bgRecord['tnxAmt'] != null && bgRecord['tnxAmt'] != '' && bgRecord['purpose'] === '01'">
+                <label for="tnxAmt" id="tnxAmtLabel">{{ 'SETTLEMENT_AMT_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['tnxCurCode']}}&nbsp;{{bgRecord['tnxAmt']}}</label>
+              </div>
+
+              <div *ngIf="option && option != null && option != '' && (option == 'CLAIM_PROCESSING' || (option == 'ACTION_REQUIRED' && bgRecord && (bgRecord['subTnxTypeCode'] === '25' || bgRecord['subTnxTypeCode'] === '62'))) && bgRecord['tnxAmt'] && bgRecord['tnxAmt'] != null && bgRecord['tnxAmt'] != '' && bgRecord['purpose'] !== '01'">
+                <label for="tnxAmt" id="tnxAmtLabel">{{ 'SETTLEMENT_AMT_LABEL' | translate }}&nbsp;</label>
+                <label class="label-left">{{bgRecord['cuCurCode']}}&nbsp;{{bgRecord['cuTnxAmt']}}</label>
+              </div>
+           <!--Principal account-->
+          <div id = "principal_act_no_view_row" *ngIf ="bgRecord && bgRecord['bgPrincipalActNo'] && bgRecord['bgPrincipalActNo'] != null && bgRecord['bgPrincipalActNo'] != ''">
+            <label for =  "bgPrincipalActNo" id =  "principal_act_no_label">{{ 'INSTRUCTIONS_PRINCIPAL_ACT_NO_LABEL' | translate }}&nbsp;</label>
+            <label class="label-left">{{bgRecord['bgPrincipalActNo']}}</label>
+          </div>
+              <!--Fee account-->
+             <div id = "fee_act_no_view_row" *ngIf ="bgRecord && bgRecord['bgFeeActNo'] && bgRecord['bgFeeActNo'] != null && bgRecord['bgFeeActNo'] != ''">
+              <label for =  "bgFeeActNo" id =  "fee_act_no_label">{{ 'INSTRUCTIONS_FEE_ACT_NO_LABEL' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['bgFeeActNo']}}</label>
+          	 </div>
+        </div>
+         <!-- Free format message-->
+          <div *ngIf ="this.iuCommonDataService.getMode() !== 'UNSIGNED'" id="freeFormatMessage">
+            <div id = "free_format_text_row" *ngIf ="bgRecord && bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+              <label for = "bgFreeFormatText">{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['bgFreeFormatText']}}</label>
+            </div>
+          </div>
+          <div *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED'">
+            <div id = "free_format_text_row_unsigned" *ngIf ="bgRecord && bgRecord['bgFreeFormatText'] && bgRecord['bgFreeFormatText'] != null && bgRecord['bgFreeFormatText'] != ''">
+              <label for = "bgFreeFormatText" >{{'HEADER_FREE_FORMAT_MESSAGE' | translate }}&nbsp;</label>
+              <label class="label-left">{{bgRecord['bgFreeFormatText']}}</label>
+            </div>
+          </div>
+        </div>
+      </p-panel>
+    <fcc-iu-common-return-comments *ngIf="bgRecord && this.iuCommonDataService.getMode() !== 'UNSIGNED'" [bgRecord]= "bgRecord"></fcc-iu-common-return-comments>
+    <div *ngIf="this.iuCommonDataService.getMode() !== 'UNSIGNED' && (iuCommonDataService.getPreviewOption() !== 'SUMMARY' && iuCommonDataService.getPreviewOption() !== 'FULLORSUMMARY')">
+      <fcc-iu-initiate-general-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-general-details>
+      <fcc-iu-common-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-applicant-details>
+      <fcc-iu-common-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-beneficiary-details>
+      <fcc-iu-common-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-amount-details>
+      <fcc-iu-renewal-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-renewal-details>
+      <fcc-iu-initiate-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-reduction-increase>
+      <fcc-iu-payment-details *ngIf="jsonContent && this.iuCommonDataService.getSubProdCode() === 'STBY'" [bgRecord]="jsonContent"></fcc-iu-payment-details>
+      <fcc-iu-initiate-contract-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-contract-details>
+      <fcc-iu-initiate-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-bank-details>
+      <fcc-iu-initiate-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-undertaking-details>
+   </div>
+   <div *ngIf="luStatus">
+      <fcc-iu-cu-general-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-general-details>
+      <fcc-iu-cu-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-beneficiary-details>
+      <fcc-iu-initiate-cu-amount-details  *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-amount-details>
+      <fcc-iu-cu-renewal-details  *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-renewal-details>
+      <fcc-iu-cu-reduction-increase *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-cu-reduction-increase>
+      <fcc-iu-cu-payment-details *ngIf="jsonContent && this.iuCommonDataService.getCUSubProdCode() === 'STBY'" [bgRecord]="jsonContent"></fcc-iu-cu-payment-details>
+      <fcc-iu-initiate-cu-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-cu-undertaking-details>
+    </div>
+    <!-- Footer buttons for the preview screen -->
+    <fcc-common-actions *ngIf ="bgRecord && this.iuCommonDataService.getMode() !== 'UNSIGNED'" [isFooter]="'true'" [showExport]="true" [showPrint]="true" [showClose]="true" [showSubmit]="false" [showCancel]="false" [showHelp]="false" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+</ng-template>
+
+  <div id='commentsSection'  *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED' || (!viewMode && this.iuCommonDataService.getViewComments())">
+    <fcc-iu-common-return-comments *ngIf="bgRecord && bgRecord.length !== 0" [bgRecord]="bgRecord" (formReady)="addToForm('commentsForm', $event)"></fcc-iu-common-return-comments>
+  </div>
+
+  <fcc-common-actions *ngIf ="!viewMode" [isFooter]="'true'" [showSave]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- SUBMIT, RETURN, PREVIEW, CANCEL, HELP-->
+  <fcc-common-actions *ngIf ="this.iuCommonDataService.getMode() === 'UNSIGNED'" [isFooter]="'true'" [showReturn]="true" [showPreview]="true" (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <fcc-common-reauth-dialog  *ngIf="enableReauthPopup" (callReauthSubmit)="onReauthSubmit()" (formReady)="addToForm('reauthForm', $event)"></fcc-common-reauth-dialog>
+  <p-confirmDialog></p-confirmDialog>
+
+</form>

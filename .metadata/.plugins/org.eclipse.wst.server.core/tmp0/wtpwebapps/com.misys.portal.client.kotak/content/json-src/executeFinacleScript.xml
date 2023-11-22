@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.finacle.com/fixml BalInq.xsd">
+    <Header>
+        <ResponseHeader>
+            <RequestMessageKey>
+                <RequestUUID>479c3aa3-3b58-89ad-5e24-010e9d7dbefb</RequestUUID>
+                <ServiceRequestId>BalInq</ServiceRequestId>
+                <ServiceRequestVersion>10.2</ServiceRequestVersion>
+                <ChannelId>COR</ChannelId>
+            </RequestMessageKey>
+            <ResponseMessageInfo>
+                <BankId>01</BankId>
+                <TimeZone>GMT+05:30</TimeZone>
+                <MessageDateTime>2021-04-15T19:22:00.005</MessageDateTime>
+            </ResponseMessageInfo>
+            <UBUSTransaction>
+                <Id/>
+                <Status/>
+            </UBUSTransaction>
+            <HostTransaction>
+                <Id/>
+                <Status>SUCCESS</Status>
+            </HostTransaction>
+            <HostParentTransaction>
+                <Id/>
+                <Status/>
+            </HostParentTransaction>
+            <CustomInfo/>
+        </ResponseHeader>
+    </Header>
+    <Body>
+        <executeFinacleScriptResponse>
+            <ExecuteFinacleScriptOutputVO/>
+            <executeFinacleScript_CustomData>
+                <CustMWFRs>
+                    <FORACID>123456789</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>05-FEB-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>05-AUG-10</MATURITY_DATE>
+                    <interest_rate>4.75</interest_rate>
+                    <DEPOSIT_AMOUNT>110000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>110000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>110000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670563949</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>02-JUL-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>30-DEC-10</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>20000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>20000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>20000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670729334</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>28-MAR-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>25-SEP-11</MATURITY_DATE>
+                    <interest_rate>7.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670519095</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>26-APR-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>24-OCT-10</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>100000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>100000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>100000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670260261</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>24-OCT-09</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>23-APR-10</MATURITY_DATE>
+                    <interest_rate>4.5</interest_rate>
+                    <DEPOSIT_AMOUNT>110000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>110000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>110000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1910332116</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-FEB-16</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>09-AUG-16</MATURITY_DATE>
+                    <interest_rate>7.3</interest_rate>
+                    <DEPOSIT_AMOUNT>80000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>82872</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1919571158</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>13-NOV-15</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-MAY-16</MATURITY_DATE>
+                    <interest_rate>7.4</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10364</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1912180940</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>25-OCT-12</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>24-APR-13</MATURITY_DATE>
+                    <interest_rate>8.25</interest_rate>
+                    <DEPOSIT_AMOUNT>30000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>30000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1914261458</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>21-OCT-13</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>19-APR-14</MATURITY_DATE>
+                    <interest_rate>8.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10432</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1916125364</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>20-AUG-14</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>16-FEB-15</MATURITY_DATE>
+                    <interest_rate>8.5</interest_rate>
+                    <DEPOSIT_AMOUNT>630000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>656408</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670761952</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>13-MAY-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>10-NOV-11</MATURITY_DATE>
+                    <interest_rate>8</interest_rate>
+                    <DEPOSIT_AMOUNT>400000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>400000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>400000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670762927</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>16-MAY-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>13-NOV-11</MATURITY_DATE>
+                    <interest_rate>8</interest_rate>
+                    <DEPOSIT_AMOUNT>460000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>460000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>460000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670663100</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>03-DEC-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>02-JUN-11</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>40000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>40000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>40000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1917724380</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>01-APR-15</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>28-SEP-15</MATURITY_DATE>
+                    <interest_rate>8.25</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10407</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1914348849</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>06-MAR-17</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>02-SEP-17</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10321</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1912333608</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>07-SEP-16</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>06-MAR-17</MATURITY_DATE>
+                    <interest_rate>6.9</interest_rate>
+                    <DEPOSIT_AMOUNT>340000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>351548</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670584424</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>05-AUG-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>02-FEB-11</MATURITY_DATE>
+                    <interest_rate>5.75</interest_rate>
+                    <DEPOSIT_AMOUNT>110000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>110000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>110000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670550913</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>10-JUN-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>08-DEC-10</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>50000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>50000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>50000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670477009</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-FEB-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-AUG-10</MATURITY_DATE>
+                    <interest_rate>4.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670691065</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>23-JAN-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>23-JUL-11</MATURITY_DATE>
+                    <interest_rate>7.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1920730949</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>27-JUL-18</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>23-JAN-19</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>20000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>20641</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1914651366</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>31-MAR-17</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>27-SEP-17</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10321</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670686369</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-JAN-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-JUL-11</MATURITY_DATE>
+                    <interest_rate>7.5</interest_rate>
+                    <DEPOSIT_AMOUNT>120000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>120000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>120000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670761434</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>12-MAY-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>09-NOV-11</MATURITY_DATE>
+                    <interest_rate>8</interest_rate>
+                    <DEPOSIT_AMOUNT>580000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>580000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>580000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670590591</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>19-AUG-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>16-FEB-11</MATURITY_DATE>
+                    <interest_rate>6</interest_rate>
+                    <DEPOSIT_AMOUNT>50000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>50000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>50000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1913220686</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>24-APR-13</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>21-OCT-13</MATURITY_DATE>
+                    <interest_rate>8.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10419</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670665479</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>08-DEC-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>07-JUN-11</MATURITY_DATE>
+                    <interest_rate>6.75</interest_rate>
+                    <DEPOSIT_AMOUNT>50000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>50000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>50000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1912064329</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>09-AUG-16</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>05-FEB-17</MATURITY_DATE>
+                    <interest_rate>7.1</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10349</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1910044854</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>08-JAN-16</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>06-JUL-16</MATURITY_DATE>
+                    <interest_rate>7.3</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10359</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670518403</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>24-APR-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>22-OCT-10</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>40000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>40000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>40000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670693253</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>27-JAN-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>27-JUL-11</MATURITY_DATE>
+                    <interest_rate>7.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670547176</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>02-JUN-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>30-NOV-10</MATURITY_DATE>
+                    <interest_rate>5.25</interest_rate>
+                    <DEPOSIT_AMOUNT>20000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>20000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>20000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670542306</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>31-MAY-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>28-NOV-10</MATURITY_DATE>
+                    <interest_rate>5.25</interest_rate>
+                    <DEPOSIT_AMOUNT>40000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>40000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>40000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670517870</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>23-APR-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>21-OCT-10</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>600000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>600000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>600000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670573488</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>26-JUL-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>23-JAN-11</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670569004</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>14-JUL-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-JAN-11</MATURITY_DATE>
+                    <interest_rate>5.5</interest_rate>
+                    <DEPOSIT_AMOUNT>120000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>120000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>120000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670657470</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>30-NOV-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>30-MAY-11</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670532682</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-MAY-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>08-NOV-10</MATURITY_DATE>
+                    <interest_rate>5.25</interest_rate>
+                    <DEPOSIT_AMOUNT>200000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>200000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>200000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1917367198</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>16-FEB-15</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>15-AUG-15</MATURITY_DATE>
+                    <interest_rate>8.25</interest_rate>
+                    <DEPOSIT_AMOUNT>550000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>572373</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670587330</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-AUG-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>08-FEB-11</MATURITY_DATE>
+                    <interest_rate>5.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670606103</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>10-SEP-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>10-MAR-11</MATURITY_DATE>
+                    <interest_rate>6.25</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670536211</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>19-MAY-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>16-NOV-10</MATURITY_DATE>
+                    <interest_rate>5.25</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>10000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1911058940</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>31-MAR-12</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>28-SEP-12</MATURITY_DATE>
+                    <interest_rate>8.75</interest_rate>
+                    <DEPOSIT_AMOUNT>90000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>90000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670426750</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>11-NOV-09</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-MAY-10</MATURITY_DATE>
+                    <interest_rate>4.5</interest_rate>
+                    <DEPOSIT_AMOUNT>200000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>200000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>200000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670548880</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>05-JUN-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>03-DEC-10</MATURITY_DATE>
+                    <interest_rate>5.25</interest_rate>
+                    <DEPOSIT_AMOUNT>40000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>40000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>40000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1911398114</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>17-NOV-11</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>16-MAY-12</MATURITY_DATE>
+                    <interest_rate>8.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1911979449</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>17-MAR-12</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>14-SEP-12</MATURITY_DATE>
+                    <interest_rate>8.75</interest_rate>
+                    <DEPOSIT_AMOUNT>10000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>10000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>1918811714</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>KM4658475</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>01810010005534</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>FFDRT</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>15-AUG-15</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>11-FEB-16</MATURITY_DATE>
+                    <interest_rate>7.8</interest_rate>
+                    <DEPOSIT_AMOUNT>420000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>0</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>FFD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>JOF</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>436146</MATURITY_AMT>
+                    <DEPOSIT_TYPE>F</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>01810010005534</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>01810010005534</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670453299</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>02-JAN-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>02-JUL-10</MATURITY_DATE>
+                    <interest_rate>4.5</interest_rate>
+                    <DEPOSIT_AMOUNT>20000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>20000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>20000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670479495</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>19-FEB-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>19-AUG-10</MATURITY_DATE>
+                    <interest_rate>5</interest_rate>
+                    <DEPOSIT_AMOUNT>320000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>320000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>320000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+                <CustMWFRs>
+                    <FORACID>01813670625080</FORACID>
+                    <CLOSE_FLAG>Y</CLOSE_FLAG>
+                    <ACCT_STATUS>A</ACCT_STATUS>
+                    <MODE_OF_OPER_CODE>002</MODE_OF_OPER_CODE>
+                    <ACCT_NAME>NAME OF 6632619</ACCT_NAME>
+                    <LINK_OPER_ACCOUNT>NA</LINK_OPER_ACCOUNT>
+                    <LINK_OPER_ACCOUNT_FORACID>NA</LINK_OPER_ACCOUNT_FORACID>
+                    <SCHM_CODE>RTFFD</SCHM_CODE>
+                    <SCHM_DESC>FLEXI FIXED DEPOSIT  - RETAIL</SCHM_DESC>
+                    <OPEN_EFFECTIVE_DATE>07-OCT-10</OPEN_EFFECTIVE_DATE>
+                    <MATURITY_DATE>06-APR-11</MATURITY_DATE>
+                    <interest_rate>6.5</interest_rate>
+                    <DEPOSIT_AMOUNT>90000</DEPOSIT_AMOUNT>
+                    <AVAIL_DEPOSIT_AMT>90000</AVAIL_DEPOSIT_AMT>
+                    <T_CRNCY_CODE>INR</T_CRNCY_CODE>
+                    <CLR_BAL_AMT>0</CLR_BAL_AMT>
+                    <TAM_CRNCY_CODE>INR</TAM_CRNCY_CODE>
+                    <TD_TYPE>Stand-alone TD</TD_TYPE>
+                    <LIEN_AMT>0</LIEN_AMT>
+                    <FREZ_CODE>N</FREZ_CODE>
+                    <CUST_RELTN_CODE>NA</CUST_RELTN_CODE>
+                    <ACCT_POA_AS_REC_TYPE>M</ACCT_POA_AS_REC_TYPE>
+                    <MATURITY_AMT>90000</MATURITY_AMT>
+                    <DEPOSIT_TYPE>T</DEPOSIT_TYPE>
+                    <REPAY_ACCOUNT>NA</REPAY_ACCOUNT>
+                    <CASA_ACCOUNT>NOT FOUND</CASA_ACCOUNT>
+                    <SourceChannel>Not Available</SourceChannel>
+                </CustMWFRs>
+            </executeFinacleScript_CustomData>
+        </executeFinacleScriptResponse>
+    </Body>
+</FIXML>

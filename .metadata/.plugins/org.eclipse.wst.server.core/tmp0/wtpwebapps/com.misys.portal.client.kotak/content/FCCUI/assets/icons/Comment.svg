@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-Comment">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="Comment" clip-path="url(#clip-Comment)">
+    <rect width="24" height="24" fill="#fff"/>
+    <g id="chat_black_24dp">
+      <path id="Path_9027" data-name="Path 9027" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Path_9028" data-name="Path 9028" d="M4,4H20V16H5.17L4,17.17V4M4,2A2,2,0,0,0,2.01,4L2,22l4-4H20a2.006,2.006,0,0,0,2-2V4a2.006,2.006,0,0,0-2-2Zm2,9h8v2H6ZM6,7H18V9H6Z" fill="#696971"/>
+    </g>
+  </g>
+</svg>

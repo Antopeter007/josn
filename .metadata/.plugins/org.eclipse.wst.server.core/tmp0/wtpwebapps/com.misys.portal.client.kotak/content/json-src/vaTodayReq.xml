@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+ <Request xmlns="http://www.kotak.com/schemas/crn_fetch.xsd">
+  <sourceappcode>JARVIS</sourceappcode>
+   <RqUID>2</RqUID>
+   <crn>21732732</crn>
+   <action_type>FETCH_COLL_VA_DET</action_type>
+   <account_no>02872030002942</account_no>
+   <date>01-JAN-2020</date>
+</Request>

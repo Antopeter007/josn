@@ -1,0 +1,15 @@
+@import '../../../../../../styles/variables.scss';
+.optionStyle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shortDesc {
+  margin-top:-1em !important;
+  margin-bottom:5px;
+  span {
+      font: 400 14px/24px Roboto, roboto, "Helvetica Neue", sans-serif;
+      letter-spacing: normal;
+      padding-left:5px;
+      color:$CHARCOAL-F75;
+  }
+}

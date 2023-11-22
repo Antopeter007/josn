@@ -1,0 +1,55 @@
+/**
+ Refer to /themes/base/common/portlets.css
+**/
+
+/** ----------------- Portlet Spec Classes / General Portlet Rules ---------------------------- **/
+
+.portlet {
+	border-top: 2px solid;
+}
+
+/** ------------------------------------- Root Portlet ----------------------------------- **/
+
+#default #GTPRootPortlet .portlet-section-header {
+	background: #9E8F6C none;
+}
+
+#default #GTPRootPortlet .portlet-section-header h2 {
+	color: #FFFFFF;
+}
+
+/** --------------------------------- Trade Applications Portlet ------------------------------ **/
+
+#TradeApplicationsPortlet .portlet-section-header{
+	display: block;
+	background: #9E8F6C none;
+}
+
+#TradeApplicationsPortlet .portlet-section-header .portlet-title{
+	color: #FFFFFF;
+}
+
+#TradeApplicationsPortlet .portlet-section-body {
+	background: #F3F3F3 none;
+}
+
+#TradeApplicationsPortlet .portlet-section-body a,
+#TradeApplicationsPortlet .portlet-section-body a:visited,
+#TradeApplicationsPortlet .portlet-section-body a:hover {
+	text-decoration: none;
+	color:#000000;
+}
+
+/** ----------------------------------- Bookmarks Portlet --------------------------------- **/
+
+#BookmarkPortlet .portlet-section-header {
+	background-color: #9E8F6C;
+}
+
+#BookmarkPortlet .portlet-title {
+	color: white;
+}
+
+#BookmarkPortlet .portlet-section-body {
+	background-color: #F3F3F3;
+}

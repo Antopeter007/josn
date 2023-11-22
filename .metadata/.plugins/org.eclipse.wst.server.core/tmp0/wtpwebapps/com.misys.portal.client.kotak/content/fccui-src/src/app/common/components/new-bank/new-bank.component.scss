@@ -1,0 +1,61 @@
+:host ::ng-deep .bankheader {
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+}
+
+:host ::ng-deep .subheader-title {
+  font-size: 1.0em !important;
+  font-weight: 500 !important;
+}
+
+.bankCancelButtonAr{
+  right: auto;
+  left: 0em;
+}
+
+:host ::ng-deep .mat-form-field-wrapper{
+  width: auto !important;
+}
+
+:host ::ng-deep .readmode .select-button-pd {
+  padding-right: 48em !important;
+  padding-left: 0.5em !important;
+}
+
+.bankCancelButtonfr {
+  right: 3.5em;
+}
+
+:host ::ng-deep .createRight {
+  right: 1em;
+}
+
+:host ::ng-deep .fcc-dropdown .ui-dropdown-trigger.ui-state-default.ui-corner-right {
+  border-bottom: 0.0625em solid #694ed6 !important;
+  border-bottom-right-radius: 0em !important;
+  border-radius: 0em;
+}
+
+:host ::ng-deep  .angular-editor-textarea {
+  resize: none !important;
+  font-weight: 500;
+  font-family: Roboto !important;
+  border-radius: 0em !important;
+  border-bottom: 0.06em solid #694ed6 !important;
+  background: #e9e5f9c9 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  width: 57% !important;
+  height: 5em !important;
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+}
+
+:host ::ng-deep .angular-editor-toolbar {
+  display: none !important;
+}
+
+:host ::ng-deep fcc-input-text mat-form-field .mat-form-field-wrapper .mat-form-field-flex {
+  height: 3.1em;
+}

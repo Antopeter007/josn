@@ -1,0 +1,112 @@
+.parentContainerToggle {
+    width: 21.875em;
+    height: 84%;
+    background-color: #FAFAFA;
+    right: 0em;
+    float: right;
+    margin-top: 7.6875em;
+    bottom: 0em;
+    position: fixed;
+    margin-left: 1em;
+}
+
+@media screen and (max-width: 597px) {
+    .parentContainerToggle {
+        top: 0em;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1160px) and (min-width: 645px) {
+    .parentContainerToggle {
+      top: 2.9em;
+    }
+}
+
+.parentContainer {
+  width: 21.875em;
+  height: 90%;
+  background-color: #FAFAFA;
+  right: 0em;
+  float: right;
+  margin-top: 7.6875em;
+  bottom: 0em;
+  position: fixed;
+  margin-left: 1em;
+}
+
+.parentContainer[dir="rtl"] {
+    float: left;
+    left: -1em;
+}
+
+.bodyContainer {
+    overflow-y: auto;
+    max-height: 58%;
+}
+
+.footerContainer {
+    margin-top: 0.5em;
+}
+
+.submitBtn {
+    margin-left: 0.3em;
+}
+
+:host ::ng-deep .primaryButton {
+    background-color: #694ed6 !important;
+}
+
+a.mat-button .mat-icon, a.mat-raised-button .mat-icon,
+a.mat-stroked-button .mat-icon, a.mat-flat-button .mat-icon,
+button.mat-button .mat-icon, button.mat-raised-button .mat-icon,
+button.mat-stroked-button .mat-icon, button.mat-flat-button .mat-icon {
+    right: 0em;
+}
+
+.icon-close {
+    float: right;
+    left: -2em;
+}
+
+.icon-close-left {
+    text-align: left;
+    right: 16em;
+    top: -1em;
+}
+
+.setRefInput {
+    margin-left: 1em;
+}
+
+.invalid-error-text {
+    color: red;
+    font-size: 0.75em;
+    margin-left: 1.8em;
+    font-weight: 300;
+}
+
+[dir="rtl"] .invalid-error-text {
+    margin-right: 1.5em;
+}
+
+.setRefInput {
+    padding-bottom: 0em;
+    margin-left: 0.8em;
+}
+
+.setRefInput[dir="rtl"] {
+    margin-right: 0.8em;
+}
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0em !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    bottom: 0em !important;
+}

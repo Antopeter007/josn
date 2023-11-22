@@ -1,0 +1,14 @@
+<form [formGroup]="modifyTemplate" *ngIf="showTemplate">
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  <fcc-common-actions (handleEvents)="handleEvents($event)"></fcc-common-actions>
+  <!-- Template Id: -->
+  <div id = "template_id_row" class = "field" *ngIf ="bgRecord['templateId'] && bgRecord['templateId'] != null && bgRecord['templateId'] != ''">
+    <label for ="template_id" id = "template_id_label">{{ 'GENERALDETAILS_TEMPLATE_ID' | translate }}&nbsp;</label>
+    <label class="label-left">{{bgRecord['templateId']}}</label>
+  </div>
+  <div id = "template_description_row" class = "field">
+    <label for ="template_description" id = "template_description_label">{{ 'GENERALDETAILS_TEMPLATE_DESCRIPTION' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+    <input pInputText formControlName = "templateDescription" type = "text" value="{{bgRecord['templateDescription']}}">
+    <fcc-common-error-message [control]="modifyTemplate.get('templateDescription')" class="error-msg messages text-left text-danger"></fcc-common-error-message>
+  </div>
+</form>

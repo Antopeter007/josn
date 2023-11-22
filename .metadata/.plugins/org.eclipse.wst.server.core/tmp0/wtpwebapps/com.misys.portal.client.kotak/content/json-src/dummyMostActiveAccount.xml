@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml AcctInq.xsd" xmlns="http://www.finacle.com/fixml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Header>
+		<ResponseHeader>
+			<RequestMessageKey>
+				<RequestUUID>Req_1525954898883</RequestUUID>
+				<ServiceRequestId>AcctInq</ServiceRequestId>
+				<ServiceRequestVersion>10.2</ServiceRequestVersion>
+				<ChannelId>COR</ChannelId>
+			</RequestMessageKey>
+			<ResponseMessageInfo>
+				<BankId>01</BankId>
+				<TimeZone>GMT+05:30</TimeZone>
+				<MessageDateTime>2021-11-19T17:01:42.310</MessageDateTime>
+			</ResponseMessageInfo>
+			<UBUSTransaction>
+				<Id />
+				<Status />
+			</UBUSTransaction>
+			<HostTransaction>
+				<Id />
+				<Status>SUCCESS</Status>
+			</HostTransaction>
+			<HostParentTransaction>
+				<Id />
+				<Status />
+			</HostParentTransaction>
+			<CustomInfo />
+		</ResponseHeader>
+	</Header>
+
+	<Body>
+		<AcctInqResponse>
+			<AcctInqRs>
+				<AcctId>
+					<AcctId>01460010000024</AcctId>
+					<AcctType>
+						<SchmCode>SBPRO</SchmCode>
+						<SchmType>SBA</SchmType>
+					</AcctType>
+					<AcctCurr>INR</AcctCurr>
+					<BankInfo>
+						<BankId></BankId>
+						<Name></Name>
+						<BranchId>0146</BranchId>
+						<BranchName></BranchName>
+						<PostAddr>
+							<Addr1></Addr1>
+							<Addr2></Addr2>
+							<Addr3></Addr3>
+							<City></City>
+							<StateProv></StateProv>
+							<PostalCode></PostalCode>
+							<Country></Country>
+							<AddrType></AddrType>
+						</PostAddr>
+					</BankInfo>
+				</AcctId>
+				<CustId>
+					<CustId>18006213</CustId>
+					<PersonName>
+						<LastName></LastName>
+						<FirstName></FirstName>
+						<MiddleName></MiddleName>
+						<Name>NAME OF 18006213</Name>
+						<TitlePrefix>MR</TitlePrefix>
+					</PersonName>
+				</CustId>
+				<AcctOpenDt>2008-02-21T00:00:00.000</AcctOpenDt>
+				<BankAcctStatusCode>A</BankAcctStatusCode>
+				<AcctBal>
+					<BalType>LEDGER</BalType>
+					<BalAmt>
+						<amountValue>620297.85</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>AVAIL</BalType>
+					<BalAmt>
+						<amountValue>620297.85</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>EFFAVL</BalType>
+					<BalAmt>
+						<amountValue>620297.85</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>FLOAT</BalType>
+					<BalAmt>
+						<amountValue>0.00</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>LIEN</BalType>
+					<BalAmt>
+						<amountValue>0.00</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>DRWPWR</BalType>
+					<BalAmt>
+						<amountValue>0.00</amountValue>
+						<currencyCode></currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>ACCBAL</BalType>
+					<BalAmt>
+						<amountValue>620297.85</amountValue>
+						<currencyCode>INR</currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>SHADOW</BalType>
+					<BalAmt>
+						<amountValue>0.00</amountValue>
+						<currencyCode>INR</currencyCode>
+					</BalAmt>
+				</AcctBal>
+				<AcctBal>
+					<BalType>FUTBAL</BalType>
+					<BalAmt>
+						<amountValue>0.00</amountValue>
+						<currencyCode>INR</currencyCode>
+					</BalAmt>
+				</AcctBal>
+			</AcctInqRs>
+			<AcctInq_CustomData>
+				<ACCTNAME>NAME OF 18006213</ACCTNAME>
+				<ACID>KM5306048</ACID>
+				<NomDisplayFlag> Y</NomDisplayFlag>
+			</AcctInq_CustomData>
+		</AcctInqResponse>
+	</Body>
+</FIXML>

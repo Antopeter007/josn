@@ -1,0 +1,544 @@
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Configured log4j from C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\log4j2.xml
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Loaded configuration  (XML) from /config/configuration.xml (C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\configuration.xml)
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GenericDocumentService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BrowserDetectionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FOProcessorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EntityFileValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReCaptchaValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MultiFactorAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoginModesService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ColumnActionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProvisioningAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ComponentService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FactoryService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PoolService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: RunDataService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ServletService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AssemblerBrokerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LocalizationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MimeTypeService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GlobalCacheService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SchedulerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UploadService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SecurityService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PullService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SessionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TemplateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XSLTService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: VelocityService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPDefaultTemplateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AuditService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DowntimeService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ThreadPool
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PortletCache
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: URLManager
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlManager
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlScreenManager
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PsmlImportManager
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CompanyPsmlService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FacilityValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FacilityProcessingCoreService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MailFormatterService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseOnlineHelpService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TreasurySFXService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LiquidityHelperService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CommonWebAppService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReportWebAppHelperService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkMapperService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SynchronousInterfaceService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TargetDeviceService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPSecurityService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPBOReferenceManagerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPPoolBrokerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPInitializationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionResponseService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPAuthorisationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BoardRateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TDInterestRateInquiryService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ChequeStatusInquiryService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PostingDetailsService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SweepService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AccountService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StandingOrderService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: POGroupingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseLineGroupingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPIndexManagerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SWIFTProcessorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CustomerReferenceValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: HolidaysAndCutOffService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CryptoService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InstanceIdentificationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PayeeReferenceValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProductInitializerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StopoverService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoanStopoverService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FTValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BaseProductValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MasterPayeeValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CustomerPayeeValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ISOInvoiceService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SimplifiedInvoiceService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: MultipartUploadService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IBANValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CNValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CRValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IUValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: RUValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: POValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IOValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EAValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyProgramAssociationValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TMAValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterPartyService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: INSimplifiedValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IPSimplifiedValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FSCMConnectorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CreditNoteConnectorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionConfirmationDetailsService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CounterpartyUploadValidateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryUploadValidateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkUploadFileFormatService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BulkFileUploadValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DMSAttachmentService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: AntivirusBrokerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DisplayChangesetService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionAuthoriserIdentificationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProvisioningService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CompanyFileValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UserFileValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LCValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ELValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SIValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SRValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BGValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BRValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ECValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ICValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LIValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FXValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LSValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SEValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BKValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TFValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SGValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IPValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: INValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TDValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: IRValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LNValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BKFileUploadValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SingleFinanceRequestService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GuaranteeTemplateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: UndertakingTemplateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: StandByLCTemplateService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SourceValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FXProcessingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FTProcessingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CMEQProcessingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LSClientAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ListDefAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InquiryAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: WebServiceAuthorizationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BankerGuranteeCalculateTenorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReceivedBankerGuranteeCalculateTenorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DataGridHeaderService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ReferenceIdGeneratorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoginApiService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ListDefTransactionProcessingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPDownloadValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: GTPUploadValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ProductUserValidatorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: TransactionValidationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SecurityCheckService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FavouriteNudgesService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiaryGroupIdGeneratorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ExternalAPICallService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: ExternalStaticDataConvertorService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FCCFeedbackService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CourierTrackerService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: EntitlementManagementService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: InterfacesService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PortalResourcesService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XMLCatalogService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: XMLReaderService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: SchematronService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: DaemonFactory
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FxTokenService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: LoanService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: OustandingAliasService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PoolingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FBSSOUserAuthenticationService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: FeesAndBillingService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BankInvoiceService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PaymentService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: BeneficiariesService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: CDPService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Added Mapping for Service: PaymentsService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BrowserDetectionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BrowserDetectionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ColumnActionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ColumnActionService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ComponentService
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- com.misys.portal.services.component.GTPComponentService - Added torque as a component
+[Wed Nov 15 10:45:16 IST] -- main -- INFO  -- org.apache.stratum.component.ComponentLoader - loading component: name=torque class=org.apache.torque.Torque config=C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\torque.properties
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ComponentService
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GlobalCacheService
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GlobalCacheService
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SchedulerService
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): InstanceIdentificationService
+[Wed Nov 15 10:45:17 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): InstanceIdentificationService
+[Wed Nov 15 10:45:21 IST] -- main -- ERROR -- com.misys.portal.common.services.schedule.GTPSchedulerService - Could not initialize the scheduler service
+org.apache.torque.TorqueException: java.lang.NullPointerException
+	at org.apache.torque.util.BasePeer.throwTorqueException(BasePeer.java:188) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.getSelectResults(BasePeer.java:1390) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.executeQuery(BasePeer.java:1265) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.doSelect(BasePeer.java:1139) ~[torque-3.1.1.jar:?]
+	at org.apache.torque.util.BasePeer.doSelect(BasePeer.java:1106) ~[torque-3.1.1.jar:?]
+	at com.misys.portal.common.services.schedule.GTPBaseJobEntryPeer.doSelect(GTPBaseJobEntryPeer.java:127) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at com.misys.portal.common.services.schedule.GTPSchedulerService.init(GTPSchedulerService.java:160) ~[com.misys.portal.webapp.jar:FCC_6.1.1.3_HF3_KOTAK_20231026.14]
+	at org.apache.turbine.services.BaseServiceBroker.initService(BaseServiceBroker.java:250) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.doInitService(BaseServiceBroker.java:323) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.initServices(BaseServiceBroker.java:297) ~[turbine.jar:?]
+	at org.apache.turbine.services.BaseServiceBroker.init(BaseServiceBroker.java:136) ~[turbine.jar:?]
+	at org.apache.turbine.Turbine.configure(Turbine.java:352) ~[turbine.jar:?]
+	at org.apache.turbine.Turbine.init(Turbine.java:175) ~[turbine.jar:?]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1089) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:983) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4902) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5211) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[catalina.jar:9.0.41]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_241]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-util.jar:9.0.41]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[?:1.8.0_241]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:843) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[catalina.jar:9.0.41]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_241]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-util.jar:9.0.41]
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) ~[?:1.8.0_241]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:434) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[catalina.jar:9.0.41]
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772) ~[catalina.jar:9.0.41]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_241]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_241]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_241]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_241]
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:342) ~[bootstrap.jar:9.0.41]
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473) ~[bootstrap.jar:9.0.41]
+Caused by: java.lang.NullPointerException
+	at com.workingdogs.village.Value.<init>(Value.java:236) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.Record.createValues(Record.java:174) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.Record.<init>(Record.java:114) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:608) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:540) ~[village-2.0-dev-20100301.jar:?]
+	at com.workingdogs.village.DataSet.fetchRecords(DataSet.java:524) ~[village-2.0-dev-20100301.jar:?]
+	at org.apache.torque.util.BasePeer.getSelectResults(BasePeer.java:1361) ~[torque-3.1.1.jar:?]
+	... 45 more
+[Wed Nov 15 10:45:21 IST] -- main -- ERROR -- org.apache.turbine.services.BaseServiceBroker - org.apache.turbine.services.InitializationException: Could not initialize the scheduler service
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PullService
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): PoolService
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.pool.TurbinePoolService - Activated Pool Debugging!
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): FactoryService
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): FactoryService
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): PoolService
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Pull Model tools will be refreshed on a per request basis.
+[Wed Nov 15 10:45:21 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): VelocityService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): TemplateService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): AssemblerBrokerService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 action factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 screen factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 navigation factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 layout factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 page factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.assemblerbroker.TurbineAssemblerBrokerService - Registering 1 scheduledjob factories.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): AssemblerBrokerService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.DirectMapper to map page elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map screen elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map layout elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ClassMapper to map navigation elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.LayoutTemplateMapper to map layout.template elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.ScreenTemplateMapper to map screen.template elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.template.TurbineTemplateService - Using org.apache.turbine.services.template.mapper.DirectTemplateMapper to map navigation.template elements
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): TemplateService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): VelocityService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.services.pull.tools.TemplateLink to add to the context as '$link'
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.util.template.HtmlPageAttributes to add to the context as '$page'
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.services.pull.tools.ContentTool to add to the context as '$content'
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): UploadService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): UploadService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Starting initialization.
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.client.product.util.builder.ClientProductBuilder
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): GTPPoolBrokerService
+[Wed Nov 15 10:45:22 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): GTPPoolBrokerService
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [TF]
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): BulkMapperService
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): BulkMapperService
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [SE]
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [LC]
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - Loading LC sub products
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - LCSTD
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - CSTIN
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - DISP
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - IRSTD
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.product.util.builder.ProductBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [TF]
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [SE]
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [LC]
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - Loading LC sub products
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductBuilder - LCSTD
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.cash.product.util.builder.ProductBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- WARN  -- com.misys.portal.common.tools.ParameterData - Couldn't found parameter data for parameter P111 and [KEY_1] as [FT]
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.PurchaseOrderBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.InvoiceBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.openaccount.util.builder.InvoicePayableBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Initialization from : com.misys.portal.loan.product.util.builder.ProductBuilder
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.product.util.builder.ProductFactory - Ending initialization.
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): LocalizationService
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): LocalizationService
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads resource bundle for language: en
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): PortalResourcesService
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Reads the master registry.
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resource registry: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/classes/master_registry.xml
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Reads the customer registry.
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resource registry: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/classes/client_registry.xml
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): PortalResourcesService
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: localization
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/core_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/codes_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: trade/localization/trade_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: openaccount/localization/openaccount_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: tsu/localization/tsu_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: cash/localization/cash_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: loan/localization/loan_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: treasury/localization/treasury_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: fcm/localization/fcm_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_en.properties
+[Wed Nov 15 10:45:23 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_codes_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads resource bundle for language: en
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: localization
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/core_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: core/localization/codes_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: trade/localization/trade_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: openaccount/localization/openaccount_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: tsu/localization/tsu_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: cash/localization/cash_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: loan/localization/loan_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: treasury/localization/treasury_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: fcm/localization/fcm_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_en.properties
+[Wed Nov 15 10:45:33 IST] -- main -- INFO  -- com.misys.portal.common.localization.AbstractPortalBundle$ProxyInputStream - Reads property file: client/localization/client_codes_en.properties
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): FOProcessorService
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): FOProcessorService
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.localization.Localization to add to the context as '$l10n'
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.ConvertTools to add to the context as '$convertTools'
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool org.apache.turbine.Turbine to add to the context as '$config'
+[Wed Nov 15 10:45:42 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.security.GTPSecurityCheck to add to the context as '$security'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.SecurityUtils to add to the context as '$securityUtils'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.search.common.Search to add to the context as '$search'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.resources.DefaultResourceProvider to add to the context as '$defaultresource'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.security.GTPSecurity to add to the context as '$gtpsecurity'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.pull.TurbinePullService - Tool com.misys.portal.common.tools.GTPApplicationData to add to the context as '$gtpapp'
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PullService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SessionService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SessionService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): VelocityService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): VelocityService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPDefaultTemplateService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPDefaultTemplateService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PsmlScreenManager
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PsmlScreenManager
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPAuthenticationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPAuthenticationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPBOReferenceManagerService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPBOReferenceManagerService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPPoolBrokerService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPPoolBrokerService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPInitializationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- com.misys.portal.common.services.GTPInitializationService - N00030 - GTPInitializationService : Portal core version is: FCC_6.1.1.3_HF3_KOTAK_20231026.14-demobank
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- com.misys.portal.common.services.GTPInitializationService - N00030 - GTPInitializationService : Xalan Environment Check successful:
+#---- BEGIN writeEnvironmentReport($Revision: 1.29 $): Useful stuff found: ----
+version.DOM.draftlevel=2.0fd
+java.class.path=C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\bootstrap.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\commons-daemon.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\bin\tomcat-juli.jar;C:\Program Files\Java\jdk1.8.0_241\lib\tools.jar
+version.JAXP=1.1 or higher
+java.ext.dirs=C:\Program Files\Java\jdk1.8.0_241\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+version.xerces2=Xerces-J 2.12.0
+version.xerces1=not-present
+version.xalan2_2=Xalan Java 2.7.0
+version.xalan1=not-present
+version.ant=not-present
+java.version=1.8.0_241
+version.DOM=2.0
+version.crimson=not-present
+sun.boot.class.path=C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\resolver.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\serializer-2.7.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xalan-2.7.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xercesImpl-2.12.0.jar;C:\Program Files\Apache Software Foundation\apache-tomcat-9.0.41_OR8\endorsed\xml-apis-2.10.0.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_241\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_241\jre\classes
+version.SAX=2.0
+version.xalan2x=Xalan Java 2.7.0
+#----- END writeEnvironmentReport: Useful properties found: -----
+# YAHOO! Your environment seems to be OK.
+
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPInitializationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): TransactionResponseService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): TransactionResponseService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPAuthorisationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPAuthorisationService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): POGroupingService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): POGroupingService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BaseLineGroupingService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BaseLineGroupingService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): GTPIndexManagerService
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.compass.core.config.CompassConfiguration - Configuring from file [C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\compass.cfg.xml]
+[Wed Nov 15 10:45:43 IST] -- main -- INFO  -- org.compass.core.config.CompassConfiguration - Mapping file [C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\portal_online_help.cpm.xml]
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [default]
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [en-analyzer]
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.compass.core.lucene.engine.analyzer.LuceneAnalyzerManager - Building analyzer [fr-analyzer]
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.compass.core.lucene.engine.manager.DefaultLuceneSearchEngineIndexManager - Not starting scheduled index manager
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): GTPIndexManagerService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): HolidaysAndCutOffService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): HolidaysAndCutOffService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ProductInitializerService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ProductInitializerService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): StopoverService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): StopoverService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): LoanStopoverService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): LoanStopoverService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): DataGridHeaderService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): DataGridHeaderService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ReferenceIdGeneratorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ReferenceIdGeneratorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): LoginApiService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): LoginApiService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ListDefTransactionProcessingService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ListDefTransactionProcessingService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): ProductUserValidatorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): ProductUserValidatorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): TransactionValidationService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): TransactionValidationService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SecurityCheckService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SecurityCheckService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): BeneficiaryGroupIdGeneratorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): BeneficiaryGroupIdGeneratorService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): InterfacesService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Encoding set to: UTF-8
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Asynchronous mode is supported
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XMLReaderService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XMLReaderService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XMLCatalogService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: catalog
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XMLCatalogService
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to initialize Factory from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml and file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Wed Nov 15 10:45:44 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 168 Interface(s) and 555 Bundle(s) have been loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 310 Component(s) have been loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - Factory successfully initialized
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Components and Interfaces loaded from: file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/components.xml, file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/config/interfaces/interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to initialize Factory from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml and C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 168 Interface(s) and 555 Bundle(s) have been loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - About to read configuration from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - 310 Component(s) have been loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.core.InterfacesFactory - Factory successfully initialized
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- com.misys.portal.interfaces.services.XMLConfigurationInterfacesService - Custom Components and Interfaces loaded from: C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_components.xml, C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\config\interfaces\client_interfaces.xml
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): InterfacesService
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): PortalResourcesService
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): PortalResourcesService
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): SchematronService
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): XSLTService
+[Wed Nov 15 10:45:45 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): XSLTService
+[Wed Nov 15 10:45:46 IST] -- main -- INFO  -- com.misys.portal.services.resources.ClassLoaderPortalResourcesService - Loading resources of type: schematron
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.services.schematron.SchematronCachingService - Schematron Service initialized (1 entries)
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): SchematronService
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): DaemonFactory
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Early init for DaemonFactory called...
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Early init for DaemonFactory done
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - DaemonFactory:  Starting up necessary daemons.
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - DaemonFactory:  start(): starting daemon -> filetogtpinterfacedaemon
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Creating daemon: filetogtpinterfacedaemon
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- com.misys.portal.core.services.daemonfactory.JetspeedDaemonFactoryService - Late init for DaemonFactory called
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): DaemonFactory
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (early): FxTokenService
+[Wed Nov 15 10:45:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:45:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:45:47 IST] -- main -- ERROR -- com.finastra.portal.treasury.services.seamlessfx.SeamlessFxTokenService - SFX application is not enabled through configuration
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (early): FxTokenService
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finished initializing all services!
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Start Initializing service (late): RunDataService
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.services.BaseServiceBroker - Finish Initializing service (late): RunDataService
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.turbine.Turbine - Turbine: init() Ready to Rumble!
+[Wed Nov 15 10:45:47 IST] -- main -- INFO  -- org.apache.axis2.deployment.WarBasedAxisConfigurator - Could not find axis2.xml, loading default org/apache/axis2/deployment/axis2_default.xml from classpath
+[Wed Nov 15 10:45:48 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - No modules directory was found under C:\Peter\peter\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\com.misys.portal.client.kotak\WEB-INF.
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPInquiryService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPInquiryService.aar
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPListDefService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPListDefService.aar
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPProvisioningService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPProvisioningService.aar
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: MPService.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/MPService.aar
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- org.apache.axis2.deployment.DeploymentEngine - Deploying Web service: version-1.7.9.aar - file:/C:/Peter/peter/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/com.misys.portal.client.kotak/WEB-INF/services/version-1.7.9.aar
+[Wed Nov 15 10:45:50 IST] -- main -- WARN  -- org.apache.axis2.transport.http.AxisServlet - No transportReceiver for org.apache.axis2.transport.http.AxisServletListener found. An instance for HTTP will be configured automatically. Please update your axis2.xml file!
+[Wed Nov 15 10:45:50 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.core.RestAPIDispatcherServlet - Initializing Servlet 'restportal'
+[Wed Nov 15 10:45:59 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(java.lang.String,java.lang.Object[],java.lang.String,java.util.Locale)] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Wed Nov 15 10:45:59 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(java.lang.String,java.lang.Object[],java.util.Locale) throws org.springframework.context.NoSuchMessageException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Wed Nov 15 10:45:59 IST] -- main -- INFO  -- org.springframework.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final java.lang.String org.springframework.context.support.AbstractMessageSource.getMessage(org.springframework.context.MessageSourceResolvable,java.util.Locale) throws org.springframework.context.NoSuchMessageException] because it is marked as final: Consider using interface-based JDK proxies instead!
+[Wed Nov 15 10:46:03 IST] -- main -- INFO  -- org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+[Wed Nov 15 10:46:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:46:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:46:10 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.security.oidc.SecurityConfig$$EnhancerBySpringCGLIB$$843aa410.authenticationManagerBean()
+[Wed Nov 15 10:46:10 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.security.oidc.SecurityConfig$$EnhancerBySpringCGLIB$$843aa410.authenticationManagerBean()
+[Wed Nov 15 10:46:10 IST] -- main -- WARN  -- org.springframework.security.config.annotation.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/restportal/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[Wed Nov 15 10:46:10 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/restportal/**']
+[Wed Nov 15 10:46:11 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will secure Or [Ant [pattern='/restportal/oauth/authorize']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@185fbf85, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6322647e, org.springframework.security.web.context.SecurityContextPersistenceFilter@6582b8d9, org.springframework.security.web.header.HeaderWriterFilter@21a2ea52, org.springframework.security.web.csrf.CsrfFilter@1fe702c7, org.springframework.security.web.authentication.logout.LogoutFilter@783f56a4, com.finastra.openapi.security.oidc.CustomSecurityFilter@30a3cb7a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c7c3bcb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@561ce079, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72a2f141, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21588042, org.springframework.security.web.session.SessionManagementFilter@6814ebf7, org.springframework.security.web.access.ExceptionTranslationFilter@6145af66, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57d2e5c1]
+[Wed Nov 15 10:46:11 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Entering Class = com.finastra.openapi.security.OAuth2ResourceServerSecurityConfiguration$$EnhancerBySpringCGLIB$$c84fae63.jwtDecoder()
+[Wed Nov 15 10:46:12 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.aop.LoggingAspect - Exiting Class = com.finastra.openapi.security.OAuth2ResourceServerSecurityConfiguration$$EnhancerBySpringCGLIB$$c84fae63.jwtDecoder()
+[Wed Nov 15 10:46:12 IST] -- main -- INFO  -- org.springframework.security.web.DefaultSecurityFilterChain - Will secure Or [Ant [pattern='/restportal/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ee984fd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7953db76, org.springframework.security.web.context.SecurityContextPersistenceFilter@2814d023, org.springframework.security.web.header.HeaderWriterFilter@4fdaa41b, com.finastra.openapi.security.oidc.AccessTokenVerifierFilter@373f51f8, org.springframework.security.web.csrf.CsrfFilter@24693fe1, org.springframework.security.web.authentication.logout.LogoutFilter@4189cf91, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3d67f1ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6be992c2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@710909d8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31917380, org.springframework.security.web.session.SessionManagementFilter@45ef6948, org.springframework.security.web.access.ExceptionTranslationFilter@7676b90a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b40944c]
+[Wed Nov 15 10:46:15 IST] -- main -- INFO  -- com.misys.portal.webservices.apis.core.RestAPIDispatcherServlet - Completed initialization in 24650 ms
+[Wed Nov 15 10:46:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:46:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:46:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:46:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:47:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:47:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:47:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:47:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:47:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:47:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:48:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:48:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:48:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:48:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:48:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:48:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:49:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:49:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:49:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:49:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:49:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:49:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:50:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:50:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:50:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:50:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:50:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:50:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:51:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:51:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:51:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:51:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:51:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:51:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:52:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:52:07 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:52:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:52:27 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error
+[Wed Nov 15 10:52:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/completed
+[Wed Nov 15 10:52:47 IST] -- DaemonThread:filetogtpinterfacedaemon -- ERROR -- com.misys.portal.core.daemon.impl.FileToGTPInterfaceDaemon - File to GTP interface daemon: Unable to access directory D:/gtpdeamon/error

@@ -1,0 +1,49 @@
+<div class="p-grid top-lc-wrapper">
+    <div class="p-col-12">
+        <div class="">
+            <div class="middle-lc-wrapper">
+                <span class="lc-no-text">{{lcNumber}}</span>
+                <span class="rtl-float">
+                    <em class="fa fa-file-pdf-o"></em>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dynamic component loading pending... -->
+<app-lc-summary [data]="allLcRecords" ></app-lc-summary>
+<div class="p-grid top-lc-wrapper ">
+    <div class="p-col-12">
+        <p-tabView>
+            <p-tabPanel [header]="item.label" *ngFor="let item of items; let i = index" [selected]="i == 0">
+                <app-lc-listing *ngIf="i == 0" [data]="allLcRecords"></app-lc-listing>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div class="p-col-6">
+        <button role="button"  pButton class="secondaryButton listing size-class" icon="pi pi-arrow-left" (click)="goToDashboard()"
+        type="button" label={{LcDashboard}}></button>
+    </div>
+    <div class="p-col-6 margin-class">
+      <button role="button"  pButton class="secondaryButton listing sm-size-class" type="button" (click)="returnTransaction()" label={{return}}></button>
+      <button role="button"  pButton class="primaryButton button-class" type="button" label={{approve}} (click)="approveTransaction()"></button>
+    </div>
+</div>
+<p-dialog header="Confirmation" [(visible)]="display" [modal]="true"
+[style]="{width: '450px', minWidth: '200px'}" [minY]="70"
+        [maximizable]="false" [baseZIndex]="10000">
+        <div class="class-a">
+            <span class="ui-float-label">
+              <textarea class= "comments" id="comment"  pInputTextarea   formControlName="comment" autoResize="autoResize"  [maxlength]="commentLength" #commentInput  (keyup)="valuechange($event)"></textarea>
+              <label for="float-input">{{comments}} <em class='fa fa-asterisk fa-sm'> </em></label>
+            </span>
+            <fcc-common-narrative-character-count enteredCharCount={{enteredCharCount}}
+                            allowedCharCount={{commentLength}} fieldSize={{commentLength}}>
+                    </fcc-common-narrative-character-count>
+        </div>
+        <p-footer>
+            <button role="button"  *ngIf="commentInput.value !== ''" pButton class="primaryButton listing dialog-small-btn" type="button"  (click)="rejectCall(commentInput)" label={{proceed}}></button>
+        </p-footer>
+</p-dialog>
+
+

@@ -1,0 +1,7 @@
+<div class="indented-header"  *ngIf="commonIuService.getPreviewOption() !== 'SUMMARY'">
+    <p-panel id="amountDetailsPanel" header="{{ ((commonIuService.getOption() === 'HISTORY' && this.bgRecord.productCode === 'BR')? 'INQUIRY_HEADER_RECEIVED_UNDERTAKING' : 'HEADER_AMOUNT_CONFIRMATION_DETAILS') | translate}}" [toggleable]="true" [collapsed] ="changeCollapse">
+          <div [formGroup]="amountDetailsSection">
+            <fcc-common-amount-details  *ngIf="bgRecord" (isTnxAmtCurCodeNull)="clearVariationAmtValidations($event);" (bgCurrencyCode)="setVariationCurrCode($event);" (bookingAmtCheck1)="emitBookingAmount();" (bgAmtCheck)="emitBGAmount();" [showUndertakingType]="'bg'" [bgRecord]="bgRecord" [sectionForm]="amountDetailsSection"></fcc-common-amount-details>
+          </div>
+     </p-panel>
+</div>

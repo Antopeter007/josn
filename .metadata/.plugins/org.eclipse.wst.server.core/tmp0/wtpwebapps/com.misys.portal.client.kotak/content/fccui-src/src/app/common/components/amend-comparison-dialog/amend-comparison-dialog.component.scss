@@ -1,0 +1,23 @@
+.margin-left {
+ margin-left: 1.7em;
+}
+
+.margin-right {
+ margin-right: 1.7em;
+}
+
+:host ::ng-deep .p-col-1, 
+:host ::ng-deep .p-col-2, 
+:host ::ng-deep .p-col-3, 
+:host ::ng-deep .p-col-4, 
+:host ::ng-deep .p-col-5, 
+:host ::ng-deep .p-col-6, 
+:host ::ng-deep .p-col-7, 
+:host ::ng-deep .p-col-8, 
+:host ::ng-deep .p-col-9, 
+:host ::ng-deep .p-col-10, 
+:host ::ng-deep .p-col-11, 
+:host ::ng-deep .p-col-12 {
+    padding: 0;
+    flex: 0 0 auto;
+}

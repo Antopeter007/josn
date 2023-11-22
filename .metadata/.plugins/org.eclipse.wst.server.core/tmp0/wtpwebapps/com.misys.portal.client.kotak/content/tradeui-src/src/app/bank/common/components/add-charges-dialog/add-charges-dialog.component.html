@@ -1,0 +1,45 @@
+  <form [formGroup] = "chargeSection">
+    <div id =  "chargeRow" class="field">
+        <label id="chargeLabel" for = "charge">{{ 'CHARGE' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown id="charge" formControlName="charge" [options] = "chargeOptions" placeholder = " "
+        [styleClass]="validationService.isFieldInvalid(chargeSection.get('charge')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+		<fcc-common-error-message [control]="chargeSection.get('charge')" ></fcc-common-error-message>
+    </div>
+    <div id =  "descriptionRow" class="field textarea">
+        <label id="descriptionLabel" for = "description">{{ 'PARTIESDETAILS_DESCRIPTION' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <textarea id="description" fccCommonTextArea [controlName]="chargeSection.get('description')" [rows]="8" [cols]="45" formControlName="description" pInputTextarea [class.fieldError]="validationService.isFieldInvalid(chargeSection.get('description'))"></textarea>
+        <fcc-common-error-message [control]="chargeSection.get('description')"></fcc-common-error-message>
+    </div>
+    <div id="amountRow" class="field">
+      <label id="amountLabel" for = "amount">{{'AMOUNT' | translate }}<span class="required-field-symbol">*</span>&nbsp;</label>
+      <input id="bgCurCode" class="input-three-digit" pInputText type="text" formControlName="bgCurCode" size="3" oninput="this.value = this.value.toUpperCase()"
+       (change)="validateCurrency(chargeSection.get('bgCurCode')); updateLicenseList('input'); this.commonService.transformAmtAndSetValidators(this.chargeSection.get('bgAmt'), this.chargeSection.get('bgCurCode'), 'bgCurCode');"
+        [class.fieldError]="validationService.isFieldInvalid(chargeSection.get('bgCurCode'))" placeholder="{{ 'CCY' | translate}}">
+      <a class="fa fa-search fa-lg" (click)="updateLicenseList('dialog');"></a>
+      <input id="bgAmt" type="text" pInputText formControlName="bgAmt" name="bgAmt" pKeyFilter="num" (blur)="this.commonService.transformAmtAndSetValidators(this.chargeSection.get('bgAmt'),
+      this.chargeSection.get('bgCurCode'), 'bgCurCode');"
+      [class.fieldError]="validationService.isFieldInvalid(chargeSection.get('bgAmt'))">
+      <fcc-common-error-message [control]="chargeSection.get('bgAmt')" ></fcc-common-error-message>
+      <fcc-common-error-message [control]="chargeSection.get('bgCurCode')" ></fcc-common-error-message>
+    </div>
+    <div id =  "statusRow" class="field">
+        <label id="statusLabel" for = "status">{{ 'STATUS' | translate }}<span class = "required-field-symbol">*</span>&nbsp;</label>
+        <p-dropdown id="status" formControlName="status" [options] = "statusOptions" placeholder = " " (ngModelChange) = "toggleOnStatus($event);"
+        [styleClass]="validationService.isFieldInvalid(chargeSection.get('status')) ? 'dropDownFieldError' : 'inherit'">
+        </p-dropdown>
+		<fcc-common-error-message [control]="chargeSection.get('status')"></fcc-common-error-message>
+    </div>
+    <div id ="settlementRow" class="field">
+        <label id="settlementDateLabel" for = "settlementDate">{{ 'CHARGE_SETTLEMENT_DATE' | translate }}<span *ngIf="chargeSection.get('status').value ==='01'" class = "required-field-symbol">*</span>&nbsp;</label>
+        <p-calendar id="settlementDate" [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange" [showIcon]="true" formControlName="settlementDate" dataType="string" onkeydown="return false" dateFormat="{{ this.dateFormat }}" name="settlementDate"
+        (onSelect)="commonService.setSettlementDateValidator('settlementDate', chargedetailsForm, chargeSection);" [maxDate]="this.commonService.getcurrentdate()" [minDate]="this.commonService.getMinSettlementDate()"
+        [showButtonBar]="true" [styleClass]="validationService.isFieldInvalid(chargeSection.get('settlementDate')) ? 'calendarFieldError' : 'inherit'"
+        ></p-calendar>
+        <fcc-common-error-message [control]="chargeSection.get('settlementDate')"></fcc-common-error-message>
+    </div>
+    <div id="actions" class="menu">
+      <button id="chargeSaveId" pButton type="button"  label="{{ 'USER_SAVE' | translate }}" class="primary-button" (click)="onSave()"></button>
+      <button id="chargeCancelId" pButton type="button"  label="{{ 'ACTION_USER_CANCEL' | translate }}" class="primary-button"(click)="onCancel()"></button>
+    </div>
+  </form>

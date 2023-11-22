@@ -1,0 +1,75 @@
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+    <p-card class="{{classCheck}}">
+        <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+            <em tabindex="0" (keyup.enter)="deleteCards()" class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()"></em>
+        </p-header>
+    <h1 class="headerTitle">
+      {{ rejectedTransactions | translate }}
+    </h1>
+    <div *ngIf="dataAvailable" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+      <div class="p-grid">
+      <div class="p-col-4">
+      <p-chart type="polarArea" [data]="polarAreaChartData" [options]="polarAreaChartOptions"  (onDataSelect)="selectData($event)" height="500" ></p-chart>
+    </div>
+    <div class="p-col-8">
+      <div class="productHeader">
+        {{ selectedLegend | translate}}
+      </div>
+      <p-table class="plainTable" [columns]="cols" [value]="rejectionsList" [responsive]="true">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th scope="col" id="" *ngFor="let colmn of columns" [ngStyle]="{'text-align': (colmn.field==='tnxAmt' || colmn.field==='liabAmt')?
+                cssTextAlingnRight : cssTextAlingnLeft,'width': colmn.width}" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" >
+                    {{colmn.header | translate}}
+                </th>
+                <th [ngStyle]="{'width': '8%'}" id=""><span>{{'ACTION' | translate}}</span></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns"  let-i="rowIndex">
+          <tr (mouseenter)="rowOnHover()" (mouseleave)="removeHover()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" >
+              <td *ngFor="let col of columns" [ngStyle]="{'text-align': (col.field==='tnxAmt' || col.field==='liabAmt')?
+              cssTextAlingnRight : cssTextAlingnLeft,'width': col.width}"  >
+                  <span  *ngIf="col.field !== ''" class="ui-column-title">{{col.header}}</span>
+                  {{rowData[col.field]}}
+              </td>
+              <td class="viewCursor" [ngStyle]="{'width': '20%'}">
+                <img alt="{{'view' | translate}} {{rowData.referenceId}}" class = "iconImage" title="{{'view' | translate}}" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" (click)="onClickView($event,rowData,i)" (keyup.enter)="onClickView($event,rowData,i)" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'/>
+              </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+
+    </div>
+
+</div>
+</div>
+<div *ngIf="dataAvailable!= undefined" class="p-grid" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+  <div  *ngIf="!dataAvailable" class="p-col-8 finishMsg"><span class="nowrap"></span> {{noRejections | translate}} {{days}} {{day | translate}}</div>
+  <div *ngIf="!dataAvailable" class="p-col-4">
+    <p class="view-all-links pointer-class focus" *ngIf="viewAllTnxPermission">
+      <a href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()" (keyup.enter)="onClickViewAllTransactions()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" >
+        {{ 'viewPastRejectedTransactions' | translate }}
+      </a>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="rejectionsList?.length > 0" class="p-grid msgDiv" [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+  <div  class="p-col-4 finishMsg"><span class="nowrap"></span> {{rejectionDays | translate}} {{days}} {{day | translate}}</div>
+  <div  class="p-col-4 finishMsg"><span class="nowrap"></span> {{star | translate}}{{showMessage | translate}} {{rejectionsList.length}} {{of}} {{totalCount}} {{recordsDisplayed}}</div>
+  <div class="p-col-4" *ngIf="viewAllTnxPermission">
+    <p class="view-all-links pointer-class focus">
+      <a href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()" (keyup.enter)="onClickViewAllTransactions()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" >
+        {{ 'viewAllTransactions' | translate }}
+      </a>
+    </p>
+  </div>
+</div>
+<app-nudges [nudges] = "nudges">
+</app-nudges>
+    </p-card>
+    </div>
+</ng-container>
+

@@ -1,0 +1,7 @@
+<div>
+  <p>{{message}}</p>
+  <div *ngIf="refId && refId !== null">
+    <a href="javascript:void(0)" class="cursor" (click)="openPreview()" aria-label="Preview Popup">
+      <span>{{'REVIEW_MESSAGE' | translate}}</span></a>
+  </div>
+</div>

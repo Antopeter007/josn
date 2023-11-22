@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+
+@mixin common_class_mixin($primaryColor, $summaryFieldText) {
+    // Section Name (Text color change)    
+    .form-header {
+        color: $primaryColor;
+        font-weight: 500;
+        line-height: 1.25em;
+        padding: 0;
+    }
+    .form-header.summaryField {
+        font: 100% Roboto, sans-serif;
+        font-size: 0.75em;
+        font-weight: 350;
+        color: $summaryFieldText !important;
+        font-weight: 500;
+        margin: 0em;
+        padding: 0em;
+    }
+
+}
+// Mode OF transmission Select button styling and color and background color change.
+@mixin selectButtonModeOFTranmission($primaryColor,$transimission-Tick-Color) {
+    .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover, .transmission-2 .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle:hover{
+        box-shadow: 0 0 2px 1px $primaryColor !important;
+    }
+    .transmission .mat-button-toggle.mat-button-toggle-checked .material-icons, .transmission-2 .mat-button-toggle.mat-button-toggle-checked .material-icons{
+        color: $transimission-Tick-Color !important;
+    }
+}
+
+
+
+.finastra {
+    // primary clors
+    $primaryColor:$Mulberry ;
+    $transimission-Tick-Color: $Mulberry;
+    $summaryFieldText: $Purple;
+
+    @include common_class_mixin($primaryColor,$summaryFieldText);
+    @include selectButtonModeOFTranmission($primaryColor,$transimission-Tick-Color);
+}

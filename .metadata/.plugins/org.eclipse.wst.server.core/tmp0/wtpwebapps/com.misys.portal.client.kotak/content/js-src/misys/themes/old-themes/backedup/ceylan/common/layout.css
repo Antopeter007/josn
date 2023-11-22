@@ -1,0 +1,202 @@
+/**
+ Refer to /themes/base/common/layout.css
+**/
+
+/** ----------------------------- Master Layout/ Positioning Rules --------------------------- **/
+
+.homepage,
+.maincontent,
+.maincontent > .colmask {
+	background: none repeat scroll 0 0 white;
+}
+
+.maincontent {
+	clear: both;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+	min-height:400px;
+}
+
+.half {
+	width: 48%;
+}
+
+/** --------------------------------- Page Headers & Footers --------------------------------- **/
+
+.panel1 {
+	background-color: #999999;
+}
+
+.panel2 {
+	height: 3.8em;
+	position: relative;
+}
+
+.panel3 {
+   	background-color: #1B3E93;
+    clear: both;
+    height: 2.2em;
+    width: 100%;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+.notready .subnav {
+	visibility: hidden !important;
+}
+
+.topnav {
+	list-style: none;
+	margin: 0;
+	float: left;
+	font-size: 0.8em;
+	height:36px;
+}
+
+.topnav > li {
+	float: left;
+	margin: 0;
+	padding: 0 7px 0 7px;
+	position: relative;
+	border-right:1px solid #405DA4;
+}
+
+.topnav > li > a{
+	display: block;
+	float: left;
+	padding: 8px 5px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.topnav > li:hover{
+	background-color:#C1F0F6;
+}
+
+#topMenuEntry0 {
+	padding:0;	
+}
+#topMenuEntry0 a {
+	background-image:url(../images/topnav_home_button.gif);
+    padding: 0;
+    width: 37px;
+	height:35px;
+}
+
+.topnav li span { /*--Drop down trigger styles--*/
+	width: 15px;
+	height: 35px;
+	float: left;
+	background: url(../images/subnav_btn.gif) no-repeat left top;
+}
+
+.topnav li .subhover {
+	background-position: center bottom; cursor: pointer;
+} /*--Hover effect for trigger--*/
+
+.topnav li .subnav {
+	margin: 0; padding: 0;
+	width: 170px;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+	float: left;
+	list-style: none;
+	background-color:#4F94CD;
+	border: 1px solid #111;
+	z-index:10000;
+}
+
+.topnav .subnav li{
+	margin: 0; padding: 0;
+    border-bottom: 1px solid #33A1DE;
+    border-top: 1px solid #C1F0F6;
+	clear: both;
+	width: 170px;
+}
+
+.topnav li .subnav a {
+	float: left;
+	width: 145px;
+	background: #4F94CD url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+	padding-left: 20px;
+}
+.topnav .subnav a:hover { /*--Hover effect for subnav links--*/
+	background: #242660 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+}
+
+.breadcrumb {
+	width: 305px;
+}
+
+.breadcrumb, .message {
+	color: #ffffff;
+}
+
+.welcomemessage a,
+.welcomemessage a:visited {
+	color: #000;
+}
+
+.submenu {
+	color: #ffffff;
+}
+
+.logo {
+	background-image: url("../images/demobank_logo.gif");
+	width: 236px;
+	height: 38px;
+	background-repeat:no-repeat;
+	margin: 8px 0 0 0;
+}
+
+.header .welcomemessage {
+	height: 1.5em;
+	padding-top: 25px;
+	padding-right:2px;
+	vertical-align: middle;
+	font-size:0.75em;
+	position:absolute;
+	right:0;
+	bottom:8px;
+}
+
+.header #header_top_options {
+    position: absolute;
+    right: 120px;
+    top: 5px;
+}
+.header .login_details,
+.header .login_details dt,
+.header .login_details dd,
+.header .top_menu,
+.header .top_menu li {
+    float: left;
+}
+
+.header .login_details {
+    background: #DDF1F8;
+    display: inline;
+    font-size: 0.8em;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 5px;
+    -moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+.header .login_details dt {
+    display: inline;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.header .login_details .date {
+    height: 20px;
+    padding-left: 5px;
+}
+.header .last_login {
+    display: inline;
+    margin-left: 10px;
+}

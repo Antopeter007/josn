@@ -1,0 +1,189 @@
+@import '../../../../styles/variables.scss';
+
+@mixin Styling_of_enquiryPageStyle($refFontSize,$refFontWeight,$block1FontSize,$block1FontWeight,$block2FontSize,$block2FontWeight,
+$smallFontSize,$smallFontWeight,$mediumFontSize,$mediumFontWeight,$tabFontSize,$labelHeaderFont,$labelWeight,$labelHeaderFontSize,
+$labelHeaderWeight,$valHeaderFontSize,$valHeaderWeight,$labelTagFont,$valueTagFont,$valTagWeight,$titleTagFont,$additionalTabFont,
+$additionalTabWeight,$amendComparisonTextFont,$amendCompareFontSize,$amendComparisonMargin,$amendComparisonPadding,
+$amendComparisonBorderRightStyle,$amendComparisonBorderRightWidth,$amendComparisonValueFontSize,$amendComparisonValueLineHeight,
+$amendComparisonMarginBottom,$amendComparisonWhiteSpace,$onlyAmendedFieldsFontSize,$onlyamendedFieldLineHeight,
+$onlyamendedFieldMarginBottom,$onlyamendedFieldsDisplay,$transactionHeaderPaddingBottom,$transactionHeaderPaddingTop,
+$transactionHeaderPaddingLeft,$amendComparisonFlex,$amendComparisonBreakWord) {
+
+  .refnum {
+    font-size: $refFontSize !important;
+    font-weight: $refFontWeight !important;
+  }
+  
+  .block1{
+    font-size: $block1FontSize !important;
+    font-weight: $block1FontWeight !important;
+  }
+  .block2 {
+    font-size: $block2FontSize !important;
+    font-weight: $block2FontWeight !important;
+  }
+  .lc-small-text{
+    font-size: $smallFontSize !important;
+    font-weight: $smallFontWeight !important;
+  }
+  .medium-text{
+    font-size: $mediumFontSize !important;
+    font-weight: $mediumFontWeight !important;
+  }
+  app-review-tab .ui-tabview .ui-tabview-title {
+      font-size: $tabFontSize !important;
+  }
+  fcc-summary-details .labelStyle{
+    font-size: $labelHeaderFontSize !important;
+    font-weight: $labelHeaderWeight !important;
+  }
+  fcc-summary-details .valueStyle{
+    font-size: $valHeaderFontSize !important;
+    font-weight: $valHeaderWeight !important;
+  }
+  // Accordion header Label
+  .subheader-title {
+    font-size: $labelHeaderFont !important;
+    font-weight: $labelWeight !important;
+  }
+  // Events tab left section Label when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .labelTag {
+    font-size: $labelTagFont !important;
+  }
+  // Events tab left section Value when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .valueTag {
+    font-size: $valueTagFont !important;
+    font-weight: $valTagWeight !important;
+  }
+  // Events tab left section Title when active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight .titleTag {
+    font-size: $titleTagFont !important;
+  }
+  // Events tab left section Label when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .labelTag {
+    font-size: $labelTagFont !important;
+  }
+  // Events tab left section Value when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .valueTag {
+    font-size: $valueTagFont !important;
+    font-weight: $valTagWeight !important;
+  }
+  // Events tab left section Title when not active
+  app-review-history .ui-listbox .ui-listbox-list .ui-listbox-item .titleTag {
+    font-size: $titleTagFont !important;
+  }
+  // Additional Info tab header
+  app-additional-info-tab .additionalClass {
+    font-size: $additionalTabFont !important;
+    font-weight: $additionalTabWeight !important;
+  }
+
+  fcc-amend-comparison-view .summaryField{
+    font: $amendComparisonTextFont;
+    font-size: $amendCompareFontSize;
+    font-weight: $refFontWeight;
+    margin: $amendComparisonMargin;
+    padding: $amendComparisonPadding;
+    border-right-style: $amendComparisonBorderRightStyle;
+    border-right-width: $amendComparisonBorderRightWidth;
+  }
+
+  fcc-amend-comparison-view .summaryVal{
+    font: $amendComparisonTextFont;
+    font-size: $amendComparisonValueFontSize;
+    line-height: $amendComparisonValueLineHeight;
+    word-break: $amendComparisonBreakWord;
+    font-weight: $valHeaderWeight;
+    margin-bottom:  $amendComparisonMarginBottom;
+    white-space: $amendComparisonWhiteSpace;
+    border-right-style: $amendComparisonBorderRightStyle;
+    border-right-width: $amendComparisonBorderRightWidth;
+  }
+
+  fcc-amend-comparison-view .sectionHeader {
+    font-weight: $valTagWeight;
+}
+
+fcc-amend-comparison-view .only-amended-fields {
+  font-size: $onlyAmendedFieldsFontSize;
+  font-weight:  $valHeaderWeight;
+  line-height: $onlyamendedFieldLineHeight;
+  margin-top: $onlyamendedFieldMarginBottom;
+  display: $onlyamendedFieldsDisplay;
+}
+
+fcc-amend-comparison-view  .transaction-header {
+  padding-bottom: $transactionHeaderPaddingBottom;
+  padding-top:  $transactionHeaderPaddingTop;
+  padding-left:  $transactionHeaderPaddingLeft;
+  border-right-style: $amendComparisonBorderRightStyle;
+  border-right-width: $amendComparisonBorderRightWidth;
+}
+
+fcc-amend-comparison-view  .license {
+  border-right-style: $amendComparisonBorderRightStyle;
+  border-right-width: $amendComparisonBorderRightWidth;
+}
+
+fcc-amend-comparison-view .p-col-6 .p-col-12 {
+  padding: $amendComparisonPadding;
+  flex: $amendComparisonFlex;
+}
+
+}
+
+.FCC {
+  // Default Variables
+  $refFontSize:$font-size-1_5;
+  $refFontWeight:$fontWeight-500;
+  $block1FontSize:$font-size-1_0;
+  $block1FontWeight:$fontWeight-300;
+  $block2FontSize:$font-size-1_0;
+  $block2FontWeight:$fontWeight-500;
+  $smallFontSize:$font-size-1_0;
+  $smallFontWeight:$fontWeight-400;
+  $mediumFontSize:$font-size-1_3;
+  $mediumFontWeight:$fontWeight-500;
+  $tabFontSize:$font-size-18;
+  $labelHeaderFont:$font-size-0_9;
+  $labelWeight:$fontWeight-500;
+  $labelHeaderFontSize:$font-size-0_95;
+  $labelHeaderWeight:$fontWeight-400;
+  $valHeaderFontSize:$font-size-1_0;
+  $valHeaderWeight:$fontWeight-500;
+  $labelTagFont:$font-size-0_8;
+  $valueTagFont:$font-size-15_1;
+  $valTagWeight:$fontWeight-bold;
+  $titleTagFont:$font-size-0_8;
+  $additionalTabFont:$font-size-18;
+  $additionalTabWeight:$fontWeight-500;
+  $amendComparisonTextFont:$comparisonTextFont;
+  $amendCompareFontSize:$font-size-0_75;
+  $amendComparisonMargin: $margin-0;
+  $amendComparisonPadding: $padding-0;
+  $amendComparisonBorderRightStyle: $borderSolid;
+  $amendComparisonBorderRightWidth: $border-right-width-2;
+  $amendComparisonValueFontSize: $font-size-0_85;
+  $amendComparisonValueLineHeight: $font-size-15_1;
+  $amendComparisonBreakWord: $breakWord;
+  $amendComparisonMarginBottom: $marginBottom-1_5;
+  $amendComparisonWhiteSpace: $preWrap;
+  $onlyAmendedFieldsFontSize: $font-size-12_1;
+  $onlyamendedFieldLineHeight: $line-height-1;
+  $onlyamendedFieldMarginBottom: $marginTop-1_875;
+  $onlyamendedFieldsDisplay: $onlyAmendedDisplay;
+  $transactionHeaderPaddingBottom: $padding-bottom-1;
+  $transactionHeaderPaddingTop: $padding-top-1;
+  $transactionHeaderPaddingLeft: $padding-left-0_3;
+  $amendComparisonFlex: $flex-auto;
+
+
+  @include Styling_of_enquiryPageStyle($refFontSize,$refFontWeight,$block1FontSize,$block1FontWeight,$block2FontSize,$block2FontWeight,
+  $smallFontSize,$smallFontWeight,$mediumFontSize,$mediumFontWeight,$tabFontSize,$labelHeaderFont,$labelWeight,$labelHeaderFontSize,
+  $labelHeaderWeight,$valHeaderFontSize,$valHeaderWeight,$labelTagFont,$valueTagFont,$valTagWeight,$titleTagFont,$additionalTabFont,
+  $additionalTabWeight,$amendComparisonTextFont,$amendCompareFontSize,$amendComparisonMargin,$amendComparisonPadding,
+  $amendComparisonBorderRightStyle,$amendComparisonBorderRightWidth,$amendComparisonValueFontSize,$amendComparisonValueLineHeight,
+  $amendComparisonMarginBottom,$amendComparisonWhiteSpace,$onlyAmendedFieldsFontSize,$onlyamendedFieldLineHeight,
+  $onlyamendedFieldMarginBottom,$onlyamendedFieldsDisplay,$transactionHeaderPaddingBottom,$transactionHeaderPaddingTop,
+  $transactionHeaderPaddingLeft,$amendComparisonFlex,$amendComparisonBreakWord);
+}

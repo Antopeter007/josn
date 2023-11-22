@@ -1,0 +1,220 @@
+/**
+ Refer to /themes/base/common/portlets_rtl.css
+**/
+
+/*
+	
+    Copyright (c) 2000-2013 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	summary:
+  		Styles for portlet layout in Demobank (RTL version)
+  		
+	description:
+	  	Classes are given to portlets according to the guidelines outlined in JSR 168 (the portlet
+	  	specification). See http://www.jcp.org/en/jsr/detail?id=168
+	  	
+	  	In addition, any custom portlet styles are collected here
+
+*/
+
+/** ----------------- Portlet Spec Classes / General Portlet Rules ---------------------------- **/
+
+.portlet-section-header .portlet-title {
+	color: #666;
+	border-bottom: 2px solid #004F9E;
+}
+
+.portlet-section-header {
+	height: auto;
+}
+
+.homepage .portlet {
+	margin: 8px 0 32px 0;
+	width: 96%;
+}
+
+.homepage .portlet-title {
+	font-size:1.333em;
+}
+
+.homepage .portlet-section-header {
+	padding-right: 0;
+}
+
+.homepage .portlet-section-body,
+.homepage #BookmarkPortlet .portlet-section-body {
+	padding: 12px 0 0 4px;
+}
+
+.homepage .bookmark {
+	width: auto;
+}
+#bookmarkAddContainer{
+	height : 50px;	
+}
+/** ------------------------------------- Root Portlet ----------------------------------- **/
+
+#default #GTPRootPortlet .portlet-section-header {
+	background-color: transparent;
+}
+
+#default #GTPRootPortlet .portlet-section-header h2 {
+	color: #1F3498;
+}
+
+#GTPRootPortlet .portlet-section-header .portlet-title {
+	font-size: 1.5em;
+	line-height: 1.75em;
+	padding-top: 6px;
+	margin-bottom: 10px;
+}
+
+/** ------------------------------------ Welcome Portlet ------------------------------------ **/
+
+#Welcome {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+/** ------------------------------------ Bookmarks Portlet ------------------------------------ **/
+
+#BookmarkPortlet li {
+	list-style-image: url("../images/ul_arrow_left.gif");
+	margin: 3px 9px 3px 0;
+}
+
+.homepage #BookmarkPortlet {
+	border: none;
+	font-size: 0.8em;
+}
+
+.homepage #BookmarkPortlet li {
+	margin: 0 14px 3px;
+}
+
+.homepage #BookmarkPortlet #nofavorites {
+	list-style-image: none;
+	padding: 0;
+	margin: 0;
+}
+
+.demobank #bookmarkToolTipDialog{
+	outline:none;	
+}
+.demobank #bookmarkToolTipDialog li.bookmark {
+	width: 350px;
+	font-size: 10px;
+	list-style-image: url("../images/ul_arrow_left.gif");
+	margin: 3px 10px 2px 0;
+	outline:none;
+}
+
+.demobank #bookmarkToolTipDialog a{
+	outline:none;
+}
+
+.demobank #bookmarkToolTipDialog #nofavorites{
+	width: 350px;
+}
+
+.demobank #addBookmarkButtonContainer{
+	margin: 0px 5px 16px 0px;
+}
+
+.demobank #addBookmarkButtonContainer a{
+	font-weight: normal;
+}
+.demobank #addBookmarkButtonContainer a:hover{
+	text-decoration:none;
+}
+
+/** ------------------------------------- Trade Tutorials ----------------------------------- **/
+
+
+#TradeTutorials .portlet-section-header {
+	display: none;
+}
+
+#TradeTutorials .portlet-section-body {
+	text-align: center;
+}
+
+/** -------------------------------- Outstanding Amount Portlet ------------------------------ **/
+
+.outstandingAmountTitle {
+	font-weight: bold;
+	color: #900;
+}
+
+/** ------------------------------------- AWB Portlet -------------------------------------- **/
+
+#AWBTrackingPortlet a {
+	color: #666;
+}
+
+#AWBTrackingPortlet a:hover {
+	cursor: pointer;
+	color: #006699;
+}
+
+#AWBTrackingPortlet #awblinkImg {
+	color: #0079a7;
+}
+
+.AWBTrackingDialog #AWBWelcome {
+	color: #900;
+}
+
+.AWBTrackingDialog #AWBDisclaimerMain {
+	color:#707070 ;
+}
+
+/** ------------------------------------- Rate Portlet -------------------------------------- **/
+
+#RatePortlet {
+	width: 235px;	
+}
+
+/** ----------------------------------- Product Dashboard -------------------------------------- **/
+
+#product_dashboard .col1,
+#product_dashboard .col3 {
+	overflow : 	visible !important;
+}
+
+/** ----------------------------------- Sum of Events Portlet ---------------------------------- **/
+
+#sumOfEvents li {
+	margin: 0 15px 0 0;
+}
+
+/** --------------------------------- Trade Events Grid Portlet -------------------------------- **/
+
+#TradeEventsGridPortlet h3 {
+	color:#900;
+	font-size:1.125em;
+	margin: 0;
+	padding-bottom: 6px;
+	padding-top: 12px;
+}
+
+#TradeEventsGridPortlet .portlet-title {
+	margin-bottom: 12px;
+}
+
+/** --------------------------------- Outstanding Chart Portlet -------------------------------- **/
+
+#product_dashboard #OutstandingChartPortlet .chartImg {
+	height:300px;
+}
+
+/** ------------------------------ Default Content News Portlet -------------------------------- **/
+
+#DefaultContent .para {
+	margin-right: 0;
+}
+
+#DefaultContent h3 {
+	font-size: 1.0833em;
+}

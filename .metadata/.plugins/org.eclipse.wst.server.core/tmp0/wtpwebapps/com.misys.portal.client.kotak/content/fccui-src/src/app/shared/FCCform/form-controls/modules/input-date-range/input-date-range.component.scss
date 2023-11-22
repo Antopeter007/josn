@@ -1,0 +1,22 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep {
+    mat-date-range-input {
+        color: $CHARCOAL-F100;
+    }
+
+    .mat-form-field-subscript-wrapper {
+        padding: 0;
+    }
+
+    .info-icon {
+        margin-top: 0.7em;
+        margin-left: 0.5em;
+    }
+
+    [dir="rtl"] .info-icon {
+        margin-left: 0 !important;
+        margin-right: 0.5em;
+    }
+}
+

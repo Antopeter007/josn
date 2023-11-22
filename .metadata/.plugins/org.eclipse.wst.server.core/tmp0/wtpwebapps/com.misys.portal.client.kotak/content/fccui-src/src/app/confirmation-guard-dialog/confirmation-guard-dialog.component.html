@@ -1,0 +1,76 @@
+<mat-toolbar color="primary" tabindex="1">
+    <h3>{{ title }}</h3>
+    <span style="display: inline-block; width: 100%;">&nbsp;</span>
+    <button role="button"  mat-icon-button class="close-button" (click)="onClickStayHere()" align="end" attr.aria-label="{{'close' | translate}}" title="{{'close' | translate}}">
+        <mat-icon class="close-icon">close</mat-icon>
+    </button>
+</mat-toolbar>
+<div id="confirmModal" class="modal fade" style="margin: 20px;display: block;" data-keyboard="false" data-backdrop="static" tabindex="0">
+    <div class="modal-dialog">
+        <div class="modal">
+            <div class="ng-star-inserted">
+                <div class="deleteConfirmationMsg form-header" [ngStyle]="{'float': setDirection()}">
+                    <span>{{ message }}</span>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div *ngIf="!isAutoSaveEnabled;">&nbsp;</div>
+             <div  *ngIf="!isAutoSaveEnabled;  else elseBlock">
+                <ng-container>
+                    <div *ngIf="dir === 'ltr'">
+                        <div class="modal-footer" [ngStyle]="{'float': setDirectionButton()}">
+                            <div height="500px">&nbsp;</div>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onConfirmationSave()" tabindex="3">{{saveButtonText}}</button>
+                            <span>&nbsp;&nbsp;</span>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onDiscard()" tabindex="2">{{discardButtonText}}</button>
+                            <span>&nbsp;&nbsp;</span>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onClickStayHere()" tabindex="1">{{stayButtonText}}</button>
+                        </div>
+                    </div>
+                    <div *ngIf="dir === 'rtl'">
+                        <div class="modal-footer" [ngStyle]="{'float': setDirectionButton()}">
+                            <div height="500px">&nbsp;</div>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onClickStayHere()" tabindex="3">{{stayButtonText}}</button>
+                            <span>&nbsp;&nbsp;</span>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onDiscard()" tabindex="2">{{discardButtonText}}</button>
+                            <span>&nbsp;&nbsp;</span>
+                            <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onConfirmationSave()" tabindex="1">{{saveButtonText}}</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            <ng-template #elseBlock>
+                <ng-container >
+                    <div *ngIf="dir === 'ltr'">
+                        <div class="p-col-12 modal-footer" [ngStyle]="{'float': setDirectionButton()}">
+                            <div height="500px">&nbsp;</div>
+                            <span class="autosavedInfo">{{autoSaveInfo}}</span>
+                            <span class="btnsLtl">
+                                <button role="button"  id="saveForLater" class="ui-button-rounded secondaryButton buttonSpace" (click)="onSaveForLater()" tabindex="3">{{saveForLaterButtonText}}</button>
+                                <button role="button"  id="dontCancel" class="ui-button-rounded secondaryButton buttonSpace" (click)="onDontCancel()" tabindex="2">{{noCancelButtonText}}</button>
+                                <button role="button"  id="yesCancel" class="ui-button-rounded primaryButton buttonSpace" (click)="onYesCancel()" tabindex="1">{{yesCancelButtonText}}</button>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div *ngIf="dir === 'rtl'">
+                        <div class="modal-footer" [ngStyle]="{'float': setDirectionButton()}">
+                            <div height="500px">&nbsp;</div>
+                            <span>
+                                <button role="button"  class="ui-button-rounded primaryButton buttonSpace" (click)="onYesCancel()" tabindex="3">{{yesCancelButtonText}}</button>
+                                <span>&nbsp;&nbsp;</span>
+                                <button role="button"  class="ui-button-rounded secondaryButton buttonSpace" (click)="onDontCancel()" tabindex="2">{{noCancelButtonText}}</button>
+                                <span>&nbsp;&nbsp;</span>
+                                <button role="button"  class="ui-button-rounded secondaryButton buttonSpace" (click)="onSaveForLater()" tabindex="1">{{saveForLaterButtonText}}</button>
+                            </span>
+                            <span class="autosavedInfo infoRtl">{{autoSaveInfo}}</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

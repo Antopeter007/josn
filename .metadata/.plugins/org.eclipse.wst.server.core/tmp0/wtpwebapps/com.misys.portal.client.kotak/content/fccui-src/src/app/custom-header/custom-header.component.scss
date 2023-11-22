@@ -1,0 +1,985 @@
+@import "./../../styles/variables.scss";
+
+.ng-header {
+  padding-top: 0.4em;
+  height: auto;
+  min-height: 3.75em;
+  background-color: $WHITE;
+  box-shadow: 0 0.125em 0.25em 0 rgba(177, 177, 177, 0.5);
+  border-bottom: none;
+}
+
+.ng-header a {
+  float: left;
+  color: $CHARCOAL-F75 !important;
+  text-align: center;
+  padding: 0.75em;
+  text-decoration: none;
+  line-height: 0em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ng-header a:hover {
+  background-color: $iconHoverColor;
+  cursor: pointer;
+  color: $VIOLET-F100 ;
+}
+
+@media screen and (max-width: 31.25em) {
+  .ng-header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+
+.menuIcon{
+    float: left;
+    width: 1.875em;
+    margin-left: 0.63em;
+    cursor: pointer;
+}
+
+.logo{
+    float: left;
+    max-width: 6.25em;
+    max-height: 2.5em;
+}
+
+.logoAlign {
+    margin-left: 0.3em;
+}
+
+.logoAlign[dir="rtl"] {
+  margin-left: 0em;
+  margin-right: 0.3em;
+}
+
+input {
+    border-style: hidden;
+  }
+
+.searchBox {
+    padding-right: 12.5em;
+    padding-left: 0.1em;
+    font-size: 1em;
+    float: left;
+}
+
+.searchBoxAlign {
+  padding-top: 0.7em;
+  margin-left: 3em;
+}
+
+.searchIcon {
+  float: left; 
+  width: 1.25em;
+  font-size: 1em;
+}
+
+.searchBox[dir="rtl"] {
+  padding-right: 0.1em;
+  padding-left: 12.5em;
+  font-size: 1em;
+  float: right;
+}
+
+.searchIcon[dir="rtl"] {
+  float: right;
+  width: 1.25em;
+  font-size: 1em;
+}
+
+.profilePic {
+  float: left; 
+  width: 1.55em;
+  height: 1.55em;
+  cursor: pointer;
+  margin-left: 1.25em;
+}
+
+.profileDownArrow{
+  float: left;
+  width: 1em;
+  cursor: pointer;
+}
+
+.hideforLanding{
+  display:none;
+}
+
+.pref-list1 {
+    width: 18.75em;
+    margin: 0em -0.875em;
+    padding: 0em 1.25em;
+  }
+
+
+.viewAndEdit{
+    font-size: 1em;
+}
+.logoutIcon{
+    float: left;
+    width: 2.188em; ;
+    cursor: pointer;
+}
+
+.logoutButton{
+    border: none;
+    background-color: $WHITE;
+    font-size: 1.25em;
+    color: $GREY-100;
+    cursor: pointer;
+}
+
+.close-icon {
+    width: 100%;
+    height: 3.25em;
+  }
+  
+  .close-icon a {
+    color: $VIOLET-F100;
+  }
+  
+  .close-icon a:hover {
+    color: $VIOLET-F100;
+    background-color:$WHITE;
+  }
+  
+  .close-icon a:active {
+    transition: opacity 0.2s cubic-bezier(0.35, 0, 0.25, 1),
+      background-color 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+  }
+  .first-skip-link {
+    left: 50%;
+    position: absolute;
+    transform: translateY(-150%);
+  }
+  .skip-link {
+    height: 1.875em;
+    left: 50%;
+    padding: 0.5em;
+    position: absolute;
+    transform: translateY(-120%);
+    transition: transform 0.3s;
+  }
+  
+  .skip-link:focus {
+    transform: translateY(0%);
+  }
+  
+  .corp-av {
+    font-size: large;
+    text-align: center;
+    line-height: 2em;
+    padding-top: 0.875em;
+  }
+  
+  .corp-avatar {
+    background: $GRADIENT_01;
+    padding: 0.4375em 0.75em;
+    border-radius: 50%;
+    color: $WHITE;
+    font-weight: 900;
+  }
+  .corp-name {
+    border-bottom: 0.0625em solid $Gallery;
+    text-align: center;
+    padding: 1em 0 2em 0;
+    font-weight: 900;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  .rightStyle {
+    position: relative;
+    padding-left: 9em;
+  }
+  
+  .header-right em {
+    float: left;
+    text-align: center;
+    /* font-size: 1.125em; */
+    border-radius: 50%;
+  }
+
+  .header-left {
+    float: left;
+  }
+  
+  .header-left[dir="rtl"] {
+    margin-right: 1em;
+  }
+  
+  .header-left em {
+    float: left;
+    text-align: center;
+    /* font-size: 1.125em; */
+    border-radius: 50%;
+  }
+
+
+  .profile-box {
+    width: auto;
+    height: 6.25em;
+    box-shadow: $CHARCOAL-F100;
+    margin: -0.5em -0.875em -0.5em -0.875em;
+    padding: 1.25em;
+    background-color: $Gallery;
+  }
+  .user-info1 {
+    line-height: 1em;
+    font-size: 0.875em;
+    letter-spacing: 0.0175em;
+    word-wrap: break-word;
+    margin: 0 0 1em;
+  }
+  .user-info2 {
+    line-height: 1em;
+    color: $CHARCOAL-F100;
+    font-size: 0.75em;
+    font-weight: 300;
+    word-wrap: break-word;
+  }
+  .item-list {
+    border-bottom: 0.0625em solid $Gallery;
+  }
+  .button-link {
+    background-color:$WHITE;
+    border: none;
+    padding-right: 0.2em;
+  }
+  .item-info {
+    font-size: 1.2em;
+    margin-left: 1.4em;
+  }
+  .landingCheck .item-info {
+    margin-left: 1.1em;
+  }
+  :host ::ng-deep .dashboardOL .ui-overlaypanel {
+    width: 25em;
+  }
+  .landing-card-icons {
+    height: 2em;
+    width: 4em;
+    padding-top: 0.25em;
+  }
+  
+  :host ::ng-deep .ui-slidemenu {
+    border: none !important;
+  }
+  
+  :host ::ng-deep .sideNavClass .ui-slidemenu .ui-menuitem-link {
+    padding: 1.1015em 0.857em;
+  }
+  
+  :host ::ng-deep .ui-submenu-icon {
+    display: none;
+  }
+  
+  :host ::ng-deep .ui-slidemenu-backward {
+    display: none !important;
+  }
+  
+  :host ::ng-deep .sideNavClass .ui-menuitem-link .ui-menuitem-text {
+    color: $CHARCOAL-F100 !important;
+    font-weight: 500;
+  }
+  
+  :host ::ng-deep .sideNavBreadCrumb .ui-breadcrumb {
+    padding: 1.7em 1em;
+  }
+  
+  :host
+    ::ng-deep
+    .sideNavBreadCrumb
+    .ui-breadcrumb
+    .ui-menuitem-link
+    .ui-menuitem-text {
+    font-weight: 400;
+    font-size: 0.8em;
+  }
+  
+  :host ::ng-deep .sideNavBreadCrumb .ui-breadcrumb ul li.ui-breadcrumb-chevron {
+    margin: 0 0.2em 0 0.2em;
+    color: $CHARCOAL-F100;
+    font-size: 0.8em;
+  }
+  
+  :host ::ng-deep .ui-submenu .ui-submenu-list {
+    border: 0.0625em solid $WHITE;
+    background-color: $WHITE;
+  }
+  
+  :host ::ng-deep .ui-slidemenu.ui-widget.ui-widget-content {
+    width: 15.625em;
+  }
+  
+  .close-icon {
+    width: 100%;
+    height: 3.25em;
+  }
+  
+  .close-icon a {
+    color: $VIOLET-F100;
+  }
+  
+  .close-icon a:hover {
+    color: $VIOLET-F100;
+    background-color: $WHITE;
+  }
+  
+  .close-icon a:active {
+    transition: opacity 0.2s cubic-bezier(0.35, 0, 0.25, 1),
+      background-color 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+  }
+  
+  .corp-avatar {
+    background: $GRADIENT_01;
+    padding: 0.4375em 0.75em;
+    border-radius: 50%;
+    color: $WHITE;
+    font-weight: 900;
+  }
+  
+  .corp-av {
+    font-size: large;
+    text-align: center;
+    line-height: 2em;
+    padding-top: 0.875em;
+  }
+  
+  :host ::ng-deep .ui-slidemenu .ui-menuitem-link .ui-menuitem-icon {
+    color: $Alto;
+  }
+  
+  :host ::ng-deep .ui-slidemenu .ui-menuitem-link:hover .ui-menuitem-icon {
+    color: $CHARCOAL-F100;
+  }
+  
+  .breadCrumbTop {
+    margin-left: 2em;
+  }
+  
+  :host ::ng-deep .ui-menubar .ui-menubar-root-list {
+    padding-left: 1em;
+  }
+  
+  :host ::ng-deep .ui-breadcrumb {
+    border: none;
+    padding: 0em 1em;
+  }
+  
+  :host ::ng-deep .ui-breadcrumb ul li a {
+    color: $CHARCOAL-F100 !important;
+    font-size: 1em !important;
+  }
+
+  li {
+    list-style-type: none;
+    line-height: 3em;
+  }
+  
+  .item-list em {
+    font-size: 1em;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-slidemenu
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    border-left: 0.788em solid $VIOLET-F100;
+    background-color: transparent;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-slidemenu
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link
+    > .ui-menuitem-text {
+    color: $VIOLET-F100 !important;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-slidemenu
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link
+    .ui-menuitem-icon {
+    color: rgba(105, 78, 214, 0.5) !important;
+  }
+  
+  :host ::ng-deep .ui-dropdown {
+    border: 0.0625em solid $GREY-02 !important;
+    width: 100%;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-dropdown-panel
+    .ui-dropdown-items
+    .ui-dropdown-item.ui-state-highlight {
+    color: $WHITE;
+    background-color: $VIOLET-02;
+  }
+  
+  :host ::ng-deep .ui-slidemenu .ui-menuitem-link:hover {
+    border-left: 0.788em solid rgba(105, 78, 214, 0.2);
+    background-color: rgba(105, 78, 214, 0.04);
+  }
+  
+  :host
+    ::ng-deep
+    .ui-slidemenu
+    .ui-menuitem.ui-menuitem-active:hover
+    > .ui-menuitem-link {
+    border-left: 0.788em solid $VIOLET-F100;
+    background-color: rgba(105, 78, 214, 0.04);
+  }
+  
+  .corp-name {
+    border-bottom: 0.0625em solid $Gallery;
+    text-align: center;
+    padding: 1em 0 2em 0;
+    font-weight: 900;
+  }
+  
+  :host ::ng-deep .ng-menu .ui-menubar {
+    padding: 0;
+    border: 0.0625em solid $menuBorder;
+    background-color: $menuBackground;
+    border-radius: 0em;
+    min-height: 2.5625em;
+  }
+  
+  :host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list .ui-menuitem {
+    border-top: 0.125em solid transparent;
+    border-bottom: 0.125em solid transparent;
+    background-color: transparent;
+  }
+  
+  :host ::ng-deep .ng-menu .ui-menuitem-link .ui-menuitem-text {
+    color: $MenuColor !important;
+    font-weight: 500;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu
+    .ui-submenu
+    .ui-submenu-list
+    .ui-menuitem-link
+    .ui-menuitem-text {
+    color: $GREY-05 !important;
+    font-weight: 500;
+  }
+  
+  :host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list {
+    right: 0em;
+    border: 0em solid #584493;
+    box-shadow: 0 0.0625em 0.1875em 0 rgba(0, 0, 0, 0.2), 0 0.0625em 0.0625em 0 rgba(0, 0, 0, 0.14),
+      0 0.125em 0.0625em -0.0625em rgba(0, 0, 0, 0.12);
+    border-radius: 0.0625em;
+    padding: 0.1875em 0.3125em;
+    background-color: $WHITE;
+    color: $GREY-05;
+    max-height: 34.375em;
+    overflow: auto;
+    min-width: 14.5em;
+  }
+  
+  @media screen and (max-width: 42.5em) {
+    :host ::ng-deep .ng-menu .ui-submenu .ui-submenu-list {
+      max-height: 15.125em;
+    }
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem
+    .ui-menuitem-link {
+    border-left: 0.3125em solid transparent;
+    border-right: 0.3125em solid transparent;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu.dirLtrStyle
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem
+    .ui-menuitem-link:hover {
+    border-left: 0.3125em solid $VIOLET-F50;
+    background-color: $selago;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu.dirRtlStyle
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem
+    .ui-menuitem-link:hover {
+    border-right: 0.3125em solid $VIOLET-F50;
+    background-color: $selago;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu.dirLtrStyle
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    border-left: 0.3125em solid $activeMenuLeftBorder ;
+    background-color: $WHITE-14;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu.dirRtlStyle
+    .ui-menubar
+    .ui-submenu-list
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    border-right: 0.3125em solid $VIOLET-F100;
+    background-color: $WHITE-14;
+  }
+  
+  :host
+    ::ng-deep
+    .ng-menu
+    .ui-menubar
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link
+    .ui-menuitem-icon {
+    color: $WHITE;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-menubar
+    .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    background-color: $VIOLET-F100-dark;
+  }
+  
+  :host ::ng-deep .ui-menubar .ui-menuitem-link:hover {
+    background-color: $VIOLET-F100-dark;
+  }
+  
+  :host ::ng-deep .ui-menubar .ui-menuitem-link .ui-menuitem-icon {
+    color: $WHITE;
+  }
+  
+  :host ::ng-deep .ui-menubar .ui-menuitem-active {
+    color: $WHITE;
+  }
+  
+  :host ::ng-deep .ui-slidemenu .ui-menuitem-link {
+    border-left: 0.788em solid transparent;
+  }
+  
+  :host
+    ::ng-deep
+    .ui-menubar
+    .ui-menubar-root-list
+    > .ui-menuitem
+    > .ui-menuitem-link:hover,
+  :host
+    ::ng-deep
+    .ui-menubar
+    .ui-menubar-root-list
+    > .ui-menuitem.ui-menuitem-active
+    > .ui-menuitem-link {
+    background-color: $menuHoverBackground;
+  }
+  
+  .textDisable {
+    color: $DarkGrey;
+  }
+  
+  :host ::ng-deep .ui-breadcrumb ul li  > a:focus {
+    border: .125em solid $VIOLET-F100 !important;
+  }
+  
+  :host ::ng-deep .ui-slidemenu .ui-menuitem > a:focus{
+    border: .125em solid $VIOLET-F100 !important;
+  }
+  
+  :host::ng-deep .ui-menubar .ui-menubar-root-list>.ui-menuitem > a:focus {
+    outline: .125em solid $menuitemFocus !important;
+    box-shadow: none;
+  }
+  
+  :host ::ng-deep .ng-menu .ui-menubar .ui-submenu-list .ui-menuitem > a:focus {
+    border: .125em solid $menuitemFocus !important;
+    box-shadow: none;
+  }
+  
+  .focus a:focus {
+    outline: .125em solid $VIOLET-F100 !important;
+  }
+  
+  .first-skip-link {
+    left: 50%;
+    position: absolute;
+    transform: translateY(-150%);
+  }
+  
+  .skip-link {
+    height: 1.875em;
+    left: 50%;
+    padding: 0.5em;
+    position: absolute;
+    transform: translateY(-120%);
+    transition: transform 0.3s;
+  }
+  
+  .skip-link:focus {
+    transform: translateY(0%);
+  }
+  
+  :host
+    ::ng-deep .layoutOption .ltr .ui-dropdown label.ui-dropdown-label {
+    border-bottom: none;
+  }
+  
+  :host ::ng-deep .rtl .ui-dropdown-panel.ui-dropdown-item {
+    font-weight: normal;
+    border: 0 none;
+    cursor: pointer;
+    margin: 0.0625em 0;
+    padding: .125em .25em;
+    text-align: right;
+  }
+  :host ::ng-deep .rtl .ui-dropdown label.ui-dropdown-label
+  {
+  text-align:right;
+  }
+  
+  :host ::ng-deep .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group
+  {
+  text-align:right;
+  }
+  
+  :host ::ng-deep .rtl .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+    background-color: transparent !important;
+    color: $VIOLET-F100 !important;
+    border-right: 0.4em solid $VIOLET-F100 !important;
+    font-weight: 500 !important;
+  }
+  :host ::ng-deep .rtl .ui-dropdown .ui-dropdown-trigger {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    cursor: pointer;
+    width: 1.5em;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 0;
+    padding: 0 .25em;
+  }
+  :host ::ng-deep  .rtl .ui-dropdown .ui-dropdown-label {
+    padding-right: 1em;
+  }
+  
+  #headerLogout {
+    display: inline-flex;
+    line-height: 1.125em;
+    border-radius: 1.25em;
+  }
+  
+  #headerLogout em {
+    font-size: 1.4em;
+    line-height: 1.125em;
+  }
+
+  #userProfile {
+    opacity: 1;
+    width: 2em;
+    height: 2em;
+    padding-top: 0.4em;
+    padding-left: 0em;
+    padding-right: 1.3em;
+  }
+  
+  #userProfile span {
+    background: -webkit-linear-gradient(
+      #694ed6,
+      $primaryColor 70%,
+      #e95247 90%,
+      #e42d1a
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+
+  .userProfileImage {
+    /* make a square container */
+    width: 3.75em;
+    height: 3.75em;
+  
+    /* fill the container, preserving aspect ratio, and cropping to fit */
+    background-size: cover;
+  
+    /* center the image vertically and horizontally */
+    background-position: top center;
+  
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+  }
+
+  
+  :host ::ng-deep .ui-button.ui-button-text-only .ui-button-text::before {
+    color: $WHITE;
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 1em;
+    text-align: center;
+    font-family: 'primeicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    content: "\e971";
+  }
+  :host ::ng-deep .ui-button.ui-button-text-icon-left .ui-button-text {
+    padding: 0.429em 1em 0.429em 1em;
+  }
+
+  
+:host ::ng-deep .ui-button.ui-button-rounded {
+  height: 2.25em;
+  border-radius: 1.125em;
+  background-color: $VIOLET-02;
+  box-shadow: none;
+  float: right;
+}
+
+:host ::ng-deep .ui-button:enabled:active {
+  background-color: $VIOLET-02;
+  color: $WHITE;
+  border-color: $VIOLET-02;
+}
+:host ::ng-deep .ui-button:enabled:hover {
+  background-color: $VIOLET-02;
+  color: $WHITE;
+  border-color: $VIOLET-02;
+}
+:host ::ng-deep .ui-button.ui-button-text-only .ui-button-text {
+  color: $WHITE;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1em;
+  text-align: center;
+}
+:host ::ng-deep .ui-button {
+  margin: 0;
+  color: $WHITE;
+  background-color: $VIOLET-02;
+  border: 0.0625em solid $VIOLET-02;
+  font-size: 0.875em;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 1.5625em;
+}
+
+.pref-list1 {
+  width: 18.75em;
+  margin: 0em -0.875em;
+  padding: 0em 1.25em;
+}
+
+.pref-list2 {
+  width: 18.75em;
+  margin: 0em -0.875em;
+  padding: 0em 1.25em;
+}
+
+.pref-list2 button {
+  width: 100%;
+}
+
+.view-profile {
+  text-align: center;
+  margin-bottom: 0.9375em;
+}
+
+.view-profile a {
+  float: none !important;
+  color: $VIOLET-02 !important;
+  opacity: 1 !important;
+  font-size: 0.875em !important;
+  font-weight: 600 !important;
+}
+
+.view-profile a:hover {
+  background-color: transparent !important;
+  opacity: 1 !important;
+  text-decoration: underline;
+}
+.showforLanding{
+  display:block;
+}
+
+.lastLoginContainer {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em;
+  font-size: 0.75em;
+  font-family: 'Roboto-Regular';
+  color: $VIOLET-F100-dark;
+  margin-left: 2.2em;
+  float: left;
+  padding: 0em;
+}
+
+.lastLoginContainer[dir="rtl"] {
+  margin-left: 0em;
+  margin-right: 2.2em;
+  float: right;
+}
+
+.header-top {
+  padding-left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.header-top[dir="rtl"] {
+  padding-left: 0em;
+  padding-right: 1em;
+}
+
+.homeIcon {
+  margin-left: 0em;
+  padding-left: 0em;
+}
+
+.languageAlign {
+  position: absolute;
+  right: 3.5em;
+}
+
+.languageAlign[dir="rtl"] {
+  position: absolute;
+  left: 4em;
+  float: left;
+  right: auto;
+}
+
+.profileAlign {
+  position: absolute;
+  right: 0em;
+  padding-bottom: 0.145em;
+}
+
+.profileAlign[dir="rtl"] {
+  position: absolute;
+  left: 0em;
+  float: left;
+  right: auto;
+}
+
+.profileDownArrow {
+  padding-right: 1.5em;
+}
+
+.profileDownArrow[dir="rtl"] {
+  padding-right: 0em;
+}
+
+.globe {
+  margin-top: -0.09375em;
+}
+
+.globe span {
+  position: relative !important;
+  font-size: 1.3125em;
+  color: $CHARCOAL-F75 !important;
+}
+
+.globe:hover span {
+  color: #694ed6 ;
+}
+
+:host ::ng-deep .ui-overlaypanel {
+  background-color: $WHITE;
+  color: #333333;
+  padding: 0;
+  border: 0.0625em solid #c8c8c8;
+  z-index: 9999 !important;
+  top: 2.625em !important;
+}
+
+:host ::ng-deep .ui-overlaypanel:before {
+  display: none;
+}
+
+:host ::ng-deep .ui-overlaypanel:after {
+  display: none;
+}
+
+:host ::ng-deep .languageGlobe .ui-overlaypanel {
+  width: 13.5em;
+}
+
+#languagePanelGrid {
+  margin-top: 0.7em;
+}
+
+.languageList img {
+  height: 0.8125em;
+  width: 1.625em;
+  margin-right: 0.3em;
+}
+
+.languageCodeSelected {
+  color: $VIOLET-PRIMARY-COLOR !important;
+  border-left: 0.4em solid $VIOLET-PRIMARY-COLOR !important;
+  font-weight: 500 !important;
+  padding: 0.3em;
+}
+
+.languageCodeSelected:hover, .languageCodeSelected:focus {
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.languageCodeNotSelected {
+  padding: 0.3em;
+  border-left: 0.4em solid transparent !important;
+}
+
+.languageCodeNotSelected:hover, .languageCodeNotSelected:focus {
+  border-left: 0.4em solid rgba(105, 78, 214, 0.2) !important;
+  background-color: rgba(105, 78, 214, 0.04) !important;
+}
+
+.homeIconAlign {
+  padding: 0.3em;
+}
+
+.logo-img {
+  padding: 0.4375em !important;
+}
+
+.ng-header a.logo-img:hover {
+  background-color: transparent;
+}

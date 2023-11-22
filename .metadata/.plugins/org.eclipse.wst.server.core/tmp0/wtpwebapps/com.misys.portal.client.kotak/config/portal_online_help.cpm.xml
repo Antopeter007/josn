@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE compass-core-mapping PUBLIC 
+    "-//Compass/Compass Core Mapping DTD 2.2//EN"
+    "http://www.compass-project.org/dtd/compass-core-mapping-2.2.dtd">
+
+<compass-core-mapping>
+
+  <resource alias="section-fr" analyzer="fr-analyzer" sub-index="help_section_index">
+    <resource-id name="section_id" />
+    <resource-property name="title" store="yes" index="analyzed"/>
+    <resource-property name="permission" store="yes" index="no"/>
+    <resource-property name="language" store="yes" index="not_analyzed"/>
+  	<resource-property name="content" store="compress" index="analyzed" converter="html-converter"/>
+  </resource>
+ 
+  
+  <resource alias="section-en" analyzer="en-analyzer" sub-index="help_section_index">
+    <resource-id name="section_id" />
+    <resource-property name="title" store="yes" index="analyzed"/>
+    <resource-property name="permission" store="yes" index="no"/>
+    <resource-property name="language" store="yes" index="not_analyzed"/>
+  	<resource-property name="content" store="compress" index="analyzed" converter="html-converter"/>
+  </resource>
+
+</compass-core-mapping>

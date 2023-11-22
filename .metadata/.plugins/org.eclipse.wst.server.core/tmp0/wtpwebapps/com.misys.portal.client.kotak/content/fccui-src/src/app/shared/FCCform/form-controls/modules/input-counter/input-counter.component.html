@@ -1,0 +1,48 @@
+<ng-container [formGroup]="form">
+    <div
+      class="p-col-12 globalPadding {{ control.params.parentStyleClass }}"
+      dir="{{ dir }}"
+    >
+      <div class="{{ control.params.styleClass }} {{ control.params.appearance }}" [ngClass]="getClass()">
+        <mat-form-field
+          class="input-mat-width"
+          floatLabel="false"
+          appearance="{{ control.params.appearance }}"
+          [ngClass]="{'mat-form-field-disabled': control.params.disabled}"
+        >
+          <button role="button"  mat-button mat-icon-button matPrefix aria-label="Decrease" [disabled]="control.params.disabled"  (click)="updateCounterData(control.key, false)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <input role="textbox"
+            formControlName="{{ control.key }}"
+            matInput
+            type="number"
+            [value]="control.params.defaultValue"
+            [required]="control.params.required"
+            [readonly]="control.params.readonly"
+            [disabled]="control.params.disabled"
+            (change)="updateCounterDatabyInput(control.key)"
+          />
+          <button role="button"  mat-button mat-icon-button matSuffix aria-label="Increase"  [disabled]="control.params.disabled" (click)="updateCounterData(control.key, true)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <mat-hint>
+            <mat-label tabindex="-1" *ngIf="!control.params.warning"
+              >{{ control.params.label
+              }}<a class="infoLabel" *ngIf="control.params.infoIcon && !control.params.warning">
+                {{ control.params.infolabel | translate }}</a
+              ></mat-label
+            >
+          </mat-hint>
+        </mat-form-field>
+        <div *ngIf="control.params.warning" >
+          <label class="errMsg" tabindex="0">{{
+            control.params.warning
+          }}</label>
+        </div>
+        <div *ngIf="enableHyperLink" class="linkHeight" >
+          <app-hyperlink [controlData]="hyperLinkControl"></app-hyperlink>
+        </div>
+      </div>
+    </div>
+  </ng-container>

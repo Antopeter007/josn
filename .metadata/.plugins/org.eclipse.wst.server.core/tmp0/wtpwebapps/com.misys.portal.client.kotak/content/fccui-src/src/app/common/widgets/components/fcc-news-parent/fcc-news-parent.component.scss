@@ -1,0 +1,63 @@
+@import '../../../../../styles/variables.scss';
+.displayType {
+  font-size: x-large;
+  color: $FUCHSIA-PRIMARY-COLOR;
+  font-weight: 700;
+}
+
+.border-btn {
+  border-bottom: 0.0625em solid $BLACK;
+}
+.padding-all-withmenu{
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 2.5em;
+  margin-top: 3em;
+}
+
+.padding-all-nomenu{
+  padding-left: 5em;
+  padding-right: 5em;
+  // padding-top: 2em;
+  margin-top: 1em;
+}
+
+.rightNews {
+  padding-left: 2.1em;
+}
+
+.leftNews {
+  border-right: $leftNewBorderRight;
+}
+
+:host ::ng-deep .ui-button {
+  background-color: $secondaryColor;
+  color: $uiButtonColor;
+  border-color: $secondaryColor;
+  border-radius: $secondaryBtnBorderRadius !important;
+}
+:host ::ng-deep  .ui-button:enabled:hover {
+  background-color: $secondaryColor;
+  color: $uiButtonColor;
+  border-color: $secondaryColor;
+  border-radius: $secondaryBtnBorderRadius !important;
+}
+
+:host ::ng-deep .ui-button:enabled:active {
+  background-color: $secondaryColor;
+  color: $uiButtonColor;
+  border-color:$secondaryColor;
+  border-radius: $secondaryBtnBorderRadius !important;
+}
+
+:host ::ng-deep .ui-button:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0px;
+  box-shadow: none;
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 860px) {
+  :host ::ng-deep #newsHeaderGrid {
+    margin-top: 3em !important;
+  }
+}

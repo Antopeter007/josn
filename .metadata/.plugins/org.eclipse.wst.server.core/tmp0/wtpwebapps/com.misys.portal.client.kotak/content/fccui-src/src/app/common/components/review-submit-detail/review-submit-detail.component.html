@@ -1,0 +1,217 @@
+<div *ngIf="isSuccess">
+  <div *ngIf ="isWarning ;else onlySuccessNoWarning">
+    <div class="p-grid">
+      <div class="p-col-12 warningIcon"><em class="fa fa-exclamation-triangle"></em></div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12 success">{{warning}}</div>
+    </div>
+  </div>
+
+  <ng-template #onlySuccessNoWarning>
+    <div class="p-grid">
+      <div class="p-col-12 successTick"><em class="fa fa-check-circle fa-2x"></em></div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12 success">{{success}} </div>
+    </div>
+  </ng-template>
+
+  <div class="p-grid">
+    <div class="p-col-12 successMessage">{{translateSuccessMessage}} </div>
+  </div>
+
+
+<div class="p-col-12">
+  <div class="p-col-9 p-xl-9 p-lg-9 p-md-12 p-sm-12 positionStyle">
+    <p-card class="overlayCardClass">
+      <div *ngIf="isViewIconRequired">
+        <div class="p-grid p-justify-end">
+          <div class="p-col-2 p-md-1 p-lg-1">
+            <div class="p-col-2 p-md-1 p-lg-1">
+              <img id="viewIcon" class = "iconImage" tabindex="0" (keyup)="keyPressDownload($event)" (click)="onClickView()" title="{{'view' | translate}}" src='{{contextPath}}/content/FCCUI/assets/icons/view.svg' alt="View">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-grid subDetails">
+        <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+          <div [ngClass]="'productCodeDefault'">
+            <div class={{circlebgclass}}>
+              <span class="icon">{{productCode}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-11 p-sm-12 p-col-align-center">
+          <div class="p-grid divRow">
+            <ng-container *ngFor="let data of reviewDetail let i = index">
+              <div *ngIf = "data.rendered" [ngClass]="classObject()">
+                  <div [ngClass]="(reviewDetail.length) > i+1 ? 'border-class' : ''">
+                    <span tabindex="0" class="headerFont">{{data.key | translate}}</span>
+                  </div>
+
+                <div class="">
+                  <span tabindex="0" class="dataFont1" *ngIf="data.feildType === 'amount' || data.feildType === 'guaranteeAmt' || data.feildType === 'settlementAmt' || data.feildType === 'collectionAmt' ||  data.feildType === 'guaranteeAmtLi' || data.feildType === 'fcmAmount'">
+                    {{ getCurrencySymbol(currency) }}
+                </span>
+                <span tabindex="0" class="dataFont1" *ngIf="data.feildType === 'beneAmount'">
+                  {{ getCurrencySymbol(beneCurrency) }}
+                </span>
+                    <span id={{data.id}} tabindex="0" class="dataFont1">{{data.value }}
+                </span>
+                </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    </p-card>
+  </div>
+</div>
+<div class="p-col-12"  *ngIf="nudges?.length">
+    <app-nudges [nudges]="nudges">
+    </app-nudges>
+</div>
+</div>
+<div *ngIf="!isSuccess">
+  <div class="p-grid" *ngIf = "!partiallySubmitted">
+    <div class="p-col-12 submitError"><em class="fa fa-times-circle"></em></div>
+  </div>
+  <div class="p-grid" *ngIf = "partiallySubmitted">
+    <div class="p-col-12 warningIcon"><em class="fa fa-exclamation-triangle"></em></div>
+  </div>
+  <div class="p-grid" *ngIf = "!showFailedMessage && !partiallySubmitted">
+    <div class="p-col-12 success">{{submitError}} </div>
+  </div>
+  <div class="p-grid" *ngIf = "showFailedMessage && !partiallySubmitted">
+    <div class="p-col-12 success">{{failed}} </div>
+  </div>
+  <div class="p-grid" *ngIf = "partiallySubmitted">
+    <div class="p-col-12 success">{{submitted}} </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col-12 successMessage" *ngIf = "!multipleMessages">
+      <div class="p-col-12 successMessage">{{submitMessage | translate}} </div>
+    </div>
+    <div class="p-col-12" *ngIf = "multipleMessages">
+      <div class="p-col-12 successMessage">{{submitMessage | translate}} </div>
+      <div class="p-col-12"></div>
+      <div class="p-col-12">
+      <div  *ngIf = "partiallySubmitted" class="p-col-9 p-xl-9 p-lg-9 p-md-12 p-sm-12 positionStyle">
+        <p-card class="overlayCardClass">
+          <div class="p-grid subDetails">
+            <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+              <div [ngClass]="'productCodeDefault'">
+                <div class="LC_background circleBackgroundError">
+                  <span class="icon">{{beneProductCode}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-12 p-lg-11 p-sm-12 p-col-align-center">
+              <div class="p-grid">
+                <ng-container *ngFor="let data of errorReviewDetail let i = index">
+                  <div  [ngClass]="classObject()">
+                      <div [ngClass]="(errorReviewDetail.length) > i+1 ? 'border-class' : ''">
+                        <span tabindex="0" class="headerFont">{{data.key | translate}}</span>
+                      </div>
+                      <div class="">
+                        <span id={{data.key}} tabindex="0" class="dataFont1">{{data.value }}</span>
+                      </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+      <div class="p-col-12"></div>
+      <div *ngIf = "showErrorTable" [class]="tableStyle">
+        <fcc-app-review-submit-error-table [submitErrorMessage]="submitFcmMessage"></fcc-app-review-submit-error-table>
+      </div>
+      <div *ngIf = "!showErrorTable">
+        <ng-container  *ngFor="let data of submitFcmMessage">
+          <div class="p-col-12 successMessage">{{data | translate}} </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="p-col-12"  *ngIf="nudges?.length">
+        <app-nudges [nudges]="nudges">
+        </app-nudges>
+    </div>
+  </div>
+</div>
+
+ <!-- <div class="p-col-12">
+    <div class="p-col-8 p-offset-2">
+      <p-card class="overlayCardClass">
+        <div class="p-grid p-justify-end">
+          <div class="p-col-2 p-md-1 p-lg-1">
+            <em class="fa fa-file-pdf-o pdf" aria-hidden="true" title="{{pdfDownloadIcon}}" (click)="downloadPDF()"></em>
+          </div>
+        </div>
+        <div class="p-grid subDetails">
+          <div class="p-col-12 p-md-12 p-lg-1 p-sm-12">
+            <div [ngClass]="'productCodeDefault'">
+              <div class="circleBackgroundLC LC_background">
+                <span class="icon">{{productCode}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-col-12 p-md-12 p-lg-11 p-sm-12">
+            <div class="p-grid divRow">
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{channelsId}}</div>
+                  <div class="dataFont1">{{refId}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{entity}}</div>
+                  <div class="dataFont1">{{entityName}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{amount}}</div>
+                  <div class="dataFont1">{{currency}} {{tnxAmt}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{transmissionMode}}</div>
+                  <div class="dataFont1">{{lcmode}}</div>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{event}}</div>
+                  <div class="p">{{eventValue}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{beneficiaryNameLabel}}</div>
+                  <div class="dataFont2">{{beneficiaryNameValue}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{expiresOn}}</div>
+                  <div class="dataFont2">{{expiryDate}}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-6 p-lg-3 p-sm-12 divCell">
+                <div class="row_1">
+                  <div class="headerFont">{{status}}</div>
+                  <div class="dataFont2">{{statusValue}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div> -->

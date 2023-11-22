@@ -1,0 +1,43 @@
+@import './../../../corporate/trade/lc/initiation/component/summary-details/summary-details.component.scss';
+@import './../../../../styles/variables.scss';
+
+.fcc-form-header {
+    margin-top: 0em !important;
+}
+
+.mat-expansion-panel-header {
+    padding: 0 1.3125em;
+}
+
+.p-grid {
+    margin-left: 0.0625em;
+    margin-right: 0.0625em;
+}
+
+.pdfIcon{
+    font-size: 1.5em;
+    cursor: pointer;
+    float: right;
+    color: $DoveGray;
+    margin: 0.2em 1em 0em 1em;
+  }
+
+  [dir="rtl"].pdfIcon{
+    font-size: 1.5em;
+    cursor: pointer;
+    float: left;
+    margin: 0.2em 0em 0em 1.4em;
+  }
+
+  .pdfIcon:hover{
+    color: $VIOLET-F100;
+  }
+  @media screen and (min-width: 768px) and (max-width: 834px) {
+    :host ::ng-deep .p-grid {
+      margin-right: 0.5em !important;
+    }
+  }
+
+  .removeSpace{
+    margin-top: -1.5em !important;
+  }

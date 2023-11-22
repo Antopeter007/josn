@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Response xmlns="http://www.kotak.com/schemas/Online_Merchant_Boarding/BCIF_Customer_Info.xsd">
+	<header>
+		<sourceappcode>JARVIS</sourceappcode>
+		<RqUID>2</RqUID>
+		<action_type>FETCH_COLL_VA_DET</action_type>
+		<crn>29745861</crn>
+	</header>
+	<coll_det>
+		<account_no>09582650000173~09630050000818</account_no>
+		<trxn_date>11-MAY-21</trxn_date>
+		<count>6</count>
+		<amount>9000</amount>
+		<payment_type>NEFT</payment_type>
+	</coll_det>
+	<request_status>
+		<error_flag>N</error_flag>
+		<error_desc>Transactions Found</error_desc>
+		<error_code>KOT000</error_code>
+	</request_status>
+</Response>

@@ -1,0 +1,191 @@
+@import './../../../../../../styles/variables.scss';
+
+
+:host ::ng-deep .indented-text-area-field-65 textarea {
+    width: 37.4rem;
+    word-break: break-all;
+    resize: none;
+}
+
+:host ::ng-deep .removeLabelStyle {
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.75em;
+    margin: 0.4em 0 0 -17em;
+    max-width: 5em;
+    z-index: 2;
+    text-align: left;
+    position: absolute;
+  }
+
+  :host ::ng-deep  [dir=rtl] .removeLabelStyle{
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.75em;
+    margin: 0.40em -15em 0 0;
+    max-width: 5em;
+    z-index: 2;
+    text-align: left;
+    position: absolute;
+
+  }
+
+  :host ::ng-deep  [dir=rtl].fetchedRefValueStyle {
+    max-width: 10em;
+    pointer-events: none;
+    right: -15em;
+  }
+
+  :host ::ng-deep  [dir=rtl] .referenceSelectedStyle {
+    color: #6f6f6f !important;
+    font-size: 0.75em;
+    position: relative;
+    left: 1em;
+    margin-top: 0.4em;
+    font-weight: normal;
+    z-index: 0;
+    text-align: right;
+    right: 0.2em;
+  }
+
+  :host ::ng-deep  .fetchedRefValueStyle {
+    max-width: 10em;
+    pointer-events: none;
+  }
+
+  :host ::ng-deep #fetchedRefValue {
+    max-width: 15em;
+    border: none;
+    font-size: 0.75em !important;
+    position: relative;
+    right: 9em;
+    bottom: 2em;
+    z-index: 1;
+    text-align: left;
+  }
+
+  :host ::ng-deep .referenceSelectedStyle {
+    color: #6f6f6f !important;
+    font-size: 0.75em;
+    position: relative;
+    left: 12em;
+    margin-top: 0.4em;
+    font-weight: normal;
+    z-index: 0;
+    text-align: left;
+  }
+
+  :host ::ng-deep .referenceSelectedStyle {
+    left: 1em;
+  }
+
+  :host ::ng-deep .arabicReferenceSelected {
+    color: #6f6f6f !important;
+    margin-top: 0;
+    position: relative;
+    right: 8em;
+    z-index: 0;
+  }
+
+  :host ::ng-deep .arabicFetchedRefValue {
+    position: relative;
+    right: 7em;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  :host ::ng-deep .arabicRemoveLabel {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 0;
+    left: 1em;
+    position: relative;
+  }
+
+  :host
+    ::ng-deep
+    .srNumberValueStyle
+    .mat-form-field-appearance-fill
+    .mat-form-field-flex,
+  :host
+    ::ng-deep
+    .templateSelectionValueStyle
+    .mat-form-field-appearance-fill
+    .mat-form-field-flex,
+  :host
+    ::ng-deep
+    .fetchedRefValueStyle
+    .mat-form-field-appearance-fill
+    .mat-form-field-flex {
+    background-color: transparent;
+  }
+
+  :host
+    ::ng-deep
+    .srNumberValueStyle
+    .mat-form-field-wrapper
+    .mat-form-field-underline,
+  :host
+    ::ng-deep
+    .templateSelectionValueStyle
+    .mat-form-field-wrapper
+    .mat-form-field-underline,
+  :host
+    ::ng-deep
+    .fetchedRefValueStyle
+    .mat-form-field-wrapper
+    .mat-form-field-underline {
+    width: 0;
+  }
+
+  :host ::ng-deep .removeLabelSRStyle {
+    cursor: pointer;
+    font-size: 0.75em;
+    z-index: 2;
+    position: relative;
+    margin-left: -7.5em;
+    margin-top: 2em;
+    color: #c137a2;
+    letter-spacing: 0.05em;
+  }
+
+  :host ::ng-deep .arabicRemoveLabelSR {
+    right: -5em;
+  }
+
+  ::ng-deep textarea::-webkit-scrollbar {
+    width: 7px !important;
+    background-color: $textAreaWebkitScrollBackgroundColor !important;
+  }
+
+  ::ng-deep textarea::-webkit-scrollbar-thumb {
+    background-color: $textAreaWebkitScrollthumbBackgroundColor !important;
+  }
+
+  @media screen and  (max-width: 834px) and (min-width: 768px) {
+    :host ::ng-deep .indented-text-area-field-65 {
+    width: 98% !important;
+   }
+   :host ::ng-deep .characterCountDivfield .ui-inputtext {
+    width: 98% !important;
+   }
+   :host ::ng-deep .removeLabelStyle {
+    position: relative !important;
+    margin: 0.4em 0 0 -2em !important;
+   }
+   :host ::ng-deep .fetchedRefValueStyle {
+    left: 5em !important;
+  }
+  :host ::ng-deep .mat-card-width {
+    width:40em !important;
+  }
+  :host ::ng-deep .removeLabelSRStyle {
+    margin-left: 8.5em !important;
+  }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1180px) {
+    :host ::ng-deep .p-sm-5 {
+      width: 40.6667% !important;
+    }
+  }

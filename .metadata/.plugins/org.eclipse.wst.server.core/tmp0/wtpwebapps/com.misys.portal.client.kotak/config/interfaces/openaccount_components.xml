@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<component name="mailformatterbuyerseller">
+		<description>Build message from event. 0: Reference Id, 1: Product code, 2: Amount, 3: Currency, 4: Tnx Type code, 5: Customer Name, 6: Bank Name, 7: Customer Ref. Id, 8: BO Ref. Id, 9: Entity, 10: Receiver name</description>
+		<classname>com.misys.portal.interfaces.components.EmailFormatter</classname>
+		<properties>
+			<property name="destination" description="00: Customer">00</property>
+			<property name="titlekey" description="Key of localized title">COUNTERPARTY_SUBMISSION_ALERT_EMAIL_TITLE</property>
+			<property name="bodykey" description="Key of localized body">COUNTERPARTY_SUBMISSION_ALERT_EMAIL_BODY</property>
+			<property name="titlekey.isDynamic" description="True if the title is provided in the environment">false</property>
+			<property name="bodykey.isDynamic" description="True if the body is provided in the environment">false</property>
+		</properties>
+	</component>
+	
+
+	<component name="apply2advisefilter">
+		<description>Filter Products for TSU messages generation from IN. On customer submission</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.ApplyToAdviseFilter</classname>
+	</component>	
+
+	<component name="invoicegenerator">
+		<description>Invoice Generator</description>
+		<classname>com.misys.portal.tsu.interfaces.xml.incoming.InvoiceGenerator</classname>
+		<properties>
+			<property name="fo.default" description="FO Stylesheet">/content/xsl/openaccount/fo/fo_in_invoice.xsl</property>
+			<property name="fo.images" description="FO Images">/content/images</property>
+			<property name="attachment.title" description="Title">Invoice</property>
+			<property name="attachment.description" description="Description">Invoice</property>
+			<property name="attachment.filename" description="Filename">invoice.pdf</property>
+		</properties>
+	</component>	
+	
+	<component name="advise2applyconnector">
+		<description>PO Advice to PO Apply Converter (Baseline ack.)</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.AdviseToApplyConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">15</property>
+			<property name="prodstatcode" description="Product Status Code">72</property>
+		</properties>
+	</component>	
+
+	<component name="apply2adviseconnector">
+		<description>PO Apply to PO Advice Converter</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.ApplyToAdviseConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">01</property>
+			<property name="prodstatcode" description="Product Status Code">03</property>
+		</properties>
+	</component>	
+	
+	<component name="apply2invoiceconnector">
+		<description>PO Apply to Invoice Converter (Invoice financing)</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.ApplyToInvoiceConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">15</property>
+		</properties>
+	</component>	
+
+	<component name="invoice2applyconnector">
+		<description>Invoice to PO Apply Converter (Invoice presentation)</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.InvoiceToApplyConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">15</property>
+			<property name="prodstatcode" description="Product Status Code">45</property>
+			<property name="tnxstatcode" description="Transaction Status Code">04</property>
+			<property name="fo.stylesheet.name" description="FO Stylesheet">/content/xsl/openaccount/fo/fo_in_invoice.xsl</property>
+			<property name="attachment.title" description="Title">Invoice</property>
+			<property name="attachment.description" description="Description">Invoice</property>
+			<property name="attachment.filename" description="Filename">invoice.pdf</property>
+			<property name="attachment.language" description="Language">en</property>
+		</properties>
+	</component>	
+
+	<component name="apply2ftconnector">
+		<description>PO Apply to FT Converter</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.ApplyToFTConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">15</property>
+		</properties>
+	</component>	
+
+	<component name="closepoconnector">
+		<description>PO Close IN and SO</description>
+		<classname>com.misys.portal.openaccount.interfaces.connector.CloseApplyToInvoiceAndAdviseConnector</classname>
+		<properties>
+			<property name="tnxtypecode" description="Transaction Type Code">15</property>
+			<property name="prodstatcode" description="Product Status Code">10</property>
+		</properties>
+	</component>	
+
+</components>

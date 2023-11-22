@@ -1,0 +1,176 @@
+/*
+
+Set of style elements to override the styles from angular. 
+
+*/
+
+#GTPRootPortlet * {
+			-webkit-box-sizing: content-box !important;
+			-moz-box-sizing: content-box !important;
+			box-sizing: content-box !important;
+}
+#footerHtml {
+	position: initial !important;
+}
+
+div#pre_approved_benificiary {
+    margin-left: 9.5em;
+    padding-top: 0.5em;
+}
+
+.fieldset-content div.fx_rate span.label {
+    margin-left: -5.4em;
+}
+
+#GTPRootPortlet label, #GTPRootPortlet .label {
+	width: 240px !important; 
+    text-align: right !important; 
+    line-height: 1.5em !important; 
+    margin-right: 0.5em !important; 
+    word-wrap: break-word !important;
+}
+
+.kotakbank .dijitDialog .label, .kotakbank .dijitDialog label {
+	width: 148px !important;
+    text-align: center !important;
+    line-height: 1.5em !important;
+    display: inline-block !important;
+    margin-right: -1em !important;
+    word-wrap: break-word !important;
+}
+
+.kotakbank .dijitDialog .multioption-group-label label {
+    padding-right: 140px !important;
+    margin-right: 0em !important;
+}
+
+#GTPRootPortlet .checkbox label, #GTPRootPortlet .radio label {
+    margin-left: 245px !important;
+}
+#GTPRootPortlet .checkbox label {
+    text-align: left !important;
+    width: 200px !important;
+}
+
+#GTPRootPortlet .multioption-group-label .radio label {
+    text-align: left !important;
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+#GTPRootPortlet .legalType label, #GTPRootPortlet .legalType .label {
+    width: 0px !important;
+}
+
+#GTPRootPortlet .collapse-label label {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0 !important;
+}
+
+.colmask {
+	top: 80px !important;
+}
+#footerHtml{
+	display: block !important;
+}
+.form {
+	margin: 0 auto !important;
+}
+#GTPRootPortlet .radio-checkbox-field-label {
+	display: inline !important;
+    line-height: 1.5em !important;
+    margin-left: 2px !important;
+    text-align: left !important;
+    width: auto !important;
+}
+fieldset-content {
+    padding: 6px 6px 12px 6px;
+}
+/** A checkbox or a radio button label **/
+.textarea label,
+.textarea .label {
+	vertical-align: top;
+}
+
+.big-textarea-wrapper-label-view {
+	margin-left: 20px;
+	text-align: left;
+}
+
+.big-textarea-wrapper-content {
+	clear: both;
+    white-space: pre;	
+    display: inline-table;
+    /*word-spacing: 4.5px;*/
+    font-family: Courier New, sans-serif;
+}
+
+.big-textarea-wrapper-content-dynamic-phrase {
+	clear: both;
+    word-wrap: break-word;
+}
+
+#searchCriteria label {
+    text-align: right; 
+    margin-right: 0.5em !important; 
+}
+
+#public_tasks_fields label,
+#private_description_nosend_row label,
+#notification_tasks_dialog label,
+#public_tasks_dialog .multioption-group-label label,
+#public_tasks_dialog .multioption-group-label .label {
+    width: 100px !important;
+}
+
+#public_tasks_fields .radio label, #public_tasks_fields .checkbox label {
+    margin-left: 105px !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+.cancelButton {
+	position: inherit !important; 
+}
+#GTPRootPortlet .userAccountsMultiSelect label {
+    width: 0px !important;
+}
+ .user_account_edit .userAccountsMergedCell {
+height: auto;
+}
+
+ .userAccounts .multiselect-buttons {
+top: -80px;
+height: auto;
+position: relative;
+vertical-align: middle;
+}
+
+#GTPRootPortlet .multi-select {
+    width: 550px !important;
+}
+
+#GTPRootPortlet .chequeServicesChequeNumber label {
+    width: 50px !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1215px) { 
+    .medium {
+        width: 10em;
+    }
+    #charge_act_name_row label {
+        width: 120px !important;
+    }
+}
+
+ 
+
+@media screen and (min-width: 1215px) and (max-width: 1380px) { 
+    .medium {
+        width: 13em;
+    }
+}
+
+div#parameter_mandatory_row label {
+    width: 233px !important;
+}

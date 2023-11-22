@@ -1,0 +1,268 @@
+@import './../../../../../../../styles/variables.scss';
+
+:host ::ng-deep .transmission .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+:host ::ng-deep .transmission .uxg-filtering-toggle-group.mat-button-toggle-group .mat-button-toggle {
+  width: 21%;
+  min-width: fit-content;
+  max-width: 275px;
+}
+
+.transmission .mat-button-toggle-label-content .material-icons {
+  right: auto;
+  left: -15%;
+}
+
+:host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+  right: auto;
+  left: -20%;
+}
+
+:host ::ng-deep .removeLabelStyle {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.4em 0 0 -14em;
+  max-width: 5em;
+  z-index: 2;
+  text-align: left;
+  position: absolute;
+}
+
+:host ::ng-deep [dir=rtl] .removeLabelStyle{
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.40em -15em 0 0;
+  max-width: 5em;
+  z-index: 2;
+  text-align: left;
+  position: absolute;
+
+}
+
+:host ::ng-deep [dir=rtl].fetchedRefValueStyle {
+  max-width: 10em;
+  pointer-events: none;
+  right: -15em;
+}
+
+:host ::ng-deep [dir=rtl] .referenceSelectedStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 1em;
+  margin-top: 0.4em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: right;
+  right: 0.2em;
+}
+
+:host ::ng-deep .fetchedRefValueStyle {
+  max-width: 14em;
+  pointer-events: none;
+}
+
+:host ::ng-deep #fetchedRefValue {
+  max-width: 15em;
+  border: none;
+  font-size: 0.75em !important;
+  position: relative;
+  right: 9em;
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+}
+
+:host ::ng-deep .referenceSelectedStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 1em;
+  margin-top: 0.4em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+
+.arabicReferenceSelected {
+  color: $GREY-100 !important;
+  margin-top: 0;
+  position: relative;
+  left: 17em;
+  z-index: 0;
+}
+.arabicFetchedRefValue {
+  position: relative;
+  left: 17em;
+  z-index: 1;
+  pointer-events: none;
+}
+.arabicRemoveLabel {
+  left: 17em;
+  position: relative;
+  z-index: 2;
+}
+
+:host
+  ::ng-deep
+  .fetchedRefValueStyle
+  .mat-form-field-appearance-fill
+  .mat-form-field-flex {
+  background-color: transparent;
+}
+:host
+  ::ng-deep
+  .fetchedRefValueStyle
+  .mat-form-field-wrapper
+  .mat-form-field-underline {
+  width: 0;
+}
+
+:host ::ng-deep .srNumberValueStyle .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+:host ::ng-deep .templateSelectionValueStyle .mat-form-field-appearance-fill .mat-form-field-flex,
+:host ::ng-deep .fetchedRefValueStyle .mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: transparent;
+  padding-left: 4em;
+}
+:host ::ng-deep .srNumberValueStyle .mat-form-field-wrapper .mat-form-field-underline,
+:host ::ng-deep .templateSelectionValueStyle .mat-form-field-wrapper .mat-form-field-underline,
+:host ::ng-deep .fetchedRefValueStyle .mat-form-field-wrapper .mat-form-field-underline{
+  width: 0;
+}
+
+:host ::ng-deep .viewSpecimenHyperLink {
+  color: $FUCHSIA-F100;
+  font-size: .7em;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  margin-top: -6em;
+}
+
+:host ::ng-deep .viewSpecimenHyperLink:hover {
+  text-decoration: underline;
+}
+
+:host ::ng-deep  #fetchedBankTemplate {
+  max-width: 30em;
+  border: none;
+  font-size: 0.65em !important;
+  pointer-events: none;
+  position: relative;
+  right: 1em;
+  left: 1em;
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+  display: inline;
+}
+
+:host ::ng-deep #fetchedTemplate {
+  max-width: 13em;
+  border: none;
+  font-size: 0.75em !important;
+  pointer-events: none;
+  position: relative;
+  right: 9em;
+  bottom: 2em;
+  z-index: 1;
+  text-align: left;
+}
+
+:host ::ng-deep .characterCountDivfield .ui-widget {
+  background: none;
+}
+
+:host ::ng-deep .templateSelectionStyle {
+  color: $GREY-100 !important;
+  font-size: 0.75em;
+  position: relative;
+  left: 0.60em;
+  margin-top: 0.40em;
+  font-weight: normal;
+  z-index: 0;
+  text-align: left;
+}
+
+:host ::ng-deep .arabicTemplateSelection {
+  right: 1em;
+  position: relative;
+  color: $GREY-100 !important;
+  margin-top: 0;
+  z-index: 0;
+}
+
+:host ::ng-deep .arabicFetchedTemplate {
+  left: 12em;
+  z-index: 1;
+  pointer-events: none;
+}
+
+:host ::ng-deep .arabicRemoveLabelTemplate {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0;
+  left: 11em;
+  position: relative;
+  z-index: 2;
+}
+
+:host ::ng-deep .removeLabelTemplateStyle {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin: 0.40em 0 0 -10em;
+  max-width: 5em;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+@media screen and  (max-width: 834px) and (min-width: 768px) {
+  :host ::ng-deep .transmission .mat-button-toggle-label-content .material-icons {
+    left: 1% !important;
+  }
+  :host ::ng-deep .removeLabelStyle {
+    position: relative !important;
+    margin: 0.4em 0 0 -2em !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  :host ::ng-deep .mat-radio-button {
+    width: fit-content !important;
+ }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  :host ::ng-deep .transmission .mat-button-toggle.mat-button-toggle-checked .material-icons {
+    left: -3% !important;
+  }
+}
+
+
+:host ::ng-deep .textarea.characterCountDivfield .characterCountValueField {
+  width: 43em !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  :host ::ng-deep .p-sm-5 {
+    width: 40.6667% !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1180px) {
+  :host ::ng-deep .p-sm-6 {
+    width: 40.6667% !important;
+  }
+
+  :host ::ng-deep .p-sm-5 {
+    width: 40.6667% !important;
+  }
+}

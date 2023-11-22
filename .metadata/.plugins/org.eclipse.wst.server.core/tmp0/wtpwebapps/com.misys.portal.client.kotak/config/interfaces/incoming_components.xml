@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2009 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/mtp/interfaces/xsd/interfaces.xsd"
+			xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<xi:include href="base_components.xml"/>
+
+	<component name="coverlettergenerator">
+		<description>Generate Cover Letter</description>
+		<classname>com.misys.portal.interfaces.incoming.CoverLetterGenerator</classname>
+		<properties>
+			<property name="fo.folder">${cover_letter_location}</property>
+			<property name="fo.images">${images_location}</property>
+		</properties>
+	</component>
+	
+	<component name="swiftmt798extractor">
+		<description>Extract wrapped SWIF message from a MT798 used in C2B and B2C context</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTMT798Extractor</classname>		
+	</component>
+	
+	<component name="orphantransactionfilter">
+		<description>Filter that fires the received transaction if it exists a master</description>
+		<classname>com.misys.portal.interfaces.components.OrphanTransactionFilter</classname>		
+	</component>
+	
+	<component name="productamountmanager">
+		<description>Compute liability amount and outstanding amount used for the MT798 interfaces</description>
+		<classname>com.misys.portal.interfaces.incoming.ProductAmountManager</classname>		
+	</component>	
+	
+	<component name="swiftoutputprocessor">
+		<description>SWIFT MT798 Output Processor</description>
+		<classname>com.misys.portal.interfaces.components.swift.SWIFTMT798OutputProcessor</classname>
+		<properties>
+			<property name="type" description="Output type code">03</property>
+			<property name="filetype" description="Output file type">swift</property>			
+		</properties>
+		<published>
+			<property name="type"/>
+			<property name="BRCH_CODE"/>
+			<property name="COMPANY_ID"/>
+			<property name="KEY_1"/>
+			<property name="KEY_2"/>
+			<property name="KEY_3"/>
+			<property name="KEY_4"/>
+			<property name="KEY_5"/>
+			<property name="type"/>
+			<property name="filetype"/>						
+		</published>
+	</component>	
+	
+	<component name="swiftmt798attachmentsmanager">
+		<description>Retrieve and Store or not Attachments</description>
+		<classname>com.misys.portal.interfaces.incoming.AttachmentsManager</classname>
+		<properties>
+			<property name="mode" description="database or disk or discard or environment">environment</property>
+		</properties>
+	</component>
+	
+	<component name="swiftmt798acknakprocessor">
+		<description>Process SWIFT Ack /Nak by updating corresponding transaction</description>
+		<classname>com.misys.portal.interfaces.incoming.swift.SWIFTAckNAKProcessor</classname>
+	</component>		
+
+	<component name="swiftdeliverynotificationprocessor">
+		<description>Process SWIFT Delivery by updating corresponding transaction</description>
+		<classname>com.misys.portal.interfaces.incoming.swift.SWIFTDeliveryNotificationProcessor</classname>
+	</component>
+	
+	<component name="tiprocessor">
+		<description>Retrieve attachments filenames</description>
+		<classname>com.misys.portal.interfaces.components.TIProcessor</classname>
+		<properties>
+			<property name="filename.name">filename</property>
+		</properties>
+	</component>
+
+	<component name="timergeprocessor">
+		<description>Merge attachment content with xml structures</description>
+		<classname>com.misys.portal.interfaces.components.TIMergeProcessor</classname>
+	</component>
+	
+	<component name="fileactattachmentmanager">
+		<description>Extract attachment from output table to tnx file</description>
+		<classname>com.misys.portal.interfaces.incoming.FileActAttachmentsManager</classname>
+	</component>
+	
+</components>

@@ -1,0 +1,164 @@
+@import '../../../../../styles/variables.scss';
+$FUCHSIA-F100: #c137a2;
+$secondaryColor:$FUCHSIA-F100;
+
+
+// dashboard view all link properties
+.view-all-links {
+  text-align: right;
+  padding-top: 0.5em;
+}
+
+.marginGrid {
+  margin-top:10px;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+:host ::ng-deep .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-label-content {
+  line-height: 2em !important;
+  padding: 0px!important;
+}
+
+.margin-header {
+  margin: 0.67em !important;
+}
+
+.secondaryTitle{
+  padding-right: 4px;
+  margin-top: 1.25em;
+  font-weight: 400 !important;
+}
+
+.rounded-button {
+  border-radius: 20px !important;
+  margin-bottom: 0.5em;
+}
+
+.show-display-align {
+  display: -webkit-box;
+}
+
+:host ::ng-deep .mat-button-toggle-group .mat-button-toggle .mat-button-toggle-label-content {
+  line-height: 31px !important;
+}
+
+.alignHeader {
+  margin-top:8px;
+}
+.view-all-links span {
+  color:$secondaryColor;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+}
+
+[dir="rtl"] .view-all-links span {
+  color: #c139a3 ;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  cursor: hand;
+  float: left;
+}
+
+.productHeader {
+  font-size: 0.775em;
+  opacity: 1.75;
+  color: #414141;
+  font-weight: 600;
+  line-height: 1.5em;
+  margin-top: -1em;
+}
+
+.iconImage
+{
+  color: #414141 !important;
+  opacity: 0.75;
+  text-align: center;
+  padding: 0 0.6em;
+  text-decoration: none;
+  font-size: 1.125em !important;
+  line-height: 0em;
+  border-radius: 37%;
+  cursor: pointer;
+}
+
+.iconImage.disableIcon{
+  cursor: default !important;
+}
+
+.iconwrapper {
+  min-width: 1em;
+  margin-left: -1em;
+}
+
+.msgDiv {
+  margin-top: 0.5em;
+}
+
+.buttonMargin {
+  margin-left: 2em;
+}
+
+.finishMsg {
+  color: $CHARCOAL-F75;
+  font-style: italic;
+  padding: 0.5em 1.5em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:first-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:last-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus + tr > td {
+  box-shadow: none;
+}
+.wrapData{
+  display: flex;
+  flex-wrap: wrap;
+}
+:host ::ng-deep .ui-table .ui-table-thead > tr > th .header-div {
+  justify-content: flex-start !important;
+	.custom-sort-wrapper {
+	   width: 0.1em !important;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  :host ::ng-deep .wrapData {
+    display: contents;
+  }
+}
+:host ::ng-deep .widget-dropdown .ui-chkbox{
+  width: 20px;
+  height: 20px;
+}
+:host ::ng-deep .widget-dropdown .ui-chkbox .ui-chkbox-box {
+  width: 20px;
+  height: 20px;
+}
+
+:host ::ng-deep .widget-dropdown .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+  font-size: 18px;
+}
+

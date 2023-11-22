@@ -1,0 +1,5 @@
+@import './../../narrative-details/narrative-details.component.scss';
+:host ::ng-deep .characterCountDivfield .ui-inputtext {
+    background-color: transparent;
+    padding-top: 0.5em;
+}

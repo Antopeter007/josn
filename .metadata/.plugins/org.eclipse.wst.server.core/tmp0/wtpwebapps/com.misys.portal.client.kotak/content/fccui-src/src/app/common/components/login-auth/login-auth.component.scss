@@ -1,0 +1,203 @@
+@import './../../../../styles/variables.scss';
+.form-header {
+    font-size: 1.125em;
+    margin-top: 1.25em;
+    color: $formHeaderColor;
+    font-weight: 700;
+}
+
+.leftDirectSubBtn {
+  float: left;
+  margin-top: 3em;
+}
+
+.leftDirectResBtn {
+  float: right;
+  margin-top: 3em;
+}
+
+:host ::ng-deep #backToLoginbtn {
+  margin-left: 1.5em;
+}
+
+.leftDirectBackBtn {
+  float: right;
+  margin-top: 3em;
+}
+
+.rightDirectSubBtn {
+  float: right;
+  margin-top: 3em;
+}
+
+.rightDirectResBtn {
+  float: left;
+  margin-top: 3em;
+}
+
+.rightDirectBackBtn {
+  float: left;
+  margin-top: 3em;
+}
+
+.label-below {
+  height: 0.875em;
+  width: 12.3125em;
+  color: $label-belowColor;
+  margin-left: 0em;
+  font-size: 0.75em;
+  line-height: 1.5625em;
+}
+
+.authHeader {
+  font-size: 1.2em !important;
+  font-weight: 600 !important;
+  color: $secondaryColor  !important;
+  padding: 0em !important;
+  margin: 0em !important;
+}
+
+.textMessage {
+    font-size: 0.850em !important;
+    padding: 0em !important;
+    margin: 0em !important;
+    color: $textMessageColor !important;
+    font-weight: 400 !important;
+}
+
+.otpHeader {
+    font-size: 0.9em !important;
+    font-weight: 600 !important;
+    color: $otpHeaderColor !important;
+    padding: 0em !important;
+    margin: 0em !important;
+}
+
+.otpMessage {
+    font-size: 0.875em !important;
+    font-weight: 400 !important;
+    padding: 0em !important;
+    margin: 0em !important;
+    color: $otpMessageColor !important;
+}
+
+.otpErrorMsg {
+  font-size: 0.875em !important;
+  font-weight: 400 !important;
+  padding: 0em !important;
+  margin: 0em !important;
+  color: $errorMessageColor !important;
+}
+
+:host ::ng-deep .noUserEmail {
+  font-size: 0.875em !important;
+  font-weight: 400 !important;
+  padding: 0em !important;
+  margin: 0em !important;
+  color: $uiInputTextDirtyInvalid !important;
+}
+
+.logo-img img {
+  max-height: 4em;
+  max-width: 9em;
+  margin-left: -1.45em;
+}
+
+.logo-img a:focus{
+  outline: 0.125em solid $primaryColor !important;
+}
+
+.logo-grid {
+  padding-top: 0em;
+}
+
+@media screen and (max-width: 64em) {
+  .left-form {
+    width: 100%;
+  }
+  .no-mr-pd {
+   width: 100%;
+  }
+}
+:host ::ng-deep .paddingb {
+  padding-bottom: 0em !important;
+}
+
+.otpTimer {
+    font-size: 0.875em !important;
+    font-weight: 300 !important;
+    padding-left: 0.4em;
+    padding-right: 0.3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    border: 0.0068em solid $primaryColor !important;
+    background-color: $otpTimerBackgroundColor !important;
+    color: $primaryColor !important;
+    width: 3.3em;
+    border-radius: 15px !important;
+}
+
+:host ::ng-deep .transmission .ui-selectbutton {
+    width: 100% !important;
+    margin-left: 1.6em !important;
+}
+
+:host ::ng-deep .transmission .ui-fluid .ui-buttonset.ui-buttonset-2 .ui-button {
+    display: table-cell !important;
+}
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-fluid
+    .ui-buttonset.ui-buttonset-2
+    .ui-button {
+    width: 50% !important;
+  }
+  :host ::ng-deep .transmission .ui-button.ui-button-text-only .ui-button-text {
+    padding: 1.2em 3em !important;
+  }
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button.ui-state-default
+    .ui-button-icon-left {
+    color: $ui-selectbutton-login-Color;
+  }
+
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button.ui-state-active
+    .ui-button-icon-left {
+    color: $ui-selectbutton-login-active-Color;
+    padding-right: 0.5em;
+  }
+  :host
+    ::ng-deep
+    .transmission
+    .ui-selectbutton
+    .ui-button:not(.ui-state-disabled):not(.ui-state-active):hover
+    .ui-button-icon-left {
+    color: $ui-selectbutton-login-active-disabled-hover-Color;
+  }
+  :host
+    ::ng-deep
+    .uxg-filtering-toggle-group.mat-button-toggle-group.mat-button-toggle-group-appearance-standard {
+    width: 10em;
+    height: 4em;
+  }
+  :host
+  ::ng-deep
+  .transmission .mat-button-toggle-label-content > *, .transmission-2 .mat-button-toggle-label-content > * {
+  right: 2.5em;
+  }
+ :host
+ ::ng-deep
+ .mat-button-toggle-group {
+  display: inline-grid;
+  justify-items: end;
+}

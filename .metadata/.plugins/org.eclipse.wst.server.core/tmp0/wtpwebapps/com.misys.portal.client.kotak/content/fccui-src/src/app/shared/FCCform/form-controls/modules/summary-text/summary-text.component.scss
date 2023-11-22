@@ -1,0 +1,43 @@
+@import './../../../../../../styles/variables.scss';
+.p-col-1, .p-col-2, .p-col-3, .p-col-4, .p-col-5, .p-col-6, .p-col-7, .p-col-8, .p-col-9, .p-col-10, .p-col-11, .p-col-12 {
+    padding: 0;
+    flex: 0 0 auto;
+}
+
+[dir=ltr] .dateStyle {
+    font-style: italic;
+    font-size: 1em;
+    color: $GRAY-DARKGRAY-01;
+    float: right;
+    margin-right: .75em;
+}
+[dir=rtl] .dateStyle {
+  font-style: italic;
+  font-size: 1em;
+  color: $GRAY-DARKGRAY-01;
+  float: left;
+  margin-left: .75em;
+}
+.line-break {
+  position: relative;
+}
+
+.line-break:after {
+position: absolute;
+left: 0;
+top: 50%;
+bottom: -200px;
+height: 1px;
+background: grey;
+content: "";
+width: 100%;
+display: block;
+margin-bottom: 3000px;
+}
+
+.line-break:before {
+  content: "";
+  display: block;
+  height: 20px;
+  margin-bottom: 15px;
+}

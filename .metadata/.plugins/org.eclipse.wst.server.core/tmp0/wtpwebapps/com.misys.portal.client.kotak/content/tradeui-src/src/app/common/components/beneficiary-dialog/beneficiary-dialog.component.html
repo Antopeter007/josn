@@ -1,0 +1,39 @@
+<div *ngIf="displayMsgs"><p-messages [value]="msgs"></p-messages></div>
+  <div id =  "abbv_name_row" class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+    <label for =  "abbv_name" id =  "abbv_name_label">{{ 'ABBVNAME_LABEL' | translate }}&nbsp;</label>
+    <input id = "abbv_name" type = "text" [(ngModel)]="abbvName"/>
+  </div>
+  <div id =  "name_row" class = "{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+    <label for =  "name" id =  "name_label">{{ 'NAME_LABEL' | translate }}&nbsp;</label>
+    <input id = "name" type = "text"  [(ngModel)]="name"/>
+  </div>
+  <div id =  "search_button_row" class="{{commonService.getUserLanguage() === 'ar' ? 'field-right' : 'field'}}">
+      <label for =  "search_button" >&nbsp;</label>
+      <button pButton type="button" label="{{ 'USER_ACTION_SEARCH' | translate}}"  (click)="getFilteredListOfBeneficiaries()" class="primary-button"></button>
+  </div>
+  <p-table #beneficiarytable [value]="filteredListOfBeneficiaries" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th id = "abvname" pSortableColumn="abbvname">{{ "ABBVNAME" | translate }}<p-sortIcon field="ABBVNAME"></p-sortIcon></th>
+            <th id = "entity">{{ "ENTITY" | translate }} </th>
+            <th id = "ename">{{ "NAME" | translate }} </th>
+            <th id = "addressline">{{ "ADDRESSLINE1" | translate }} </th>
+            <th id = "address-line">{{ "ADDRESSLINE2" | translate }} </th>
+            <th id = "domicile">{{ "DOMICILE" | translate }} </th>
+            <th id = "country">{{ "COUNTRY" | translate }} </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bene>
+        <tr>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}} cursor"><a (click)= "ref.close(bene)">{{bene.abbvname}}</a></td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.entity}}</td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.name}}</td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.addressLine1}}</td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.addressLine2}}</td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.dom}}</td>
+          <td class="{{commonService.getUserLanguage() === 'ar' ? 'word-wrap-right' : 'word-wrap'}}">{{bene.country}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<br>
+<button pButton type="button" label="{{ 'TABLE_ADD_NEW_COUNTERPARTY' | translate}}"  (click)="openAddCounterPartyDialog()" class="primary-button-larger"></button>

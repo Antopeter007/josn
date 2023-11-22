@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--noOfColumns), 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-row-gap: 1.1em;
+  grid-column-gap: 0.5em;
+  margin-left: 5%;
+}
+
+.container .item {
+  background-color: var(--color);
+}
+
+.info-value {
+  color: #101010;
+  margin-top: 0.5em;
+  font-size: 1.1em;
+  line-height: 1.125em;
+  font-weight: bold;
+}
+
+.info-title {
+  color: #6f6f6f;
+  font-size: 1.2em;
+}
+.close-button{
+  float: right;
+  top: 0.75em;
+  right:0.125em;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+.mat-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 3.25em;
+  align-items: center;
+  margin-bottom: -0.9375em;
+  padding-top: 0em;
+}
+.moredetails{
+color: #694ed6;
+}
+.mat-dialog-title {
+margin: 0 0 20px;
+display: block;
+margin-top: .75em;
+margin-left: 1.1em;
+}
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top: -3.25em;;
+  right: -3.25em;;
+}

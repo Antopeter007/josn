@@ -1,0 +1,77 @@
+<div [ngClass]="menuToggleFlag === 'true' ? 'horMenuCssClass' : 'verMenuCssClass'">
+<div class="p-grid wrapper">
+  <div class="p-col-8"></div>
+  <div class="p-col-4 saveSection">
+    <span class="savedTimer" *ngIf="showSavedTimeText">
+      {{ savedTime }}
+    </span>
+    <span class="saveTabButton" (click)="handleClick($event)">
+      <span class="progressSpinner" *ngIf="showProgresssSpinner">
+        <p-progressSpinner
+          [style]="{ width: '1.2em', height: '1.2em' }"
+          strokeWidth="5"
+          fill="transparent"
+        ></p-progressSpinner>
+      </span>
+      {{ save }}
+    </span>
+  </div>
+</div>
+
+<div class="">
+  <div class="">
+    <div class="tabSection">
+      <div *ngIf="sections">
+        <div class="p-grid sectionHeader">
+          <h3>{{lcHeaderKey}}</h3>
+        </div>
+        <div>
+          <p-selectButton
+            tabindex="0"
+            [options]="types"
+            [(ngModel)]="selectedType"
+            (click)="onOptionClick()"
+            styleClass="tabButton"
+          ></p-selectButton>
+        </div>
+        <!-- <div class="progressBarItem">
+          <div class="progressBarValue">{{ value }} %</div>
+          <div class="proBar">
+            <mat-progress-bar  [value]="value"></mat-progress-bar>
+          </div>
+        </div>
+        <fcc-stepper [inputParams]="params" (indexChangeEvent)=updateIndexEvent($event) ></fcc-stepper> -->
+
+      </div>
+      <div *ngIf="tasks">
+        <Span class="p-grid">
+          Task
+          <span>
+            <p-selectButton
+              [options]="types"
+              [(ngModel)]="selectedType"
+              (click)="onOptionClick()"
+              styleClass="taskButton"
+            >
+            </p-selectButton>
+          </span>
+        </Span>
+      </div>
+    </div>
+  </div>
+<div>
+  <!-- <div class="p-md-9 p-lg-9 p-sm-12 section-top"> -->
+    <!-- <mat-fcc-stepper [inputParams]="params" (indexChangeEvent)=updateIndexEvent($event) ></mat-fcc-stepper> -->
+   <!-- <div class="p-grid">
+    <div class="p-col-11" >
+    </div>
+    <div class="p-col-1" >
+      <span (click)="download()"><i class="fa ffa-file-pdf-o" aria-hidden="true"></i></span>
+    </div>
+    </div> -->
+    <!-- <div *ngIf="sections">
+      <router-outlet (activate)="onActivate($event)" tabindex="-1" #childaccessability></router-outlet>
+    </div> -->
+  </div>
+</div>
+</div>

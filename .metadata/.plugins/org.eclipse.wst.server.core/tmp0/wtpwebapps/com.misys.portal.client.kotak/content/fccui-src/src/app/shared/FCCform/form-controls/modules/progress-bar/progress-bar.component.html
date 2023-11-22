@@ -1,0 +1,9 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <p-progressBar
+      value="{{ control.value }}"
+      id="{{ control.key }}"
+      mode="{{ control.params.mode }}"
+    ></p-progressBar>
+  </div>
+</ng-container>

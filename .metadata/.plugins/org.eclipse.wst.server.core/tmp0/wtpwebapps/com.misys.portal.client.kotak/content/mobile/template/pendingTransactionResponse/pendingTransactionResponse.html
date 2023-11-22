@@ -1,0 +1,17 @@
+<ion-view>
+	<div class="bar bar-stable bar-subheader">
+        	<h2 class="title">{{vm.transactionDetails.ref_id}}</h2>
+    </div>
+	<ion-content class="has-subheader margin-subheader">
+		<div class="logout">	
+			<h3 ng-bind-html='vm.responseMessage'></h3>
+        </div>
+ 	</ion-content>
+ 	
+ 	<div class="tabs" ng-if="vm.responseMessageStatus === false">
+  	    <button class="button button-block button-positive misys-big-button" ng-click="vm.toTransactionDetail()">{{"PENDING_TRANSACTION_DETAIL" | translate}}</button>
+  	</div>	
+ 	<div class="tabs" ng-if="vm.responseMessageStatus === true">
+  	    <button class="button button-block button-positive misys-big-button" ng-click="vm.toPending()">{{"PENDING_TRANSACTIONS_LIST" | translate}}</button>
+  	</div>
+</ion-view>

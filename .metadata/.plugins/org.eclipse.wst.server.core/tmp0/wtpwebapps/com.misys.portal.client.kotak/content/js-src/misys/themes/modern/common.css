@@ -1,0 +1,1080 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Modern
+
+	summary:
+  		Common CSS rules loaded by all *secured* and *unsecured* pages
+	
+*/
+/*Lumen Theme*/
+
+:root {
+  --main-bg-color: #493695;
+  --sec-bg-color: #beb0f6;
+}
+
+#layout {
+	background: none;
+}
+
+.footer {
+	background: none;
+	padding: 60px 30px;
+}
+
+.footerDiv2 {
+	font-size: 11px;
+	text-align: left;
+}
+
+.build-version {
+	float: right;
+}
+
+.modern #layout {
+	background-color: #FFFFFF;
+	background: none;
+}
+
+BODY.modern {
+	color: #414141;
+}
+
+.modern .footer {
+	background: none;
+}
+
+.modern .panel1 {
+	background-color: #493695;
+}
+
+.multi-select:focus > option:checked {
+	box-shadow: 0 0 10px 100px var(--main-bg-color) inset !important;
+}
+
+.base .dijitMenuBar {
+	background: transparent;
+}
+
+.modern .dijitMenuBar .dijitMenuItemLabel {
+	background: transparent;
+}
+
+.modern .bookmarkMenu .dijitDropDownButton .dijitButtonNode {
+	background-color: transparent;
+}
+
+.modern .dojoxGrid {
+	border: none !important;
+}
+
+.modern .dojoxGridMasterHeader {
+	background: none !important;
+	border: none !important;
+}
+
+.modern .dojoxGridHeader th.dojoxGridCell {
+	background-color: #FBFAFE;
+	/* vertical-align: bottom; */
+	border: none;
+	font-weight: 700;
+	color: #414141;
+	font-size: 1em;
+	border-right: 1px solid #e3e3e3;
+	border-top: none !important;
+	border-bottom: .065em solid #d7d6d7 !important;
+}
+
+.modern .dojoxGridHeader th:first-child {
+	border-left: 1px solid #e3e3e3;
+}
+
+.modern .dojoxGridRowTable tr {
+    background: none;
+}
+
+.modern .dojoxGridRow tr>td.dojoxGridCell {
+	background-color: #fff;
+	border: 0 solid #c8c8c8;
+	border-right: 1px solid #e3e3e3;
+	border-top: 0px solid rgb(215, 214, 215);
+	border-bottom: 1px solid #d7d6d7 !important;
+
+}
+
+.modern .dojoxGridRow tr>td:first-child {
+	border-left: 1px solid #e3e3e3;
+}
+
+.modern .dojoxGridRow.dojoxGridRowOdd tr>td.dojoxGridCell {
+	background-color: #FBFAFE;
+	border: 0 solid #c8c8c8;
+	border-right: 1px solid #e3e3e3;
+	border-top: 0px solid rgb(215, 214, 215);
+	border-bottom: 1px solid #d7d6d7 !important;
+
+}
+
+.modern .dojoxGridRow.dojoxGridRowOdd tr>td:first-child {
+	border-left: 1px solid #e3e3e3;
+}
+
+.modern .dojoxGridRow tr:hover>td.dojoxGridCell, .modern .dojoxGridRow tr:hover>td.dojoxGridCell>a {
+	background-color: #F3F3FC;
+	font-weight: 600;
+}
+
+.modern .dojoxGrid .dojoxGridMasterView .dojoxGridView, .modern .dojoxGrid .dojoxGridMasterHeader .dojoxGridHeader {
+	left: 0px !important;
+}
+
+.modern .dojoxGridHeader:first-child .dojoxGridRowTable {
+    border-left-width: thin;
+    border-left: 1px solid white;
+}
+
+.modern .dojoxGridCell {
+    padding-left: 5px !important;
+}
+
+.modern .dojoxGridHeader:first-child {
+    margin-left: 0px;
+}
+
+.modern .toplevel-header h2 {
+	background: #FBFBFE;
+	color: #4a4a4a;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	color: #694ed6;
+	/*padding: 10px 6px 6px*/;
+}
+.modern .indented-header h3 {
+	color: #694ed6;
+}
+/* .portlet-section-body {
+	background: #FBFBFE;	
+} */
+.dijitButton .dijitButtonNode, .saveButton .dijitButtonNode, .submitButton .dijitButtonNode, .saveTemplateButton .dijitButtonNode, .cancelButton .dijitButtonNode, .helpButton .dijitButtonNode {
+    color: #ffffff !important;
+    border-radius: 1.125em !important;
+    padding: 0 1.5em !important;
+    min-width: 4em !important;
+    line-height: 2.25em !important;
+    font-size: 0.875em !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    outline: 0 !important;
+    border: none !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    vertical-align: baseline !important;
+    text-align: center !important;
+    background-color: #c137a2 !important;
+    width: auto;
+    background-image: none !important;
+}
+
+.imgButton.dijitButton .dijitButtonNode{
+	border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.15) !important;
+    padding: 2px 4px 4px 4px !important;
+    transition-property: background-color !important;
+    margin: 0 !important;
+    line-height: normal !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+}
+
+.indented-header h3, #event-summary .attachments-container .toplevel-header h2 {
+	background-color: #fafafa;
+	color: #4a4a4a;
+	padding: 10px 6px;
+}
+
+.portlet-section-header .portlet-title {
+	color: #666;
+	border-bottom: 1px solid #D7D7D7;
+}
+
+.modern .dijitTabContainerTop-tabs {
+	border-bottom: 1px solid #eaeaea;
+}
+
+.modern .dijitTabContainerTop-tabs .dijitTab {
+	margin-right: 0px;
+}
+
+.modern .dijitTabContainerTop-tabs .dijitTabContent {
+	background-image: none;
+	background-color: #fafafa;
+	color: #4a4a4a;
+	border-color: #eaeaea;
+	background-color: #fafafa;
+}
+
+.modern .dijitTabContainerTop-tabs .dijitTabChecked .dijitTabContent {
+	background-color: #694ed6;
+	color: #fff;
+	padding-top: 3px;
+}
+
+.modern .attachments thead th {
+	background: #584493;
+}
+
+.modern .valueaddedservice .dojoxGridCell {
+	background: none repeat scroll 0 0 #584493 !important;
+}
+
+.modern .entityReferencesTableCellHeader {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .userAccountsTableCellHeader {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .userAccountsTableCellSelectAll {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .valueaddedservice thead th {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .userEntityTableCellHeader {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .factoringTableCellHeader {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .multiSubmissionListHeader {
+	background: none repeat scroll 0 0 #584493;
+}
+
+.modern .bookmarkMenu .dijitDropDownButtonActive .dijitButtonNode {
+	background-color: #584493;
+}
+
+.modern .dijitDialogTitleBar {
+	background: #584493;
+}
+
+.modern .portalMenu {
+	border: 1px solid #584493;
+}
+
+.modern #layout, .modern .footer {
+	background: none;
+}
+
+/* Left Menu */
+#MenuBuilder {
+	margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+	#MenuBuilder {
+	 margin-top: 75px !important;
+}
+}
+@media screen and (min-width: 1024px) and (max-width: 1180px) {
+	#MenuBuilder {
+	 margin-top: 26px !important;
+}
+}
+#MenuBuilder .dijitTree.dijitTreeContainer {
+	border: 1px solid #e3e3e3;
+	box-shadow: 1px 1px 1px 0px #e3e3e3, -1px -1px 1px 0px #e3e3e3;
+	border-radius: 2px;
+	padding: 4px;
+}
+
+#MenuBuilder .dijitTree.dijitTreeContainer:hover {
+	border: 1px solid #b4a6ae;
+	box-shadow: 1px 1px 1px 0px #b4a6ae, -1px -1px 1px 0px #b4a6ae;
+}
+
+.modern .tree-product-menu-container .dijitTreeRow {
+	background-color: #fff;
+	color: #4a4a4a;
+	border-bottom: 0px solid #D9D3F5;
+	font-size: 100%;
+	font-weight: 600;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow {
+	border-left: 5px solid transparent;
+	padding-right: 5px !important;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowHover
+	{
+	background-color: #f9f8fe;
+	border-top: 0px solid transparent;
+	border-bottom: 0px solid transparent;
+	border-left: 5px solid #b4a6ea;
+}
+
+.modern .tree-product-menu-container .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected
+	{
+	border-top: 0px solid transparent;
+	border-bottom: 0px solid transparent;
+	border-left: 5px solid #694ed6;
+	color: #694ed6;
+}
+
+.modern .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer
+	{
+	background: none repeat scroll 0 0 #fff;
+}
+
+.modern .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow
+	{
+	background: none repeat scroll 0 0 #fff;
+	color: #4a4a4a;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-left: 10px !important;
+	border-radius: 0px;
+}
+
+.modern .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected
+	{
+	background-color: #f5f5f5;
+	border-left: 0px !important;
+	color: #694ed6;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-left: 10px !important;
+	border-radius: 0px;
+	font-weight: 600;
+}
+
+.modern .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected.dijitTreeRowHover
+	{
+	background-color: #f9f8fe;
+	color: #694ed6;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-left: 10px !important;
+	border-radius: 0px;
+	font-weight: 600;
+}
+
+.modern .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover
+	{
+	background-color: #f9f8fe;
+	color: #4a4a4a;
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-left: 10px !important;
+	border-radius: 0px;
+}
+
+.modern .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoOpened
+	{
+	background: url("images/leftmenu-arrow-up.png") no-repeat 0px -3px;
+}
+
+.modern .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoClosed
+	{
+	background: url("images/leftmenu-arrow-down.png") no-repeat 0px 0px;
+}
+
+@media print {
+	body {
+		zoom: 50%;
+	}
+}
+
+.NoAsterik .required-field-symbol {
+	display: none !important;
+}
+
+.attachments td {
+	word-break: break-all;
+	white-space: normal;
+}
+/* MPS-56007  - The links have to be underlined*/
+.modern table.dojoxGridRowTable a:link {
+	color: #333 !important;
+	font-weight: normal;
+}
+
+#searchInput {
+	background-image: url(images/search.png);
+	background-position: 10px 8px;
+	background-repeat: no-repeat;
+	font-size: 14px;
+	padding: 8px 20px 8px 40px;
+	border: 2px solid #584493;
+	width: 40em;
+	font-weight: 300;
+	margin: 18px 5px 18px 0px;
+}
+
+#searchInput:focus {
+	outline: 0px;
+}
+
+#searchInput::placeholder {
+	color: #C0C0C0;
+}
+
+.menulist {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #584493;
+	margin-top: -18px;
+	color: white;
+	font-size: 0.875em;
+	font-weight: bold;
+	margin-left: 35px;
+}
+
+#menuUL {
+	padding-right: 6px;
+	padding-left: 6px;
+	max-height: 210px;
+}
+
+#menuUL a:link {
+	color: white;
+}
+
+#menuUL a:hover {
+	font-weight: bold;
+}
+
+#menuUL a:visited {
+	color: white;
+}
+
+#transIDdiv {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #584493;
+	margin-top: -20px;
+	color: white;
+	width: 18em;
+	font-size: 0.875em;
+	margin-left: 35px;
+}
+
+#transIDinnerdiv {
+	padding-left: 6px;
+	padding-right: 6px;
+	max-height: 175px;
+}
+
+#transIDinnerdiv a {
+	font-weight: bold;
+}
+
+#transIDinnerdiv a:hover {
+	cursor: pointer;
+	font-weight: bold;
+	color: #fff;
+}
+
+#actionUL {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #584493;
+	margin-top: -20px;
+	color: white;
+	display: none;
+	margin-left: 35px;
+}
+
+#actionUL ul {
+	padding-right: 6px;
+	padding-left: 6px;
+	font-weight: bold;
+}
+
+#actionUL li {
+	font-size: 12.4px;
+}
+
+#actionULTrade {
+	float: left;
+	overflow: auto;
+	z-index: 10;
+	position: absolute;
+	text-align: left;
+	background-color: #584493;
+	margin-top: -20px;
+	color: white;
+	display: none;
+	margin-left: 35px;
+}
+
+#actionULTrade ul {
+	padding-right: 6px;
+	padding-left: 6px;
+	font-weight: bold;
+}
+
+#actionULTrade li {
+	font-size: 12.4px;
+}
+
+/* MPS-56056 - Start - Accessibility - Keyboard focus has a low visibility */
+.modern a:focus, .modern h2:focus, .modern h1:focus, .modern td:focus,
+	.modern div .dijitTextBoxFocused, .modern  .languagesImage:focus,
+	.dijitButtonFocused .dijitButtonText, span.dojoxGridInactiveSwitch:focus,
+	.dijitDownArrowButton:focus, .dijitTreeLabelFocused, .modern div.collapsingImgSpan:focus
+	{
+	outline-color: #694ed6;
+	outline-width: 0px;
+	outline-style: solid;
+}
+
+.modern .dojoxGridCellFocus {
+	border: 1px solid #694ed6 !important;
+}
+/* End - Accessibility - Keyboard focus has a low visibility */
+/** MPS-56519 **/
+.modern .seeAllBtn {
+	top: 5px;
+	position: relative;
+	margin: 0px;
+}
+
+.modern #_group_label, .modern #td-fx-section .label {
+	/*  width:170px;  */
+	
+}
+
+#column-dialog-template .dijitDialogPaneContent,
+	#parameter-dialog-template .dijitDialogPaneContent,
+	#aggregate-dialog-template .dijitDialogPaneContent {
+	height: 170px !important;
+	overflow-y: scroll;
+}
+
+#parameter-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar,
+	#aggregate-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar
+	{
+	position: sticky;
+	top: 225px;
+}
+
+#column-dialog-template .dijitDialogPaneContent .dijitDialogPaneActionBar {
+	top: 225px;
+}
+
+.landingdashboard .ui-card {
+	background-image: url('images/landing-footer.png') !important;
+}
+
+#layout {
+	height: 100%;
+}
+
+#footerright {
+	display: none;
+}
+
+#layoutRootDiv {
+	height: 100%;
+}
+
+#layoutRetDiv {
+	height: 100%;
+}
+
+.modern #reporting_popup #standby-narrative label.big-textarea-wrapper-label
+	{
+	vertical-align: top;
+}
+
+.modern #reporting_popup #standby-narrative .content.textareacontent.textareawordwrap
+	{
+	display: inline;
+}
+
+.modern #reporting_popup #letterofcredit-narrative label.big-textarea-wrapper-label
+	{
+	vertical-align: top;
+}
+
+.modern #reporting_popup #letterofcredit-narrative .content.textareacontent.textareawordwrap
+	{
+	display: inline;
+}
+
+.modern #reporting_popup #chkBoxAlignPopup .content, .modern #reporting_popup #lead-bank-check-box .content
+	{
+	margin-left: 0% !important;
+}
+
+.modern #view #irrevocable .content {
+	position: relative;
+	top: 5px;
+	right: 40px;
+}
+
+.modern #view #transferable .content, .modern #view #nontransferable .content
+	{
+	position: relative;
+	top: 5px;
+	right: 80px;
+}
+
+.modern #view #standby .content {
+	position: relative;
+	top: 5px;
+	right: 100px;
+}
+
+.modern #view #revolving .content {
+	position: relative;
+	top: 5px;
+	right: 110px;
+}
+
+#default #GTPRootPortlet .portlet-section-header h1 {
+	color: #4a4a4a;
+	border-bottom: 2px solid #4a4a4a;
+}
+
+
+#helpDesk {
+	color: #694ED6;
+}
+
+.modern .dijitButton.homepageButtons .dijitButtonNode {
+	border: none;
+	padding: 6px 6px 6px 6px;
+	background-image: none;
+	background-position: center top;
+	background-repeat: repeat-x;
+	background-color: transparent;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	font-size: 1.3em;
+	color: #c137a2;
+	font-weight: 600;
+}
+
+.modern .dijitButton.homepageButtons.dijitButtonHover.dijitHover .dijitButtonNode
+	{
+	background-color: rgba(158, 158, 158, .2);
+}
+
+.homepage a, .homepage a:hover, .homepage a:visited {
+	color: #c137a2 !important;
+}
+
+.homepage td>a, .homepage td>a:visited {
+	color: #069 !important;
+}
+
+.homepage td>a:hover {
+	color: #666 !important;
+}
+
+.userHeaderContent {
+	margin-right: 0em;
+}
+
+#toc {
+	background-color: #694ed6;
+	margin-bottom: 4px;
+	opacity: 1 !important;
+}
+
+#toccontent ul {
+	padding-left: 0px;
+}
+
+#toccontent li {
+	margin-bottom: 4px;
+}
+
+.modern .dojoxFloatingPaneTitle {
+	background-color: #cecece;
+	background-image: none;
+	color: #4a4a4a;
+	font-weight: bold;
+}
+
+.dojoxGridInactiveSwitch, .dojoxGridInactived {
+    color: #707070;
+}
+
+.modern .tasksBox .dijitButton .dijitButtonNode {
+	border: 1px solid #694ed6;
+	background-color: #694ed6;
+	border-radius: 20px;
+	color: #fff;
+	padding: 4px 15px 6px 15px;
+	background-image: none;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+/* Homepage calendar css Start */
+#TradeCalendarPortlet .dijitCalendarMonthLabel, #MenuBuilder .dijitCalendarMonthLabel {
+    color: #4a4a4a;
+}
+
+#MenuBuilder .dijitCalendar, #TradeCalendarPortlet .dijitCalendar {
+    border: 1px solid #d6d6d6;
+}
+
+.modern #TradeCalendarPortlet .dijitCalendarPreviousMonth .dijitCalendarDateLabel, .modern #TradeCalendarPortlet .dijitCalendarNextMonth .dijitCalendarDateLabel,
+.modern #MenuBuilder .dijitCalendarPreviousMonth .dijitCalendarDateLabel, .modern #MenuBuilder .dijitCalendarNextMonth .dijitCalendarDateLabel {
+    color: #4a4a4a;
+    border-color: #ddd9ec;
+}
+
+.modern #TradeCalendarPortlet .dijitCalendarPreviousMonth, .modern #TradeCalendarPortlet .dijitCalendarNextMonth,
+.modern #MenuBuilder .dijitCalendarPreviousMonth, .modern #MenuBuilder .dijitCalendarNextMonth {
+    background-color: #ECE9F8;
+    background-image: none;
+    border-bottom: solid 1px #d3d3d3;
+}
+
+#MenuBuilder .dijitCalendarDayLabelTemplate, #TradeCalendarPortlet .dijitCalendarDayLabelTemplate {
+    background: #D9D3F5 !important;
+}
+
+.modern #MenuBuilder .dijitCalendarCurrentDate, .modern #TradeCalendarPortlet .dijitCalendarCurrentDate {
+    background-color: #866DDD;
+}
+
+.modern #MenuBuilder .dijitCalendarCurrentDate .dijitCalendarDateLabel,
+.modern #TradeCalendarPortlet .dijitCalendarCurrentDate .dijitCalendarDateLabel {
+    color: #fff;
+}
+
+.modern #TradeCalendarPortlet .dijitCalendarSelectedYear, .modern #TradeCalendarPortlet .dijitCalendarSelectedDate,
+	.modern #default .dijitCalendarSelectedYear, .modern #default .dijitCalendarSelectedDate,
+	.modern #MenuBuilder .dijitCalendarSelectedYear, .modern #MenuBuilder .dijitCalendarSelectedDate
+	{
+	background-color: #584493;
+	color: white;
+}
+
+.modern #MenuBuilder .dijitCalendarContainer th, .modern #TradeCalendarPortlet .dijitCalendarContainer th
+	{
+	background: #ffffff;
+}
+
+.modern #MenuBuilder .dijitCalendarHoveredDate .dijitCalendarDateLabel,
+.modern #TradeCalendarPortlet .dijitCalendarHoveredDate .dijitCalendarDateLabel {
+  background-color: #beb0f6;
+  border: solid 1px #beb0f6;
+}
+
+.modern #MenuBuilder .dijitCalendarNextYearHover, .modern #MenuBuilder .dijitCalendarPreviousYearHover,
+.modern #TradeCalendarPortlet .dijitCalendarNextYearHover, .modern #TradeCalendarPortlet .dijitCalendarPreviousYearHover {
+  background-color: #dcd5fb;
+}
+/* Homepage calendar css End */
+
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.eot");
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300.svg#Roboto")
+      format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.eot");
+  src: local("Roboto Light Italic"), local("Roboto-LightItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-300italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.eot");
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-regular.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.eot");
+  src: local("Roboto Italic"), local("Roboto-Italic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.eot");
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.eot");
+  src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-500italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.eot");
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.eot");
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-700italic.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.eot");
+  src: local("Roboto Black"), local("Roboto-Black"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.woff") format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900.svg#Roboto")
+      format("svg");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 900;
+  src: url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.eot");
+  src: local("Roboto Black Italic"), local("Roboto-BlackItalic"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.eot?#iefix")
+      format("embedded-opentype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.woff2")
+      format("woff2"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.woff")
+      format("woff"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.ttf")
+      format("truetype"),
+    url("/content/FCCUI/assets/fonts/roboto-v20-latin-900italic.svg#Roboto")
+      format("svg");
+}
+
+.modern  body {
+	font-family:"Roboto" !important;
+}
+
+body {
+	display: none;
+	font: 100% "Roboto", Helvetica, sans-serif !important;
+	line-height: 1.125em;
+	background: #ffffff;
+	color: #414141;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	margin: 0px;
+}
+
+.modern  .portlet-font {
+	font-family:"Roboto";
+}
+
+.modern  .content {
+    font-family:"Roboto";
+}
+
+.modern  .dojoxGrid {
+	font-family:"Roboto";
+}
+
+.modern  .corpLending {
+	font-family:"Roboto";
+}
+
+/* Changed */
+.modern  #DashboardPortlet {
+	font-family:"Roboto";
+}
+
+.modern #DashboardPortlet .dashboard_btn {
+	font-family:"Roboto";
+}
+
+.modern .view_textaera {
+    font-family:"Roboto";
+}
+
+.modern #GTPRootPortlet .portlet-section-header .portlet-title, .modern  #LoanProductOverview .portlet-section-header .portlet-title, .modern  #default #GTPRootPortlet .portlet-section-header .portlet-title, 
+* {
+     font-family:"Roboto"; 
+}
+
+#tableHeader {
+	background-color: #493695;
+    color: #FFFFFF;
+}
+#tableRow {
+    background-color: #D9D3F5;
+    color: #414141;
+ }
+
+.moderncolor {
+	background-color: #F3F3FC;
+    color: #414141;
+}
+.referenceTable {
+	background-color: #FBFAFE;
+    color: #414141;
+}
+.permissions {
+	background-color: #FFFFFF;
+}
+
+#popupscreen .toplevel-header h2 {
+	padding: 2px 4px 0 4px;
+}
+
+#GTPRootPortlet .column-wrapper label, #GTPRootPortlet .column-wrapper .label {
+    width: 170px !important;
+}
+
+#GTPRootPortlet .inlineBlockNoLabel .label, #GTPRootPortlet .inlineBlockNoLabel label {
+    width: 0 !important;
+    margin-right: 0 !important;
+}
+
+.userAccountsTableCellOdd {
+    background: none repeat scroll 0 0 #FBFAFE;
+    color: #414141;
+}
+
+#BankDefaultContent .para .icon img {
+    width: 116px;
+    height: 64px;
+    margin-left: -26px;
+}
+
+#BankDefaultContent .para .paracontent {
+    margin-left: 80px;
+}
+
+.amendNarrativeButtons {
+	margin-left:  221px !important;
+}
+
+.amendNarrativeButtons .dijit.dijitReset.dijitInline.dijitButton {
+    margin-left: 0.2em;
+}
+
+.modern span.dijit.dijitReset.dijitInline.noprint.noborder.imgButton.dijitButton {
+    margin-right: -1.5em;
+}

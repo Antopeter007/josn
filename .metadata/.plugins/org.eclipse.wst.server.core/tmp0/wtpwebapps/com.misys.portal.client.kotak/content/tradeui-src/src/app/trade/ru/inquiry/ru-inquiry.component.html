@@ -1,0 +1,89 @@
+<div *ngIf="!this.isBankUser">
+  <div *ngIf="jsonContent !== undefined" class="consolidated-inquiry-body">
+      <!-- Received Undertaking Details -->
+    <div class ="{{commonService.getUserLanguage() === 'ar' ? 'inquiry-header-style-right' : 'inquiry-header-style-left'}}">
+      <p-panel  header="{{ 'INQUIRY_HEADER_RECEIVED_UNDERTAKING' | translate }}" >
+      <div id = "ref_id_view_row" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null && jsonContent['refId'] !== ''">
+        <label for="refId" >{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['refId']}}</label>
+      </div>
+      <div id = "bo_ref_id_view_row" *ngIf="jsonContent['boRefId'] && jsonContent['boRefId'] != null && jsonContent['boRefId'] !== ''">
+        <label for="boRefId" >{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['boRefId']}}</label>
+      </div>
+      <div id = "custRefId_view_row"  *ngIf="jsonContent['custRefId'] && jsonContent['custRefId'] != null && jsonContent['custRefId'] !== ''">
+        <label for="custRefId" >{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['custRefId']}}</label>
+      </div>
+      <div id = "entity_view_row" *ngIf="jsonContent['entity'] && jsonContent['entity'] != null && jsonContent['entity'] !== ''">
+        <label for="entity" >{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['entity']}}</label>
+      </div>
+
+      <!-- Received Undertaking Counter Details  -->
+      <div id = "bg_amt_view_row" *ngIf="jsonContent['bgAmt'] && jsonContent['bgAmt'] != null && jsonContent['bgAmt'] !== ''">
+        <label for="bgAmt" >{{ 'RECEIVED_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['bgCurCode']}} {{jsonContent['bgAmt']}}</label>
+      </div>
+      <div id = "bg_available_amt_view_row" *ngIf="jsonContent['bgAvailableAmt'] && jsonContent['bgAvailableAmt'] != null && jsonContent['bgAvailableAmt'] !== ''">
+        <label for="bgAvailableAmt" >{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['bgCurCode']}} {{jsonContent['bgAvailableAmt']}}</label>
+      </div>
+      <div id = "bg_liab_amt_view_row" *ngIf="(this.commonData.getIsBankUser() || ((!this.commonData.getIsBankUser()) && this.commonService.isShowLiabilityAmountEnabled()))
+      && jsonContent['bgLiabAmt'] && jsonContent['bgLiabAmt'] != null && jsonContent['bgLiabAmt'] !== ''">
+        <label for="bgLiabAmt" >{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+        <label class="label-left">{{jsonContent['bgCurCode']}} {{jsonContent['bgLiabAmt']}}</label>
+      </div>
+      <div *ngIf="jsonContent['recipientBank'] && jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && (jsonContent['purpose'] === '02' || jsonContent['purpose'] === '03')">
+        <div id = "bank_name_view_row" *ngIf="jsonContent['recipientBank']['name'] && jsonContent['recipientBank']['name'] !== null && jsonContent['recipientBank']['name'] !== ''">
+          <label for="bank_name"> {{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['recipientBank']['name']}}</label>
+        </div>
+        <div id = "applicantReferenceViewRow" *ngIf="jsonContent['recipientBank']['reference'] && jsonContent['recipientBank']['reference'] !== null && jsonContent['recipientBank']['reference'] !== ''">
+          <label for="applicantReference"  class= "font-bold"> {{ 'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+          <label class="label-left">{{jsonContent['recipientBank']['reference']}}</label>
+        </div>
+      </div>
+      <fcc-ru-party-details *ngIf="jsonContent" [bgRecord]="jsonContent" [showEntity]="'false'"></fcc-ru-party-details>
+      </p-panel>
+    </div>
+    <div class="list-section" >
+      <h1 class = "tableTitle">{{'KEY_FILE_ACTIONS' | translate}}</h1>
+      <ul>
+        <li><a (click) = "goToTnx('13')">{{'ACTION_USER_FREEFORMAT_TNX' | translate}}</a><br></li>
+      </ul>
+      <fcc-common-chart [refId]="refId" [productCode]="productCode"></fcc-common-chart>
+    </div>
+  </div>
+  <div class="transaction-list">
+    <fcc-common-inquiry-completed-tnx></fcc-common-inquiry-completed-tnx>
+    <fcc-common-inquiry-pending-tnx></fcc-common-inquiry-pending-tnx>
+    <fcc-common-inquiry-attachments-list></fcc-common-inquiry-attachments-list>
+    <fcc-common-inquiry-consolidated-charges></fcc-common-inquiry-consolidated-charges>
+  </div>
+</div>
+
+<div *ngIf="this.isBankUser && jsonContent !== undefined">
+  <form [formGroup]="bankInquiryRUForm">
+  <div class="consolidated-inquiry-body">
+    <div  class = "{{commonService.getUserLanguage() === 'ar' ? 'inquiry-header-style-right' : 'inquiry-header-style-left'}}">
+    <fcc-bank-transaction-details *ngIf="jsonContent" [jsonContent]="jsonContent" ></fcc-bank-transaction-details>
+    <fcc-iu-common-amount-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-amount-details>
+    <fcc-ru-party-details *ngIf="jsonContent" [bgRecord]="jsonContent" [showEntity]="'false'"></fcc-ru-party-details>
+  </div>
+  <div class="list-section-bank">
+    <h1 class = "tableTitle">{{'KEY_FILE_ACTIONS' | translate}}</h1>
+    <ul>
+        <li><a (click)="goToTnx('initiateBank')">{{'ACTION_CREATE_LINK_TNX' | translate}}</a><br></li>
+    </ul>
+    <fcc-common-chart [refId]="refId" [productCode]="productCode"></fcc-common-chart>
+  </div>
+</div>
+<div class="transaction-list">
+  <fcc-common-inquiry-completed-tnx></fcc-common-inquiry-completed-tnx>
+  <fcc-common-inquiry-pending-list-tnx *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-common-inquiry-pending-list-tnx>
+  <fcc-common-inquiry-attachments-list></fcc-common-inquiry-attachments-list>
+  <fcc-common-inquiry-consolidated-charges></fcc-common-inquiry-consolidated-charges>
+</div>
+</form>
+</div>

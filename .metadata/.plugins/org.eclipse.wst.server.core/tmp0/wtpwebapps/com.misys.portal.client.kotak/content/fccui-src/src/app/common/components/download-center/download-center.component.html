@@ -1,0 +1,27 @@
+
+<div class="p-grid widget-container">
+    <div class="p-col-12 widget-header widget-padding widget-header-margin pageTitle">
+        <span class="pageTitleStyle">{{downloadCenter | translate}}</span>
+        <div>
+            <ng-container>
+                <button role="button"  class="secondaryButton" mat-raised-button (click)="onClickAccountStatementNavigate()">{{accountStatement | translate}}</button>
+                <button role="button"  class="secondaryButton" mat-raised-button (click)="onClickAccountSummaryNavigate()">{{accountSummary | translate}}</button>
+            </ng-container>
+        </div>
+    </div>    
+   
+    <div class="p-grid">
+        <div class="p-col-12 downloadCenterListdef">
+        <fcc-common-transactions-listdef  [inputParams]="inputParams" 
+        ></fcc-common-transactions-listdef>
+        </div>
+    </div>
+</div>
+
+<div class="p-col-12 p-md-12 p-lg-12 p-sm-12 p-xs-12 leftwrapper padding_zero noteStyle">
+    <span >{{ 'statementNote' | translate }}</span>
+</div>
+<div class="p-col-12 p-md-12 p-lg-12 p-sm-12 p-xs-12 leftwrapper padding_zero noteMessageStyle">
+    <span>{{ 'noteMessageData' | translate }} {{ this.noteMessage }} {{ 'day' | translate}}</span>
+</div>
+<div></div>

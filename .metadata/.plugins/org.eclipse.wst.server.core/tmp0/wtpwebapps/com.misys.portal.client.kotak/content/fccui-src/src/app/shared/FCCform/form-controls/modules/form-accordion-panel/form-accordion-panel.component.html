@@ -1,0 +1,87 @@
+<ng-container [formGroup]="form">
+  <div class=" {{ control.params.layoutClass }} ">
+    <div
+      dir="{{ control.params.dir }}"
+      class="{{ control.params.accrodionClass }}"
+    >
+      <mat-accordion multi>
+        <div  *ngIf="control.params.showAccordionIcon" align="right">
+          <mat-icon
+            (click)="accordion.openAll()"
+            svgIcon="accordion_expand_all"
+            class="accordionIcons"
+          ></mat-icon>
+          <mat-icon
+            (click)="accordion.closeAll()"
+            svgIcon="accordion_collapse_all"
+            class="accordionIcons"
+          ></mat-icon>
+        </div>
+        <div *ngFor="let accordionPanel of control.params.formAccordionPanels">
+          <mat-expansion-panel
+            *ngIf="accordionPanel.rendered"
+            [expanded]=control.params.expanded
+            (opened)="
+              onFormAccordionOpen(
+                accordionPanel.index,
+                accordionPanel.controlName
+              )
+            "
+            (closed)="
+              onFormAccordionClose(
+                accordionPanel.index,
+                accordionPanel.controlName
+              )
+            "
+            hideToggle="true"
+            #formAccordion
+          >
+            <mat-expansion-panel-header *ngIf="!control.params.changePanelheader">
+              <mat-panel-title class="subheader-title">
+                {{ accordionPanel.controlName | translate }} 
+              </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon *ngIf="!formAccordion.expanded"
+                  >keyboard_arrow_right</mat-icon
+                >
+                <mat-icon *ngIf="formAccordion.expanded"
+                  >keyboard_arrow_down</mat-icon
+                >
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <!--   This expansion is for Paymnets screen for bulk  -->
+            <mat-expansion-panel-header *ngIf="control.params.changePanelheader">
+              <mat-panel-title class="subheader-title">
+                {{ accordionPanel.controlName | translate}} 
+              </mat-panel-title>
+              <mat-panel-title >
+               {{accordionPanel.status}}
+              </mat-panel-title>
+              
+              <mat-panel-description>
+                {{accordionPanel.amount}}
+              </mat-panel-description>
+              <mat-panel-title class="subheader-title">
+              
+              </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon *ngIf="!formAccordion.expanded"
+                  >keyboard_arrow_right</mat-icon
+                >
+                <mat-icon *ngIf="formAccordion.expanded"
+                  >keyboard_arrow_down</mat-icon
+                >
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <lc-dynamic-component
+              type="{{ accordionPanel.controlName }}"
+              [parentForm]="form"
+              [data]="accordionPanel.panelData"
+              [controlName]="accordionPanel.controlName"
+            ></lc-dynamic-component>
+          </mat-expansion-panel>
+        </div>
+      </mat-accordion>
+    </div>
+  </div>
+</ng-container>

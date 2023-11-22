@@ -1,0 +1,15 @@
+@import './../../../../../../styles/variables.scss';
+.errorBlock{
+    color: $CRIMSON-R100;
+    margin-left: 4em;
+    width: 65%;
+    padding-left: 1em;
+}
+
+:host ::ng-deep .errorBlock{
+    color: $CRIMSON-R100;
+    margin-left: 0em;
+    width: 65%;
+    padding-left: 1em;
+    display: inline;
+}

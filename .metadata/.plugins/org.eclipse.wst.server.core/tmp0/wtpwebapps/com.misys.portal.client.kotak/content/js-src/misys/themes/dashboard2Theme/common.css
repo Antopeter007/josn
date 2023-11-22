@@ -1,0 +1,2248 @@
+/**Common Css Rules**/
+
+.dashboard2Theme {
+	outline : none;
+	background: #f4f3f0;
+}
+.dashboard2Theme .portlet {
+	margin: 0px 0 84px 0;
+}
+
+.dashboard2Theme .portlet-section-header {
+	padding: 0px 2px 0px 4px;
+	margin-bottom: 0px;
+}
+
+.dashboard2Theme .portlet-section-body {
+	padding: 0px; 
+}
+
+.dashboard2Theme  .menu {
+	margin: 12px 0 24px auto;
+	padding-top: 12px;
+}
+/* .dashboard2Theme .menu .leftButtonContainer{
+	float:right;
+} */
+
+.dashboard2Theme #HomeMenuPortlet {
+	margin: 0px 0 0px 0;
+}
+
+.dashboard2Theme #layout {
+	padding: 0 0px 0 0px;
+}
+
+.dashboard2Theme .col2 {
+	padding-left: 0px;
+}
+.dashboard2Theme #HomeMenuPortlet .portlet-section-header
+ {
+ 	display : none;
+ }
+
+ .dashboard2Theme .home_menu
+ {
+ 	font-size: 16px;
+ 	background-color: #d7d2cb ;
+ 	box-shadow: inset 0px 7px 4px 0px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0px 17px 14px -14px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0px 7px 4px 0px rgba(0,0,0,0.3);
+ }
+ 
+ .dashboard2Theme  .home_menu_img {
+ padding : 24px 5px 24px 30px;
+ }
+
+.dashboard2Theme .home_menu a
+ {
+ 	font-weight : 400;
+ 	color: #495761;
+ 	text-align:center;
+ }
+ 
+.dashboard2Theme .home_menu a:hover
+  {
+  	font-weight : 400;
+  	color: #2d373e;
+  	text-decoration : none;
+  }
+
+.dashboard2Theme label, .label {
+	margin-right : 24px;
+	font-size: 14px;
+    font-weight : 400; 
+    text-align:right; 
+    width: 273px;  
+}
+
+#history-master .field{
+	margin-left: 12px;
+}
+
+.dashboard2Theme .fieldset-content {
+	padding-top: 24px;
+}
+
+.dashboard2Theme #bene_abn_acn_code_row {
+	margin-top : 6px;
+}
+.dashboard2Theme #layout .header {
+	/* background-color: #2D373E ; */
+	color : #FFFFFF;
+	box-shadow: 0 4px 7px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 4px 7px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 4px 7px rgba(0,0,0,0.3);
+}
+
+/* .dashboard2Theme #layout .footer {
+	background : #F4F3F0;
+} */
+
+.dashboard2Theme #layout {
+	background: #F4F3F0 ;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeRow {
+	background-color: #E4E1DA ;
+	font-size : 16px;
+	font-weight : 400;
+	color : #2d373e;
+	border: none;
+	padding : 0px 0px 0px 0px !important;
+}
+
+/* Changed */
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer {
+	background: none repeat scroll 0 0 #F4F3F0;
+	padding:18px 0;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow{
+	background: none repeat scroll 0 0 #F4F3F0;
+	font-size: 14px;
+	font-weight : 400;
+	color : #472a2b;	
+	line-height: 20px;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeNode .dijitTreeRowSelected {
+	padding : 0px 0px 0px 0px !important;
+	border: none;
+	color : #2d373e;
+}
+
+/* Changed */
+.dashboard2Theme .tree-product-menu-container .dijitTreeLabel {
+	padding : 24px 30px 24px 30px;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow .dijitTreeLabel {
+	padding : 9px 0px 9px 30px;
+}
+
+ .dashboard2Theme .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoClosed {
+	margin-top: 32px;
+	margin-left:12px;
+	margin-right:12px;
+	background:url("./images/ExpPanel_ClosedArrow.png") no-repeat 0px 0px;
+}
+ 
+ .dashboard2Theme .tree-product-menu-container .dijitTreeExpando.dijitTreeExpandoOpened {
+	margin-top: 32px;
+	margin-left:12px;
+	margin-right:12px;
+	background:url("./images/ExpPanel_OpenArrow.png") no-repeat 0px 0px;
+}
+
+ .dashboard2Theme  .tree-product-menu-container .dijitTreeExpando {
+	margin-left:12px;
+ } 
+ 
+.dashboard2Theme  #GTPRootPortlet .product-summary .loan_summary_header {
+    padding: 24px 0px 24px 0px;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #680000;
+	border-bottom : 1px solid #d7d2cb;
+	margin: 0px;
+	width:auto;  
+}
+
+.dashboard2Theme  #GTPRootPortlet .product-summary p {
+	margin: 0px;
+}
+
+.dashboard2Theme  #GTPRootPortlet .product-summary .loan_summary_body_first {
+	font-size: 14px;
+	line-height: 20px;
+	padding: 24px 0px 6px 0px;
+	color: #472a2b;   
+}
+
+.dashboard2Theme  #GTPRootPortlet .product-summary .loan_summary_body {
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0px 0px 6px 0px;
+	color: #472a2b;   
+}
+
+.dashboard2Theme  #GTPRootPortlet .product-summary .loan_summary_body_last {
+	font-size: 14px;
+	line-height: 20px;
+	padding: 0px 0px 70px 0px;
+	color: #472a2b;   
+}
+
+	/* Changed */
+.dashboard2Theme  #GTPRootPortlet .portlet-section-body{
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding: 0px 24px 42px 24px;
+	margin-left: 20px;
+}
+
+.dashboard2Theme  #LoanProductOverview .portlet-section-body{
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding: 0px 24px 0px 24px;
+	margin-left: 20px;
+}
+
+	/* Changed */
+.dashboard2Theme #searchCriteria form {
+	margin-top: 0px;
+}
+
+	/* Added */
+#searchCriteria {
+	padding: 12px 0; 
+}
+
+	/* Changed */
+.dashboard2Theme #TransactionSearchForm {
+	margin-bottom: 0px;
+}
+
+.dashboard2Theme  #GTPRootPortlet .loan_drawdown_sub_title {
+    padding: 16px 0px 12px 0px;
+    margin:0px;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 400;
+	color: #472A2B;
+	border-bottom : 1px solid #d7d2cb;
+	width: auto;
+}
+
+.dashboard2Theme  #GTPRootPortlet .loan_drawdown_help {
+	padding: 21px 0px 18px 0px;
+	margin:0px;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 400;
+	color: #680000;
+	width: 80%;
+    overflow-wrap: unset;
+}
+
+.dashboard2Theme #GTPRootPortlet .treeDataGrid{
+	padding: 12px 0px 0px 0px;
+}
+
+.dashboard2Theme .dijitButton.groupButton .dijitButtonNode{
+	background-color: #FFF;
+	color: #000000;
+}
+
+/**.panel **/
+.dashboard2Theme .toplevel-header {
+	
+    /* margin-bottom: 21px; */
+    background-color: #fff;
+    /*
+    border: 1px solid #621a4b;
+    border-radius: 3px;
+    */
+}
+
+
+
+/**.panel .panel-heading **/
+
+.dashboard2Theme .toplevel-header h2 {
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-bottom: 1px solid #D7D2CB;
+    margin: 1.929em 0 0.643em 0;
+}
+
+/**.panel .panel-heading .panel-title**/
+
+.dashboard2Theme .toplevel-header h2 .legend{
+    color: #680000;
+/*     margin-top: 0;
+    margin-bottom: 0; */
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.dashboard2Theme #bg-general-details-facility-details-title{
+	color: #680000;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 600;
+	width: 240px;
+	text-align: right;
+	padding-top: 20px;
+	padding-bottom: 5px;    
+}
+
+/**.panel .panel-faint**/
+
+.dashboard2Theme .indented-header {
+	border-color: #d7d2cb;
+	margin-bottom: 21px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.dashboard2Theme .loan-history-master-indented-header {
+	border-color: #d7d2cb;
+	margin-bottom: 21px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+
+/**.panel.panel-faint .panel-heading**/
+
+
+.dashboard2Theme .indented-header h3 {
+    padding: 10px 12px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    margin: 10px 0 4px;
+    color: #680000;  
+    font-size: 16px;
+    font-weight: normal;  
+}
+
+.dashboard2Theme .loan-history-master-indented-header h3 {
+    padding: 10px 12px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    margin: 10px 0 4px;
+    color: #680000;  
+    font-size: 16px;
+    font-weight: normal; 
+    border-bottom: 1px solid #D7D2CB; 
+}
+
+.dashboard2Theme .grid_header {
+    padding: 10px 12px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    margin: 10px 0 4px;
+    color: #680000;  
+    font-size: 16px;
+    font-weight: normal; 
+    border-bottom: 1px solid #D7D2CB; 
+}
+
+.indented-header h3,
+#event-summary .attachments-container .toplevel-header h2 {
+    background-color: #ffffff;
+    border-bottom: 1px solid #d7d2cb;
+}
+
+.dashboard2Theme body {
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+} 
+
+.dashboard2Theme .portlet-font {
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
+
+.dashboard2Theme .content {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-weight: 400;
+   /*  font-weight: 14 px; */
+}
+
+
+.dashboard2Theme #toc {
+     background-color: #621a4b;
+}
+
+.dashboard2Theme .dijitButtonNode {
+    -webkit-user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.dashboard2Theme .dijitButton .dijitButtonNode
+ {
+ 	border-radius: 6px;
+ 	white-space: nowrap;
+ 	display: inline-block;
+ 	text-align: center;
+ 	vertical-align: middle;
+ 	touch-action: manipulation;
+ 	cursor: pointer;
+ 	border: 1px solid #9F0029;
+ 	background-image : none;
+ 	color: #fff;
+ 	transition: background .2s ease,color .2s ease;
+ 	background-color: #9f0029;
+ 	height: 36px;
+ 	padding: 0 24px 0 24px;
+}
+
+.dashboard2Theme  .dijitButtonText {
+	
+	font-size: 16px;
+	font-weight: 500;
+    line-height: 2.2;
+}
+
+.dashboard2Theme .dijitTextBox {
+ 	font-size: 14px;
+    font-weight: 400;    
+    color: #2d373e;
+    background-color: #fff;
+    border: 1px solid #95928d;
+    border-radius: 3px;
+    transition: border .2s ease;    
+ 	line-height: normal;
+    margin: 0;
+    height: 34px;
+    margin-right: 12px;
+}
+
+.dashboard2Theme .dijitTextBox .dijitInputField {
+	padding: 1px 12px;
+	border: 1px;
+}
+
+/* Changed */
+.dashboard2Theme .field {
+	margin: 0px 6px 0px 0px;
+	padding: 6px 0px 6px 0px;
+}
+
+.dashboard2Theme .dijitCalendar {
+	background-color : #EFEDE9;
+}
+
+ .dashboard2Theme .dojoxGridHeader th.dojoxGridCell  {
+	 background: #FFFFFF ;
+	 border-bottom: 2px solid #680000;
+	 font-weight: 500;
+	 padding: 6px;
+}
+
+ .dashboard2Theme .treeDataGrid .dojoxGridRow .dojoxGridGroupHeader.dojoxGridGroupHeaderCell{
+	background-color: #f4f3f0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height : 22px;
+	color: #472A2B;
+	padding: 12px 0px 12px 0px;
+	border-bottom : 2px solid #8C7D70;
+}
+
+.dashboard2Theme .treeDataGrid .dojoxGridRow .dojoxGridCell{
+	background-color: #FFFFFF;
+	font-size:12px;
+	line-height: 16px;
+	color: #472A2B;
+	padding-top : 12px;
+	padding-bottom : 12px;	
+}
+
+.dashboard2Theme .dojoxGridHeader .dojoxGridCell{
+	border : none;
+	color: #2d373e;
+	font-size: 14px;
+}
+
+.dashboard2Theme .dojoxGrid {
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	border : 0px;
+}
+
+	/* Changed */
+.dashboard2Theme .dojoxGridRow{
+	width : auto;
+	margin-left: 0px;
+}
+
+.dashboard2Theme .dojoxGridRowOdd .dojoxGridCell{
+	background-color: #f4f3f0;
+	border: 1px solid #f4f3f0;
+}
+
+.dashboard2Theme .treeDataGrid .dojoxGridRowOdd .dojoxGridCell{
+	border: 1px solid #FFFFFF;
+}
+
+.dashboard2Theme .dojoxGridMasterHeader{
+	border: 0px;
+	background: none;
+}
+
+/* AF - 1 */
+/* Changed */
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected {
+	background-color: transparent;
+	border-left: none !important;
+	color: #9f0029;
+	font-weight:500;
+	font-size: 14px;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowSelected.dijitTreeRowHover {
+	background-color: transparent;
+	color: #B22222;
+}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNode .dijitTreeRow.dijitTreeRowHover {
+	background-color: transparent;
+	color: #B22222;	
+	outline: 1px dotted #000;
+}
+/* AF - 1, end */
+
+/* AF - 4 */
+.dashboard2Theme .empty-list-notice {
+	text-align: center;
+	font-size: 1.0833em;
+}
+
+.dashboard2Theme .heading-field {
+	font-size: 24px;
+	color: #680000;
+	padding: 20px 0px 20px 0px;
+	background-color: #FFF;
+	border-bottom: 1px solid #D7D2CB;
+}
+
+.dashboard2Theme .toplevel-header, .toplevel-title, .toggleLink {
+    margin: 4px auto;
+}
+
+.dashboard2Theme .max-file-label {
+	text-align: center;
+	font-size: 14px;
+}
+
+/* AF - 4, end */
+
+#bene_name_row {
+	display: inline;
+}
+
+#bene_counter_pty_img {
+	border: 0;
+	margin-left: 4px;
+	background-color: white;
+	padding: 0;
+}
+
+.dashboard2Theme #MenuBuilder {
+	margin-bottom : 0px;
+}
+
+.dashboard2Theme #SideMenuBottomPortlet  .portlet-section-header{
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+.dashboard2Theme #SideMenuBottomPortlet  .portlet-section-header .portlet-title{
+	color : #000000;
+	border-bottom: none ; 
+}
+
+/* Changed */
+.dashboard2Theme .homepageButtons{
+	position: relative;
+    vertical-align: middle;
+    height: 31px;
+    color: #d7d2cb;
+    font-size: 14px;
+    font-weight: 500;
+	border: 1px solid #fff;
+	border-radius:6px;
+	background: transparent none repeat scroll 0 0;
+	padding: 0px 20px 0px 20px;
+	margin: 2px 20px 0px 0px;	
+	line-height: 24px;
+	bottom:107px;
+	right:280px !important;
+}
+
+.dashboard2Theme .homepageButtons:focus,
+.dashboard2Theme .homepageButtons:hover{
+	outline: 1px dotted #d7d2cb;
+}
+
+/* Changed */
+.dashboard2Theme .dropbtn{
+    height: 31px;
+    min-width: 140px;
+    color: #d7d2cb;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #fff;
+    border-radius:6px;
+    background: transparent none repeat scroll 0 0;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 20px 0px 0px;
+    line-height: 24px;
+    cursor:default !important;
+}
+
+.dashboard2Theme .dropbtn:focus{
+    outline:0;	
+    border: 1px dotted #000;
+}
+
+.dashboard2Theme .panel2 .headerContent {
+    position: relative;
+    display: inline-block;
+	margin-top: 0px;
+	}
+
+.tail_first {
+	height : 42px;
+	background-color: #DFDBD5;
+}
+
+.tail_second {
+	height : 24px;
+	background-color: #E7E4E0;
+}
+
+.tail_third {
+	height : 12px;
+	background-color: #EFEDEA;
+}
+
+.dashboard2Theme .panel2 {
+	height: 66px;
+	font-size: 24px;
+	line-height: 60px;
+	/* margin: 0 15px; */
+	width: auto;
+	background-color: #2D373E ;
+}
+
+.dashboard2Theme .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index : 1;
+    background-color: #ffffff;
+    overflow: auto;
+    color: #CAD5DC;
+    font-size: 14px;
+    font-weight: 400;
+	border: 1px solid #d7d2cb;
+	border-radius:5px;
+}
+
+.dashboard2Theme .dropdown-content a {
+    color: #575f65;
+    padding: 8px 6px;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    background-color: #ffffff;
+    line-height: 24px;
+}
+
+.dashboard2Theme .dropdown-content a:hover {
+	background-color: #f4f3f0;
+	text-decoration: none;
+}
+
+.dashboard2Theme .show {
+	display: block;
+	top: 50px;
+	border: 1px solid #d7d2cb;
+	border-radius:5px;	
+	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	min-width: 128px;
+	padding: 12px 6px;
+}
+
+.dashboard2Theme .corpLending {
+	border-left:1px solid #495761;
+	float:left;
+	margin:12px 0 10px 0;
+	height:40px;
+	line-height:40px;
+	padding-left:24px;
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	font-weight: 300;
+	
+}
+
+.dashboard2Theme .submitButton {
+	background-color: #9F0029;
+	color: #fff;
+}
+
+.dashboard2Theme .dijitButton.submitButton .dijitButtonNode {
+	background-color: #9F0029;
+	color: #fff;
+}
+
+.dashboard2Theme .dijitButton.noborder .dijitButtonNode {
+	border: none;
+	margin-left: 5px;
+	padding-left: 3px;
+}
+
+.dashboard2Theme .dijitButtonNode IMG {
+	vertical-align: top;
+}
+
+/* Changed */
+.dashboard2Theme #DashboardPortlet {
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	margin: 0px 24px 24px 24px;
+	width: auto;
+}
+
+.dashboard2Theme #DashboardPortlet .portlet-section-header .portlet-title {
+	border-bottom:none;
+}
+
+.dashboard2Theme #DummyPortlet .portlet-section-header .portlet-title {
+	border-bottom:none;
+}
+
+.dashboard2Theme #DashboardPortlet .portlet-section-header .portlet-title-last-login {
+	padding-top: 12px;	
+	padding-bottom: 0px;
+	height:18px;
+	font-size : 13px;
+	font-weight : normal;
+	text-align : right;
+	color : #495761;
+}
+
+.dashboard2Theme #DashboardPortlet .welcome  {
+	font-size: 36px;
+	font-weight: 400;
+	color: #680000;
+	padding-top: 24px;
+	padding-bottom: 14px;
+	margin: 0px;
+}
+
+/* Changed */
+.dashboard2Theme #DashboardPortlet .lending_dashboard {
+	font-size: 24px;
+	font-weight: 500;
+	color: #2d373e;
+	padding-bottom: 21px;
+}
+
+.dashboard2Theme #DashboardPortlet .btn_container{
+	vertical-align: middle;
+	width : 100%;
+	border : 1px solid #d7d2cb;
+	border-radius: 6px;
+	padding-top : 18px;
+	padding-bottom : 18px;
+	background-color : #FFF;
+}
+
+.dashboard2Theme #DashboardPortlet .dashboard_btn{
+	vertical-align: middle;
+	/* Due to Roll Over button was removed
+	   in MPG-5372, Change width to 25%
+	width : 20%;
+	*/
+	width : 20%;
+	text-align : left;
+	height : 60px;
+	border : none;
+	background : transparent;
+	color: #2D373E;
+	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding-left : 24px;
+}
+
+.dashboard2Theme .homepage #drawdown_btn{
+	border-left : 1px solid #d7d2cb;
+}
+
+.dashboard2Theme .homepage #payment_btn{
+	border-left : 1px solid #d7d2cb;
+}
+
+.dashboard2Theme .homepage #rollover_btn{
+	border-left : 1px solid #d7d2cb;
+}
+
+.dashboard2Theme .homepage #repricing_btn{
+	border-left : 1px solid #d7d2cb;
+	}
+
+.dashboard2Theme #DashboardPortlet .dashboard_btn_txt{
+	vertical-align : top;
+	margin-top : 5px;
+	margin-left : 12px;
+	display: inline-block;
+}
+
+.dashboard2Theme #LoanPendingTransactionPortlet {
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding-top:18px;
+	/* padding-left: 12px;
+	padding-right: 12px; */
+	margin: 0px 12px 24px 24px;
+	width: auto;
+}
+
+.dashboard2Theme #LoanPendingTransactionPortlet .portlet-section-header .portlet-title {
+	border-bottom:none; 
+	font-size : 24px;
+	font-weight : 400;
+	color : #472a2b;
+	padding-bottom: 12px;
+	padding-left: 12px;
+}
+
+.dashboard2Theme #LoanPendingTransactionPortlet .help_text{
+	font-size : 14px;
+	font-weight : 400;
+	color : #472a2b;
+	padding-bottom: 24px;
+	padding-left: 12px;
+}
+
+.dashboard2Theme #LoanRecentSubmissionPortlet {
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding-top:18px;
+	/* padding-left: 12px;
+	padding-right: 12px; */
+	margin:0px 12px 84px 24px;
+	width: auto;
+}
+
+.dashboard2Theme #LoanRecentSubmissionPortlet .portlet-section-header .portlet-title {
+	border-bottom:none;
+	font-size : 24px;
+	font-weight : 400;
+	color : #472a2b;
+	padding-bottom: 12px;
+	padding-left:12px;
+}
+
+.dashboard2Theme #LoanRecentSubmissionPortlet .help_text{
+	font-size : 14px;
+	font-weight : 400;
+	color : #472a2b;
+	line-height: 18px;
+	padding-bottom: 24px;
+	padding-left: 12px;
+}
+
+.dashboard2Theme #LoanRecentTransactionPortlet {
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding-top:18px;
+	/* padding-left: 12px;
+	padding-right: 12px; */
+	margin:0px 24px 84px 12px;
+	width: auto;
+}
+
+.dashboard2Theme #LoanRecentTransactionPortlet .portlet-section-header .portlet-title {
+	border-bottom:none;
+	font-size : 24px;
+	font-weight : 400;
+	color : #472a2b;
+	padding-bottom: 12px;
+	padding-left: 12px;
+}
+
+.dashboard2Theme #LoanRecentTransactionPortlet .help_text{
+	font-size : 14px;
+	font-weight : 400;
+	color : #472a2b;
+	padding-bottom: 24px;
+	padding-left: 12px;
+}
+
+.dashboard2Theme #UpcomingEventsPortlet {
+	border : 1px solid #d7d2cb;
+	background-color : #FFFFFF;
+	border-radius: 6px;
+	padding-top:18px;
+	margin: 0px 12px 24px 12px;
+	width: auto;
+}
+
+.dashboard2Theme #UpcomingEventsPortlet .portlet-section-header .portlet-title {
+	border-bottom: 2px solid #680000;
+	font-size : 24px;
+	font-weight : 400;
+	color : #472A2B;
+	width : 90%;
+	margin-left : 16px;
+	padding-bottom : 18px;
+	margin-bottom: 18px;
+}
+
+.dashboard2Theme #UpcomingEventsPortlet .portlet-section-body {
+	font-weight : 400;
+	color : #472A2B;
+	margin-left : 16px;
+	margin-right : 16px;
+}
+
+.dashboard2Theme .homepage #TradeCalendarPortlet {
+	border : 1px solid #d7d2cb;
+	border-radius: 6px;
+	background-color : #FFFFFF;
+	padding: 24px 10px 6px 10px;
+	margin: 0px 24px 24px 12px;
+	width: auto;
+}
+
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarDayLabelTemplate {
+	background: #FFFFFF !important;
+	font-size: 12px;
+	font-weight: 700;
+	padding-bottom: 18px;
+}
+
+.dashboard2Theme   #TradeCalendarPortlet .dijitCalendarPreviousMonth,
+.dashboard2Theme   #TradeCalendarPortlet .dijitCalendarNextMonth {
+  background-color: #f9f9f8;
+}
+
+.dashboard2Theme   #TradeCalendarPortlet .dijitCalendarPreviousMonth .dijitCalendarDateLabel, 
+.dashboard2Theme   #TradeCalendarPortlet .dijitCalendarNextMonth .dijitCalendarDateLabel {
+  color: #2d373e;
+  background-color: #efede9; 
+  border-color: #f9f9f8;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarContainer th {
+	background: #FFFFFF;	
+}
+
+.dashboard2Theme #TradeCalendarPortlet .dijitCalendarDayLabelTemplate {
+  border-bottom: 1px solid #d3d3d3;
+  color : #495761;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarMonthLabel {
+	color : #472A2B;
+	font-size : 16px;
+	line-height: 20px;
+	font-weight: 700;
+	padding-bottom: 30px;
+}
+
+/* .dashboard2Theme  #TradeCalendarPortlet .dijitCalendarDateTemplate {
+	background-image: none;
+} */
+
+.dashboard2Theme #TradeCalendarPortlet .dijitCalendarYearLabel {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarCurrentDate{
+	background-color: #2d373e;
+	color: #fff;
+	text-decoration:none;
+}
+
+/* Overrided */
+.base .calevent-maturity-date {
+	/* text-decoration: underline; */
+	/* color: #9f0029; */
+	background-image: url(../dashboard2Theme/images/cal_680000.png);
+}
+.claro .dijitCalendarDateTemplate {
+	font-size: 12px;
+	font-weight: 700;
+}
+.claro .dijitCalendarYearLabel span {
+	line-height: 18px;
+}
+.claro .dijitCalendarSelectedYear {
+	background-color: #495761;
+	color: #fff;
+	font-weight: 700;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarIncrementControl.dijitCalendarIncrease {
+  width: 18px;
+  height: 16px;
+  background-image: url("images/arrowfwd16.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarIncrementControl.dijitCalendarDecrease {
+  width: 18px;
+  height: 16px;
+  background-image: url("images/arrowback16.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarNextYear, 
+.dashboard2Theme  #TradeCalendarPortlet .dijitCalendarPreviousYear {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.dashboard2Theme .homepage .view-all {
+	text-align: right;
+	vertical-align: middle;
+	font-size: 14px;
+	font-weight: 700;
+	margin-left: 12px;
+	color: #680000;
+}
+
+.dashboard2Theme .homepage .view-all-row {
+	padding-top: 12px;
+	padding-bottom: 18px;
+	padding-right: 12px;
+	vertical-align : middle;
+	height : 14px;
+	line-height : 14px;
+}
+
+.dashboard2Theme .homepage a:link {
+	color: #9f0029;
+}
+
+.dashboard2Theme .homepage a:visited {
+	color: #9f0029;
+}
+.dashboard2Theme .homepage a:focus {
+	text-decoration:underline;
+}
+
+.dashboard2Theme .homepage .dojoxGridHeader .align-right {
+	text-align: right ;
+}
+
+.dashboard2Theme .homepage .dojoxGridHeader .align-left {
+	text-align: left
+}
+
+.dashboard2Theme .homepage .dojoxGridHeader .align-center {
+	text-align: center;
+}
+
+.dashboard2Theme .homepage .dojoxGridRow .dojoxGridCell {
+	border-bottom: 1px solid #d7d2cb;
+	border-top: none;
+}
+
+.dashboard2Theme #loading-message {
+	top : 75px;
+	left: 210px;
+}
+
+.dashboard2Theme .view_textaera {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-weight: bold;
+    border : none;
+}
+
+/* LNIQP-4675 - Footer Branding */
+
+/* .dashboard2Theme .footerDiv2 {
+	margin: 0px 24px 0px 24px;
+	border-top: 1px solid #d7d2cb;
+} */
+
+/* .dashboard2Theme .footerLeftContainer {
+	margin-top: 24px;
+	width: 50%;
+} */
+
+/* .dashboard2Theme .footerRightContainer {
+	width: 50%;
+	float:right;
+}
+
+.dashboard2Theme .footerLeft {
+	margin-left: 24px;
+}
+
+.dashboard2Theme .footerRight {
+	margin-left: 12px;
+}
+
+.footerLinkLeft {
+    margin: 0 3px;
+    align : center;
+    vertical-align: bottom;
+    width : 150px;
+    text-align : left;
+    height: 70px;
+} */
+
+.spanClass1{
+	font-weight: bold;
+	font-size: medium; 
+	color: #680000; 
+	display:table-cell; 
+	vertical-align: middle;
+	padding-bottom: 10px;
+	
+}
+
+.spanClass2{
+	font-weight: normal;
+	font-size: small; 
+	color: #680000; 
+	margin: 0 3px;
+}
+.imgSpan{
+	 margin: 0 3px;
+    align : center;
+    vertical-align: middle;
+}
+/* .footerDiv2{
+	margin-left: 25em;
+	height: 110px;
+} */
+.spanClass2 a{
+	color: #680000;
+	font-weight: light;
+	font-size: small;
+}
+.spanClass2 a:visited {
+    color: #680000;
+    font-weight: normal;
+	font-size: small;
+}
+.spanClass2 a:link {
+    color: #680000;
+    font-weight: normal;
+	font-size: small;
+}
+.spanClass2 a:focus {
+    text-decoration: underline;
+}
+.spanContactClass2{
+	font-weight: normal;
+	font-size: small; 
+	color: #680000; 
+	margin: 0 3px;
+    align : center;
+    vertical-align: bottom;
+    width : 450px;
+    display : table-cell;
+    
+}
+.phnImg {
+	float: left;
+}
+/* LNIQP-4675 - Footer Branding */
+
+/* #ln_mandatory_disclaimer_row label{
+	width:600px;
+	font-weight:normal;
+	color:#680000;
+} */
+ #ln_mandatory_disclaimer_row{
+	font-weight:normal;
+	padding-top: 0px;
+	padding-right: 18px;
+	color:#680000;
+	float:left;
+	height:250px;
+}
+
+ #ln_mandatory_disclaimer_row label{
+	margin-left: 0px;
+	margin-right:0px;
+	width:16px;
+}  
+
+#disclaimerContent{
+	font-weight: 400;
+	font-size: 14px;
+	color: #472a2b;
+	line-height: 20px;
+}
+
+#disclaimerContent ol{
+	list-style-type: decimal;
+	margin-top: 12px;
+	padding-left: 47px;
+}
+
+#disclaimerContent ul{
+	list-style-type: none;
+}
+
+.dashboard2Theme #LoanPendingTransactionPortlet h1,
+.dashboard2Theme #LoanRecentSubmissionPortlet h1,
+.dashboard2Theme #LoanRecentTransactionPortlet h1,
+.dashboard2Theme #UpcomingEventsPortlet h1
+{
+	line-height: 30px;
+}
+
+.dashboard2Theme #currencydata label {
+	width: 110px;
+	margin-right : 6px
+}
+
+.dashboard2Theme #currencydata #CurrencyName,
+.dashboard2Theme #currencydata #widget_CurrencyName {
+	width: 50% !important;
+}
+
+.dashboard2Theme #dashboard2Theme-agreements {
+	border-top: 1px solid #D7D2CB;
+	border-bottom: 1px solid #D7D2CB;
+	background-color: #f9f9f8;
+}
+
+.dashboard2Theme #dashboard2Theme-agreements h2 {
+    padding-top: 24px ;
+    padding-left: 24px;
+    padding-bottom: 12px;
+    border-bottom: none;
+    background-color: #f9f9f8;
+}
+
+.dashboard2Theme #dashboard2Theme-agreements .fieldset-content {
+	padding-top: 0px;
+	padding-left: 24px;
+}
+
+.dashboard2Theme #dashboard2Theme-agreements h2 .legend{
+    color: #680000;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.dashboard2Theme #Disclaimer {
+	margin-top: 12px;
+	margin-bottom: 6px;
+	margin-left: 264px;
+	font-size: 13px;
+	font-weight: 400;
+	color: #495761;
+	line-height: 16px;
+	width: 508px;
+}
+
+.dashboard2Theme #currencydata{
+	overflow: hidden !important;
+}
+
+.dashboard2Theme .dijitTextBoxFocused {
+	outline: none;
+    border: 1px dotted #000;
+    border-radius: 3px;
+}
+
+.dashboard2Theme .dijitFocusedLabel {
+ 	outline: 1px dotted #000;
+}
+
+/* Changed */
+#xhrDialog .dijitDialogTitleBar {
+	background-color: #ffffff;
+	color: #680000;
+	padding: 18px 0 18px 20px;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+#xhrDialog .dijitDialogTitle{
+	font-weight: 700;
+  	font-size: 18px;
+}
+
+#xhrDialog .dijitDialogPaneContent {
+  border-top: 1px solid #680000;
+  padding: 24px 24px 24px 24px;
+}
+
+.dashboard2Theme #xhrDialog .dijitDialogPaneContent #GTPRootPortlet .portlet-section-body{
+	border : 0;
+	padding: 0;
+}
+
+.dashboard2Theme #xhrDialog .dijitDialogPaneContent .portlet {
+	 margin: 0px 0 0px 0;
+}
+
+.dashboard2Theme #xhrDialog .dijitButton .dijitButtonNode {
+	background-color : #9F0029;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.dashboard2Theme #xhrDialog label,
+.dashboard2Theme #xhrDialog .label {
+	width: 110px;
+	margin-right : 6px;
+	font-weight: 500;
+  	font-size: 14px;
+  	color: #472a2b;
+  	text-align: left;
+}
+
+.dashboard2Theme #xhrDialog #sy_name,
+.dashboard2Theme #xhrDialog #widget_sy_name {
+	width: 50%;
+	height: 36px;
+}
+
+/* Changed */
+.dashboard2Theme #xhrDialog .field .dijitButton {
+	/* margin-left: 12px; */
+	border-radius : 6px;
+}
+/* Changed */
+.dashboard2Theme #xhrDialog .field {
+	padding: 0 0 12px 0;
+}
+
+/* Changed */
+.dashboard2Theme #xhrDialog .dojoxGridCell a {
+	font-size: 14px;
+	font-weight: 500;
+	color:#9f0029;
+	line-height: 17px;	
+}
+
+ .dashboard2Theme #xhrDialog .dojoxGridHeader th.dojoxGridCell  {
+ 	text-align:left;
+ 	 font-size: 14px;
+	 font-weight: 700;
+	 color: #472a2b;
+}
+
+.dashboard2Theme #xhrDialog .dojoxGridCell {
+	 padding-left: 12px !important; 
+	 padding-top: 12px;
+	 padding-bottom: 12px;
+}
+
+.dashboard2Theme #xhrDialog .dijitDialogCloseIcon {
+  background: url("images/close_icon.png");
+  right : 15px;
+  width: 16px;
+  height: 16px;
+}
+
+
+/* start MPG-6648*/
+.popupSearchInputs {
+/* 	border: 1px solid #680000; */
+	min-height: 55px;
+}
+/* end MPG-6648*/
+
+/*MPG-2313 - Branding changes as per Bank requirement  */
+
+.dashboard2Theme #sumOfEvents li:nth-child(even){
+	margin: 0 0 9px 6px;
+}
+
+/* Overrided */
+#sumOfEvents li {
+	margin: 0 0 3px 6px;
+}
+
+/* Changed */
+.dashboard2Theme #sumOfEvents li span{
+	font-weight:normal;
+   	text-decoration:underline;
+   	font-weight: 500;
+   	font-size: 12px;
+   	line-height: 16px;
+}
+
+.dashboard2Theme #reporting_popup #disclaimerContent li{
+	    display: list-item;
+}
+
+.dashboard2Theme #reporting_popup #disclaimerContent ul{
+	    display: list-item;
+}
+	
+	/* Changed */
+.dashboard2Theme #TransactionSearchForm .field{
+	margin: 0px 0px 0px 0px;
+    padding: 24px 0px 12px 0px;
+    height: 12px;
+}
+
+	/* Changed */
+ .dashboard2Theme #TransactionSearchForm #submitButton_row{
+ 	/*margin-bottom: 12px;*/
+ 	position: relative;
+ 	margin-top: 45px;
+ }
+   
+.dashboard2Theme .dojoxGridRowTable .dojoxGridCell  a:link  , .dashboard2Theme .dojoxGridRowTable .dojoxGridCell  a:visited{
+    font-weight: 500;
+    color: #9f0029;
+}
+
+.dashboard2Theme .dojoxGridRowTable .dojoxGridCell  a:link{
+    text-decoration: underline;
+}
+
+/* Changed */
+.dashboard2Theme .dojoxGridHeader th.dojoxGridCell{
+	font-size: 12px;
+	font-weight : 700;
+	line-height:16px;
+	color:#472a2b;
+}
+
+/* Changed */
+.dashboard2Theme .dojoxGridRow .dojoxGridCell {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	color: #472a2b;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #d7d2cb;
+    font-size: 12px;
+    line-height:16px;
+    font-weight:500;
+    border-right: none;
+    border-left: none;
+}
+
+.dashboard2Theme #attachment-file .dojoxGridRow .dojoxGridCell {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #d7d2cb;
+    font-size: 12px;
+    line-height:16px;
+    font-weight:500;
+    color:#472a2b;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+}
+
+.dashboard2Theme #TransactionSearchForm #submitButton_row .dijitButton .dijitButtonNode{
+ 	border: 1px solid #9F0029;
+ 	background-image : none; 	
+ 	color: #fff;
+ 	background-color: #9f0029;
+	font-size:16px;
+	font-weight:500;
+	height: 36px;
+}
+
+.dashboard2Theme #TransactionSearchForm label{
+	text-align: left;
+	font-size:14px;
+	font-weight:500;
+	color:#472a2b;
+	
+}
+
+.dashboard2Theme #effective_date_row label span,
+.dashboard2Theme #repricing_date_row label span{
+	font-size:14px;
+	font-weight:400;
+	color:#472a2b;
+	
+}
+
+.dashboard2Theme .exportContainer .dijitDropDownButton{
+	/*border: 1px solid #9f0029 !important;*/
+	vertical-align: middle;
+	background:#fff;
+	color:#2d373e;
+	font-size : 16px;
+	font-weight:500;
+	border-radius: 6px;
+}
+
+ .dashboard2Theme .exportContainer .dijitDropDownButton .dijitButtonNode{
+	border: 1px solid #9f0029 !important;
+	vertical-align: middle;
+	background:#fff;
+	color:#2d373e;
+	font-size : 16px;
+	font-weight:500;
+	border-radius: 6px;
+}
+
+
+.dashboard2Theme table.dojoxGridPaginator tbody > tr > td.dojoxGridDescriptionTd{
+	font-size : 14px;
+	font-weight : 500;
+	color : #495761;
+}
+
+/* Overrided */
+.dojoxGridInactived {
+	margin: 1px 9px 0 9px;
+}
+
+/* Overrided */
+.dojoxGridActived {
+	margin: 1px 9px 0 9px;
+}
+
+/* Overrided */
+.dashboard2Theme span.dojoxGridActivedSwitch{
+	font-weight : 700;
+	color : #2d373e;
+	margin: 2px 9px 0 9px;
+	float: none;
+}
+
+/* Overrided */
+.dashboard2Theme span.dojoxGridInactiveSwitch{
+	font-size:14px;
+	font-weight:500;
+	color:#495761;
+	margin: 2px 9px 0 9px;
+	float: none;
+} 
+
+.dojoxGridSeparator {
+	float: none;
+}
+
+.dashboard2Theme .exportContainer .dijitButtonNode .dijitArrowButtonInner {
+   width : 16px;
+   height : 16px;
+   background : url("images/download-icon.svg") right no-repeat;
+}
+
+.dashboard2Theme .dojoxGridPaginatorFastStep{
+	font-size : 14px;
+	font-weight : 500;
+	color : #495761;
+}
+
+.dashboard2Theme .dojoxGridPaginator{
+	padding-top : 18px;
+	padding-bottom : 36px;
+}
+
+.dashboard2Theme .homepage .portlet-title { 
+    font-weight: bold; 
+}
+
+.dashboard2Theme #default #GTPRootPortlet .portlet-section-header h1 { 
+  	font-weight: bold; 
+	color: #1F3498; 
+ }
+
+.dashboard2Theme #manageProfile, .dashboard2Theme #skipToMenu {
+	font-weight: bold;
+	 color: #0079A7;
+}
+
+ .dashboard2Theme  #skipToMenu, .dashboard2Theme  #helpDesk, .dashboard2Theme #manageProfile, .dashboard2Theme  #myPending {
+  text-decoration: underline;
+ }
+ 
+ .dashboard2Theme  #skipToContent{
+  	position: absolute;
+    left: -1000em;
+    display: block;
+    color:#fff;
+}
+
+.dashboard2Theme  #skipToContent:active,
+.dashboard2Theme  #skipToContent:focus{
+  	padding-top: 0;
+       top: 0;
+       left: 0;
+       right: 0;
+       z-index: 1000;
+       overflow: visible;
+       text-align: center;
+       width: auto;
+       height: 66px;
+       font-size: 18px;
+       outline:#2d373e dotted 2px;
+    background: #2d373e;
+
+}
+ 
+ /* MPG-2622 */
+ .dashboard2Theme #currencydata {
+	height: Auto !important;
+}
+
+ /* MPG-2896, MPG-2895 */
+ 
+ .dashboard2Theme #ln_bank_account_provided_comment {
+	font-size: 14px;
+	font-weight : 400;
+    padding-left : 297px;
+}
+/* MPG-4098 */
+.dashboard2Theme #EffectiveDateDisclaimer {
+	font-size: 14px;
+	font-weight : 400;
+    padding-left : 297px;
+}
+
+.dashboard2Theme #interest_details, #fee_details, #repayment_details{
+	text-decoration : underline;
+	border : none;
+	color: #680000;
+	background : none;
+	visibility : visible !important;
+	padding: 0px;
+	font-size: 1.0833em;
+}
+
+.dashboard2Theme #CharactersValidation{
+	padding-left : 176px;
+}
+
+.dashboard2Theme #view #CharactersValidation{
+	display: none;
+}
+
+.dashboard2Theme h2:focus, h1:focus{
+	outline:none;
+}
+
+.dashboard2Theme #widget_repriceOption{
+	display:none;
+}
+
+.dashboard2Theme .footer {
+	height:auto;
+	background:#f4f3f0;
+	margin-right: 10px;
+	padding-left: 196px;
+}
+
+.dashboard2Theme .homepage + .footer {
+	padding-left: 0px;
+}
+
+#footer{
+    border-top: 1px solid #d7d2cb;
+    margin:42px 24px 24px 44px;
+    padding:3px 24px 20px;
+    font-size:14px;
+    color: #2d373e;
+   }
+#footer:after{
+    clear:both;
+    content: " ";
+    display: table;
+}
+#learn-more-about, #need-assistance {
+    float:left;width:50%;
+}
+#footer h2{
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:0;
+    padding-bottom:8px;
+    margin-top:18px;
+    color: #680000;
+}
+#footer a {
+    font-weight:normal;
+    color: #2d373e;
+}
+#footer li{
+    float:left;
+    width:20%;
+    padding-left:14px;
+    display:block;margin:6px 0;
+    position:relative;
+}
+#footer li:after { 
+    content:" ";
+    position:absolute;
+    left:0;
+    top:6px;
+    display:block;
+    width:8px;
+    height:13px;
+    top:4px;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20aria-labelledby%3D%22title-linklist%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%227px%22%20height%3D%2212px%22%20viewBox%3D%220%200%207%2012%22%20enable-background%3D%22new%200%200%207%2012%22%20xml%3Aspace%3D%22preserve%22%3E%20%3Ctitle%20id%3D%22title-linklist%22%20lang%3D%22en%22%3ETick%3C%2Ftitle%3E%20%3Cpolygon%20fill%3D%22%23d5002b%22%20class%3D%22icons-background%22%20points%3D%221%2C0%200%2C1%205%2C6%200%2C11%201%2C12%207%2C6%20%20%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+}
+
+#footer li a {
+    text-decoration:none;
+}
+#footer li a:hover, #footer li a:focus{
+    text-decoration: underline;
+}
+#footer svg.icon{
+    margin-top:3px;
+    }
+#footer svg.icon-phone {
+    float:left;
+    margin-right:9px;
+    width:16px;
+    height:16px;
+}
+
+#footer p{
+    margin-top:6px;
+}
+
+.dashboard2Theme button {
+    cursor:pointer;
+}
+
+.dashboard2Theme .messages{
+    padding: 18px 36px 18px 18px;
+    margin: 21px 0;
+    overflow: hidden;
+    position:relative;
+}
+.dashboard2Theme .messages strong {
+    margin-right:6px;
+}
+.dashboard2Theme .messages p a{
+    text-decoration:underline;
+    color:inherit;
+}
+.dashboard2Theme .messages.message-success {
+    background-color: #f2f9f2;
+    border-top:1px solid #80c080;
+    border-bottom:1px solid #80c080;
+    color: #008000;
+}
+.dashboard2Theme .messages.message-success a{
+                color: #008000;
+}
+
+/* Changed */
+.dashboard2Theme .dojoxGridInactived {color:#495761;}
+.dashboard2Theme .dojoxGridActived {font-weight:700  !bold; color:#2d373e;}
+
+/* Changed */
+.dashboard2Theme #GTPRootPortlet .portlet-section-header, .dashboard2Theme #LoanProductOverview .portlet-section-header, .dashboard2Theme #default #GTPRootPortlet .portlet-section-header {
+    margin:0px 20px; 
+    padding: 0;
+    height : auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+
+.dashboard2Theme #GTPRootPortlet .portlet-section-header .portlet-title, .dashboard2Theme #LoanProductOverview .portlet-section-header .portlet-title, .dashboard2Theme #default #GTPRootPortlet .portlet-section-header .portlet-title {
+     font-size: 36px; 
+     line-height: 42px; 
+     font-weight: 400; 
+     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif; 
+     color: #680000; 
+     border : none; 
+     float:none; 
+     padding: 32px 0 29px; 
+     margin: 0px;
+}
+
+.dashboard2Theme #GTPRootPortlet .portlet-section-header .portlet-title-last-login, .dashboard2Theme #LoanProductOverview .portlet-section-header .portlet-title-last-login, .dashboard2Theme #default #GTPRootPortlet .portlet-section-header .portlet-title-last-login {
+      margin-left:auto;
+      padding:4px 0 0; 
+      height:auto; 
+      font-size : 13px; 
+      font-weight : normal; 
+      text-align : left; 
+      width:auto;
+      white-space: nowrap;
+}
+
+ .dashboard2Theme .dojoxGridWardButton, .dashboard2Theme .dojoxGridPaginatorGotoDiv {
+	background-image: url("images/sprite_icons.png");
+}
+
+.dashboard2Theme .dijitTextBoxError .dijitValidationContainer {
+  background: url('images/error.png');
+  height: 34px;
+}
+
+.dashboard2Theme #alertDialog div.dijitDialogTitleBar {
+	background: #FFFFFF;
+    color: #990000;
+}
+
+.dashboard2Theme #alertDialog div.dijitDialogTitleBar{
+	border-bottom : 2px solid #990000;
+	padding: 14px;
+}
+
+.dashboard2Theme #alertDialog{
+	border-radius : 5px;
+}
+
+.dashboard2Theme .dijitDialogPaneContent{
+	border-top: none;
+}
+
+.dashboard2Theme .errorDialog{
+	background : none;
+}
+
+.dashboard2Theme .dijitDialog{
+	border : none;
+	border-radius: 3px;
+	/*top: 90px !important;*/
+}
+
+.dashboard2Theme .portlet-section-body  div:nth-child(3) > div.widgetContainer.widgetButtonContainer > span{
+	margin-top : 0px;
+}
+
+/* Overrided */
+.base .dojoxGridCell {
+	padding-right: 12px;
+}
+/* Overrided */
+.base .dojoxGridRowTable {
+    height: 36px !important;
+}
+/* Overrided */
+.claro .dojoxGridHeader .dojoxGridCell{
+	vertical-align: top;
+}
+
+/* Overrided */
+.dashboard2Theme .dijitComboBox {
+	margin-right: 24px;
+	width:422px;
+}
+/* Overrided */
+.claro .dijitTextBox .dijitInputInner {
+	height:30px;
+}
+/* Overrided */
+.claro .dijitComboBox .dijitArrowButtonInner {
+    margin: 6px;
+    line-height: 1.6em;
+}
+/* Overrided */
+.base .dijitTextBox .dijitInputContainer input {
+	height:32px;
+}
+/* Overrided */
+.base .dojoxGridSortNode {
+    background: transparent !important; 
+    border: 0 none #fff;
+    margin-left: 0px;    
+}
+/* Overrided */
+.dojoxGridMasterView {
+	margin-top:0px;
+	height: 135px;
+}
+/* Added */
+.dojoxGridContent {
+	height: 135px;	
+}
+/* Added */
+#widget_effective_date {
+	width: 128px;
+	vertical-align: top;
+	margin-right: 12x;	
+}
+/* Added */
+#widget_effective_date2 {
+	margin-left: -58px;
+	vertical-align: top;
+	width: 128px;
+}
+/* Added */
+#widget_status {
+	width: 422px;	
+}
+/* Added */
+#widget_sub_product_code {
+	width: 422px;	
+}
+/* Added */
+#widget_sub_product_code_tran {
+	width: 422px;	
+}
+
+/* Added */
+#widget_repricing_date {
+	width: 128px;
+	vertical-align: top;
+	margin-right: 12x;	
+}
+/* Added */
+#widget_repricing_date2 {
+	margin-left: -58px;
+	vertical-align: top;
+	width: 128px;
+}
+
+/* Added */
+.dashboard2Theme .dojoxGridCell {
+	 /* padding-left: 12px !important; */
+	 padding-right: 8px;
+}
+
+fieldset, img {
+	vertical-align: middle;
+}
+
+.logo {
+	margin: 0px;
+}
+
+#dashboard2Theme-logo {
+	margin: 0px 0px 0px -22px;
+}
+
+.adjust-amount-options_details {
+    left: 0px;
+}
+
+.addLoanButton {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 297px;
+}
+
+.interest_payment_container {
+	width:50%;
+	display:inline-table;
+	
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 42px;
+}
+
+.widgetContainer .widgetButtonContainer {
+	margin: 70px -25px 0 0;
+    float: right;
+}
+
+.dashboard2Theme #view .field {
+	text-align: left;
+}
+
+.dashboard2Theme #view .label {
+	text-align: right;
+}
+
+.rollovermenubuttons {
+    position: absolute;
+    padding-top: 44px;
+    display: block;
+    right: 0px;
+}
+
+/* Added */
+.dashboard2Theme .dijitTextBox {
+    height: 36px;
+    width: 422px;
+}
+
+/* Added */
+#widget_startdate {
+	width: 128px;
+	margin-right: 12x;
+}
+/* Added */
+#widget_enddate {
+	margin-left: -58px;
+	width: 128px;
+}
+/* Added */
+#widget_ccy {
+	width: 5em;
+}
+
+/* Overrided */
+.claro .dijitTextArea, .claro .dijitInputField .dijitPlaceHolder {
+	padding: 0px;
+	text-align: left;
+}
+
+@media print {
+	body{
+	zoom: 50%;
+	}
+}
+
+/* Overrided */
+.textarea label, .textarea .label {
+	vertical-align: middle;
+}
+
+.claro .dijitCalendarDateTemplate .dijitCalendarDateLabel {
+	padding: 7px 7px 7px 7px;
+	border: none;
+}
+/* Overrided */
+.base .dijitDialog .label,
+.base .dijitDialog label,
+.base #TransactionSearchForm .label,
+.base #TransactionSearchForm label {
+     width: 176px;
+}
+/* Added */
+.dashboard2Theme .column-container #submitButton_row .dijitButton .dijitButtonNode{
+	margin-left: -200px;
+}
+/* Overrided */
+.dijitCalendar .dijitCalendarMonthContainer .dijitCalendarArrow {
+	padding-bottom: 40px;
+}
+/* Overrided */
+.claro .dijitCalendarNextYear, .claro .dijitCalendarPreviousYear {
+  padding: -1px 36px 1px 36px;
+}
+/* Overrided */
+#TradeCalendarPortlet .dijitCalendarSelectedYear,
+#TradeCalendarPortlet .dijitCalendarSelectedDate,
+#default .dijitCalendarSelectedYear,
+#default .dijitCalendarSelectedDate {
+	background-color: #495761;
+	color: white;
+	font-weight: 700;
+	padding: 6px;
+}
+/* Overrided */
+.dashboard2Theme .homepage .dojoxGridRowOdd .dojoxGridCell {
+	background-color: #f4f3f0;
+}
+
+.dashboard2Theme .homepage .dojoxGridPaginator{
+	display: none;
+}
+
+#_row {display: none;}
+
+main:focus{outline:none;}
+
+.loan-repricing-interest-details .checkbox label, #adjust_additional_drawdown_row label {
+    margin-left: 297px;
+    text-align: left;
+}
+
+.checkbox label, .radio label {
+    margin-left: 2px;
+}
+
+.dashboard2Theme #reporting_popup .label {
+    text-align:right; 
+}
+
+.dijitReadOnly *, .dijitDisabled *, .dijitReadOnly, .dijitDisabled {
+	text-align:left;
+}
+
+.dashboard2Theme .dojoxGridRowOver .dojoxGridCell {background:#fff;border-top:1px solid #fff;}
+
+.dashboard2Theme .tree-product-menu-container .dijitTreeContainer .dijitTreeNode .dijitTreeContainer .dijitTreeNodeLOADED .dijitTreeContainer {
+    background: #f4f3f0 url(./images/bg-nav-tree-arrow.png) no-repeat 0 -1px;
+}
+
+#GTPRootPortlet .repricing-amt {
+	text-align: left !important;
+}
+
+#GTPRootPortlet #total_principal_amt, #total_ln_amt, #total_repricing_ln_amt, #loan_increase_ln_amt {
+	text-align: left;
+	background: #fff !important;
+	color: #000000;
+}
+
+#GTPRootPortlet #widget_total_ln_amt, #widget_total_repricing_ln_amt, #widget_total_principal_amt {
+	border: 0 !important;
+	margin-bottom: 4.5px;
+	margin-left: 0px;
+}
+
+#GTPRootPortlet #widget_loan_increase_ln_amt {
+	border: 0 !important;
+	margin-bottom: 4.5px;
+	margin-left: 6px;
+}
+
+.repricing-amt .dijitTextBoxDisabled, .repricing-amt .dijitTextBoxDisabled .dijitInputContainer  {
+	background-color: #fff;
+}
+
+.dashboard2Theme #searchCriteria label, #LoanProductOverview label .label {
+    text-align:left; 
+}
+
+/* Only for Finastra */
+.dashboard2Theme #loginFormQA label {
+	text-align: left;
+}
+
+/* Only for Finastra */
+.dashboard2Theme #loginFormQA .dijitTextBox  {
+	width: 300px;
+}
+
+.base .dijitCalendarCurrentDate {
+    background-image: url(../dashboard2Theme/images/cal_2d373e.png);
+    background-repeat: no-repeat;
+}
+.base .calevent-iss-date {
+    background-image: url(../dashboard2Theme/images/cal_680000.png);
+}
+.base .calevent-exp-date {
+    background-image: url(../dashboard2Theme/images/cal_680000.png);
+}
+
+.homepage, .header {
+    min-width: 1080px !important;
+}
+
+.dashboard2Theme #layout {
+    min-width: 810px !important;
+}
+
+/**Color Palette CSS**/
+.color_changer {
+			position: fixed;
+			right: 425px;
+			bottom: 360px;
+			z-index: 10000;
+			max-height: 0vh;
+			overflow: hidden;
+			transition: all 1s ease-out, background-color linear 1ms 1s;
+			border: 1px solid transparent;
+			padding: 5px;
+			margin-bottom: 0px;
+			border-radius: 4px;
+		}
+		
+		.color_changer.expanded {
+			transition: all 1s ease-in, background-color linear 1ms;
+			max-height: 100vh;
+			border: 1px solid gray;
+			background-color: white;
+			color:#555;
+		}
+		
+		.color_changer_row .color_tile {
+			width: 25px;
+			height: 25px;
+			border-radius: 4px;
+			float: left;
+			margin: 5px;
+			cursor: pointer;
+		}
+
+
+/***Delete Icon ***/
+	.delIcon {
+		float:right;
+		margin-right:30px;
+		width:20px;
+		height:20px;
+	}
+	/*** Drag n Drop ***/
+	 *[draggable=true] {
+	  -moz-user-select:none;
+	  -khtml-user-drag: element;
+	  cursor: move;
+	}
+	
+/**Save Dashboard Alignment **/
+
+#DashboardPSML {
+	bottom:125px;
+	position:relative;
+	border-radius:6px;
+	border:1px solid #d7d2cb;
+	left:652px;
+	height:30px;
+	width:20%;
+}
+
+.headerRight {
+	width:60% !important;
+}
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/***CSS for body***/
+/* .colLeftWrap {
+	width:75%;
+	margin:2%;
+	margin-left:1%;
+}
+.colRight {
+	width:20%;
+	margin-left:1%;
+}
+.col1{
+	left:100% !important;
+} */

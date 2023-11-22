@@ -1,0 +1,291 @@
+@import './../../../../../styles/variables.scss';
+
+:host ::ng-deep .multipleTabHeading {
+    color: $widgetHeaderColor;
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-top: 1em;
+    margin-left: 1.563em;
+      label {
+          white-space: nowrap;
+      }
+  }
+
+
+  :host ::ng-deep .mat-accordion .mat-expansion-panel-header {
+    height: 2.5em !important;
+    background: white 0% 0% no-repeat padding-box !important;
+    border-radius: 0.125em;
+    opacity: 1;
+  }
+ 
+  
+  :host ::ng-deep .mat-expansion-panel-header-title{
+    padding-left: 1em !important;
+    color: black;
+  }
+
+  :host ::ng-deep .mat-expansion-panel-body {
+     padding: 0em !important; 
+  }
+  
+  :host ::ng-deep .mat-expansion-panel-header {
+    padding: 2em 0.5em;
+    align-items: normal;
+    flex-grow: 1;
+  }
+
+  :host ::ng-deep .mat-expansion-panel-header-description {
+    flex-grow: 1 !important;
+    justify-content: space-between;
+  }
+
+  :host ::ng-deep .mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+  }
+  
+  :host ::ng-deep .mat-expansion-indicator::after {
+    color: $VIOLET-F100-dark !important;
+  }
+
+  .p-col-6 {
+    width: 45%;
+  }
+
+  .doughnut-center-text{
+    width: 100%;
+    position: absolute;
+    top: 39%;
+    left: 0;
+    text-align: center;
+  }
+
+  .download-icon{
+    margin-left: 0.938em;
+    vertical-align: middle;
+  }
+
+  .total-amount{
+    font-size: 1.625em;
+    margin-left: 1.563em;
+    margin-bottom: 1em;
+  }
+
+  .total-payments{
+    font-size: 1em;
+    margin-left: 2.563em;
+    margin-top: 1.5em;
+    color: $GREY-100;
+    font-weight: 400;
+  }
+
+  .radio-button{
+    margin-top: 1.563em;
+    margin-left: 2.563em;
+  }
+
+  .view-payments-list{
+    float: right;
+    color: $primaryColor;
+    font-size: 0.6em;
+    font-weight: 300;
+    font-weight: 400;
+    margin-right: 3.125em;
+    cursor: pointer;
+  }
+
+  :host ::ng-deep .mat-radio-label {
+    margin-right: 1.875em;
+  }
+
+ 
+
+  @media screen and (min-width: 1024px) {
+
+    .package-name{
+      margin-left: 0.313em;
+      font-weight: 400;
+      color: black;
+      width: 15em;
+    }
+
+    .package-amount{
+      font-weight: 500;
+      color: black;
+      width: 8.5em;
+      text-align: left;
+      width: 50%;
+    }
+
+    .package-discount{
+      font-weight: 500;
+      color: black;
+      width: 50%;
+      padding-left: 1em;
+    }
+
+    
+    .right-section{
+      margin-bottom: 1em;
+      width: 50%;
+      float: right;
+      position: relative;
+    }
+
+    
+    .left-section{
+      margin-bottom: 1em;
+      width: 50%;
+      float: left;
+      padding-left: 2em;
+      padding-top: 0.5em;
+    }
+    .header-container{
+      display: flex;
+    }
+    .package-header{
+      width: 60%;
+      font-weight: 500;
+      padding-left: 2em;
+    }
+  
+    .amount-header{
+      width: 20%;
+      font-weight: 500;
+    }
+  
+    .percentage-header{
+      width: 20%;
+      font-weight: 500;
+    }
+
+    .client-amount{
+      width: 40%;
+    }
+}
+   
+  .down-arrow{
+    width: 99%;
+    text-align: right;
+  }
+
+  .show-more{
+    margin-left: 10em;
+    cursor: pointer;
+    color: $primaryColor;
+  }
+
+  .client-code{
+    width: 60%;
+    padding-left: 2em;
+  }
+
+
+  [dir=rtl].show-more{
+    margin-right: 18em;
+    cursor: pointer;
+    color: $primaryColor;
+  }
+
+  .color-circle{
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.375em; 
+    margin: 0.313em;
+  }
+
+  .no-records-found{
+    margin-top: 1em;
+  }
+
+  @media screen and  (max-width: 834px) and (min-width: 768px) {
+  .right-section {
+    width: 100% !important;
+  }
+ }
+  
+  .noRecordIconStyle {
+    position: relative !important;
+    cursor: default;
+    margin-left: 2em;
+  }
+
+  @media screen and (min-width: 680px) and (max-width: 1024px){
+
+    .package-name{
+      margin-left: 0.313em;
+      font-weight: 400;
+      color: black;
+    }
+  
+    .package-amount{
+      font-weight: 500;
+      color: black;
+      text-align: left;
+      width: 50%;
+    }
+  
+    .package-discount{
+      font-weight: 500;
+      color: black;
+      width: 50%;
+      padding-left: 1em;
+    }
+
+    .right-section{
+      margin-bottom: 1em;
+      width: 50%;
+      float: right;
+      position: relative;
+    }
+
+    
+    .left-section{
+      margin-bottom: 1em;
+      width: 100%;
+      float: left;
+      padding-left: 2em;
+      padding-top: 0.5em;
+    }
+
+    .total-payment{
+      font-size: 0.8em;
+    }
+
+    .totalConsolidatedPackageAmount{
+      font-size: 1em;
+    }
+
+    .doughnut-center-text{
+      width: 100%;
+      position: absolute;
+      top: 26%;
+      left: 0;
+      text-align: center;
+    }
+    .header-container{
+      display: flex;
+    }
+    .package-header{
+      width: 60%;
+      font-weight: 500;
+      padding-left: 2em;
+    }
+  
+    .amount-header{
+      width: 20%;
+      font-weight: 500;
+    }
+  
+    .percentage-header{
+      width: 20%;
+      font-weight: 500;
+    }
+
+    .client-amount{
+      width: 40%;
+    }
+  
+  }
+
+

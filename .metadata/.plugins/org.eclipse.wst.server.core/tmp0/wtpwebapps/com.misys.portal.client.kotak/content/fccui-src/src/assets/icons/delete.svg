@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="24px" viewBox="0 0 22 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/action/delete_24px</title>
+    <defs>
+        <path d="M16.5,8.14285714 L16.5,21 L5.5,21 L5.5,8.14285714 L16.5,8.14285714 L16.5,8.14285714 Z M14.4375,0.428571429 L7.5625,0.428571429 L6.1875,1.71428571 L1.375,1.71428571 L1.375,4.28571429 L20.625,4.28571429 L20.625,1.71428571 L15.8125,1.71428571 L14.4375,0.428571429 Z M19.25,5.57142857 L2.75,5.57142857 L2.75,21 C2.75,22.4142857 3.9875,23.5714286 5.5,23.5714286 L16.5,23.5714286 C18.0125,23.5714286 19.25,22.4142857 19.25,21 L19.25,5.57142857 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Finastra-/-Component-/-Table-/-Simple-with-Actions-" transform="translate(-698.000000, 0.000000)">
+            <g id="Finastra-/-Component-/-Table-/-Standard-/-Cell-/-Actions-/-Common-Actions">
+                <g transform="translate(698.000000, 0.000000)">
+                    <g id="Finastra-/-Component-/-Table-/-Standard-/-Elements-/-Cell-/-Content-/-Actions-/-Common-Actions">
+                        <g id="icon/action/delete_24px">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g fill-rule="nonzero"></g>
+                            <g id="↳-Color" mask="url(#mask-2)" fill="#000000" fill-opacity="0.54">
+                                <g transform="translate(-5.500000, -3.428571)" id="Rectangle">
+                                    <rect x="0" y="0" width="33" height="30.8571429"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

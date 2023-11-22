@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+if(!dojo._hasResource["misys.binding.openaccount.upload_po"]){dojo._hasResource["misys.binding.openaccount.upload_po"]=true;dojo.provide("misys.binding.openaccount.upload_po");(function(d,dj,m){d.mixin(m._config,{initReAuthParams:function(){var _1={productCode:"PO",subProductCode:"",transactionTypeCode:"01",entity:dj.byId("entity")?dj.byId("entity").get("value"):"",bankAbbvName:dj.byId("issuing_bank_abbv_name")?dj.byId("issuing_bank_abbv_name").get("value"):"",es_field1:"",es_field2:""};return _1;}});d.mixin(m,{bind:function(){m.connect("issuing_bank_abbv_name","onChange",m.populateReferences);m.connect("issuing_bank_customer_reference","onChange",m.setBuyerReference);if(dj.byId("issuing_bank_abbv_name")){m.connect("entity","onChange",function(){dj.byId("issuing_bank_abbv_name").onChange();});}},onFormLoad:function(){var _2=dj.byId("issuing_bank_customer_reference"),_3=dj.byId("issuing_bank_abbv_name"),_4;if(_2){_4=_2.value;}if(_3){_3.onChange();}if(_2){_2.onChange();_2.set("value",_4);}},beforeSubmitValidations:function(){if(!dj.byId("attachment-filepurchaseorderupload")||!dj.byId("attachment-filepurchaseorderupload").store||dj.byId("attachment-filepurchaseorderupload").store._arrayOfAllItems.length<1){m._config.onSubmitErrorMsg=m.getLocalization("uploadpoFileRequired");return false;}return true;},beforeSaveValidations:function(){var _5=dj.byId("entity");if(_5&&_5.get("value")===""){return false;}else{return true;}}});})(dojo,dijit,misys);dojo.require("misys.client.binding.openaccount.upload_po_client");}

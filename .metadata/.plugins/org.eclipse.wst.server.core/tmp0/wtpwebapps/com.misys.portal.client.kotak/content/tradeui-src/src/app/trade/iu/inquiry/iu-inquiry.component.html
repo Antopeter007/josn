@@ -1,0 +1,216 @@
+<div *ngIf="!this.isBankUser">
+  <div *ngIf="jsonContent !== undefined" class="consolidated-inquiry-body">
+  <div class = "toplevel-header indented-header {{commonService.getUserLanguage() === 'ar' ? 'inquiry-header-style-right' : 'inquiry-header-style-left'}}">
+          <!-- Issued Undertaking Details -->
+          <h2>{{ 'INQUIRY_HEADER_ISSUED_UNDERTAKING' | translate }}</h2>
+          <div id = "ref_view_row" class = "textarea" *ngIf="jsonContent['refId'] && jsonContent['refId'] != null && jsonContent['refId'] !== ''">
+            <label for="refId" >{{ 'GENERALDETAILS_REF_ID' | translate }}&nbsp;</label>
+            <label class="label-left-inquiry">{{jsonContent['refId']}}</label>
+          </div>
+          <div id = "boRefId_view_row" class = "textarea" *ngIf="jsonContent['boRefId'] && jsonContent['boRefId'] != null && jsonContent['boRefId'] !== ''">
+              <label for="boRefId" >{{ 'GENERALDETAILS_BO_REF_ID' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['boRefId']}}</label>
+          </div>
+          <div id = "custRefId_view_row" class = "textarea" *ngIf="jsonContent['custRefId'] && jsonContent['custRefId'] != null && jsonContent['custRefId'] !== ''">
+              <label for="custRefId" >{{ 'GENERALDETAILS_CUST_REF_ID' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['custRefId']}}</label>
+          </div>
+          <div id = "entity_view_row" class = "textarea" *ngIf="jsonContent['entity'] && jsonContent['entity'] != null && jsonContent['entity'] !== ''">
+              <label for="entity" >{{ 'PARTIESDETAILS_ENTITY' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['entity']}}</label>
+          </div>
+
+          <div *ngIf="jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && (jsonContent['purpose'] === '02' || jsonContent['purpose'] === '03')">
+              <h2>{{ 'INQUIRY_HEADER_UNDERTAKING_DETAILS' | translate }}</h2>
+          </div>
+
+          <!-- Issued Undertaking Counter Details  -->
+          <div id = "bgAmtview_row" class = "textarea" *ngIf="jsonContent['bgAmt'] && jsonContent['bgAmt'] != null && jsonContent['bgAmt'] !== ''">
+              <label for="bgAmt" >{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['bgCurCode']}} {{jsonContent['bgAmt']}}</label>
+          </div>
+          <div id = "bgAvailableAmt_view_row" class = "textarea" *ngIf="jsonContent['bgAvailableAmt'] && jsonContent['bgAvailableAmt'] != null && jsonContent['bgAvailableAmt'] !== ''">
+              <label for="bgAvailableAmt" >{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['bgCurCode']}} {{jsonContent['bgAvailableAmt']}}</label>
+          </div>
+          <div id = "bgLiabAmt_view_row" class = "textarea" *ngIf="(this.commonDataService.getIsBankUser() || ((!this.commonDataService.getIsBankUser()) && this.commonService.isShowLiabilityAmountEnabled())) &&
+          jsonContent['bgLiabAmt'] && jsonContent['bgLiabAmt'] != null && jsonContent['bgLiabAmt'] !== '' && jsonContent['purpose'] === '01'">
+              <label for="bgLiabAmt" >{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+              <label class="label-left-inquiry">{{jsonContent['bgCurCode']}} {{jsonContent['bgLiabAmt']}}</label>
+          </div>
+          <div *ngIf="jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && jsonContent['purpose'] === '02' || jsonContent['purpose'] === '03'">
+              <div id = "bank_name_view_row" class = "textarea" *ngIf="jsonContent['recipientBank']['name'] && jsonContent['recipientBank']['name'] != null && jsonContent['recipientBank']['name'] !== ''">
+                  <label for="bank_name">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['recipientBank']['name']}}</label>
+              </div>
+              <div id = "applicantReferenceViewRow" class = "textarea" *ngIf="jsonContent['recipientBank']['reference'] && jsonContent['recipientBank']['reference'] != null && jsonContent['recipientBank']['reference'] !== ''">
+                  <label for="applicantReference">{{ 'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['recipientBank']['reference']}}</label>
+              </div>
+          </div>
+
+          <div>
+              <div>
+                    <!-- Issued Undertaking Applicant Details -->
+                    <h3>{{'HEADER_APPLICANT_DETAILS' | translate }}</h3>
+                  <div id = "applicantNameViewRow" class = "textarea" *ngIf="jsonContent['applicantName'] && jsonContent['applicantName'] != null && jsonContent['applicantName'] !== ''">
+                  <label for="applicantName">{{ 'INQUIRY_APPLICANT_NAME' | translate }}&nbsp;</label>
+                    <label class="label-left-inquiry">{{jsonContent['applicantName']}}</label>
+                  </div>
+                  <div id = "applicantAddressLine1ViewRow" class = "textarea" *ngIf="jsonContent['applicantAddressLine1'] && jsonContent['applicantAddressLine1'] != null && jsonContent['applicantAddressLine1'] !== ''">
+                      <label for="applicantAddressLine1">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['applicantAddressLine1']}}</label>
+                  </div>
+                  <div id = "applicantAddressLine2ViewRow" class = "textarea" *ngIf="jsonContent['applicantAddressLine2'] && jsonContent['applicantAddressLine2'] != null && jsonContent['applicantAddressLine2'] !== ''">
+                      <label for="applicantAddressLine2">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['applicantAddressLine2']}}</label>
+                  </div>
+                  <div id = "applicantDomViewRow" class = "textarea" *ngIf="jsonContent['applicantDom'] && jsonContent['applicantDom'] != null && jsonContent['applicantDom'] !== ''">
+                      <label for="applicantDom">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['applicantDom']}}</label>
+                  </div>
+                  <div id = "applicantAddressLine4ViewRow" class = "textarea" *ngIf="jsonContent['applicantAddressLine4'] && jsonContent['applicantAddressLine4'] != null && jsonContent['applicantAddressLine4'] !== ''">
+                      <label for="applicantAddressLine4">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['applicantAddressLine4']}}</label>
+                  </div>
+                  <div *ngIf="jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && jsonContent['purpose'] === '01'">
+                      <div id = "bank_name_view_row" class = "textarea" *ngIf="jsonContent['recipientBank']['name'] && jsonContent['recipientBank']['name'] != null && jsonContent['recipientBank']['name'] !== ''">
+                          <label for="bank_name" >{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                          <label class="label-left-inquiry">{{jsonContent['recipientBank']['name']}}</label>
+                      </div>
+                      <div id = "applicantReferenceViewRow" class = "textarea" *ngIf="jsonContent['recipientBank']['reference'] && jsonContent['recipientBank']['reference'] != null && jsonContent['recipientBank']['reference'] !== ''">
+                          <label for="applicantReference"  >{{ 'PARTIESDETAILS_CUST_REFERENCE' | translate }}&nbsp;</label>
+                          <label class="label-left-inquiry">{{jsonContent['recipientBank']['reference']}}</label>
+                      </div>
+                  </div>
+              </div>
+
+              <div>
+                  <!-- Issued Undertaking Beneficiary Details -->
+                  <h3>{{'HEADER_BENEFICIARY_DETAILS' | translate }}</h3>
+                  <div id = "bene_name_view_row" class = "textarea" *ngIf="jsonContent['beneficiaryName'] && jsonContent['beneficiaryName'] != null && jsonContent['beneficiaryName'] !== ''">
+                    <label for="bene_name">{{ 'PARTIESDETAILS_NAME' | translate }}&nbsp;</label>
+                      <label class="label-left-inquiry">{{jsonContent['beneficiaryName']}}</label>
+                  </div>
+                  <div id = "beneficiaryAddressLine1ViewRow" class = "textarea" *ngIf="jsonContent['beneficiaryAddressLine1'] && jsonContent['beneficiaryAddressLine1'] != null && jsonContent['beneficiaryAddressLine1'] !== ''">
+                      <label for="beneficiaryAddressLine1">{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['beneficiaryAddressLine1']}}</label>
+                  </div>
+                  <div id = "beneficiaryAddressLine2ViewRow" class = "textarea" *ngIf="jsonContent['beneficiaryAddressLine2'] && jsonContent['beneficiaryAddressLine2'] != null && jsonContent['beneficiaryAddressLine2'] !== ''">
+                      <label for="beneficiaryAddressLine2">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['beneficiaryAddressLine2']}}</label>
+                  </div>
+                  <div id = "beneficiaryDomViewRow" class = "textarea" *ngIf="jsonContent['beneficiaryDom'] && jsonContent['beneficiaryDom'] != null && jsonContent['beneficiaryDom'] !== ''">
+                      <label for="beneficiaryDom">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['beneficiaryDom']}}</label>
+                  </div>
+                  <div id = "beneficiaryAddressLine4ViewRow" class = "textarea" *ngIf="jsonContent['beneficiaryAddressLine4'] && jsonContent['beneficiaryAddressLine4'] != null && jsonContent['beneficiaryAddressLine4'] !== ''">
+                      <label for="beneficiaryAddressLine4">&nbsp;</label>
+                        <label class="label-left-inquiry">{{jsonContent['beneficiaryAddressLine4']}}</label>
+                  </div>
+                </div>
+          </div>
+
+          <div *ngIf="(jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && jsonContent['purpose'] === '02' || jsonContent['purpose'] === '03') && checkForDataIfPresent()">
+              <!-- Local Undertaking Counter details  -->
+              <h2>{{ 'INQUIRY_HEADER_COUNTER_DETAILS' | translate }}</h2>
+              <div id = "cuAmtViewRow" class = "textarea" *ngIf="jsonContent['cuAmt'] && jsonContent['cuAmt'] != null && jsonContent['cuAmt'] !== ''">
+                  <label for="cuAmt" >{{ 'AMOUNTDETAILS_UNDERTAKING_AMOUNT' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuCurCode']}} {{jsonContent['cuAmt']}}</label>
+              </div>
+              <div id = "cuAvailableAmtViewRow" class = "textarea" *ngIf="jsonContent['cuAvailableAmt'] && jsonContent['cuAvailableAmt'] != null && jsonContent['cuAvailableAmt'] !== ''">
+                  <label for="cuAvailableAmt" >{{ 'UNDERTAKING_AVAILABLE_AMOUNT' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuCurCode']}} {{jsonContent['cuAvailableAmt']}}</label>
+              </div>
+              <div id = "cuLiabAmtViewRow" class = "textarea" *ngIf="(this.commonDataService.getIsBankUser() || ((!this.commonDataService.getIsBankUser()) && this.commonService.isShowLiabilityAmountEnabled())) &&
+              jsonContent['cuLiabAmt'] && jsonContent['cuLiabAmt'] != null && jsonContent['cuLiabAmt'] !== '' && jsonContent['purpose'] !== '01' ">
+                  <label for="cuLiabAmt">{{ 'UNDERTAKING_LIABILITY_AMOUNT' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuCurCode']}} {{jsonContent['cuLiabAmt']}}</label>
+              </div>
+              <div *ngIf="jsonContent['purpose'] && jsonContent['purpose'] != null && jsonContent['purpose'] !== '' && jsonContent['purpose'] === '02' || jsonContent['purpose'] === '03'">
+                  <div id = "bank_name_view_row" class = "textarea" *ngIf="jsonContent['cuRecipientBank']['name'] && jsonContent['cuRecipientBank']['name'] != null && jsonContent['cuRecipientBank']['name'] !== ''">
+                      <label for="bank_name">{{ 'PARTIESDETAILS_BANK_NAME' | translate }}&nbsp;</label>
+                      <label class="label-left-inquiry">{{jsonContent['cuRecipientBank']['name']}}</label>
+                  </div>
+                  <div id = "applicantReferenceViewRow" class = "textarea" *ngIf="jsonContent['cuRecipientBank']['reference'] && jsonContent['cuRecipientBank']['reference'] != null && jsonContent['cuRecipientBank']['reference'] !== ''">
+                      <label for="applicantReference">{{ 'PARTIESDETAILS_REFERENCE' | translate }}&nbsp;</label>
+                      <label class="label-left-inquiry">{{jsonContent['cuRecipientBank']['reference']}}</label>
+                  </div>
+              </div>
+
+              <!-- Local Undertaking Beneficiary details  -->
+              <div *ngIf="(jsonContent['cuBeneficiary'] && jsonContent['cuBeneficiary'] != null && jsonContent['cuBeneficiary'] != '') && checkForDataIfPresentForCUBene()">
+              <h3>{{'CU_HEADER_BENEFICIARY_DETAILS' | translate}}</h3>
+              <div id = "cuBeneNameViewRow" class = "textarea" *ngIf="jsonContent['cuBeneficiary']['name'] && jsonContent['cuBeneficiary']['name'] != null && jsonContent['cuBeneficiary']['name'] !== ''">
+                <label for="cuBeneName" >{{ 'PARTIESDETAILS_NAME' | translate }}&nbsp;</label>
+                <label class="label-left-inquiry">{{jsonContent['cuBeneficiary']['name']}}</label>
+              </div>
+              <div id = "cuBeneAddrLine1ViewRow" class = "textarea" *ngIf="jsonContent['cuBeneficiary']['addressLine1'] && jsonContent['cuBeneficiary']['addressLine1'] != null && jsonContent['cuBeneficiary']['addressLine1'] !== ''">
+                  <label for="cuBeneAddrLine1" >{{ 'PARTIESDETAILS_ADDRESS' | translate }}&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuBeneficiary']['addressLine1']}}</label>
+              </div>
+              <div id = "cuBeneAddrLine2ViewRow" class = "textarea" *ngIf="jsonContent['cuBeneficiary']['addressLine2'] && jsonContent['cuBeneficiary']['addressLine2'] != null && jsonContent['cuBeneficiary']['addressLine2'] !== ''">
+                  <label for="cuBeneAddrLine2" >&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuBeneficiary']['addressLine2']}}</label>
+              </div>
+              <div id = "cuBeneDomViewRow" class = "textarea" *ngIf="jsonContent['cuBeneficiary']['dom'] && jsonContent['cuBeneficiary']['dom'] != null && jsonContent['cuBeneficiary']['dom'] !== ''">
+                  <label for="cuBeneDom" >&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuBeneficiary']['dom']}}</label>
+              </div>
+              <div id = "cuBeneAddrLine4ViewRow" class = "textarea" *ngIf="jsonContent['cuBeneficiary']['addressLine4'] && jsonContent['cuBeneficiary']['addressLine4'] != null && jsonContent['cuBeneficiary']['addressLine4'] !== ''">
+                  <label for="cuBeneAddrLine4" >&nbsp;</label>
+                  <label class="label-left-inquiry">{{jsonContent['cuBeneficiary']['addressLine4']}}</label>
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="list-section">
+      <div *ngIf="isActionRequired">
+      <h1 class = "tableTitle">{{'KEY_FILE_ACTIONS' | translate}}</h1>
+      <ul>
+          <li><a (click)="goToTnx('initiate')">{{'ACTION_USER_COPY_TNX' | translate}}</a><br></li>
+          <li><a (click)="goToTnx('amend')">{{'ACTION_USER_AMEND_TNX' | translate}}</a><br></li>
+        <li><a (click) = "goToTnx('release')">{{'ACTION_USER_REALEASE_TNX' | translate}}</a><br></li>
+        <li><a (click) = "goToTnx('msg')">{{'ACTION_USER_FREEFORMAT_TNX' | translate}}</a><br></li>
+      </ul>
+      </div>
+      <fcc-common-chart [refId]="refId" [productCode]="productCode"></fcc-common-chart>
+    </div>
+    </div>
+    <div class="transaction-list">
+    <fcc-common-inquiry-completed-tnx></fcc-common-inquiry-completed-tnx>
+    <fcc-common-inquiry-pending-tnx></fcc-common-inquiry-pending-tnx>
+    <fcc-common-inquiry-attachments-list></fcc-common-inquiry-attachments-list>
+    <fcc-common-inquiry-consolidated-charges></fcc-common-inquiry-consolidated-charges>
+  </div>
+</div>
+
+
+<div *ngIf="this.isBankUser && jsonContent !== undefined">
+  <form [formGroup]="bankInquiryIUForm">
+  <div class="consolidated-inquiry-body">
+    <div  class = "{{commonService.getUserLanguage() === 'ar' ? 'inquiry-header-style-right' : 'inquiry-header-style-left'}}">
+    <fcc-bank-transaction-details *ngIf="jsonContent" [jsonContent]="jsonContent" ></fcc-bank-transaction-details>
+    <fcc-iu-initiate-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-initiate-bank-details>
+    <fcc-iu-common-applicant-details *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-iu-common-applicant-details>
+    <fcc-iu-common-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" ></fcc-iu-common-beneficiary-details>
+    <fcc-iu-initiate-cu-amount-details  *ngIf="jsonContent && luStatus" [bgRecord]="jsonContent" ></fcc-iu-initiate-cu-amount-details>
+    <fcc-iu-cu-beneficiary-details *ngIf="jsonContent && luStatus" [bgRecord]="jsonContent" ></fcc-iu-cu-beneficiary-details>
+
+  </div>
+  <div class="list-section-bank">
+    <h1 class = "tableTitle">{{'KEY_FILE_ACTIONS' | translate}}</h1>
+    <ul>
+        <li><a (click)="goToTnx('initiateBank')">{{'ACTION_CREATE_LINK_TNX' | translate}}</a><br></li>
+    </ul>
+    <fcc-common-chart [refId]="refId" [productCode]="productCode"></fcc-common-chart>
+  </div>
+</div>
+<div class="transaction-list">
+  <fcc-common-inquiry-completed-tnx></fcc-common-inquiry-completed-tnx>
+  <fcc-common-inquiry-pending-list-tnx *ngIf="jsonContent" [bgRecord]="jsonContent"></fcc-common-inquiry-pending-list-tnx>
+  <fcc-common-inquiry-attachments-list></fcc-common-inquiry-attachments-list>
+  <fcc-common-inquiry-consolidated-charges></fcc-common-inquiry-consolidated-charges>
+</div>
+</form>
+</div>

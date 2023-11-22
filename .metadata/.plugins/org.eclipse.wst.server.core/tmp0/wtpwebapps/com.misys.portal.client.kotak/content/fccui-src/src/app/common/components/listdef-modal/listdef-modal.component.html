@@ -1,0 +1,155 @@
+<div class="dynamic-dialog min-width">
+    <div class="p-col-12 dynamic-dialog-title" mat-dialog-title dir={{dir}}>
+        <div *ngIf="!repairRejectFooter" class="p-col-10 p-md-8 p-sm-6" >
+            <p class="align-title">{{dialogData.heading | translate}}</p>
+        </div>
+        <div *ngIf="repairRejectFooter" class="p-col-10 p-md-8 p-sm-6" >
+            <span >{{dialogData.heading | translate}}  -  {{rowConfig.fileName}}</span>
+        </div>
+
+        <div *ngIf="repairRejectFooter" class="p-col-2 p-md-4 p-sm-6 dynamic-dialog-status">
+            <div class="close-icon">
+                <mat-icon tabindex="0" dir={{dir}} mat-button mat-dialog-close (keyup.enter)="close($event)" (click)="close($event)">close</mat-icon>
+            </div>
+        </div>
+
+        <div *ngIf="!repairRejectFooter" class="p-col-2 p-md-4 p-sm-6 dynamic-dialog-status">
+            <div class="dynamic-dialog-status-color" [ngStyle]="{'background': colorCode}"></div>
+            <span class="dynamic-dialog-status-title">{{status}}</span>
+            <div class="close-icon">
+                <mat-icon tabindex="0" dir={{dir}} mat-button mat-dialog-close (keyup.enter)="close($event)" (click)="close($event)">close</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!repairRejectFooter">
+    <mat-dialog-content class="mat-typography">
+        <div class="p-grid p-col-12">
+            <ng-container *ngFor="let item of displayKeys">
+                <div *ngIf="item !== 'chequeImgPath'" class="p-md-6 p-sm-12 dynaic-dialog-content-container" [ngClass]="accountsPopup ?'p-lg-6': 'p-lg-4'" dir={{dir}}>
+                    <span class="dynaic-dialog-content-container-label" [ngClass]="{'blue-label':accountsPopup}">{{item | translate}}</span>
+                    <span class="dynaic-dialog-content-container-value">{{displayData[item]}}</span>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="displayKeys.indexOf('chequeImgPath') > -1">
+                <div class="p-lg-12 p-md-12 p-sm-12 dynaic-dialog-content-container" dir={{dir}}>
+                    <span class="dynaic-dialog-content-container-label" [ngClass]="{'blue-label':accountsPopup}">{{'chequeImgPath' | translate}}</span>
+                    <img  alt="chequeImg"class="chequeImg" src="{{displayData['chequeImgPath']}}">
+                </div>
+            </ng-container>
+            
+            <div *ngIf="enrichTableDisplay">
+                <span tabindex="0" class="dynaic-dialog-content-container-label"><strong>{{'enrichmentListTable' | translate}}</strong></span>
+                <div dir={{dir}} class="enrichmentTable">
+                    <p-table [columns]="enrichCols" [value]="enrichTableValues" [scrollable]="true" scrollHeight="200px" [style]="{width:'1138px'}">
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th [ngClass]="checkAmtField(col) ? 'text-right' : 'text-left'" scope="col" *ngFor="let col of columns" tabindex="0"> {{ enrchMap[col].name }}</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                            <tr *ngIf="!rowData['discardFlag'] && !enrichColCode" tabindex="0">
+                                <td *ngFor=" let col of columns" tabindex="0"  [ngClass]="checkAmtField(col) ? 'text-right' : 'text-left'">
+                                    <span *ngIf="rowData[col] !== undefined && rowData[col] !== null && rowData[col] !== ''">{{ checkAmtField(col) ? formatAmount(rowData[col]) : rowData[col]}}</span>
+                                    <span *ngIf="rowData[col] === undefined || rowData[col] === null || rowData[col] === ''">{{ "NOT_ENTERED" | translate }}</span>
+                                </td>  
+                            </tr>
+                            <tr *ngIf="!rowData['discardFlag'] && enrichColCode && enrchMap" tabindex="0">
+                                <td *ngFor=" let col of columns" tabindex="0" [ngClass]="checkAmtField(col) ? 'text-right' : 'text-left'">
+                                    <span *ngIf="!checkAmtField(col)">
+                                        {{(rowData[enrchMap[col].code] !== undefined && rowData[enrchMap[col].code] !== null && rowData[enrchMap[col].code] !== '') ? rowData[enrchMap[col].code] : "NOT_ENTERED" | translate}}
+                                    </span>
+                                    <span *ngIf="checkAmtField(col)">
+                                        {{(rowData[enrchMap[col].code] !== undefined && rowData[enrchMap[col].code] !== null && rowData[enrchMap[col].code] !== '') ? formatAmount(rowData[enrchMap[col].code]) : "NOT_ENTERED" | translate}}
+                                    </span>
+                                </td>
+                                  
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+
+            <div *ngIf="accountTableDisplay">
+                <div dir={{dir}} class="enrichmentTable fixHeaderScroll">
+                    <p-table [columns]="accountCols" [value]="accountTableValues" [scrollable]="true" scrollHeight="200px">
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th class="text-left" scope="col" *ngFor="let col of columns" tabindex="0"> {{ col| translate }}</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-columns="columns">
+                            <tr tabindex="0">
+                                <td *ngFor=" let col of columns" tabindex="0"  class="text-left">
+                                    {{rowData[col]}}
+                                </td>  
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+
+        </div>
+    </mat-dialog-content>
+    </div>
+
+   
+
+    <div *ngIf="repairRejectFooter">
+    <p-table [columns]="cols" [value]="colData">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th scope="col" *ngFor="let col of cols"> {{col.header | translate}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor=" let col of columns">{{rowData[col.field]}}</td>  
+            </tr>
+        </ng-template>
+      </p-table>
+    </div>
+</div>
+
+<div *ngIf="!repairRejectFooter && showActions"> 
+<mat-dialog-actions dir={{dir}} [ngClass]="{'dynamic-dialog-actions': null === commentField}">
+    <div class="p-lg-5 p-md-12 p-sm-12 ">
+        <mat-form-field appearance="fill"[ngClass]="isCommentInvalid ? 'no-remarks' : ''"
+         input-mat-width class="comment-field" hintLabel="{{comment}}"
+            *ngIf="commentField">
+            <mat-label>{{'comments' | translate}}</mat-label>
+            <textarea class="comment-textarea" matInput #input maxlength="255" cdkTextareaAutosize cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="1" [(ngModel)]="commentValue"></textarea>
+            <mat-hint align="end">{{input.value?.length || 0}}/{{maxCommentLn}}</mat-hint>
+        </mat-form-field>
+        <mat-label id="invalidComment" align="start" *ngIf="isCommentInvalid">{{'commentsRequiredViewPopup'|translate}}</mat-label>
+        <mat-label id="invalidComment" align="start" *ngIf="commonService.scrapCommentRequired">{{'remarkRequired'|translate}}</mat-label>
+    </div>
+
+    <div class="footer-buttons" dir="{{dir}}">
+        <button role="button"  *ngFor="let action of actions; let index = index;" align="end" mat-button cdkFocusInitial
+            (click)="onClickAction(action.actionName)"
+            [ngClass]="getButtonClass(action.buttonClass, index)" class="action-button">{{action.actionName | translate}}</button>
+
+
+    </div>
+</mat-dialog-actions>
+</div>
+<div *ngIf="repairRejectFooter" class="p-lg-12 p-md-12 p-sm-12" style="text-align: right;"> 
+    <span class="create-btn-block loop-button" *ngIf = "!beneUpload">
+        <button role="button"  mat-button cdkFocusInitial tabindex="0"
+         (click)="onClickDownloadBulkUploadStatus()"
+         class="primaryButton">{{downloadReport | translate}}</button>
+    </span>
+    <span class="create-btn-block loop-button" *ngIf = "beneUpload">
+        <button role="button"  mat-button tabindex="0"
+         (click)="onClickDownloadBeneficiaryBulkUploadStatus()"
+         class="primaryButton">{{downloadReport | translate}}</button>
+    </span>
+    <span *ngIf="showRepairReject" class="create-btn-block loop-button">
+        <button role="button"  mat-button cdkFocusInitial tabindex="0"
+         (click)="onClickRejectRepair()"
+         class="primaryButton">{{repairReject | translate}}</button>
+    </span>
+</div>
+
+

@@ -1,0 +1,8 @@
+
+    <fcc-iu-cu-general-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuGeneraldetailsSection', $event)"></fcc-iu-cu-general-details>
+    <fcc-iu-cu-beneficiary-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuBeneficaryDetailsSection', $event)"></fcc-iu-cu-beneficiary-details>
+    <fcc-iu-initiate-cu-amount-details  *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuAmountDetailsSection', $event)"></fcc-iu-initiate-cu-amount-details>
+    <fcc-iu-cu-renewal-details  *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuRenewalDetailsSection', $event)"></fcc-iu-cu-renewal-details>
+    <fcc-iu-cu-bank-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuBankDetailsSection', $event)"></fcc-iu-cu-bank-details>
+    <fcc-iu-initiate-cu-undertaking-details *ngIf="jsonContent" [bgRecord]="jsonContent" (formReady)="addToForm('cuUndertakingDetailsForm', $event)"></fcc-iu-initiate-cu-undertaking-details>
+

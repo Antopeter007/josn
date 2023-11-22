@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- 
+	FINASTRA GPP Interface schema
+    Copyright (c) 2019-2020 Finastra (http://www.finastra.com) All Rights Reserved.
+    Component configuration file for GPP Interface
+    
+ -->
+ <components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+	
+	<component name="PaymentProcessor">
+		<description>Process the payment request</description>
+		<classname>com.misys.portal.interfaces.components.payment.PaymentProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	
+	<component name="OpenApiHandler">
+		<description>Process the API invocation</description>
+		<classname>com.misys.portal.interfaces.components.payment.OpenApiHandler</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+	<component name="GPPResponseProcessor">
+		<description>Process the payment request</description>
+		<classname>com.misys.portal.interfaces.components.payment.GPPResponseProcessor</classname>
+		<properties>
+			<property name="language" description="Language">en</property>
+		</properties>
+		<consumer type="ObjectConsumer" object="TransactionProductFile or StaticDataFile"/>
+		<producer type="ObjectProducer" object="Source object"/>
+	</component>
+</components>

@@ -1,0 +1,57 @@
+@import './../../../../../../styles//variables.scss';
+.form-header {
+    font-size: 1.125em;
+    margin-top: 1.25em;
+    color: $formHeaderColor;
+    font-weight: 700;
+}
+
+.ConfirmButton {
+  color: $primaryButtonColor !important;
+  border-radius: 1.125em !important;
+  padding: 0 1.5em !important;
+  min-width: 4em !important;
+  line-height: 2.25em !important;
+  font-size: 0.875em !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  outline: 0 !important;
+  border: none !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  vertical-align: baseline !important;
+  text-align: center !important;
+  background-color: $secondaryColor !important;
+  width: auto;
+  }
+
+[dir="rtl"] .ConfirmButton {
+    min-width: 8em !important;
+}
+
+.deleteConfirmationMsg {
+    font-size: 0.875em !important;
+    padding: 0em !important;
+    margin: 0em !important;
+}
+
+.tertiaryButton {
+    float: right;
+}
+
+[dir="rtl"] .tertiaryButton {
+    float: left;
+    margin-left: 3em !important;
+}
+
+[dir="rtl"] #yesButton {
+    float: left;
+}
+.waningtxt{
+    position: relative;
+    top: -1.2em;
+    text-transform: capitalize;
+}
+.iconWR span{
+    color : $GOLD-10;
+}

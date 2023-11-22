@@ -1,0 +1,55 @@
+<div
+  class="highlight-editor"
+  #highlightEditor
+  [style.width]="properties.width"
+  [style.minWidth]="properties.minWidth"
+>
+  <div class="highlight-editor-wrapper" #editorWrapper>
+    <div
+      #editor
+      class="highlight-editor-textarea"
+      [id]="id"
+      [attr.contenteditable]="properties.editable && !disabled"
+      [attr.tabindex]="disabled ? -1 : tabIndex"
+      [attr.spellcheck]="properties.spellcheck"
+      [style.height]="properties.height"
+      [style.minHeight]="properties.minHeight"
+      [style.maxHeight]="properties.maxHeight"
+      [style.outline]="properties.outline === true ? '1px solid black' : 'none'"
+      [style.resize]="properties.resize ? 'vertical' : 'none'"
+      (input)="onContentChange()"
+      (focus)="onTextAreaFocus($event)"
+      (click)="onClick($event)"
+      (blur)="onTextAreaBlur($event)"
+      (keydown.Space)="triggerStartProcessing('space')"
+      (keydown.Backspace)="onBackspace()"
+      (keydown.Delete)="onDelete()"
+      (keydown.Enter)="handleEnterKey($event)"
+      [ngStyle]="{ opacity: disabled ? 0.5 : 1 }"
+    ></div>
+    <!-- <textarea
+      #defaultTextarea
+      id="[id]"
+      class="highlight-editor-textarea"
+      (click)="onClick($event)"
+      (blur)="onBlurTextarea($event)"
+      (keyup)="onKeyupTextarea($event)"
+      (focus)="onFocusTextarea($event)"
+      (input)="onInputChangeTextarea($event)"
+      [attr.tabindex]="disabled ? -1 : tabIndex"
+      [attr.spellcheck]="properties.spellcheck"
+      [style.height]="properties.height"
+      [style.minHeight]="properties.minHeight"
+      [style.maxHeight]="properties.maxHeight"
+      [style.outline]="properties.outline === true ? '1px solid black' : 'none'"
+      [style.border]="properties.outline === true ? '1px solid black' : 'none'"
+      [style.resize]="properties.resize ? 'vertical' : 'none'"
+      [style.display]="!properties.showHighlight ? 'block':'none'"
+      [style.width]="'100%'"
+      [value]="value"
+    ></textarea> -->
+    <span #placeholder class="highlight-editor-placeholder">
+      <span *ngIf="!disabled">{{ properties["placeholder"] }}</span></span
+    >
+  </div>
+</div>

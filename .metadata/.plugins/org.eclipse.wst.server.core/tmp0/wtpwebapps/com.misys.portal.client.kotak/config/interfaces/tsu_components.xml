@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	Misys Trade Portal Interfaces Schema
+	Copyright (c) 2000-2010 Misys (http://www.misys.com) All Rights Reserved.
+-->
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<!--  
+	<component name="tsufilter">
+		<description>Filter Products for TSU messages generated from the TSU console</description>
+		<classname>com.misys.portal.interfaces.components.JavaScriptBasedFilterProcessor</classname>
+		<properties>
+			<property name="script" description="transparent filter">04 == event.tnx_stat_code</property>
+		</properties>
+	</component>	
+	-->
+
+	<component name="iototsmtgenerator">
+		<description>this component will generate TMAfile from the IOA file</description>
+		<classname>com.misys.portal.interfaces.components.tsu.IOAToTMGenerator</classname>
+		<properties>
+			<property name="prefix" description="Prefix to remove">Doc</property>
+		</properties>
+	</component>
+	
+	<component name="eatotsmtgenerator">
+		<description>this component will generate TMAfile from the EOA file</description>
+		<classname>com.misys.portal.interfaces.components.tsu.EOAToTMGenerator</classname>
+		<properties>
+			<property name="prefix" description="Prefix to remove">Doc</property>
+		</properties>
+	</component>	
+	
+	<component name="namespacefilter">
+		<description>Remove "Doc:" (namespace) into incoming TSU messages before creating openaccount records</description>
+		<classname>com.misys.portal.openaccount.interfaces.tools.NameSpaceFilter</classname>
+		<properties>
+			<property name="prefix" description="Prefix to remove">Doc</property>
+		</properties>
+	</component>	
+
+	<component name="tsubaselinegenerator">
+		<description>Initial Baseline generator</description>
+		<classname>com.misys.portal.openaccount.interfaces.TSUBaselineGenerator</classname>
+		<properties>
+			<property name="stylesheet.name" description="Stylesheet">/content/xsl/tsu/tsmt.019.001.02_to_baseline.xsl</property>
+		</properties>
+	</component>
+	
+	<component name="xcltsu2po">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.interfaces.components.xcl.XCLXMLProcessor</classname>
+		<properties> 
+			<property name="xcl.location" description="xcl location">/tsu/v2/xcl</property>
+			<property name="xcl.name" description="xcl name">tsu2po_tu</property>
+			<property name="xcl.source.isXML" description="xcl soruce type">true</property>
+			<!--  jdbc.provider = jdbcprovider -->
+		</properties>
+	</component>
+
+	<component name="tmaxsdvalidator">
+		<description>Validates baseline incoming XML with XSD</description>
+		<classname>com.misys.portal.interfaces.components.TMAXSDValidator</classname>
+	</component>
+	
+	<component name="reportAndActivityHandler">
+		<description>Processes TM and updates the TM (only where OA generation is not required) </description>
+		<classname>com.misys.portal.interfaces.components.ReportAndActivityHandler</classname>
+	</component>
+	
+	<!-- <component name="tm2iogenerator">
+		<description>create product update event to BO</description>
+		<classname>com.misys.portal.interfaces.components.TM2IOGenerator</classname>
+	</component>
+	
+	<component name="tm2eogenerator">
+		<description>create product update event to BO</description>
+		<classname>com.misys.portal.interfaces.components.TM2EOGenerator</classname>
+	</component> -->
+	
+	<component name="tmvalidator">
+		<description>Validates the TMA message</description>
+		<classname>com.misys.portal.interfaces.components.TMValidator</classname>
+	</component>
+
+	<component name="tm2oagenerator">
+		<description>create product update event to BO</description>
+		<classname>com.misys.portal.interfaces.components.TM2OAGenerator</classname>
+	</component>
+	
+	<!-- <component name="xcltsu2pobn">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.interfaces.components.xcl.XCLXMLProcessor</classname>
+		<properties> 
+			<property name="xcl.location" description="xcl location">/config/xcl/tsu/v2</property>
+			<property name="xcl.name" description="xcl name">tsu2po_bn</property>
+			<property name="xcl.source.isXML" description="xcl soruce type">true</property>
+			jdbc.provider = jdbcprovider
+		</properties>
+	</component>
+	
+	<component name="xcltsu2pobn">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.interfaces.components.xcl.XCLXMLProcessor</classname>
+		<properties> 
+			<property name="xcl.location" description="xcl location">/config/xcl/tsu/v2</property>
+			<property name="xcl.name" description="xcl name">tsu2openaccount</property>
+			<property name="xcl.source.isXML" description="xcl soruce type">true</property>
+			jdbc.provider = jdbcprovider
+		</properties>
+	</component> -->
+	<component name="xcltsu2openaccount">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.interfaces.components.xcl.XCLXMLProcessor</classname>
+		<properties> 
+			<property name="xcl.location" description="xcl location">/config/xcl/tsu/v2</property>
+			<property name="xcl.name" description="xcl name">tsu2openaccount</property>
+			<property name="xcl.source.isXML" description="xcl soruce type">true</property>
+			<!-- jdbc.provider = jdbcprovider -->
+		</properties>
+	</component>
+	
+	<component name="namespacefilter">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.openaccount.interfaces.tools.NameSpaceFilter</classname>
+		<properties> 
+			<property name="prefix" description="prefix of document">Doc</property>
+		</properties>
+	</component>
+	
+	<component name="invoiceGenerator">
+		<description>tsu incoming</description>
+		<classname>com.misys.portal.openaccount.interfaces.tools.NameSpaceFilter</classname>
+		<properties> 
+			<property name="prefix" description="prefix of document">Doc</property>
+		</properties>
+	</component>
+	<!-- 
+# DUPLICATED
+# XML Outgoing (TSU)
+component.xmlouttsuprocessor = com.misys.portal.interfaces.xml.outgoing.OutgoingProcessor
+component.xmlouttsuprocessor.directory = $xml_output_directory
+component.xmlouttsuprocessor.jdbc.tool = jdbcprovider
+component.xmlouttsuprocessor.skipfile = true
+
+# TSU v2 XML Outgoing
+component.v2tsuxmloutprocessor = com.misys.portal.tsu.v2.interfaces.xml.outgoing.MTPMessageManagerOutgoingProcessor
+component.v2tsuxmloutprocessor.directory = $tsu_xml_output_directory
+component.v2tsuxmloutprocessor.process.attachments = false
+component.v2tsuxmloutprocessor.jdbc.tool = jdbcprovider
+
+# TSU v1 Outgoing
+component.tsuxmloutprocessor = com.misys.portal.tsu.interfaces.xml.outgoing.MessageManagerOutgoingProcessor
+component.tsuxmloutprocessor.directory = $tsu_xml_output_directory
+component.tsuxmloutprocessor.process.attachments = false
+component.tsuxmloutprocessor.jdbc.tool = jdbcprovider
+
+# TSU Incoming File to XML
+component.tsuoutgoingprocessor = com.misys.portal.tsu.interfaces.xml.incoming.TSUOutgoingProcessor
+component.tsuoutgoingprocessor.directory = $tsu_xml_output_directory
+component.tsuoutgoingprocessor.jdbc.tool = jdbcprovider
+
+# TSU Incoming File to XML
+component.messagemanageroutgoingprocessor = com.misys.portal.tsu.interfaces.xml.outgoing.MessageManagerOutgoingProcessor
+component.messagemanageroutgoingprocessor.directory = $tsu_xml_output_directory
+
+# TSU to PO : XCL to XML (TSU messages production)
+component.xcltsu2po = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.xcltsu2po.xcl.location = /config/xcl
+component.xcltsu2po.xcl.name = tsu2po_tu
+component.xcltsu2po.xcl.source.isXML = true
+component.xcltsu2po.jdbc.provider = jdbcprovider
+
+# TSU to PO : XCL to XML (Baseline production)
+component.xcltsu2pobn = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.xcltsu2pobn.xcl.location = /config/xcl
+component.xcltsu2pobn.xcl.name = tsu2po_bn
+component.xcltsu2pobn.xcl.source.isXML = true
+component.xcltsu2pobn.jdbc.provider = jdbcprovider
+
+# TSU to PO : XCL to XML (Baseline production)
+component.xcltsu2openaccount = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.xcltsu2openaccount.xcl.location = /config/xcl
+component.xcltsu2openaccount.xcl.name = tsu2openaccount
+component.xcltsu2openaccount.xcl.source.isXML = true
+
+# PO to TSU : XCL to XML
+component.xclopenaccount2tsu = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.xclopenaccount2tsu.xcl.location = /config/xcl
+component.xclopenaccount2tsu.xcl.name = openaccount2tsu
+component.xclopenaccount2tsu.xcl.source.isXML = true
+
+# XSLT to SAX
+component.xsltsaxopenaccount2tsu = com.misys.portal.interfaces.components.XSLTStreamProcessor
+component.xsltsaxopenaccount2tsu.xmlreader.tool.name = xmlparserproviderforxsl
+component.xsltsaxopenaccount2tsu.stylesheet.isDynamic = true
+component.xsltsaxopenaccount2tsu.stylesheet.name = xslname
+component.xsltsaxopenaccount2tsu.stylesheet.parameters.name = tnxstatcode
+component.xsltsaxopenaccount2tsu.stylesheet.parameter.tnxstatcode.isDynamic = false
+component.xsltsaxopenaccount2tsu.stylesheet.parameter.tnxstatcode.value = $tsu_message_tnx_stat_code
+
+# TSU message filter (to send only TSU message with status code Acknowledeged and not baselines)
+component.filteropenaccount2tsu = com.misys.portal.interfaces.filters.ReflectionFieldsFilter
+component.filteropenaccount2tsu.rule = (product_code='TU') & (tnx_stat_code='04')
+
+
+# XSLT to SAX (dedicated to PTSAGBPP)
+component.PTSAGBPPxsltsax = com.misys.portal.interfaces.components.XSLTStreamProcessor
+component.PTSAGBPPxsltsax.xmlreader.tool.name = xmlparserproviderforxsl
+component.PTSAGBPPxsltsax.stylesheet.isDynamic = true
+component.PTSAGBPPxsltsax.stylesheet.name = xslname
+component.PTSAGBPPxsltsax.stylesheet.parameters.name = BIC\, language
+component.PTSAGBPPxsltsax.stylesheet.parameter.BIC.isDynamic = true
+component.PTSAGBPPxsltsax.stylesheet.parameter.language.isDynamic = true
+
+# XSLT to SAX (dedicated to PTSAGBPPTSU)
+component.PTSAGBPPTSUxsltsax = com.misys.portal.interfaces.components.XSLTStreamProcessor
+component.PTSAGBPPTSUxsltsax.xmlreader.tool.name = xmlparserproviderforxsl
+component.PTSAGBPPTSUxsltsax.stylesheet.isDynamic = true
+component.PTSAGBPPTSUxsltsax.stylesheet.name = xslname
+component.PTSAGBPPTSUxsltsax.stylesheet.parameters.name = BIC\, language
+component.PTSAGBPPTSUxsltsax.stylesheet.parameter.BIC.isDynamic = true
+component.PTSAGBPPTSUxsltsax.stylesheet.parameter.language.isDynamic = true
+
+# Empty XML message filter
+component.emptymessagefilter = com.misys.portal.tsu.interfaces.EmptyMessageFilter
+
+# Document prefix remover
+component.documentprefixremover = com.misys.portal.tsu.interfaces.DocumentPrefixRemover
+component.documentprefixremover.message.types = tsmt.018.001.02
+
+#
+# TSU Incoming Interface
+#
+
+# TSU XML Incoming to Product
+component.tsuxmlinprocessor = com.misys.portal.tsu.interfaces.xml.incoming.TSUIncomingProcessor
+component.tsuxmlinprocessor.transaction.status = 05
+
+# TSU message filter 
+component.tsuincomingfilter = com.misys.portal.interfaces.filters.ReflectionFieldsFilter
+component.tsuincomingfilter.rule = tnx_stat_code='04'
+
+# Generate XML String from TSU message file
+component.tsuxmlprocessor = com.misys.portal.interfaces.xml.incoming.OutgoingProcessor
+component.tsuxmlprocessor.jdbc.tool = jdbcprovider
+component.tsuxmlprocessor.company = 01
+
+
+#
+# TSU v2 components
+#
+
+# Document namespace remover
+component.documentnamespaceremover = com.misys.portal.tsu.interfaces.DocumentNamespaceRemover
+
+# TSU to PO : XCL to XML (TSU messages production)
+component.v2xcltsu2po = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.v2xcltsu2po.xcl.location = /config/xcl/tsu/v2
+component.v2xcltsu2po.xcl.name = tsu2po_tu
+component.v2xcltsu2po.xcl.source.isXML = true
+component.v2xcltsu2po.jdbc.provider = jdbcprovider
+
+# TSU to PO : XCL to XML (Baseline production)
+component.v2xcltsu2pobn = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.v2xcltsu2pobn.xcl.location = /config/xcl/tsu/v2
+component.v2xcltsu2pobn.xcl.name = tsu2po_bn
+component.v2xcltsu2pobn.xcl.source.isXML = true
+component.v2xcltsu2pobn.jdbc.provider = jdbcprovider
+
+# TSU to PO : XCL to XML (Baseline production)
+component.v2xcltsu2openaccount = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.v2xcltsu2openaccount.xcl.location = /config/xcl/tsu/v2
+component.v2xcltsu2openaccount.xcl.name = tsu2openaccount
+component.v2xcltsu2openaccount.xcl.source.isXML = true
+
+# PO to TSU : XCL to XML
+component.v2xclopenaccount2tsu = com.misys.portal.interfaces.components.xcl.XCLXMLProcessor
+component.v2xclopenaccount2tsu.xcl.location = /config/xcl/tsu/v2
+component.v2xclopenaccount2tsu.xcl.name = openaccount2tsu
+component.v2xclopenaccount2tsu.xcl.source.isXML = true
+		
+	 -->
+
+</components>

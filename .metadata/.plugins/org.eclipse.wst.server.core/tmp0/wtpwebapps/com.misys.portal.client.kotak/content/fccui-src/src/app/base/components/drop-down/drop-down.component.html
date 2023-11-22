@@ -1,0 +1,21 @@
+<p-dropdown
+[options] = "params"
+aria-label="dropdown"
+scrollHeight="18em"
+[filter]="checkFilter"
+filterBy = "label,value.name"
+[(ngModel)]="selectedOption"
+tabindex="0"
+(onChange)="Change($event)"
+(onInputFocus) = "onInputFocus($event)"
+(onInputBlur) = "onInputBlur($event)"
+styleClass="DropdownStyleClass"
+>
+<ng-template let-option pTemplate="item" *ngIf="viewOptions >= 2 ">
+    <p-orderList>
+        <span class="option-label">{{option.label}}</span>
+        <br>
+        <span class="option-Value">{{option.value.name}}</span>
+    </p-orderList>
+</ng-template>
+</p-dropdown>

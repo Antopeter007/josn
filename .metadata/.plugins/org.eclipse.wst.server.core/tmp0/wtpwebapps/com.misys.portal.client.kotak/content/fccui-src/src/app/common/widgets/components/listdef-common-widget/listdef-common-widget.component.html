@@ -1,0 +1,71 @@
+<ng-container>
+  <div class="p-lg-12" *ngIf="!hideShowCard" [@enterAnimation]="hideShowCard">
+    <p-card class="{{classCheck}}">
+      <p-header [ngClass]="(checkCustomise == true) ? 'showWidgetIcons':'hideWidgetIcons'">
+        <em class="pi pi-trash" role="button" aria-label="Delete" title="Delete" (click)="deleteCards()" (keyup.enter)="deleteCards()" tabindex="0"></em>
+      </p-header>
+      <div class="widget-header">
+      <h1 class="headerTitle">
+        {{ header | translate }}
+        <span *ngIf="inputParams['showCount']">({{recordCount}})</span>
+      </h1>
+      <span class="ui-fluid focusClass fav-toggle">
+        <mat-slide-toggle *ngIf="inputParams['favouriteFilter']" (change)="onEventRaised()" aria-label="{{'favToggleTitle' | translate}}"
+          [(ngModel)]='favSwitchchecked' tabindex="0">{{favourite| translate}}
+        </mat-slide-toggle>
+      </span>
+      </div>
+      <div [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'">
+        <ng-continer *ngIf="displayTabs === false; else tabbedMenu">
+        <fcc-common-transactions-listdef [inputParams] = "inputParams"
+         (rowSelectEventListdef)="onRowSelect($event)"
+         (rowUnSelectEventListdef)="getRowUnSelectEvent($event)"
+         (showViewAllListingPage)="onClickViewAll()"
+        (showTotalCount)="getTotalCount($event)"
+        (headerCheckboxToggle)="onHeaderCheckboxToggle($event)">
+        </fcc-common-transactions-listdef>
+
+        </ng-continer>
+        <div class="p-col-12 rightDirect" *ngIf="selectedRowsdata.length > 0">
+          <app-widget-card-view [visible]="true" position="bottom" [disableReturn]="disableReturn"
+          [selectedRowsData]="selectedRowsdata"
+            [commentsRequired]="commentsRequired"
+            [bottomButtonList]="bottomButtonList"
+            (handleAction)="handleAction($event)"></app-widget-card-view>
+        </div>
+        <div id="multiSubmitResponse" *ngIf="enableMultiSubmitResponse && checkBoxEnabled">
+          <div id="{{'responseHeader_' + i}}" *ngFor= "let detail of responseMap | keyvalue; let i= index">
+            <br><strong>{{detail.key | translate}}</strong><br>
+            <span class="viewTransaction focus pointer-class">
+            <a href="#" id="{{'responseValueRow_' + i}}" *ngFor="let val of detail.value; let i=index" onclick="return false;" (click)="onClickView($event,val)">
+            {{val.refId}}
+            </a>
+           </span>
+          </div>
+        </div>
+        <ng-template #tabbedMenu>
+          <div class="p-col-12 widget-padding widget-body" *ngIf="tabsList.tabs && tabsList.tabs.length">
+            <div class="p-col-12">
+              <app-tabs-component class="dynamicCompStyle"
+              (showViewAllListingPage)="onClickViewAll()" [data] = "tabsList" >
+              </app-tabs-component>
+            </div>
+          </div>
+        </ng-template>
+
+        <div *ngIf="widgetConfig != undefined && viewAllTnxPermission" >
+          <p class="view-all-links pointer-class focus">
+            <a href="#" [routerLink]="[]" (click)="onClickViewAllTransactions()" tabindex= "{{(checkCustomise == true) ? '-1' : '0' }}" >
+              {{ 'viewAllTransactions' | translate }}
+            </a>
+          </p>
+        </div>
+      </div>
+      <div *ngIf="nudgesRequired">
+      <app-nudges [ngClass]="(checkCustomise == true) ? 'pointerEnable':'pointerDisable'" [nudges] = "nudges">
+      </app-nudges>
+      </div>
+    </p-card>
+  </div>
+</ng-container>
+

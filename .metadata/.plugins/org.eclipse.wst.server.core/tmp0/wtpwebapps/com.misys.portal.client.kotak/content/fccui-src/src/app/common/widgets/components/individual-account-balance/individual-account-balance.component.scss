@@ -1,0 +1,85 @@
+@import '../../../../../styles/variables.scss';
+.p-grid {
+  margin: 0em;
+}
+.ccyDisplay {
+  padding: 0 !important;
+}
+.padding0 {
+  padding: 0rem;
+}
+.displayRow {
+  line-height: 1.813rem;
+  width: 100%;
+  color: $primaryColor;
+}
+.loop2 {
+  margin-top: 0rem;
+}
+.loop1 {
+  margin-top: 0rem;
+}
+
+.focus a:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+.balance-view {
+  height: 2.5rem;
+  width: 12.5rem;
+  line-height: 1.5625rem;
+  text-align: center;
+  text-shadow: 0rem 0.125rem 0.125rem rgba(219, 219, 219, 0.88);
+  margin-left: 0rem;
+  font-weight: normal;
+}
+
+.balanceWrapper {
+  font-size: 1.4rem;
+}
+.balance-view-dec {
+  color: $primaryColor;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  text-align: center;
+  text-shadow: 0rem 0.125rem 0.125rem rgba(219, 219, 219, 0.88);
+  margin-left: 0rem;
+  font-weight: normal;
+}
+
+.viewaccoutMain {
+  clear: both;
+  width: 100%;
+}
+
+.view-all-links-multiple-rtl {
+  padding-top: 2.8em !important;
+}
+
+.view-all-link-single-rtl {
+  padding-top: 3.5em !important;
+}
+
+.view-all-link-single {
+  padding-top: 2.85em;
+}
+
+.view-all-links-multiple {
+  padding-top: 2em;
+}
+
+.innerCurrencyWrapper {
+  min-height: 3rem;
+}
+
+.innerCurrencyWrapper_noaccount {
+  min-height: 5.2rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+:host ::ng-deep .ui-card-body {
+  min-height: 13em;
+}

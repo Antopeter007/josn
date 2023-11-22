@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Misys Portal Interfaces Schema Copyright (c) 2000-2012 Misys (http://www.misys.com) 
+	All Rights Reserved. -->
+<interfaces xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.misys.com/portal/interfaces/xsd/interfaces.xsd">
+
+	<interface name="essencexmlout" onerror="logger"
+		description="Outputs a message in Essence format">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">(('FT' == event.product_code) || (('BK' ==
+						event.product_code) &amp;&amp; ('PAYRL' == event.product.bk_type
+						|| 'PAYMT' == event.product.bk_type || 'COLLE' ==
+						event.product.bk_type)) || ('SE' == event.product_code &amp;&amp;
+						('CQBKR' == event.sub_product_code)) || ('SE' ==
+						event.product_code &amp;&amp; ('COCQS' == event.sub_product_code))
+						|| (('TD' == event.product_code) &amp;&amp; ('CSTD' ==
+						event.sub_product_code)))
+					</property>
+				</properties>
+				<component name="filter">
+					<properties>
+						<property name="script">(('BK' == event.product_code) &amp;&amp;
+							('INT' == event.product.child_sub_product_code || 'TPT' ==
+							event.product.child_sub_product_code))
+						</property>
+					</properties>
+					<component name="outgoingboreferenceprocessor">
+						<component name="xmloutprocessor">
+							<component name="filewriter">
+								<properties>
+									<property name="failsafe">true</property>
+									<property name="directory.override">true</property>
+									<property name="directory.isDynamic">false</property>
+									<property name="directory.name">
+										${xml_output_directory_bk_mobi} <!-- Bulk directory -->
+									</property>
+								</properties>
+							</component>
+							<component name="filewriter">
+								<properties>
+									<property name="failsafe">true</property>
+									<property name="directory.override">true</property>
+									<property name="directory.isDynamic">false</property>
+									<property name="directory.name">
+										${xml_output_directory_mobi} <!-- V5 directory -->
+									</property>
+								</properties>
+							</component>
+						</component>
+					</component>
+				</component>
+				<component name="filter">
+					<properties>
+						<property name="script">(('BK' == event.product_code) &amp;&amp;
+							('MT103' == event.product.child_sub_product_code))
+						</property>
+					</properties>
+					<component name="bulkspiltter">
+						<component name="filter">
+							<properties>
+								<property name="script">((${essencexmlout.enable} == true)
+									&amp;&amp; ('FT' == event.product_code) &amp;&amp; ('MT103' ==
+									event.product.sub_product_code))
+								</property>
+							</properties>
+							<component name="outgoingboreferenceprocessor">
+								<component name="xmloutprocessor">
+									<component name="multibranchjmssender"></component>
+									<component name="filewriter">
+										<properties>
+											<property name="failsafe">true</property>
+											<property name="directory.override">true</property>
+											<property name="directory.isDynamic">false</property>
+											<property name="directory.name">${xml_output_directory_mobi}
+											</property>
+										</properties>
+									</component>
+								</component>
+							</component>
+						</component>
+					</component>
+				</component>
+				<component name="filter">
+					<properties>
+						<property name="script">((${essencexmlout.enable} == true)
+							&amp;&amp; (('FT' == event.product_code) &amp;&amp; ('INT' ==
+							event.sub_product_code || 'TPT' == event.sub_product_code|| 'MT103' ==
+							event.sub_product_code))||('SE' == event.product_code
+							&amp;&amp; ('CQBKR' == event.sub_product_code)) ||('SE' ==
+							event.product_code &amp;&amp; ('COCQS' ==
+							event.sub_product_code)))
+						</property>
+					</properties>
+					<component name="outgoingboreferenceprocessor">
+						<component name="xmloutprocessor">
+							<component name="multibranchjmssender"></component>
+							<component name="filewriter">
+								<properties>
+									<property name="failsafe">true</property>
+									<!-- Start: MPS-19819 : Recent notifications update -->
+									<property name="directory.override">true</property>
+									<property name="directory.isDynamic">false</property>
+									<property name="directory.name">${xml_output_directory_mobi}
+									</property>
+								</properties>
+							</component>
+						</component>
+					</component>
+				</component>
+				<component name="filter">
+					<properties>
+						<property name="script">(${essencexmlout.enable} == true)
+							&amp;&amp; (('TD' == event.product_code) &amp;&amp; ('CSTD' ==
+							event.sub_product_code))
+						</property>
+					</properties>
+					<component name="xmloutprocessor">
+						<component name="multibranchjmssender"></component>
+						<component name="filewriter">
+							<properties>
+								<property name="failsafe">true</property>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory_mobi}
+								</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="essencexmloutSO" onerror="logger"
+		description="Outputs a message in Essence format for Standing Order">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">(${essencexmlout.enable} == true)
+						&amp;&amp; (03 == event.tnx_stat_code) &amp;&amp; (('FT' ==
+						event.product_code)
+						&amp;&amp;
+						event.product.objectData.contains("recurring_payment_enabled")
+						&amp;&amp;
+						event.product.objectData.getField("recurring_payment_enabled").getValue()
+						== 'Y'
+						&amp;&amp; ('INT' == event.sub_product_code || 'TPT' ==
+						event.sub_product_code || 'MT103' == event.sub_product_code))
+					</property>
+				</properties>
+					<component name="outgoingboreferenceprocessor">
+						<component name="xmloutprocessor">
+								<component name="multibranchjmssender"></component>
+								<component name="filewriter">
+									<properties>
+										<property name="failsafe">true</property>
+										<property name="directory.override">true</property>
+										<property name="directory.isDynamic">false</property>
+										<property name="directory.name">${xml_output_directory_mobi}
+										</property>
+									</properties>
+								</component>
+						</component>
+					</component>
+			</component>
+		</component>
+	</interface>
+
+	<interface name="essenceenablexmlout" onerror="logger"
+		description="essence Customer profile enable out">
+		<component name="environmentreader">
+			<component name="filter">
+				<properties>
+					<property name="script">(${essenceenablexmlout.enable} == true)
+					</property>
+				</properties>
+				<component name="staticdataxmloutprocessor">
+					<component name="multibranchjmssender">
+						<component name="filewriter">
+							<properties>
+								<property name="directory.override">true</property>
+								<property name="directory.isDynamic">false</property>
+								<property name="directory.name">${xml_output_directory_mobi}
+								</property>
+							</properties>
+						</component>
+					</component>
+				</component>
+			</component>
+		</component>
+	</interface>
+
+</interfaces>
+

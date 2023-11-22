@@ -1,0 +1,9 @@
+textarea#transferDetailsNarrative {
+    resize: none !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+	:host ::ng-deep .indented-text-area-field-65 {
+    width: 25.9rem;
+	}
+}

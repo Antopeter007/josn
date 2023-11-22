@@ -1,0 +1,110 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div *ngIf="control.params.hasError">
+      <span
+        id="invalid-error-text"
+        class="invalid-error-text"
+        *ngIf="control.params.hasError"
+        >{{errorHeader | translate}}: {{ control.params.message }}</span
+      ><br><br>
+    </div>
+    <div
+      *ngIf="control.params.hasData"
+      class="fcc-table {{ control.params.styleClass }}"
+      dir="{{ dir }}"
+    >
+      <div class="form-header" *ngIf="control.params.showLabelView">
+        <br />
+        <span>{{ control.params.label | translate }}</span
+        ><br /><br />
+      </div>
+      <p-table
+        formControlName="{{ control.key }}"
+        id="{{ control.key }}"
+        [columns]="control.params.columns"
+        [value]="control.params.data"
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th
+              tabindex="0"
+              id="header"
+              *ngFor="let cols of control.params.columns"  scope="col"
+              [ngStyle]="{ width: cols.width, 'text-align': cols.direction }"
+            >
+              {{ cols.header }}
+            </th>
+            <th tabindex="0" id="actionsItem" [ngStyle]="{'text-align': dir,'width': '20%'}">
+              {{ control.params.actionsItem
+              }}<span>{{'ACTIONS' | translate}}</span>
+              <!-- <span *ngIf="hostComponentData.PRODUCT_CODE !== 'EL'" style="display: none">.</span> -->
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template
+          pTemplate="body"
+          let-rowData
+          let-columns="{{ control.params.columns }}"
+          let-index="rowIndex"
+        >
+          <tr>
+            <td
+              *ngFor="let cols of control.params.columns"
+              [ngStyle]="{ 'text-align': cols.direction }"
+            >
+              <span tabindex="0" innerHTML="{{ rowData[cols.field] }}"></span>
+            </td>
+            <td [ngStyle]="{'text-align': dir,'width': '20%'}">
+              <a
+                class = "pipencil"
+                style= "margin-left: 1.4em;cursor: pointer;"
+                *ngIf="control.params.edit"
+                (click)="onClickPencil($event,control.key,index,rowData)"
+                attr.aria-label = "{{'edit' | translate}}"
+                title = "{{'edit' | translate}}"
+                href="javascript:void(0)"
+                tabindex="0"
+              >
+                <em id="file-upload-icons-font" class="pi pi-pencil"></em>
+              </a>
+              <img *ngIf="((rowData.type === 'BANK' || rowData.type === '02')
+                && allowedDocViewerType.indexOf(rowData.mimeType) >= 0)"
+                alt="{{'view' | translate}} {{rowData.fileName}}"
+                class = "fcc-view-file-icon" tabindex="0"
+                #tooltip="matTooltip"
+                (click)="onClickViewFile(rowData.attachmentId,rowData.fileName)"
+                (keyup.enter)="onClickViewFile(rowData.attachmentId,rowData.fileName)"
+                src='{{contextPath}}/content/FCCUI/assets/icons/view.svg'
+                matTooltip="View"
+                matTooltipPosition="below" matTooltipClass="mat-tooltip"/>
+              <a
+                (click)="onClickDownload($event, control.key, index)"
+                *ngIf="!control.params.noDownload"
+                attr.aria-label = "{{'download' | translate}}"
+                title = "{{'download' | translate}}"
+                style="cursor: pointer"
+                href="javascript:void(0)"
+                tabindex="0"
+              >
+                <em id="file-upload-icons-font" class="pi pi-download"></em>
+              </a>
+              <a
+                class="pitrash"
+                style="margin-left: 1.4em; cursor: pointer"
+                *ngIf="!control.params.noDelete && (rowData.type !== 'BANK' && rowData.type !== '02')"
+                (click)="onClickTrash($event, control.key, index)"
+                attr.aria-label="{{'delete' | translate}}"
+                title="{{'delete' | translate}}"
+                href="javascript:void(0)"
+                tabindex="0"
+              >
+                <em id="file-upload-icons-font" class="pi pi-trash" role="button" aria-label="Delete" title="{{'delete' | translate}}"></em>
+              </a>
+             </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <br />
+  </div>
+</ng-container>

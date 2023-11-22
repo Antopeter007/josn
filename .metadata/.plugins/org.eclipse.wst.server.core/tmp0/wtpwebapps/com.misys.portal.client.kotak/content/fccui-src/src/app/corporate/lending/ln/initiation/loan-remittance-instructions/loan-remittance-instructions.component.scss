@@ -1,0 +1,197 @@
+@import './../../../../../../styles/variables.scss';
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon {
+  position: absolute;
+  right: 1em;
+}
+
+:host ::ng-deep .padding_left {
+  padding-left: 0.5em !important;
+}
+
+:host ::ng-deep .radioButtonColStyle {
+  width: 5em;
+}
+
+:host ::ng-deep .radioButtonStyle {
+  visibility: hidden;
+}
+:host ::ng-deep .warningStyle {
+  font-style: italic;
+  color: $GREY-01;
+  font-weight: 500;
+  bottom: 1em;
+  position: relative;
+}
+:host ::ng-deep .chargeAmt .ui-dropdown {
+  min-width: auto;
+}
+
+:host ::ng-deep .tableRowStyle:hover .radioButtonStyle {
+  visibility: visible;
+}
+
+:host ::ng-deep .indicativeFXRateNoteStyle {
+  // font-style: italic;
+  padding-bottom: 1.5em;
+}
+
+:host ::ng-deep .indicativeFXRateNoteStyle .form-header {
+  color: $GREY-01;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $primaryColor;
+  font-size: 1.2em;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a {
+  background-color: #edeafa;
+  border-color: #edeafa;
+  color: $primaryColor;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a:focus {
+  box-shadow: 0 0 0 0.1em $primaryColor;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a .ui-accordion-toggle-icon,
+:host ::ng-deep .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a .ui-accordion-toggle-icon {
+  color: #a0a0a0;
+}
+
+:host ::ng-deep .ui-accordion .ui-accordion-content {
+  border: none;
+  background-color: transparent;
+  padding: 0.571em 0em;
+}
+
+:host ::ng-deep .emptyMessage td {
+  text-align: center;
+}
+
+:host ::ng-deep .remittanceInstLayout .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: 0em;
+}
+
+:host ::ng-deep .remittanceInstLayout .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0.5em 0.5em #f4f4f7;
+  border-color: #737375;
+}
+
+:host ::ng-deep .remittanceInstLayout .fcc-radio-button .ui-radiobutton .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  background-color: #ffffff !important;
+  color: #ffffff;
+  box-shadow: 0 0 0.5em 0.5em #e9e6f9;
+  border: 2px solid #694ed6;
+}
+
+:host ::ng-deep .subheader-title {
+  font-size: $font-size-1_0 !important;
+}
+
+:host ::ng-deep .amountHeaderStyle .subheader-title {
+  margin-bottom: 0em;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus {
+  outline: .125em solid $primaryColor !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:first-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus > td:last-child {
+  box-shadow: none;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:focus + tr > td {
+  box-shadow: none;
+}
+:host ::ng-deep .currency-disable {
+  background-color: rgba(65,65,65,0.02)!important;
+  border-radius: 4px 4px 0em 0em;
+  margin-top: -1em;
+  padding-top: 1.5em;
+  color: rgba(0, 0, 0, 0.26) !important;
+}
+
+:host ::ng-deep .currency-disable .fcc-dropdown .ui-dropdown-trigger.ui-state-default.ui-corner-right {
+  border-bottom: 0.06em solid transparent;
+  border-radius: 0em;
+}
+
+:host ::ng-deep .currency-disable .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  top: 13%!important;
+}
+
+:host ::ng-deep .currency-disable label {
+  color: rgba(0, 0, 0, 0.26) !important;
+}
+
+:host ::ng-deep .currency-disable .ui-dropdown span.ui-dropdown-label{
+  border-bottom: 0.06em solid transparent;
+  border-radius: 0em;
+}
+
+:host ::ng-deep .no-margin-multiselect {
+  padding-top: 0em !important;
+}
+
+:host ::ng-deep .no-margin-multiselect .ui-dropdown {
+  padding-top: 1em;
+  display: block;
+}
+
+:host ::ng-deep .no-margin-multiselect p-dropdown.ng-dirty.ng-invalid > .ui-dropdown {
+  background-color: rgb(249 231 239) !important;
+}
+
+:host ::ng-deep .no-margin-multiselect .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  top: 50% !important;
+}
+
+:host ::ng-deep .no-margin-multiselect p-dropdown.ng-dirty.ng-invalid .ui-dropdown .ui-dropdown-trigger {
+  border-bottom: 0.16em solid rgb(228 0 70);
+}
+
+:host ::ng-deep .no-margin-multiselect p-dropdown.ng-dirty.ng-invalid .ui-dropdown span.ui-dropdown-label {
+  border-bottom: 0.16em solid rgb(228 0 70);
+}
+
+:host ::ng-deep .widthForCur.chargeAmt .ui-message.ui-widget.ui-corner-all.ui-message-error {
+  margin-top: -0.5em;
+}
+
+:host ::ng-deep .widthForCur .amt {
+  margin-top: 0.13em;
+}
+
+:host ::ng-deep .remittanceInstLayout .candyStriped[dir="rtl"]
+.ui-accordion .ui-accordion-header a .ui-accordion-toggle-icon {
+  left: 1em;
+  right: auto;
+}
+
+:host ::ng-deep .no-margin-multiselect p-dropdown.ng-dirty.ng-invalid .ui-dropdown .ui-dropdown-trigger .ui-dropdown-trigger-icon {
+  color: rgb(228 0 70);
+}
+
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  :host ::ng-deep .widthForCur {
+  width: 50% !important;
+ }
+}

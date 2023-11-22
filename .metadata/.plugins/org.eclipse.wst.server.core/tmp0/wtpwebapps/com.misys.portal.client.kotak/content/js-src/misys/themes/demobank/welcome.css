@@ -1,0 +1,75 @@
+/*
+    Copyright (c) 2000-2015 Misys (http://www.misys.com),
+    All Rights Reserved. 
+
+	Theme: Demobank (Unsecured Pages)
+
+	summary:
+  		CSS rules loaded by all *unsecured* pages
+
+*/
+
+/** Import the base welcome theme **/
+@import "../base/welcome.css";
+
+/** Import the common CSS rules applied to all secured and unsecured pages **/
+@import "common.css";
+
+
+/*Lumen Theme*/
+.header{
+	height:100px;
+}
+.header-panel-top{
+	/* background: #01338c url("images/login-header.png") no-repeat right bottom;
+	height: 250px; */
+}
+#layout{
+	padding : 0px;
+}
+.header-panel-strip{
+	/* background: #00add6 url("images/login-header-strip.png") no-repeat right bottom;
+	height : 30px; */
+}
+.header-panel-bottom{
+	/* background: #FFF url("images/login-header-bottom.png") no-repeat right top;
+	height : 300px; */
+}
+.logo{
+	width: 250px !important;
+	background-image:url("images/login-logo.jpg") !important;	 
+	background-size: 200px 85x !important;
+	height: 85px !important;
+	/*margin-top: 100px;
+	margin-left: 150px;
+	 */
+}
+
+.loginpage{
+	padding : 0px 30px;
+}
+#loginForm{
+	margin: 0 auto;
+	width: 50% !important;
+    margin: 0 auto !important;
+    border: 1px solid #ccc !important;
+    border-radius: 10px !important;
+}
+#loginFormQA{
+	
+}
+#loginForm .toplevel-header, #loginFormQA .toplevel-header{
+	clear: both;
+}
+#languageSelection_row{
+	font-size: 0.75em;
+}
+.demobank #languageSelection_row .dijitComboBox .dijitArrowButtonInner{
+	height: 18px !important;
+}
+#buttonsdiv {
+	text-align:center !important;
+}
+#languageSelection {
+	margin-left:34%;
+}

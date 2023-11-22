@@ -1,0 +1,70 @@
+@import '../../../../../styles/variables.scss';
+
+
+mat-sidenav {
+    margin-top: 7.5em !important;
+    width: 19em;
+
+    .sub-menu-container{
+        padding: 2em;
+
+        ul {
+            list-style-type: none;
+            li {
+                border-bottom: 1px solid $GRAYISH-BLUE-02;
+                padding-top: 1em;
+                padding-bottom: 1.25em;
+            }
+
+            .submenu-header {
+                display: flex;
+                cursor: pointer;
+                justify-content: space-between;
+
+                .submenu-name {
+                    font-size: 1em;
+                    line-height: 1.2em;
+                    letter-spacing: 0;
+                    float: left;
+                    cursor: pointer;
+                    display: inline-block;
+                    margin-top: 0.2em;
+                    margin-bottom: 1em;
+                }
+
+                .submenu-description {
+                    font-size: 0.75em;
+                    line-height: 1.2em;
+                    color: $GREY-100;
+                    letter-spacing: 0;
+                    margin-top: 0.5em;
+                    margin-bottom: 1em;
+                    word-break: break-word;
+                    white-space: normal;
+                    width: 13em;
+                    float: left;
+                }
+
+                i {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep.mat-drawer-inner-container::-webkit-scrollbar {
+        width: 4px;
+        overflow-y: scroll;
+    }
+    
+::ng-deep.mat-drawer-inner-container::-webkit-scrollbar-thumb {
+        background: $GREY-22;
+        border-radius: 10px;
+    }
+
+ ::ng-deep.mat-drawer-inner-container{
+        -ms-overflow-style: scrollbar; // Edge, IE 10
+        scrollbar-width: thin !important;
+       
+      }

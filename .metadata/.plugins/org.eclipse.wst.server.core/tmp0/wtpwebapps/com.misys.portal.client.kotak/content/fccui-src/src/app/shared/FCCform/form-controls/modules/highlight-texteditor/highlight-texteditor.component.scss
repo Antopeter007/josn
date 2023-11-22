@@ -1,0 +1,31 @@
+@import './../../../../../../styles/variables.scss';
+.phraseIcon1 {
+    z-index: 2;
+    position: absolute !important;
+    right: 0.5em;
+    top: 0.25em;
+    border: 0.1em solid $GREY-01;
+    color: $GREY-01;
+    background-color: white;
+    font-size: 1.3em;
+    left: auto !important;
+    border-radius: 0.2em;
+  }
+  
+  .phraseIcon1:hover {
+    color: $VIOLET-F100-dark;
+    border: 0.1em solid $VIOLET-F100-dark;
+  }
+
+  .relative{
+    position: relative;
+  }
+
+  :host ::ng-deep .mat-form-field-subscript-wrapper {
+    padding: 0 !important;
+  }
+  @media screen and  (max-width: 1180px) and (min-width: 1024px) {
+    .phraseIcon1 {
+      right: 1.5em !important;
+    }
+    }

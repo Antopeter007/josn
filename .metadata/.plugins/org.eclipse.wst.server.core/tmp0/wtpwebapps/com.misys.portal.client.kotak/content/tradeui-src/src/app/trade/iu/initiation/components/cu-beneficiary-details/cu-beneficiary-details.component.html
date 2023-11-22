@@ -1,0 +1,19 @@
+<div *ngIf="commonDataService.displayLUSection()" class = "indented-header">
+  <div *ngIf ="!viewMode  ;else view_content">
+    <p-panel header="{{ 'HEADER_COUNTER_BENEFICIARY_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+      <fcc-trade-party-details [bankType]="'cuBeneficiary'" *ngIf="bgRecord" [bgRecord]="bgRecord" [genericBankDetails]="cuBeneficaryDetailsSection"
+        [showBEICode]="'y'" [labelName]="'PARTIESDETAILS_NAME'" [labelAddress]="'PARTIESDETAILS_ADDRESS'"
+        [labelCountry]="'PARTIESDETAILS_CONTRY'"></fcc-trade-party-details>
+      <fcc-trade-party-details [bankType]="'cuContact'" *ngIf="bgRecord" [bgRecord]="bgRecord" [genericBankDetails]="cuBeneficaryDetailsSection"
+        [labelName]="'BENEFICIARY_CONTACT_DETAILS_NAME'" [labelAddress]="'BENEFICIARY_CONTACT_DETAILS_ADDRESS'"></fcc-trade-party-details>
+    </p-panel>
+  </div>
+      <ng-template #view_content>
+        <div *ngIf="commonDataService.getPreviewOption() !== 'SUMMARY' ">
+          <p-panel header="{{ 'HEADER_COUNTER_BENEFICIARY_DETAILS' | translate }}" [toggleable]="true" [collapsed] ="!this.collapsible">
+            <fcc-trade-party-details [bankType]="'cuBeneficiary'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true" [genericBankDetails]="cuBeneficaryDetailsSection"></fcc-trade-party-details>
+            <fcc-trade-party-details [bankType]="'cuContact'" *ngIf="bgRecord !== ''" [bgRecord]="bgRecord" [viewMode]="true" [genericBankDetails]="cuBeneficaryDetailsSection"></fcc-trade-party-details>
+          </p-panel>
+        </div>
+       </ng-template>
+</div>

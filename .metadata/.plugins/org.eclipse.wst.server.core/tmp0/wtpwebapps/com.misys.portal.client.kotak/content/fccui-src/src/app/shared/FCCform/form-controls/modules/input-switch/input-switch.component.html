@@ -1,0 +1,46 @@
+<ng-container [formGroup]="form">
+  <div dir="{{ dir }}" class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      class="fcc-radio-button fcc-input fcc-width65 {{
+        control.params.styleClass
+      }}"
+    >
+      <span class="ui-fluid focusClass">
+        <!-- <p-inputSwitch formControlName={{control.key}} (onChange)="onEventRaised($event,control.key)" tabindex="0"
+           (click)="onEventRaised($event,control.key)" readonly={{control.params.readonly}}
+           [required]="control.params.required"></p-inputSwitch> -->
+        <mat-slide-toggle
+          (change)="onMatCheckEventRaised($event, control.key, control)"
+          tabindex="0"
+          (click)="onMatEventRaised($event, control.key)"
+          [required]="control.params.required"
+          [disabled]="control.params.disabled"
+          [checked]="form.get(control.key).value == 'Y' ? true : false"
+          id="{{ control.key }}"
+          >{{ control.params.label }}
+        </mat-slide-toggle>
+      </span>
+      <!-- <label  for="{{control.key}}" tabindex="0">
+        {{ control.params.label }}<a *ngIf = "control.params.required"><em class='fa fa-asterisk fa-sm'></em></a>
+      </label> -->
+    </div>
+    <div *ngIf="control.params.warning">
+      <label class="warningStyle" tabindex="0">{{
+        control.params.warning
+      }}</label>
+    </div>
+    <div class="viewmode" *ngIf="mode === 'view'">
+      <label for="{{ control.key }}" class="form-header" tabindex="0">{{
+        control.params.label
+      }}</label>
+      <div
+        class="{{ control.params.styleClass }} "
+        *ngIf="mode === 'view'"
+        id="{{ control.key }}"
+      >
+        {{ control.value }}
+      </div>
+    </div>
+  </div>
+</ng-container>

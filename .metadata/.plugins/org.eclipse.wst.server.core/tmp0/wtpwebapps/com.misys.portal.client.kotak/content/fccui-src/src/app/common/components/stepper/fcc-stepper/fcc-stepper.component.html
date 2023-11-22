@@ -1,0 +1,54 @@
+<!-- <div class='p-grid'> -->
+  <h4 class='p-col-11 p-md-10' [ngStyle]="{'font-weight':'normal'}">
+    <mat-vertical-stepper
+      #stepper
+      [selectedIndex]='activeIndex'
+      [disableRipple]='true'
+      (animationDone)='stepChanged($event)'
+      (selectionChange)='selectionChange($event)'
+      >
+      <mat-step
+        #stepRef
+        *ngFor='let step of steps; let i=index'
+        [editable]='isEditable'
+      >
+        <input role="textbox" *ngIf='idx' type="hidden" id="stepperIdxValue" value="{{idx}}">
+        <div id="{{step}}" class='p-md-3 p-lg-3 p-sm-12'>
+          <ng-template matStepLabel><span id="{{step}}-{{i}}">{{ step |translate}}</span></ng-template>
+        </div>
+      </mat-step>
+
+      <!-- Icon overrides. -->
+      <ng-template matStepperIcon='done'>
+        <mat-icon>done</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon='edit' let-index='index'>
+        <mat-icon>{{ index + 1 }}</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon='create'>
+        <mat-icon>number</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon='error' >
+        <!-- <mat-icon>priority_high</mat-icon> -->
+        <em class="fa fa-exclamation"></em>
+      </ng-template>
+    </mat-vertical-stepper>
+
+    <!-- common prev next buttons for all steps, not implementing as product component handles the
+        common prev and next button handling later-->
+    <!-- <div class='form-buttons'>
+        <button role="button"  (click)='onPrevious(stepper)' class='primaryButton previous' type='button'
+            [disabled]='stepper.selectedIndex === 0'>Previous</button>
+        <button role="button"  (click)='onNext(stepper)' class='primaryButton nextButton' type='button'
+            [disabled]='stepper.selectedIndex === stepper._steps.length-1'>Next</button>
+    </div> -->
+  </h4>
+  <!-- below dynamically loads the section component -->
+  <!-- <div class='p-col-8 section-top'>
+    <app-stepper-wrapper
+      [item]='currentComponent'
+      (onNotifyStep)='onNotifyfrom($event)'
+    >
+    </app-stepper-wrapper>
+  </div> -->
+<!-- </div> -->

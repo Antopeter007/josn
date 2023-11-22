@@ -1,0 +1,81 @@
+/**
+ Refer to /themes/base/common/document.css
+**/
+
+.ceylan {
+	margin-left: auto;
+    margin-right: auto;
+    width: 988px;
+	background: #D6D6D6 url("../images/gradientfromtop.gif") repeat-x;
+}
+
+a:link {
+	color: #0079a7;
+}
+
+a:visited {
+	color: #0079a7;
+}
+
+a:hover {
+	color: #e86d1f;
+}
+
+.header a:link,
+.header a:visited {
+	color: #ffffff;
+}
+
+.header a:hover {
+	color: #ffff00;
+}
+
+.shadow {
+	-webkit-box-shadow: -2px -2px 4px #BFBFBF;
+	-moz-box-shadow: -2px -2px 4px #BFBFBF;
+	-o-box-shadow: -2px -2px 4px #BFBFBF;
+	-ms-box-shadow: -2px -2px 4px #BFBFBF;
+	box-shadow: -2px -2px 4px #BFBFBF;
+}
+
+.submitButton {
+	background: url('../images/home_submitarrow.gif') no-repeat 0 0 #1B3E93;
+	border-radius: 5px 5px 5px 5px;
+	color: white;
+	font-weight: lighter;
+	height: 18px;
+	width: 60px;
+	margin-top: 5px;
+	position: absolute;
+	right: 20px;
+	bottom: 15px;
+	text-align: center;
+	text-decoration: none;
+	padding-left: 13px;
+}
+
+.myButton {
+	background-color: #7aa2ff;
+	display: inline-block;
+	color: #ffffff!important;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 2px 12px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #1570cd;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: inset 0 1px 0 0 #97c4fe;
+	-webkit-box-shadow: inset 0 1px 0 0 #97c4fe;
+	box-shadow: inset 0 1px 0 0 #97c4fe;
+	
+}
+
+.myButton:hover {
+	background-color: #1B3E93;
+}
+
+.myButton:active {
+	position: relative;
+}

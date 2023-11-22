@@ -1,0 +1,24 @@
+@import '../../../variables.scss';
+
+
+@mixin Styling_of_radioBtn($innerRadioColor,$outerRadioColor) {
+    // Radio btn have inner circle , we can change that color.
+    .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+        background-color: $innerRadioColor !important;
+    }
+    // Radio btn have outer circle, we can change that color.
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: $outerRadioColor !important;
+    }
+}
+
+.Bank-One {
+    // primary color
+    $primaryColor: $GOLD-Y25;
+    $innerRadioColor: $GOLD-Y25;
+    $outerRadioColor: $GOLD-Y25;
+    // size of the radio btn
+    $radioBtnSize: $font_size_20;
+
+    @include Styling_of_radioBtn($innerRadioColor,$outerRadioColor);
+}

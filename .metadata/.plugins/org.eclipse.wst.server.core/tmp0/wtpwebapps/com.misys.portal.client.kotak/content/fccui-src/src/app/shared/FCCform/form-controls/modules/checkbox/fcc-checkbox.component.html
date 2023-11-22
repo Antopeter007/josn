@@ -1,0 +1,75 @@
+<ng-container [formGroup]="form">
+  <div class="p-col-12">
+    <div
+      *ngIf="mode === 'edit'"
+      dir="{{ dir }}"
+      class="fcc-input-checkbox {{ control.params.layoutClass }} {{
+        control.params.parentClass
+      }} "
+    >
+      <ng-container *ngIf="control.params.showLabel">
+        <label class="infodisplaylabel" tabindex="0">
+          {{ control.params.label }}
+          <a
+            class="infoLabel"
+            *ngIf="control.params.infoIcon && !control.params.groupLabel"
+          >
+            {{ control.params.infolabel | translate }}</a
+          >
+        </label>
+        <ng-template #noLabel>
+          <label class="fcc-input-checkbox-display" tabindex="0">
+            {{ control.params.label }}</label
+          >
+        </ng-template>
+      </ng-container>
+      <div class="ui-fluid p-grid gridStyle focusClass">
+        <mat-checkbox
+          role="checkbox"
+        [ngClass]="control.params.styleClass"
+          (change)="onMatCheckEventRaised($event, control.key, control)"
+          id="{{ control.key }}"
+          [checked]="form.get(control.key).value == 'Y' ? true : false"
+          [disabled]="control.params.disabled"
+          [required]="control.params.required"
+        >
+        <span *ngIf="!control.params.isStyleEnabled">
+          {{ control.key | translate }}
+        </span>
+        <span *ngIf="control.params.isStyleEnabled" [innerHTML]="control.params.label">
+        </span>
+        </mat-checkbox>
+        <a class="infoIcon" *ngIf="control.params.infoIcon">
+          <span
+            class="material-icons"
+            (mouseenter)="op.show($event)"
+            (mouseleave)="op.hide()"
+            >info</span
+          >
+          <p-overlayPanel
+            #op
+            class="previosInfoOLPanel"
+            [dismissable]="true"
+            appendTo="body"
+          >
+            <div
+              *ngIf="
+                control.params.previousValue !== '' &&
+                  control.params.previousValue !== undefined &&
+                  control.params.previousValue !== null;
+                else previousValueNotentered
+              "
+            >
+              <p class="previous-info">{{ "previousInfo" | translate }}</p>
+              {{ control.params.previousValue }}
+            </div>
+            <ng-template #previousValueNotentered>
+              <p class="previous-info">{{ "previousInfo" | translate }}</p>
+              {{ "NOT_ENTERED" | translate }}
+            </ng-template>
+          </p-overlayPanel>
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-container>
